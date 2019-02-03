@@ -1,7 +1,8 @@
-[2018-01-03 01:54:48 - domogled - parseAction  - action is not called](.#2018-01-03-015448---domogled---parseaction----action-is-not-called)  
-[2018-01-25 06:24:23 - mwiebusch78 - associativity in operatorPrecedence](.#2018-01-25-062423---mwiebusch78---associativity-in-operatorprecedence)  
-[2018-02-02 03:08:36 - mrrmr - Matching empty lines verbatim](.#2018-02-02-030836---mrrmr---matching-empty-lines-verbatim)  
+## Pyparsing Wikispaces Discussion - 2018
 
+[2018-01-03 01:54:48 - domogled - parseAction  - action is not called](./#2018-01-03-015448---domogled---parseaction----action-is-not-called)  
+[2018-01-25 06:24:23 - mwiebusch78 - associativity in operatorPrecedence](./#2018-01-25-062423---mwiebusch78---associativity-in-operatorprecedence)  
+[2018-02-02 03:08:36 - mrrmr - Matching empty lines verbatim](./#2018-02-02-030836---mrrmr---matching-empty-lines-verbatim)  
 
 ---
 ## 2018-01-03 01:54:48 - domogled - parseAction  - action is not called
@@ -147,7 +148,7 @@ My grammar so far:
     # distance_at_ppems.setParseAction(
     #     lambda token: Distance(token[0], token[1].asList()))
     
-    angleFlag = oneOf('/ Ø')('angleFlag')
+    angleFlag = oneOf('/ ï¿½')('angleFlag')
     controlFlag = oneOf('\<\< \>\> \<\> \>\< ||')('controlFlag')
     minimumDistanceFlag = oneOf('\< \> \<= \>=') ^ (
         Literal('\>=') + Group(distance
