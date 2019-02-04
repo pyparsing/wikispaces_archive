@@ -1,8 +1,8 @@
 ## Pyparsing Wikispaces Discussion - 2018
 
-[2018-01-03 01:54:48 - domogled - parseAction  - action is not called](./#2018-01-03-015448---domogled---parseaction----action-is-not-called)  
-[2018-01-25 06:24:23 - mwiebusch78 - associativity in operatorPrecedence](./#2018-01-25-062423---mwiebusch78---associativity-in-operatorprecedence)  
-[2018-02-02 03:08:36 - mrrmr - Matching empty lines verbatim](./#2018-02-02-030836---mrrmr---matching-empty-lines-verbatim)  
+[2018-01-03 01:54:48 - domogled - parseAction  - action is not called](discussion/all_wiki_discussion_toc_2018.md#2018-01-03-015448---domogled---parseaction----action-is-not-called)  
+[2018-01-25 06:24:23 - mwiebusch78 - associativity in operatorPrecedence](discussion/all_wiki_discussion_toc_2018.md#2018-01-25-062423---mwiebusch78---associativity-in-operatorprecedence)  
+[2018-02-02 03:08:36 - mrrmr - Matching empty lines verbatim](discussion/all_wiki_discussion_toc_2018.md#2018-02-02-030836---mrrmr---matching-empty-lines-verbatim)  
 
 ---
 ## 2018-01-03 01:54:48 - domogled - parseAction  - action is not called
@@ -51,22 +51,18 @@
     
     print(ast)
     
-
-
 output
 
-ImportStatement defined before QualifiedModuleName.setParseAction(Node)
-['X', 'Y', 'Z']
-init NODE WITH  TOKENS ['X', 'Y', 'Z'] 'import X.Y.Z'
-The same ImportStatement defined after QualifiedModuleName.setParseAction(Node)
-[\<<u>main</u>.Node object at 0x7f136483c080\>]
+    ImportStatement defined before QualifiedModuleName.setParseAction(Node)
+    ['X', 'Y', 'Z']
+    init NODE WITH  TOKENS ['X', 'Y', 'Z'] 'import X.Y.Z'
+    The same ImportStatement defined after QualifiedModuleName.setParseAction(Node)
+    [\<<u>main</u>.Node object at 0x7f136483c080\>]
 
 
 ---
 ## 2018-01-25 06:24:23 - mwiebusch78 - associativity in operatorPrecedence
 I am trying to understand how associativity of infix operators is handled in operatorPrecedence. The following code
-
-
 
     from pyparsing import *
     
@@ -79,9 +75,7 @@ I am trying to understand how associativity of infix operators is handled in ope
     parsed2 = parser2.parseString('x + y + z', parseAll=True)
     print(parsed2)
 
-
 prints
-
 
 
     [['x', '+', ['y', '+', 'z']]]
@@ -91,13 +85,14 @@ prints
 I would have expected this:
 
 
-
     [['x', '+', ['y', '+', 'z']]]
     [[['x', '+', 'y'], '+', 'z']]
 
 
 I.e. parser2 seems to flatten the expression rather than making it left-associative. Is this a bug or a feature?
 
+_[ED: pyparsing uses OneOrMore vs. recursion to parse operators of 
+like precedence, so they are returned as a single-level list.]_
 
 ---
 ## 2018-02-02 03:08:36 - mrrmr - Matching empty lines verbatim
@@ -149,9 +144,9 @@ My grammar so far:
     #     lambda token: Distance(token[0], token[1].asList()))
     
     angleFlag = oneOf('/ �')('angleFlag')
-    controlFlag = oneOf('\<\< \>\> \<\> \>\< ||')('controlFlag')
-    minimumDistanceFlag = oneOf('\< \> \<= \>=') ^ (
-        Literal('\>=') + Group(distance
+    controlFlag = oneOf('<< >> <> >< ||')('controlFlag')
+    minimumDistanceFlag = oneOf('< > <= >=') ^ (
+        Literal('>=') + Group(distance
                               | Suppress('(') + distance + Suppress(',') + ppem +
                               Suppress(',') + distance + Suppress(')')))
     # minimumDistanceFlag.setParseAction(
@@ -167,8 +162,9 @@ My grammar so far:
     p = OneOrMore(comment | command)
 
 
-I want to preserve empty lines as they are for roundtrip testing. Matching 'EOL = ~StringEnd() + LineEnd()' matches each '\n', but not empty lines as such. I want the final token list to look like '['/* VTTTalk glyph 2, char 0x41 (A) */', '/* GUI generated July 2015 */', '', '/* Y direction */', \<my object\>, ...]'. How?
+I want to preserve empty lines as they are for roundtrip testing. Matching `EOL = ~StringEnd() + LineEnd()` matches each '\n', but not empty lines as such. I want the final token list to look like 
 
+    ['/* VTTTalk glyph 2, char 0x41 (A) */', '/* GUI generated July 2015 */', '', '/* Y direction */', \<my object\>, ...]
 
-
+How?
 
