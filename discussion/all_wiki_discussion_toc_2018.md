@@ -1,8 +1,8 @@
 ## Pyparsing Wikispaces Discussion - 2018
 
-[2018-01-03 01:54:48 - domogled - parseAction  - action is not called](discussion/all_wiki_discussion_toc_2018.md#2018-01-03-015448---domogled---parseaction----action-is-not-called)  
-[2018-01-25 06:24:23 - mwiebusch78 - associativity in operatorPrecedence](discussion/all_wiki_discussion_toc_2018.md#2018-01-25-062423---mwiebusch78---associativity-in-operatorprecedence)  
-[2018-02-02 03:08:36 - mrrmr - Matching empty lines verbatim](discussion/all_wiki_discussion_toc_2018.md#2018-02-02-030836---mrrmr---matching-empty-lines-verbatim)  
+[2018-01-03 01:54:48 - domogled - parseAction  - action is not called](all_wiki_discussion_toc_2018.md#2018-01-03-015448---domogled---parseaction----action-is-not-called)  
+[2018-01-25 06:24:23 - mwiebusch78 - associativity in operatorPrecedence](all_wiki_discussion_toc_2018.md#2018-01-25-062423---mwiebusch78---associativity-in-operatorprecedence)  
+[2018-02-02 03:08:36 - mrrmr - Matching empty lines verbatim](all_wiki_discussion_toc_2018.md#2018-02-02-030836---mrrmr---matching-empty-lines-verbatim)  
 
 ---
 ## 2018-01-03 01:54:48 - domogled - parseAction  - action is not called
