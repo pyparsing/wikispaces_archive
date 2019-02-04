@@ -1,17 +1,19 @@
-[2017-01-27 01:43:21 - pterminator - Random order Keywords and pyparsing operator order](.#2017-01-27-014321---pterminator---random-order-keywords-and-pyparsing-operator-order)  
-[2017-01-27 10:08:29 - lhughes42 - White Space and LineStart](.#2017-01-27-100829---lhughes42---white-space-and-linestart)  
-[2017-02-02 15:54:25 - Justin-Fay - Fantastic little library](.#2017-02-02-155425---justin-fay---fantastic-little-library)  
-[2017-02-04 17:24:41 - AngshumanGuha - there's a bug in fnumber](.#2017-02-04-172441---angshumanguha---theres-a-bug-in-fnumber)  
-[2017-02-08 06:43:53 - cdeluna - Multiline Expression](.#2017-02-08-064353---cdeluna---multiline-expression)  
-[2017-03-23 19:47:43 - borismarin - Issues with {{oc.py}} example](.#2017-03-23-194743---borismarin---issues-with-{{ocpy}}-example)  
-[2017-04-07 01:14:46 - Lucas-C - Parsing mardown-styled text](.#2017-04-07-011446---lucas-c---parsing-mardown-styled-text)  
-[2017-04-14 02:06:52 - pterminator - SkipTo combined with CaselessKeyword gives unexpected results (possible bug)](.#2017-04-14-020652---pterminator---skipto-combined-with-caselesskeyword-gives-unexpected-results-possible-bug)  
-[2017-05-30 11:39:49 - qrun - Formal-Tranlastion](.#2017-05-30-113949---qrun---formal-tranlastion)  
-[2017-06-26 16:35:01 - EvanHub - Prevent an element from matching dependent on context](.#2017-06-26-163501---evanhub---prevent-an-element-from-matching-dependent-on-context)  
-[2017-08-03 10:43:07 - ferenc0521 - Group result question](.#2017-08-03-104307---ferenc0521---group-result-question)  
-[2017-08-13 16:19:26 - ferenc0521 - schemaSQL.parseFile(f) fails if parseAll=True attemted](.#2017-08-13-161926---ferenc0521---schemasqlparsefilef-fails-if-parsealltrue-attemted)  
-[2017-08-16 08:12:45 - mdemi - Odd .copy() behaviour](.#2017-08-16-081245---mdemi---odd-copy-behaviour)  
-[2017-08-27 19:25:52 - vacaut - += operator and user function for math equation](.#2017-08-27-192552---vacaut----operator-and-user-function-for-math-equation)  
+## Pyparsing Wikispaces Discussion - 2017
+
+[2017-01-27 01:43:21 - pterminator - Random order Keywords and pyparsing operator order](all_wiki_discussion_toc_2017.md#2017-01-27-014321---pterminator---random-order-keywords-and-pyparsing-operator-order)  
+[2017-01-27 10:08:29 - lhughes42 - White Space and LineStart](all_wiki_discussion_toc_2017.md#2017-01-27-100829---lhughes42---white-space-and-linestart)  
+[2017-02-02 15:54:25 - Justin-Fay - Fantastic little library](all_wiki_discussion_toc_2017.md#2017-02-02-155425---justin-fay---fantastic-little-library)  
+[2017-02-04 17:24:41 - AngshumanGuha - there's a bug in fnumber](all_wiki_discussion_toc_2017.md#2017-02-04-172441---angshumanguha---theres-a-bug-in-fnumber)  
+[2017-02-08 06:43:53 - cdeluna - Multiline Expression](all_wiki_discussion_toc_2017.md#2017-02-08-064353---cdeluna---multiline-expression)  
+[2017-03-23 19:47:43 - borismarin - Issues with {{oc.py}} example](all_wiki_discussion_toc_2017.md#2017-03-23-194743---borismarin---issues-with-{{ocpy}}-example)  
+[2017-04-07 01:14:46 - Lucas-C - Parsing mardown-styled text](all_wiki_discussion_toc_2017.md#2017-04-07-011446---lucas-c---parsing-mardown-styled-text)  
+[2017-04-14 02:06:52 - pterminator - SkipTo combined with CaselessKeyword gives unexpected results (possible bug)](all_wiki_discussion_toc_2017.md#2017-04-14-020652---pterminator---skipto-combined-with-caselesskeyword-gives-unexpected-results-possible-bug)  
+[2017-05-30 11:39:49 - qrun - Formal-Tranlastion](all_wiki_discussion_toc_2017.md#2017-05-30-113949---qrun---formal-tranlastion)  
+[2017-06-26 16:35:01 - EvanHub - Prevent an element from matching dependent on context](all_wiki_discussion_toc_2017.md#2017-06-26-163501---evanhub---prevent-an-element-from-matching-dependent-on-context)  
+[2017-08-03 10:43:07 - ferenc0521 - Group result question](all_wiki_discussion_toc_2017.md#2017-08-03-104307---ferenc0521---group-result-question)  
+[2017-08-13 16:19:26 - ferenc0521 - schemaSQL.parseFile(f) fails if parseAll=True attemted](all_wiki_discussion_toc_2017.md#2017-08-13-161926---ferenc0521---schemasqlparsefilef-fails-if-parsealltrue-attemted)  
+[2017-08-16 08:12:45 - mdemi - Odd .copy() behaviour](all_wiki_discussion_toc_2017.md#2017-08-16-081245---mdemi---odd-copy-behaviour)  
+[2017-08-27 19:25:52 - vacaut - += operator and user function for math equation](all_wiki_discussion_toc_2017.md#2017-08-27-192552---vacaut----operator-and-user-function-for-math-equation)  
 
 
 ---
@@ -91,16 +93,25 @@ LineStart has a checkered past, and the behavior you are requesting was the sour
 Thanks for your prompt reply. Glad I asked. Don't think I would have gotten there. I had been trying out similar things with 'White' but no success. Had missed 'empty' (or doing Optional(White))
 #### 2017-02-07 08:36:16 - lhughes42
 Sadly I am being dense. I tried both your approaches and do to misinterpreting (I suspect) they both fail. Here is my test string:
-simple_str = ' foo'
+
+    simple_str = ' foo'
+
 here is first approach:
-patt = lineStart + Optional(White) + 'foo'
+
+    patt = lineStart + Optional(White) + 'foo'
+
 I get a crash using patt.searchSTring(simple_str)
-'type object 'White' has no attribute 'mayIndexError'
+
+    'type object 'White' has no attribute 'mayIndexError'
+
 Then tried alternative pattern:
-patt = lineStart + empty + 'foo'
+
+    patt = lineStart + empty + 'foo'
+
 I get no match (returns '[]')
 :-(
 Please advise this simpleton :-)
+
 #### 2017-02-07 08:36:51 - lhughes42
 (note the lead whitespace in ' foo')
 
@@ -114,13 +125,18 @@ Glad you found us, and that pyparsing helped you through your problem!
 One little thing I am having a bit of trouble understanding is the `asDict` method is coercing integer keys to strings. I will try to explain with a brief example:
 
 ```
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>from pyparsing import *</li><li>SEP = Suppress(':')</li><li>
-</li><li>array = Forward()</li><li>value = Forward()</li><li>
-</li><li>value \<\< (pyparsing_common.number() | sglQuotedString().setParseAction(removeQuotes))</li></ul></ul></ul>Forward: ...
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>array \<\< Dict(delimitedList(Group(value + SEP + value)))</li></ul></ul></ul>Forward: ...
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>
-</li><li>array.parseString('0:0, '1':'1'').asDict()</li></ul></ul></ul>{'1': '1', '0': 0}
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>array.parseString('0:0, '1':'1'').asList()</li></ul></ul></ul>[[0, 0], ['1', '1']]
+from pyparsing import *
+SEP = Suppress(':')
+array = Forward()
+value = Forward()
+value << (pyparsing_common.number() | sglQuotedString().setParseAction(removeQuotes))
+array << Dict(delimitedList(Group(value + SEP + value)))
+
+array.parseString('0:0, '1':'1'').asDict()
+{'1': '1', '0': 0}
+
+array.parseString('0:0, '1':'1'').asList()
+[[0, 0], ['1', '1']]
 ```
 
 As you can see the integer 0 key is changed to string '0' when calling the `asDict` method. Is there a method to keep this as an integer? Thanks again for your great work on this library.
@@ -132,6 +148,7 @@ Well, that is by design. ParseResults objects support three models to get at the
 right now a single '+' is interpreted as a valid number
 
 a fix:
+
         inumber = Combine(Optional(Word('+-', max=1)) + Word(nums))               
         fnumber = Combine( inumber +                                              
                            Optional( point + Optional( Word( nums ) ) ) +         
@@ -161,33 +178,27 @@ Thanks in advance!
     inv_value = Word(alphanums)
 
     first_element = Word('NAME' + ':') + inv_value
-
     pattern = Combine(OneOrMore(inv_key + ':' + inv_value), adjacent=False)
-
     first_line = first_element + pattern
-
     Line = delimitedList(first_line)
 
-
     Lines = OneOrMore(Group(Line))
-
     grammar = Lines
     my_list = grammar.scanString(file_contents)
 
 
-
-N7010# show inventory
-NAME: 'Chassis',  DESCR: 'Nexus7000 C7010 (10 Slot) Chassis '    
-PID: N7K-C7010           ,  VID: V03 ,  SN: JAF1721XYZA         
-
-NAME: 'Slot 1',  DESCR: '1/10 Gbps Ethernet Module'             
-PID: N7K-F248XP-25E      ,  VID: V01 ,  SN: JAF1734EFGH          
-
-NAME: 'Slot 2',  DESCR: '1/10 Gbps Ethernet Module'             
-PID: N7K-F248XP-25E      ,  VID: V01 ,  SN: JAF1748ABCD          
-
-NAME: 'Slot 5',  DESCR: 'Supervisor Module-2'                   
-PID: N7K-SUP2            ,  VID: V03 ,  SN: JAF1804UHM
+    N7010# show inventory
+    NAME: 'Chassis',  DESCR: 'Nexus7000 C7010 (10 Slot) Chassis '    
+    PID: N7K-C7010           ,  VID: V03 ,  SN: JAF1721XYZA         
+    
+    NAME: 'Slot 1',  DESCR: '1/10 Gbps Ethernet Module'             
+    PID: N7K-F248XP-25E      ,  VID: V01 ,  SN: JAF1734EFGH          
+    
+    NAME: 'Slot 2',  DESCR: '1/10 Gbps Ethernet Module'             
+    PID: N7K-F248XP-25E      ,  VID: V01 ,  SN: JAF1748ABCD          
+    
+    NAME: 'Slot 5',  DESCR: 'Supervisor Module-2'                   
+    PID: N7K-SUP2            ,  VID: V03 ,  SN: JAF1804UHM
 
 
 ---
@@ -244,34 +255,32 @@ Hello !
 I've been stuck on this challenge yesterday,
 so I'm asking for help here in hope someone could give me some tips & tricks on how to solve this.
 
-My goal is to detect when a string as Markdown-like style markers at the beginning + the end. Examples:
+My **goal** is to detect when a string as Markdown-like style markers at the beginning + the end. Examples:
 
-- <strong>a text</strong> =\> bold
-- <u><strong>a text</strong></u> =\> bold italic
-- <strong><u>a text</u></strong> =\> bold italic
-- a <strong>text</strong> =\> just text, I don't want to handle stylers inside strings
-- <strong><u>a text</strong></u> =\> just text, style markers are messed-up
+- `**a text**` =\> bold
+- `_**a text**_` =\> bold italic
+- `**_a text_**` =\> bold italic
+- `a **text**` =\> just text, I don't want to handle stylers inside strings
+- `**_a text**_` =\> just text, style markers are messed-up
 
 Here is what I initially came up with:
 
 
-
-    <span class="co1">#!/usr/bin/python3</span>
+    #!/usr/bin/python3
+    from pyparsing import *
     
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    Bold = Suppress(Literal('**'))
+    Italic = Suppress(Literal('__'))
     
-    Bold <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span><span class="st0">'**'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    Italic <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span><span class="st0">'__'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    Text = OneOrMore(Word(printables))('text')
     
-    Text <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>printables<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'text'</span><span class="br0">&#41;</span>
+    StyledText = Forward()
+    BoldText = (Bold + StyledText + Bold)('is_bold')
+    ItalicText = (Italic + StyledText + Italic)('is_italic')
+    StyledText << (BoldText | ItalicText | Text)
     
-    StyledText <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    BoldText <span class="sy0">=</span> <span class="br0">&#40;</span>Bold + StyledText + Bold<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'is_bold'</span><span class="br0">&#41;</span>
-    ItalicText <span class="sy0">=</span> <span class="br0">&#40;</span>Italic + StyledText + Italic<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'is_italic'</span><span class="br0">&#41;</span>
-    StyledText <span class="sy0">\<\<</span> <span class="br0">&#40;</span>BoldText | ItalicText | Text<span class="br0">&#41;</span>
-    
-    <span class="kw1">print</span><span class="br0">&#40;</span>StyledText.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'**toto tata**'</span><span class="sy0">,</span> parseAll<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>.<span class="me1">dump</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw1">print</span><span class="br0">&#40;</span>StyledText.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'**__toto tata__**'</span><span class="sy0">,</span> parseAll<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>.<span class="me1">dump</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    print(StyledText.parseString('**toto tata**', parseAll=True).dump())
+    print(StyledText.parseString('**__toto tata__**', parseAll=True).dump())
 
 
 Then I realized from this SO answer that I needed to make my 'Text' parser stop when it detects a '**' or '__' :
@@ -302,60 +311,60 @@ Here is the bug:
 The full toklist should be passed to the ParseResults constructor, not just its first element:
 
 
-    <span class="kw2">self</span><span class="br0">&#91;</span>name<span class="br0">&#93;</span> <span class="sy0">=</span> _ParseResultsWithOffset<span class="br0">&#40;</span>ParseResults<span class="br0">&#40;</span>toklist<span class="br0">&#41;</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">&#41;</span>
+    self.name = _ParseResultsWithOffset(ParseResults(toklist),0)
 
 
 And now a solution to my problem:
 
 
-    <span class="co1">#!/usr/bin/python3</span>
+    #!/usr/bin/python3
     
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> Forward<span class="sy0">,</span> Literal<span class="sy0">,</span> OneOrMore<span class="sy0">,</span> Suppress<span class="sy0">,</span> Token<span class="sy0">,</span> Word<span class="sy0">,</span> <span class="kw2">basestring</span><span class="sy0">,</span> printables
+    from pyparsing import Forward, Literal, OneOrMore, Suppress, Token, Word, basestring, printables
     
-    <span class="kw1">class</span> StopOnSuffix<span class="br0">&#40;</span>Token<span class="br0">&#41;</span>: <span class="co1"># cannot be a TokenConverter because .postParse does not alter loc</span>
-        <span class="kw1">def</span> <span class="kw4">__init__</span><span class="br0">&#40;</span> <span class="kw2">self</span><span class="sy0">,</span> token_matcher<span class="sy0">,</span> suffixes <span class="br0">&#41;</span>:
-            <span class="kw2">super</span><span class="br0">&#40;</span>StopOnSuffix<span class="sy0">,</span><span class="kw2">self</span><span class="br0">&#41;</span>.<span class="kw4">__init__</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-            <span class="kw2">self</span>.<span class="me1">name</span> <span class="sy0">=</span> <span class="st0">'StopOnSuffix'</span>
-            <span class="kw2">self</span>.<span class="me1">mayReturnEmpty</span> <span class="sy0">=</span> token_matcher.<span class="me1">mayReturnEmpty</span>
-            <span class="kw2">self</span>.<span class="me1">mayIndexError</span> <span class="sy0">=</span> token_matcher.<span class="me1">mayIndexError</span>
-            <span class="kw2">self</span>.<span class="me1">saveAsList</span> <span class="sy0">=</span> token_matcher.<span class="me1">saveAsList</span>
-            <span class="kw2">self</span>.<span class="me1">token_matcher</span> <span class="sy0">=</span> token_matcher
-            <span class="kw2">self</span>.<span class="me1">suffixes</span> <span class="sy0">=</span> suffixes
-        <span class="kw1">def</span> parseImpl<span class="br0">&#40;</span> <span class="kw2">self</span><span class="sy0">,</span> instring<span class="sy0">,</span> loc<span class="sy0">,</span> doActions<span class="sy0">=</span><span class="kw2">True</span> <span class="br0">&#41;</span>:
-            loc<span class="sy0">,</span> tokens <span class="sy0">=</span> <span class="kw2">self</span>.<span class="me1">token_matcher</span>.<span class="me1">parseImpl</span><span class="br0">&#40;</span>instring<span class="sy0">,</span> loc<span class="sy0">,</span> doActions<span class="br0">&#41;</span>
-            <span class="kw1">try</span>:
-                suffix<span class="sy0">,</span> match_index <span class="sy0">=</span> next<span class="br0">&#40;</span><span class="br0">&#40;</span>suffix<span class="sy0">,</span> i<span class="br0">&#41;</span> <span class="kw1">for</span> i<span class="sy0">,</span> match <span class="kw1">in</span> <span class="kw2">enumerate</span><span class="br0">&#40;</span>tokens<span class="br0">&#41;</span>
-                                                       <span class="kw1">for</span> suffix <span class="kw1">in</span> <span class="kw2">self</span>.<span class="me1">suffixes</span> <span class="kw1">if</span> suffix <span class="kw1">in</span> match<span class="br0">&#41;</span>
-                match <span class="sy0">=</span> tokens<span class="br0">&#91;</span>match_index<span class="br0">&#93;</span>
-                match_trun_len <span class="sy0">=</span> match.<span class="me1">index</span><span class="br0">&#40;</span>suffix<span class="br0">&#41;</span>
-                <span class="kw1">if</span> match_trun_len <span class="sy0">\></span> <span class="nu0">0</span>:
-                    loc -<span class="sy0">=</span> <span class="kw2">len</span><span class="br0">&#40;</span>match<span class="br0">&#41;</span> - match_trun_len
-                    match <span class="sy0">=</span> match<span class="br0">&#91;</span>:match_trun_len<span class="br0">&#93;</span>
-                    tokens <span class="sy0">=</span> tokens<span class="br0">&#91;</span>:match_index<span class="br0">&#93;</span> + <span class="br0">&#91;</span>match<span class="br0">&#93;</span> + tokens<span class="br0">&#91;</span>match_index+<span class="nu0">1</span>:<span class="br0">&#93;</span>
-            <span class="kw1">except</span> <span class="kw2">StopIteration</span>:
-                <span class="kw1">pass</span>
-            <span class="kw1">return</span> loc<span class="sy0">,</span> tokens
+    class StopOnSuffix(Token): # cannot be a TokenConverter because .postParse does not alter loc
+        def __init__( self, token_matcher, suffixes ):
+            super(StopOnSuffix,self).__init__()
+            self.name = 'StopOnSuffix'
+            self.mayReturnEmpty = token_matcher.mayReturnEmpty
+            self.mayIndexError = token_matcher.mayIndexError
+            self.saveAsList = token_matcher.saveAsList
+            self.token_matcher = token_matcher
+            self.suffixes = suffixes
+        def parseImpl( self, instring, loc, doActions=True ):
+            loc, tokens = self.token_matcher.parseImpl(instring, loc, doActions)
+            try:
+                suffix, match_index = next((suffix, i) for i, match in enumerate(tokens)
+                                                       for suffix in self.suffixes if suffix in match)
+                match = tokens[match_index]
+                match_trun_len = match.index(suffix)
+                if match_trun_len \> 0:
+                    loc -= len(match) - match_trun_len
+                    match = match[:match_trun_len]
+                    tokens = tokens[:match_index] + [match] + tokens[match_index+1:]
+            except StopIteration:
+                pass
+            return loc, tokens
     
-    Bold <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span><span class="st0">'**'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    Italic <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span><span class="st0">'__'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    Text <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>printables<span class="br0">&#41;</span><span class="br0">&#41;</span>
+    Bold = Suppress(Literal('**'))
+    Italic = Suppress(Literal('__'))
+    Text = OneOrMore(Word(printables))
     
-    StyledText <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    BoldText <span class="sy0">=</span> Bold + StopOnSuffix<span class="br0">&#40;</span>StyledText<span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'**'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'is_bold'</span><span class="br0">&#41;</span> + Bold
-    ItalicText <span class="sy0">=</span> Italic + StopOnSuffix<span class="br0">&#40;</span>StyledText<span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'__'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'is_italic'</span><span class="br0">&#41;</span> + Italic
-    StyledText <span class="sy0">\<\<</span> <span class="br0">&#40;</span>BoldText | ItalicText | Text<span class="br0">&#41;</span>
-    StyledText.<span class="me1">resultsName</span> <span class="sy0">=</span> <span class="st0">'text'</span>
-    StyledText.<span class="me1">saveAsList</span> <span class="sy0">=</span> <span class="kw2">True</span>  <span class="co1"># must be done at this point, not before</span>
+    StyledText = Forward()
+    BoldText = Bold + StopOnSuffix(StyledText, ['**'])('is_bold') + Bold
+    ItalicText = Italic + StopOnSuffix(StyledText, ['__'])('is_italic') + Italic
+    StyledText << (BoldText | ItalicText | Text)
+    StyledText.resultsName = 'text'
+    StyledText.saveAsList = True  # must be done at this point, not before
     
-    <span class="kw1">def</span> <span class="kw3">test</span><span class="br0">&#40;</span>msg<span class="br0">&#41;</span>:
-        parsed <span class="sy0">=</span> StyledText.<span class="me1">parseString</span><span class="br0">&#40;</span>msg<span class="sy0">,</span> parseAll<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>
-        <span class="co1">#print(parsed.dump())</span>
-        <span class="kw1">print</span><span class="br0">&#40;</span><span class="st0">'msg: {} =\> tokens={} is_bold={} is_italic={}'</span>.<span class="me1">format</span><span class="br0">&#40;</span>msg<span class="sy0">,</span> parsed.<span class="me1">text</span><span class="sy0">,</span> <span class="kw2">bool</span><span class="br0">&#40;</span>parsed.<span class="me1">is_bold</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw2">bool</span><span class="br0">&#40;</span>parsed.<span class="me1">is_italic</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw3">test</span><span class="br0">&#40;</span><span class="st0">'**a text**'</span><span class="br0">&#41;</span>
-    <span class="kw3">test</span><span class="br0">&#40;</span><span class="st0">'**__a text__**'</span><span class="br0">&#41;</span>
-    <span class="kw3">test</span><span class="br0">&#40;</span><span class="st0">'__**a text**__'</span><span class="br0">&#41;</span>
-    <span class="kw3">test</span><span class="br0">&#40;</span><span class="st0">'a **text**'</span><span class="br0">&#41;</span>
-    <span class="kw3">test</span><span class="br0">&#40;</span><span class="st0">'__**a text__**'</span><span class="br0">&#41;</span>
+    def test(msg):
+        parsed = StyledText.parseString(msg, parseAll=True)
+        #print(parsed.dump())
+        print('msg: {} =\> tokens={} is_bold={} is_italic={}'.format(msg, parsed.text, bool(parsed.is_bold), bool(parsed.is_italic)))
+    test('**a text**')
+    test('**__a text__**')
+    test('__**a text**__')
+    test('a **text**')
+    test('__**a text__**')
 
 
 What do you think ? Does it make sense as a Token subclass ?
@@ -433,7 +442,7 @@ Can you tell me maybe, how can I achieve the same result with a cleaner pyparsin
             elif position_delta == 0:
                 self.__config_line[position_current] = toks[0]
     
-            elif position_delta \< 0:
+            elif position_delta < 0:
                 self.__config_line[position_current:self.__dimension] = [''] * (self.__dimension - 1 - position_current)
                 self.__config_line[position_current] = toks[0]
     
@@ -482,7 +491,7 @@ Pyparsing is not super-great at parsing whitespace-significant text, but there i
         line_expr.setName('line')
         section = pp.Forward().setName('section')
         block = pp.indentedBlock(section, indent_stack)
-        section \<\<= line_expr + pp.Optional(block)
+        section <<= line_expr + pp.Optional(block)
         parser = pp.OneOrMore(section)
     
         test='''\
@@ -550,7 +559,7 @@ expr = Forward()
 
 expr0 = atom | no1open + disable(expr, op1) + no1close
 expr1 = expr0 + ZeroOrMore(op1 + expr0)
-expr \<\<= expr1 + ZeroOrMore(op2 + expr1)
+expr <<= expr1 + ZeroOrMore(op2 + expr1)
 
 grammar = stringStart + expr + stringEnd
 
@@ -674,20 +683,25 @@ I'm parsing  CREATE INDEX sql statements as :
 create index dft_inst_strm_dft_snpsht_el_idx on defect_instance (stream_defect_id, snapshot_element_id);
 I'm parsing the 'on defect_instance (stream_defect_id, snapshot_element_id)' part with the grammar:
 
-ON = Keyword('on', caseless=True).addParseAction(upcaseTokens)
-LPAREN= Suppress('(')
-RPAREN= Suppress(')')
+    ON = Keyword('on', caseless=True).addParseAction(upcaseTokens)
+    LPAREN= Suppress('(')
+    RPAREN= Suppress(')')
+    
+    idxspec = ON + ident + LPAREN + Group(delimitedList(ident)) + RPAREN   
+    ....
+    result = idxspec.parseString(stmt[3][0])
+    indices.append([stmt[2] , result[1] , len(result[2]) , result[2]])
+    ....
 
-idxspec = ON + ident + LPAREN + Group(delimitedList(ident)) + RPAREN   
-....
-result = idxspec.parseString(stmt[3][0])
-indices.append([stmt[2] , result[1] , len(result[2]) , result[2]])
-....
-The returned result[2] (for the Group(delimitedList(ident))) prints as (['stream_defect_id', 'snapshot_element_id'], {}) as in the appended array:
+The returned result[2] (for the Group(delimitedList(ident))) prints as 
 
-['dft_inst_strm_dft_snpsht_el_idx', 'defect_instance', 2, (['stream_defect_id', 'snapshot_element_id'], {})]
+    (['stream_defect_id', 'snapshot_element_id'], {}) 
+    
+as in the appended array:
 
-I expected an ['stream_defect_id', 'snapshot_element_id'] for result[2], but looks like a tuple with the extra empty dictionary added.
+    ['dft_inst_strm_dft_snpsht_el_idx', 'defect_instance', 2, (['stream_defect_id', 'snapshot_element_id'], {})]
+
+I expected an `['stream_defect_id', 'snapshot_element_id']` for result[2], but looks like a tuple with the extra empty dictionary added.
 Is there an explanation, and a way to extract the 'naked' array without the empty dict?
 
 #### 2017-08-03 12:45:49 - ptmcg
@@ -696,11 +710,12 @@ There is no array ('list' actually) and there is no dict. What you are seeing is
 Thanks,
      result[2].asList()] worked perfectly.
 The result indices feels better with the plain list:
-....
-['file_inst_parent_idx', 'file_instance', 1, ['parent_id']]
-['file_inst_src_data_file_idx', 'file_instance', 2, ['source_data_id', 'file_id']]
-['file_inst_strm_file_idx', 'file_instance', 1, ['stream_file_id']]
-...
+
+    ....
+    ['file_inst_parent_idx', 'file_instance', 1, ['parent_id']]
+    ['file_inst_src_data_file_idx', 'file_instance', 2, ['source_data_id', 'file_id']]
+    ['file_inst_strm_file_idx', 'file_instance', 1, ['stream_file_id']]
+    ...
 
 ---
 ## 2017-08-13 16:19:26 - ferenc0521 - schemaSQL.parseFile(f) fails if parseAll=True attemted
@@ -709,7 +724,9 @@ The result indices feels better with the plain list:
     result = schemaSQL.parseFile(f,parseAll=True)
 
 fails with TypeError: parseFile() got an unexpected keyword argument 'parseAll', 
-while doc says:    def parseFile( self, file_or_filename, parseAll=False ): 
+while doc says:
+
+    def parseFile( self, file_or_filename, parseAll=False ): 
 
 Any pointers?
 
@@ -739,6 +756,7 @@ Thank you, you are right as always :)
 Sorry for the n00b question, but how can I rectify this?
 
 C:\Python27\Lib\site-packages\pyparsing.py has
+
     def parseFile( self, file_or_filename, parseAll=False ):
 
 And the C:\Python27\Lib\site-packages\pyparsing-2.2.0-py2.7.egg-info folder has some text files, but didn't find traces of the earlier version.
@@ -799,7 +817,7 @@ However, if you now change the grammar to:
     def get_grammar():
         vanishing = Word(alphas)
         item = 'foo' | vanishing
-        item = item.copy()       # \<--- inserting a call to copy
+        item = item.copy()       # <--- inserting a call to copy
         item_seq = item + ZeroOrMore( item )
         return locals()
 
@@ -821,7 +839,7 @@ hit by this in the past eight years apart from me, so somehow I suspect
 I'm being stupid.  Am I?
 
 #### 2017-08-17 05:10:31 - mdemi
-Ok – with a bit of poking around I understodd how this behaviour comes about: the copy() does a deep copy or the dependent expressions.  The .addParseAction in enable_tree then hits a 'dead', unused ParserElement.
+Ok ï¿½ with a bit of poking around I understodd how this behaviour comes about: the copy() does a deep copy or the dependent expressions.  The .addParseAction in enable_tree then hits a 'dead', unused ParserElement.
 
 Now, I'd really love to be able to attach actions after the fact.  I'd still like to use .setResultsName (which does an implicit copy).  I *think* what I want is shallow copies of self.exprs; current pyparsing does an explicit copy since 1.5.3 (or somesuch) around line 3324:
 
@@ -851,49 +869,51 @@ Thanks for your patience,
 I am new to parsing and have just come accross this tool which looks great.
 
 For my work, I need to parse multiple lines of math equations with variables and user defined functions inside. For example, with 3 lines of string:
-x = 1
-y = Max(1,2)
-x += y
+
+    x = 1
+    y = Max(1,2)
+    x += y
+
 I want to be able to get x = 3 and y = 2 at the end.
 
 Below is my attempt on this. I am just trying to make a slight modification to the fourFn.py and SimpleCalc.py examples in the wiki page.
 
 
-    <span class="kw1">import</span> <span class="kw3">operator</span>
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> Literal<span class="sy0">,</span>Word<span class="sy0">,</span>Combine<span class="sy0">,</span>Optional<span class="sy0">,</span>ZeroOrMore<span class="sy0">,</span>Forward<span class="sy0">,</span>nums<span class="sy0">,</span>\
+    import operator
+    from pyparsing import Literal,Word,Combine,Optional,ZeroOrMore,Forward,nums,\
         alphas
-    <span class="kw1">from</span> <span class="kw3">collections</span> <span class="kw1">import</span> defaultdict
+    from collections import defaultdict
     
-    <span class="kw1">def</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>:
-        <span class="kw1">global</span> exprStack
-        exprStack <span class="sy0">=</span> <span class="br0">&#91;</span><span class="br0">&#93;</span>
-        <span class="kw1">global</span> varStack
-        varStack  <span class="sy0">=</span> <span class="br0">&#91;</span><span class="br0">&#93;</span>
-        <span class="kw1">global</span> variables
-        variables <span class="sy0">=</span> defaultdict<span class="br0">&#40;</span><span class="kw2">float</span><span class="br0">&#41;</span>
-        l <span class="sy0">=</span> <span class="br0">&#91;</span><span class="st0">'x=1'</span><span class="sy0">,</span><span class="st0">'y=abs(2)'</span><span class="sy0">,</span> <span class="st0">'x+=y'</span><span class="br0">&#93;</span>
-        <span class="kw1">for</span> item <span class="kw1">in</span> l:
-            source <span class="sy0">=</span> item
-            L <span class="sy0">=</span> BNF<span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">parseString</span><span class="br0">&#40;</span> source <span class="br0">&#41;</span>
-            <span class="kw1">print</span><span class="br0">&#40;</span>L<span class="br0">&#41;</span>
-            result <span class="sy0">=</span> evaluateStack<span class="br0">&#40;</span> exprStack<span class="br0">&#91;</span>:<span class="br0">&#93;</span> <span class="br0">&#41;</span>
-            <span class="kw1">print</span><span class="br0">&#40;</span>varStack<span class="br0">&#41;</span>
-            <span class="kw1">print</span><span class="br0">&#40;</span>result<span class="br0">&#41;</span>
-            variables<span class="br0">&#91;</span>varStack.<span class="me1">pop</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#93;</span><span class="sy0">=</span>result
-            <span class="kw1">print</span><span class="br0">&#40;</span>variables<span class="br0">&#41;</span>
+    def main():
+        global exprStack
+        exprStack = []
+        global varStack
+        varStack  = []
+        global variables
+        variables = defaultdict(float)
+        l = ['x=1','y=abs(2)', 'x+=y']
+        for item in l:
+            source = item
+            L = BNF().parseString( source )
+            print(L)
+            result = evaluateStack( exprStack[:] )
+            print(varStack)
+            print(result)
+            variables[varStack.pop()]=result
+            print(variables)
     
-    <span class="kw1">def</span> Scalar<span class="br0">&#40;</span>x<span class="br0">&#41;</span>:
-        <span class="kw1">return</span> x
+    def Scalar(x):
+        return x
     
-    <span class="kw1">def</span> pushFirst<span class="br0">&#40;</span> strg<span class="sy0">,</span> loc<span class="sy0">,</span> toks <span class="br0">&#41;</span>:
-        exprStack.<span class="me1">append</span><span class="br0">&#40;</span> toks<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="br0">&#41;</span>
+    def pushFirst( strg, loc, toks ):
+        exprStack.append( toks[0] )
     
-    <span class="kw1">def</span> assignVar<span class="br0">&#40;</span> strg<span class="sy0">,</span> loc<span class="sy0">,</span> toks <span class="br0">&#41;</span>:
-        varStack.<span class="me1">append</span><span class="br0">&#40;</span> toks<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="br0">&#41;</span>
+    def assignVar( strg, loc, toks ):
+        varStack.append( toks[0] )
     
-    bnf <span class="sy0">=</span> <span class="kw2">None</span>
-    <span class="kw1">def</span> BNF<span class="br0">&#40;</span><span class="br0">&#41;</span>:
-        <span class="st0">'''
+    bnf = None
+    def BNF():
+        '''
         expop   :: '^'
         multop  :: '*' | '/'
         addop   :: '+' | '-'
@@ -904,70 +924,70 @@ Below is my attempt on this. I am just trying to make a slight modification to t
         expr    :: term [ addop term ]*
         iaddop  :: '+='
         assign  :: '='
-        '''</span>
-        <span class="kw1">global</span> bnf
-        <span class="kw1">if</span> <span class="kw1">not</span> bnf:
-            point <span class="sy0">=</span> Literal<span class="br0">&#40;</span> <span class="st0">'.'</span> <span class="br0">&#41;</span>
-            fnumber <span class="sy0">=</span> Combine<span class="br0">&#40;</span> Word<span class="br0">&#40;</span> <span class="st0">'+-'</span>+nums<span class="sy0">,</span> nums <span class="br0">&#41;</span> + 
-                               Optional<span class="br0">&#40;</span> point + Optional<span class="br0">&#40;</span> Word<span class="br0">&#40;</span> nums <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="br0">&#41;</span>
-            ident <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas+<span class="st0">'_'</span><span class="sy0">,</span> alphas+nums+<span class="st0">'_'</span><span class="br0">&#41;</span>
+        '''
+        global bnf
+        if not bnf:
+            point = Literal( '.' )
+            fnumber = Combine( Word( '+-'+nums, nums ) + 
+                               Optional( point + Optional( Word( nums ) ) ))
+            ident = Word(alphas+'_', alphas+nums+'_')
     
-            plus  <span class="sy0">=</span> Literal<span class="br0">&#40;</span> <span class="st0">'+'</span> <span class="br0">&#41;</span>
-            minus <span class="sy0">=</span> Literal<span class="br0">&#40;</span> <span class="st0">'-'</span> <span class="br0">&#41;</span>
-            mult  <span class="sy0">=</span> Literal<span class="br0">&#40;</span> <span class="st0">'*'</span> <span class="br0">&#41;</span>
-            div   <span class="sy0">=</span> Literal<span class="br0">&#40;</span> <span class="st0">'/'</span> <span class="br0">&#41;</span>
-            lpar  <span class="sy0">=</span> Literal<span class="br0">&#40;</span> <span class="st0">'('</span> <span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-            rpar  <span class="sy0">=</span> Literal<span class="br0">&#40;</span> <span class="st0">')'</span> <span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-            addop  <span class="sy0">=</span> plus | minus
-            multop <span class="sy0">=</span> mult | div
-            expop <span class="sy0">=</span> Literal<span class="br0">&#40;</span> <span class="st0">'^'</span> <span class="br0">&#41;</span>
-            assign <span class="sy0">=</span> Literal<span class="br0">&#40;</span> <span class="st0">'='</span> <span class="br0">&#41;</span>
-            iaddop <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'+='</span><span class="br0">&#41;</span>
+            plus  = Literal( '+' )
+            minus = Literal( '-' )
+            mult  = Literal( '*' )
+            div   = Literal( '/' )
+            lpar  = Literal( '(' ).suppress()
+            rpar  = Literal( ')' ).suppress()
+            addop  = plus | minus
+            multop = mult | div
+            expop = Literal( '^' )
+            assign = Literal( '=' )
+            iaddop = Literal('+=')
     
-            expr <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-            atom <span class="sy0">=</span> <span class="br0">&#40;</span> fnumber | ident + lpar + expr + rpar | ident <span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>pushFirst<span class="br0">&#41;</span> | <span class="br0">&#40;</span> lpar + expr.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + rpar <span class="br0">&#41;</span>
+            expr = Forward()
+            atom = ( fnumber | ident + lpar + expr + rpar | ident ).setParseAction(pushFirst) | ( lpar + expr.suppress() + rpar )
     
-            <span class="co1"># by defining exponentiation as 'atom [ ^ factor ]...' instead of 'atom [ ^ atom ]...', we get right-to-left exponents, instead of left-to-righ</span>
-            <span class="co1"># that is, 2^3^2 = 2^(3^2), not (2^3)^2.</span>
-            factor <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-            factor <span class="sy0">\<\<</span> atom + ZeroOrMore<span class="br0">&#40;</span> <span class="br0">&#40;</span> expop + factor <span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span> pushFirst <span class="br0">&#41;</span> <span class="br0">&#41;</span>
+            # by defining exponentiation as 'atom [ ^ factor ]...' instead of 'atom [ ^ atom ]...', we get right-to-left exponents, instead of left-to-righ
+            # that is, 2^3^2 = 2^(3^2), not (2^3)^2.
+            factor = Forward()
+            factor << atom + ZeroOrMore( ( expop + factor ).setParseAction( pushFirst ) )
     
-            term <span class="sy0">=</span> factor + ZeroOrMore<span class="br0">&#40;</span> <span class="br0">&#40;</span> multop + factor <span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span> pushFirst <span class="br0">&#41;</span> <span class="br0">&#41;</span>
-            expr <span class="sy0">\<\<</span> term + ZeroOrMore<span class="br0">&#40;</span> <span class="br0">&#40;</span> addop + term <span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span> pushFirst <span class="br0">&#41;</span> <span class="br0">&#41;</span>
-            bnf <span class="sy0">=</span>  ident.<span class="me1">setParseAction</span><span class="br0">&#40;</span>assignVar<span class="br0">&#41;</span> + <span class="br0">&#40;</span>assign | iaddop.<span class="me1">setParseAction</span><span class="br0">&#40;</span> pushFirst <span class="br0">&#41;</span><span class="br0">&#41;</span> + expr
-        <span class="kw1">return</span> bnf
+            term = factor + ZeroOrMore( ( multop + factor ).setParseAction( pushFirst ) )
+            expr << term + ZeroOrMore( ( addop + term ).setParseAction( pushFirst ) )
+            bnf =  ident.setParseAction(assignVar) + (assign | iaddop.setParseAction( pushFirst )) + expr
+        return bnf
     
-    <span class="co1"># map operator symbols to corresponding arithmetic operations</span>
-    opn <span class="sy0">=</span> <span class="br0">&#123;</span> <span class="st0">'+'</span> : <span class="kw3">operator</span>.<span class="me1">add</span><span class="sy0">,</span>
-            <span class="st0">'-'</span> : <span class="kw3">operator</span>.<span class="me1">sub</span><span class="sy0">,</span>
-            <span class="st0">'*'</span> : <span class="kw3">operator</span>.<span class="me1">mul</span><span class="sy0">,</span>
-            <span class="st0">'/'</span> : <span class="kw3">operator</span>.<span class="me1">truediv</span><span class="sy0">,</span>
-            <span class="st0">'^'</span> : <span class="kw3">operator</span>.<span class="kw2">pow</span><span class="sy0">,</span>
-            <span class="st0">'+='</span> : <span class="kw3">operator</span>.<span class="me1">iadd</span><span class="br0">&#125;</span>
-    fn  <span class="sy0">=</span> <span class="br0">&#123;</span> <span class="st0">'Max'</span> : <span class="kw2">max</span><span class="sy0">,</span>
-            <span class="st0">'Min'</span> : <span class="kw2">min</span><span class="sy0">,</span>
-            <span class="st0">'abs'</span> : <span class="kw2">abs</span><span class="sy0">,</span>
-           <span class="st0">'Scalar'</span> : Scalar<span class="br0">&#125;</span>
+    # map operator symbols to corresponding arithmetic operations
+    opn = <span class="br0">&#123; '+' : operator.add,
+            '-' : operator.sub,
+            '*' : operator.mul,
+            '/' : operator.truediv,
+            '^' : operator.pow,
+            '+=' : operator.iadd<span class="br0">&#125;
+    fn  = <span class="br0">&#123; 'Max' : max,
+            'Min' : min,
+            'abs' : abs,
+           'Scalar' : Scalar<span class="br0">&#125;
     
-    <span class="kw1">def</span> evaluateStack<span class="br0">&#40;</span> s <span class="br0">&#41;</span>:
-        op <span class="sy0">=</span> s.<span class="me1">pop</span><span class="br0">&#40;</span><span class="br0">&#41;</span> 
-        <span class="kw1">if</span> op <span class="kw1">in</span> <span class="st0">'+-*/^'</span> <span class="kw1">or</span> op <span class="kw1">in</span> <span class="st0">'+='</span>:
-            op2 <span class="sy0">=</span> evaluateStack<span class="br0">&#40;</span> s <span class="br0">&#41;</span>
-            op1 <span class="sy0">=</span> evaluateStack<span class="br0">&#40;</span> s <span class="br0">&#41;</span>
-            <span class="kw1">return</span> opn<span class="br0">&#91;</span>op<span class="br0">&#93;</span><span class="br0">&#40;</span> op1<span class="sy0">,</span> op2 <span class="br0">&#41;</span>
-        <span class="kw1">elif</span> op <span class="kw1">in</span> fn:
-            <span class="kw1">return</span> fn<span class="br0">&#91;</span>op<span class="br0">&#93;</span><span class="br0">&#40;</span> evaluateStack<span class="br0">&#40;</span> s <span class="br0">&#41;</span> <span class="br0">&#41;</span>
-        <span class="kw1">elif</span> op <span class="kw1">in</span> variables:
-            <span class="kw1">return</span> variables<span class="br0">&#91;</span>op<span class="br0">&#93;</span>        
-        <span class="kw1">else</span>:
-            <span class="kw1">return</span> <span class="kw2">float</span><span class="br0">&#40;</span> op <span class="br0">&#41;</span>
+    def evaluateStack( s ):
+        op = s.pop() 
+        if op in '+-*/^' or op in '+=':
+            op2 = evaluateStack( s )
+            op1 = evaluateStack( s )
+            return opn[op]( op1, op2 )
+        elif op in fn:
+            return fn[op]( evaluateStack( s ) )
+        elif op in variables:
+            return variables[op]        
+        else:
+            return float( op )
     
-    <span class="kw1">if</span> __name__ <span class="sy0">==</span> <span class="st0">'__main__'</span>:
-        main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    if __name__ == '__main__':
+        main()
 
 
 But I have faced two issues.
-1. The += operator is not working as expected. With input string as ['x=1','y=2', 'x+=y'], I still get x= 1 in the end. \<-- defaultdict(\<class 'float'\>, {'x': 1.0, 'y': 2.0}) 
+1. The += operator is not working as expected. With input string as ['x=1','y=2', 'x+=y'], I still get x= 1 in the end. <-- defaultdict(<class 'float'\>, {'x': 1.0, 'y': 2.0}) 
 2. My user defined funciton name will have the same name convention as the variable name convention. The only difference is that the function will have parentheses followed. I tried to modify the atom definition but it is not working as expected. With input string as ['x=1','y=abs(2)', 'x+=y'], I got a ValueError: could not convert string to float: 'y'.
 
 Would you help to shred some lights on how to fix the problem? Thanks.
@@ -978,54 +998,54 @@ I have read more examples such as arith.py and excelExpr.py and discussion in th
 I have tried a bit with new style of code like below by making list a kind of parseelement instead of an operator
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    from pyparsing import *
     
-    compOp <span class="sy0">=</span> oneOf<span class="br0">&#40;</span><span class="st0">'\< \> \>= \<='</span><span class="br0">&#41;</span>
-    multOp <span class="sy0">=</span> oneOf<span class="br0">&#40;</span><span class="st0">'* /'</span><span class="br0">&#41;</span>
-    addOp <span class="sy0">=</span> oneOf<span class="br0">&#40;</span><span class="st0">'+ -'</span><span class="br0">&#41;</span>
-    augassignOp <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'+='</span><span class="br0">&#41;</span>
+    compOp = oneOf('< \> \>= <=')
+    multOp = oneOf('* /')
+    addOp = oneOf('+ -')
+    augassignOp = Literal('+=')
     
-    EQ<span class="sy0">,</span>LPAR<span class="sy0">,</span>RPAR<span class="sy0">,</span>LBRA<span class="sy0">,</span>RBRA <span class="sy0">=</span> <span class="kw2">map</span><span class="br0">&#40;</span>Suppress<span class="sy0">,</span> <span class="st0">'=()[]'</span><span class="br0">&#41;</span>
+    EQ,LPAR,RPAR,LBRA,RBRA = map(Suppress, '=()[]')
     
-    varname <span class="sy0">=</span> Regex<span class="br0">&#40;</span>r<span class="st0">'[a-zA-Z_][a-zA-Z0-9_]*'</span><span class="br0">&#41;</span>
-    fname <span class="sy0">=</span> Regex<span class="br0">&#40;</span>r<span class="st0">'[a-zA-Z][a-zA-Z0-9_]*'</span><span class="br0">&#41;</span>
-    decimalnumber <span class="sy0">=</span> Regex<span class="br0">&#40;</span>r<span class="st0">'[+-]?<span class="es0">\d</span>+(<span class="es0">\.</span><span class="es0">\d</span>*)?'</span><span class="br0">&#41;</span>
+    varname = Regex(r'[a-zA-Z_][a-zA-Z0-9_]*')
+    fname = Regex(r'[a-zA-Z][a-zA-Z0-9_]*')
+    decimalnumber = Regex(r'[+-]?<span class="es0">\d+(<span class="es0">\.<span class="es0">\d*)?')
     
-    expr <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    listmaker <span class="sy0">=</span> Group<span class="br0">&#40;</span>LBRA + delimitedList<span class="br0">&#40;</span>expr<span class="br0">&#41;</span> + RBRA<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'list'</span><span class="br0">&#41;</span>
-    funccall <span class="sy0">=</span> Group<span class="br0">&#40;</span>fname<span class="br0">&#40;</span><span class="st0">'fname'</span><span class="br0">&#41;</span> + LPAR + Group<span class="br0">&#40;</span>delimitedList<span class="br0">&#40;</span>expr<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'arglist'</span><span class="br0">&#41;</span> + RPAR<span class="br0">&#41;</span>
-    operand <span class="sy0">=</span> decimalnumber | listmaker | funccall | varname
-    expr <span class="sy0">\<\<=</span> infixNotation<span class="br0">&#40;</span>operand<span class="sy0">,</span>
-        <span class="br0">&#91;</span>
-        <span class="br0">&#40;</span>multOp<span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">,</span> opAssoc.<span class="me1">LEFT</span><span class="br0">&#41;</span><span class="sy0">,</span>
-        <span class="br0">&#40;</span>addOp<span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">,</span> opAssoc.<span class="me1">LEFT</span><span class="br0">&#41;</span><span class="sy0">,</span>
-        <span class="br0">&#40;</span>compOp<span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">,</span> opAssoc.<span class="me1">LEFT</span><span class="br0">&#41;</span><span class="sy0">,</span>
-    <span class="co1">#    (augassignOp, 2, opAssoc.LEFT),</span>
-        <span class="br0">&#93;</span><span class="br0">&#41;</span>
+    expr = Forward()
+    listmaker = Group(LBRA + delimitedList(expr) + RBRA)('list')
+    funccall = Group(fname('fname') + LPAR + Group(delimitedList(expr))('arglist') + RPAR)
+    operand = decimalnumber | listmaker | funccall | varname
+    expr <<= infixNotation(operand,
+        [
+        (multOp, 2, opAssoc.LEFT),
+        (addOp, 2, opAssoc.LEFT),
+        (compOp, 2, opAssoc.LEFT),
+    #    (augassignOp, 2, opAssoc.LEFT),
+        ])
     
-    l <span class="sy0">=</span> <span class="br0">&#91;</span><span class="st0">'cond(1,select(4,[2, 3]))'</span><span class="br0">&#93;</span>
+    l = ['cond(1,select(4,[2, 3]))']
     
-    <span class="kw1">for</span> item <span class="kw1">in</span> l:
-        source <span class="sy0">=</span> item
-        expr.<span class="me1">runTests</span><span class="br0">&#40;</span>source<span class="br0">&#41;</span>
+    for item in l:
+        source = item
+        expr.runTests(source)
 
 
 The parsing seems to work as I got below result:
 
 
-    cond<span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span><span class="kw3">select</span><span class="br0">&#40;</span><span class="nu0">4</span><span class="sy0">,</span><span class="br0">&#91;</span><span class="nu0">2</span><span class="sy0">,</span> <span class="nu0">3</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="br0">&#91;</span><span class="br0">&#91;</span><span class="st0">'cond'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'1'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'select'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'4'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'2'</span><span class="sy0">,</span> <span class="st0">'3'</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span>
-    <span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>:
-      <span class="br0">&#91;</span><span class="st0">'cond'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'1'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'select'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'4'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'2'</span><span class="sy0">,</span> <span class="st0">'3'</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span>
-      - arglist: <span class="br0">&#91;</span><span class="st0">'1'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'select'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'4'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'2'</span><span class="sy0">,</span> <span class="st0">'3'</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span>
-        <span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>:
-          <span class="nu0">1</span>
-        <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span>:
-          <span class="br0">&#91;</span><span class="st0">'select'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'4'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'2'</span><span class="sy0">,</span> <span class="st0">'3'</span><span class="br0">&#93;</span><span class="br0">&#93;</span><span class="br0">&#93;</span>
-          - arglist: <span class="br0">&#91;</span><span class="st0">'4'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">'2'</span><span class="sy0">,</span> <span class="st0">'3'</span><span class="br0">&#93;</span><span class="br0">&#93;</span>
-            - <span class="kw2">list</span>: <span class="br0">&#91;</span><span class="st0">'2'</span><span class="sy0">,</span> <span class="st0">'3'</span><span class="br0">&#93;</span>
-          - fname: <span class="st0">'select'</span>
-      - fname: <span class="st0">'cond'</span>
+    cond(1,select(4,[2, 3]))
+    [['cond', ['1', ['select', ['4', ['2', '3']]]]]]
+    [0]:
+      ['cond', ['1', ['select', ['4', ['2', '3']]]]]
+      - arglist: ['1', ['select', ['4', ['2', '3']]]]
+        [0]:
+          1
+        [1]:
+          ['select', ['4', ['2', '3']]]
+          - arglist: ['4', ['2', '3']]
+            - list: ['2', '3']
+          - fname: 'select'
+      - fname: 'cond'
 
 
 But i am puzzled how to pass the argument back to the function as a list. Also i have not figured out how to handle the keyword argument.
