@@ -391,7 +391,7 @@ Sample code interacts with . Sent by email.
 
 ---
 ## 2007-01-29 15:57:48 - bca48150 - Memory optimization... 
-When I created a Verilog parser using pyparsing I ran into memory usage problems.  Though I have discovered that the task was a little too large to accomplish with pyparsing (~100MB Verilog files would consume about 3GB of memory - which is a lot!).  In the process of trying to see if I could squeeze a little better memory performance out of the parse I noticed a little optimization that would help parsing a lot.  In the ParseResults class the <u>parent attribute is a strait reference to the parent which creates a cyclic loop.  If the </u>parent attr is changed to a weakref, the loop is broken.  This has two advantages.  The first is that the memory is reclaimed right away when the reference is dropped to the base element.  The second is that the number of times that the cyclic garbage collector will have to run will be greatly reduced during the parsing stage.  These two elements allowed me to get a noticeable improvement on the performance and the memory usage was slightly reduced.
+When I created a Verilog parser using pyparsing I ran into memory usage problems.  Though I have discovered that the task was a little too large to accomplish with pyparsing (~100MB Verilog files would consume about 3GB of memory - which is a lot!).  In the process of trying to see if I could squeeze a little better memory performance out of the parse I noticed a little optimization that would help parsing a lot.  In the ParseResults class the __parent attribute is a strait reference to the parent which creates a cyclic loop.  If the __parent attr is changed to a weakref, the loop is broken.  This has two advantages.  The first is that the memory is reclaimed right away when the reference is dropped to the base element.  The second is that the number of times that the cyclic garbage collector will have to run will be greatly reduced during the parsing stage.  These two elements allowed me to get a noticeable improvement on the performance and the memory usage was slightly reduced.
 
 
 
@@ -399,91 +399,94 @@ Patch:
 
 
 ```
-<br >
-diff -cbB old/pyparsing.py new/pyparsing.py<br >
-<ul><ul><ul><li>old/pyparsing.py    Mon Jan 29 17:55:57 2007</li></ul></ul></ul>--- new/pyparsing.py    Mon Jan 29 17:53:33 2007<br >
-***<br >
-<ul><ul><ul><li>66,71 </li></ul></ul></ul>--- 66,72 ----<br >
-  import warnings<br >
-  import re<br >
-  import sre_constants<br >
-+ import weakref<br >
-  import xml.sax.saxutils<br >
-  #~ sys.stderr.write( &quot;testing pyparsing module, version %s, %s\n&quot; % (<u>version</u>,<u>versionTime</u> ) )<br >
-<br >
-***<br >
-<ul><ul><ul><li>245,251 </li></ul></ul></ul>              self.<u>tokdict[k] = self.</u>tokdict.get(k,list()) + [(v,0)]<br >
-              sub = v<br >
-          if isinstance(sub,ParseResults):<br >
-!             sub.<u>parent = self<br >
-<br >
-      def </u>delitem<u>( self, i ):<br >
-          if isinstance(i,(int,slice)):<br >
---- 246,252 ----<br >
-              self.</u>tokdict[k] = self.<u>tokdict.get(k,list()) + [(v,0)]<br >
-              sub = v<br >
-          if isinstance(sub,ParseResults):<br >
-!             sub.</u>parent = weakref.ref(self)<br >
-<br >
-      def <u>delitem</u>( self, i ):<br >
-          if isinstance(i,(int,slice)):<br >
-***<br >
-<ul><ul><ul><li>296,302 </li></ul></ul></ul>              for k,v in otherdictitems:<br >
-                  self[k] = v<br >
-                  if isinstance(v[0],ParseResults):<br >
-!                     v[0].<u>parent = self<br >
-          self.</u>toklist += other.<u>toklist<br >
-          self.</u>accumNames.update( other.<u>accumNames )<br >
-          del other<br >
---- 297,303 ----<br >
-              for k,v in otherdictitems:<br >
-                  self[k] = v<br >
-                  if isinstance(v[0],ParseResults):<br >
-!                     v[0].</u>parent = weakref.ref(self)<br >
-          self.<u>toklist += other.</u>toklist<br >
-          self.<u>accumNames.update( other.</u>accumNames )<br >
-          del other<br >
-***<br >
-<ul><ul><ul><li>414,420 </li></ul></ul></ul>          if self.<u>name:<br >
-              return self.</u>name<br >
-          elif self.<u>parent:<br >
-!             par = self.</u>parent<br >
-              if par:<br >
-                  return par.<u>lookup(self)<br >
-              else:<br >
---- 415,421 ----<br >
-          if self.</u>name:<br >
-              return self.<u>name<br >
-          elif self.</u>parent:<br >
-!             par = self.<u>parent()<br >
-              if par:<br >
-                  return par.</u>lookup(self)<br >
-              else:<br >
-***<br >
-<ul><ul><ul><li>454,460 </li></ul></ul></ul>      def <u>getstate</u>(self):<br >
-          return ( self.<u>toklist,<br >
-                   ( self.</u>tokdict.copy(),<br >
-!                    self.<u>parent,<br >
-                     self.</u>accumNames,<br >
-                     self.<u>name ) )<br >
-<br >
---- 455,461 ----<br >
-      def </u>getstate<u>(self):<br >
-          return ( self.</u>toklist,<br >
-                   ( self.<u>tokdict.copy(),<br >
-!                    self.</u>parent(),<br >
-                     self.<u>accumNames,<br >
-                     self.</u>name ) )<br >
-<br >
-***<br >
-<ul><ul><ul><li>466,471 </li></ul></ul></ul>--- 467,473 ----<br >
-          self.<u>name = state[1]<br >
-          self.</u>accumNames = {}<br >
-          self.<u>accumNames.update(inAccumNames)<br >
-+         self.</u>parent = weakref.ref(self.__parent)<br >
-<br >
-<br >
-  def col (loc,strg):<br >
+
+diff -cbB old/pyparsing.py new/pyparsing.py
+----old/pyparsing.py    Mon Jan 29 17:55:57 2007------- new/pyparsing.py    Mon Jan 29 17:53:33 2007
+***
+----66,71 ------- 66,72 ----
+  import warnings
+  import re
+  import sre_constants
++ import weakref
+  import xml.sax.saxutils
+  #~ sys.stderr.write( &quot;testing pyparsing module, version %s, %s\n&quot; % (__version__,__versionTime__ ) )
+
+***
+----245,251 ----
+              self.__tokdict[k] = self.__tokdict.get(k,list()) + [(v,0)]
+              sub = v
+          if isinstance(sub,ParseResults):
+!             sub.__parent = self
+
+      def __delitem__( self, i ):
+          if isinstance(i,(int,slice)):
+--- 246,252 ----
+              self.__tokdict[k] = self.__tokdict.get(k,list()) + [(v,0)]
+              sub = v
+          if isinstance(sub,ParseResults):
+!             sub.__parent = weakref.ref(self)
+
+      def __delitem__( self, i ):
+          if isinstance(i,(int,slice)):
+***
+----296,302 ----              for k,v in otherdictitems:
+                  self[k] = v
+                  if isinstance(v[0],ParseResults):
+!                     v[0].__parent = self
+          self.__toklist += other.__toklist
+          self.__accumNames.update( other.__accumNames )
+          del other
+--- 297,303 ----
+              for k,v in otherdictitems:
+                  self[k] = v
+                  if isinstance(v[0],ParseResults):
+!                     v[0].__parent = weakref.ref(self)
+          self.__toklist += other.__toklist
+          self.__accumNames.update( other.__accumNames )
+          del other
+***
+----414,420 ----
+          if self.__name:
+              return self.__name
+          elif self.__parent:
+!             par = self.__parent
+              if par:
+                  return par.__lookup(self)
+              else:
+--- 415,421 ----
+          if self.__name:
+              return self.__name
+          elif self.__parent:
+!             par = self.__parent()
+              if par:
+                  return par.__lookup(self)
+              else:
+***
+----454,460 ----
+      def __getstate__(self):
+          return ( self.__toklist,
+                   ( self.__tokdict.copy(),
+!                    self.__parent,
+                     self.__accumNames,
+                     self.__name ) )
+
+--- 455,461 ----
+      def __getstate__(self):
+          return ( self.__toklist,
+                   ( self.__tokdict.copy(),
+!                    self.__parent(),
+                     self.__accumNames,
+                     self.__name ) )
+
+***
+----466,471 ------- 467,473 ----
+          self.__name = state[1]
+          self.__accumNames = {}
+          self.__accumNames.update(inAccumNames)
++         self.__parent = weakref.ref(self.__parent)
+
+
+  def col (loc,strg):
 
 ```
 
@@ -505,7 +508,7 @@ Suggestions?
 
 -- Paul
 #### 2007-01-29 21:19:43 - bca48150
-__weakref__ needs to be added to the __slots__ for the class.  I ported the changes quickly from 1.4.3 and I missed that little detail.
+`__weakref__` needs to be added to the `__slots__` for the class.  I ported the changes quickly from 1.4.3 and I missed that little detail.
 #### 2007-01-29 22:12:27 - ptmcg
 Ok, I have a version that passes all unit tests (had to tweak the getstate/setstate methods for pickle support), but I'm not seeing big performance gains.  In fact, my verilog parse test runs about 5% slower.  Next thoughts?
 
@@ -515,9 +518,9 @@ Ok, I have a version that passes all unit tests (had to tweak the getstate/setst
 #### 2007-01-30 11:25:51 - bca48150
 Not too bad actually.  What used to happen is that if a ParseResults was created and then the reference was dropped (that branch of the expression did not match) then it would stay in memory and not be freed until the garbage collector decided to run (because of the cyclic loop keeping all the objects alive).  Now, because there are no cyclic loops the ParseResults instances are being garbage collected right away (when the reference is dropped to them) which means that the deallocation routines for the instance is happening while the test is running.  If you add the following to the end of the test:
 
-``import gc
-
-gc.collect()``
+    import gc
+    
+    gc.collect()``
 
 Then the amount of garbage collection that is being avoided (or saved) by the cyclic references will be handled.  It might happen that for small runs the change may cause a decrease in preformance but for larger runs (with many, many objects that would have to be checked by the cyclic collector) it will run faster.
 
@@ -525,11 +528,11 @@ From my experience (with the large files) it did help with memory consumption an
 
 If you really want to squeeze speed from it change the line:
 
-import weakref
+    import weakref
 
 to:
 
-from weakref import ref
+    from weakref import ref
 
 and update the rest of the code to follow.  This will save a attribute look up each time a reference is created which can add up.
 
@@ -1652,7 +1655,7 @@ As for the BNF comment, I can't agree enough. If you can express your language i
 
 
 
-I take PyParsing's output and walk the structured data, building an object graph as an intermediary form of the input, which I use later for the 'code generation' phases. I made a bunch of helper classes as my intermediary objects, and mostly it's just constructor + <u>str</u>() + <u>repr</u>(), with direct attribute access for the properties. [Yeah, it's not 100% Pure Encapsulation. I'm using Python, not Java. And I like it that way :-]
+I take PyParsing's output and walk the structured data, building an object graph as an intermediary form of the input, which I use later for the 'code generation' phases. I made a bunch of helper classes as my intermediary objects, and mostly it's just constructor + __str__() + __repr__(), with direct attribute access for the properties. [Yeah, it's not 100% Pure Encapsulation. I'm using Python, not Java. And I like it that way :-]
 
 
 
@@ -1909,7 +1912,7 @@ I just ave it a try and the script fails, I don't know why :
 
 
 
-TypeError: <u>init</u>() takes at least 4 arguments (2 given)
+TypeError: __init__() takes at least 4 arguments (2 given)
 
 
 
@@ -2613,7 +2616,7 @@ class PlaceHolder(object):
 
     '''
 
-    def <u>init</u>(self, id, contents='', brut='', start=0,end=0):
+    def __init__(self, id, contents='', brut='', start=0,end=0):
 
         '''A placeholder has a unique ID number, and maybe some mirrors. 
 
@@ -2631,7 +2634,7 @@ class PlaceHolder(object):
 
 
 
-    def <u>str</u>(self):
+    def __str__(self):
 
         return 'ID: %d CONTENTS: '%s' BRUT: %s START %s END %s'\
 
@@ -3799,7 +3802,7 @@ Try following:
 
 
 
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>from pyparsing import *</li><li>da = oneOf( 'aa' ).setName( 'Double A' )</li><li>da.parseString( 'a' )</li></ul></ul></ul>...
+<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>from pyparsing import *</li><li>da = oneOf( 'aa' ).setName( 'Double A' )</li><li>da.parseString( 'a' )----...
 
 pyparsing.ParseException: Expected Double A (at char 0), (line:1, col:1
 
@@ -3813,7 +3816,7 @@ Let's see another case:
 
 
 
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>from pyparsing import *</li><li>da = oneOf( 'aa', caseless=True ).setName( 'Double A' )</li><li>da.parseString( 'a' )</li></ul></ul></ul>...
+<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>from pyparsing import *</li><li>da = oneOf( 'aa', caseless=True ).setName( 'Double A' )</li><li>da.parseString( 'a' )----...
 
 pyparsing.ParseException: Expected 'aa' (at char 0), (line:1, col:1)
 
@@ -5177,7 +5180,7 @@ With program.setDebug() I get:
 
 
 ```
-<br >
+
 Match {{{{&quot;int&quot; {{&quot;[&quot; Forward: expr2 [{Suppress:(&quot;,&quot;) Forward: expr2}]... &quot;]&quot;
 ```
 ...} | 'int'} 
@@ -7681,7 +7684,7 @@ That mostly works, except the nestedExpr is bringing in the comments following t
     def  BodyAction(toks):
          print 'Body = ', '<START BODY>' + toks[0] + '<END BODY>'
     
-    Function = Literal('<u>kernel') + SkipTo(Literal(')'), include=True)
+    Function = Literal('__kernel') + SkipTo(Literal(')'), include=True)
     
     Comment = cppStyleComment
     
@@ -7702,8 +7705,8 @@ That mostly works, except the nestedExpr is bringing in the comments following t
 I run it on sample code such as:
 
     /** convert unsigned char image to float image. output will be between 0..1 */
-    </u>kernel void opencl_kernel_cvt_ub2f(<u>global unsigned char *in, 
-                                         </u>global float         *out,
+    __kernel void opencl_kernel_cvt_ub2f(__global unsigned char *in, 
+                                         __global float         *out,
                                          int                    width,
                                          int                    height) {
         unsigned int x = get_global_id(0);
@@ -7715,8 +7718,8 @@ I run it on sample code such as:
     ** convert float image (values 0..1) to unsigned char image. output scaled by 'factor' 
         and clipped to 0..255
     */
-    <u>kernel void opencl_kernel_cvt_f2ub(</u>global float         *in, 
-                                         <u>global unsigned char *out, 
+    __kernel void opencl_kernel_cvt_f2ub(__global float         *in, 
+                                         __global unsigned char *out, 
                                          int                    width, 
                                          int                    height, 
                                          float                  factor) {
@@ -7732,8 +7735,8 @@ I run it on sample code such as:
         size. The diffusion equation for a single matrix element at [column,row]=[x,y]
         out[x,y] = in[x,y] + dy*(Ixx+Iyy) = in[x,y] + dt*(in[x-1,y] + in[x+1,y] + in[x,y-1] + in[x,y+1] - 4*in[x,y])
     */
-    </u>kernel void opencl_kernel_blur_using_diffusion_2d(<u>global float *in, 
-                                                        </u>global float *out, 
+    __kernel void opencl_kernel_blur_using_diffusion_2d(__global float *in, 
+                                                        __global float *out, 
                                                         int            width, 
                                                         int            height, 
                                                         float          dt) {
@@ -7846,7 +7849,7 @@ Glad I found something real. The current svn version is giving me:
     python setup.py install
     Traceback (most recent call last):
       File 'setup.py', line 14, in ?
-        from pyparsing_py2 import <u>version</u> as pyparsing_version
+        from pyparsing_py2 import __version__ as pyparsing_version
 
     ImportError: No module named pyparsing_py2
 
@@ -10125,9 +10128,9 @@ Essentially, I'm trying to parse infoboxes, and this is for the values of the da
 
 
 ```
-Infobox Country<br >
-| native_name             = ''R�publique fran�aise''<br >
-| conventional_long_name  = French Republic<br >
+Infobox Country
+| native_name             = ''R�publique fran�aise''
+| conventional_long_name  = French Republic
 ```
 
 So, this would be matching the text ''Republique fracaise'' - it would be nice if I could just get the whole string to the right of the =. Sometimes, there are piped links like  that would interrupt the flow of the parse tree, so that's why I'm looking for them right now.
