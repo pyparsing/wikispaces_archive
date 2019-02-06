@@ -1,11 +1,11 @@
 ## Pyparsing Wikispaces Discussion - 2013
 
-[Note: these entries are fairly old, and predate many new features of pyparsing,
+_[Note: these entries are fairly old, and predate many new features of pyparsing,
 and are predominantly coded using Python 2.
 They are captured here for historical benefit, but may not contain
 the most current practices or features. We will try to add editor
 notes to entries to indicate when discussions have been 
-overtaken by development events.]
+overtaken by development events.]_
 
 [2013-01-02 09:24:04 - hetsch - Pyparsing sequence of repeating pattern](all_wiki_discussion_toc_2013.md#2013-01-02-092404---hetsch---pyparsing-sequence-of-repeating-pattern)  
 [2013-01-10 11:37:16 - Horus107 - Problem with recursive grammar](all_wiki_discussion_toc_2013.md#2013-01-10-113716---horus107---problem-with-recursive-grammar)  
@@ -33,7 +33,7 @@ overtaken by development events.]
 [2013-05-17 00:28:07 - pschwaha - use OrderedDict](all_wiki_discussion_toc_2013.md#2013-05-17-002807---pschwaha---use-ordereddict)  
 [2013-05-17 06:26:56 - AlphaPrime - Only Allow One NOT](all_wiki_discussion_toc_2013.md#2013-05-17-062656---alphaprime---only-allow-one-not)  
 [2013-05-17 10:47:02 - mirk410 - Losing the tail-end of my expression](all_wiki_discussion_toc_2013.md#2013-05-17-104702---mirk410---losing-the-tail-end-of-my-expression)  
-[2013-05-19 13:29:32 - wilo108 - `searchString` works, but `parseString` throws an exception?](all_wiki_discussion_toc_2013.md#2013-05-19-132932---wilo108---`searchstring`-works-but-`parsestring`-throws-an-exception)  
+[2013-05-19 13:29:32 - wilo108 - `searchString` works, but `parseString` throws an exception?](all_wiki_discussion_toc_2013.md#2013-05-19-132932---wilo108---searchstring-works-but-parsestring-throws-an-exception)  
 [2013-05-21 09:11:53 - mirk410 - Escaping delimiter character](all_wiki_discussion_toc_2013.md#2013-05-21-091153---mirk410---escaping-delimiter-character)  
 [2013-05-22 07:29:33 - HumbertMason - Strange warning declaring a simple PyParsing recursive grammar in Python](all_wiki_discussion_toc_2013.md#2013-05-22-072933---humbertmason---strange-warning-declaring-a-simple-pyparsing-recursive-grammar-in-python)  
 [2013-05-23 10:07:16 - t1m0 - setResultsName bug or misunderstanding](all_wiki_discussion_toc_2013.md#2013-05-23-100716---t1m0---setresultsname-bug-or-misunderstanding)  
@@ -97,26 +97,27 @@ yesterday I've posted a similar question to this one. Python Regex Named Groups 
 
 After some researching I've read about the pyparsing library which seems to be pretty perfect for my tasks.
 
-text = '[@a eee, fff fff, ggg @b eee, fff, ggg @c eee eee, fff fff,ggg ggg@d]'
-command_s = Suppress(Optional('[') + Literal('@'))
-command_e = Suppress(Literal('@') | Literal(']'))
-task = Word(alphas)
-arguments = ZeroOrMore(
-    Word(alphas) + 
-    Suppress(
-        Optional(Literal(',') + White()) | Optional(White() + Literal('@'))
+    text = '[@a eee, fff fff, ggg @b eee, fff, ggg @c eee eee, fff fff,ggg ggg@d]'
+    command_s = Suppress(Optional('[') + Literal('@'))
+    command_e = Suppress(Literal('@') | Literal(']'))
+    task = Word(alphas)
+    arguments = ZeroOrMore(
+        Word(alphas) + 
+        Suppress(
+            Optional(Literal(',') + White()) | Optional(White() + Literal('@'))
+        )
     )
-)
-command = Group(OneOrMore(command_s + task + arguments + command_e))
-print command.parseString(text)
-
-<ol><li>which outputs only the first @a sequence</li><li></li></ol>
-<ol><li>the structure should be someting like:</li></ol>[
-     ['a', 'eee', 'fff fff', 'ggg'],
-     ['b', 'eee', 'fff', 'ggg'],
-     ['c', 'eee eee', 'fff fff', 'ggg ggg'],
-     ['d']
-]
+    command = Group(OneOrMore(command_s + task + arguments + command_e))
+    print command.parseString(text)
+    
+    # which outputs only the first @a sequence
+    # the structure should be someting like:
+    [
+         ['a', 'eee', 'fff fff', 'ggg'],
+         ['b', 'eee', 'fff', 'ggg'],
+         ['c', 'eee eee', 'fff fff', 'ggg ggg'],
+         ['d']
+    ]
 
 @ indicates the start of a sequence, the first word is a task (a) followed by optional comma-separated arguments (eee, fff fff, ggg). The problem is, that @b, @c and @d are ignored by the above code. Also 'fff fff' getting treated as two separated arguments, it should only be one. The mess in the sample string is not my idea - this comes from user input.
 
@@ -160,7 +161,7 @@ The subdict can contain another subdict and so on....
     FKeyValue = ident + SkipTo(semi) + semi
     FDictionary = Forward()
     FBlock = lcb + ZeroOrMore(FKeyValue | FDictionary) + rcb
-    FDictionary \<\< ident + FBlock 
+    FDictionary << ident + FBlock 
     ParameterFile = ZeroOrMore(FDictionary | FKeyValue)
 
 
@@ -264,7 +265,7 @@ There is a Valve's data format called KeyValues.  . It is very similar to JSON. 
     kvValue = kvString | kvDictionary
     kvMember = ws + kvKey + ws + kvValue + ws
     kvMembers = Dict(Group(OneOrMore(kvMember)))
-    kvDictionary \<\<= (dict_begin + Optional(kvMembers) + dict_end)
+    kvDictionary <<= (dict_begin + Optional(kvMembers) + dict_end)
     kvDocument = kvMembers  # root
     
     # Deal with whitespace manually.
@@ -281,7 +282,7 @@ It adds ':' after each Key. But I have no idea how to separate all members with 
 P. S: Turned off whitespace handling to make JSON layout the same as in source file.
 
 #### 2013-01-31 15:26:20 - ptmcg
-Wow, very nice job at laying out this parser, even using the latest '\<\<=' operator!
+Wow, very nice job at laying out this parser, even using the latest '<<=' operator!
 
 I was also a bit dismayed at how much work you had to go through to not have transformString kill your formatting whitespace - again, my hat is off to you in dealing with this.
 
@@ -303,7 +304,7 @@ This is a place where you can use an Empty() expression to inject some custom be
     insertComma = Empty().leaveWhitespace().setParseAction(lambda:',')
     kvMember = ws + kvKey + ws + kvValue + Optional(~dict_end + insertComma) + ws
     kvMembers = Dict(Group(OneOrMore(kvMember)))
-    kvDictionary \<\<= (dict_begin + Optional(kvMembers) + dict_end)
+    kvDictionary <<= (dict_begin + Optional(kvMembers) + dict_end)
     kvDocument = kvMembers  # root
     
     # Deal with whitespace manually.
@@ -372,10 +373,10 @@ this gives me a dictionary in the form of
 so far so good. my problem now is i need the link names and the list heady in one array element.
 so more something like
  
-item
-    [[''], ['list item without  link'], [''], ['very long list item with linebreaks and stuff']]
-heading
-    ['List Heading']
+    item
+        [[''], ['list item without  link'], [''], ['very long list item with linebreaks and stuff']]
+    heading
+        ['List Heading']
 
 
 i did try different versions of group, combine, leaveWhitespace() and Optional(White()) bot ether this breaks the parsing process or i get broken results.
@@ -440,16 +441,16 @@ I recently started using pyparsing to compile some ATE pattern files like this o
      some, more, signals
      )
     {
-     \> tset1 0000001XXXXXXXXXXXXXXXXXXXX00XXXXXXXXXXXXXXXXXXX ;
-     \> tset1    // Statements can span multiple lines.
+     > tset1 0000001XXXXXXXXXXXXXXXXXXXX00XXXXXXXXXXXXXXXXXXX ;
+     > tset1    // Statements can span multiple lines.
       0000101XXXXXXXXXXXXXXXXXXXX00XXXXXXXXXXXXXXXXXXX ;
     repeat 10   // Commands modify the next statement.
-     \> tset1 0010011XXXXXXXXXXXXXXXXXXXX00XXXXXXXXXXXXXXXXXXX ;
+     > tset1 0010011XXXXXXXXXXXXXXXXXXXX00XXXXXXXXXXXXXXXXXXX ;
     
     // ... a million lines of pattern data ...
     
     halt
-     \> tset1 0000010XXXXXXXXXXXXXXXXXXXX01X0XXXXXXXXXXXXXXXXX ;
+     > tset1 0000010XXXXXXXXXXXXXXXXXXXX01X0XXXXXXXXXXXXXXXXX ;
     }
 
 
@@ -492,17 +493,17 @@ Here is an alternative to lineno:
             self.cache = [(-1,0)]
     
         def getLineNo(self, loc):
-            if loc \>= self.sourcestrlen:
+            if loc >= self.sourcestrlen:
                 raise ValueError('location greater than string length')
     
             maxloc,maxlineno = self.cache[-1]
-            while loc \> maxloc:
+            while loc > maxloc:
                 nextloc = self.sourcestr.find(_NL, maxloc+1)
                 if nextloc == -1:
                     return maxlineno + self.firstLine
                 maxlineno += 1
                 self.cache.append((nextloc, maxlineno))
-                if nextloc \>= loc:
+                if nextloc >= loc:
                     return maxlineno - 1 + self.firstLine
                 maxloc = nextloc
             else:
@@ -614,13 +615,13 @@ so i want to parse following code into .dot language i.e
     main ()
     {
       int a, b;
-    \<bb 2\>:
+    <bb 2>:
       a = 1;
       b = 20;
-      if (a \< b)
-        goto \<bb 3\>;
+      if (a < b)
+        goto <bb 3>;
       else
-        goto \<bb 7\>;
+        goto <bb 7>;
     ...
 
 
@@ -630,11 +631,11 @@ to
     digraph {
         start [label='Start'];
     
-        start -\> bb1;
+        start -> bb1;
         bb1 [shape = box, style ='filled', fillcolor = '#0000aa', label='a = 1;\nb = 20;']
-        bb1 -\> decision;
+        bb1 -> decision;
     
-        decision [shape=diamond, style='filled', fillcolor = '#0000ff ', label='if (a \< b)goto \<bb 3\>;\nelse goto \<bb 7\>;\n'];
+        decision [shape=diamond, style='filled', fillcolor = '#0000ff ', label='if (a < b)goto <bb 3>;\nelse goto <bb 7>;\n'];
 
 
 
@@ -658,19 +659,19 @@ From the code snippet, I would try to end up with something like this:
         label_bb_7 [shape = box, style ='filled', fillcolor = '#808080', label='bb 7'];
         s000 [shape = box, style ='filled', fillcolor = '#0000aa', label='a = 1'];
         s001 [shape = box, style ='filled', fillcolor = '#0000aa', label='b = 20'];
-        s002 [shape=diamond, style='filled', fillcolor = '#0000ff ', label='a \< b'];
-        s003 [shape = box, style ='filled', fillcolor = '#0000aa', 'goto \<bb 3\>'];
-        s004 [shape = box, style ='filled', fillcolor = '#0000aa', 'goto \<bb 7\>'];
+        s002 [shape=diamond, style='filled', fillcolor = '#0000ff ', label='a < b'];
+        s003 [shape = box, style ='filled', fillcolor = '#0000aa', 'goto <bb 3>'];
+        s004 [shape = box, style ='filled', fillcolor = '#0000aa', 'goto <bb 7>'];
     
         # link shapes
-        start -\> label_bb_2;
-        label_bb_2 -\> s000;
-        s000 -\> s001;
-        s001 -\> s002;
-        s002 -\> s003 [label='T'];
-        s002 -\> s004 [label='F'];
-        s003 -\> label_bb_3;
-        s004 -\> label_bb_7;
+        start -> label_bb_2;
+        label_bb_2 -> s000;
+        s000 -> s001;
+        s001 -> s002;
+        s002 -> s003 [label='T'];
+        s002 -> s004 [label='F'];
+        s003 -> label_bb_3;
+        s004 -> label_bb_7;
     
     }
 
@@ -803,7 +804,7 @@ Thanks again!
 Hi,
 I'm trying to define a token for parsing relative time expressions, containing days, hours, minutes and seconds the following way:
 
-WW days XX hours YY mins ZZ secs
+    WW days XX hours YY mins ZZ secs
 
 These unit may be optional (for example, a relative time can be defined by just specifying the hours, or by omitting the days).
 
@@ -885,9 +886,8 @@ my goal is to catch all mykeyword occurences when relevant (example: i want to m
 
 I got HALF the code i want with:
 
-authorizedPrefixes=(oneOf('& ~ # ' { ( [ - | ` _ \ ^ @ ) ] = + } $ % * ! : / ; . , ? \< \>')|Literal('''))
-
-expr=Combine(authorizedPrefixes+CaselessKeyword('mykeyword'))
+    authorizedPrefixes=(oneOf('& ~ # ' { ( [ - | ` _ \ ^ @ ) ] = + } $ % * ! : / ; . , ? < >') | Literal('''))
+    expr=Combine(authorizedPrefixes+CaselessKeyword('mykeyword'))
 
 
 but when i try to include the fact that i want White()+Keyword('mykeyword') is a valid entry is when i can't get things to work.
@@ -914,8 +914,8 @@ Thanks you by advance.
 I cannot reproduce this:
 
 
-    \>\>\> kw = Keyword('keyword')
-    \>\>\> list(kw.scanString('keyword keywordbehind aheadkeyword keyword'))
+    >>> kw = Keyword('keyword')
+    >>> list(kw.scanString('keyword keywordbehind aheadkeyword keyword'))
     [((['keyword'], {}), 0, 7), ((['keyword'], {}), 35, 42)]
 
 
@@ -956,7 +956,7 @@ Thanks for your answer, here is a bit of code that emphasize my problem:
     for line in stringToParse.splitlines():
         number+=1
         result=macroDef.scanString(line)
-        print('Line nb: '+str(number)+' is ----\>'+line)
+        print('Line nb: '+str(number)+' is ---->'+line)
         for token,s,e in result:
             print('Token=',token)
 
@@ -983,7 +983,7 @@ I removed unnecessary parts, sorry for double posting, can't edit:
     for line in stringToParse.splitlines():
         number+=1
         result=macroDef.scanString(line)
-        print('Line nb: '+str(number)+' is ----\>'+line)
+        print('Line nb: '+str(number)+' is ---->'+line)
         for token,s,e in result:
             print('Token=',token)
     
@@ -1017,7 +1017,7 @@ Proof with:
     for line in stringToParse.splitlines():
         result=key.scanString(line)
         result2=caselessKey.scanString(line)
-        print('Line is ----\>'+line)
+        print('Line is ---->'+line)
         for token,s,e in result:
             print('Keyword Token=',token)
         for token,s,e in result2:
@@ -1028,18 +1028,18 @@ and output is:
 
 
 
-    Line is ----\>Must match is mykeyword
+    Line is ---->Must match is mykeyword
     Keyword Token= ['mykeyword']
     CaselessKeyword Token= ['mykeyword']
-    Line is ----\>must double match is ~ mykeyword and &mykeyword
+    Line is ---->must double match is ~ mykeyword and &mykeyword
     Keyword Token= ['mykeyword']
     Keyword Token= ['mykeyword']
     CaselessKeyword Token= ['mykeyword']
     CaselessKeyword Token= ['mykeyword']
-    Line is ----\>must not match is BLA3mykeyword and huaeh34apioejhMyKeyWord
+    Line is ---->must not match is BLA3mykeyword and huaeh34apioejhMyKeyWord
     CaselessKeyword Token= ['mykeyword']
     CaselessKeyword Token= ['mykeyword']
-    Line is ----\>must still not match is apga'35mykeyword3513hh
+    Line is ---->must still not match is apga'35mykeyword3513hh
 
 
 #### 2013-03-01 01:36:18 - elphono
@@ -1141,7 +1141,7 @@ Here is a test case:
     from pyparsing import *
     ParserElement.setDefaultWhitespaceChars(' \t\r\n_')
     
-    s = 'this is my\<b\>_\</b\>1234_string of characters'
+    s = 'this is my<b>_</b>1234_string of characters'
     ex = anyOpenTag + anyCloseTag
     res = ex.scanString(s)
     print list(res)
@@ -1175,8 +1175,6 @@ sure whether I took the right approach.
 
 To clarify the problem, some example from the file:
 
-
-
     KEYWORD1       VALUE1
     KEYWORD2       VALUE2
     KEYWORD3       VALUE3
@@ -1187,75 +1185,75 @@ To clarify the problem, some example from the file:
     DEVICEX.Y      INTERFACEX.Y           ----- bandwidth,role,IP                 ----- DEVICEX.Z INTERFACEX.Z    # OPTIONAL COMMENT
     !
     !Dialers
-    DEVICE1     INTERFACE1   -----          INTERFACE   \>---- NUMBER
-    DEVICE2     INTERFACE2   -----          INTERFACE   \>---- NUMBER
-    DEVICE3     INTERFACE3   -----          INTERFACE   \<---- NUMBER
+    DEVICE1     INTERFACE1   -----          INTERFACE   >---- NUMBER
+    DEVICE2     INTERFACE2   -----          INTERFACE   >---- NUMBER
+    DEVICE3     INTERFACE3   -----          INTERFACE   <---- NUMBER
     !
     !layer-3
-    DEVICE1     INTERFACE1  -----       t=role           ----\< IP
-    DEVICE2     INTERFACE2  -----       t=role           ----\< IP
-    DEVICEX     INTERFACEX  -----       t=role           ----\< IP
+    DEVICE1     INTERFACE1  -----       t=role           ----< IP
+    DEVICE2     INTERFACE2  -----       t=role           ----< IP
+    DEVICEX     INTERFACEX  -----       t=role           ----< IP
     !
     !LAN
     DEVICE1.1     INTERFACE1.1  -----       cabletype,speed:duplex,trunk:vlan ----- INTERFACE1.2    DEVICE1.2   # OPTIONAL COMMENT
     DEVICE2.1     INTERFACE2.1  -----       cabletype,speed:duplex,trunk:vlan ----- INTERFACE2.2    DEVICE2.2   # OPTIONAL COMMENT
     DEVICEX.Y     INTERFACEX.Y  -----       cabletype,speed:duplex,trunk:vlan ----- INTERFACEX.Z    DEVICEX.Z   # OPTIONAL COMMENT
-    [[/code]]
+
     
-    What this basically does is describe a WAN-/LAN-Infrastructure. Parsing works until I approach the layer-3/LAN-Section
-    of the file. I can grab the layer-3 stuff, but for w/e reason I can never match the LAN stuff using parseString(). 
-    I assume it's because of the similar lines?
-    
-    Example of my code for those blocks (quite roughly grabbed from the source code, there might be some errors/typos in
-    there):
+What this basically does is describe a WAN-/LAN-Infrastructure. Parsing works until I approach the layer-3/LAN-Section
+of the file. I can grab the layer-3 stuff, but for w/e reason I can never match the LAN stuff using parseString(). 
+I assume it's because of the similar lines?
+
+Example of my code for those blocks (quite roughly grabbed from the source code, there might be some errors/typos in
+there):
     
 
-_layer3_lan_left = Or([device_grammar1,device_grammar2,device_grammar3]
-                     ).setResultsName('device*') # these are the different namings for devices
-_layer3_laninterface = Or([laninterface,
-                           vlaninterface]
-                          ).setResultsName('interface*') # interface names, like Gig, Fa, E, ... or VLAN
-_layer3_role = self.lantype.setResultsName('type*') # a type like t=u, t=x
-_layer3_ipaddr = self.ipaddr.setResultsName('ip*') # a basic CIDR ip address
-self.layer3 = (_layer3_lan_left + _layer3_laninterface +
-               Suppress(self.wanused_marker) +
-               _layer3_role + Suppress(self.lanused_marker) +
-               _layer3_ipaddr
-               ).setResultsName('layer3').setName('layer3')
-<ol><li>we need those often, definitely more than once</li></ol>self.layer3_grammar = OneOrMore(self.layer3)
-
-_lan_laninterface = self.laninterface.setResultsName('interface*') # interface names, like Gig, Fa, E, ...
-_lan_medium = self.lanmedium.setResultsName('medium*') # this is the medium like copper, fibre, ..
-_lan_duplexspeed = Group(self.lanspeed + Optional(Suppress(':') +
-                              self.duplex, default=None)
-).setResultsName('speedduplex*') # speed and duplex
-_trunkvlan = Or([self.trunk, self.vlanid]).setResultsName(
-    'trunkvlan*') # trunk or vlan id
-self.lanstructure = (_layer3_lan_left + _lan_laninterface +
-                     Suppress(self.wanused_marker) +
-                     _lan_medium +
-                     Suppress(',') + _lan_duplexspeed +
-                     Suppress(',') + _trunkvlan +
-                     Suppress(self.wanused_marker) +
-                     _lan_laninterface + _layer3_lan_left +
-                     self.description
-                     ).setResultsName('lanstructure')\
-                      .setName('lanstructure')
-
-self.lanstructure_grammar = OneOrMore(self.lanstructure)
+    _layer3_lan_left = Or([device_grammar1,device_grammar2,device_grammar3]
+                         ).setResultsName('device*') # these are the different namings for devices
+    _layer3_laninterface = Or([laninterface,
+                               vlaninterface]
+                              ).setResultsName('interface*') # interface names, like Gig, Fa, E, ... or VLAN
+    _layer3_role = self.lantype.setResultsName('type*') # a type like t=u, t=x
+    _layer3_ipaddr = self.ipaddr.setResultsName('ip*') # a basic CIDR ip address
+    self.layer3 = (_layer3_lan_left + _layer3_laninterface +
+                   Suppress(self.wanused_marker) +
+                   _layer3_role + Suppress(self.lanused_marker) +
+                   _layer3_ipaddr
+                   ).setResultsName('layer3').setName('layer3')
+    # we need those often, definitely more than once</li></ol>self.layer3_grammar = OneOrMore(self.layer3)
+    
+    _lan_laninterface = self.laninterface.setResultsName('interface*') # interface names, like Gig, Fa, E, ...
+    _lan_medium = self.lanmedium.setResultsName('medium*') # this is the medium like copper, fibre, ..
+    _lan_duplexspeed = Group(self.lanspeed + Optional(Suppress(':') +
+                                  self.duplex, default=None)
+    ).setResultsName('speedduplex*') # speed and duplex
+    _trunkvlan = Or([self.trunk, self.vlanid]).setResultsName(
+        'trunkvlan*') # trunk or vlan id
+    self.lanstructure = (_layer3_lan_left + _lan_laninterface +
+                         Suppress(self.wanused_marker) +
+                         _lan_medium +
+                         Suppress(',') + _lan_duplexspeed +
+                         Suppress(',') + _trunkvlan +
+                         Suppress(self.wanused_marker) +
+                         _lan_laninterface + _layer3_lan_left +
+                         self.description
+                         ).setResultsName('lanstructure')\
+                          .setName('lanstructure')
+    
+    self.lanstructure_grammar = OneOrMore(self.lanstructure)
 
 
 I create those grammars for every logical block in the file, set up a grammar using the Each() subclass and then
 call parseString() on it.
 
 
-self._grammar = Each([grammar1,grammar2,grammar3,
-                      self.layer3_grammar,
-                      self.lanstructure_grammar
-                     ])
-
-parsed = self._grammar.parseString(tmpblock)
-
+    self._grammar = Each([grammar1,grammar2,grammar3,
+                          self.layer3_grammar,
+                          self.lanstructure_grammar
+                         ])
+    
+    parsed = self._grammar.parseString(tmpblock)
+    
 
 Like I mentioned, it works well until I get to the lan block. It never seems to find it (or reads over it).
 Furthermore, I cannot seem to read anything from the debug() output. 
@@ -1299,14 +1297,14 @@ To clarify the problem, some example from the file:
     DEVICEX.Y      INTERFACEX.Y           ----- bandwidth,role,IP                 ----- DEVICEX.Z INTERFACEX.Z    # OPTIONAL COMMENT
     !
     !Dialers
-    DEVICE1     INTERFACE1   -----          INTERFACE   \>---- NUMBER
-    DEVICE2     INTERFACE2   -----          INTERFACE   \>---- NUMBER
-    DEVICE3     INTERFACE3   -----          INTERFACE   \<---- NUMBER
+    DEVICE1     INTERFACE1   -----          INTERFACE   >---- NUMBER
+    DEVICE2     INTERFACE2   -----          INTERFACE   >---- NUMBER
+    DEVICE3     INTERFACE3   -----          INTERFACE   <---- NUMBER
     !
     !layer-3
-    DEVICE1     INTERFACE1  -----       t=role           ----\< IP
-    DEVICE2     INTERFACE2  -----       t=role           ----\< IP
-    DEVICEX     INTERFACEX  -----       t=role           ----\< IP
+    DEVICE1     INTERFACE1  -----       t=role           ----< IP
+    DEVICE2     INTERFACE2  -----       t=role           ----< IP
+    DEVICEX     INTERFACEX  -----       t=role           ----< IP
     !
     !LAN
     DEVICE1.1     INTERFACE1.1  -----       cabletype,speed:duplex,trunk:vlan ----- INTERFACE1.2    DEVICE1.2   # OPTIONAL COMMENT
@@ -1413,7 +1411,7 @@ If I reverse the order:
     p2 = semi_parser('semi_separated_file')
     p1 = bash_parser('bash_file')
 
-the <strong>bash_parser</strong> has issues with comment lines.
+the **bash_parser** has issues with comment lines.
 
 To grab the comment lines I've created the following element.
 
@@ -1459,16 +1457,16 @@ from pyparsing import *
 
 def validate_number(s, loc, tokens):
     if int(tokens[0]) != 0:
-        raise ParseFatalException(s, loc, &quot;number musth be 0&quot;)
+        raise ParseFatalException(s, loc, "number musth be 0")
 
 def fail(s, loc, tokens):
-    raise ParseFatalException(s, loc, &quot;Unknown token %s&quot; % tokens[0])
+    raise ParseFatalException(s, loc, "Unknown token %s" % tokens[0])
 
 def fail_value(s, loc, expr, err):
-    raise ParseFatalException(s, loc, &quot;Wrong value&quot;)
+    raise ParseFatalException(s, loc, "Wrong value")
 
 number =  Word(nums).setParseAction(validate_number).setFailAction(fail_value)
-operator = Literal(&quot;=&quot;)
+operator = Literal("=")
 
 error = Word(alphas).setParseAction(fail)
 rules = MatchFirst([
@@ -1476,7 +1474,7 @@ rules = MatchFirst([
 ])
 
 rules = operatorPrecedence(rules | error , [
-    (Literal(&quot;and&quot;), 2, opAssoc.RIGHT),
+    (Literal("and"), 2, opAssoc.RIGHT),
 ])
 
 def try_parse(expression):
@@ -1484,8 +1482,8 @@ def try_parse(expression):
         rules.parseString(expression, parseAll=True)
     except Exception as e:
         msg = str(e)
-        print(&quot;%s: %s&quot; % (msg, expression))
-        print(&quot; &quot; * (len(&quot;%s: &quot; % msg) + (e.loc)) + &quot;^^^&quot;)
+        print("%s: %s" % (msg, expression))
+        print(" " * (len("%s: " % msg) + (e.loc)) + "^^^")
 
 ```
 
@@ -1494,18 +1492,21 @@ It handles well a good quantity of wrong expressions and show the right place wh
 
 
 ```
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>try_parse(&quot;x = a and x = 0&quot;) # This one is actually good!</li></ul></ul></ul>Wrong value (at char 4), (line:1, col:5): x = a and x = 0
+    try_parse("x = a and x = 0") 
+    # This one is actually good!
+    Wrong value (at char 4), (line:1, col:5): x = a and x = 0
                                               ^^^
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>try_parse(&quot;x = 0 and x = a&quot;)</li></ul></ul></ul>Expected end of text (at char 6), (line:1, col:1): x = 0 and x = a
-                                                         ^^^
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>try_parse(&quot;x = 0 and (x = 0 and (x = 0 and (x = a)))&quot;)</li></ul></ul></ul>Expected end of text (at char 6), (line:1, col:1): x = 0 and (x = 0 and (x = 0 and (x = a)))
-                                                         ^^^
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>try_parse(&quot;x = 0 and (x = 0 and (x = 0 and (x = 0)))&quot;)</li></ul></ul></ul>Expected end of text (at char 6), (line:1, col:1): x = 0 and (x = 0 and (x = 0 and (xxxxxxxx = 0)))
+    try_parse("x = 0 and x = a")
+    Expected end of text (at char 6), (line:1, col:1): x = 0 and x = a
+                                                             ^^^
+    try_parse("x = 0 and (x = 0 and (x = 0 and (x = a)))")
+    Expected end of text (at char 6), (line:1, col:1): x = 0 and (x = 0 and (x = 0 and (x = a)))
+                                                             ^^^
+    try_parse("x = 0 and (x = 0 and (x = 0 and (x = 0)))")
+    Expected end of text (at char 6), (line:1, col:1): x = 0 and (x = 0 and (x = 0 and (xxxxxxxx = 0)))
                                                          ^^^
 
 ```
-
-
 I've been recommended (still be the same Eike) to use the `-` operator instead of `+` to build my rules, as follow:
 
 ```
@@ -1571,16 +1572,16 @@ It handles well a good quantity of wrong expressions and show the right place wh
 
 
 
-    \>\>\> try_parse('x = a and x = 0') # This one is actually good!
+    >>> try_parse('x = a and x = 0') # This one is actually good!
     Wrong value (at char 4), (line:1, col:5): x = a and x = 0
                                                   ^^^
-    \>\>\> try_parse('x = 0 and x = a')
+    >>> try_parse('x = 0 and x = a')
     Expected end of text (at char 6), (line:1, col:1): x = 0 and x = a
                                                              ^^^
-    \>\>\> try_parse('x = 0 and (x = 0 and (x = 0 and (x = a)))')
+    >>> try_parse('x = 0 and (x = 0 and (x = 0 and (x = a)))')
     Expected end of text (at char 6), (line:1, col:1): x = 0 and (x = 0 and (x = 0 and (x = a)))
                                                              ^^^
-    \>\>\> try_parse('x = 0 and (x = 0 and (x = 0 and (x = 0)))')
+    >>> try_parse('x = 0 and (x = 0 and (x = 0 and (x = 0)))')
     Expected end of text (at char 6), (line:1, col:1): x = 0 and (x = 0 and (x = 0 and (xxxxxxxx = 0)))
                                                              ^^^
 
@@ -1618,7 +1619,7 @@ As an example, something like:
     Allow from 127.0.0.1, [/etc/allowed_ips]
 
 
-<ol><li>is there a way to have a 'anywhere' token</li><li>how can I have its results parsed within the context where its found?</li></ol>
+# is there a way to have a 'anywhere' token</li><li>how can I have its results parsed within the context where its found?</li></ol>
 
 
 ---
@@ -1633,33 +1634,33 @@ suppose the equation
 
 then output should be as
     
-c -\>a , b, value = 10
-a -\> value = 5
-b- \> value = 5
+c ->a , b, value = 10
+a -> value = 5
+b- > value = 5
 
 
 
 ---
 ## 2013-04-26 15:38:02 - DZaaaaaa - Problem with PGN example
 I was trying to adapt the PGN parser example to handle a file with multiple games. So I took the line 
-[code]
-pgnGrammar = Suppress(ZeroOrMore(tag))  + ZeroOrMore(move) + Suppress(game_terminator)
-[code]
+
+    pgnGrammar = Suppress(ZeroOrMore(tag))  + ZeroOrMore(move) + Suppress(game_terminator)
+
 and changed it to 
-[code]
-game = Suppress(ZeroOrMore(tag))  + ZeroOrMore(move) + Suppress(game_terminator)
-pgnGrammar = OneOrMore(game)
-[code]
+
+    game = Suppress(ZeroOrMore(tag))  + ZeroOrMore(move) + Suppress(game_terminator)
+    pgnGrammar = OneOrMore(game)
+
 
 And instead of parsing all the games in the file it just parses the first two games.
 
 If I try adding 'parseAll=True' to parseString() I get this error at the start of the 3rd game:
-[code]
-[Event 'Baden-Baden']
-^
-Expected end of text (at char 1280), (line:39, col:1)
-tokens =  None
-[code]
+
+    [Event 'Baden-Baden']
+    ^
+    Expected end of text (at char 1280), (line:39, col:1)
+    tokens =  None
+    
 
 How can I fix this error and parse an entire file full of games?
 
@@ -1706,10 +1707,16 @@ Abhijit
 
 ---
 ## 2013-05-14 07:30:20 - f.wilamo - Leading OneOrMore 
-If I use a [[OneOrMore(Word) + 'end']] the 'end' can not be detected, because 'end' is matched also by Word. If I change the order and put the 'end' in the beginning, of course parseString is working as expected. How can I parse a group of words (leading OneOrmOre(word)), but with a defined end ?
+If I use a `OneOrMore(Word) + 'end'` the 'end' can not be detected, because 'end' is matched also by Word. If I change the order and put the 'end' in the beginning, of course parseString is working as expected. How can I parse a group of words (leading OneOrmOre(word)), but with a defined end ?
 
 #### 2013-05-14 19:21:03 - ptmcg
-Well, think a little harder then about what you want 'one or more' of. You don't really want *any* word, you want any word that is not 'end'. So you need to add lookahead for your repeated word to make sure that the word you are about to parse inside the OneOrMore is not 'end'.  Try OneOrMore(~Keyword('end') + Word(alphas)) + 'end'  (I used Keyword instaed of Literal so that your lookahead wouldn't stop prematurely on words like 'endeavor' or 'endear'.)
+Well, think a little harder then about what you want 'one or more' of. You don't really 
+want *any* word, you want any word that is not 'end'. So you need to add lookahead for your 
+repeated word to make sure that the word you are about to parse inside the OneOrMore is 
+not 'end'.  Try `OneOrMore(~Keyword('end') + Word(alphas)) + 'end'`  
+(I used Keyword instaed of Literal so that your lookahead wouldn't stop prematurely on 
+words like 'endeavor' or 'endear'.)
+
 #### 2013-05-15 07:37:58 - f.wilamo
 Thanks a lot for you immediate help. It is working as you proposed.
 
@@ -1762,7 +1769,7 @@ Any thoughts on how to accomplish this?
 
 ---
 ## 2013-05-17 10:47:02 - mirk410 - Losing the tail-end of my expression
-I�m new to pyparsing so this is probably something I�m just missing the boat on� I am creating a script that will parse an expression and build an evaluation graph representing the expression.  Once generated, the graph will be evaluated against several data sets to determine if they meet the specified criteria.  I have reduced my grammar down to just Boolean operands:
+I'm new to pyparsing so this is probably something I'm just missing the boat on' I am creating a script that will parse an expression and build an evaluation graph representing the expression.  Once generated, the graph will be evaluated against several data sets to determine if they meet the specified criteria.  I have reduced my grammar down to just Boolean operands:
 
 
 
@@ -1786,51 +1793,51 @@ I�m new to pyparsing so this is probably something I�m just missing the boat
                          ])('EXPR')
 
 
-When I parse the string �True and True and False� my graph is missing the �and False� (the result is true when evaluating the graph). When I print the resulting  graph I get �True and True�.  When I run this through the debugger with a break point in the CEBoolOpNode <u>init</u> method, I am only seeing this invoked once.  I am passing �parseAll=True� when calling parseString.  
+When I parse the string 'True and True and False' my graph is missing the 'and False' (the result is true when evaluating the graph). When I print the resulting  graph I get 'True and True'.  When I run this through the debugger with a break point in the CEBoolOpNode <u>init</u> method, I am only seeing this invoked once.  I am passing 'parseAll=True' when calling parseString.  
 
 With setDebug() on AND_OP and BOOL_OPRD I get the following output:
 
 
 
     Match {'true' | 'false'} at loc 0(1,1)
-    Matched {'true' | 'false'} -\> ['true']
+    Matched {'true' | 'false'} -> ['true']
     Match 'and' at loc 4(1,5)
-    Matched 'and' -\> ['and']
+    Matched 'and' -> ['and']
     Match {'true' | 'false'} at loc 9(1,10)
-    Matched {'true' | 'false'} -\> ['true']
+    Matched {'true' | 'false'} -> ['true']
     Match {'true' | 'false'} at loc 0(1,1)
-    Matched {'true' | 'false'} -\> ['true']
+    Matched {'true' | 'false'} -> ['true']
     Match 'and' at loc 5(1,6)
-    Matched 'and' -\> ['and']
+    Matched 'and' -> ['and']
     Match {'true' | 'false'} at loc 9(1,10)
-    Matched {'true' | 'false'} -\> ['true']
+    Matched {'true' | 'false'} -> ['true']
     Match 'and' at loc 14(1,15)
-    Matched 'and' -\> ['and']
+    Matched 'and' -> ['and']
     Match {'true' | 'false'} at loc 18(1,19)
-    Matched {'true' | 'false'} -\> ['false']
+    Matched {'true' | 'false'} -> ['false']
     Match 'and' at loc 23(1,24)
     Exception raised:Expected 'and' (at char 23), (line:1, col:24)
     Match {'true' | 'false'} at loc 0(1,1)
-    Matched {'true' | 'false'} -\> ['true']
+    Matched {'true' | 'false'} -> ['true']
     Match 'and' at loc 4(1,5)
-    Matched 'and' -\> ['and']
+    Matched 'and' -> ['and']
     Match {'true' | 'false'} at loc 9(1,10)
-    Matched {'true' | 'false'} -\> ['true']
+    Matched {'true' | 'false'} -> ['true']
     Match {'true' | 'false'} at loc 0(1,1)
-    Matched {'true' | 'false'} -\> [\<__main__.CEBooleanNode object at 0xf7f0674c\>]
+    Matched {'true' | 'false'} -> [<__main__.CEBooleanNode object at 0xf7f0674c>]
     Match 'and' at loc 5(1,6)
-    Matched 'and' -\> ['and']
+    Matched 'and' -> ['and']
     Match {'true' | 'false'} at loc 9(1,10)
-    Matched {'true' | 'false'} -\> [\<__main__.CEBooleanNode object at 0xf7f06b8c\>]
+    Matched {'true' | 'false'} -> [<__main__.CEBooleanNode object at 0xf7f06b8c>]
     Match 'and' at loc 14(1,15)
-    Matched 'and' -\> ['and']
+    Matched 'and' -> ['and']
     Match {'true' | 'false'} at loc 18(1,19)
-    Matched {'true' | 'false'} -\> [\<__main__.CEBooleanNode object at 0xf7f06c8c\>]
+    Matched {'true' | 'false'} -> [<__main__.CEBooleanNode object at 0xf7f06c8c>]
     Match 'and' at loc 23(1,24)
     Exception raised:Expected 'and' (at char 23), (line:1, col:24)
 
 
-It appears to be seeing both �and� operators but the CEBoolOpNode <u>init</u> method appears to be only called once.  Does anything above look off?  The exception being raised may be a clue but I�m not sure what to make of it.  What I�m doing seems similar to the simpleBool example except that script works :^).
+It appears to be seeing both 'and' operators but the CEBoolOpNode <u>init</u> method appears to be only called once.  Does anything above look off?  The exception being raised may be a clue but I'm not sure what to make of it.  What I'm doing seems similar to the simpleBool example except that script works :^).
 
 One last data point, If I use parentheses it works: True and (True and False).  What am I missing? (This is already long so I did not include code but I can if needed)
 
@@ -1839,7 +1846,7 @@ Any help is greatly appreciated.
 -Andy
 
 #### 2013-05-17 11:29:28 - ptmcg
-When you parse a binary operation with operatorPrecedence such as 'a op b op c', you don't get this parsed as 2 binary groups 'a op b' and then the '\<result of a op b\> op c'.  You just get ['a', op, 'b', op, 'c'].  I suspect that your initializer for CEBoolOpNode just looks at the 0'th and 2nd terms of the parsed input - you have to look at all the alternating terms, as you would using the Python slice [0::2].  Look to see how this is done in the SimpleBool online example: .  (I made this same mistake in an early draft of my 'Getting Started with Pyparsing' book for O'Reilly, and only just caught and fixed it before final publication!)
+When you parse a binary operation with operatorPrecedence such as 'a op b op c', you don't get this parsed as 2 binary groups 'a op b' and then the '<result of a op b> op c'.  You just get ['a', op, 'b', op, 'c'].  I suspect that your initializer for CEBoolOpNode just looks at the 0'th and 2nd terms of the parsed input - you have to look at all the alternating terms, as you would using the Python slice [0::2].  Look to see how this is done in the SimpleBool online example: .  (I made this same mistake in an early draft of my 'Getting Started with Pyparsing' book for O'Reilly, and only just caught and fixed it before final publication!)
 
 If I guessed wrong on this, try taking out the parse actions of your operatorPrecedence call and dump out the results - if they still look incomplete, post this info back and we can look at it further.
 
@@ -1861,7 +1868,7 @@ I thought I'd follow up on how I resolved this in case anyone runs into this.  S
         maxOpIdx = len(tokens) - 2
         #| Process binary groups using the result of the current operator
         #| as the first operand to the next operator
-        while curOpIdx \<= maxOpIdx:
+        while curOpIdx <= maxOpIdx:
            newTokenList = [result, tokens[curOpIdx], tokens[curOpIdx + 1]]
            result = CEBoolOpNode(newTokenList)
            curOpIdx += 2
@@ -1871,13 +1878,11 @@ I'm relatively new to python so I'm sure there are some efficiencies to be had h
 
 ---
 ## 2013-05-19 13:29:32 - wilo108 - `searchString` works, but `parseString` throws an exception?
+
 I'm testing pyparsing for use with Chinese text.  I have constructed a very simple expression, of the form:
 
 
     expr = Word(... list of Chinese characters ...)
-
-
-
     expr.searchString(test_string)
 
 works as expected, but
@@ -1889,7 +1894,7 @@ throws
 
 
     Traceback (most recent call last):
-      File './pyparse_test.py', line 135, in \<module\>
+      File './pyparse_test.py', line 135, in <module>
         main()
       File './pyparse_test.py', line 100, in parse_test
         results = expr.parseString(test_string)
@@ -1906,7 +1911,7 @@ thanks!
 hmm -- okay, I see the problem now.  My grammar wasn't correct, but it seems there's a bug whereby I didn't see the
 
 
-    Expected W:(\<something\>...) (at char 4), (line:1, col:5)
+    Expected W:(<something>...) (at char 4), (line:1, col:5)
 
 which I should have.  could it be because of the non-ascii stuff?
 
@@ -1973,45 +1978,45 @@ Hello, I am trying to parse a CLIPS-like grammar in Python using PyParsing.
 
 The piece of code I am having problem with is:
 
-import pyparsing as pp
-
-...other pyparsing tokens definitions
-
-CONNECTED_CONSTRAINT = pp.Forward()
-
-TERM = CONSTANT | SINGLEFIELD_VARIABLE | MULTIFIELD_VARIABLE | pp.Literal(':') + FUNCTION_CALL | pp.Literal('=') + FUNCTION_CALL
-
-SINGLE_CONSTRAINT = TERM | pp.Literal('~') + TERM
-
-CONNECTED_CONSTRAINT \<\< SINGLE_CONSTRAINT | SINGLE_CONSTRAINT + pp.Literal('&') + CONNECTED_CONSTRAINT
-
-CONSTRAINT = pp.Literal('?') | pp.Literal('$?') | CONNECTED_CONSTRAINT
-
-ORDERED_PATTERN_CE = OB + SYMBOL + pp.ZeroOrMore(CONSTRAINT) + CB
-
-PATTERN_CE = ORDERED_PATTERN_CE
-
-CONDITIONAL_ELEMENT = PATTERN_CE
+    import pyparsing as pp
+    
+    ...other pyparsing tokens definitions
+    
+    CONNECTED_CONSTRAINT = pp.Forward()
+    
+    TERM = CONSTANT | SINGLEFIELD_VARIABLE | MULTIFIELD_VARIABLE | pp.Literal(':') + FUNCTION_CALL | pp.Literal('=') + FUNCTION_CALL
+    
+    SINGLE_CONSTRAINT = TERM | pp.Literal('~') + TERM
+    
+    CONNECTED_CONSTRAINT << SINGLE_CONSTRAINT | SINGLE_CONSTRAINT + pp.Literal('&') + CONNECTED_CONSTRAINT
+    
+    CONSTRAINT = pp.Literal('?') | pp.Literal('$?') | CONNECTED_CONSTRAINT
+    
+    ORDERED_PATTERN_CE = OB + SYMBOL + pp.ZeroOrMore(CONSTRAINT) + CB
+    
+    PATTERN_CE = ORDERED_PATTERN_CE
+    
+    CONDITIONAL_ELEMENT = PATTERN_CE
 
 I have omitted the definition of some parts of the grammar because they are too long.
 
 The problem is that the interpreter gives me this strange error:
 
-SyntaxWarning: Cannot combine element of type with ParserElement CONNECTED_CONSTRAINT \<\< SINGLE_CONSTRAINT | SINGLE_CONSTRAINT + pp.Literal('&') + CONNECTED_CONSTRAINT
+    SyntaxWarning: Cannot combine element of type with ParserElement CONNECTED_CONSTRAINT << SINGLE_CONSTRAINT | SINGLE_CONSTRAINT + pp.Literal('&') + CONNECTED_CONSTRAINT
 
 I have noticed that if I write:
 
-CONNECTED_CONSTRAINT \<\< SINGLE_CONSTRAINT
+    CONNECTED_CONSTRAINT << SINGLE_CONSTRAINT
 
 instead of:
 
-CONNECTED_CONSTRAINT \<\< SINGLE_CONSTRAINT | SINGLE_CONSTRAINT + pp.Literal('&') + CONNECTED_CONSTRAINT
+    CONNECTED_CONSTRAINT << SINGLE_CONSTRAINT | SINGLE_CONSTRAINT + pp.Literal('&') + CONNECTED_CONSTRAINT
 
 It works without problems.
 
 However even if I write something like this:
 
-CONNECTED_CONSTRAINT \<\< SINGLE_CONSTRAINT | pp.Literal('test')
+    CONNECTED_CONSTRAINT << SINGLE_CONSTRAINT | pp.Literal('test')
 
 It does not work.
 
@@ -2024,9 +2029,11 @@ Thank you.
 #### 2013-05-22 07:47:28 - HumbertMason
 Problem solved!
 
-I had to write something like CONNECTED_CONSTRAINT \<\< (SINGLE_CONSTRAINT | SINGLE_CONSTRAINT + pp.Literal('&') + CONNECTED_CONSTRAINT).
+I had to write something like 
 
-This is because the operator '|' has lower precedence than the operator '\<\<'.
+    CONNECTED_CONSTRAINT << (SINGLE_CONSTRAINT | SINGLE_CONSTRAINT + pp.Literal('&') + CONNECTED_CONSTRAINT).
+
+This is because the operator '|' has lower precedence than the operator '<<'.
 
 I thought it was a problem of my grammar.
 
@@ -2112,9 +2119,12 @@ HTH,
 it seems to me that the binding power of the operators in the example simplebool.py is in the wrong order. AND should bind stronger than OR, right ? 
 
 Instead of 
-[[boolExpr = operatorPrecedence( boolOperand,    [    ('not', 1, opAssoc.RIGHT, BoolNot),    ('or',  2, opAssoc.LEFT,  BoolOr),    ('and', 2, opAssoc.LEFT,  BoolAnd),    ])]]
+
+    [[boolExpr = operatorPrecedence( boolOperand,    [    ('not', 1, opAssoc.RIGHT, BoolNot),    ('or',  2, opAssoc.LEFT,  BoolOr),    ('and', 2, opAssoc.LEFT,  BoolAnd),    ])]]
+
 it should be
-[[boolExpr = operatorPrecedence( boolOperand,    [    ('not', 1, opAssoc.RIGHT, BoolNot),    ('and', 2, opAssoc.LEFT,  BoolAnd),    ('or',  2, opAssoc.LEFT,  BoolOr),    ])]]
+
+    [[boolExpr = operatorPrecedence( boolOperand,    [    ('not', 1, opAssoc.RIGHT, BoolNot),    ('and', 2, opAssoc.LEFT,  BoolAnd),    ('or',  2, opAssoc.LEFT,  BoolOr),    ])]]
 
 best,
 L
@@ -2123,23 +2133,26 @@ L
 oops, wrong format..
 Instead of
 
-[[boolExpr = operatorPrecedence( boolOperand, [ ('not', 1, opAssoc.RIGHT, BoolNot), ('or', 2, opAssoc.LEFT, BoolOr), ('and', 2, opAssoc.LEFT, BoolAnd), ])]]
+    [[boolExpr = operatorPrecedence( boolOperand, [ ('not', 1, opAssoc.RIGHT, BoolNot), ('or', 2, opAssoc.LEFT, BoolOr), ('and', 2, opAssoc.LEFT, BoolAnd), ])]]
 
 it should be
 
-[[boolExpr = operatorPrecedence( boolOperand, [ ('not', 1, opAssoc.RIGHT, BoolNot), ('and', 2, opAssoc.LEFT, BoolAnd), ('or', 2, opAssoc.LEFT, BoolOr), ])]]
+    [[boolExpr = operatorPrecedence( boolOperand, [ ('not', 1, opAssoc.RIGHT, BoolNot), ('and', 2, opAssoc.LEFT, BoolAnd), ('or', 2, opAssoc.LEFT, BoolOr), ])]]
+
 #### 2013-06-04 01:55:33 - Leevi3
 urg, no preview..
 #### 2013-06-04 01:58:43 - Leevi3
 Instead of
 
-[[boolExpr = operatorPrecedence( boolOperand,    [ ('not', 1, opAssoc.RIGHT, BoolNot),      ('or', 2, opAssoc.LEFT, BoolOr),      ('and', 2, opAssoc.LEFT, BoolAnd), ])]]
+    [[boolExpr = operatorPrecedence( boolOperand,    [ ('not', 1, opAssoc.RIGHT, BoolNot),      ('or', 2, opAssoc.LEFT, BoolOr),      ('and', 2, opAssoc.LEFT, BoolAnd), ])]]
 
 it should be
 
-[[boolExpr = operatorPrecedence( boolOperand,     [ ('not', 1, opAssoc.RIGHT, BoolNot),       ('and', 2, opAssoc.LEFT, BoolAnd),       ('or', 2, opAssoc.LEFT, BoolOr), ])]]
+    [[boolExpr = operatorPrecedence( boolOperand,     [ ('not', 1, opAssoc.RIGHT, BoolNot),       ('and', 2, opAssoc.LEFT, BoolAnd),       ('or', 2, opAssoc.LEFT, BoolOr), ])]]
+
 #### 2013-06-04 01:58:50 - Leevi3
 i give up..
+
 #### 2013-07-17 00:14:09 - ptmcg
 Thanks for sticking with this - you need to surround your code samples with the tag [[code]] on a line of its own, before and after your code sample - like this:
 
@@ -2192,7 +2205,7 @@ I essentially need to extract all the data from a C function implementation and 
     
     #define function and arg components
     ctype = cname = Word(alphanums+'_')
-    cvar = Word(alphanums+'_'+'&'+'*'+'-\>'+'-'+'['+']'+'.') | dblQuotedString
+    cvar = Word(alphanums+'_'+'&'+'*'+'->'+'-'+'['+']'+'.') | dblQuotedString
     
     #define function declarations
     func = ctype + Optional('*') + cname 
@@ -2204,7 +2217,7 @@ I essentially need to extract all the data from a C function implementation and 
     
     cFuntionCall = func + LPAREN + (Optional(delimitedList(cvar) | cvar) ) + RPAREN
     
-    cOperator = oneOf('+ - * / % == != \> \< \>= \<= ! && || ~ & | ^ \<\< \>\>')
+    cOperator = oneOf('+ - * / % == != > < >= <= ! && || ~ & | ^ << >>')
     
     cExpression = ((OneOrMore(ctype|cvar) + cOperator + OneOrMore(ctype|cvar|cFuntionCall)) | cFuntionCall) + SEMI
     
@@ -2230,10 +2243,12 @@ Thank you for the advice on nestedExpr() function, this is very useful, however 
 Thanks for the help Paul, pyparsing is fantastic!
 #### 2013-06-26 10:48:26 - ecesurfer
 Sorry for the 'code' typo:
-cFuntionCall = cname.setResultsName('name') + \
-                        LPAREN + \
-                        Group((Optional(delimitedList(cvar)) | Optional(cvar) )).setResultsName('args') + /       
-                        RPAREN + Optional(SEMI)
+
+    cFuntionCall = cname.setResultsName('name') + \
+                            LPAREN + \
+                            Group((Optional(delimitedList(cvar)) | Optional(cvar) )).setResultsName('args') + /       
+                            RPAREN + Optional(SEMI)
+
 #### 2013-07-21 08:47:45 - ptmcg
 Good deal! A couple other tips:
 
@@ -2318,26 +2333,26 @@ This is the output it generates :
     ================================================================================ 
     
     
-    \<Correct\>
-      \<alltags_inst\>
-        \<tag1_inst\>tag1 example\</tag1_inst\>
-        \<tag2_inst\>tag2 example\</tag2_inst\>
-        \<tag3_inst\>tag3 example\</tag3_inst\>
-      \</alltags_inst\>
-    \</Correct\>
+    <Correct>
+      <alltags_inst>
+        <tag1_inst>tag1 example</tag1_inst>
+        <tag2_inst>tag2 example</tag2_inst>
+        <tag3_inst>tag3 example</tag3_inst>
+      </alltags_inst>
+    </Correct>
     ================================================================================ 
     
     
-    \<Incorrect - the first tag1 example is named as a tag3_inst instead of as a tag1_inst\>
-      \<alltags_inst\>
-        \<tag3_inst\>tag1 example\</tag3_inst\>
-        \<tag2_inst\>tag2 example\</tag2_inst\>
-        \<tag3_inst\>tag3 example\</tag3_inst\>
-        \<tag1_inst\>tag1 example\</tag1_inst\>
-        \<tag2_inst\>tag2 example\</tag2_inst\>
-        \<tag3_inst\>tag3 example\</tag3_inst\>
-      \</alltags_inst\>
-    \</Incorrect - the first tag1 example is named as a tag3_inst instead of as a tag1_inst\>
+    <Incorrect - the first tag1 example is named as a tag3_inst instead of as a tag1_inst>
+      <alltags_inst>
+        <tag3_inst>tag1 example</tag3_inst>
+        <tag2_inst>tag2 example</tag2_inst>
+        <tag3_inst>tag3 example</tag3_inst>
+        <tag1_inst>tag1 example</tag1_inst>
+        <tag2_inst>tag2 example</tag2_inst>
+        <tag3_inst>tag3 example</tag3_inst>
+      </alltags_inst>
+    </Incorrect - the first tag1 example is named as a tag3_inst instead of as a tag1_inst>
     ================================================================================ 
     
     I think there is problem with the naming of multiple duplicated components
@@ -2462,22 +2477,22 @@ The output becomes
     ================================================================================ 
     
     
-    \<Correct\>
-      \<tag1_inst\>tag1 example\</tag1_inst\>
-      \<tag2_inst\>tag2 example\</tag2_inst\>
-      \<tag3_inst\>tag3 example\</tag3_inst\>
-    \</Correct\>
+    <Correct>
+      <tag1_inst>tag1 example</tag1_inst>
+      <tag2_inst>tag2 example</tag2_inst>
+      <tag3_inst>tag3 example</tag3_inst>
+    </Correct>
     ================================================================================ 
     
     
-    \<Also correct now\>
-      \<tag1_inst\>tag1 example\</tag1_inst\>
-      \<tag2_inst\>tag2 example\</tag2_inst\>
-      \<tag3_inst\>tag3 example\</tag3_inst\>
-      \<tag1_inst\>tag1 example2\</tag1_inst\>
-      \<tag2_inst\>tag2 example2\</tag2_inst\>
-      \<tag3_inst\>tag3 example2\</tag3_inst\>
-    \</Also correct now\>
+    <Also correct now>
+      <tag1_inst>tag1 example</tag1_inst>
+      <tag2_inst>tag2 example</tag2_inst>
+      <tag3_inst>tag3 example</tag3_inst>
+      <tag1_inst>tag1 example2</tag1_inst>
+      <tag2_inst>tag2 example2</tag2_inst>
+      <tag3_inst>tag3 example2</tag3_inst>
+    </Also correct now>
     ================================================================================ 
 
 
@@ -2571,10 +2586,15 @@ In summary, pyparsing works with parsing an entire string of data, not any kind 
 
 ---
 ## 2013-08-03 11:13:51 - EldritchCheese - Unexpected result using setParseAction
-First, the intended grammar.  I want to be able to have a list of options, each contained within a given list.  For example, I would like to be able to specify '[15, 16] {Name, OtherName} [42]' and receive out a dictionary of '[]'-\>[15,16,42] and '{}'-\>['Name','OtherName'].  My goal is for each of the lists to be of arbitrary items in the least.  In addition, items in separate lists with the same delimiter should be combined together into a single list.
+First, the intended grammar.  I want to be able to have a list of options, each contained within 
+a given list.  
+
+For example, I would like to be able to specify `'[15, 16] {Name, OtherName} [42]'` and receive 
+out a dictionary of `'[]'->[15,16,42]` and `'{}'->['Name','OtherName']`.  My goal is for each 
+of the lists to be of arbitrary items in the least.  In addition, items in separate lists 
+with the same delimiter should be combined together into a single list.
 
 I have this working in most cases as follows.
-
 
 
     #!/usr/bin/env python                                                                                                                                    
@@ -2618,7 +2638,7 @@ My tests for this are as follows.
     
     itemListing = itemOptions(name,'{}',
                               num,'[]',
-                              pair,'\<\>')
+                              pair,'<>')
     
     print itemListing.parseString(
         '{NameOne, NameTwo} [42, 1971] {NameThree}')
@@ -2627,9 +2647,9 @@ My tests for this are as follows.
     #Received expected result.                                                                                                                               
     
     print itemListing.parseString(
-        '\<NameOne 1, NameTwo 2\>')
-    #Expected { '\<\>': [('NameOne', 1), ('NameTwo', 2)] }                                                                                                     
-    #Received { '\<\>': ['NameOne', 'NameTwo'] }                                                                                                               
+        '<NameOne 1, NameTwo 2>')
+    #Expected { '<>': [('NameOne', 1), ('NameTwo', 2)] }                                                                                                     
+    #Received { '<>': ['NameOne', 'NameTwo'] }                                                                                                               
     
     print pair.parseString('NameOne 1')
     #Expected [('NameOne', 1)]                                                                                                                               
@@ -2733,7 +2753,7 @@ HTH,
     
     featureBlock = Forward()
     
-    featureBlock \<\< Group(ident('type') + ident('name') + 
+    featureBlock << Group(ident('type') + ident('name') + 
                             tBlockStart + Optional(featureBlock, [])('content') + tBlockEnd + 
                             ident('name2') + tTerminator)
     
@@ -2781,19 +2801,19 @@ Can you post some more details? pyparsing 2.0.0 would not install with Python 2.
 I have a parsing action that returns a collections.defaultdict as its output.  However, I am getting strange results when I try to name this parsing action.  A proof of concept code is shown below.
 
 
-#!/usr/bin/env python
-
-from pyparsing import *
-from collections import defaultdict
-
-parser = Word(alphanums).setParseAction(lambda m: defaultdict(int,key=m[0]))
-result = parser.parseString('hello')
-print result[0]
-
-parser = Word(alphanums).setParseAction(lambda m: defaultdict(int,key=m[0])).setResultsName('named')
-result = parser.parseString('hello')
-print result[0]
-print result['named']
+    #!/usr/bin/env python
+    
+    from pyparsing import *
+    from collections import defaultdict
+    
+    parser = Word(alphanums).setParseAction(lambda m: defaultdict(int,key=m[0]))
+    result = parser.parseString('hello')
+    print result[0]
+    
+    parser = Word(alphanums).setParseAction(lambda m: defaultdict(int,key=m[0])).setResultsName('named')
+    result = parser.parseString('hello')
+    print result[0]
+    print result['named']
 
 
 I would expect each of the three print statements to produce the same output.  However, each returns a different output entirely.  The first is the expected result, of a defaultdict with a single key-value pair, ('key', 'hello').  The second form shows a defaultdict with an additional key-value pair, (0, 0).  The third returns only the values 0.  As far as I can tell, when building the dictionary of names, pyparsing checks accesses the dictionary with key 0, creating the additional entry.  The result of calling this in then placed into the named dictionary.
@@ -2841,29 +2861,30 @@ Ah, thank you.  This is part of the macro that I asked about in the earlier ques
 ---
 ## 2013-09-12 00:14:38 - strzmiele - simpleBool
 Hallo, i have problems with simpleBool.py. When itry to solve equation wwchich is build only by one variable and it is set to False I get result True. For example:
-p = True q = False
-<hr />
-p
-p = True
-<hr />
-q
-q = True
-<hr />
-not p
-~p = False
-<hr />
-p and q
-(p & q) = False
-<hr />
-p and not q
-(p & ~q) = True
-<hr />
-not not p
-~~p = True
-<hr />
-not(p and p)
-~(p & p) = False
-<hr />
+
+    p = True q = False
+    ---
+    p
+    p = True
+    ---
+    q
+    q = True
+    ---
+    not p
+    ~p = False
+    ---
+    p and q
+    (p & q) = False
+    ---
+    p and not q
+    (p & ~q) = True
+    ---
+    not not p
+    ~~p = True
+    ---
+    not(p and p)
+    ~(p & p) = False
+    ---
  
 How can I correct this bug ?
 
@@ -2893,12 +2914,12 @@ And this is an example:
     r = False
     print 'p =', p
     print 'q =', q
-    print '\<br\>'
+    print '<br>'
     for t in test:
         res = boolExpr.parseString(t)[0]
-        print t,'\<br\>', res, '=', bool(res),'\<br\>'
-        #print 'res', res, '\<br\>'
-        print '----------------\<br\>'
+        print t,'<br>', res, '=', bool(res),'<br>'
+        #print 'res', res, '<br>'
+        print '----------------<br>'
 
 
 #### 2013-09-14 04:49:10 - ptmcg
@@ -2954,7 +2975,7 @@ Don't confuse what a term *is* versus how it is *used*. For instance, let's say 
 
 
     integer = Word(nums)
-        integer.parseString('x')
+    integer.parseString('x')
 
 
 When we pass a bad value to the parser, we get this ugly-looking message:
@@ -3327,7 +3348,7 @@ All -
 
 I was getting an error when calling pfe.markInputline().  It looks like the error is here:
 
-    def markInputline( self, markerString = '\>!\<' ):
+    def markInputline( self, markerString = '>!<' ):
         '''Extracts the exception line from the input string, and marks
            the location of the exception with a special symbol.
         '''
@@ -3359,11 +3380,13 @@ I'm trying to build a partial parser for a programming language that extracts on
     assign
     END-IF
     [[code]],
-    [[code]]assign[[code]] is an assignment, and [[code]]ignore[[code]] is some other statement I would like to skip. My naive attempt (without nesting for now) is
+    
+`assign` is an assignment, and `ignore` is some other statement I would like to skip. My 
+naive attempt (without nesting for now) is
 
-ignore = SkipTo(assign | Literal('ELSE') | Literal('END-IF')).suppress()
-stmt = OneOrMore(assign | ignore)
-cond = Literal('IF') + formula + stmt + Literal('ELSE') + stmt + Literal('END-IF')
+    ignore = SkipTo(assign | Literal('ELSE') | Literal('END-IF')).suppress()
+    stmt = OneOrMore(assign | ignore)
+    cond = Literal('IF') + formula + stmt + Literal('ELSE') + stmt + Literal('END-IF')
 
 which results in an infinite loop. I already played around with the include parameter and with setParseAction but I can't get it to work.
 
