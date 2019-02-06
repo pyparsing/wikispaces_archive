@@ -1,50 +1,59 @@
-[2013-01-02 09:24:04 - hetsch - Pyparsing sequence of repeating pattern](.#2013-01-02-092404---hetsch---pyparsing-sequence-of-repeating-pattern)  
-[2013-01-10 11:37:16 - Horus107 - Problem with recursive grammar](.#2013-01-10-113716---horus107---problem-with-recursive-grammar)  
-[2013-01-17 01:14:02 - Horus107 - Complete conversion to dict](.#2013-01-17-011402---horus107---complete-conversion-to-dict)  
-[2013-01-31 07:43:44 - Djeendo - KeyValues to JSON converter](.#2013-01-31-074344---djeendo---keyvalues-to-json-converter)  
-[2013-02-02 07:53:25 - cdegenkolb - keep whitespaces in found expressions](.#2013-02-02-075325---cdegenkolb---keep-whitespaces-in-found-expressions)  
-[2013-02-05 10:15:16 - pulsa82 - lineno() slow for large files](.#2013-02-05-101516---pulsa82---lineno-slow-for-large-files)  
-[2013-02-06 00:07:45 - egabancho - Parse longest match inside "and" expresion](.#2013-02-06-000745---egabancho---parse-longest-match-inside-"and"-expresion)  
-[2013-02-11 00:51:12 - sniper228 - Parsing Basic Block](.#2013-02-11-005112---sniper228---parsing-basic-block)  
-[2013-02-20 05:35:09 - xeo4 - recursion limit exceeded problem with recursive grammar](.#2013-02-20-053509---xeo4---recursion-limit-exceeded-problem-with-recursive-grammar)  
-[2013-02-26 03:01:35 - josandres - Combine elements in an arbitrary order](.#2013-02-26-030135---josandres---combine-elements-in-an-arbitrary-order)  
-[2013-02-27 11:10:35 - lianjunj - pyparsing performance expectation?](.#2013-02-27-111035---lianjunj---pyparsing-performance-expectation)  
-[2013-02-28 07:05:23 - elphono - Keyword that matches ONLY keyword](.#2013-02-28-070523---elphono---keyword-that-matches-only-keyword)  
-[2013-03-04 08:28:07 - veli9999 - need to identify functions and ignore every other thing in a file](.#2013-03-04-082807---veli9999---need-to-identify-functions-and-ignore-every-other-thing-in-a-file)  
-[2013-03-05 00:53:01 - kmbt - setDefaultWhitespaceChars not woring for anyOpenTag\/anyCloseTag?](.#2013-03-05-005301---kmbt---setdefaultwhitespacechars-not-woring-for-anyopentag\anyclosetag)  
-[2013-03-11 05:02:15 - gordonschulz - Usage of Each()\/heterogeneous file](.#2013-03-11-050215---gordonschulz---usage-of-each\heterogeneous-file)  
-[2013-04-04 07:08:58 - peyguin - Odd parser behaviour](.#2013-04-04-070858---peyguin---odd-parser-behaviour)  
-[2013-04-10 01:02:02 - multani0 - How to improve error messages?](.#2013-04-10-010202---multani0---how-to-improve-error-messages)  
-[2013-04-10 07:42:13 - jonotoronto - MIDL Parser](.#2013-04-10-074213---jonotoronto---midl-parser)  
-[2013-04-15 07:27:23 - clintpriest - Include file and parse?](.#2013-04-15-072723---clintpriest---include-file-and-parse)  
-[2013-04-22 06:53:35 - sniper228 - Calculating Variable Dependency](.#2013-04-22-065335---sniper228---calculating-variable-dependency)  
-[2013-04-26 15:38:02 - DZaaaaaa - Problem with PGN example](.#2013-04-26-153802---dzaaaaaa---problem-with-pgn-example)  
-[2013-05-09 07:30:35 - abhijitbhatt2003 - Parsing configuration file](.#2013-05-09-073035---abhijitbhatt2003---parsing-configuration-file)  
-[2013-05-14 07:30:20 - f.wilamo - Leading OneOrMore ](.#2013-05-14-073020---fwilamo---leading-oneormore-)  
-[2013-05-17 00:28:07 - pschwaha - use OrderedDict](.#2013-05-17-002807---pschwaha---use-ordereddict)  
-[2013-05-17 06:26:56 - AlphaPrime - Only Allow One NOT](.#2013-05-17-062656---alphaprime---only-allow-one-not)  
-[2013-05-17 10:47:02 - mirk410 - Losing the tail-end of my expression](.#2013-05-17-104702---mirk410---losing-the-tail-end-of-my-expression)  
-[2013-05-19 13:29:32 - wilo108 - `searchString` works, but `parseString` throws an exception?](.#2013-05-19-132932---wilo108---`searchstring`-works-but-`parsestring`-throws-an-exception)  
-[2013-05-21 09:11:53 - mirk410 - Escaping delimiter character](.#2013-05-21-091153---mirk410---escaping-delimiter-character)  
-[2013-05-22 07:29:33 - HumbertMason - Strange warning declaring a simple PyParsing recursive grammar in Python](.#2013-05-22-072933---humbertmason---strange-warning-declaring-a-simple-pyparsing-recursive-grammar-in-python)  
-[2013-05-23 10:07:16 - t1m0 - setResultsName bug or misunderstanding](.#2013-05-23-100716---t1m0---setresultsname-bug-or-misunderstanding)  
-[2013-06-04 01:53:06 - Leevi3 - simple bool operator precedence](.#2013-06-04-015306---leevi3---simple-bool-operator-precedence)  
-[2013-06-13 02:02:38 - termopro - Trying to find an address in text](.#2013-06-13-020238---termopro---trying-to-find-an-address-in-text)  
-[2013-06-24 17:12:37 - ecesurfer - Parsing C Function Implementation](.#2013-06-24-171237---ecesurfer---parsing-c-function-implementation)  
-[2013-06-30 20:00:57 - geoff-99 - Problem with tag names created by asXML](.#2013-06-30-200057---geoff-99---problem-with-tag-names-created-by-asxml)  
-[2013-07-12 17:15:34 - Errglefloot_the_Enormous - What is the best method for parsing large files?](.#2013-07-12-171534---errglefloot_the_enormous---what-is-the-best-method-for-parsing-large-files)  
-[2013-08-03 11:13:51 - EldritchCheese - Unexpected result using setParseAction](.#2013-08-03-111351---eldritchcheese---unexpected-result-using-setparseaction)  
-[2013-08-09 10:52:17 - typesupply - Tips for parsing block with conditional ending?](.#2013-08-09-105217---typesupply---tips-for-parsing-block-with-conditional-ending)  
-[2013-08-29 09:14:50 - usysinc - Install failed with Python2.6 on Windows7](.#2013-08-29-091450---usysinc---install-failed-with-python26-on-windows7)  
-[2013-09-07 07:55:12 - EldritchCheese - defaultdict and setResultsName](.#2013-09-07-075512---eldritchcheese---defaultdict-and-setresultsname)  
-[2013-09-12 00:14:38 - strzmiele - simpleBool](.#2013-09-12-001438---strzmiele---simplebool)  
-[2013-09-12 11:21:10 - bbaldino1 - setResultsName best practices?](.#2013-09-12-112110---bbaldino1---setresultsname-best-practices)  
-[2013-09-15 12:29:55 - sorenh - Problem with select_parser](.#2013-09-15-122955---sorenh---problem-with-select_parser)  
-[2013-09-19 12:22:04 - bbaldino1 - Yet another question 'Group' usage](.#2013-09-19-122204---bbaldino1---yet-another-question-group-usage)  
-[2013-10-23 11:54:25 - pjennings1234 - ParseSyntaxException isn't always fatal](.#2013-10-23-115425---pjennings1234---parsesyntaxexception-isnt-always-fatal)  
-[2013-10-24 02:07:47 - israkir - Parsing nested parenthesis producing multiple parsing results](.#2013-10-24-020747---israkir---parsing-nested-parenthesis-producing-multiple-parsing-results)  
-[2013-12-02 14:40:46 - acomfygeek - pfe.markInputline()](.#2013-12-02-144046---acomfygeek---pfemarkinputline)  
-[2013-12-08 22:39:31 - kwos - Partial parser](.#2013-12-08-223931---kwos---partial-parser)  
+## Pyparsing Wikispaces Discussion - 2013
+
+[Note: these entries are fairly old, and predate many new features of pyparsing,
+and are predominantly coded using Python 2.
+They are captured here for historical benefit, but may not contain
+the most current practices or features. We will try to add editor
+notes to entries to indicate when discussions have been 
+overtaken by development events.]
+
+[2013-01-02 09:24:04 - hetsch - Pyparsing sequence of repeating pattern](all_wiki_discussion_toc_2013.md#2013-01-02-092404---hetsch---pyparsing-sequence-of-repeating-pattern)  
+[2013-01-10 11:37:16 - Horus107 - Problem with recursive grammar](all_wiki_discussion_toc_2013.md#2013-01-10-113716---horus107---problem-with-recursive-grammar)  
+[2013-01-17 01:14:02 - Horus107 - Complete conversion to dict](all_wiki_discussion_toc_2013.md#2013-01-17-011402---horus107---complete-conversion-to-dict)  
+[2013-01-31 07:43:44 - Djeendo - KeyValues to JSON converter](all_wiki_discussion_toc_2013.md#2013-01-31-074344---djeendo---keyvalues-to-json-converter)  
+[2013-02-02 07:53:25 - cdegenkolb - keep whitespaces in found expressions](all_wiki_discussion_toc_2013.md#2013-02-02-075325---cdegenkolb---keep-whitespaces-in-found-expressions)  
+[2013-02-05 10:15:16 - pulsa82 - lineno() slow for large files](all_wiki_discussion_toc_2013.md#2013-02-05-101516---pulsa82---lineno-slow-for-large-files)  
+[2013-02-06 00:07:45 - egabancho - Parse longest match inside "and" expresion](all_wiki_discussion_toc_2013.md#2013-02-06-000745---egabancho---parse-longest-match-inside-"and"-expresion)  
+[2013-02-11 00:51:12 - sniper228 - Parsing Basic Block](all_wiki_discussion_toc_2013.md#2013-02-11-005112---sniper228---parsing-basic-block)  
+[2013-02-20 05:35:09 - xeo4 - recursion limit exceeded problem with recursive grammar](all_wiki_discussion_toc_2013.md#2013-02-20-053509---xeo4---recursion-limit-exceeded-problem-with-recursive-grammar)  
+[2013-02-26 03:01:35 - josandres - Combine elements in an arbitrary order](all_wiki_discussion_toc_2013.md#2013-02-26-030135---josandres---combine-elements-in-an-arbitrary-order)  
+[2013-02-27 11:10:35 - lianjunj - pyparsing performance expectation?](all_wiki_discussion_toc_2013.md#2013-02-27-111035---lianjunj---pyparsing-performance-expectation)  
+[2013-02-28 07:05:23 - elphono - Keyword that matches ONLY keyword](all_wiki_discussion_toc_2013.md#2013-02-28-070523---elphono---keyword-that-matches-only-keyword)  
+[2013-03-04 08:28:07 - veli9999 - need to identify functions and ignore every other thing in a file](all_wiki_discussion_toc_2013.md#2013-03-04-082807---veli9999---need-to-identify-functions-and-ignore-every-other-thing-in-a-file)  
+[2013-03-05 00:53:01 - kmbt - setDefaultWhitespaceChars not woring for anyOpenTag\/anyCloseTag?](all_wiki_discussion_toc_2013.md#2013-03-05-005301---kmbt---setdefaultwhitespacechars-not-woring-for-anyopentag\anyclosetag)  
+[2013-03-11 05:02:15 - gordonschulz - Usage of Each()\/heterogeneous file](all_wiki_discussion_toc_2013.md#2013-03-11-050215---gordonschulz---usage-of-each\heterogeneous-file)  
+[2013-04-04 07:08:58 - peyguin - Odd parser behaviour](all_wiki_discussion_toc_2013.md#2013-04-04-070858---peyguin---odd-parser-behaviour)  
+[2013-04-10 01:02:02 - multani0 - How to improve error messages?](all_wiki_discussion_toc_2013.md#2013-04-10-010202---multani0---how-to-improve-error-messages)  
+[2013-04-10 07:42:13 - jonotoronto - MIDL Parser](all_wiki_discussion_toc_2013.md#2013-04-10-074213---jonotoronto---midl-parser)  
+[2013-04-15 07:27:23 - clintpriest - Include file and parse?](all_wiki_discussion_toc_2013.md#2013-04-15-072723---clintpriest---include-file-and-parse)  
+[2013-04-22 06:53:35 - sniper228 - Calculating Variable Dependency](all_wiki_discussion_toc_2013.md#2013-04-22-065335---sniper228---calculating-variable-dependency)  
+[2013-04-26 15:38:02 - DZaaaaaa - Problem with PGN example](all_wiki_discussion_toc_2013.md#2013-04-26-153802---dzaaaaaa---problem-with-pgn-example)  
+[2013-05-09 07:30:35 - abhijitbhatt2003 - Parsing configuration file](all_wiki_discussion_toc_2013.md#2013-05-09-073035---abhijitbhatt2003---parsing-configuration-file)  
+[2013-05-14 07:30:20 - f.wilamo - Leading OneOrMore ](all_wiki_discussion_toc_2013.md#2013-05-14-073020---fwilamo---leading-oneormore-)  
+[2013-05-17 00:28:07 - pschwaha - use OrderedDict](all_wiki_discussion_toc_2013.md#2013-05-17-002807---pschwaha---use-ordereddict)  
+[2013-05-17 06:26:56 - AlphaPrime - Only Allow One NOT](all_wiki_discussion_toc_2013.md#2013-05-17-062656---alphaprime---only-allow-one-not)  
+[2013-05-17 10:47:02 - mirk410 - Losing the tail-end of my expression](all_wiki_discussion_toc_2013.md#2013-05-17-104702---mirk410---losing-the-tail-end-of-my-expression)  
+[2013-05-19 13:29:32 - wilo108 - `searchString` works, but `parseString` throws an exception?](all_wiki_discussion_toc_2013.md#2013-05-19-132932---wilo108---`searchstring`-works-but-`parsestring`-throws-an-exception)  
+[2013-05-21 09:11:53 - mirk410 - Escaping delimiter character](all_wiki_discussion_toc_2013.md#2013-05-21-091153---mirk410---escaping-delimiter-character)  
+[2013-05-22 07:29:33 - HumbertMason - Strange warning declaring a simple PyParsing recursive grammar in Python](all_wiki_discussion_toc_2013.md#2013-05-22-072933---humbertmason---strange-warning-declaring-a-simple-pyparsing-recursive-grammar-in-python)  
+[2013-05-23 10:07:16 - t1m0 - setResultsName bug or misunderstanding](all_wiki_discussion_toc_2013.md#2013-05-23-100716---t1m0---setresultsname-bug-or-misunderstanding)  
+[2013-06-04 01:53:06 - Leevi3 - simple bool operator precedence](all_wiki_discussion_toc_2013.md#2013-06-04-015306---leevi3---simple-bool-operator-precedence)  
+[2013-06-13 02:02:38 - termopro - Trying to find an address in text](all_wiki_discussion_toc_2013.md#2013-06-13-020238---termopro---trying-to-find-an-address-in-text)  
+[2013-06-24 17:12:37 - ecesurfer - Parsing C Function Implementation](all_wiki_discussion_toc_2013.md#2013-06-24-171237---ecesurfer---parsing-c-function-implementation)  
+[2013-06-30 20:00:57 - geoff-99 - Problem with tag names created by asXML](all_wiki_discussion_toc_2013.md#2013-06-30-200057---geoff-99---problem-with-tag-names-created-by-asxml)  
+[2013-07-12 17:15:34 - Errglefloot_the_Enormous - What is the best method for parsing large files?](all_wiki_discussion_toc_2013.md#2013-07-12-171534---errglefloot_the_enormous---what-is-the-best-method-for-parsing-large-files)  
+[2013-08-03 11:13:51 - EldritchCheese - Unexpected result using setParseAction](all_wiki_discussion_toc_2013.md#2013-08-03-111351---eldritchcheese---unexpected-result-using-setparseaction)  
+[2013-08-09 10:52:17 - typesupply - Tips for parsing block with conditional ending?](all_wiki_discussion_toc_2013.md#2013-08-09-105217---typesupply---tips-for-parsing-block-with-conditional-ending)  
+[2013-08-29 09:14:50 - usysinc - Install failed with Python2.6 on Windows7](all_wiki_discussion_toc_2013.md#2013-08-29-091450---usysinc---install-failed-with-python26-on-windows7)  
+[2013-09-07 07:55:12 - EldritchCheese - defaultdict and setResultsName](all_wiki_discussion_toc_2013.md#2013-09-07-075512---eldritchcheese---defaultdict-and-setresultsname)  
+[2013-09-12 00:14:38 - strzmiele - simpleBool](all_wiki_discussion_toc_2013.md#2013-09-12-001438---strzmiele---simplebool)  
+[2013-09-12 11:21:10 - bbaldino1 - setResultsName best practices?](all_wiki_discussion_toc_2013.md#2013-09-12-112110---bbaldino1---setresultsname-best-practices)  
+[2013-09-15 12:29:55 - sorenh - Problem with select_parser](all_wiki_discussion_toc_2013.md#2013-09-15-122955---sorenh---problem-with-select_parser)  
+[2013-09-19 12:22:04 - bbaldino1 - Yet another question 'Group' usage](all_wiki_discussion_toc_2013.md#2013-09-19-122204---bbaldino1---yet-another-question-group-usage)  
+[2013-10-23 11:54:25 - pjennings1234 - ParseSyntaxException isn't always fatal](all_wiki_discussion_toc_2013.md#2013-10-23-115425---pjennings1234---parsesyntaxexception-isnt-always-fatal)  
+[2013-10-24 02:07:47 - israkir - Parsing nested parenthesis producing multiple parsing results](all_wiki_discussion_toc_2013.md#2013-10-24-020747---israkir---parsing-nested-parenthesis-producing-multiple-parsing-results)  
+[2013-12-02 14:40:46 - acomfygeek - pfe.markInputline()](all_wiki_discussion_toc_2013.md#2013-12-02-144046---acomfygeek---pfemarkinputline)  
+[2013-12-08 22:39:31 - kwos - Partial parser](all_wiki_discussion_toc_2013.md#2013-12-08-223931---kwos---partial-parser)  
 
 
 ---
@@ -566,16 +575,16 @@ This is my configuration file:
 this is the parser that I've made
 
 
-    indentStack <span class="sy0">=</span> <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span>   
+    indentStack = [1]   
     
-    field_def <span class="sy0">=</span> <span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphanums + <span class="st0">'_'</span><span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span>Suppress<span class="br0">&#40;</span><span class="st0">'='</span><span class="br0">&#41;</span> + Word<span class="br0">&#40;</span>alphanums + <span class="st0">'_'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'field_definitions'</span><span class="sy0">,</span> listAllMatches<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>       
-    inherit_from <span class="sy0">=</span> <span class="br0">&#40;</span>Suppress<span class="br0">&#40;</span><span class="st0">'@inherit_from'</span><span class="br0">&#41;</span> + originalTextFor<span class="br0">&#40;</span>nestedExpr<span class="br0">&#40;</span><span class="st0">'('</span><span class="sy0">,</span> <span class="st0">')'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>setResultsName<span class="br0">&#40;</span><span class="st0">'inherit_from'</span><span class="br0">&#41;</span>                                                                          
-    fields <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">'fields:'</span><span class="br0">&#41;</span> + indentedBlock<span class="br0">&#40;</span>Optional<span class="br0">&#40;</span>inherit_from<span class="br0">&#41;</span> + OneOrMore<span class="br0">&#40;</span>field_def<span class="br0">&#41;</span><span class="sy0">,</span> indentStack<span class="br0">&#41;</span>
+    field_def = (Word(alphanums + '_') + Optional(Suppress('=') + Word(alphanums + '_'))).setResultsName('field_definitions', listAllMatches=True)       
+    inherit_from = (Suppress('@inherit_from') + originalTextFor(nestedExpr('(', ')')))setResultsName('inherit_from')                                                                          
+    fields = Suppress('fields:') + indentedBlock(Optional(inherit_from) + OneOrMore(field_def), indentStack)
     
-    doc_string <span class="sy0">=</span> QuotedString<span class="br0">&#40;</span>quoteChar<span class="sy0">=</span><span class="st0">'''''</span><span class="sy0">,</span> multiline<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span> | quotedString.<span class="me1">setParseAction</span><span class="br0">&#40;</span>removeQuotes<span class="br0">&#41;</span>
-    documentation <span class="sy0">=</span> <span class="br0">&#40;</span>Suppress<span class="br0">&#40;</span><span class="st0">'documentation:'</span><span class="br0">&#41;</span> + indentedBlock<span class="br0">&#40;</span>doc_string<span class="sy0">,</span> indentStack<span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'documentation'</span><span class="br0">&#41;</span>                           
+    doc_string = QuotedString(quoteChar=''''', multiline=True) | quotedString.setParseAction(removeQuotes)
+    documentation = (Suppress('documentation:') + indentedBlock(doc_string, indentStack)).setResultsName('documentation')                           
     
-    <span class="kw1">return</span> fields + Optional<span class="br0">&#40;</span>documentation<span class="br0">&#41;</span> 
+    return fields + Optional(documentation) 
 
 
 The problem here is that pyparsing interprets that the reserved word 'documentation:' is just another field and I'm always getting and indentation error.
@@ -1314,48 +1323,48 @@ there):
 
 
 
-    <span class="co1"># these are the different namings for devices</span>
-    _layer3_lan_left <span class="sy0">=</span> Or<span class="br0">&#40;</span><span class="br0">&#91;</span>device_grammar1<span class="sy0">,</span>device_grammar2<span class="sy0">,</span>device_grammar3<span class="br0">&#93;</span>
-                         <span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'device*'</span><span class="br0">&#41;</span> 
+    # these are the different namings for devices
+    _layer3_lan_left = Or([device_grammar1,device_grammar2,device_grammar3]
+                         ).setResultsName('device*') 
     
-    <span class="co1"># interface names, like Gig, Fa, E, ... or VLAN</span>
-    _layer3_laninterface <span class="sy0">=</span> Or<span class="br0">&#40;</span><span class="br0">&#91;</span>laninterface<span class="sy0">,</span>
-                               vlaninterface<span class="br0">&#93;</span>
-                              <span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'interface*'</span><span class="br0">&#41;</span> 
-    _layer3_role <span class="sy0">=</span> <span class="kw2">self</span>.<span class="me1">lantype</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'type*'</span><span class="br0">&#41;</span> <span class="co1"># a type like t=u, t=x</span>
-    _layer3_ipaddr <span class="sy0">=</span> <span class="kw2">self</span>.<span class="me1">ipaddr</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'ip*'</span><span class="br0">&#41;</span> <span class="co1"># a basic CIDR ip address</span>
-    <span class="kw2">self</span>.<span class="me1">layer3</span> <span class="sy0">=</span> <span class="br0">&#40;</span>_layer3_lan_left + _layer3_laninterface +
-                   Suppress<span class="br0">&#40;</span><span class="kw2">self</span>.<span class="me1">wanused_marker</span><span class="br0">&#41;</span> +
-                   _layer3_role + Suppress<span class="br0">&#40;</span><span class="kw2">self</span>.<span class="me1">lanused_marker</span><span class="br0">&#41;</span> +
+    # interface names, like Gig, Fa, E, ... or VLAN
+    _layer3_laninterface = Or([laninterface,
+                               vlaninterface]
+                              ).setResultsName('interface*') 
+    _layer3_role = self.lantype.setResultsName('type*') # a type like t=u, t=x
+    _layer3_ipaddr = self.ipaddr.setResultsName('ip*') # a basic CIDR ip address
+    self.layer3 = (_layer3_lan_left + _layer3_laninterface +
+                   Suppress(self.wanused_marker) +
+                   _layer3_role + Suppress(self.lanused_marker) +
                    _layer3_ipaddr
-                   <span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'layer3'</span><span class="br0">&#41;</span>.<span class="me1">setName</span><span class="br0">&#40;</span><span class="st0">'layer3'</span><span class="br0">&#41;</span>
-    <span class="co1"># we need those often, definitely more than once</span>
-    <span class="kw2">self</span>.<span class="me1">layer3_grammar</span> <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span><span class="kw2">self</span>.<span class="me1">layer3</span><span class="br0">&#41;</span>
+                   ).setResultsName('layer3').setName('layer3')
+    # we need those often, definitely more than once
+    self.layer3_grammar = OneOrMore(self.layer3)
     
-    <span class="co1"># interface names, like Gig, Fa, E, ...</span>
-    _lan_laninterface <span class="sy0">=</span> <span class="kw2">self</span>.<span class="me1">laninterface</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'interface*'</span><span class="br0">&#41;</span> 
+    # interface names, like Gig, Fa, E, ...
+    _lan_laninterface = self.laninterface.setResultsName('interface*') 
     
-    <span class="co1"># this is the medium like copper, fibre, ..</span>
-    _lan_medium <span class="sy0">=</span> <span class="kw2">self</span>.<span class="me1">lanmedium</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'medium*'</span><span class="br0">&#41;</span> 
+    # this is the medium like copper, fibre, ..
+    _lan_medium = self.lanmedium.setResultsName('medium*') 
     
-    <span class="co1"># speed and duplex</span>
-    _lan_duplexspeed <span class="sy0">=</span> Group<span class="br0">&#40;</span><span class="kw2">self</span>.<span class="me1">lanspeed</span> + Optional<span class="br0">&#40;</span>Suppress<span class="br0">&#40;</span><span class="st0">':'</span><span class="br0">&#41;</span> +
-                                  <span class="kw2">self</span>.<span class="me1">duplex</span><span class="sy0">,</span> default<span class="sy0">=</span><span class="kw2">None</span><span class="br0">&#41;</span>
-                            <span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'speedduplex*'</span><span class="br0">&#41;</span>     
-    <span class="co1"># trunk or vlan id</span>
-    _trunkvlan <span class="sy0">=</span> Or<span class="br0">&#40;</span><span class="br0">&#91;</span><span class="kw2">self</span>.<span class="me1">trunk</span><span class="sy0">,</span> <span class="kw2">self</span>.<span class="me1">vlanid</span><span class="br0">&#93;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'trunkvlan*'</span><span class="br0">&#41;</span> 
-    <span class="kw2">self</span>.<span class="me1">lanstructure</span> <span class="sy0">=</span> <span class="br0">&#40;</span>_layer3_lan_left + _lan_laninterface +
-                         Suppress<span class="br0">&#40;</span><span class="kw2">self</span>.<span class="me1">wanused_marker</span><span class="br0">&#41;</span> +
+    # speed and duplex
+    _lan_duplexspeed = Group(self.lanspeed + Optional(Suppress(':') +
+                                  self.duplex, default=None)
+                            ).setResultsName('speedduplex*')     
+    # trunk or vlan id
+    _trunkvlan = Or([self.trunk, self.vlanid]).setResultsName('trunkvlan*') 
+    self.lanstructure = (_layer3_lan_left + _lan_laninterface +
+                         Suppress(self.wanused_marker) +
                          _lan_medium +
-                         Suppress<span class="br0">&#40;</span><span class="st0">','</span><span class="br0">&#41;</span> + _lan_duplexspeed +
-                         Suppress<span class="br0">&#40;</span><span class="st0">','</span><span class="br0">&#41;</span> + _trunkvlan +
-                         Suppress<span class="br0">&#40;</span><span class="kw2">self</span>.<span class="me1">wanused_marker</span><span class="br0">&#41;</span> +
+                         Suppress(',') + _lan_duplexspeed +
+                         Suppress(',') + _trunkvlan +
+                         Suppress(self.wanused_marker) +
                          _lan_laninterface + _layer3_lan_left +
-                         <span class="kw2">self</span>.<span class="me1">description</span>
-                         <span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'lanstructure'</span><span class="br0">&#41;</span>\
-                          .<span class="me1">setName</span><span class="br0">&#40;</span><span class="st0">'lanstructure'</span><span class="br0">&#41;</span>
+                         self.description
+                         ).setResultsName('lanstructure')\
+                          .setName('lanstructure')
     
-    <span class="kw2">self</span>.<span class="me1">lanstructure_grammar</span> <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span><span class="kw2">self</span>.<span class="me1">lanstructure</span><span class="br0">&#41;</span>
+    self.lanstructure_grammar = OneOrMore(self.lanstructure)
 
 
 I create those grammars for every logical block in the file, set up a grammar using the Each() subclass and then
@@ -1363,12 +1372,12 @@ call parseString() on it.
 
 
 
-    <span class="kw2">self</span>._grammar <span class="sy0">=</span> Each<span class="br0">&#40;</span><span class="br0">&#91;</span>grammar1<span class="sy0">,</span>grammar2<span class="sy0">,</span>grammar3<span class="sy0">,</span>
-                          <span class="kw2">self</span>.<span class="me1">layer3_grammar</span><span class="sy0">,</span>
-                          <span class="kw2">self</span>.<span class="me1">lanstructure_grammar</span>
-                         <span class="br0">&#93;</span><span class="br0">&#41;</span>
+    self._grammar = Each([grammar1,grammar2,grammar3,
+                          self.layer3_grammar,
+                          self.lanstructure_grammar
+                         ])
     
-    parsed <span class="sy0">=</span> <span class="kw2">self</span>._grammar.<span class="me1">parseString</span><span class="br0">&#40;</span>tmpblock<span class="br0">&#41;</span>
+    parsed = self._grammar.parseString(tmpblock)
 
 
 Like I mentioned, it works well until I get to the lan block. It never seems to find it (or reads over it).
@@ -1753,7 +1762,7 @@ Any thoughts on how to accomplish this?
 
 ---
 ## 2013-05-17 10:47:02 - mirk410 - Losing the tail-end of my expression
-I’m new to pyparsing so this is probably something I’m just missing the boat on… I am creating a script that will parse an expression and build an evaluation graph representing the expression.  Once generated, the graph will be evaluated against several data sets to determine if they meet the specified criteria.  I have reduced my grammar down to just Boolean operands:
+Iï¿½m new to pyparsing so this is probably something Iï¿½m just missing the boat onï¿½ I am creating a script that will parse an expression and build an evaluation graph representing the expression.  Once generated, the graph will be evaluated against several data sets to determine if they meet the specified criteria.  I have reduced my grammar down to just Boolean operands:
 
 
 
@@ -1777,7 +1786,7 @@ I’m new to pyparsing so this is probably something I’m just missing the boat on…
                          ])('EXPR')
 
 
-When I parse the string ‘True and True and False’ my graph is missing the ‘and False’ (the result is true when evaluating the graph). When I print the resulting  graph I get ‘True and True’.  When I run this through the debugger with a break point in the CEBoolOpNode <u>init</u> method, I am only seeing this invoked once.  I am passing ‘parseAll=True’ when calling parseString.  
+When I parse the string ï¿½True and True and Falseï¿½ my graph is missing the ï¿½and Falseï¿½ (the result is true when evaluating the graph). When I print the resulting  graph I get ï¿½True and Trueï¿½.  When I run this through the debugger with a break point in the CEBoolOpNode <u>init</u> method, I am only seeing this invoked once.  I am passing ï¿½parseAll=Trueï¿½ when calling parseString.  
 
 With setDebug() on AND_OP and BOOL_OPRD I get the following output:
 
@@ -1821,7 +1830,7 @@ With setDebug() on AND_OP and BOOL_OPRD I get the following output:
     Exception raised:Expected 'and' (at char 23), (line:1, col:24)
 
 
-It appears to be seeing both ‘and’ operators but the CEBoolOpNode <u>init</u> method appears to be only called once.  Does anything above look off?  The exception being raised may be a clue but I’m not sure what to make of it.  What I’m doing seems similar to the simpleBool example except that script works :^).
+It appears to be seeing both ï¿½andï¿½ operators but the CEBoolOpNode <u>init</u> method appears to be only called once.  Does anything above look off?  The exception being raised may be a clue but Iï¿½m not sure what to make of it.  What Iï¿½m doing seems similar to the simpleBool example except that script works :^).
 
 One last data point, If I use parentheses it works: True and (True and False).  What am I missing? (This is already long so I did not include code but I can if needed)
 
@@ -2568,63 +2577,63 @@ I have this working in most cases as follows.
 
 
 
-    <span class="co1">#!/usr/bin/env python                                                                                                                                    </span>
+    #!/usr/bin/env python                                                                                                                                    
     
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
-    <span class="kw1">from</span> <span class="kw3">collections</span> <span class="kw1">import</span> defaultdict
+    from pyparsing import *
+    from collections import defaultdict
     
-    <span class="co1">#Match a comma-separated list of items,                                                                                                                  </span>
-    <span class="co1"># enclosed by a specified separator                                                                                                                      </span>
-    <span class="kw1">def</span> itemList<span class="br0">&#40;</span>item<span class="sy0">,</span>sep<span class="br0">&#41;</span>:
-        itemSep <span class="sy0">=</span> item.<span class="kw3">copy</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-        itemSep <span class="sy0">=</span> itemSep.<span class="me1">setParseAction</span><span class="br0">&#40;</span><span class="kw1">lambda</span> t:<span class="br0">&#40;</span>sep<span class="sy0">,</span>t<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-        output <span class="sy0">=</span> <span class="br0">&#40;</span>Literal<span class="br0">&#40;</span>sep<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> +
-                  itemSep + ZeroOrMore<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span><span class="st0">','</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + itemSep<span class="br0">&#41;</span> +
-                  Literal<span class="br0">&#40;</span>sep<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-        <span class="kw1">return</span> output
-    <span class="co1">#Merge the lists into a dictionary of results.                                                                                                           </span>
-    <span class="kw1">def</span> mergeLists<span class="br0">&#40;</span>inputList<span class="br0">&#41;</span>:
-        output <span class="sy0">=</span> defaultdict<span class="br0">&#40;</span><span class="kw2">list</span><span class="br0">&#41;</span>
-        <span class="kw1">for</span> key<span class="sy0">,</span>item <span class="kw1">in</span> inputList:
-            output<span class="br0">&#91;</span>key<span class="br0">&#93;</span>.<span class="me1">append</span><span class="br0">&#40;</span>item<span class="br0">&#41;</span>
-        <span class="kw1">return</span> output
-    <span class="co1">#Match a series of separated lists,                                                                                                                      </span>
-    <span class="co1">#  then merge into a dictionary of lists.                                                                                                                </span>
-    <span class="kw1">def</span> itemOptions<span class="br0">&#40;</span>*args<span class="br0">&#41;</span>:
-        options <span class="sy0">=</span> <span class="kw2">zip</span><span class="br0">&#40;</span>args<span class="br0">&#91;</span><span class="nu0">0</span>::<span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">,</span>args<span class="br0">&#91;</span><span class="nu0">1</span>::<span class="nu0">2</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
-        fullList <span class="sy0">=</span> <span class="br0">&#91;</span>itemList<span class="br0">&#40;</span>item<span class="sy0">,</span>sep<span class="br0">&#41;</span> <span class="kw1">for</span> item<span class="sy0">,</span>sep <span class="kw1">in</span> options<span class="br0">&#93;</span>
-        fullList <span class="sy0">=</span> <span class="kw2">reduce</span><span class="br0">&#40;</span><span class="kw1">lambda</span> a<span class="sy0">,</span>b:a^b<span class="sy0">,</span>fullList<span class="br0">&#91;</span><span class="nu0">1</span>:<span class="br0">&#93;</span><span class="sy0">,</span>fullList<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
-        fullList <span class="sy0">=</span> ZeroOrMore<span class="br0">&#40;</span>fullList<span class="br0">&#41;</span>
-        fullList.<span class="me1">setParseAction</span><span class="br0">&#40;</span>mergeLists<span class="br0">&#41;</span>
-        <span class="kw1">return</span> fullList
+    #Match a comma-separated list of items,                                                                                                                  
+    # enclosed by a specified separator                                                                                                                      
+    def itemList(item,sep):
+        itemSep = item.copy()
+        itemSep = itemSep.setParseAction(lambda t:(sep,t[0]))
+        output = (Literal(sep[0]).suppress() +
+                  itemSep + ZeroOrMore(Literal(',').suppress() + itemSep) +
+                  Literal(sep[1]).suppress())
+        return output
+    #Merge the lists into a dictionary of results.                                                                                                           
+    def mergeLists(inputList):
+        output = defaultdict(list)
+        for key,item in inputList:
+            output[key].append(item)
+        return output
+    #Match a series of separated lists,                                                                                                                      
+    #  then merge into a dictionary of lists.                                                                                                                
+    def itemOptions(*args):
+        options = zip(args[0::2],args[1::2])
+        fullList = [itemList(item,sep) for item,sep in options]
+        fullList = reduce(lambda a,b:a^b,fullList[1:],fullList[0])
+        fullList = ZeroOrMore(fullList)
+        fullList.setParseAction(mergeLists)
+        return fullList
 
 
 My tests for this are as follows.
 
 
 
-    name <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span>
-    num <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span><span class="kw1">lambda</span> t:<span class="kw2">int</span><span class="br0">&#40;</span>t<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    pair <span class="sy0">=</span> <span class="br0">&#40;</span>name + num<span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span><span class="kw1">lambda</span> t:<span class="br0">&#40;</span>t<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">,</span>t<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
+    name = Word(alphas)
+    num = Word(nums).setParseAction(lambda t:int(t[0]))
+    pair = (name + num).setParseAction(lambda t:(t[0],t[1]) )
     
-    itemListing <span class="sy0">=</span> itemOptions<span class="br0">&#40;</span>name<span class="sy0">,</span><span class="st0">'{}'</span><span class="sy0">,</span>
-                              num<span class="sy0">,</span><span class="st0">'[]'</span><span class="sy0">,</span>
-                              pair<span class="sy0">,</span><span class="st0">'\<\>'</span><span class="br0">&#41;</span>
+    itemListing = itemOptions(name,'{}',
+                              num,'[]',
+                              pair,'\<\>')
     
-    <span class="kw1">print</span> itemListing.<span class="me1">parseString</span><span class="br0">&#40;</span>
-        <span class="st0">'{NameOne, NameTwo} [42, 1971] {NameThree}'</span><span class="br0">&#41;</span>
-    <span class="co1">#Expected { '{}': ['NameOne','NameTwo','NameThree'],                                                                                                     </span>
-    <span class="co1">#           '[]': [42, 1971] }                                                                                                                           </span>
-    <span class="co1">#Received expected result.                                                                                                                               </span>
+    print itemListing.parseString(
+        '{NameOne, NameTwo} [42, 1971] {NameThree}')
+    #Expected { '{}': ['NameOne','NameTwo','NameThree'],                                                                                                     
+    #           '[]': [42, 1971] }                                                                                                                           
+    #Received expected result.                                                                                                                               
     
-    <span class="kw1">print</span> itemListing.<span class="me1">parseString</span><span class="br0">&#40;</span>
-        <span class="st0">'\<NameOne 1, NameTwo 2\>'</span><span class="br0">&#41;</span>
-    <span class="co1">#Expected { '\<\>': [('NameOne', 1), ('NameTwo', 2)] }                                                                                                     </span>
-    <span class="co1">#Received { '\<\>': ['NameOne', 'NameTwo'] }                                                                                                               </span>
+    print itemListing.parseString(
+        '\<NameOne 1, NameTwo 2\>')
+    #Expected { '\<\>': [('NameOne', 1), ('NameTwo', 2)] }                                                                                                     
+    #Received { '\<\>': ['NameOne', 'NameTwo'] }                                                                                                               
     
-    <span class="kw1">print</span> pair.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'NameOne 1'</span><span class="br0">&#41;</span>
-    <span class="co1">#Expected [('NameOne', 1)]                                                                                                                               </span>
-    <span class="co1">#Received expected result </span>
+    print pair.parseString('NameOne 1')
+    #Expected [('NameOne', 1)]                                                                                                                               
+    #Received expected result 
 
 
 I don't know why it is that this parsing works for some cases, but not for others.  I had thought it to be related to the returning of a tuple from the parseAction, leading it to be interpreted as two separate tokens, instead of the tuple as a whole being a single token.  However, the last test shows that the 'pair' parser does indeed return a tuple.

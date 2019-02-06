@@ -1,48 +1,50 @@
-[2015-01-11 06:18:12 - perw07 - Problem with 'asKeyword' in Word()](.#2015-01-11-061812---perw07---problem-with-askeyword-in-word)  
-[2015-02-02 08:43:02 - Griffon26 - Parsing items in any order, some of which may repeat?](.#2015-02-02-084302---griffon26---parsing-items-in-any-order-some-of-which-may-repeat)  
-[2015-02-06 12:32:31 - knoguchi - select_parser.py unary operator ](.#2015-02-06-123231---knoguchi---select_parserpy-unary-operator-)  
-[2015-02-07 22:06:42 - mhucka - How to deal with ParseResults dict_keyiterator in Python 3?](.#2015-02-07-220642---mhucka---how-to-deal-with-parseresults-dict_keyiterator-in-python-3)  
-[2015-02-25 04:19:46 - rougier - How to parse C-like declarations ?](.#2015-02-25-041946---rougier---how-to-parse-c-like-declarations-)  
-[2015-02-28 07:31:15 - hlamer - Parse a string with escape characters](.#2015-02-28-073115---hlamer---parse-a-string-with-escape-characters)  
-[2015-03-05 01:14:20 - togr - Enhancement\/bugfix to fourFn.py example](.#2015-03-05-011420---togr---enhancement\bugfix-to-fourfnpy-example)  
-[2015-03-30 06:37:57 - ansari11 - How to disallow having some keywords in an expression?](.#2015-03-30-063757---ansari11---how-to-disallow-having-some-keywords-in-an-expression)  
-[2015-04-09 03:51:42 - AndreWin - Nested formatting](.#2015-04-09-035142---andrewin---nested-formatting)  
-[2015-04-12 04:00:26 - AndreWin - Parsing link in dokuwiki format](.#2015-04-12-040026---andrewin---parsing-link-in-dokuwiki-format)  
-[2015-04-15 05:36:10 - reneryu - Return results of NestedExprs as the way they are in the input string](.#2015-04-15-053610---reneryu---return-results-of-nestedexprs-as-the-way-they-are-in-the-input-string)  
-[2015-04-17 08:50:32 - rjmarshall17 - Newbie issue: Not able to get to nested block](.#2015-04-17-085032---rjmarshall17---newbie-issue-not-able-to-get-to-nested-block)  
-[2015-04-25 04:32:07 - Jimorie - Efficiency problems when parsing nested function calls](.#2015-04-25-043207---jimorie---efficiency-problems-when-parsing-nested-function-calls)  
-[2015-04-28 00:36:28 - mwjackson - parse trees with infixNotation](.#2015-04-28-003628---mwjackson---parse-trees-with-infixnotation)  
-[2015-05-01 07:27:42 - Euticus - Newbie question:  using restOfLine](.#2015-05-01-072742---euticus---newbie-question--using-restofline)  
-[2015-05-07 15:37:13 - thatsgobbles - Newbie to pyparsing: Issues using Forward and maxiumum recursion depth](.#2015-05-07-153713---thatsgobbles---newbie-to-pyparsing-issues-using-forward-and-maxiumum-recursion-depth)  
-[2015-05-17 06:00:21 - Animusmontus - Script parser goes infinite loop at end of script? What do I do to stop this?](.#2015-05-17-060021---animusmontus---script-parser-goes-infinite-loop-at-end-of-script-what-do-i-do-to-stop-this)  
-[2015-05-23 10:09:32 - lars.stavholm - Line sensitive parsing](.#2015-05-23-100932---larsstavholm---line-sensitive-parsing)  
-[2015-05-26 08:05:47 - AndreWin - Parsing c++ code block with arbitrary order of its elements](.#2015-05-26-080547---andrewin---parsing-c-code-block-with-arbitrary-order-of-its-elements)  
-[2015-05-29 08:12:18 - jellby - Comments in blocks](.#2015-05-29-081218---jellby---comments-in-blocks)  
-[2015-06-04 13:49:16 - r3d4rmy - Parsing dblSlashComment](.#2015-06-04-134916---r3d4rmy---parsing-dblslashcomment)  
-[2015-06-05 08:39:06 - onyx_onyx - Error caused by wrong token](.#2015-06-05-083906---onyx_onyx---error-caused-by-wrong-token)  
-[2015-06-07 00:06:39 - zaymich - Parsing of Optional(...)](.#2015-06-07-000639---zaymich---parsing-of-optional)  
-[2015-06-17 12:34:46 - nicoder - Class vs Instance Declaration for ParseElements?](.#2015-06-17-123446---nicoder---class-vs-instance-declaration-for-parseelements)  
-[2015-06-27 01:17:09 - HubbaBubbaMan - Building a template engine with pyparsing](.#2015-06-27-011709---hubbabubbaman---building-a-template-engine-with-pyparsing)  
-[2015-07-03 22:03:29 - zaymich - Line comments and arithmetic expressions](.#2015-07-03-220329---zaymich---line-comments-and-arithmetic-expressions)  
-[2015-07-21 14:40:38 - yosepfkaggerman - Parsing multiple lines as in an IDE](.#2015-07-21-144038---yosepfkaggerman---parsing-multiple-lines-as-in-an-ide)  
-[2015-07-29 04:36:42 - larapsodia - Minimum Length](.#2015-07-29-043642---larapsodia---minimum-length)  
-[2015-08-26 08:06:27 - AndreWin - Problems with end of line](.#2015-08-26-080627---andrewin---problems-with-end-of-line)  
-[2015-09-07 06:11:02 - Rittel - Skip to first possibility in text](.#2015-09-07-061102---rittel---skip-to-first-possibility-in-text)  
-[2015-09-09 12:40:46 - TheVeryOmni - deferred execution of ParseAction in case of 'Or' - is it a bug?](.#2015-09-09-124046---theveryomni---deferred-execution-of-parseaction-in-case-of-or---is-it-a-bug)  
-[2015-09-13 08:00:28 - Williamzjc - questions and advice about the codes of pyparsing2.0.3](.#2015-09-13-080028---williamzjc---questions-and-advice-about-the-codes-of-pyparsing203)  
-[2015-10-01 14:34:19 - rjmco - Parsing nginx configuration files](.#2015-10-01-143419---rjmco---parsing-nginx-configuration-files)  
-[2015-10-12 07:40:40 - Williamzjc - One question about setParseAction](.#2015-10-12-074040---williamzjc---one-question-about-setparseaction)  
-[2015-10-19 05:12:31 - heronils - 2to3 required?](.#2015-10-19-051231---heronils---2to3-required)  
-[2015-10-28 07:46:08 - Williamzjc - Suggestion](.#2015-10-28-074608---williamzjc---suggestion)  
-[2015-11-05 13:44:08 - mbeaches - Markup\/down grouping of style](.#2015-11-05-134408---mbeaches---markup\down-grouping-of-style)  
-[2015-11-10 00:10:34 - utkarsh007 - How I can remove C\/C++ style comments and genrtate a string back using pyparsing](.#2015-11-10-001034---utkarsh007---how-i-can-remove-c\c-style-comments-and-genrtate-a-string-back-using-pyparsing)  
-[2015-11-11 09:01:11 - pdelsante - simpleBool.py: Binding values to parsed operands](.#2015-11-11-090111---pdelsante---simpleboolpy-binding-values-to-parsed-operands)  
-[2015-11-27 05:27:42 - Williamzjc - Correction and Suggestion](.#2015-11-27-052742---williamzjc---correction-and-suggestion)  
-[2015-12-02 04:41:43 - mentaal - issue with excludeChars "Word" keyword arg](.#2015-12-02-044143---mentaal---issue-with-excludechars-"word"-keyword-arg)  
-[2015-12-08 04:57:42 - Jeroen537 - QuotedString behaves unexpectedly (?)](.#2015-12-08-045742---jeroen537---quotedstring-behaves-unexpectedly-)  
-[2015-12-16 07:29:57 - StephenDause - ParseException seems to give incorrect location](.#2015-12-16-072957---stephendause---parseexception-seems-to-give-incorrect-location)  
-[2015-12-21 04:33:45 - anon3456 - Parsing GDB\/MI](.#2015-12-21-043345---anon3456---parsing-gdb\mi)  
-[2015-12-27 06:41:50 - AndreWin - Parsing markdown](.#2015-12-27-064150---andrewin---parsing-markdown)  
+## Pyparsing Wikispaces Discussion - 2015
+
+[2015-01-11 06:18:12 - perw07 - Problem with 'asKeyword' in Word()](all_wiki_discussion_toc_2015.md#2015-01-11-061812---perw07---problem-with-askeyword-in-word)  
+[2015-02-02 08:43:02 - Griffon26 - Parsing items in any order, some of which may repeat?](all_wiki_discussion_toc_2015.md#2015-02-02-084302---griffon26---parsing-items-in-any-order-some-of-which-may-repeat)  
+[2015-02-06 12:32:31 - knoguchi - select_parser.py unary operator ](all_wiki_discussion_toc_2015.md#2015-02-06-123231---knoguchi---select_parserpy-unary-operator-)  
+[2015-02-07 22:06:42 - mhucka - How to deal with ParseResults dict_keyiterator in Python 3?](all_wiki_discussion_toc_2015.md#2015-02-07-220642---mhucka---how-to-deal-with-parseresults-dict_keyiterator-in-python-3)  
+[2015-02-25 04:19:46 - rougier - How to parse C-like declarations ?](all_wiki_discussion_toc_2015.md#2015-02-25-041946---rougier---how-to-parse-c-like-declarations-)  
+[2015-02-28 07:31:15 - hlamer - Parse a string with escape characters](all_wiki_discussion_toc_2015.md#2015-02-28-073115---hlamer---parse-a-string-with-escape-characters)  
+[2015-03-05 01:14:20 - togr - Enhancement\/bugfix to fourFn.py example](all_wiki_discussion_toc_2015.md#2015-03-05-011420---togr---enhancement\bugfix-to-fourfnpy-example)  
+[2015-03-30 06:37:57 - ansari11 - How to disallow having some keywords in an expression?](all_wiki_discussion_toc_2015.md#2015-03-30-063757---ansari11---how-to-disallow-having-some-keywords-in-an-expression)  
+[2015-04-09 03:51:42 - AndreWin - Nested formatting](all_wiki_discussion_toc_2015.md#2015-04-09-035142---andrewin---nested-formatting)  
+[2015-04-12 04:00:26 - AndreWin - Parsing link in dokuwiki format](all_wiki_discussion_toc_2015.md#2015-04-12-040026---andrewin---parsing-link-in-dokuwiki-format)  
+[2015-04-15 05:36:10 - reneryu - Return results of NestedExprs as the way they are in the input string](all_wiki_discussion_toc_2015.md#2015-04-15-053610---reneryu---return-results-of-nestedexprs-as-the-way-they-are-in-the-input-string)  
+[2015-04-17 08:50:32 - rjmarshall17 - Newbie issue: Not able to get to nested block](all_wiki_discussion_toc_2015.md#2015-04-17-085032---rjmarshall17---newbie-issue-not-able-to-get-to-nested-block)  
+[2015-04-25 04:32:07 - Jimorie - Efficiency problems when parsing nested function calls](all_wiki_discussion_toc_2015.md#2015-04-25-043207---jimorie---efficiency-problems-when-parsing-nested-function-calls)  
+[2015-04-28 00:36:28 - mwjackson - parse trees with infixNotation](all_wiki_discussion_toc_2015.md#2015-04-28-003628---mwjackson---parse-trees-with-infixnotation)  
+[2015-05-01 07:27:42 - Euticus - Newbie question:  using restOfLine](all_wiki_discussion_toc_2015.md#2015-05-01-072742---euticus---newbie-question--using-restofline)  
+[2015-05-07 15:37:13 - thatsgobbles - Newbie to pyparsing: Issues using Forward and maxiumum recursion depth](all_wiki_discussion_toc_2015.md#2015-05-07-153713---thatsgobbles---newbie-to-pyparsing-issues-using-forward-and-maxiumum-recursion-depth)  
+[2015-05-17 06:00:21 - Animusmontus - Script parser goes infinite loop at end of script? What do I do to stop this?](all_wiki_discussion_toc_2015.md#2015-05-17-060021---animusmontus---script-parser-goes-infinite-loop-at-end-of-script-what-do-i-do-to-stop-this)  
+[2015-05-23 10:09:32 - lars.stavholm - Line sensitive parsing](all_wiki_discussion_toc_2015.md#2015-05-23-100932---larsstavholm---line-sensitive-parsing)  
+[2015-05-26 08:05:47 - AndreWin - Parsing c++ code block with arbitrary order of its elements](all_wiki_discussion_toc_2015.md#2015-05-26-080547---andrewin---parsing-c-code-block-with-arbitrary-order-of-its-elements)  
+[2015-05-29 08:12:18 - jellby - Comments in blocks](all_wiki_discussion_toc_2015.md#2015-05-29-081218---jellby---comments-in-blocks)  
+[2015-06-04 13:49:16 - r3d4rmy - Parsing dblSlashComment](all_wiki_discussion_toc_2015.md#2015-06-04-134916---r3d4rmy---parsing-dblslashcomment)  
+[2015-06-05 08:39:06 - onyx_onyx - Error caused by wrong token](all_wiki_discussion_toc_2015.md#2015-06-05-083906---onyx_onyx---error-caused-by-wrong-token)  
+[2015-06-07 00:06:39 - zaymich - Parsing of Optional(...)](all_wiki_discussion_toc_2015.md#2015-06-07-000639---zaymich---parsing-of-optional)  
+[2015-06-17 12:34:46 - nicoder - Class vs Instance Declaration for ParseElements?](all_wiki_discussion_toc_2015.md#2015-06-17-123446---nicoder---class-vs-instance-declaration-for-parseelements)  
+[2015-06-27 01:17:09 - HubbaBubbaMan - Building a template engine with pyparsing](all_wiki_discussion_toc_2015.md#2015-06-27-011709---hubbabubbaman---building-a-template-engine-with-pyparsing)  
+[2015-07-03 22:03:29 - zaymich - Line comments and arithmetic expressions](all_wiki_discussion_toc_2015.md#2015-07-03-220329---zaymich---line-comments-and-arithmetic-expressions)  
+[2015-07-21 14:40:38 - yosepfkaggerman - Parsing multiple lines as in an IDE](all_wiki_discussion_toc_2015.md#2015-07-21-144038---yosepfkaggerman---parsing-multiple-lines-as-in-an-ide)  
+[2015-07-29 04:36:42 - larapsodia - Minimum Length](all_wiki_discussion_toc_2015.md#2015-07-29-043642---larapsodia---minimum-length)  
+[2015-08-26 08:06:27 - AndreWin - Problems with end of line](all_wiki_discussion_toc_2015.md#2015-08-26-080627---andrewin---problems-with-end-of-line)  
+[2015-09-07 06:11:02 - Rittel - Skip to first possibility in text](all_wiki_discussion_toc_2015.md#2015-09-07-061102---rittel---skip-to-first-possibility-in-text)  
+[2015-09-09 12:40:46 - TheVeryOmni - deferred execution of ParseAction in case of 'Or' - is it a bug?](all_wiki_discussion_toc_2015.md#2015-09-09-124046---theveryomni---deferred-execution-of-parseaction-in-case-of-or---is-it-a-bug)  
+[2015-09-13 08:00:28 - Williamzjc - questions and advice about the codes of pyparsing2.0.3](all_wiki_discussion_toc_2015.md#2015-09-13-080028---williamzjc---questions-and-advice-about-the-codes-of-pyparsing203)  
+[2015-10-01 14:34:19 - rjmco - Parsing nginx configuration files](all_wiki_discussion_toc_2015.md#2015-10-01-143419---rjmco---parsing-nginx-configuration-files)  
+[2015-10-12 07:40:40 - Williamzjc - One question about setParseAction](all_wiki_discussion_toc_2015.md#2015-10-12-074040---williamzjc---one-question-about-setparseaction)  
+[2015-10-19 05:12:31 - heronils - 2to3 required?](all_wiki_discussion_toc_2015.md#2015-10-19-051231---heronils---2to3-required)  
+[2015-10-28 07:46:08 - Williamzjc - Suggestion](all_wiki_discussion_toc_2015.md#2015-10-28-074608---williamzjc---suggestion)  
+[2015-11-05 13:44:08 - mbeaches - Markup\/down grouping of style](all_wiki_discussion_toc_2015.md#2015-11-05-134408---mbeaches---markup\down-grouping-of-style)  
+[2015-11-10 00:10:34 - utkarsh007 - How I can remove C\/C++ style comments and genrtate a string back using pyparsing](all_wiki_discussion_toc_2015.md#2015-11-10-001034---utkarsh007---how-i-can-remove-c\c-style-comments-and-genrtate-a-string-back-using-pyparsing)  
+[2015-11-11 09:01:11 - pdelsante - simpleBool.py: Binding values to parsed operands](all_wiki_discussion_toc_2015.md#2015-11-11-090111---pdelsante---simpleboolpy-binding-values-to-parsed-operands)  
+[2015-11-27 05:27:42 - Williamzjc - Correction and Suggestion](all_wiki_discussion_toc_2015.md#2015-11-27-052742---williamzjc---correction-and-suggestion)  
+[2015-12-02 04:41:43 - mentaal - issue with excludeChars "Word" keyword arg](all_wiki_discussion_toc_2015.md#2015-12-02-044143---mentaal---issue-with-excludechars-"word"-keyword-arg)  
+[2015-12-08 04:57:42 - Jeroen537 - QuotedString behaves unexpectedly (?)](all_wiki_discussion_toc_2015.md#2015-12-08-045742---jeroen537---quotedstring-behaves-unexpectedly-)  
+[2015-12-16 07:29:57 - StephenDause - ParseException seems to give incorrect location](all_wiki_discussion_toc_2015.md#2015-12-16-072957---stephendause---parseexception-seems-to-give-incorrect-location)  
+[2015-12-21 04:33:45 - anon3456 - Parsing GDB\/MI](all_wiki_discussion_toc_2015.md#2015-12-21-043345---anon3456---parsing-gdb\mi)  
+[2015-12-27 06:41:50 - AndreWin - Parsing markdown](all_wiki_discussion_toc_2015.md#2015-12-27-064150---andrewin---parsing-markdown)  
 
 
 ---
@@ -436,23 +438,23 @@ The order of expressions in the definition of 'atom' means that 'e' and 'pi' mas
 
 
 
-    <span class="re6">@@ -77,6 +80,7 @@</span>
-     fn  = <span class="br0">&#123;</span> 'sin' : math.sin,
+    @@ -77,6 +80,7 @@
+     fn  = { 'sin' : math.sin,
              'cos' : math.cos,
              'tan' : math.tan,
-    <span class="re8">+        'exp' : math.exp,</span>
+    +        'exp' : math.exp,
              'abs' : abs,
-             'trunc' : lambda a: int<span class="br0">&#40;</span>a<span class="br0">&#41;</span>,
+             'trunc' : lambda a: int(a),
              'round' : round,
-    <span class="re6">@@ -131,6 +135,8 @@</span>
-         test<span class="br0">&#40;</span> '6.02E23 * <span class="nu0">8.048</span>', 6.02E23 * <span class="nu0">8.048</span> <span class="br0">&#41;</span>
-         test<span class="br0">&#40;</span> 'e / <span class="nu0">3</span>', math.e / <span class="nu0">3</span> <span class="br0">&#41;</span>
-         test<span class="br0">&#40;</span> 'sin<span class="br0">&#40;</span>PI/<span class="nu0">2</span><span class="br0">&#41;</span>', math.sin<span class="br0">&#40;</span>math.pi/<span class="nu0">2</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
-    <span class="re8">+    test<span class="br0">&#40;</span> 'exp<span class="br0">&#40;</span>0<span class="br0">&#41;</span>', 1 <span class="br0">&#41;</span></span>
-    <span class="re8">+    test<span class="br0">&#40;</span> 'exp<span class="br0">&#40;</span>1<span class="br0">&#41;</span>', math.e <span class="br0">&#41;</span></span>
-         test<span class="br0">&#40;</span> 'trunc<span class="br0">&#40;</span>E<span class="br0">&#41;</span>', int<span class="br0">&#40;</span>math.e<span class="br0">&#41;</span> <span class="br0">&#41;</span>
-         test<span class="br0">&#40;</span> 'trunc<span class="br0">&#40;</span>-E<span class="br0">&#41;</span>', int<span class="br0">&#40;</span>-math.e<span class="br0">&#41;</span> <span class="br0">&#41;</span>
-         test<span class="br0">&#40;</span> 'round<span class="br0">&#40;</span>E<span class="br0">&#41;</span>', round<span class="br0">&#40;</span>math.e<span class="br0">&#41;</span> <span class="br0">&#41;</span>
+    @@ -131,6 +135,8 @@
+         test( '6.02E23 * 8.048', 6.02E23 * 8.048 )
+         test( 'e / 3', math.e / 3 )
+         test( 'sin(PI/2)', math.sin(math.pi/2) )
+    +    test( 'exp(0)', 1 )
+    +    test( 'exp(1)', math.e )
+         test( 'trunc(E)', int(math.e) )
+         test( 'trunc(-E)', int(-math.e) )
+         test( 'round(E)', round(math.e) )
 
 
 The two added tests produce
@@ -467,9 +469,9 @@ Changing the definition of 'atom' to the following (i.e. moving 'pi' and 'e' to 
 
 
 
-    atom <span class="sy0">=</span> <span class="br0">&#40;</span>Optional<span class="br0">&#40;</span><span class="st0">'-'</span><span class="br0">&#41;</span> \
-                    + <span class="br0">&#40;</span> fnumber | ident + lpar + expr + rpar | pi | e <span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>pushFirst<span class="br0">&#41;</span> \
-                      | <span class="br0">&#40;</span> lpar + expr.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + rpar <span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>pushUMinus<span class="br0">&#41;</span>
+    atom = (Optional('-') \
+                    + ( fnumber | ident + lpar + expr + rpar | pi | e ).setParseAction(pushFirst) \
+                      | ( lpar + expr.suppress() + rpar )).setParseAction(pushUMinus)
 
 
 Thanks, and best regards,
@@ -3607,15 +3609,15 @@ Welcome to pyparsing!
 How can I get QuotedString to strip the opening and closing delimiters, and nothing more, when some characters from these delimiters can also be part of the inner string? I want to retrieve what is in between, for further processing (parsing). Examples:
 
 print(QuotedString(''''').parseString(''''^']''''))
-[‘^']'] (as I expected)
+[ï¿½^']'] (as I expected)
 
-print(QuotedString(‘'''').parseString('''''^']''''))
-[‘'^']'] (also as expected, the fourth double quote from the beginning is included in the string)
+print(QuotedString(ï¿½'''').parseString('''''^']''''))
+[ï¿½'^']'] (also as expected, the fourth double quote from the beginning is included in the string)
 
 print(QuotedString(''''').parseString('''''^']'''''))
-[‘'^']'] (unexpected, the fourth double quote from the end is excluded).
+[ï¿½'^']'] (unexpected, the fourth double quote from the end is excluded).
 
-Do I misunderstand how QuotedString is supposed to work? If so, is there another way of achieving my goal? I’d rather avoid complicated regular expressions.
+Do I misunderstand how QuotedString is supposed to work? If so, is there another way of achieving my goal? Iï¿½d rather avoid complicated regular expressions.
 
 
 (Background: As a learning project, I am working on a parser for SPARQL on the basis of its EBNF grammar. One of the production rules reads  

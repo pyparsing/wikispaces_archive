@@ -1,29 +1,38 @@
-[2014-01-18 08:23:58 - matthewbward - housenumber help with address parsing](.#2014-01-18-082358---matthewbward---housenumber-help-with-address-parsing)  
-[2014-02-09 08:39:23 - D3f0 - Grammar with functions with one or many arguments](.#2014-02-09-083923---d3f0---grammar-with-functions-with-one-or-many-arguments)  
-[2014-02-13 00:55:08 - JamesEMH - parse only lines starting with keyword](.#2014-02-13-005508---jamesemh---parse-only-lines-starting-with-keyword)  
-[2014-02-18 05:47:30 - egabancho - Illegal nesting exception depending on order](.#2014-02-18-054730---egabancho---illegal-nesting-exception-depending-on-order)  
-[2014-03-26 08:01:35 - palmer1979 - Deep Nesting until Breakdown : )](.#2014-03-26-080135---palmer1979---deep-nesting-until-breakdown--)  
-[2014-04-04 14:32:45 - igre62 - setParseAction](.#2014-04-04-143245---igre62---setparseaction)  
-[2014-04-10 13:21:49 - couplewavylines - SkipTo ignore method](.#2014-04-10-132149---couplewavylines---skipto-ignore-method)  
-[2014-05-02 15:07:57 - dbotz - My Optional is not optional](.#2014-05-02-150757---dbotz---my-optional-is-not-optional)  
-[2014-05-24 02:53:43 - PrabhuGurumurthy - Help using delimitedList](.#2014-05-24-025343---prabhugurumurthy---help-using-delimitedlist)  
-[2014-07-02 02:55:59 - nunoplopes - infixNotation is very slow](.#2014-07-02-025559---nunoplopes---infixnotation-is-very-slow)  
-[2014-07-13 22:09:19 - vrvilo - `MatchFirst` truncates named results (pyparsing)](.#2014-07-13-220919---vrvilo---`matchfirst`-truncates-named-results-pyparsing)  
-[2014-07-21 18:34:31 - tony_chu - Question on parseString Optional () terms](.#2014-07-21-183431---tony_chu---question-on-parsestring-optional--terms)  
-[2014-07-25 02:43:13 - AndreWin - parsing class definiton on python](.#2014-07-25-024313---andrewin---parsing-class-definiton-on-python)  
-[2014-08-07 05:10:45 - pank1 - Ignoring comments](.#2014-08-07-051045---pank1---ignoring-comments)  
-[2014-08-07 10:45:19 - cyrfer - making objects from ParsedResults](.#2014-08-07-104519---cyrfer---making-objects-from-parsedresults)  
-[2014-08-12 16:11:31 - rh0dium - Small problem with recurssion - I'm sooo close..](.#2014-08-12-161131---rh0dium---small-problem-with-recurssion---im-sooo-close)  
-[2014-09-07 00:35:14 - AndreWin - Parsing units on Russian](.#2014-09-07-003514---andrewin---parsing-units-on-russian)  
-[2014-09-18 00:41:16 - gustible - Multi-Line Parsing](.#2014-09-18-004116---gustible---multi-line-parsing)  
-[2014-10-14 02:53:00 - cnayak12 - Need help on how to parse the repeated blocks of text to a nested dictionary](.#2014-10-14-025300---cnayak12---need-help-on-how-to-parse-the-repeated-blocks-of-text-to-a-nested-dictionary)  
-[2014-11-17 13:23:32 - Griffon26 - error stop does not break out of Each](.#2014-11-17-132332---griffon26---error-stop-does-not-break-out-of-each)  
-[2014-11-22 04:18:48 - Griffon26 - Trivial fix to increase usefulness of Each()'s error reporting](.#2014-11-22-041848---griffon26---trivial-fix-to-increase-usefulness-of-eachs-error-reporting)  
-[2014-11-23 02:51:18 - dlxneamtu - OneOrMore issue](.#2014-11-23-025118---dlxneamtu---oneormore-issue)  
-[2014-11-26 12:52:12 - Griffon26 - LineEnd() matches at StringEnd() as well. Should it?](.#2014-11-26-125212---griffon26---lineend-matches-at-stringend-as-well-should-it)  
-[2014-12-06 09:14:40 - Griffon26 - Parsing within quotes?](.#2014-12-06-091440---griffon26---parsing-within-quotes)  
-[2014-12-15 08:00:31 - vsvismeista - adding key\/value pair to originally ParseResults Object](.#2014-12-15-080031---vsvismeista---adding-key\value-pair-to-originally-parseresults-object)  
-[2014-12-18 02:11:05 - perw07 - How best to traverse lists in pyparsing results?](.#2014-12-18-021105---perw07---how-best-to-traverse-lists-in-pyparsing-results)  
+## Pyparsing Wikispaces Discussion - 2014
+
+[Note: these entries are fairly old, and predate many new features of pyparsing,
+and are predominantly coded using Python 2.
+They are captured here for historical benefit, but may not contain
+the most current practices or features. We will try to add editor
+notes to entries to indicate when discussions have been 
+overtaken by development events.]
+
+[2014-01-18 08:23:58 - matthewbward - housenumber help with address parsing](all_wiki_discussion_toc_2014.md#2014-01-18-082358---matthewbward---housenumber-help-with-address-parsing)  
+[2014-02-09 08:39:23 - D3f0 - Grammar with functions with one or many arguments](all_wiki_discussion_toc_2014.md#2014-02-09-083923---d3f0---grammar-with-functions-with-one-or-many-arguments)  
+[2014-02-13 00:55:08 - JamesEMH - parse only lines starting with keyword](all_wiki_discussion_toc_2014.md#2014-02-13-005508---jamesemh---parse-only-lines-starting-with-keyword)  
+[2014-02-18 05:47:30 - egabancho - Illegal nesting exception depending on order](all_wiki_discussion_toc_2014.md#2014-02-18-054730---egabancho---illegal-nesting-exception-depending-on-order)  
+[2014-03-26 08:01:35 - palmer1979 - Deep Nesting until Breakdown : )](all_wiki_discussion_toc_2014.md#2014-03-26-080135---palmer1979---deep-nesting-until-breakdown--)  
+[2014-04-04 14:32:45 - igre62 - setParseAction](all_wiki_discussion_toc_2014.md#2014-04-04-143245---igre62---setparseaction)  
+[2014-04-10 13:21:49 - couplewavylines - SkipTo ignore method](all_wiki_discussion_toc_2014.md#2014-04-10-132149---couplewavylines---skipto-ignore-method)  
+[2014-05-02 15:07:57 - dbotz - My Optional is not optional](all_wiki_discussion_toc_2014.md#2014-05-02-150757---dbotz---my-optional-is-not-optional)  
+[2014-05-24 02:53:43 - PrabhuGurumurthy - Help using delimitedList](all_wiki_discussion_toc_2014.md#2014-05-24-025343---prabhugurumurthy---help-using-delimitedlist)  
+[2014-07-02 02:55:59 - nunoplopes - infixNotation is very slow](all_wiki_discussion_toc_2014.md#2014-07-02-025559---nunoplopes---infixnotation-is-very-slow)  
+[2014-07-13 22:09:19 - vrvilo - `MatchFirst` truncates named results (pyparsing)](all_wiki_discussion_toc_2014.md#2014-07-13-220919---vrvilo---`matchfirst`-truncates-named-results-pyparsing)  
+[2014-07-21 18:34:31 - tony_chu - Question on parseString Optional () terms](all_wiki_discussion_toc_2014.md#2014-07-21-183431---tony_chu---question-on-parsestring-optional--terms)  
+[2014-07-25 02:43:13 - AndreWin - parsing class definiton on python](all_wiki_discussion_toc_2014.md#2014-07-25-024313---andrewin---parsing-class-definiton-on-python)  
+[2014-08-07 05:10:45 - pank1 - Ignoring comments](all_wiki_discussion_toc_2014.md#2014-08-07-051045---pank1---ignoring-comments)  
+[2014-08-07 10:45:19 - cyrfer - making objects from ParsedResults](all_wiki_discussion_toc_2014.md#2014-08-07-104519---cyrfer---making-objects-from-parsedresults)  
+[2014-08-12 16:11:31 - rh0dium - Small problem with recurssion - I'm sooo close..](all_wiki_discussion_toc_2014.md#2014-08-12-161131---rh0dium---small-problem-with-recurssion---im-sooo-close)  
+[2014-09-07 00:35:14 - AndreWin - Parsing units on Russian](all_wiki_discussion_toc_2014.md#2014-09-07-003514---andrewin---parsing-units-on-russian)  
+[2014-09-18 00:41:16 - gustible - Multi-Line Parsing](all_wiki_discussion_toc_2014.md#2014-09-18-004116---gustible---multi-line-parsing)  
+[2014-10-14 02:53:00 - cnayak12 - Need help on how to parse the repeated blocks of text to a nested dictionary](all_wiki_discussion_toc_2014.md#2014-10-14-025300---cnayak12---need-help-on-how-to-parse-the-repeated-blocks-of-text-to-a-nested-dictionary)  
+[2014-11-17 13:23:32 - Griffon26 - error stop does not break out of Each](all_wiki_discussion_toc_2014.md#2014-11-17-132332---griffon26---error-stop-does-not-break-out-of-each)  
+[2014-11-22 04:18:48 - Griffon26 - Trivial fix to increase usefulness of Each()'s error reporting](all_wiki_discussion_toc_2014.md#2014-11-22-041848---griffon26---trivial-fix-to-increase-usefulness-of-eachs-error-reporting)  
+[2014-11-23 02:51:18 - dlxneamtu - OneOrMore issue](all_wiki_discussion_toc_2014.md#2014-11-23-025118---dlxneamtu---oneormore-issue)  
+[2014-11-26 12:52:12 - Griffon26 - LineEnd() matches at StringEnd() as well. Should it?](all_wiki_discussion_toc_2014.md#2014-11-26-125212---griffon26---lineend-matches-at-stringend-as-well-should-it)  
+[2014-12-06 09:14:40 - Griffon26 - Parsing within quotes?](all_wiki_discussion_toc_2014.md#2014-12-06-091440---griffon26---parsing-within-quotes)  
+[2014-12-15 08:00:31 - vsvismeista - adding key\/value pair to originally ParseResults Object](all_wiki_discussion_toc_2014.md#2014-12-15-080031---vsvismeista---adding-key\value-pair-to-originally-parseresults-object)  
+[2014-12-18 02:11:05 - perw07 - How best to traverse lists in pyparsing results?](all_wiki_discussion_toc_2014.md#2014-12-18-021105---perw07---how-best-to-traverse-lists-in-pyparsing-results)  
 
 
 ---
@@ -1402,7 +1411,7 @@ I'm using named results in pyparsing to simplify access to the results (`result[
 
 I was expecting to get the same result (`['a', 'b', 'c']`) in both cases, but after adding the `MatchFirst` alternative using `|` I only get the first token back in the named result.
 
-Is this expected behavior that I somehow missed? If this is a bug I'm kind of surprised it hasn't already been fixed—unless I'm basically the only person using the `setResultsName` feature.
+Is this expected behavior that I somehow missed? If this is a bug I'm kind of surprised it hasn't already been fixedï¿½unless I'm basically the only person using the `setResultsName` feature.
 
 I'm using `pyparsing-2.0.2-py2.7.egg` with Python 2.7.1.
 
@@ -1556,16 +1565,16 @@ Just some various suggestions - good luck!
 #### 2014-07-26 01:46:44 - AndreWin
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
-    s <span class="sy0">=</span> <span class="st0">'def myfunc(a,b,c, d={'a':1,'b':2,'c':[1,3,5]}, e=('a','b','c')):'</span>
-    kw_def <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'def'</span><span class="br0">&#41;</span>
-    collon<span class="sy0">,</span> comma<span class="sy0">,</span> lbr<span class="sy0">,</span> rbr<span class="sy0">,</span> eq_sign <span class="sy0">=</span> <span class="kw2">map</span><span class="br0">&#40;</span>Suppress<span class="sy0">,</span> <span class="st0">':,()='</span><span class="br0">&#41;</span>
-    funcname <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas+<span class="st0">'_'</span><span class="sy0">,</span> alphanums+<span class="st0">'_'</span><span class="br0">&#41;</span>
-    argname <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas+<span class="st0">'_'</span><span class="sy0">,</span> alphanums+<span class="st0">'_'</span><span class="br0">&#41;</span>
-    argval <span class="sy0">=</span> SkipTo<span class="br0">&#40;</span>argname + eq_sign | lbr + collon<span class="br0">&#41;</span>
-    argspec <span class="sy0">=</span> Group<span class="br0">&#40;</span>argname + Optional<span class="br0">&#40;</span>eq_sign + argval<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    func_def <span class="sy0">=</span> kw_def + funcname + lbr + delimitedList<span class="br0">&#40;</span>argspec<span class="br0">&#41;</span> + rbr + collon
-    func_def.<span class="me1">parseString</span><span class="br0">&#40;</span>s<span class="br0">&#41;</span>
+    from pyparsing import *
+    s = 'def myfunc(a,b,c, d={'a':1,'b':2,'c':[1,3,5]}, e=('a','b','c')):'
+    kw_def = Keyword('def')
+    collon, comma, lbr, rbr, eq_sign = map(Suppress, ':,()=')
+    funcname = Word(alphas+'_', alphanums+'_')
+    argname = Word(alphas+'_', alphanums+'_')
+    argval = SkipTo(argname + eq_sign | lbr + collon)
+    argspec = Group(argname + Optional(eq_sign + argval))
+    func_def = kw_def + funcname + lbr + delimitedList(argspec) + rbr + collon
+    func_def.parseString(s)
 
 Result: ParseException: Expected ')' (at char 47), (line:1, col:48)
 It seems for me I'm unlistening...
@@ -1574,18 +1583,18 @@ char 47 is the whitespace before 'e=...'
 #### 2014-07-26 02:01:57 - AndreWin
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    from pyparsing import *
     %reset srange
-    load<span class="br0">&#40;</span><span class="st0">'parsePythonValue.py'</span><span class="br0">&#41;</span>
-    s <span class="sy0">=</span> <span class="st0">'def myfunc(a,b,c, d={'a':1,'b':2,'c':[1,3,5]}, e=('a','b','c')):'</span>
-    kw_def <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'def'</span><span class="br0">&#41;</span>
-    collon<span class="sy0">,</span> comma<span class="sy0">,</span> lbr<span class="sy0">,</span> rbr<span class="sy0">,</span> eq_sign <span class="sy0">=</span> <span class="kw2">map</span><span class="br0">&#40;</span>Suppress<span class="sy0">,</span> <span class="st0">':,()='</span><span class="br0">&#41;</span>
-    funcname <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas+<span class="st0">'_'</span><span class="sy0">,</span> alphanums+<span class="st0">'_'</span><span class="br0">&#41;</span>
-    argname <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas+<span class="st0">'_'</span><span class="sy0">,</span> alphanums+<span class="st0">'_'</span><span class="br0">&#41;</span>
-    argval <span class="sy0">=</span> listItem
-    argspec <span class="sy0">=</span> Group<span class="br0">&#40;</span>argname + Optional<span class="br0">&#40;</span>eq_sign + argval<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    func_def <span class="sy0">=</span> kw_def + funcname + lbr + delimitedList<span class="br0">&#40;</span>argspec<span class="br0">&#41;</span> + rbr + collon
-    func_def.<span class="me1">parseString</span><span class="br0">&#40;</span>s<span class="br0">&#41;</span>.<span class="me1">asList</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    load('parsePythonValue.py')
+    s = 'def myfunc(a,b,c, d={'a':1,'b':2,'c':[1,3,5]}, e=('a','b','c')):'
+    kw_def = Keyword('def')
+    collon, comma, lbr, rbr, eq_sign = map(Suppress, ':,()=')
+    funcname = Word(alphas+'_', alphanums+'_')
+    argname = Word(alphas+'_', alphanums+'_')
+    argval = listItem
+    argspec = Group(argname + Optional(eq_sign + argval))
+    func_def = kw_def + funcname + lbr + delimitedList(argspec) + rbr + collon
+    func_def.parseString(s).asList()
 
 Result: ['def', 'myfunc', ['a'], ['b'], ['c'], ['d', {'a': 1, 'c': [1, 3, 5], 'b': 2}], ['e', ('a', 'b', 'c')]]
 #### 2014-07-26 02:04:43 - AndreWin
@@ -1644,18 +1653,18 @@ See the note on embedding code at the top of this page:
 #### 2014-07-25 23:01:07 - AndreWin
 
 
-    s <span class="sy0">=</span> <span class="st0">'def myfunc(a,b,c, d={'a':1,'b':2,'c':[1,3,5]}, e=('a','b','c')):'</span>
-    w_def <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">'def'</span><span class="br0">&#41;</span>
-    funcname <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas+<span class="st0">'_'</span><span class="sy0">,</span> alphanums+<span class="st0">'_'</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'funcname'</span><span class="br0">&#41;</span>
-    argname <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas+<span class="st0">'_'</span><span class="sy0">,</span> alphanums+<span class="st0">'_'</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'argname'</span><span class="br0">&#41;</span>
-    collon <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">':'</span><span class="br0">&#41;</span>
-    comma <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">','</span><span class="br0">&#41;</span>
-    lbr <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">'('</span><span class="br0">&#41;</span>
-    rbr <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">')'</span><span class="br0">&#41;</span>
-    eq_sign <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">'='</span><span class="br0">&#41;</span>
-    argval <span class="sy0">=</span> SkipTo<span class="br0">&#40;</span>Or<span class="br0">&#40;</span>argname+eq_sign<span class="sy0">,</span> <span class="st0">')'</span>+<span class="st0">':'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    func_def <span class="sy0">=</span> kw_def + funcname + lbr + ZeroOrMore<span class="br0">&#40;</span>argname + Optional<span class="br0">&#40;</span>eq_sign + argval<span class="br0">&#41;</span><span class="br0">&#41;</span> + rbr + collon
-    func_def.<span class="me1">parseString</span><span class="br0">&#40;</span>s<span class="br0">&#41;</span>
+    s = 'def myfunc(a,b,c, d={'a':1,'b':2,'c':[1,3,5]}, e=('a','b','c')):'
+    w_def = Suppress('def')
+    funcname = Word(alphas+'_', alphanums+'_')('funcname')
+    argname = Word(alphas+'_', alphanums+'_')('argname')
+    collon = Suppress(':')
+    comma = Suppress(',')
+    lbr = Suppress('(')
+    rbr = Suppress(')')
+    eq_sign = Suppress('=')
+    argval = SkipTo(Or(argname+eq_sign, ')'+':'))
+    func_def = kw_def + funcname + lbr + ZeroOrMore(argname + Optional(eq_sign + argval)) + rbr + collon
+    func_def.parseString(s)
 
 <strong>Result</strong>
 ParseException: Expected ')' (at char 12), (line:1, col:13)
@@ -2787,7 +2796,7 @@ Here is an interesting tangent - why are '/'s escaped in regular expressions?  I
 ## 2014-12-15 08:00:31 - vsvismeista - adding key\/value pair to originally ParseResults Object
 Hi all,
 
-I have made my first steps in pyparsing - it´s really cool.
+I have made my first steps in pyparsing - itï¿½s really cool.
 
 But I have a problem without knowing howto solve at the moment:
 After parsing I want to calculate the time-difference of two results and add this result to the original ParseResult.
@@ -2875,7 +2884,7 @@ but when I use asXML():
     \</job_start_time\>
 
 
-I haven´t understand yet why the job_duration isn't showed..
+I havenï¿½t understand yet why the job_duration isn't showed..
 #### 2014-12-18 04:16:35 - ptmcg
 Adding a results name does not automatically append to the ParseResults internal list, and asXML works by walking the list and looking for matching names to make the tags; dump just works off the internal dict, and so that is why you see your result.  You will need to update both the internal dict and the internal list, try:
 
