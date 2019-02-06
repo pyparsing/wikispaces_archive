@@ -17,7 +17,7 @@ overtaken by development events.]
 [2014-05-02 15:07:57 - dbotz - My Optional is not optional](all_wiki_discussion_toc_2014.md#2014-05-02-150757---dbotz---my-optional-is-not-optional)  
 [2014-05-24 02:53:43 - PrabhuGurumurthy - Help using delimitedList](all_wiki_discussion_toc_2014.md#2014-05-24-025343---prabhugurumurthy---help-using-delimitedlist)  
 [2014-07-02 02:55:59 - nunoplopes - infixNotation is very slow](all_wiki_discussion_toc_2014.md#2014-07-02-025559---nunoplopes---infixnotation-is-very-slow)  
-[2014-07-13 22:09:19 - vrvilo - `MatchFirst` truncates named results (pyparsing)](all_wiki_discussion_toc_2014.md#2014-07-13-220919---vrvilo---matchfirst-truncates-named-results-pyparsing)
+[2014-07-13 22:09:19 - vrvilo - `MatchFirst` truncates named results (pyparsing)](all_wiki_discussion_toc_2014.md#2014-07-13-220919---vrvilo---matchfirst-truncates-named-results-pyparsing)  
 [2014-07-21 18:34:31 - tony_chu - Question on parseString Optional () terms](all_wiki_discussion_toc_2014.md#2014-07-21-183431---tony_chu---question-on-parsestring-optional--terms)  
 [2014-07-25 02:43:13 - AndreWin - parsing class definiton on python](all_wiki_discussion_toc_2014.md#2014-07-25-024313---andrewin---parsing-class-definiton-on-python)  
 [2014-08-07 05:10:45 - pank1 - Ignoring comments](all_wiki_discussion_toc_2014.md#2014-08-07-051045---pank1---ignoring-comments)  
