@@ -17,7 +17,7 @@ overtaken by development events.]
 [2014-05-02 15:07:57 - dbotz - My Optional is not optional](all_wiki_discussion_toc_2014.md#2014-05-02-150757---dbotz---my-optional-is-not-optional)  
 [2014-05-24 02:53:43 - PrabhuGurumurthy - Help using delimitedList](all_wiki_discussion_toc_2014.md#2014-05-24-025343---prabhugurumurthy---help-using-delimitedlist)  
 [2014-07-02 02:55:59 - nunoplopes - infixNotation is very slow](all_wiki_discussion_toc_2014.md#2014-07-02-025559---nunoplopes---infixnotation-is-very-slow)  
-[2014-07-13 22:09:19 - vrvilo - `MatchFirst` truncates named results (pyparsing)](all_wiki_discussion_toc_2014.md#2014-07-13-220919---vrvilo---`matchfirst`-truncates-named-results-pyparsing)  
+[2014-07-13 22:09:19 - vrvilo - `MatchFirst` truncates named results (pyparsing)](all_wiki_discussion_toc_2014.md#2014-07-13-220919---vrvilo---matchfirst-truncates-named-results-pyparsing)
 [2014-07-21 18:34:31 - tony_chu - Question on parseString Optional () terms](all_wiki_discussion_toc_2014.md#2014-07-21-183431---tony_chu---question-on-parsestring-optional--terms)  
 [2014-07-25 02:43:13 - AndreWin - parsing class definiton on python](all_wiki_discussion_toc_2014.md#2014-07-25-024313---andrewin---parsing-class-definiton-on-python)  
 [2014-08-07 05:10:45 - pank1 - Ignoring comments](all_wiki_discussion_toc_2014.md#2014-08-07-051045---pank1---ignoring-comments)  
@@ -47,18 +47,16 @@ thanks!
 
 #### 2014-01-18 08:38:05 - ptmcg
 Try changing the housenumberexpression from:
-[code]
-housenumber = originalTextFor( numberword | Combine(Word(nums) + 
-                    Optional(OPT_DASH + oneOf(list(alphas))+FollowedBy(White()))) + 
-                    Optional(OPT_DASH + '1/2')
-[code]
+
+    housenumber = originalTextFor( numberword | Combine(Word(nums) + 
+                        Optional(OPT_DASH + oneOf(list(alphas))+FollowedBy(White()))) + 
+                        Optional(OPT_DASH + '1/2')
 
 to
-[code]
-housenumber = originalTextFor( numberword | Combine(Word(nums) + 
-                    Optional(OPT_DASH + (Word(nums) | oneOf(list(alphas)))+FollowedBy(White()))) + 
-                    Optional(OPT_DASH + '1/2')
-[code]
+
+    housenumber = originalTextFor( numberword | Combine(Word(nums) + 
+                        Optional(OPT_DASH + (Word(nums) | oneOf(list(alphas)))+FollowedBy(White()))) + 
+                        Optional(OPT_DASH + '1/2')
 
 -- Paul
 #### 2014-01-18 17:10:15 - matthewbward
@@ -72,104 +70,111 @@ It consists of numeric literals, vairables (which have a specific format i.e.: a
 
 I started to implement it modifying excel's formula example provided with pyparsing. But I struggled with reucurssion:
 
-from pyparsing import *
-
-<ol><li>Variables</li></ol>variable = Regex(r'(?P\<table\>[ai|di|sv]{2})\.(?P\<tag\>[\w\d]+)\.(?P\<attr\>\w+)')
-
-
-def var_parse_action(text, index, context):
-    return context[0]
-
-variable.setParseAction(var_parse_action)
-
-<ol><li>Numbers</li></ol>numeric_literal = Regex(r'\-?\d+(\.\d+)?')
-
-
-def number_prase_action(text, index, data):
-    number = data[0]
-    if '.' in number:
-        return float(number)
-    else:
-        return int(number)
-
-numeric_literal.setParseAction(number_prase_action)
-
-EXCL, LPAR, RPAR, COLON, COMMA = map(Suppress, '!():,')
-
-expr = Forward()
-
-<ol><li>IF CONDITION</li></ol>COMPARISON_OP = oneOf('\< = \> \>= \<= != \<\>')
-condExpr = (expr + COMPARISON_OP + expr) | variable
-
-ifFunc = (CaselessKeyword('si') +
-          LPAR +
-          Group(condExpr)('condition') +
-          COMMA + expr('if_true') +
-          COMMA + expr('if_false') + RPAR)
-
-#def ifFunc_parse_action(text, index, context):
-<ol><li>print 'hola'</li><li>return context</li></ol>#
-#ifFunc.setParseAction(ifFunc_parse_action)
-
-arguments = Forward()
-
-one_op_func = lambda name: (CaselessKeyword(name) + LPAR + arguments + RPAR)
-
-int_cast = one_op_func('int')
-
-def int_cast_parse_action(text, index, context):
-    return int(context[1])
-
-int_cast.setParseAction(int_cast_parse_action)
-float_cast = one_op_func('float')
-str_cast = one_op_func('str')
-
-sqrt_func = one_op_func('raiz')
-
-
-multi_op_func = lambda name: CaselessKeyword(name) + LPAR + delimitedList(arguments) + RPAR
-
-<ol><li>Statistical functions</li></ol>sumFunc = multi_op_func('sum')
-minFunc = multi_op_func('min')
-maxFunc = multi_op_func('max')
-aveFunc = multi_op_func('ave')
-
-<ol><li>Logical functions</li></ol>orFunc = multi_op_func('or')
-andFunc = multi_op_func('and')
-
-multOp = oneOf('* /')
-addOp = oneOf('+ -')
-
-
-funcCall = (ifFunc | # If expression
-            sumFunc | minFunc | maxFunc | aveFunc | # statisticial functions
-            int_cast | str_cast | float_cast | # Casts
-            orFunc | andFunc | # Logical
-            sqrt_func
-            )
-
-arguments \<\< (Group(expr) | numeric_literal | variable)
-
-
-operand = Forward()
-arithExpr = operatorPrecedence(operand,[
-                                        (multOp, 2, opAssoc.LEFT),
-                                        (addOp, 2, opAssoc.LEFT),
-                               ])
-
-operand \<\< (arithExpr | numeric_literal  | variable)
-
-def arithExpr_parse_action(text, index, context):
-    print 'ARIEXPR', context
-
-expr \<\< (arithExpr | funcCall | numeric_literal | variable )
-
+    from pyparsing import *
+    
+    # Variables
+    variable = Regex(r'(?P<table>[ai|di|sv]{2})\.(?P<tag>[\w\d]+)\.(?P<attr>\w+)')
+    
+    
+    def var_parse_action(text, index, context):
+        return context[0]
+    
+    variable.setParseAction(var_parse_action)
+    
+    # Numbers
+    numeric_literal = Regex(r'\-?\d+(\.\d+)?')
+    
+    
+    def number_prase_action(text, index, data):
+        number = data[0]
+        if '.' in number:
+            return float(number)
+        else:
+            return int(number)
+    
+    numeric_literal.setParseAction(number_prase_action)
+    
+    EXCL, LPAR, RPAR, COLON, COMMA = map(Suppress, '!():,')
+    
+    expr = Forward()
+    
+    # IF CONDITION
+    COMPARISON_OP = oneOf('< = > >= <= != <>')
+    condExpr = (expr + COMPARISON_OP + expr) | variable
+    
+    ifFunc = (CaselessKeyword('si') +
+              LPAR +
+              Group(condExpr)('condition') +
+              COMMA + expr('if_true') +
+              COMMA + expr('if_false') + RPAR)
+    
+    #def ifFunc_parse_action(text, index, context):
+    # print 'hola'
+    return context</li></ol>#
+    #ifFunc.setParseAction(ifFunc_parse_action)
+    
+    arguments = Forward()
+    
+    one_op_func = lambda name: (CaselessKeyword(name) + LPAR + arguments + RPAR)
+    
+    int_cast = one_op_func('int')
+    
+    def int_cast_parse_action(text, index, context):
+        return int(context[1])
+    
+    int_cast.setParseAction(int_cast_parse_action)
+    float_cast = one_op_func('float')
+    str_cast = one_op_func('str')
+    
+    sqrt_func = one_op_func('raiz')
+    
+    
+    multi_op_func = lambda name: CaselessKeyword(name) + LPAR + delimitedList(arguments) + RPAR
+    
+    # Statistical functions
+    sumFunc = multi_op_func('sum')
+    minFunc = multi_op_func('min')
+    maxFunc = multi_op_func('max')
+    aveFunc = multi_op_func('ave')
+    
+    # Logical functions
+    orFunc = multi_op_func('or')
+    andFunc = multi_op_func('and')
+    
+    multOp = oneOf('* /')
+    addOp = oneOf('+ -')
+    
+    
+    funcCall = (ifFunc | # If expression
+                sumFunc | minFunc | maxFunc | aveFunc | # statisticial functions
+                int_cast | str_cast | float_cast | # Casts
+                orFunc | andFunc | # Logical
+                sqrt_func
+                )
+    
+    arguments << (Group(expr) | numeric_literal | variable)
+    
+    
+    operand = Forward()
+    arithExpr = operatorPrecedence(operand,[
+                                            (multOp, 2, opAssoc.LEFT),
+                                            (addOp, 2, opAssoc.LEFT),
+                                   ])
+    
+    operand << (arithExpr | numeric_literal  | variable)
+    
+    def arithExpr_parse_action(text, index, context):
+        print 'ARIEXPR', context
+    
+    expr << (arithExpr | funcCall | numeric_literal | variable )
+    
 
 The test code is like this:
+
     test_line('int(3)+int(4)')
     test_line('or(0,1,2)')
     test_line('str(aa.bb.cc)')
-    test_line('str(si(0\>2,aa.bb.cc,4))')
+    test_line('str(si(0>2,aa.bb.cc,4))')
     test_line('RAIZ(ai.E42PA_01.value*ai.E42PA_01.value+ai.E42PR_01.value*ai.E42PR_01.value)*ai.E42PA_01.escala')
     test_line('str(raiz(3)*2)')
     test_line('str(RAIZ(ai.E42PA_01.value*ai.E42PA_01.value+ai.E42PR_01.value*ai.E42PR_01.value)*ai.E42PA_01.escala)')
@@ -222,12 +227,14 @@ The code that follows almost works but stops when it meets an unwanted line cont
 
 
 The output from this code is 
-['kw2', 'par1']
-['kw1', 'par1', '2']
-['kw1', 'opt', '1']
+
+    ['kw2', 'par1']
+    ['kw1', 'par1', '2']
+    ['kw1', 'opt', '1']
 
 What is missing from the output is
-['kw2', 'h1']
+
+    ['kw2', 'h1']
 
 I am new to pyparsing and so I am probably missing something obvious. Is there a way to correct my code so that it does what I want? Or is there a better way to achieve my aims?
 
@@ -318,13 +325,20 @@ Esteban
 ## 2014-03-26 08:01:35 - palmer1979 - Deep Nesting until Breakdown : )
 Hello,
 
-I have to parse a deeply nested expression. The parsing works for nesting up to 5 levels. When I have more levels, pyparsing seems to go into an infinite loop. I let the parser run for 12 hours, but to no avail. Is there any way around this?
+I have to parse a deeply nested expression. The parsing works for nesting up to 5 levels. 
+When I have more levels, pyparsing seems to go into an infinite loop. I let the parser 
+run for 12 hours, but to no avail. Is there any way around this?
 
-What I also find strange is, that there seems to be no increased memory usage, which I would associate with infinite loops.
+What I also find strange is, that there seems to be no increased memory usage, which I 
+would associate with infinite loops.
 
-The grammar and the schema-string that need to be parsed are all in the code below. The code 'snippet' will run (forever) on any python that has the pyparsing package installed. I have tested it on thousands of lines of code and it works fine, except for deeply nested expressions.
+The grammar and the schema-string that need to be parsed are all in the code below. 
+The code 'snippet' will run (forever) on any python that has the pyparsing package installed. 
+I have tested it on thousands of lines of code and it works fine, except for deeply 
+nested expressions.
 
-By the way, you can just look at the last 30 lines of the code, and especially the recursive 'simple_factor \<\< ...' expression, as these are where 'its happening'.
+By the way, you can just look at the last 30 lines of the code, and especially the 
+recursive 'simple_factor << ...' expression, as these are where 'its happening'.
 
 Any hint on how I might resolve this would be greatly appreciated!
 
@@ -333,692 +347,692 @@ Arne
 
 
 
-from pyparsing import *
-import pprint
-
-
-keywords = []
-
-ABS = CaselessKeyword('abs')
-keywords.append('ABS')
-
-ABSTRACT = CaselessKeyword('abstract')
-keywords.append('ABSTRACT')
-
-ACOS = CaselessKeyword('acos')
-keywords.append('ACOS')
-
-AGGREGATE = CaselessKeyword('aggregate')
-keywords.append('AGGREGATE')
-
-ALIAS = CaselessKeyword('alias')
-keywords.append('ALIAS')
-
-AND = CaselessKeyword('and')
-keywords.append('AND')
-
-ANDOR = CaselessKeyword('andor')
-keywords.append('ANDOR')
-
-ARRAY = CaselessKeyword('array')
-keywords.append('ARRAY')
-
-AS = CaselessKeyword('as')
-keywords.append('AS')
-
-ASIN = CaselessKeyword('asin')
-keywords.append('ASIN')
-
-ATAN = CaselessKeyword('atan')
-keywords.append('ATAN')
-
-BAG = CaselessKeyword('bag')
-keywords.append('BAG')
-
-BASED_ON = CaselessKeyword('based_on')
-keywords.append('BASED_ON')
-
-BEGIN = CaselessKeyword('begin')
-keywords.append('BEGIN')
-
-BINARY = CaselessKeyword('binary')
-keywords.append('BINARY')
-
-BLENGTH = CaselessKeyword('blength')
-keywords.append('BLENGTH')
-
-BOOLEAN = CaselessKeyword('boolean')
-keywords.append('BOOLEAN')
-
-BY = CaselessKeyword('by')
-keywords.append('BY')
-
-CASE = CaselessKeyword('case')
-keywords.append('CASE')
-
-CONSTANT = CaselessKeyword('constant')
-keywords.append('CONSTANT')
-
-CONST_E = CaselessKeyword('const_e')
-keywords.append('CONST_E')
-
-COS = CaselessKeyword('cos')
-keywords.append('COS')
-
-DERIVE = CaselessKeyword('derive')
-keywords.append('DERIVE')
-
-DIV = CaselessKeyword('div')
-keywords.append('DIV')
-
-ELSE = CaselessKeyword('else')
-keywords.append('ELSE')
-
-END = CaselessKeyword('end')
-keywords.append('END')
-
-END_ALIAS = CaselessKeyword('end_alias')
-keywords.append('END_ALIAS')
-
-END_CASE = CaselessKeyword('end_case')
-keywords.append('END_CASE')
-
-END_CONSTANT = CaselessKeyword('end_constant')
-keywords.append('END_CONSTANT')
-
-END_ENTITY = CaselessKeyword('end_entity')
-keywords.append('END_ENTITY')
-
-END_FUNCTION = CaselessKeyword('end_function')
-keywords.append('END_FUNCTION')
-
-END_IF = CaselessKeyword('end_if')
-keywords.append('END_IF')
-
-END_LOCAL = CaselessKeyword('end_local')
-keywords.append('END_LOCAL')
-
-END_PROCEDURE = CaselessKeyword('end_procedure')
-keywords.append('END_PROCEDURE')
-
-END_REPEAT = CaselessKeyword('end_repeat')
-keywords.append('END_REPEAT')
-
-END_RULE = CaselessKeyword('end_rule')
-keywords.append('END_RULE')
-
-END_SCHEMA = CaselessKeyword('end_schema')
-keywords.append('END_SCHEMA')
-
-END_SUBTYPE_CONSTRAINT = CaselessKeyword('end_subtype_constraint')
-keywords.append('END_SUBTYPE_CONSTRAINT')
-
-END_TYPE = CaselessKeyword('end_type')
-keywords.append('END_TYPE')
-
-ENTITY = CaselessKeyword('entity')
-keywords.append('ENTITY')
-
-ENUMERATION = CaselessKeyword('enumeration')
-keywords.append('ENUMERATION')
-
-ESCAPE = CaselessKeyword('escape')
-keywords.append('ESCAPE')
-
-EXISTS = CaselessKeyword('exists')
-keywords.append('EXISTS')
-
-EXTENSIBLE = CaselessKeyword('extensible')
-keywords.append('EXTENSIBLE')
-
-EXP = CaselessKeyword('exp')
-keywords.append('EXP')
-
-FALSE = CaselessKeyword('false')
-keywords.append('FALSE')
-
-FIXED = CaselessKeyword('fixed')
-keywords.append('FIXED')
-
-FOR = CaselessKeyword('for')
-keywords.append('FOR')
-
-FORMAT = CaselessKeyword('format')
-keywords.append('FORMAT')
-
-FROM = CaselessKeyword('from')
-keywords.append('FROM')
-
-FUNCTION = CaselessKeyword('function')
-keywords.append('FUNCTION')
-
-GENERIC = CaselessKeyword('generic')
-keywords.append('GENERIC')
-
-GENERIC_ENTITY = CaselessKeyword('generic_entity')
-keywords.append('GENERIC_ENTITY')
-
-HIBOUND = CaselessKeyword('hibound')
-keywords.append('HIBOUND')
-
-HIINDEX = CaselessKeyword('hiindex')
-keywords.append('HIINDEX')
-
-IF = CaselessKeyword('if')
-keywords.append('IF')
-
-IN = CaselessKeyword('in')
-keywords.append('IN')
-
-INSERT = CaselessKeyword('insert')
-keywords.append('INSERT')
-
-INTEGER = CaselessKeyword('integer')
-keywords.append('INTEGER')
-
-INVERSE = CaselessKeyword('inverse')
-keywords.append('INVERSE')
-
-LENGTH = CaselessKeyword('length')
-keywords.append('LENGTH')
-
-LIKE = CaselessKeyword('like')
-keywords.append('LIKE')
-
-LIST = CaselessKeyword('list')
-keywords.append('LIST')
-
-LOBOUND = CaselessKeyword('lobound')
-keywords.append('LOBOUND')
-
-LOCAL = CaselessKeyword('local')
-keywords.append('LOCAL')
-
-LOG = CaselessKeyword('log')
-keywords.append('LOG')
-
-LOG10 = CaselessKeyword('log10')
-keywords.append('LOG10')
-
-LOG2 = CaselessKeyword('log2')
-keywords.append('LOG2')
-
-LOGICAL = CaselessKeyword('logical')
-keywords.append('LOGICAL')
-
-LOINDEX = CaselessKeyword('loindex')
-keywords.append('LOINDEX')
-
-MOD = CaselessKeyword('mod')
-keywords.append('MOD')
-
-NOT = CaselessKeyword('not')
-keywords.append('NOT')
-
-NUMBER = CaselessKeyword('number')
-keywords.append('NUMBER')
-
-NVL = CaselessKeyword('nvl')
-keywords.append('NVL')
-
-ODD = CaselessKeyword('odd')
-keywords.append('ODD')
-
-OF = CaselessKeyword('of')
-keywords.append('OF')
-
-ONEOF = CaselessKeyword('oneof')
-keywords.append('ONEOF')
-
-OPTIONAL = CaselessKeyword('optional')
-keywords.append('OPTIONAL')
-
-OR = CaselessKeyword('or')
-keywords.append('OR')
-
-OTHERWISE = CaselessKeyword('otherwise')
-keywords.append('OTHERWISE')
-
-PI = CaselessKeyword('pi')
-keywords.append('PI')
-
-PROCEDURE = CaselessKeyword('procedure')
-keywords.append('PROCEDURE')
-
-QUERY = CaselessKeyword('query')
-keywords.append('QUERY')
-
-REAL = CaselessKeyword('real')
-keywords.append('REAL')
-
-REFERENCE = CaselessKeyword('reference')
-keywords.append('REFERENCE')
-
-REMOVE = CaselessKeyword('remove')
-keywords.append('REMOVE')
-
-RENAMED = CaselessKeyword('renamed')
-keywords.append('RENAMED')
-
-REPEAT = CaselessKeyword('repeat')
-keywords.append('REPEAT')
-
-RETURN = CaselessKeyword('return')
-keywords.append('RETURN')
-
-ROLESOF = CaselessKeyword('rolesof')
-keywords.append('ROLESOF')
-
-RULE = CaselessKeyword('rule')
-keywords.append('RULE')
-
-SCHEMA = CaselessKeyword('schema')
-keywords.append('SCHEMA')
-
-SELECT = CaselessKeyword('select')
-keywords.append('SELECT')
-
-SELF = CaselessKeyword('self')
-keywords.append('SELF')
-
-SET = CaselessKeyword('set')
-keywords.append('SET')
-
-SIN = CaselessKeyword('sin')
-keywords.append('SIN')
-
-SIZEOF = CaselessKeyword('sizeof')
-keywords.append('SIZEOF')
-
-SKIP = CaselessKeyword('skip')
-keywords.append('SKIP')
-
-SQRT = CaselessKeyword('sqrt')
-keywords.append('SQRT')
-
-STRING = CaselessKeyword('string')
-keywords.append('STRING')
-
-SUBTYPE = CaselessKeyword('subtype')
-keywords.append('SUBTYPE')
-
-SUBTYPE_CONSTRAINT = CaselessKeyword('subtype_constraint')
-keywords.append('SUBTYPE_CONSTRAINT')
-
-SUPERTYPE = CaselessKeyword('supertype')
-keywords.append('SUPERTYPE')
-
-TAN = CaselessKeyword('tan')
-keywords.append('TAN')
-
-THEN = CaselessKeyword('then')
-keywords.append('THEN')
-
-TO = CaselessKeyword('to')
-keywords.append('TO')
-
-TOTAL_OVER = CaselessKeyword('total_over')
-keywords.append('TOTAL_OVER')
-
-TRUE = CaselessKeyword('true')
-keywords.append('TRUE')
-
-TYPE = CaselessKeyword('type')
-keywords.append('TYPE')
-
-TYPEOF = CaselessKeyword('typeof')
-keywords.append('TYPEOF')
-
-UNIQUE = CaselessKeyword('unique')
-keywords.append('UNIQUE')
-
-UNKNOWN = CaselessKeyword('unknown')
-keywords.append('UNKNOWN')
-
-UNTIL = CaselessKeyword('until')
-keywords.append('UNTIL')
-
-USE = CaselessKeyword('use')
-keywords.append('USE')
-
-USEDIN = CaselessKeyword('usedin')
-keywords.append('USEDIN')
-
-VALUE = CaselessKeyword('value')
-keywords.append('VALUE')
-
-VALUE_IN = CaselessKeyword('value_in')
-keywords.append('VALUE_IN')
-
-VALUE_UNIQUE = CaselessKeyword('value_unique')
-keywords.append('VALUE_UNIQUE')
-
-VAR = CaselessKeyword('var')
-keywords.append('VAR')
-
-WHERE = CaselessKeyword('where')
-keywords.append('WHERE')
-
-WHILE = CaselessKeyword('while')
-keywords.append('WHILE')
-
-WITH = CaselessKeyword('with')
-keywords.append('WITH')
-
-XOR = CaselessKeyword('xor')
-keywords.append('XOR')
-
-bit = oneOf('0 1')
-
-digit = oneOf(list(nums))
-
-digits = OneOrMore(digit)
-
-hex_digit = oneOf(list(hexnums))
-
-letter = oneOf(list(alphas))
-
-octet = hex_digit + hex_digit
-
-encoded_character = octet + octet + octet + octet
-
-not_paren_star_quote_special = oneOf(r'! ' # $ % & + , - . / : ; \< = \> ? @ [ \ ] ^ _ { | } ~')
-
-not_paren_star_special = not_paren_star_quote_special | ''''
-
-not_paren_star = letter | digit | not_paren_star_special
-
-not_lparen_star = not_paren_star | ')'
-
-lparen_then_not_lparen_star = '(' + ZeroOrMore('(') + OneOrMore(not_lparen_star)
-
-not_quote = not_paren_star_quote_special | letter | digit | '(' | ')' | '*'
-
-not_rparen_star = not_paren_star | '('
-
-special = not_paren_star_quote_special | '(' | ')' | '*' | ''''
-
-not_rparen_star_then_rparen = OneOrMore(not_rparen_star) + OneOrMore(')')
-
-sign = oneOf('+ -')
-
-binary_literal = Group(Combine('%' + OneOrMore(bit)))
-
-encoded_string_literal = Group(Combine(''' + OneOrMore(encoded_character) + '''))
-
-integer_literal = Group(digits)
-
-real_literal = Group(Combine(integer_literal ^ ( digits + '.' + Optional(digits) + \
-                                                 Optional(CaselessKeyword('e') + Optional(sign) + digits))))
-
-simple_id = NotAny(oneOf(keywords, caseless=True) + (WordEnd(alphanums + '_') | White())) + \
-            Group(Combine(letter + ZeroOrMore(letter | digit | '_')))
-
-simple_string_literal = Group(Combine(''' + ZeroOrMore('''' | not_quote | ' ' | u'\u0009' | u'\u000A' | u'\u000D') \
-                                      + '''))
-
-attribute_id = simple_id
-
-attribute_ref = attribute_id
-
-constant_id = simple_id
-
-constant_ref = constant_id
-
-entity_id = simple_id
-
-entity_ref = entity_id
-
-enumeration_id = simple_id
-
-enumeration_ref = enumeration_id
-
-function_id = simple_id
-
-function_ref = function_id
-
-parameter_id = simple_id
-
-parameter_ref = parameter_id
-
-procedure_id = simple_id
-
-procedure_ref = procedure_id
-
-rule_label_id = simple_id
-
-rule_label_ref = rule_label_id
-
-rule_id = simple_id
-
-rule_ref = rule_id
-
-schema_id = simple_id
-
-schema_ref = schema_id
-
-subtype_constraint_id = simple_id
-
-subtype_constraint_ref = subtype_constraint_id
-
-type_label_id = simple_id
-
-type_label_ref = type_label_id
-
-type_id = simple_id
-
-type_ref = type_id
-
-variable_id = simple_id
-
-variable_ref = variable_id
-
-remark_ref = attribute_ref | constant_ref | entity_ref | enumeration_ref | function_ref | parameter_ref | procedure_ref | rule_label_ref | rule_ref | schema_ref | subtype_constraint_ref | type_label_ref | type_ref | variable_ref
-
-remark_tag = ''' + remark_ref + ZeroOrMore('.' + remark_ref) + '''
-
-embedded_remark = Keyword('(*') + Optional(remark_tag) + ZeroOrMore(NotAny(Keyword('*)')) + Word(printables)) + \
-                  Keyword('*)')
-
-tail_remark = Literal('--') + Optional(remark_tag) + ZeroOrMore(NotAny(LineEnd()) + Word(printables)) + LineEnd()
-
-remark = embedded_remark | tail_remark
-
-abstract_entity_declaration = ABSTRACT
-
-abstract_supertype = ABSTRACT + SUPERTYPE + ';'
-
-add_like_op = Literal('+') | Literal('-') | OR | XOR
-
-multiplication_like_op = Literal('*') | Literal('/') | Literal('||') | DIV | MOD | AND
-
-unary_op = Literal('+') | Literal('-') | NOT
-
-attribute_qualifier = '.' + attribute_ref
-
-boolean_type = BOOLEAN
-
-built_in_constant = CONST_E | PI | SELF | Literal('?')
-
-built_in_function = ABS | ACOS | ASIN | ATAN | BLENGTH | COS | EXISTS | EXP | FORMAT | HIBOUND | HIINDEX | LENGTH | LOBOUND | LOINDEX | LOG | LOG2 | LOG10 | NVL | ODD | ROLESOF | SIN | SIZEOF | SQRT | TAN | TYPEOF | USEDIN | VALUE | VALUE_IN | VALUE_UNIQUE
-
-built_in_procedure = INSERT | REMOVE
-
-enumeration_items = '(' + delimitedList(enumeration_id) + ')'
-
-escape_stmt = ESCAPE + ';'
-
-type_label = type_label_id | type_label_ref
-
-generic_entity_type = GENERIC_ENTITY + Optional(':' + type_label)
-
-generic_type = GENERIC + Optional(':' + type_label)
-
-integer_type = INTEGER
-
-interval_op = oneOf('\< \<=')
-
-logical_literal = FALSE | TRUE | UNKNOWN
-
-logical_type = LOGICAL
-
-null_stmt = Literal(';')
-
-number_type = NUMBER
-
-rel_op = oneOf('\< \> \<= \>= \<\> = :\<\>: :=:')
-
-rel_op_extended = rel_op | IN | LIKE
-
-rename_id = constant_id | entity_id | function_id | procedure_id | type_id
-
-resource_ref = constant_ref | entity_ref | function_ref | procedure_ref | type_ref
-
-resource_or_rename = resource_ref + Optional(AS + rename_id)
-
-string_literal = simple_string_literal | encoded_string_literal
-
-schema_version_id = string_literal
-
-named_types = entity_ref | type_ref
-
-named_type_or_rename = named_types + Optional(AS + ( entity_id | type_id ))
-
-population = entity_ref
-
-general_ref = parameter_ref | variable_ref
-
-literal = binary_literal | logical_literal | real_literal | string_literal
-
-group_qualifier = '\\' + entity_ref
-
-select_list = '(' + delimitedList(named_types) + ')'
-
-select_extension = BASED_ON + type_ref + Optional(WITH + select_list)
-
-select_type = Optional(EXTENSIBLE + Optional(GENERIC_ENTITY)) + SELECT + Optional(select_list | select_extension)
-
-skip_stmt = SKIP + ';'
-
-total_over = TOTAL_OVER + '(' + delimitedList(entity_ref) + ')' + ';'
-
-reference_clause = REFERENCE + FROM + schema_ref + Optional('(' + delimitedList(resource_or_rename) + ')') + ';'
-
-use_clause = USE + FROM + schema_ref + Optional('(' + delimitedList(named_type_or_rename) + ')') + ';'
-
-interface_specification = reference_clause | use_clause
-
-subtype_constraint_head = SUBTYPE_CONSTRAINT + subtype_constraint_id + FOR + entity_ref + ';'
-
-subtype_declaration = SUBTYPE + OF + '(' + delimitedList(entity_ref) + ')'
-
-rule_head = RULE + rule_id + FOR + '(' + delimitedList(entity_ref) + ')' + ';'
-
-qualified_attribute = SELF + group_qualifier + attribute_qualifier
-
-referenced_attribute = attribute_ref | qualified_attribute
-
-redeclared_attribute = qualified_attribute + Optional(RENAMED + attribute_id)
-
-enumeration_extension = BASED_ON + type_ref + Optional(WITH + enumeration_items)
-
-enumeration_reference = Optional(type_ref + '.') + enumeration_ref
-
-enumeration_type = Optional(EXTENSIBLE) + ENUMERATION + Optional(( OF + enumeration_items ) ^ enumeration_extension)
-
-constructed_types = enumeration_type | select_type
-
-constant_factor = built_in_constant | constant_ref
-
-attribute_decl = attribute_id | redeclared_attribute
-
-unique_rule = Optional(rule_label_id + ':') + delimitedList(referenced_attribute)
-
-simple_factor = Forward()
-
-factor = simple_factor + Optional('**' + simple_factor)
-
-term = factor + ZeroOrMore(multiplication_like_op + factor)
-
-simple_expression = term + ZeroOrMore(add_like_op + term)
-
-expression = simple_expression + Optional(rel_op_extended + simple_expression)
-
-interval_high = simple_expression
-
-interval_item = simple_expression
-
-interval_low = simple_expression
-
-interval = '{' + interval_low + interval_op + interval_item + interval_op + interval_high + '}'
-
-numeric_expression = simple_expression
-
-repetition = numeric_expression
-
-element = expression + Optional(':' + repetition)
-
-aggregate_initializer = '[' + Optional(delimitedList(element)) + ']'
-
-logical_expression = expression
-
-aggregate_source = simple_expression
-
-query_expression = QUERY + '(' + variable_id + '\<*' + aggregate_source + '|' + logical_expression + ')'
-
-index = numeric_expression
-
-index_1 = index
-
-index_2 = index
-
-index_qualifier = '[' + index_1 + Optional(':' + index_2) + ']'
-
-qualifier = attribute_qualifier | group_qualifier | index_qualifier
-
-parameter = expression
-
-actual_parameter_list = '(' + delimitedList(parameter) + ')'
-
-function_call = ( built_in_function | function_ref ) + Optional(actual_parameter_list)
-
-qualifiable_factor = attribute_ref ^ constant_factor ^ function_call ^ general_ref ^ population
-
-primary = literal | ( qualifiable_factor + ZeroOrMore(qualifier) )
-
-entity_constructor = entity_ref + '(' + Optional(delimitedList(expression)) + ')'
-
-simple_factor \<\< (aggregate_initializer ^ entity_constructor ^ enumeration_reference ^ interval ^ query_expression ^ \
-                  (Optional(unary_op) + ( ('(' + expression + ')') ^ primary ) ))
-
-schema = '''
-(
- (
-  (
-   (
+    from pyparsing import *
+    import pprint
+    
+    
+    keywords = []
+    
+    ABS = CaselessKeyword('abs')
+    keywords.append('ABS')
+    
+    ABSTRACT = CaselessKeyword('abstract')
+    keywords.append('ABSTRACT')
+    
+    ACOS = CaselessKeyword('acos')
+    keywords.append('ACOS')
+    
+    AGGREGATE = CaselessKeyword('aggregate')
+    keywords.append('AGGREGATE')
+    
+    ALIAS = CaselessKeyword('alias')
+    keywords.append('ALIAS')
+    
+    AND = CaselessKeyword('and')
+    keywords.append('AND')
+    
+    ANDOR = CaselessKeyword('andor')
+    keywords.append('ANDOR')
+    
+    ARRAY = CaselessKeyword('array')
+    keywords.append('ARRAY')
+    
+    AS = CaselessKeyword('as')
+    keywords.append('AS')
+    
+    ASIN = CaselessKeyword('asin')
+    keywords.append('ASIN')
+    
+    ATAN = CaselessKeyword('atan')
+    keywords.append('ATAN')
+    
+    BAG = CaselessKeyword('bag')
+    keywords.append('BAG')
+    
+    BASED_ON = CaselessKeyword('based_on')
+    keywords.append('BASED_ON')
+    
+    BEGIN = CaselessKeyword('begin')
+    keywords.append('BEGIN')
+    
+    BINARY = CaselessKeyword('binary')
+    keywords.append('BINARY')
+    
+    BLENGTH = CaselessKeyword('blength')
+    keywords.append('BLENGTH')
+    
+    BOOLEAN = CaselessKeyword('boolean')
+    keywords.append('BOOLEAN')
+    
+    BY = CaselessKeyword('by')
+    keywords.append('BY')
+    
+    CASE = CaselessKeyword('case')
+    keywords.append('CASE')
+    
+    CONSTANT = CaselessKeyword('constant')
+    keywords.append('CONSTANT')
+    
+    CONST_E = CaselessKeyword('const_e')
+    keywords.append('CONST_E')
+    
+    COS = CaselessKeyword('cos')
+    keywords.append('COS')
+    
+    DERIVE = CaselessKeyword('derive')
+    keywords.append('DERIVE')
+    
+    DIV = CaselessKeyword('div')
+    keywords.append('DIV')
+    
+    ELSE = CaselessKeyword('else')
+    keywords.append('ELSE')
+    
+    END = CaselessKeyword('end')
+    keywords.append('END')
+    
+    END_ALIAS = CaselessKeyword('end_alias')
+    keywords.append('END_ALIAS')
+    
+    END_CASE = CaselessKeyword('end_case')
+    keywords.append('END_CASE')
+    
+    END_CONSTANT = CaselessKeyword('end_constant')
+    keywords.append('END_CONSTANT')
+    
+    END_ENTITY = CaselessKeyword('end_entity')
+    keywords.append('END_ENTITY')
+    
+    END_FUNCTION = CaselessKeyword('end_function')
+    keywords.append('END_FUNCTION')
+    
+    END_IF = CaselessKeyword('end_if')
+    keywords.append('END_IF')
+    
+    END_LOCAL = CaselessKeyword('end_local')
+    keywords.append('END_LOCAL')
+    
+    END_PROCEDURE = CaselessKeyword('end_procedure')
+    keywords.append('END_PROCEDURE')
+    
+    END_REPEAT = CaselessKeyword('end_repeat')
+    keywords.append('END_REPEAT')
+    
+    END_RULE = CaselessKeyword('end_rule')
+    keywords.append('END_RULE')
+    
+    END_SCHEMA = CaselessKeyword('end_schema')
+    keywords.append('END_SCHEMA')
+    
+    END_SUBTYPE_CONSTRAINT = CaselessKeyword('end_subtype_constraint')
+    keywords.append('END_SUBTYPE_CONSTRAINT')
+    
+    END_TYPE = CaselessKeyword('end_type')
+    keywords.append('END_TYPE')
+    
+    ENTITY = CaselessKeyword('entity')
+    keywords.append('ENTITY')
+    
+    ENUMERATION = CaselessKeyword('enumeration')
+    keywords.append('ENUMERATION')
+    
+    ESCAPE = CaselessKeyword('escape')
+    keywords.append('ESCAPE')
+    
+    EXISTS = CaselessKeyword('exists')
+    keywords.append('EXISTS')
+    
+    EXTENSIBLE = CaselessKeyword('extensible')
+    keywords.append('EXTENSIBLE')
+    
+    EXP = CaselessKeyword('exp')
+    keywords.append('EXP')
+    
+    FALSE = CaselessKeyword('false')
+    keywords.append('FALSE')
+    
+    FIXED = CaselessKeyword('fixed')
+    keywords.append('FIXED')
+    
+    FOR = CaselessKeyword('for')
+    keywords.append('FOR')
+    
+    FORMAT = CaselessKeyword('format')
+    keywords.append('FORMAT')
+    
+    FROM = CaselessKeyword('from')
+    keywords.append('FROM')
+    
+    FUNCTION = CaselessKeyword('function')
+    keywords.append('FUNCTION')
+    
+    GENERIC = CaselessKeyword('generic')
+    keywords.append('GENERIC')
+    
+    GENERIC_ENTITY = CaselessKeyword('generic_entity')
+    keywords.append('GENERIC_ENTITY')
+    
+    HIBOUND = CaselessKeyword('hibound')
+    keywords.append('HIBOUND')
+    
+    HIINDEX = CaselessKeyword('hiindex')
+    keywords.append('HIINDEX')
+    
+    IF = CaselessKeyword('if')
+    keywords.append('IF')
+    
+    IN = CaselessKeyword('in')
+    keywords.append('IN')
+    
+    INSERT = CaselessKeyword('insert')
+    keywords.append('INSERT')
+    
+    INTEGER = CaselessKeyword('integer')
+    keywords.append('INTEGER')
+    
+    INVERSE = CaselessKeyword('inverse')
+    keywords.append('INVERSE')
+    
+    LENGTH = CaselessKeyword('length')
+    keywords.append('LENGTH')
+    
+    LIKE = CaselessKeyword('like')
+    keywords.append('LIKE')
+    
+    LIST = CaselessKeyword('list')
+    keywords.append('LIST')
+    
+    LOBOUND = CaselessKeyword('lobound')
+    keywords.append('LOBOUND')
+    
+    LOCAL = CaselessKeyword('local')
+    keywords.append('LOCAL')
+    
+    LOG = CaselessKeyword('log')
+    keywords.append('LOG')
+    
+    LOG10 = CaselessKeyword('log10')
+    keywords.append('LOG10')
+    
+    LOG2 = CaselessKeyword('log2')
+    keywords.append('LOG2')
+    
+    LOGICAL = CaselessKeyword('logical')
+    keywords.append('LOGICAL')
+    
+    LOINDEX = CaselessKeyword('loindex')
+    keywords.append('LOINDEX')
+    
+    MOD = CaselessKeyword('mod')
+    keywords.append('MOD')
+    
+    NOT = CaselessKeyword('not')
+    keywords.append('NOT')
+    
+    NUMBER = CaselessKeyword('number')
+    keywords.append('NUMBER')
+    
+    NVL = CaselessKeyword('nvl')
+    keywords.append('NVL')
+    
+    ODD = CaselessKeyword('odd')
+    keywords.append('ODD')
+    
+    OF = CaselessKeyword('of')
+    keywords.append('OF')
+    
+    ONEOF = CaselessKeyword('oneof')
+    keywords.append('ONEOF')
+    
+    OPTIONAL = CaselessKeyword('optional')
+    keywords.append('OPTIONAL')
+    
+    OR = CaselessKeyword('or')
+    keywords.append('OR')
+    
+    OTHERWISE = CaselessKeyword('otherwise')
+    keywords.append('OTHERWISE')
+    
+    PI = CaselessKeyword('pi')
+    keywords.append('PI')
+    
+    PROCEDURE = CaselessKeyword('procedure')
+    keywords.append('PROCEDURE')
+    
+    QUERY = CaselessKeyword('query')
+    keywords.append('QUERY')
+    
+    REAL = CaselessKeyword('real')
+    keywords.append('REAL')
+    
+    REFERENCE = CaselessKeyword('reference')
+    keywords.append('REFERENCE')
+    
+    REMOVE = CaselessKeyword('remove')
+    keywords.append('REMOVE')
+    
+    RENAMED = CaselessKeyword('renamed')
+    keywords.append('RENAMED')
+    
+    REPEAT = CaselessKeyword('repeat')
+    keywords.append('REPEAT')
+    
+    RETURN = CaselessKeyword('return')
+    keywords.append('RETURN')
+    
+    ROLESOF = CaselessKeyword('rolesof')
+    keywords.append('ROLESOF')
+    
+    RULE = CaselessKeyword('rule')
+    keywords.append('RULE')
+    
+    SCHEMA = CaselessKeyword('schema')
+    keywords.append('SCHEMA')
+    
+    SELECT = CaselessKeyword('select')
+    keywords.append('SELECT')
+    
+    SELF = CaselessKeyword('self')
+    keywords.append('SELF')
+    
+    SET = CaselessKeyword('set')
+    keywords.append('SET')
+    
+    SIN = CaselessKeyword('sin')
+    keywords.append('SIN')
+    
+    SIZEOF = CaselessKeyword('sizeof')
+    keywords.append('SIZEOF')
+    
+    SKIP = CaselessKeyword('skip')
+    keywords.append('SKIP')
+    
+    SQRT = CaselessKeyword('sqrt')
+    keywords.append('SQRT')
+    
+    STRING = CaselessKeyword('string')
+    keywords.append('STRING')
+    
+    SUBTYPE = CaselessKeyword('subtype')
+    keywords.append('SUBTYPE')
+    
+    SUBTYPE_CONSTRAINT = CaselessKeyword('subtype_constraint')
+    keywords.append('SUBTYPE_CONSTRAINT')
+    
+    SUPERTYPE = CaselessKeyword('supertype')
+    keywords.append('SUPERTYPE')
+    
+    TAN = CaselessKeyword('tan')
+    keywords.append('TAN')
+    
+    THEN = CaselessKeyword('then')
+    keywords.append('THEN')
+    
+    TO = CaselessKeyword('to')
+    keywords.append('TO')
+    
+    TOTAL_OVER = CaselessKeyword('total_over')
+    keywords.append('TOTAL_OVER')
+    
+    TRUE = CaselessKeyword('true')
+    keywords.append('TRUE')
+    
+    TYPE = CaselessKeyword('type')
+    keywords.append('TYPE')
+    
+    TYPEOF = CaselessKeyword('typeof')
+    keywords.append('TYPEOF')
+    
+    UNIQUE = CaselessKeyword('unique')
+    keywords.append('UNIQUE')
+    
+    UNKNOWN = CaselessKeyword('unknown')
+    keywords.append('UNKNOWN')
+    
+    UNTIL = CaselessKeyword('until')
+    keywords.append('UNTIL')
+    
+    USE = CaselessKeyword('use')
+    keywords.append('USE')
+    
+    USEDIN = CaselessKeyword('usedin')
+    keywords.append('USEDIN')
+    
+    VALUE = CaselessKeyword('value')
+    keywords.append('VALUE')
+    
+    VALUE_IN = CaselessKeyword('value_in')
+    keywords.append('VALUE_IN')
+    
+    VALUE_UNIQUE = CaselessKeyword('value_unique')
+    keywords.append('VALUE_UNIQUE')
+    
+    VAR = CaselessKeyword('var')
+    keywords.append('VAR')
+    
+    WHERE = CaselessKeyword('where')
+    keywords.append('WHERE')
+    
+    WHILE = CaselessKeyword('while')
+    keywords.append('WHILE')
+    
+    WITH = CaselessKeyword('with')
+    keywords.append('WITH')
+    
+    XOR = CaselessKeyword('xor')
+    keywords.append('XOR')
+    
+    bit = oneOf('0 1')
+    
+    digit = oneOf(list(nums))
+    
+    digits = OneOrMore(digit)
+    
+    hex_digit = oneOf(list(hexnums))
+    
+    letter = oneOf(list(alphas))
+    
+    octet = hex_digit + hex_digit
+    
+    encoded_character = octet + octet + octet + octet
+    
+    not_paren_star_quote_special = oneOf(r'! ' # $ % & + , - . / : ; < = > ? @ [ \ ] ^ _ { | } ~')
+    
+    not_paren_star_special = not_paren_star_quote_special | ''''
+    
+    not_paren_star = letter | digit | not_paren_star_special
+    
+    not_lparen_star = not_paren_star | ')'
+    
+    lparen_then_not_lparen_star = '(' + ZeroOrMore('(') + OneOrMore(not_lparen_star)
+    
+    not_quote = not_paren_star_quote_special | letter | digit | '(' | ')' | '*'
+    
+    not_rparen_star = not_paren_star | '('
+    
+    special = not_paren_star_quote_special | '(' | ')' | '*' | ''''
+    
+    not_rparen_star_then_rparen = OneOrMore(not_rparen_star) + OneOrMore(')')
+    
+    sign = oneOf('+ -')
+    
+    binary_literal = Group(Combine('%' + OneOrMore(bit)))
+    
+    encoded_string_literal = Group(Combine(''' + OneOrMore(encoded_character) + '''))
+    
+    integer_literal = Group(digits)
+    
+    real_literal = Group(Combine(integer_literal ^ ( digits + '.' + Optional(digits) + \
+                                                     Optional(CaselessKeyword('e') + Optional(sign) + digits))))
+    
+    simple_id = NotAny(oneOf(keywords, caseless=True) + (WordEnd(alphanums + '_') | White())) + \
+                Group(Combine(letter + ZeroOrMore(letter | digit | '_')))
+    
+    simple_string_literal = Group(Combine(''' + ZeroOrMore('''' | not_quote | ' ' | u'\u0009' | u'\u000A' | u'\u000D') \
+                                          + '''))
+    
+    attribute_id = simple_id
+    
+    attribute_ref = attribute_id
+    
+    constant_id = simple_id
+    
+    constant_ref = constant_id
+    
+    entity_id = simple_id
+    
+    entity_ref = entity_id
+    
+    enumeration_id = simple_id
+    
+    enumeration_ref = enumeration_id
+    
+    function_id = simple_id
+    
+    function_ref = function_id
+    
+    parameter_id = simple_id
+    
+    parameter_ref = parameter_id
+    
+    procedure_id = simple_id
+    
+    procedure_ref = procedure_id
+    
+    rule_label_id = simple_id
+    
+    rule_label_ref = rule_label_id
+    
+    rule_id = simple_id
+    
+    rule_ref = rule_id
+    
+    schema_id = simple_id
+    
+    schema_ref = schema_id
+    
+    subtype_constraint_id = simple_id
+    
+    subtype_constraint_ref = subtype_constraint_id
+    
+    type_label_id = simple_id
+    
+    type_label_ref = type_label_id
+    
+    type_id = simple_id
+    
+    type_ref = type_id
+    
+    variable_id = simple_id
+    
+    variable_ref = variable_id
+    
+    remark_ref = attribute_ref | constant_ref | entity_ref | enumeration_ref | function_ref | parameter_ref | procedure_ref | rule_label_ref | rule_ref | schema_ref | subtype_constraint_ref | type_label_ref | type_ref | variable_ref
+    
+    remark_tag = ''' + remark_ref + ZeroOrMore('.' + remark_ref) + '''
+    
+    embedded_remark = Keyword('(*') + Optional(remark_tag) + ZeroOrMore(NotAny(Keyword('*)')) + Word(printables)) + \
+                      Keyword('*)')
+    
+    tail_remark = Literal('--') + Optional(remark_tag) + ZeroOrMore(NotAny(LineEnd()) + Word(printables)) + LineEnd()
+    
+    remark = embedded_remark | tail_remark
+    
+    abstract_entity_declaration = ABSTRACT
+    
+    abstract_supertype = ABSTRACT + SUPERTYPE + ';'
+    
+    add_like_op = Literal('+') | Literal('-') | OR | XOR
+    
+    multiplication_like_op = Literal('*') | Literal('/') | Literal('||') | DIV | MOD | AND
+    
+    unary_op = Literal('+') | Literal('-') | NOT
+    
+    attribute_qualifier = '.' + attribute_ref
+    
+    boolean_type = BOOLEAN
+    
+    built_in_constant = CONST_E | PI | SELF | Literal('?')
+    
+    built_in_function = ABS | ACOS | ASIN | ATAN | BLENGTH | COS | EXISTS | EXP | FORMAT | HIBOUND | HIINDEX | LENGTH | LOBOUND | LOINDEX | LOG | LOG2 | LOG10 | NVL | ODD | ROLESOF | SIN | SIZEOF | SQRT | TAN | TYPEOF | USEDIN | VALUE | VALUE_IN | VALUE_UNIQUE
+    
+    built_in_procedure = INSERT | REMOVE
+    
+    enumeration_items = '(' + delimitedList(enumeration_id) + ')'
+    
+    escape_stmt = ESCAPE + ';'
+    
+    type_label = type_label_id | type_label_ref
+    
+    generic_entity_type = GENERIC_ENTITY + Optional(':' + type_label)
+    
+    generic_type = GENERIC + Optional(':' + type_label)
+    
+    integer_type = INTEGER
+    
+    interval_op = oneOf('< <=')
+    
+    logical_literal = FALSE | TRUE | UNKNOWN
+    
+    logical_type = LOGICAL
+    
+    null_stmt = Literal(';')
+    
+    number_type = NUMBER
+    
+    rel_op = oneOf('< > <= >= <> = :<>: :=:')
+    
+    rel_op_extended = rel_op | IN | LIKE
+    
+    rename_id = constant_id | entity_id | function_id | procedure_id | type_id
+    
+    resource_ref = constant_ref | entity_ref | function_ref | procedure_ref | type_ref
+    
+    resource_or_rename = resource_ref + Optional(AS + rename_id)
+    
+    string_literal = simple_string_literal | encoded_string_literal
+    
+    schema_version_id = string_literal
+    
+    named_types = entity_ref | type_ref
+    
+    named_type_or_rename = named_types + Optional(AS + ( entity_id | type_id ))
+    
+    population = entity_ref
+    
+    general_ref = parameter_ref | variable_ref
+    
+    literal = binary_literal | logical_literal | real_literal | string_literal
+    
+    group_qualifier = '\\' + entity_ref
+    
+    select_list = '(' + delimitedList(named_types) + ')'
+    
+    select_extension = BASED_ON + type_ref + Optional(WITH + select_list)
+    
+    select_type = Optional(EXTENSIBLE + Optional(GENERIC_ENTITY)) + SELECT + Optional(select_list | select_extension)
+    
+    skip_stmt = SKIP + ';'
+    
+    total_over = TOTAL_OVER + '(' + delimitedList(entity_ref) + ')' + ';'
+    
+    reference_clause = REFERENCE + FROM + schema_ref + Optional('(' + delimitedList(resource_or_rename) + ')') + ';'
+    
+    use_clause = USE + FROM + schema_ref + Optional('(' + delimitedList(named_type_or_rename) + ')') + ';'
+    
+    interface_specification = reference_clause | use_clause
+    
+    subtype_constraint_head = SUBTYPE_CONSTRAINT + subtype_constraint_id + FOR + entity_ref + ';'
+    
+    subtype_declaration = SUBTYPE + OF + '(' + delimitedList(entity_ref) + ')'
+    
+    rule_head = RULE + rule_id + FOR + '(' + delimitedList(entity_ref) + ')' + ';'
+    
+    qualified_attribute = SELF + group_qualifier + attribute_qualifier
+    
+    referenced_attribute = attribute_ref | qualified_attribute
+    
+    redeclared_attribute = qualified_attribute + Optional(RENAMED + attribute_id)
+    
+    enumeration_extension = BASED_ON + type_ref + Optional(WITH + enumeration_items)
+    
+    enumeration_reference = Optional(type_ref + '.') + enumeration_ref
+    
+    enumeration_type = Optional(EXTENSIBLE) + ENUMERATION + Optional(( OF + enumeration_items ) ^ enumeration_extension)
+    
+    constructed_types = enumeration_type | select_type
+    
+    constant_factor = built_in_constant | constant_ref
+    
+    attribute_decl = attribute_id | redeclared_attribute
+    
+    unique_rule = Optional(rule_label_id + ':') + delimitedList(referenced_attribute)
+    
+    simple_factor = Forward()
+    
+    factor = simple_factor + Optional('**' + simple_factor)
+    
+    term = factor + ZeroOrMore(multiplication_like_op + factor)
+    
+    simple_expression = term + ZeroOrMore(add_like_op + term)
+    
+    expression = simple_expression + Optional(rel_op_extended + simple_expression)
+    
+    interval_high = simple_expression
+    
+    interval_item = simple_expression
+    
+    interval_low = simple_expression
+    
+    interval = '{' + interval_low + interval_op + interval_item + interval_op + interval_high + '}'
+    
+    numeric_expression = simple_expression
+    
+    repetition = numeric_expression
+    
+    element = expression + Optional(':' + repetition)
+    
+    aggregate_initializer = '[' + Optional(delimitedList(element)) + ']'
+    
+    logical_expression = expression
+    
+    aggregate_source = simple_expression
+    
+    query_expression = QUERY + '(' + variable_id + '<*' + aggregate_source + '|' + logical_expression + ')'
+    
+    index = numeric_expression
+    
+    index_1 = index
+    
+    index_2 = index
+    
+    index_qualifier = '[' + index_1 + Optional(':' + index_2) + ']'
+    
+    qualifier = attribute_qualifier | group_qualifier | index_qualifier
+    
+    parameter = expression
+    
+    actual_parameter_list = '(' + delimitedList(parameter) + ')'
+    
+    function_call = ( built_in_function | function_ref ) + Optional(actual_parameter_list)
+    
+    qualifiable_factor = attribute_ref ^ constant_factor ^ function_call ^ general_ref ^ population
+    
+    primary = literal | ( qualifiable_factor + ZeroOrMore(qualifier) )
+    
+    entity_constructor = entity_ref + '(' + Optional(delimitedList(expression)) + ')'
+    
+    simple_factor << (aggregate_initializer ^ entity_constructor ^ enumeration_reference ^ interval ^ query_expression ^ \
+                      (Optional(unary_op) + ( ('(' + expression + ')') ^ primary ) ))
+    
+    schema = '''
     (
      (
       (
        (
         (
          (
-          EXISTS(internal_location) OR EXISTS(street_number)
-         ) OR EXISTS(street)
-        ) OR EXISTS(postal_box)
-       ) OR EXISTS(town)
-      ) OR EXISTS(region)
-     ) OR EXISTS(postal_code)
-    ) OR EXISTS(country)
-   ) OR EXISTS(facsimile_number)
-  ) OR EXISTS(telephone_number)
- ) OR EXISTS(electronic_mail_address)
-) OR EXISTS(telex_number);
-
-'''
-
-data = expression.parseString(schema)
-pp = pprint.PrettyPrinter(indent=4)
-pp.pprint(data.asList())
+          (
+           (
+            (
+             (
+              EXISTS(internal_location) OR EXISTS(street_number)
+             ) OR EXISTS(street)
+            ) OR EXISTS(postal_box)
+           ) OR EXISTS(town)
+          ) OR EXISTS(region)
+         ) OR EXISTS(postal_code)
+        ) OR EXISTS(country)
+       ) OR EXISTS(facsimile_number)
+      ) OR EXISTS(telephone_number)
+     ) OR EXISTS(electronic_mail_address)
+    ) OR EXISTS(telex_number);
+    
+    '''
+    
+    data = expression.parseString(schema)
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(data.asList())
 
 #### 2014-03-27 08:51:08 - palmer1979
 Hi, I managed to get tweak this so that it works now. No reply required.
@@ -1064,7 +1078,8 @@ I'm glad you got this worked out for yourself.  I did a little work with your pr
     usedin value value_in value_unique var where while with xor'''.split())
 
 
-ALso, you are blurring some of the concepts from regex with pyparsing, and forgetting that pyparsing includes implicit whitespace skipping. For instance, by defining digits as OneOrMore(digit), this will match not only '123', but also '1 2 3'. Is that your intention? You may need to rethink how this BNF-\>pyparsing definition should be defined.
+ALso, you are blurring some of the concepts from regex with pyparsing, and forgetting that pyparsing includes implicit whitespace skipping. For instance, by defining digits as OneOrMore(digit), this will match not only '123', but also '1 2 3'. Is that your intention? You may need to rethink how this 
+BNF->pyparsing definition should be defined.
 
 -- Paul
 
@@ -1133,9 +1148,8 @@ But, it appears that in this example Shorter is a synonym for aWord.  To correct
 This appears to work.  Thanks for the help :-)
 #### 2014-04-04 16:35:16 - adc2014
 What you had had was tantamount to
-[code]
-Longer = ( aWord.setParseAction(defB) + bWord ).setParseAction(defA)
-[code]
+
+    Longer = ( aWord.setParseAction(defB) + bWord ).setParseAction(defA)
 
 ---
 ## 2014-04-10 13:21:49 - couplewavylines - SkipTo ignore method
@@ -1189,13 +1203,13 @@ Here is my code:
     #!/usr/bin/python
     from pyparsing import *
     
-    bible='''\<p class='p'\>\<span class='v0_1_24'\>\<sup id='Gen.1.24' class='v0_1_24'\>24\</sup\> Then God said: Let the earth bring forth every kind of living creature: tame animals, crawling things, and every kind of wild animal. And so it happened: \</span\>\<span class='v0_1_25'\>\<sup id='Gen.1.25' class='v0_1_25'\>25\</sup\>God made every kind of wild animal, every kind of tame animal, and every kind of thing that crawls on the ground. God saw that it was good. \</span\>\<span class='v0_1_26'\>\<sup id='Gen.1.26' class='v0_1_26'\>26\</sup\> Then God said: Let us make human beings in our image, after our likeness. Let them have dominion over the fish of the sea, the birds of the air, the tame animals, all the wild animals, and all the creatures that crawl on the earth.\</span\>\</p\>
-    \<p class='q1'\>\<span class='v0_1_27'\>\<sup id='Gen.1.27' class='v0_1_27'\>27\</sup\>God created mankind in his image;\</span\>\</p\>
-    \<p class='q2'\>\<span class='v0_1_27'\>in the image of God he created them;\</span\>\</p\>
-    \<p class='q2'\>\<span class='v0_1_27'\>male and female he created them.\</span\>\</p\>
-    \<p class='m'\>\<span class='v0_1_28'\>\<sup id='Gen.1.28' class='v0_1_28'\>28\</sup\>God blessed them and God said to them: Be fertile and multiply; fill the earth and subdue it. Have dominion over the fish of the sea, the birds of the air, and all the living things that crawl on the earth. \</span\>\<span class='v0_1_29'\>\<sup id='Gen.1.29' class='v0_1_29'\>29\</sup\> God also said: See, I give you every seed-bearing plant on all the earth and every tree that has seed-bearing fruit on it to be your food; \</span\>\<span class='v0_1_30'\>\<sup id='Gen.1.30' class='v0_1_30'\>30\</sup\>and to all the wild animals, all the birds of the air, and all the living creatures that crawl on the earth, I give all the green plants for food. And so it happened. \</span\>\<span class='v0_1_31'\>\<sup id='Gen.1.31' class='v0_1_31'\>31\</sup\>God looked at everything he had made, and found it very good. Evening came, and morning followed- the sixth day.\</span\>\</p\>'''
+    bible='''<p class='p'><span class='v0_1_24'><sup id='Gen.1.24' class='v0_1_24'>24</sup> Then God said: Let the earth bring forth every kind of living creature: tame animals, crawling things, and every kind of wild animal. And so it happened: </span><span class='v0_1_25'><sup id='Gen.1.25' class='v0_1_25'>25</sup>God made every kind of wild animal, every kind of tame animal, and every kind of thing that crawls on the ground. God saw that it was good. </span><span class='v0_1_26'><sup id='Gen.1.26' class='v0_1_26'>26</sup> Then God said: Let us make human beings in our image, after our likeness. Let them have dominion over the fish of the sea, the birds of the air, the tame animals, all the wild animals, and all the creatures that crawl on the earth.</span></p>
+    <p class='q1'><span class='v0_1_27'><sup id='Gen.1.27' class='v0_1_27'>27</sup>God created mankind in his image;</span></p>
+    <p class='q2'><span class='v0_1_27'>in the image of God he created them;</span></p>
+    <p class='q2'><span class='v0_1_27'>male and female he created them.</span></p>
+    <p class='m'><span class='v0_1_28'><sup id='Gen.1.28' class='v0_1_28'>28</sup>God blessed them and God said to them: Be fertile and multiply; fill the earth and subdue it. Have dominion over the fish of the sea, the birds of the air, and all the living things that crawl on the earth. </span><span class='v0_1_29'><sup id='Gen.1.29' class='v0_1_29'>29</sup> God also said: See, I give you every seed-bearing plant on all the earth and every tree that has seed-bearing fruit on it to be your food; </span><span class='v0_1_30'><sup id='Gen.1.30' class='v0_1_30'>30</sup>and to all the wild animals, all the birds of the air, and all the living creatures that crawl on the earth, I give all the green plants for food. And so it happened. </span><span class='v0_1_31'><sup id='Gen.1.31' class='v0_1_31'>31</sup>God looked at everything he had made, and found it very good. Evening came, and morning followed- the sixth day.</span></p>'''
     
-    verseWord = Word(printables, excludeChars = '\<\>')
+    verseWord = Word(printables, excludeChars = '<>')
     verseNumber = Word(nums)
     
     supOpen, supClose = makeHTMLTags('sup')
@@ -1299,13 +1313,13 @@ Played around a little bit more and found a solution (and learned a bit more abo
     #!/usr/bin/python
     from pyparsing import *
     
-    bible='''\<p class='p'\>\<span class='v0_1_24'\>\<sup id='Gen.1.24' class='v0_1_24'\>24\</sup\> Then God said: Let the earth bring forth every kind of living creature: tame animals, crawling things, and every kind of wild animal. And so it happened: \</span\>\<span class='v0_1_25'\>\<sup id='Gen.1.25' class='v0_1_25'\>25\</sup\>God made every kind of wild animal, every kind of tame animal, and every kind of thing that crawls on the ground. God saw that it was good. \</span\>\<span class='v0_1_26'\>\<sup id='Gen.1.26' class='v0_1_26'\>26\</sup\> Then God said: Let us make human beings in our image, after our likeness. Let them have dominion over the fish of the sea, the birds of the air, the tame animals, all the wild animals, and all the creatures that crawl on the earth.\</span\>\</p\>
-    \<p class='q1'\>\<span class='v0_1_27'\>\<sup id='Gen.1.27' class='v0_1_27'\>27\</sup\>God created mankind in his image;\</span\>\</p\>
-    \<p class='q2'\>\<span class='v0_1_27'\>in the image of God he created them;\</span\>\</p\>
-    \<p class='q2'\>\<span class='v0_1_27'\>male and female he created them.\</span\>\</p\>
-    \<p class='m'\>\<span class='v0_1_28'\>\<sup id='Gen.1.28' class='v0_1_28'\>28\</sup\>God blessed them and God said to them: Be fertile and multiply; fill the earth and subdue it. Have dominion over the fish of the sea, the birds of the air, and all the living things that crawl on the earth. \</span\>\<span class='v0_1_29'\>\<sup id='Gen.1.29' class='v0_1_29'\>29\</sup\> God also said: See, I give you every seed-bearing plant on all the earth and every tree that has seed-bearing fruit on it to be your food; \</span\>\<span class='v0_1_30'\>\<sup id='Gen.1.30' class='v0_1_30'\>30\</sup\>and to all the wild animals, all the birds of the air, and all the living creatures that crawl on the earth, I give all the green plants for food. And so it happened. \</span\>\<span class='v0_1_31'\>\<sup id='Gen.1.31' class='v0_1_31'\>31\</sup\>God looked at everything he had made, and found it very good. Evening came, and morning followed- the sixth day.\</span\>\</p\>'''
+    bible='''<p class='p'><span class='v0_1_24'><sup id='Gen.1.24' class='v0_1_24'>24</sup> Then God said: Let the earth bring forth every kind of living creature: tame animals, crawling things, and every kind of wild animal. And so it happened: </span><span class='v0_1_25'><sup id='Gen.1.25' class='v0_1_25'>25</sup>God made every kind of wild animal, every kind of tame animal, and every kind of thing that crawls on the ground. God saw that it was good. </span><span class='v0_1_26'><sup id='Gen.1.26' class='v0_1_26'>26</sup> Then God said: Let us make human beings in our image, after our likeness. Let them have dominion over the fish of the sea, the birds of the air, the tame animals, all the wild animals, and all the creatures that crawl on the earth.</span></p>
+    <p class='q1'><span class='v0_1_27'><sup id='Gen.1.27' class='v0_1_27'>27</sup>God created mankind in his image;</span></p>
+    <p class='q2'><span class='v0_1_27'>in the image of God he created them;</span></p>
+    <p class='q2'><span class='v0_1_27'>male and female he created them.</span></p>
+    <p class='m'><span class='v0_1_28'><sup id='Gen.1.28' class='v0_1_28'>28</sup>God blessed them and God said to them: Be fertile and multiply; fill the earth and subdue it. Have dominion over the fish of the sea, the birds of the air, and all the living things that crawl on the earth. </span><span class='v0_1_29'><sup id='Gen.1.29' class='v0_1_29'>29</sup> God also said: See, I give you every seed-bearing plant on all the earth and every tree that has seed-bearing fruit on it to be your food; </span><span class='v0_1_30'><sup id='Gen.1.30' class='v0_1_30'>30</sup>and to all the wild animals, all the birds of the air, and all the living creatures that crawl on the earth, I give all the green plants for food. And so it happened. </span><span class='v0_1_31'><sup id='Gen.1.31' class='v0_1_31'>31</sup>God looked at everything he had made, and found it very good. Evening came, and morning followed- the sixth day.</span></p>'''
     
-    verseWord = Word(printables, excludeChars = '\<\>')
+    verseWord = Word(printables, excludeChars = '<>')
     verseNumber = Word(nums)
     
     supOpen, supClose = makeHTMLTags('sup')
@@ -1330,27 +1344,30 @@ Played around a little bit more and found a solution (and learned a bit more abo
 ---
 ## 2014-05-24 02:53:43 - PrabhuGurumurthy - Help using delimitedList
 I have a example conf file like this
-port = 100, 200, 300, ssh, ftp, telnet
+
+    port = 100, 200, 300, ssh, ftp, telnet
 
 I can match it using
 
-ident = Word(alphas + alphanums + '-_')
-portlist = delimitedList(ident, delim = ',')
+    ident = Word(alphas + alphanums + '-_')
+    portlist = delimitedList(ident, delim = ',')
 
 What happens it the port definition is little more complete
-port = 8000:8010, ftp, telnet, ssh, 100, 200
+
+    port = 8000:8010, ftp, telnet, ssh, 100, 200
 
 I can again match it using:
-portrange = Group(ident + Literal(':').suppress() + ident) + Optional(Literal(',').suppress())
-portlist = delimitedList(ident, delim = ',')
-portoptions = portrange & portlist
+
+    portrange = Group(ident + Literal(':').suppress() + ident) + Optional(Literal(',').suppress())
+    portlist = delimitedList(ident, delim = ',')
+    portoptions = portrange & portlist
 
 That works too, but the portrange has to be first in the list,
 
 How do I go about matching both zero or more portrange and zero or more portlist in any order?
 
 #### 2014-05-24 02:56:32 - PrabhuGurumurthy
-Yeah, port and '=' are being matched with Keyword('port') + Literal('=').suppress(),
+Yeah, port and '=' are being matched with `Keyword('port') + Literal('=').suppress()`,
 
 ---
 ## 2014-07-02 02:55:59 - nunoplopes - infixNotation is very slow
@@ -1405,13 +1422,13 @@ I'm using named results in pyparsing to simplify access to the results (`result[
     abc = Literal('a') + Literal('b') + Literal('c')
     abc_z = abc | Literal('z')
     abc('k').parseString('a b c')['k']
-    # ==\> (['a', 'b', 'c'], {})
+    # ==> (['a', 'b', 'c'], {})
     abc_z('k').parseString('a b c')['k']
-    # ==\> 'a'
+    # ==> 'a'
 
 I was expecting to get the same result (`['a', 'b', 'c']`) in both cases, but after adding the `MatchFirst` alternative using `|` I only get the first token back in the named result.
 
-Is this expected behavior that I somehow missed? If this is a bug I'm kind of surprised it hasn't already been fixed�unless I'm basically the only person using the `setResultsName` feature.
+Is this expected behavior that I somehow missed? If this is a bug I'm kind of surprised it hasn't already been fixed'unless I'm basically the only person using the `setResultsName` feature.
 
 I'm using `pyparsing-2.0.2-py2.7.egg` with Python 2.7.1.
 
@@ -1447,11 +1464,11 @@ Best Regards
 Tony Chu
 
 #### 2014-07-21 20:43:45 - ptmcg
-When you call parseString, add the parameter parseAll=True - this will require that the grammar match the entire input string.
+When you call parseString, add the parameter `parseAll=True` - this will require that the grammar match the entire input string.
 #### 2014-07-22 02:15:12 - tony_chu
 Thanks
 #### 2014-07-22 02:24:12 - tony_chu
-Yeah! it work perfect after I add the parameter parseAll=True. And thanks for developed the pyparsing as it did help me a lot of effort in my projects.
+Yeah! it work perfect after I add the parameter `parseAll=True`. And thanks for developed the pyparsing as it did help me a lot of effort in my projects.
 #### 2014-07-22 05:25:21 - ptmcg
 Glad it has worked out for you - best of luck in your pyparsing efforts!
 #### 2014-07-23 12:54:15 - tony_chu
@@ -1486,11 +1503,15 @@ Thanks for asking!
 ---
 ## 2014-07-25 02:43:13 - AndreWin - parsing class definiton on python
 Hi!
-I have the following string: 'class point2d(object)'
+I have the following string: `'class point2d(object)'`
+
 I need to parse this sting.
+
 My parser is:
-p = Suppress('class') + Word(alphas, alphanums+'_').setResultsName('classname') + Suppress('(') + Word(alphas, alphanums+'_').setResultsName('fromclass') + Suppress(')')
-Unfortunatelly for my parser string 'class point2d (object)' is correct too. The error is that there is whitespace after point2d word. How should I modify my parser?
+
+    p = Suppress('class') + Word(alphas, alphanums+'_').setResultsName('classname') + Suppress('(') + Word(alphas, alphanums+'_').setResultsName('fromclass') + Suppress(')')
+
+Unfortunatelly for my parser string `'class point2d (object)'` is correct too. The error is that there is whitespace after point2d word. How should I modify my parser?
 Thanks, Andrei.
 
 #### 2014-07-25 23:02:31 - AndreWin
@@ -1625,7 +1646,9 @@ load is sage command
 I downloaded parsePythonValue.py file and than uploaded it on SageMathCloud. Because this file and my file (in which I create my parser) are on the same folder, I just used load function. It's just easier for me :)
 #### 2014-07-25 03:24:29 - AndreWin
 I found the solution:
-p = Suppress('class') + Word(alphas, alphanums+'_').setResultsName('classname') + NotAny(White(' ')) + Suppress('(') + Word(alphas, alphanums+'_').setResultsName('fromclass') + Suppress(')')
+
+    p = Suppress('class') + Word(alphas, alphanums+'_').setResultsName('classname') + NotAny(White(' ')) + Suppress('(') + Word(alphas, alphanums+'_').setResultsName('fromclass') + Suppress(')')
+
 Thanks, Andrei.
 #### 2014-07-25 07:00:17 - ptmcg
 Glad you were able to work this out - at first I didn't see anything wrong with your second test case. Normally, those extra whitespaces are not significant, so pyparsing just skips over them.
@@ -1638,8 +1661,10 @@ Purely a matter of taste/style, so use whichever form you prefer.
 -- Paul
 #### 2014-07-25 09:14:09 - AndreWin
 It's supprised for me, but I just tryied in Python:
-def some_func (a,b,c):
-    return(a, b, c)
+
+    def some_func (a,b,c):
+        return(a, b, c)
+
 After run It emerged that such definition is quite right! I didn't know about that. Thanks.
 P.S.: Where can I see syntax for this wiki? I don't know how to insert code in my post for example.
 Thanks,
@@ -1772,8 +1797,8 @@ And the constructor that accepts the parsed result basically tries to loop throu
 
 
     for k,v in parsed[0].items():
-                    print('TextureUnit: update( {%s:%s} )' % (k,v))
-                    self.properties.update({k:v})
+        print('TextureUnit: update( {%s:%s} )' % (k,v))
+        self.properties.update({k:v})
 
 
 which can be seen in 'model.py' here
@@ -1858,7 +1883,7 @@ When running the test, the terminal shows this:
     spe3 = [[Color(0.10, 0.20, 0.30, 1.00), 25.0]] 
 
 
-The 3 logs (ogre_parse.basemodel.Color: why are we comparing with XXX) are coming from parsing the specular color, not the other colors. These logs are coming from the Color structure's <u>eq</u> method, which I had to implement for my unit tests. I'm confused why the 'Color.<u>eq</u>' method is used during parsing, but that is not my real problem. My real problem is what did I do wrong so that I can't use the following to acccess the colors?
+The 3 logs (ogre_parse.basemodel.Color: why are we comparing with XXX) are coming from parsing the specular color, not the other colors. These logs are coming from the Color structure's __eq__ method, which I had to implement for my unit tests. I'm confused why the 'Color.__eq__' method is used during parsing, but that is not my real problem. My real problem is what did I do wrong so that I can't use the following to acccess the colors?
 
 
     self.assertEqual(c, amb3.ambient)
@@ -1877,7 +1902,7 @@ FYI 3: I clicked 'Post', but nothing happened. I waited a while, then clicked ag
 #### 2014-08-15 22:10:32 - ptmcg
 These comparisons happen inside pyparsing when creating a new ParseResults object - the init args are compared to None, '', and [].
 
-The issue is in your Color class's __eq__ method.  I wrote a small dummy version to get your code to run, and it looks like this:
+The issue is in your Color class's `__eq__` method.  I wrote a small dummy version to get your code to run, and it looks like this:
 
 
     class Color(object):
@@ -1894,7 +1919,7 @@ I got this error when running your code:
 
 
     Traceback (most recent call last):
-      File 'cc.py', line 66, in \<module\>
+      File 'cc.py', line 66, in <module>
         t.test_color_3()
       ...
       File 'C:\Users\Paul\Desktop\pyparsing.py', line 303, in __init__
@@ -1906,14 +1931,15 @@ I got this error when running your code:
 
 You can just see in the call stack the snippet of code where the constructor for a ParseResults is compared against None, '', and [].
 
-To correct it, I had to make the Color class's __eq__ method first verify the object type of the other arg:
+To correct it, I had to make the Color class's `__eq__` method first verify the object type of the other arg:
 
 
     def __eq__(self, other):
             return isinstance(other, Color) and self.tokens == other.tokens
 
 
-The real fix is for me to make this test inside pyparsing more type-aware, to guard against custom objects with type-unaware __eq__ methods.  I have a change that adds this type check, and will check it into SVN this evening.
+The real fix is for me to make this test inside pyparsing more type-aware, to guard against 
+custom objects with type-unaware `__eq__` methods.  I have a change that adds this type check, and will check it into SVN this evening.
 
 Thanks!
 -- Paul
@@ -1922,7 +1948,7 @@ Thanks!
 Hi Paul,
 Thanks for looking into this, and thanks for changing pyparsing to watch out for the likes of my code.
 
-I added a line at the top of my Color <u>eq</u> method,
+I added a line at the top of my Color `__eq__` method,
 
 
     def __eq__(self, other):
@@ -1935,7 +1961,7 @@ But that did not affect my output. I still do not see the result names that I am
 
 My real problem is what did I do wrong so that I can't use the following to acccess the colors?
 #### 2014-08-18 14:25:41 - cyrfer
-Ah haa! I printed the results with print(results.dump('- ')) and now I see the names. I guess print(results) does not show the result names. I was able to get pretty close to the usage I want:
+Ah haa! I printed the results with `print(results.dump('- '))` and now I see the names. I guess print(results) does not show the result names. I was able to get pretty close to the usage I want:
 
 
     self.assertEqual(c, amb3.ambient[0])
@@ -2234,6 +2260,7 @@ Now print out ob.ambient and you get:
 
 
 -- Paul
+
 #### 2014-08-07 18:01:50 - cyrfer
 Hi Paul,
 
@@ -2253,13 +2280,19 @@ To be more flexible on the number of color components listed, I am trying to mak
 
 This works great for the colors, and allows the data file to only have less than 4 components (4th can be assumed to be 1.0).
 
-Unfortunately, the specular color data should be followed by another real number that is the pass's 'shininess' value. The grammar seems easy if I require specular to have 4 components, but it should also OK if the color has only 3 components. I guess I need a 'longest match' (^) for this scenario, where the 5 real numbers makes for 'R G B A shininess', and 4 real numbers makes for 'R G B shininess'. I was trying to use the EOL in my code above to be the thing that signals the end of the data because I think the format spec uses EOL too, but maybe I should go back to your way.
+Unfortunately, the specular color data should be followed by another real number that is the pass's 'shininess' value. The 
+grammar seems easy if I require specular to have 4 components, but it should also OK if the color has only 3 
+components. I guess I need a 'longest match' (^) for this scenario, where the 5 real numbers makes for 'R G B A shininess', and 4 real numbers makes for 'R G B shininess'. I was trying to use the EOL in my code above to be the thing that signals the end of the data because I think the format spec uses EOL too, but maybe I should go back to your way.
 
 Thank you for the amazing tool and support.
 
-FYI: The HTML \<textarea\> is crazy small on these forums. I am seeing ~2.5 rows when typing. Adding the attribute 'rows='10' to the DOM element in Chrome made editing much nicer.
+FYI: The HTML `<textarea>` is crazy small on these forums. I am seeing ~2.5 rows when typing. 
+Adding the attribute `'rows='10'` to the DOM element in Chrome made editing much nicer.
+
 #### 2014-08-07 20:40:38 - ptmcg
-Nice tip on the page layout, but I just take the wikispaces defaults on the pages. Personally, unless I'm just doing a short comment like this, I'll edit in a separate editor (SciTE is my favorite), and then copy/paste into this teeny edit window.
+Nice tip on the page layout, but I just take the wikispaces defaults on the pages. 
+Personally, unless I'm just doing a short comment like this, I'll edit in a separate editor 
+(SciTE is my favorite), and then copy/paste into this teeny edit window.
 
 ---
 ## 2014-08-12 16:11:31 - rh0dium - Small problem with recurssion - I'm sooo close..
@@ -2267,13 +2300,10 @@ Hi there,
 
 I'm having a small issue with recursion.  I'm close but I'm not there yet. Given the following input:
 
-[code]
     s = 'a1{b2{a3|b3}c2{d3|e3}e2{a4}}b1{a6|b7}'
-[/code]
 
 We should be able to get the appropriate dictionary on the way out.
 
-[code]
     data = parse_tree_to_dict(s)
     assert data == {
         'a1': {
@@ -2282,36 +2312,35 @@ We should be able to get the appropriate dictionary on the way out.
             'e2': 'a4'},
         'b1': ['a6', 'b7']
     }, 'Nice try.. {} is wrong'.format(data)
-[/code]
+
 
 Here is what I have so far..
-[code]
-def parse_tree_to_dict(data):
-    import pyparsing as pp
 
-    lbrace = pp.Literal('{').suppress()
-    rbrace = pp.Literal('}').suppress()
+    def parse_tree_to_dict(data):
+        import pyparsing as pp
+    
+        lbrace = pp.Literal('{').suppress()
+        rbrace = pp.Literal('}').suppress()
+    
+        _printables = list(pp.printables) + [' ']
+        _printables.pop(_printables.index('|'))
+        _printables.pop(_printables.index('}'))
+        _printables.pop(_printables.index('{'))
+        _printables = ''.join(_printables)
+    
+        word_pattern = pp.Word(_printables)
+        list_pattern = pp.delimitedList(pp.OneOrMore(word_pattern), '|')
+    
+        enclosed = pp.Forward()
+    
+        atom = pp.Group(lbrace + list_pattern + rbrace)
+        enclosed << ((pp.OneOrMore(word_pattern + atom)) | atom )
+    
+        result = enclosed.parseString(data)
+    
+        pprint(result.asList())
+        return result
 
-    _printables = list(pp.printables) + [' ']
-    _printables.pop(_printables.index('|'))
-    _printables.pop(_printables.index('}'))
-    _printables.pop(_printables.index('{'))
-    _printables = ''.join(_printables)
-
-    word_pattern = pp.Word(_printables)
-    list_pattern = pp.delimitedList(pp.OneOrMore(word_pattern), '|')
-
-    enclosed = pp.Forward()
-
-    atom = pp.Group(lbrace + list_pattern + rbrace)
-    enclosed \<\< ((pp.OneOrMore(word_pattern + atom)) | atom )
-
-    result = enclosed.parseString(data)
-
-    pprint(result.asList())
-    return result
-
-[/code]
 
 But I've got the recursion piece slightly messed up.  Can someone point me in the right direction.
 
@@ -2321,8 +2350,6 @@ Thanks
 Hi there,
 
 I'm having a small issue with recursion. I'm close but I'm not there yet. Given the following input:
-
-
 
     s = 'a1{b2{a3|b3}c2{d3|e3}e2{a4}}b1{a6|b7}'
 
@@ -2345,29 +2372,29 @@ Here is what I have so far..
 
 
     def parse_tree_to_dict(data):
-    import pyparsing as pp
-    
-    lbrace = pp.Literal('{').suppress()
-    rbrace = pp.Literal('}').suppress()
-    
-    _printables = list(pp.printables) + [' ']
-    _printables.pop(_printables.index('|'))
-    _printables.pop(_printables.index('}'))
-    _printables.pop(_printables.index('{'))
-    _printables = ''.join(_printables)
-    
-    word_pattern = pp.Word(_printables)
-    list_pattern = pp.delimitedList(pp.OneOrMore(word_pattern), '|')
-    
-    enclosed = pp.Forward()
-    
-    atom = pp.Group(lbrace + list_pattern + rbrace)
-    enclosed \<\< ((pp.OneOrMore(word_pattern + atom)) | atom )
-    
-    result = enclosed.parseString(data)
-    
-    pprint(result.asList())
-    return result
+        import pyparsing as pp
+        
+        lbrace = pp.Literal('{').suppress()
+        rbrace = pp.Literal('}').suppress()
+        
+        _printables = list(pp.printables) + [' ']
+        _printables.pop(_printables.index('|'))
+        _printables.pop(_printables.index('}'))
+        _printables.pop(_printables.index('{'))
+        _printables = ''.join(_printables)
+        
+        word_pattern = pp.Word(_printables)
+        list_pattern = pp.delimitedList(pp.OneOrMore(word_pattern), '|')
+        
+        enclosed = pp.Forward()
+        
+        atom = pp.Group(lbrace + list_pattern + rbrace)
+        enclosed << ((pp.OneOrMore(word_pattern + atom)) | atom )
+        
+        result = enclosed.parseString(data)
+        
+        pprint(result.asList())
+        return result
     
 
 
@@ -2418,33 +2445,38 @@ The following works fine (note - no 'end:' token) :
 
 
     z = 'start:name\ntoken:aa bb cc\n'
-        EOL = LineEnd().suppress()
-        SOL = LineStart()
-        word = Word(printables)
-        word_group = Group(OneOrMore(word))
-        start_token = Literal('start:').suppress()
-        start_marker = start_token + word
-        line_token = Literal('token:').suppress()
-        line = line_token + word_group.setResultsName('LINE') + EOL
-        parser = OneOrMore(start_marker.setResultsName('START') + line)
+    EOL = LineEnd().suppress()
+    SOL = LineStart()
+    word = Word(printables)
+    word_group = Group(OneOrMore(word))
+    start_token = Literal('start:').suppress()
+    start_marker = start_token + word
+    line_token = Literal('token:').suppress()
+    line = line_token + word_group.setResultsName('LINE') + EOL
+    parser = OneOrMore(start_marker.setResultsName('START') + line)
 
 Which results in :
-parseresult.START = ['name'] and parseresult.LINE = ['aa', 'bb', 'cc']
+
+    parseresult.START = ['name']
+
+and
+
+    parseresult.LINE = ['aa', 'bb', 'cc']
 
 Now I modify the file to add an 'end:' token, and modify the code to expect an 'end:' token:
 
 
     z = 'start:name\ntoken:aa bb cc\nend:'
-        EOL = LineEnd().suppress()
-        SOL = LineStart()
-        word = Word(printables)
-        word_group = Group(OneOrMore(word))
-        start_token = Literal('start:').suppress()
-        start_marker = start_token + word
-        line_token = Literal('token:').suppress()
-        end_token = Literal('end:').suppress()
-        line = line_token + word_group.setResultsName('LINE') + EOL
-        parser = OneOrMore(start_marker.setResultsName('START') + line + end_token)
+    EOL = LineEnd().suppress()
+    SOL = LineStart()
+    word = Word(printables)
+    word_group = Group(OneOrMore(word))
+    start_token = Literal('start:').suppress()
+    start_marker = start_token + word
+    line_token = Literal('token:').suppress()
+    end_token = Literal('end:').suppress()
+    line = line_token + word_group.setResultsName('LINE') + EOL
+    parser = OneOrMore(start_marker.setResultsName('START') + line + end_token)
 
 And now the process fails.
 What am I doing wrong here ? This is a simple case, and I must be missing something very obvious.
@@ -2452,6 +2484,7 @@ Thank you in advance
 
 #### 2014-09-18 04:44:52 - ptmcg
 Don't you expect to have OneOrMore lines in each group?  Right now you will only parse one and then expect the end_token, which will fail in the case of having multiple token: lines in a group (but should succeed if you have only one).
+
 #### 2014-09-18 23:01:38 - gustible
 Thanks for your respnse.
 Yes, I do expect one or more toke:lines in a group. But my problem is that the code above fails for a single token:line. 
@@ -2478,7 +2511,7 @@ It still fails with the same message in the exception. I am unable to identify t
 I suspect it may have something to do with the use of LineEnd() and LineStart() - but cannot pinpoint the issue despite extensive testing.
 Thanks in advance.
 #### 2014-09-19 01:52:48 - ptmcg
-Ah, the issue is that your definition of <em>word</em> is 'Word(printables)', which will also match 'end:', and <em>word_group</em> is just OneOrMore of these - so <em>word_group</em> is just reading too many <em>word</em>'s. You can see this for yourself if you add 'word.setDebug()' after the definition of <em>word</em>, and rerun your test.  You'll see that the 'OneOrMore(word)' is reading past the EOL and including the 'end:' as part of the <em>word_group</em> (this would also consume any 'token:' markers, also not what you want). Since you want your <em>word_group</em> to end at the end of line, you can have it lookahead and stop at the EOL by modifying your definition of <em>word_group</em> to 'word_group = Group(OneOrMore(~EOL + word))'. After I make this change in your sample, things are looking better.
+Ah, the issue is that your definition of _word_ is `'Word(printables)'`, which will also match 'end:', and <em>word_group</em> is just OneOrMore of these - so <em>word_group</em> is just reading too many <em>word</em>'s. You can see this for yourself if you add 'word.setDebug()' after the definition of <em>word</em>, and rerun your test.  You'll see that the 'OneOrMore(word)' is reading past the EOL and including the 'end:' as part of the <em>word_group</em> (this would also consume any 'token:' markers, also not what you want). Since you want your <em>word_group</em> to end at the end of line, you can have it lookahead and stop at the EOL by modifying your definition of <em>word_group</em> to 'word_group = Group(OneOrMore(~EOL + word))'. After I make this change in your sample, things are looking better.
 
 Now, to support multiple 'token:' lines, you will need to make a couple more changes. The first, as I mentioned before, will be to add repetion of <em>line</em> in <em>parser</em>:
 
@@ -2520,34 +2553,34 @@ Jacques
 Hi,
 I Have a file with text in the format below. Need to parse the below file and convert it into a dictionary so that i can print the dictionary in yaml format using yaml.dump(). Basically, i need the below file to be stored in a dictionary object after parsing.AM currently using pyparsing. Please help mw with the same.
 
-### Input file format
-#### ##############
-outer_block:
-inner_block1:
-type: val1
-properties:
-  key1: val1
-  key2: val2
-
-inner_block1:
-type: val1
-properties:
-  key1: val1
-  key2: val2
-
-output file format:
-outer_block:
+    ### Input file format
+    #### ##############
+    outer_block:
     inner_block1:
-       type: val1
-       properties:
-           key1: val1
-           key2: val2
-
+    type: val1
+    properties:
+      key1: val1
+      key2: val2
+    
     inner_block1:
-       type: val1
-       properties:
-           key1: val1
-           key2: val2
+    type: val1
+    properties:
+      key1: val1
+      key2: val2
+    
+    output file format:
+    outer_block:
+        inner_block1:
+           type: val1
+           properties:
+               key1: val1
+               key2: val2
+    
+        inner_block1:
+           type: val1
+           properties:
+               key1: val1
+               key2: val2
 
 
 ---
@@ -2634,10 +2667,10 @@ Without OneOrMore (I get the desired output):
 I get:
 
 
-interface Bundle50 
- ip address 10.155.0.1 255.255.224.0 secondary 
- ip address 10.219.0.1 255.255.224.0 secondary 
- !
+    interface Bundle50 
+     ip address 10.155.0.1 255.255.224.0 secondary 
+     ip address 10.219.0.1 255.255.224.0 secondary 
+     !
 
 And with OneOrMore:
 
@@ -2667,9 +2700,9 @@ And with OneOrMore:
 I get:
 
 
-interface Bundle50 
- ip address 10.155.0.1 255.255.224.0 secondary ip address 10.219.0.1 255.255.224.0 secondary 
- ! 
+    interface Bundle50 
+     ip address 10.155.0.1 255.255.224.0 secondary ip address 10.219.0.1 255.255.224.0 secondary 
+     ! 
 
 So in the latter case there is no separation between the two lines. I don't see why, the word patter should not catch the EOL.
 
@@ -2681,6 +2714,7 @@ Dan
 #### 2014-11-23 03:55:55 - Griffon26
 If line endings are significant in your grammar, you need to call ParserElement.setDefaultWhiteSpace(' \t') to exclude the newline.
 Otherwise OneOrMore will happily jump over newlines as if they were spaces.
+
 #### 2014-11-23 04:05:11 - ptmcg
 Thanks for chiming in @Griffon26 - you have the right idea, although the exact method name is ParserElement.setDefaultWhitespaceChars(' \t').  And since pyparsing usually runs expandtabs on the input string before parsing, you can usually write it as ParserElement.setDefaultWhitespaceChars(' ').
 
@@ -2699,7 +2733,7 @@ I have a fix for it that involves a change in commaSeparatedList as well, but I 
 Would you accept a patch that changes this behaviour?
 
 #### 2014-11-26 16:57:10 - ptmcg
-It was my intention that LineEnd would match at the end of the input string.  If you want to detect the condition of a StringEnd() that does not end with a LineEnd, you can define an expression EOL = ~StringEnd() + LineEnd().
+It was my intention that LineEnd would match at the end of the input string.  If you want to detect the condition of a StringEnd() that does not end with a LineEnd, you can define an expression `EOL = ~StringEnd() + LineEnd()`.
 
 ---
 ## 2014-12-06 09:14:40 - Griffon26 - Parsing within quotes?
@@ -2790,13 +2824,13 @@ prints:
 #### 2014-12-08 22:48:39 - ptmcg
 As for the principle of allowing anything within your quoted string, even double quotes, I think you are treading in ambiguous grammar territory. Having to escape delimiters is no different here than it is in regular expressions requiring '\' characters, or SQL statements requiring '' doubling of quotation marks.
 
-Here is an interesting tangent - why are '/'s escaped in regular expressions?  It is clear why '.', '*', '?', '[', ']', '(', ')' are all escaped - they have meaning as metacharacters for the regex.  But '/' has no special meaning for regex's, why does it have to be escaped with a leading '\'?  The answer is not in re's themselves, but in their usage in applications such as vi or grep. In vi, one gives a substitution command using 's/\<matching regex\>/\<replacement regex\>/\<optional qualifiers\>'  If the '/'s within the regexes weren't escaped, then how would one tell the regex '/'s from the delimiting '/'s of the substitution command?  Regular expressions themselves are not confused by unescaped '/'s, but their application within the larger context makes escaping '/'s necessary, and so this gets built into the regex parser.  I think a similar rationale may need to be applied in the case of your embedded quotation marks.
+Here is an interesting tangent - why are '/'s escaped in regular expressions?  It is clear why '.', '*', '?', '[', ']', '(', ')' are all escaped - they have meaning as metacharacters for the regex.  But '/' has no special meaning for regex's, why does it have to be escaped with a leading '\'?  The answer is not in re's themselves, but in their usage in applications such as vi or grep. In vi, one gives a substitution command using 's/<matching regex>/<replacement regex>/<optional qualifiers>'  If the '/'s within the regexes weren't escaped, then how would one tell the regex '/'s from the delimiting '/'s of the substitution command?  Regular expressions themselves are not confused by unescaped '/'s, but their application within the larger context makes escaping '/'s necessary, and so this gets built into the regex parser.  I think a similar rationale may need to be applied in the case of your embedded quotation marks.
 
 ---
 ## 2014-12-15 08:00:31 - vsvismeista - adding key\/value pair to originally ParseResults Object
 Hi all,
 
-I have made my first steps in pyparsing - it�s really cool.
+I have made my first steps in pyparsing - it's really cool.
 
 But I have a problem without knowing howto solve at the moment:
 After parsing I want to calculate the time-difference of two results and add this result to the original ParseResult.
@@ -2805,11 +2839,11 @@ Here the working example of the ParseAction - where 'text' is the original Resul
 
 
     def job_structuring(text):
-                start_time = text['job_start_time']
-                end_time = text['job_finish_time']
-                time_diff = end_time-start_time
-                text.append(time_diff)
-                return text
+        start_time = text['job_start_time']
+        end_time = text['job_finish_time']
+        time_diff = end_time-start_time
+        text.append(time_diff)
+        return text
 
 This code works perfectly.
 
@@ -2820,12 +2854,12 @@ I tried to instantiate a new ParseResults Object in the ParseAction:
 
 
     def job_structuring(text):
-                start_time = text['job_start_time']
-                end_time = text['job_finish_time']
-                time_diff = end_time-start_time
-                d = ParseResults(time_diff, name='job_duration')
-                text = text + d
-                return text
+        start_time = text['job_start_time']
+        end_time = text['job_finish_time']
+        time_diff = end_time-start_time
+        d = ParseResults(time_diff, name='job_duration')
+        text = text + d
+        return text
 
 
 but there comes an error if I have this line (even without the line in which I add the 'd' to the 'text') in the ParseAction:
@@ -2873,18 +2907,18 @@ when I use dump it works:
 but when I use asXML():
 
 
-    \<job_start_time\>
-      \<job_start_time\>1900-01-01 00:22:58\</job_start_time\>
-      \<job_finish_time\>1900-01-01 00:25:00\</job_finish_time\>
-    \</job_start_time\>
+    <job_start_time>
+      <job_start_time>1900-01-01 00:22:58</job_start_time>
+      <job_finish_time>1900-01-01 00:25:00</job_finish_time>
+    </job_start_time>
     
-    \<job_start_time\>
-      \<job_start_time\>1900-01-01 00:25:02\</job_start_time\>
-      \<job_finish_time\>1900-01-01 00:25:28\</job_finish_time\>
-    \</job_start_time\>
+    <job_start_time>
+      <job_start_time>1900-01-01 00:25:02</job_start_time>
+      <job_finish_time>1900-01-01 00:25:28</job_finish_time>
+    </job_start_time>
 
 
-I haven�t understand yet why the job_duration isn't showed..
+I haven't understand yet why the job_duration isn't showed..
 #### 2014-12-18 04:16:35 - ptmcg
 Adding a results name does not automatically append to the ParseResults internal list, and asXML works by walking the list and looking for matching names to make the tags; dump just works off the internal dict, and so that is why you see your result.  You will need to update both the internal dict and the internal list, try:
 
@@ -2894,7 +2928,11 @@ Adding a results name does not automatically append to the ParseResults internal
     text.append(time_diff)
 
 
-Is asXML() absolutely necessary for your project, or are you just using it for debugging? I am not a big fan of asXML(), as it has to do a fair bit of guesswork to marry up the results names and the values, and sometimes asXML() will guess wrongly.  I've put more effort into getting dump() to work properly, especially the most recent enhancement to list out nested results as numbered array elements.
+Is asXML() absolutely necessary for your project, or are you just using it for debugging? I 
+am not a big fan of asXML(), as it has to do a fair bit of guesswork to marry up the results 
+names and the values, and sometimes asXML() will guess wrongly.  I've put more effort into 
+getting dump() to work properly, especially the most recent enhancement to list out nested 
+results as numbered array elements.
 
 Glad you are finding pyparsing to be cool - good luck with your project!
 
@@ -2910,8 +2948,8 @@ Here is my grammar:
 
     top = '(' item+ ')'
     item = ':' label? '(' value? item* ')'
-    value = \<string\>
-    label = \<string\>
+    value = <string>
+    label = <string>
 
 
 So lots of recursion and 'missing' stuff.
@@ -2926,7 +2964,7 @@ This is my implementation:
     Label = pyp.Word(pyp.alphanums)
     Value = pyp.Word(pyp.alphanums)
     Item = pyp.Forward()
-    Item \<\< pyp.Group(CN + pyp.Optional(Label)('label') +
+    Item << pyp.Group(CN + pyp.Optional(Label)('label') +
                       LP + pyp.Optional(Value)('value') +
                       pyp.Group(pyp.ZeroOrMore(Item))('items') + RP)
     Top = LP + pyp.Group(pyp.OneOrMore(Item))('top') + RP + pyp.stringEnd
@@ -2969,7 +3007,7 @@ Here is sample input and my tries to extract information:
 When I run this, I get the expected output (below). My problem is that I don't know how to traverse the array labeled 'items'?
 
 
-    i1 \<class 'pyparsing.ParseResults'\>
+    i1 <class 'pyparsing.ParseResults'>
     ['rules', 'ckpd', [['pre', 'val0', []], ['mid', 'val1', [['extra', '0', []]]], ['post', 'val2', []], ['unlabeled1', []], ['unlabeled2', []]]]
     - items: 
       [0]:
@@ -3004,14 +3042,14 @@ When I run this, I get the expected output (below). My problem is that I don't k
     - value: ckpd
     i1.label: 'rules'
     i1.value: 'ckpd'
-    i1.items type:  \<type 'instancemethod'\>
-    i1 \<class 'pyparsing.ParseResults'\>
+    i1.items type:  <type 'instancemethod'>
+    i1 <class 'pyparsing.ParseResults'>
     ['anon', []]
     - items: []
     - value: anon
     i1.label: ''
     i1.value: 'anon'
-    i1.items type:  \<type 'instancemethod'\>
+    i1.items type:  <type 'instancemethod'>
 
 
 
