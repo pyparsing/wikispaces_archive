@@ -1,106 +1,115 @@
-[2011-01-02 09:55:16 - ArthurPuty - Pickling ParseResults with Python3](.#2011-01-02-095516---arthurputy---pickling-parseresults-with-python3)  
-[2011-01-03 14:08:33 - matthew.brett - Bibtex parser - for examples?](.#2011-01-03-140833---matthewbrett---bibtex-parser---for-examples)  
-[2011-01-05 09:32:33 - jasto - Space as a valid token](.#2011-01-05-093233---jasto---space-as-a-valid-token)  
-[2011-01-06 00:40:04 - majortal - Boosting Pyparsing using regular expressions](.#2011-01-06-004004---majortal---boosting-pyparsing-using-regular-expressions)  
-[2011-01-10 22:19:06 - codeape - Why are comments at end not ignored when using parseAll=True?](.#2011-01-10-221906---codeape---why-are-comments-at-end-not-ignored-when-using-parsealltrue)  
-[2011-01-11 06:38:22 - majortal - Bug in pyparsing?](.#2011-01-11-063822---majortal---bug-in-pyparsing)  
-[2011-01-14 07:39:29 - DesiLinguist - Help with originalTextFor and transformString](.#2011-01-14-073929---desilinguist---help-with-originaltextfor-and-transformstring)  
-[2011-01-29 11:58:50 - Griffon26 - Preserving whitespace with transformString](.#2011-01-29-115850---griffon26---preserving-whitespace-with-transformstring)  
-[2011-02-04 05:33:31 - voltron8 - Need help. Parse float numbers and functions](.#2011-02-04-053331---voltron8---need-help-parse-float-numbers-and-functions)  
-[2011-02-14 09:42:49 - DesiLinguist - Weird behavior with MatchFirst](.#2011-02-14-094249---desilinguist---weird-behavior-with-matchfirst)  
-[2011-02-16 12:55:46 - Icoo - Simple parser or code simulator](.#2011-02-16-125546---icoo---simple-parser-or-code-simulator)  
-[2011-02-18 11:46:14 - victorsmiller - Getting the text in comments](.#2011-02-18-114614---victorsmiller---getting-the-text-in-comments)  
-[2011-02-20 16:41:52 - xuru1 - Parsing time increases when parsed repeatedly](.#2011-02-20-164152---xuru1---parsing-time-increases-when-parsed-repeatedly)  
-[2011-02-24 09:24:19 - DiaaFayed - apostroph](.#2011-02-24-092419---diaafayed---apostroph)  
-[2011-02-26 18:17:25 - dwelch91 - Handling missing operand](.#2011-02-26-181725---dwelch91---handling-missing-operand)  
-[2011-03-02 21:30:38 - cmurphycode - Help with nested result names](.#2011-03-02-213038---cmurphycode---help-with-nested-result-names)  
-[2011-03-06 11:13:40 - Zedric123 - make dict case insensitive](.#2011-03-06-111340---zedric123---make-dict-case-insensitive)  
-[2011-03-07 13:25:42 - _Mot_ - Recursiv parsing: Unexpected abort](.#2011-03-07-132542---_mot_---recursiv-parsing-unexpected-abort)  
-[2011-03-14 15:28:00 - muhackl - Strange behavior when reusing index string variables for parse actions](.#2011-03-14-152800---muhackl---strange-behavior-when-reusing-index-string-variables-for-parse-actions)  
-[2011-03-17 03:49:55 - ashish.sawankar - How to match empty\/null token in a delimited list](.#2011-03-17-034955---ashishsawankar---how-to-match-empty\null-token-in-a-delimited-list)  
-[2011-03-18 06:40:54 - flyingeek - Multiline parser fail](.#2011-03-18-064054---flyingeek---multiline-parser-fail)  
-[2011-04-18 23:46:18 - chihiro - Plans for future releases](.#2011-04-18-234618---chihiro---plans-for-future-releases)  
-[2011-04-21 15:31:44 - haggisbones - Parsing a filter expression with nestedExpr](.#2011-04-21-153144---haggisbones---parsing-a-filter-expression-with-nestedexpr)  
-[2011-04-21 20:10:23 - JesterEE - removeQuotes Potential Volatile](.#2011-04-21-201023---jesteree---removequotes-potential-volatile)  
-[2011-04-24 08:11:20 - DragonSpawn - Subsequent calls give different results.](.#2011-04-24-081120---dragonspawn---subsequent-calls-give-different-results)  
-[2011-05-02 08:11:43 - jenia2009 - simple calculator](.#2011-05-02-081143---jenia2009---simple-calculator)  
-[2011-05-06 02:06:33 - BrenBarn - Matching tags](.#2011-05-06-020633---brenbarn---matching-tags)  
-[2011-05-10 09:21:40 - skeeved - help with delimitedList](.#2011-05-10-092140---skeeved---help-with-delimitedlist)  
-[2011-05-28 21:42:47 - basilevs - How to extract named data from ParseResults with order preserved?](.#2011-05-28-214247---basilevs---how-to-extract-named-data-from-parseresults-with-order-preserved)  
-[2011-06-03 01:09:45 - sebpiq - Need help with building a nested expression](.#2011-06-03-010945---sebpiq---need-help-with-building-a-nested-expression)  
-[2011-06-04 14:45:57 - pf_moore - Parser for multiple items with no delimiter](.#2011-06-04-144557---pf_moore---parser-for-multiple-items-with-no-delimiter)  
-[2011-06-10 12:12:08 - ChiefDan - Getting started, couple of questions](.#2011-06-10-121208---chiefdan---getting-started-couple-of-questions)  
-[2011-06-12 05:17:38 - gareth8118 - Grammar embedded in original text - how to handle?](.#2011-06-12-051738---gareth8118---grammar-embedded-in-original-text---how-to-handle)  
-[2011-06-13 05:36:36 - ChiefDan - Documentation page does not exist](.#2011-06-13-053636---chiefdan---documentation-page-does-not-exist)  
-[2011-06-16 20:34:52 - grantma1 - StringEnd() hiding ParseException from parse failure at end of string or file ](.#2011-06-16-203452---grantma1---stringend-hiding-parseexception-from-parse-failure-at-end-of-string-or-file-)  
-[2011-06-17 12:57:20 - JesterEE - CharsNotIn Enhancement Request](.#2011-06-17-125720---jesteree---charsnotin-enhancement-request)  
-[2011-06-20 01:49:10 - haikalle - How to read a file and take info](.#2011-06-20-014910---haikalle---how-to-read-a-file-and-take-info)  
-[2011-06-21 09:07:47 - ptmcg - FANTASTIC PyCon 2011 Singapore Parsing presentation!!!](.#2011-06-21-090747---ptmcg---fantastic-pycon-2011-singapore-parsing-presentation)  
-[2011-06-21 09:20:11 - PilgrimBeart - SetResultsName - level confusion when used on Group?](.#2011-06-21-092011---pilgrimbeart---setresultsname---level-confusion-when-used-on-group)  
-[2011-06-22 08:06:39 - jasisz - simpleBool example on Python 3](.#2011-06-22-080639---jasisz---simplebool-example-on-python-3)  
-[2011-06-24 16:00:50 - stalwarts - Can someone explain ?](.#2011-06-24-160050---stalwarts---can-someone-explain-)  
-[2011-06-25 13:19:33 - gareth8118 - Packaging recommendations?](.#2011-06-25-131933---gareth8118---packaging-recommendations)  
-[2011-06-29 17:19:07 - NathanW3 - setParseAction no tokens passed](.#2011-06-29-171907---nathanw3---setparseaction-no-tokens-passed)  
-[2011-07-06 17:19:29 - joslin01 - Reading parse results dump](.#2011-07-06-171929---joslin01---reading-parse-results-dump)  
-[2011-07-09 23:28:16 - basilevs - Futher problems](.#2011-07-09-232816---basilevs---futher-problems)  
-[2011-07-11 23:34:33 - whoozle - Cannot implement recursive grammar](.#2011-07-11-233433---whoozle---cannot-implement-recursive-grammar)  
-[2011-07-12 19:49:16 - mehrdadfeller - Verilog Parser](.#2011-07-12-194916---mehrdadfeller---verilog-parser)  
-[2011-07-13 14:17:23 - sdmolloy - Simple nextedExpr parser](.#2011-07-13-141723---sdmolloy---simple-nextedexpr-parser)  
-[2011-07-14 05:40:28 - joslin01 - Where is definition of "t" when initializing parse action classes?](.#2011-07-14-054028---joslin01---where-is-definition-of-"t"-when-initializing-parse-action-classes)  
-[2011-07-14 06:25:48 - sdmolloy - Nested parser similar to jsonParser](.#2011-07-14-062548---sdmolloy---nested-parser-similar-to-jsonparser)  
-[2011-07-15 12:55:24 - sdmolloy - Dict where multiple keys have the same name](.#2011-07-15-125524---sdmolloy---dict-where-multiple-keys-have-the-same-name)  
-[2011-07-16 10:58:23 - joslin01 - parsing with indentation](.#2011-07-16-105823---joslin01---parsing-with-indentation)  
-[2011-07-19 17:19:50 - mehrdadfeller - from tokens to strings](.#2011-07-19-171950---mehrdadfeller---from-tokens-to-strings)  
-[2011-07-21 04:23:48 - nimrodra - Using operatorPrecedence for AST](.#2011-07-21-042348---nimrodra---using-operatorprecedence-for-ast)  
-[2011-07-23 08:21:11 - joslin01 - 'str' object is not callable](.#2011-07-23-082111---joslin01---str-object-is-not-callable)  
-[2011-07-23 13:53:30 - joslin01 - indentBlock function](.#2011-07-23-135330---joslin01---indentblock-function)  
-[2011-07-27 06:09:29 - natgiot - inconsistent behavior of CloseMtch depending on number of errors](.#2011-07-27-060929---natgiot---inconsistent-behavior-of-closemtch-depending-on-number-of-errors)  
-[2011-07-28 16:04:29 - espeed - Parsing a Nutch dump file](.#2011-07-28-160429---espeed---parsing-a-nutch-dump-file)  
-[2011-07-29 04:12:31 - gotcha1 - Methodology to write\debug BNF](.#2011-07-29-041231---gotcha1---methodology-to-write\debug-bnf)  
-[2011-07-30 06:36:53 - gotcha1 - Uncertainty with cppStyleComment](.#2011-07-30-063653---gotcha1---uncertainty-with-cppstylecomment)  
-[2011-08-03 23:27:20 - BrenBarn - Generalized escape mechanism?](.#2011-08-03-232720---brenbarn---generalized-escape-mechanism)  
-[2011-08-04 06:13:04 - pbouda - Python 3 question](.#2011-08-04-061304---pbouda---python-3-question)  
-[2011-08-05 20:45:33 - BrenBarn - Set attributes on ParseResults](.#2011-08-05-204533---brenbarn---set-attributes-on-parseresults)  
-[2011-08-06 01:30:50 - BrenBarn - parseActions and ParseResults attributes](.#2011-08-06-013050---brenbarn---parseactions-and-parseresults-attributes)  
-[2011-08-06 07:12:08 - vadeskoc - _trim_arity trickiness](.#2011-08-06-071208---vadeskoc---_trim_arity-trickiness)  
-[2011-08-08 12:47:54 - BrenBarn - Transformations on parse expressions](.#2011-08-08-124754---brenbarn---transformations-on-parse-expressions)  
-[2011-08-09 08:42:50 - almoni - Different Instances Of The Same Rule](.#2011-08-09-084250---almoni---different-instances-of-the-same-rule)  
-[2011-08-10 02:51:46 - almoni - Exact Matches as Default](.#2011-08-10-025146---almoni---exact-matches-as-default)  
-[2011-08-12 02:51:12 - kumaranar - Parsing Nested function calls in expression.](.#2011-08-12-025112---kumaranar---parsing-nested-function-calls-in-expression)  
-[2011-08-18 01:21:25 - BrenBarn - pyparsing hiding exceptions](.#2011-08-18-012125---brenbarn---pyparsing-hiding-exceptions)  
-[2011-08-20 04:14:22 - jfosorio - setResultsName and setParseAction](.#2011-08-20-041422---jfosorio---setresultsname-and-setparseaction)  
-[2011-08-25 12:14:21 - furrykef - alphas is locale-dependent in Python 2.x](.#2011-08-25-121421---furrykef---alphas-is-locale-dependent-in-python-2x)  
-[2011-08-29 07:11:49 - qlppk - can't pase properly](.#2011-08-29-071149---qlppk---cant-pase-properly)  
-[2011-08-29 12:08:07 - firecore - help with a virtual sql parser](.#2011-08-29-120807---firecore---help-with-a-virtual-sql-parser)  
-[2011-08-29 17:31:29 - adilh - parsing words with underscore](.#2011-08-29-173129---adilh---parsing-words-with-underscore)  
-[2011-09-02 03:46:41 - MattWarren2 - New to PyParsing, parsing a simple text structure](.#2011-09-02-034641---mattwarren2---new-to-pyparsing-parsing-a-simple-text-structure)  
-[2011-09-02 14:27:05 - tdris01 - Hello World example? ](.#2011-09-02-142705---tdris01---hello-world-example-)  
-[2011-09-07 07:41:36 - MattWarren2 - Matching whitespace and preserving the token](.#2011-09-07-074136---mattwarren2---matching-whitespace-and-preserving-the-token)  
-[2011-09-11 06:24:09 - almoni - Prioritization](.#2011-09-11-062409---almoni---prioritization)  
-[2011-09-11 22:55:12 - vsemionov - Possible bug in CharsNotIn](.#2011-09-11-225512---vsemionov---possible-bug-in-charsnotin)  
-[2011-09-15 02:02:02 - jcronje - Newlines in quoted strings](.#2011-09-15-020202---jcronje---newlines-in-quoted-strings)  
-[2011-09-25 18:58:24 - bramsc - Whitespaces](.#2011-09-25-185824---bramsc---whitespaces)  
-[2011-09-28 18:25:41 - stalwarts - Help on improving performance ...](.#2011-09-28-182541---stalwarts---help-on-improving-performance-)  
-[2011-09-29 23:20:26 - stalwarts - parser help](.#2011-09-29-232026---stalwarts---parser-help)  
-[2011-09-30 08:25:58 - fidlej - Invalid inputs](.#2011-09-30-082558---fidlej---invalid-inputs)  
-[2011-10-05 11:11:40 - graingert - Can't seem to get parseaction working on a originalTextFor token](.#2011-10-05-111140---graingert---cant-seem-to-get-parseaction-working-on-a-originaltextfor-token)  
-[2011-10-05 11:26:57 - rmayr - Location of parsed tokens](.#2011-10-05-112657---rmayr---location-of-parsed-tokens)  
-[2011-10-11 02:01:33 - zukifoo - nestedExpr() and newlines howto?](.#2011-10-11-020133---zukifoo---nestedexpr-and-newlines-howto)  
-[2011-10-14 19:45:58 - cadourian - Handling carriage return](.#2011-10-14-194558---cadourian---handling-carriage-return)  
-[2011-10-15 13:51:30 - projetmbc - Fist steps with pyparsing](.#2011-10-15-135130---projetmbc---fist-steps-with-pyparsing)  
-[2011-10-18 07:56:02 - almoni - NotAny Question](.#2011-10-18-075602---almoni---notany-question)  
-[2011-10-21 18:03:40 - cadourian - Extracting a hierarchical tree out of a parsed result](.#2011-10-21-180340---cadourian---extracting-a-hierarchical-tree-out-of-a-parsed-result)  
-[2011-10-28 16:07:02 - stalwarts - XML Parser Help](.#2011-10-28-160702---stalwarts---xml-parser-help)  
-[2011-10-31 04:13:18 - marcmolla - Sequencial parsing](.#2011-10-31-041318---marcmolla---sequencial-parsing)  
-[2011-11-01 05:12:16 - freshkiwi - doing something wrong](.#2011-11-01-051216---freshkiwi---doing-something-wrong)  
-[2011-11-03 13:00:51 - spastor2 - RightMost match or last match](.#2011-11-03-130051---spastor2---rightmost-match-or-last-match)  
-[2011-11-04 16:44:00 - chandreas - Need help with NotAny](.#2011-11-04-164400---chandreas---need-help-with-notany)  
-[2011-11-22 23:40:15 - jcronje - Where to begin to see why a parser is slow?](.#2011-11-22-234015---jcronje---where-to-begin-to-see-why-a-parser-is-slow)  
-[2011-11-23 07:49:04 - masura-san - Issue with grammar with empty line support](.#2011-11-23-074904---masura-san---issue-with-grammar-with-empty-line-support)  
-[2011-11-30 01:16:14 - jimcollum - New user of pyparser](.#2011-11-30-011614---jimcollum---new-user-of-pyparser)  
-[2011-12-14 07:58:16 - techtonik - Split\/join without the loss of formatting](.#2011-12-14-075816---techtonik---split\join-without-the-loss-of-formatting)  
-[2011-12-14 23:03:30 - techtonik - [patch] ParseResults in API doc](.#2011-12-14-230330---techtonik---[patch]-parseresults-in-api-doc)  
-[2011-12-22 02:44:02 - denj - Transform embedded HTML to latex and replace newline](.#2011-12-22-024402---denj---transform-embedded-html-to-latex-and-replace-newline)  
+## Pyparsing Wikispaces Discussion - 2011
+
+[Note: these entries are fairly old, and predate many new features of pyparsing,
+and are predominantly coded using Python 2.
+They are captured here for historical benefit, but may not contain
+the most current practices or features. We will try to add editor
+notes to entries to indicate when discussions have been 
+overtaken by development events.]
+
+[2011-01-02 09:55:16 - ArthurPuty - Pickling ParseResults with Python3](all_wiki_discussion_toc_2011.md#2011-01-02-095516---arthurputy---pickling-parseresults-with-python3)  
+[2011-01-03 14:08:33 - matthew.brett - Bibtex parser - for examples?](all_wiki_discussion_toc_2011.md#2011-01-03-140833---matthewbrett---bibtex-parser---for-examples)  
+[2011-01-05 09:32:33 - jasto - Space as a valid token](all_wiki_discussion_toc_2011.md#2011-01-05-093233---jasto---space-as-a-valid-token)  
+[2011-01-06 00:40:04 - majortal - Boosting Pyparsing using regular expressions](all_wiki_discussion_toc_2011.md#2011-01-06-004004---majortal---boosting-pyparsing-using-regular-expressions)  
+[2011-01-10 22:19:06 - codeape - Why are comments at end not ignored when using parseAll=True?](all_wiki_discussion_toc_2011.md#2011-01-10-221906---codeape---why-are-comments-at-end-not-ignored-when-using-parsealltrue)  
+[2011-01-11 06:38:22 - majortal - Bug in pyparsing?](all_wiki_discussion_toc_2011.md#2011-01-11-063822---majortal---bug-in-pyparsing)  
+[2011-01-14 07:39:29 - DesiLinguist - Help with originalTextFor and transformString](all_wiki_discussion_toc_2011.md#2011-01-14-073929---desilinguist---help-with-originaltextfor-and-transformstring)  
+[2011-01-29 11:58:50 - Griffon26 - Preserving whitespace with transformString](all_wiki_discussion_toc_2011.md#2011-01-29-115850---griffon26---preserving-whitespace-with-transformstring)  
+[2011-02-04 05:33:31 - voltron8 - Need help. Parse float numbers and functions](all_wiki_discussion_toc_2011.md#2011-02-04-053331---voltron8---need-help-parse-float-numbers-and-functions)  
+[2011-02-14 09:42:49 - DesiLinguist - Weird behavior with MatchFirst](all_wiki_discussion_toc_2011.md#2011-02-14-094249---desilinguist---weird-behavior-with-matchfirst)  
+[2011-02-16 12:55:46 - Icoo - Simple parser or code simulator](all_wiki_discussion_toc_2011.md#2011-02-16-125546---icoo---simple-parser-or-code-simulator)  
+[2011-02-18 11:46:14 - victorsmiller - Getting the text in comments](all_wiki_discussion_toc_2011.md#2011-02-18-114614---victorsmiller---getting-the-text-in-comments)  
+[2011-02-20 16:41:52 - xuru1 - Parsing time increases when parsed repeatedly](all_wiki_discussion_toc_2011.md#2011-02-20-164152---xuru1---parsing-time-increases-when-parsed-repeatedly)  
+[2011-02-24 09:24:19 - DiaaFayed - apostroph](all_wiki_discussion_toc_2011.md#2011-02-24-092419---diaafayed---apostroph)  
+[2011-02-26 18:17:25 - dwelch91 - Handling missing operand](all_wiki_discussion_toc_2011.md#2011-02-26-181725---dwelch91---handling-missing-operand)  
+[2011-03-02 21:30:38 - cmurphycode - Help with nested result names](all_wiki_discussion_toc_2011.md#2011-03-02-213038---cmurphycode---help-with-nested-result-names)  
+[2011-03-06 11:13:40 - Zedric123 - make dict case insensitive](all_wiki_discussion_toc_2011.md#2011-03-06-111340---zedric123---make-dict-case-insensitive)  
+[2011-03-07 13:25:42 - _Mot_ - Recursiv parsing: Unexpected abort](all_wiki_discussion_toc_2011.md#2011-03-07-132542---_mot_---recursiv-parsing-unexpected-abort)  
+[2011-03-14 15:28:00 - muhackl - Strange behavior when reusing index string variables for parse actions](all_wiki_discussion_toc_2011.md#2011-03-14-152800---muhackl---strange-behavior-when-reusing-index-string-variables-for-parse-actions)  
+[2011-03-17 03:49:55 - ashish.sawankar - How to match empty\/null token in a delimited list](all_wiki_discussion_toc_2011.md#2011-03-17-034955---ashishsawankar---how-to-match-empty\null-token-in-a-delimited-list)  
+[2011-03-18 06:40:54 - flyingeek - Multiline parser fail](all_wiki_discussion_toc_2011.md#2011-03-18-064054---flyingeek---multiline-parser-fail)  
+[2011-04-18 23:46:18 - chihiro - Plans for future releases](all_wiki_discussion_toc_2011.md#2011-04-18-234618---chihiro---plans-for-future-releases)  
+[2011-04-21 15:31:44 - haggisbones - Parsing a filter expression with nestedExpr](all_wiki_discussion_toc_2011.md#2011-04-21-153144---haggisbones---parsing-a-filter-expression-with-nestedexpr)  
+[2011-04-21 20:10:23 - JesterEE - removeQuotes Potential Volatile](all_wiki_discussion_toc_2011.md#2011-04-21-201023---jesteree---removequotes-potential-volatile)  
+[2011-04-24 08:11:20 - DragonSpawn - Subsequent calls give different results.](all_wiki_discussion_toc_2011.md#2011-04-24-081120---dragonspawn---subsequent-calls-give-different-results)  
+[2011-05-02 08:11:43 - jenia2009 - simple calculator](all_wiki_discussion_toc_2011.md#2011-05-02-081143---jenia2009---simple-calculator)  
+[2011-05-06 02:06:33 - BrenBarn - Matching tags](all_wiki_discussion_toc_2011.md#2011-05-06-020633---brenbarn---matching-tags)  
+[2011-05-10 09:21:40 - skeeved - help with delimitedList](all_wiki_discussion_toc_2011.md#2011-05-10-092140---skeeved---help-with-delimitedlist)  
+[2011-05-28 21:42:47 - basilevs - How to extract named data from ParseResults with order preserved?](all_wiki_discussion_toc_2011.md#2011-05-28-214247---basilevs---how-to-extract-named-data-from-parseresults-with-order-preserved)  
+[2011-06-03 01:09:45 - sebpiq - Need help with building a nested expression](all_wiki_discussion_toc_2011.md#2011-06-03-010945---sebpiq---need-help-with-building-a-nested-expression)  
+[2011-06-04 14:45:57 - pf_moore - Parser for multiple items with no delimiter](all_wiki_discussion_toc_2011.md#2011-06-04-144557---pf_moore---parser-for-multiple-items-with-no-delimiter)  
+[2011-06-10 12:12:08 - ChiefDan - Getting started, couple of questions](all_wiki_discussion_toc_2011.md#2011-06-10-121208---chiefdan---getting-started-couple-of-questions)  
+[2011-06-12 05:17:38 - gareth8118 - Grammar embedded in original text - how to handle?](all_wiki_discussion_toc_2011.md#2011-06-12-051738---gareth8118---grammar-embedded-in-original-text---how-to-handle)  
+[2011-06-13 05:36:36 - ChiefDan - Documentation page does not exist](all_wiki_discussion_toc_2011.md#2011-06-13-053636---chiefdan---documentation-page-does-not-exist)  
+[2011-06-16 20:34:52 - grantma1 - StringEnd() hiding ParseException from parse failure at end of string or file ](all_wiki_discussion_toc_2011.md#2011-06-16-203452---grantma1---stringend-hiding-parseexception-from-parse-failure-at-end-of-string-or-file-)  
+[2011-06-17 12:57:20 - JesterEE - CharsNotIn Enhancement Request](all_wiki_discussion_toc_2011.md#2011-06-17-125720---jesteree---charsnotin-enhancement-request)  
+[2011-06-20 01:49:10 - haikalle - How to read a file and take info](all_wiki_discussion_toc_2011.md#2011-06-20-014910---haikalle---how-to-read-a-file-and-take-info)  
+[2011-06-21 09:07:47 - ptmcg - FANTASTIC PyCon 2011 Singapore Parsing presentation!!!](all_wiki_discussion_toc_2011.md#2011-06-21-090747---ptmcg---fantastic-pycon-2011-singapore-parsing-presentation)  
+[2011-06-21 09:20:11 - PilgrimBeart - SetResultsName - level confusion when used on Group?](all_wiki_discussion_toc_2011.md#2011-06-21-092011---pilgrimbeart---setresultsname---level-confusion-when-used-on-group)  
+[2011-06-22 08:06:39 - jasisz - simpleBool example on Python 3](all_wiki_discussion_toc_2011.md#2011-06-22-080639---jasisz---simplebool-example-on-python-3)  
+[2011-06-24 16:00:50 - stalwarts - Can someone explain ?](all_wiki_discussion_toc_2011.md#2011-06-24-160050---stalwarts---can-someone-explain-)  
+[2011-06-25 13:19:33 - gareth8118 - Packaging recommendations?](all_wiki_discussion_toc_2011.md#2011-06-25-131933---gareth8118---packaging-recommendations)  
+[2011-06-29 17:19:07 - NathanW3 - setParseAction no tokens passed](all_wiki_discussion_toc_2011.md#2011-06-29-171907---nathanw3---setparseaction-no-tokens-passed)  
+[2011-07-06 17:19:29 - joslin01 - Reading parse results dump](all_wiki_discussion_toc_2011.md#2011-07-06-171929---joslin01---reading-parse-results-dump)  
+[2011-07-09 23:28:16 - basilevs - Futher problems](all_wiki_discussion_toc_2011.md#2011-07-09-232816---basilevs---futher-problems)  
+[2011-07-11 23:34:33 - whoozle - Cannot implement recursive grammar](all_wiki_discussion_toc_2011.md#2011-07-11-233433---whoozle---cannot-implement-recursive-grammar)  
+[2011-07-12 19:49:16 - mehrdadfeller - Verilog Parser](all_wiki_discussion_toc_2011.md#2011-07-12-194916---mehrdadfeller---verilog-parser)  
+[2011-07-13 14:17:23 - sdmolloy - Simple nextedExpr parser](all_wiki_discussion_toc_2011.md#2011-07-13-141723---sdmolloy---simple-nextedexpr-parser)  
+[2011-07-14 05:40:28 - joslin01 - Where is definition of "t" when initializing parse action classes?](all_wiki_discussion_toc_2011.md#2011-07-14-054028---joslin01---where-is-definition-of-"t"-when-initializing-parse-action-classes)  
+[2011-07-14 06:25:48 - sdmolloy - Nested parser similar to jsonParser](all_wiki_discussion_toc_2011.md#2011-07-14-062548---sdmolloy---nested-parser-similar-to-jsonparser)  
+[2011-07-15 12:55:24 - sdmolloy - Dict where multiple keys have the same name](all_wiki_discussion_toc_2011.md#2011-07-15-125524---sdmolloy---dict-where-multiple-keys-have-the-same-name)  
+[2011-07-16 10:58:23 - joslin01 - parsing with indentation](all_wiki_discussion_toc_2011.md#2011-07-16-105823---joslin01---parsing-with-indentation)  
+[2011-07-19 17:19:50 - mehrdadfeller - from tokens to strings](all_wiki_discussion_toc_2011.md#2011-07-19-171950---mehrdadfeller---from-tokens-to-strings)  
+[2011-07-21 04:23:48 - nimrodra - Using operatorPrecedence for AST](all_wiki_discussion_toc_2011.md#2011-07-21-042348---nimrodra---using-operatorprecedence-for-ast)  
+[2011-07-23 08:21:11 - joslin01 - 'str' object is not callable](all_wiki_discussion_toc_2011.md#2011-07-23-082111---joslin01---str-object-is-not-callable)  
+[2011-07-23 13:53:30 - joslin01 - indentBlock function](all_wiki_discussion_toc_2011.md#2011-07-23-135330---joslin01---indentblock-function)  
+[2011-07-27 06:09:29 - natgiot - inconsistent behavior of CloseMtch depending on number of errors](all_wiki_discussion_toc_2011.md#2011-07-27-060929---natgiot---inconsistent-behavior-of-closemtch-depending-on-number-of-errors)  
+[2011-07-28 16:04:29 - espeed - Parsing a Nutch dump file](all_wiki_discussion_toc_2011.md#2011-07-28-160429---espeed---parsing-a-nutch-dump-file)  
+[2011-07-29 04:12:31 - gotcha1 - Methodology to write\debug BNF](all_wiki_discussion_toc_2011.md#2011-07-29-041231---gotcha1---methodology-to-write\debug-bnf)  
+[2011-07-30 06:36:53 - gotcha1 - Uncertainty with cppStyleComment](all_wiki_discussion_toc_2011.md#2011-07-30-063653---gotcha1---uncertainty-with-cppstylecomment)  
+[2011-08-03 23:27:20 - BrenBarn - Generalized escape mechanism?](all_wiki_discussion_toc_2011.md#2011-08-03-232720---brenbarn---generalized-escape-mechanism)  
+[2011-08-04 06:13:04 - pbouda - Python 3 question](all_wiki_discussion_toc_2011.md#2011-08-04-061304---pbouda---python-3-question)  
+[2011-08-05 20:45:33 - BrenBarn - Set attributes on ParseResults](all_wiki_discussion_toc_2011.md#2011-08-05-204533---brenbarn---set-attributes-on-parseresults)  
+[2011-08-06 01:30:50 - BrenBarn - parseActions and ParseResults attributes](all_wiki_discussion_toc_2011.md#2011-08-06-013050---brenbarn---parseactions-and-parseresults-attributes)  
+[2011-08-06 07:12:08 - vadeskoc - _trim_arity trickiness](all_wiki_discussion_toc_2011.md#2011-08-06-071208---vadeskoc---_trim_arity-trickiness)  
+[2011-08-08 12:47:54 - BrenBarn - Transformations on parse expressions](all_wiki_discussion_toc_2011.md#2011-08-08-124754---brenbarn---transformations-on-parse-expressions)  
+[2011-08-09 08:42:50 - almoni - Different Instances Of The Same Rule](all_wiki_discussion_toc_2011.md#2011-08-09-084250---almoni---different-instances-of-the-same-rule)  
+[2011-08-10 02:51:46 - almoni - Exact Matches as Default](all_wiki_discussion_toc_2011.md#2011-08-10-025146---almoni---exact-matches-as-default)  
+[2011-08-12 02:51:12 - kumaranar - Parsing Nested function calls in expression.](all_wiki_discussion_toc_2011.md#2011-08-12-025112---kumaranar---parsing-nested-function-calls-in-expression)  
+[2011-08-18 01:21:25 - BrenBarn - pyparsing hiding exceptions](all_wiki_discussion_toc_2011.md#2011-08-18-012125---brenbarn---pyparsing-hiding-exceptions)  
+[2011-08-20 04:14:22 - jfosorio - setResultsName and setParseAction](all_wiki_discussion_toc_2011.md#2011-08-20-041422---jfosorio---setresultsname-and-setparseaction)  
+[2011-08-25 12:14:21 - furrykef - alphas is locale-dependent in Python 2.x](all_wiki_discussion_toc_2011.md#2011-08-25-121421---furrykef---alphas-is-locale-dependent-in-python-2x)  
+[2011-08-29 07:11:49 - qlppk - can't pase properly](all_wiki_discussion_toc_2011.md#2011-08-29-071149---qlppk---cant-pase-properly)  
+[2011-08-29 12:08:07 - firecore - help with a virtual sql parser](all_wiki_discussion_toc_2011.md#2011-08-29-120807---firecore---help-with-a-virtual-sql-parser)  
+[2011-08-29 17:31:29 - adilh - parsing words with underscore](all_wiki_discussion_toc_2011.md#2011-08-29-173129---adilh---parsing-words-with-underscore)  
+[2011-09-02 03:46:41 - MattWarren2 - New to PyParsing, parsing a simple text structure](all_wiki_discussion_toc_2011.md#2011-09-02-034641---mattwarren2---new-to-pyparsing-parsing-a-simple-text-structure)  
+[2011-09-02 14:27:05 - tdris01 - Hello World example? ](all_wiki_discussion_toc_2011.md#2011-09-02-142705---tdris01---hello-world-example-)  
+[2011-09-07 07:41:36 - MattWarren2 - Matching whitespace and preserving the token](all_wiki_discussion_toc_2011.md#2011-09-07-074136---mattwarren2---matching-whitespace-and-preserving-the-token)  
+[2011-09-11 06:24:09 - almoni - Prioritization](all_wiki_discussion_toc_2011.md#2011-09-11-062409---almoni---prioritization)  
+[2011-09-11 22:55:12 - vsemionov - Possible bug in CharsNotIn](all_wiki_discussion_toc_2011.md#2011-09-11-225512---vsemionov---possible-bug-in-charsnotin)  
+[2011-09-15 02:02:02 - jcronje - Newlines in quoted strings](all_wiki_discussion_toc_2011.md#2011-09-15-020202---jcronje---newlines-in-quoted-strings)  
+[2011-09-25 18:58:24 - bramsc - Whitespaces](all_wiki_discussion_toc_2011.md#2011-09-25-185824---bramsc---whitespaces)  
+[2011-09-28 18:25:41 - stalwarts - Help on improving performance ...](all_wiki_discussion_toc_2011.md#2011-09-28-182541---stalwarts---help-on-improving-performance-)  
+[2011-09-29 23:20:26 - stalwarts - parser help](all_wiki_discussion_toc_2011.md#2011-09-29-232026---stalwarts---parser-help)  
+[2011-09-30 08:25:58 - fidlej - Invalid inputs](all_wiki_discussion_toc_2011.md#2011-09-30-082558---fidlej---invalid-inputs)  
+[2011-10-05 11:11:40 - graingert - Can't seem to get parseaction working on a originalTextFor token](all_wiki_discussion_toc_2011.md#2011-10-05-111140---graingert---cant-seem-to-get-parseaction-working-on-a-originaltextfor-token)  
+[2011-10-05 11:26:57 - rmayr - Location of parsed tokens](all_wiki_discussion_toc_2011.md#2011-10-05-112657---rmayr---location-of-parsed-tokens)  
+[2011-10-11 02:01:33 - zukifoo - nestedExpr() and newlines howto?](all_wiki_discussion_toc_2011.md#2011-10-11-020133---zukifoo---nestedexpr-and-newlines-howto)  
+[2011-10-14 19:45:58 - cadourian - Handling carriage return](all_wiki_discussion_toc_2011.md#2011-10-14-194558---cadourian---handling-carriage-return)  
+[2011-10-15 13:51:30 - projetmbc - Fist steps with pyparsing](all_wiki_discussion_toc_2011.md#2011-10-15-135130---projetmbc---fist-steps-with-pyparsing)  
+[2011-10-18 07:56:02 - almoni - NotAny Question](all_wiki_discussion_toc_2011.md#2011-10-18-075602---almoni---notany-question)  
+[2011-10-21 18:03:40 - cadourian - Extracting a hierarchical tree out of a parsed result](all_wiki_discussion_toc_2011.md#2011-10-21-180340---cadourian---extracting-a-hierarchical-tree-out-of-a-parsed-result)  
+[2011-10-28 16:07:02 - stalwarts - XML Parser Help](all_wiki_discussion_toc_2011.md#2011-10-28-160702---stalwarts---xml-parser-help)  
+[2011-10-31 04:13:18 - marcmolla - Sequencial parsing](all_wiki_discussion_toc_2011.md#2011-10-31-041318---marcmolla---sequencial-parsing)  
+[2011-11-01 05:12:16 - freshkiwi - doing something wrong](all_wiki_discussion_toc_2011.md#2011-11-01-051216---freshkiwi---doing-something-wrong)  
+[2011-11-03 13:00:51 - spastor2 - RightMost match or last match](all_wiki_discussion_toc_2011.md#2011-11-03-130051---spastor2---rightmost-match-or-last-match)  
+[2011-11-04 16:44:00 - chandreas - Need help with NotAny](all_wiki_discussion_toc_2011.md#2011-11-04-164400---chandreas---need-help-with-notany)  
+[2011-11-22 23:40:15 - jcronje - Where to begin to see why a parser is slow?](all_wiki_discussion_toc_2011.md#2011-11-22-234015---jcronje---where-to-begin-to-see-why-a-parser-is-slow)  
+[2011-11-23 07:49:04 - masura-san - Issue with grammar with empty line support](all_wiki_discussion_toc_2011.md#2011-11-23-074904---masura-san---issue-with-grammar-with-empty-line-support)  
+[2011-11-30 01:16:14 - jimcollum - New user of pyparser](all_wiki_discussion_toc_2011.md#2011-11-30-011614---jimcollum---new-user-of-pyparser)  
+[2011-12-14 07:58:16 - techtonik - Split\/join without the loss of formatting](all_wiki_discussion_toc_2011.md#2011-12-14-075816---techtonik---split\join-without-the-loss-of-formatting)  
+[2011-12-14 23:03:30 - techtonik - [patch] ParseResults in API doc](all_wiki_discussion_toc_2011.md#2011-12-14-230330---techtonik---[patch]-parseresults-in-api-doc)  
+[2011-12-22 02:44:02 - denj - Transform embedded HTML to latex and replace newline](all_wiki_discussion_toc_2011.md#2011-12-22-024402---denj---transform-embedded-html-to-latex-and-replace-newline)  
 
 
 ---
@@ -752,30 +761,30 @@ I'm not exactly sure that this is an issue in the way I have my grammar setup, o
 
 
     
-    testfile <span class="sy0">=</span> <span class="kw3">os</span>.<span class="me1">path</span>.<span class="me1">join</span><span class="br0">&#40;</span>basedir<span class="sy0">,</span> <span class="st0">'data'</span><span class="sy0">,</span> <span class="st0">'pass'</span><span class="sy0">,</span> <span class="st0">'b06.v'</span><span class="br0">&#41;</span>
-    vparser <span class="sy0">=</span> <span class="kw2">None</span>
+    testfile = os.path.join(basedir, 'data', 'pass', 'b06.v')
+    vparser = None
     
-    <span class="kw1">def</span> parseit<span class="br0">&#40;</span>testfile<span class="br0">&#41;</span>:
-        <span class="kw1">global</span> vparser
-        vparser.<span class="me1">parseFile</span><span class="br0">&#40;</span>testfile<span class="br0">&#41;</span>
+    def parseit(testfile):
+        global vparser
+        vparser.parseFile(testfile)
     
-    <span class="kw1">def</span> check_parse<span class="br0">&#40;</span>testfile<span class="br0">&#41;</span>:
-        <span class="st0">''' Yielded test function to parse a verilog file '''</span>
-        memfunc<span class="br0">&#40;</span>timefunc<span class="sy0">,</span> parseit<span class="sy0">,</span> testfile<span class="br0">&#41;</span>
+    def check_parse(testfile):
+        ''' Yielded test function to parse a verilog file '''
+        memfunc(timefunc, parseit, testfile)
     
-    <span class="kw1">def</span> test_repeated_speed<span class="br0">&#40;</span><span class="br0">&#41;</span>:
-        <span class="kw1">global</span> vparser
-        <span class="kw1">for</span> x <span class="kw1">in</span> <span class="kw2">range</span><span class="br0">&#40;</span><span class="nu0">40</span><span class="br0">&#41;</span>:
-            vparser <span class="sy0">=</span> <span class="kw2">None</span>
+    def test_repeated_speed():
+        global vparser
+        for x in range(40):
+            vparser = None
     
-            vparser <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>directives + <span class="br0">&#40;</span>module_def | primitive_def<span class="br0">&#41;</span> + directives<span class="br0">&#41;</span>
-            vparser.<span class="me1">ignore</span><span class="br0">&#40;</span>comments<span class="br0">&#41;</span>
+            vparser = OneOrMore(directives + (module_def | primitive_def) + directives)
+            vparser.ignore(comments)
     
-            name <span class="sy0">=</span> <span class="kw3">os</span>.<span class="me1">path</span>.<span class="me1">basename</span><span class="br0">&#40;</span>testfile<span class="br0">&#41;</span>.<span class="me1">split</span><span class="br0">&#40;</span><span class="st0">'.'</span><span class="br0">&#41;</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>
-            name <span class="sy0">=</span> name.<span class="me1">replace</span><span class="br0">&#40;</span><span class="st0">'_'</span><span class="sy0">,</span> <span class="st0">' '</span><span class="br0">&#41;</span>
-            name <span class="sy0">=</span> <span class="kw2">str</span><span class="br0">&#40;</span>x<span class="br0">&#41;</span> + <span class="st0">' '</span> + name
-            check_parse.<span class="me1">description</span> <span class="sy0">=</span> <span class="kw2">str</span><span class="br0">&#40;</span>name<span class="br0">&#41;</span>
-            <span class="kw1">yield</span> <span class="br0">&#40;</span>check_parse<span class="sy0">,</span> testfile<span class="br0">&#41;</span>
+            name = os.path.basename(testfile).split('.')[0]
+            name = name.replace('_', ' ')
+            name = str(x) + ' ' + name
+            check_parse.description = str(name)
+            yield (check_parse, testfile)
 
 
 BTW, memfunc checks how much memory the method uses, and timefunc times how long is spent in that method.
@@ -859,26 +868,26 @@ That would mean not 'c' or not 'd'; and 'a' and 'b'.
 Here's the code I'm using so far (somewhat simplified):
 
 
-    LPAR<span class="sy0">,</span>RPAR <span class="sy0">=</span> <span class="kw2">map</span><span class="br0">&#40;</span>Suppress<span class="sy0">,</span><span class="st0">'()'</span><span class="br0">&#41;</span>
-    search <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    AND_OP <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'&'</span><span class="br0">&#41;</span> | Keyword<span class="br0">&#40;</span><span class="st0">'AND'</span><span class="sy0">,</span> caseless<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>
-    OR_OP <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'|'</span><span class="br0">&#41;</span> | Keyword<span class="br0">&#40;</span><span class="st0">'OR'</span><span class="sy0">,</span> caseless<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>
-    NOT_OP <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'-'</span><span class="br0">&#41;</span> | Keyword<span class="br0">&#40;</span><span class="st0">'NOT'</span><span class="sy0">,</span> caseless<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>
-    INTEGER <span class="sy0">=</span> Regex<span class="br0">&#40;</span>r<span class="st0">'[+-]?<span class="es0">\d</span>+'</span><span class="br0">&#41;</span>
-    PATTERN <span class="sy0">=</span> dblQuotedString
+    LPAR,RPAR = map(Suppress,'()')
+    search = Forward()
+    AND_OP = Keyword('&') | Keyword('AND', caseless=True)
+    OR_OP = Keyword('|') | Keyword('OR', caseless=True)
+    NOT_OP = Keyword('-') | Keyword('NOT', caseless=True)
+    INTEGER = Regex(r'[+-]?\d+')
+    PATTERN = dblQuotedString
     
-    expr <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    expr = Forward()
     
-    expr_term <span class="sy0">=</span> <span class="br0">&#40;</span> LPAR + expr + RPAR | PATTERN <span class="br0">&#41;</span>
+    expr_term = ( LPAR + expr + RPAR | PATTERN )
     
-    expr <span class="sy0">\<\<</span> operatorPrecedence<span class="br0">&#40;</span>expr_term<span class="sy0">,</span>
-        <span class="br0">&#91;</span>
-         <span class="br0">&#40;</span>NOT_OP<span class="sy0">,</span> UNARY<span class="sy0">,</span> opAssoc.<span class="me1">RIGHT</span><span class="br0">&#41;</span><span class="sy0">,</span>
-         <span class="br0">&#40;</span>AND_OP<span class="sy0">,</span> BINARY<span class="sy0">,</span> opAssoc.<span class="me1">LEFT</span><span class="br0">&#41;</span><span class="sy0">,</span>
-         <span class="br0">&#40;</span>OR_OP<span class="sy0">,</span> BINARY<span class="sy0">,</span> opAssoc.<span class="me1">LEFT</span><span class="br0">&#41;</span><span class="sy0">,</span>
-        <span class="br0">&#93;</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span> printer <span class="br0">&#41;</span>
+    expr \<\< operatorPrecedence(expr_term,
+        [
+         (NOT_OP, UNARY, opAssoc.RIGHT),
+         (AND_OP, BINARY, opAssoc.LEFT),
+         (OR_OP, BINARY, opAssoc.LEFT),
+        ]).setParseAction( printer )
     
-    search <span class="sy0">\<\<</span> ZeroOrMore<span class="br0">&#40;</span> expr <span class="br0">&#41;</span>
+    search \<\< ZeroOrMore( expr )
 
  
 This works fine if there's a & or | between all terms of the expressions. However, in reality, some of the &'s are implied and are missing from the string. So a real search expression might look like:
@@ -1126,11 +1135,11 @@ PS: you are totally right about the problem of parsing recipes in general. I am 
 PS: here's the lists I spoke of. 
 
 
-    units <span class="sy0">=</span> <span class="br0">&#91;</span><span class="st0">'teaspoon'</span><span class="sy0">,</span><span class="st0">'tablespoon'</span><span class="sy0">,</span><span class="st0">'cup'</span><span class="sy0">,</span><span class="st0">'can'</span><span class="sy0">,</span><span class="st0">'pound'</span><span class="sy0">,</span><span class="st0">'lb'</span><span class="sy0">,</span><span class="st0">'oz'</span><span class="br0">&#93;</span>
-        <span class="co1">#do we need this?</span>
-        modwords <span class="sy0">=</span> <span class="br0">&#91;</span><span class="st0">'of'</span><span class="br0">&#93;</span>
-        <span class="co1">#things that have to be done to the food item</span>
-        processing <span class="sy0">=</span> <span class="br0">&#91;</span><span class="st0">'chopped'</span><span class="sy0">,</span> <span class="st0">'drained'</span><span class="sy0">,</span><span class="st0">'pureed'</span><span class="sy0">,</span><span class="st0">'melted'</span><span class="sy0">,</span><span class="st0">'softened'</span><span class="sy0">,</span><span class="st0">'crushed'</span><span class="br0">&#93;</span>
+    units = ['teaspoon','tablespoon','cup','can','pound','lb','oz']
+        #do we need this?
+        modwords = ['of']
+        #things that have to be done to the food item
+        processing = ['chopped', 'drained','pureed','melted','softened','crushed']
 
 
 #### 2011-03-03 21:37:32 - ptmcg
@@ -1678,7 +1687,7 @@ Ashish
 
 ---
 ## 2011-03-18 06:40:54 - flyingeek - Multiline parser fail
-Hi, I am quite new to pyparsing and python but having read many messages here, I'm still stuck for few hours ….
+Hi, I am quite new to pyparsing and python but having read many messages here, I'm still stuck for few hours ï¿½.
 
 Basically I want to extract data from quite unstructured text, here is the code:
 
@@ -1756,7 +1765,7 @@ Basically I want to extract data from quite unstructured text, here is the code:
     # Why ? 
 
 
-Any help would be appreciated ….
+Any help would be appreciated ï¿½.
 
 Thanks.
 Eric
@@ -1786,7 +1795,7 @@ Well I give up and I'm using a regex:
         #--------------------------------------------------
         (?:                        # non capturing group
            \n                         # yes begin by a newline
-           ^(?:T[eé]l\.?|Standard)    # start with Tel or Tél or Tél. or Standard
+           ^(?:T[eï¿½]l\.?|Standard)    # start with Tel or Tï¿½l or Tï¿½l. or Standard
            \s+                        # allow spaces
            :                          # mandatory : separator
            \s+                        # allow spaces
@@ -2160,17 +2169,17 @@ Anyway, onto the post topic.  I recently have been working on a very complex gra
 
 
 
-    unqtdVar <span class="sy0">=</span> dblQuotedString<span class="br0">&#40;</span> Word<span class="br0">&#40;</span>alphanums<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'var'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
+    unqtdVar = dblQuotedString( Word(alphanums)('var') )
 
 
 but pyparsing didn't like the setResultsName inside the QuotedString function.  Fair enough.  I then made my own hacky parse action to do the task:
 
 
 
-    <span class="kw1">def</span> Unquote<span class="br0">&#40;</span>tokens<span class="br0">&#41;</span>: <span class="co1"># setParseAction - Unquote</span>
-        <span class="kw1">return</span> tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="nu0">1</span>:-<span class="nu0">1</span><span class="br0">&#93;</span>
+    def Unquote(tokens): # setParseAction - Unquote
+        return tokens[0][1:-1]
     
-    unqtdVar <span class="sy0">=</span> dblQuotedString<span class="br0">&#40;</span> Word<span class="br0">&#40;</span>alphanums<span class="br0">&#41;</span> <span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>Unquote<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'var'</span><span class="br0">&#41;</span>
+    unqtdVar = dblQuotedString( Word(alphanums) ).setParseAction(Unquote())('var')
 
 
 This worked, but I wasn't too happy about just chopping off the front and the back.  But I kept it till I had a chance to look at it again.
@@ -2179,11 +2188,11 @@ Later, I found that you included your own helper function removeQuotes parse act
 
 
 
-    <span class="kw1">def</span> Unquote<span class="br0">&#40;</span>tokens<span class="br0">&#41;</span>: <span class="co1"># setParseAction - Unquote</span>
-        tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">=</span>tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="me1">strip</span><span class="br0">&#40;</span><span class="st0">'''</span><span class="br0">&#41;</span> <span class="co1">#Strip single quotes</span>
-        tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">=</span>tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="me1">strip</span><span class="br0">&#40;</span><span class="st0">'''</span><span class="br0">&#41;</span> <span class="co1">#Strip double quotes</span>
-        <span class="kw1">return</span> tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>
-    unqtdVar <span class="sy0">=</span> dblQuotedString<span class="br0">&#40;</span> Word<span class="br0">&#40;</span>alphanums<span class="br0">&#41;</span> <span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>Unquote<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'var'</span><span class="br0">&#41;</span>
+    def Unquote(tokens): # setParseAction - Unquote
+        tokens[0]=tokens[0].strip(''') #Strip single quotes
+        tokens[0]=tokens[0].strip(''') #Strip double quotes
+        return tokens[0]
+    unqtdVar = dblQuotedString( Word(alphanums) ).setParseAction(Unquote())('var')
 
 
 Though it's not as quick of an operation as string slicing, you are ensured that the parser won't lop off something it shouldn't.
@@ -2823,10 +2832,10 @@ Recently I was working with the 'CharsNotIn' class and I wanted to define a set 
 
 
 
-    LegalPathChars <span class="sy0">=</span> <span class="st0">''</span>.<span class="me1">join</span><span class="br0">&#40;</span><span class="kw2">set</span><span class="br0">&#40;</span>printables<span class="br0">&#41;</span> - <span class="kw2">set</span><span class="br0">&#40;</span><span class="st0">'\<\>:'/<span class="es0">\\</span>|?*'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    WinPath <span class="sy0">=</span> Combine<span class="br0">&#40;</span> <span class="br0">&#40;</span> <span class="br0">&#40;</span>Combine<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphas<span class="sy0">,</span> <span class="kw2">max</span><span class="sy0">=</span><span class="nu0">1</span><span class="br0">&#41;</span> + <span class="st0">':'</span><span class="br0">&#41;</span> + oneOf<span class="br0">&#40;</span><span class="st0">'<span class="es0">\\</span> /'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> | Literal<span class="br0">&#40;</span><span class="st0">'<span class="es0">\\</span>'</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span><span class="kw1">lambda</span>: <span class="st0">'<span class="es0">\\</span><span class="es0">\\</span>'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> + OneOrMore<span class="br0">&#40;</span> Word<span class="br0">&#40;</span>LegalPathChars<span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span> oneOf<span class="br0">&#40;</span><span class="st0">'<span class="es0">\\</span> /'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span>
-    UnixPath <span class="sy0">=</span> Combine<span class="br0">&#40;</span> oneOf<span class="br0">&#40;</span><span class="st0">'~ /'</span><span class="br0">&#41;</span> + OneOrMore<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>LegalPathChars<span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span><span class="st0">'/'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
-    path <span class="sy0">=</span> WinPath | UnixPath
+    LegalPathChars = ''.join(set(printables) - set('\<\>:'/\\|?*'))
+    WinPath = Combine( ( (Combine(Word(alphas, max=1) + ':') + oneOf('\\ /')) | Literal('\\').setParseAction(lambda: '\\\\') ) + OneOrMore( Word(LegalPathChars) + Optional( oneOf('\\ /') ) ) )
+    UnixPath = Combine( oneOf('~ /') + OneOrMore(Word(LegalPathChars) + Optional('/')) )
+    path = WinPath | UnixPath
 
 
 This uses the set type added to python in V2.6 to create a set of 'printables' and a set of illegal path characters and then takes the difference and places them in a pyparsing friendly character string.
@@ -2837,7 +2846,7 @@ Using my PEP (pyparsing Enhancement Proposal), the former code would look like:
 
 
 
-    LegalPathChars <span class="sy0">=</span> CharsNotIn<span class="br0">&#40;</span><span class="st0">'\<\>:'/<span class="es0">\\</span>|?*'</span> superset<span class="sy0">=</span>printables<span class="br0">&#41;</span>
+    LegalPathChars = CharsNotIn('\<\>:'/\\|?*' superset=printables)
 
 
 Paul,
@@ -3049,7 +3058,7 @@ It is working! Thanks a lot, you are doing an excellent work.
 
 
 Sample Text:
-<span class="membersnap">-   <small>Jun 24, 2011</small></span><span class="membersnap">-   <small>Jun 24, 2011</small></span><span class="membersnap">-   <small>Jun 24, 2011</small></span>
+-   <small>Jun 24, 2011</small>-   <small>Jun 24, 2011</small>-   <small>Jun 24, 2011</small>
 [36c]ZTimer          [Jun 23 20:23:02] HTTP     ZHTTPSession::cancel cancelling 
 
 I want to extract machineID from the above logLine. 
@@ -3406,14 +3415,14 @@ Unfortunately, method provided by ptmcg work only if all parsing elements for na
 If all of them would be initialized with setResultsName('xxx', True), the code would have to be changed:
 
 
-    <span class="kw1">def</span> tokensToNVP<span class="br0">&#40;</span>tokens<span class="br0">&#41;</span>:
-        valuemap <span class="sy0">=</span> <span class="kw2">dict</span><span class="br0">&#40;</span><span class="br0">&#40;</span><span class="kw2">id</span><span class="br0">&#40;</span>v<span class="br0">&#41;</span><span class="sy0">,</span>k<span class="br0">&#41;</span> <span class="kw1">for</span> k<span class="sy0">,</span>values <span class="kw1">in</span> tokens.<span class="me1">items</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw1">for</span> v <span class="kw1">in</span> values<span class="br0">&#41;</span>
-    <span class="co1">#    print(tokens,tokens.items(),valuemap)</span>
-        <span class="kw1">def</span> name<span class="br0">&#40;</span><span class="kw3">token</span><span class="br0">&#41;</span>:
-            <span class="kw1">if</span> <span class="kw2">id</span><span class="br0">&#40;</span><span class="kw3">token</span><span class="br0">&#41;</span> <span class="kw1">in</span> valuemap:
-                <span class="kw1">return</span> valuemap<span class="br0">&#91;</span><span class="kw2">id</span><span class="br0">&#40;</span><span class="kw3">token</span><span class="br0">&#41;</span><span class="br0">&#93;</span>
-            <span class="kw1">return</span> <span class="kw2">None</span>    
-        <span class="kw1">return</span> <span class="br0">&#91;</span><span class="br0">&#40;</span>name<span class="br0">&#40;</span><span class="kw3">token</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw3">token</span><span class="br0">&#41;</span> <span class="kw1">for</span> <span class="kw3">token</span> <span class="kw1">in</span> tokens<span class="br0">&#93;</span>
+    def tokensToNVP(tokens):
+        valuemap = dict((id(v),k) for k,values in tokens.items() for v in values)
+    #    print(tokens,tokens.items(),valuemap)
+        def name(token):
+            if id(token) in valuemap:
+                return valuemap[id(token)]
+            return None    
+        return [(name(token), token) for token in tokens]
 
 
 Anyway there is no easy way to handle cumulative and single parsing elements mixed together.
@@ -5039,50 +5048,50 @@ Metadata: _ngt_: 1311817284979_pst_: success(1), lastModified=0
 
     
     
-    <span class="kw1">import</span> <span class="kw3">re</span>
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    import re
+    from pyparsing import *
     
-    <span class="kw1">def</span> define_header<span class="br0">&#40;</span>key<span class="br0">&#41;</span>:
-        header <span class="sy0">=</span> key + <span class="st0">'::'</span> + restOfLine
-        <span class="kw1">return</span> header
+    def define_header(key):
+        header = key + '::' + restOfLine
+        return header
     
-    recno_header <span class="sy0">=</span> define_header<span class="br0">&#40;</span><span class="st0">'Recno'</span><span class="br0">&#41;</span>
-    url_header <span class="sy0">=</span> define_header<span class="br0">&#40;</span><span class="st0">'URL'</span><span class="br0">&#41;</span>
-    crawldatum_header <span class="sy0">=</span> define_header<span class="br0">&#40;</span><span class="st0">'CrawlDatum'</span><span class="br0">&#41;</span>
-    parsetext_header <span class="sy0">=</span> define_header<span class="br0">&#40;</span><span class="st0">'ParseText'</span><span class="br0">&#41;</span>
-    content_header <span class="sy0">=</span> define_header<span class="br0">&#40;</span><span class="st0">'Content'</span><span class="br0">&#41;</span>
+    recno_header = define_header('Recno')
+    url_header = define_header('URL')
+    crawldatum_header = define_header('CrawlDatum')
+    parsetext_header = define_header('ParseText')
+    content_header = define_header('Content')
     
-    header <span class="sy0">=</span> <span class="br0">&#40;</span>recno_header |
+    header = (recno_header |
               url_header |
               crawldatum_header |
               parsetext_header |
-              content_header<span class="br0">&#41;</span>
+              content_header)
     
-    other_subheader <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span> + <span class="st0">':'</span> + restOfLine
-    content_subheader <span class="sy0">=</span> <span class="st0">'Content'</span> + <span class="st0">':'</span> + SkipTo<span class="br0">&#40;</span>header<span class="br0">&#41;</span>
+    other_subheader = Word(alphas) + ':' + restOfLine
+    content_subheader = 'Content' + ':' + SkipTo(header)
     
-    url_section <span class="sy0">=</span> url_header
-    crawldatum_section <span class="sy0">=</span> crawldatum_header + \
-        ZeroOrMore<span class="br0">&#40;</span>other_subheader<span class="br0">&#41;</span> + \
-        SkipTo<span class="br0">&#40;</span>header<span class="br0">&#41;</span>
-    parsetext_section <span class="sy0">=</span> parsetext_header + SkipTo<span class="br0">&#40;</span>header<span class="br0">&#41;</span>
-    content_section <span class="sy0">=</span> content_header + \
-        ZeroOrMore<span class="br0">&#40;</span>other_subheader<span class="br0">&#41;</span> + \
+    url_section = url_header
+    crawldatum_section = crawldatum_header + \
+        ZeroOrMore(other_subheader) + \
+        SkipTo(header)
+    parsetext_section = parsetext_header + SkipTo(header)
+    content_section = content_header + \
+        ZeroOrMore(other_subheader) + \
         content_subheader + \
-        SkipTo<span class="br0">&#40;</span>header<span class="br0">&#41;</span>
+        SkipTo(header)
     
-    sections <span class="sy0">=</span> <span class="br0">&#40;</span>url_section |
+    sections = (url_section |
                 crawldatum_section |
-                content_section<span class="br0">&#41;</span>
+                content_section)
     
-    record <span class="sy0">=</span> recno_header + OneOrMore<span class="br0">&#40;</span>sections<span class="br0">&#41;</span>
+    record = recno_header + OneOrMore(sections)
     
-    <span class="kw1">def</span> parse<span class="br0">&#40;</span><span class="br0">&#41;</span>:
-        data <span class="sy0">=</span> <span class="kw2">file</span><span class="br0">&#40;</span><span class="st0">'sample.txt'</span><span class="br0">&#41;</span>.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span>    
-        <span class="kw1">for</span> param <span class="kw1">in</span> record.<span class="me1">searchString</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span>:
-            <span class="kw1">print</span> param.<span class="me1">dump</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    def parse():
+        data = file('sample.txt').read()    
+        for param in record.searchString(data):
+            print param.dump()
     
-    parse<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    parse()
     
     
 
@@ -5803,91 +5812,91 @@ for test in tests:
 #### 2011-08-20 04:15:57 - jfosorio
 
 
-    <span class="co2">#!/usr/bin/python 
-    </span>
+    #!/usr/bin/python 
+    
     import pyparsing 
     import random
-    import <span class="kw3">time</span>
-    from pyparsing import <span class="sy0">*</span>
+    import time
+    from pyparsing import *
     import os
     
     
-    <span class="st_h">''</span><span class="st_h">' 
+    ''' 
     Greetings example
-    '</span><span class="st_h">''</span> 
-    <span class="st_h">''</span><span class="st_h">'
+    ''' 
+    '''
     BNF (Backus--Naur Form) Grammar
     gameresult ::= date schoolresult schoolresult
     schoolresult ::= schoolname score
-    date ::= digit+ '</span><span class="sy0">/</span><span class="st_h">' digit+ '</span><span class="sy0">/</span><span class="st_h">' digit+
+    date ::= digit+ '/' digit+ '/' digit+
     schoolname ::= (alpha+)+
     score ::= digit+
-    digit ::= '</span><span class="nu0">0</span><span class="st_h">' ..'</span><span class="nu0">9</span><span class="st_h">'
-    alpha ::= '</span>A<span class="st_h">'..'</span>Z<span class="st_h">' '</span>a<span class="st_h">'..'</span>z<span class="st_h">'
-    '</span><span class="st_h">''</span>
+    digit ::= '0' ..'9'
+    alpha ::= 'A'..'Z' 'a'..'z'
+    '''
     
-    Grammar <span class="sy0">=</span> <span class="nu0">2</span>
+    Grammar = 2
     
     Grammar
     
-    <span class="kw1">if</span> Grammar <span class="sy0">==</span> <span class="nu0">1</span> <span class="sy0">:</span>
-    num <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>
-    <span class="kw3">date</span> <span class="sy0">=</span> Combine<span class="br0">&#40;</span>num <span class="sy0">+</span> <span class="st0">'/'</span> <span class="sy0">+</span> num <span class="sy0">+</span> <span class="st0">'/'</span> <span class="sy0">+</span> num<span class="br0">&#41;</span>
-    schoolName <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    score <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>
-    schoolResult <span class="sy0">=</span> schoolName <span class="sy0">+</span> score
-    gameResult <span class="sy0">=</span> <span class="kw3">date</span> <span class="sy0">+</span> schoolResult <span class="sy0">+</span> schoolResult
+    if Grammar == 1 :
+    num = Word(nums)
+    date = Combine(num + '/' + num + '/' + num)
+    schoolName = OneOrMore(Word(alphas))
+    score = Word(nums)
+    schoolResult = schoolName + score
+    gameResult = date + schoolResult + schoolResult
     
     old grammar with names
-    <span class="kw1">if</span> Grammar <span class="sy0">==</span> <span class="nu0">2</span> <span class="sy0">:</span>
-    num <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>
-    <span class="kw3">date</span> <span class="sy0">=</span> Combine<span class="br0">&#40;</span>num <span class="sy0">+</span> <span class="st0">'/'</span> <span class="sy0">+</span> num <span class="sy0">+</span> <span class="st0">'/'</span> <span class="sy0">+</span> num<span class="br0">&#41;</span>
-    schoolName <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    score <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>
-    schoolResult <span class="sy0">=</span> schoolName<span class="sy0">.</span>setResultsName<span class="br0">&#40;</span><span class="st0">'school'</span><span class="br0">&#41;</span> <span class="sy0">+</span> score<span class="sy0">.</span>setResultsName<span class="br0">&#40;</span><span class="st0">'score'</span><span class="br0">&#41;</span>
-    gameResult <span class="sy0">=</span> <span class="kw3">date</span><span class="sy0">.</span>setResultsName<span class="br0">&#40;</span><span class="st0">'date'</span><span class="br0">&#41;</span> <span class="sy0">+</span> schoolResult<span class="sy0">.</span>setResultsName<span class="br0">&#40;</span><span class="st0">'team1'</span><span class="br0">&#41;</span><span class="sy0">+</span> \
-    schoolResult<span class="sy0">.</span>setResultsName<span class="br0">&#40;</span><span class="st0">'team2'</span><span class="br0">&#41;</span>
+    if Grammar == 2 :
+    num = Word(nums)
+    date = Combine(num + '/' + num + '/' + num)
+    schoolName = OneOrMore(Word(alphas))
+    score = Word(nums)
+    schoolResult = schoolName.setResultsName('school') + score.setResultsName('score')
+    gameResult = date.setResultsName('date') + schoolResult.setResultsName('team1')+ \
+    schoolResult.setResultsName('team2')
     
-    <span class="kw2">new</span> grammar with names
-    <span class="kw1">if</span> Grammar <span class="sy0">==</span> <span class="nu0">3</span> <span class="sy0">:</span>
-    num <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>
-    <span class="kw3">date</span> <span class="sy0">=</span> Combine<span class="br0">&#40;</span>num <span class="sy0">+</span> <span class="st0">'/'</span> <span class="sy0">+</span> num <span class="sy0">+</span> <span class="st0">'/'</span> <span class="sy0">+</span> num<span class="br0">&#41;</span>
-    schoolName <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    score <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>
-    schoolResult <span class="sy0">=</span> schoolName<span class="br0">&#40;</span><span class="st0">'school'</span><span class="br0">&#41;</span> <span class="sy0">+</span> score<span class="br0">&#40;</span><span class="st0">'score'</span><span class="br0">&#41;</span>
-    gameResult <span class="sy0">=</span> <span class="kw3">date</span><span class="br0">&#40;</span><span class="st0">'date'</span><span class="br0">&#41;</span> <span class="sy0">+</span> schoolResult<span class="br0">&#40;</span><span class="st0">'team1'</span><span class="br0">&#41;</span><span class="sy0">+</span> schoolResult<span class="br0">&#40;</span><span class="st0">'team2'</span><span class="br0">&#41;</span>
+    new grammar with names
+    if Grammar == 3 :
+    num = Word(nums)
+    date = Combine(num + '/' + num + '/' + num)
+    schoolName = OneOrMore(Word(alphas))
+    score = Word(nums)
+    schoolResult = schoolName('school') + score('score')
+    gameResult = date('date') + schoolResult('team1')+ schoolResult('team2')
     
     
     In parsing actions
-    schoolName<span class="sy0">.</span>setParseAction<span class="br0">&#40;</span> lambda tokens<span class="sy0">:</span> <span class="st0">' '</span><span class="sy0">.</span><span class="kw3">join</span><span class="br0">&#40;</span>tokens<span class="br0">&#41;</span> <span class="br0">&#41;</span>
+    schoolName.setParseAction( lambda tokens: ' '.join(tokens) )
     
-    Validate <span class="kw3">time</span>
-    def validateDateString<span class="br0">&#40;</span>tokens<span class="br0">&#41;</span><span class="sy0">:</span>
-    try<span class="sy0">:</span>
-    <span class="kw3">time</span><span class="sy0">.</span>strptime<span class="br0">&#40;</span>tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st0">'%m/<span class="es6">%d</span>/%Y'</span><span class="br0">&#41;</span>
-    except ValueError<span class="sy0">,</span>ve<span class="sy0">:</span>
-    raise ParseException<span class="br0">&#40;</span><span class="st0">'Invalid date string (<span class="es6">%s</span>)'</span> <span class="sy0">%</span> tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+    Validate time
+    def validateDateString(tokens):
+    try:
+    time.strptime(tokens[0], '%m/%d/%Y')
+    except ValueError,ve:
+    raise ParseException('Invalid date string (%s)' % tokens[0])
     
-    <span class="kw3">date</span><span class="sy0">.</span>setParseAction<span class="br0">&#40;</span>validateDateString<span class="br0">&#41;</span>
-    score<span class="sy0">.</span>setParseAction<span class="br0">&#40;</span>lambda tokens <span class="sy0">:</span> int<span class="br0">&#40;</span>tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    date.setParseAction(validateDateString)
+    score.setParseAction(lambda tokens : int(tokens[0]))
     
-    tests <span class="sy0">=</span> <span class="st0">''</span><span class="st0">'<span class="es1">\
-    </span>12/29/2004 Virginia 44 Temple 14
+    tests = '''\
+    12/29/2004 Virginia 44 Temple 14
     09/04/2004 LSU 22 Oregon State 21
     09/09/2004 Troy State 24 Missouri 14
-    01/02/2003 Florida State 103 University of Miami 2 '</span><span class="st0">''</span><span class="sy0">.</span>splitlines<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    <span class="st_h">''</span><span class="st_h">'
+    01/02/2003 Florida State 103 University of Miami 2 '''.splitlines()
+    '''
     Combine only work for adjecent Tokens
     if there are embedeed spaces it does not work
-    '</span><span class="st_h">''</span>
+    '''
     
-    <span class="kw1">for</span> test in tests<span class="sy0">:</span>
-    stats <span class="sy0">=</span> gameResult<span class="sy0">.</span>parseString<span class="br0">&#40;</span>test<span class="br0">&#41;</span>
-    <span class="co2"># print str(type(stats.team2.score))
-    </span><span class="kw1">print</span> stats<span class="sy0">.</span>asList<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    <span class="kw1">print</span> gameResult
+    for test in tests:
+    stats = gameResult.parseString(test)
+    # print str(type(stats.team2.score))
+    print stats.asList()
+    print gameResult
     
-    <span class="st_h">''</span><span class="st_h">' 
+    ''' 
     if stats.team1.score != stats.team2.score: 
     if stats.team1.score \> stats.team2.score:
     result = 'won by ' + stats.team1.school
@@ -5897,7 +5906,7 @@ for test in tests:
     result = 'tied'
     print(stats.date + stats.team1.school + str(stats.team1.score) + \
     stats.team2.school + str(stats.team2.score) + result) 
-    '</span><span class="st_h">''</span>
+    '''
     
 
 
@@ -5995,157 +6004,157 @@ My grammar is as follows (similar a sql, but the table is virtual and containing
 
 
 
-    <span class="kw1">SELECT</span> <span class="kw1">TIME</span><span class="sy0">,</span> title <span class="sy0">,</span> source_content <span class="st0">'my_cat_tom'</span> <span class="kw1">AS</span> my_pet <span class="sy0">,</span> <span class="nu0">20</span> <span class="kw1">AS</span> years  <span class="kw1">FROM</span> url <span class="st0">'http://pyparsing.wikispaces.com/'</span> retry <span class="nu0">3</span> <span class="kw1">WHERE</span> title <span class="sy0">=</span> <span class="st0">'pyparsing_Parser'</span> <span class="kw1">OR</span> <span class="kw1">TIME</span> <span class="sy0">\></span> <span class="nu0">1000</span>
+    SELECT TIME, title , source_content 'my_cat_tom' AS my_pet , 20 AS years  FROM url 'http://pyparsing.wikispaces.com/' retry 3 WHERE title = 'pyparsing_Parser' OR TIME \> 1000
 
 
 I have the following primitive parser in php (it's a joke xD)
 
 
 
-    <span class="kw2">\<?php</span>
-    <span class="kw2">function</span> parse_query<span class="br0">&#40;</span> <span class="re0">$q</span> <span class="br0">&#41;</span>
-    <span class="br0">&#123;</span>
-        <span class="kw1">echo</span> <span class="st0">'Debug Query<span class="es1">\n</span>'</span><span class="sy0">;</span>
-        <span class="re0">$q</span> <span class="sy0">=</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">','</span><span class="sy0">,</span><span class="st0">'  '</span><span class="br0">&#41;</span> <span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">' , '</span><span class="sy0">,</span><span class="st0">' '</span><span class="br0">&#41;</span> <span class="sy0">,</span><span class="kw3">trim</span><span class="br0">&#40;</span> <span class="re0">$q</span>  <span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
-        <span class="kw1">echo</span> <span class="st0">'<span class="es1">\t</span>'</span><span class="sy0">.</span><span class="re0">$q</span><span class="sy0">.</span><span class="st0">'<span class="es1">\n</span><span class="es1">\n</span>'</span><span class="sy0">;</span>
-        <span class="re0">$tokens</span> <span class="sy0">=</span> <span class="kw3">split</span><span class="br0">&#40;</span><span class="st0">' '</span><span class="sy0">,</span> <span class="re0">$q</span> <span class="br0">&#41;</span><span class="sy0">;</span>
-        <span class="re0">$vars</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
-        <span class="re0">$methods</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
-        <span class="re0">$conditions</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    \<?php
+    function parse_query( $q )
+    {
+        echo 'Debug Query\n';
+        $q = str_replace( array(',','  ') , array(' , ',' ') ,trim( $q  ) );
+        echo '\t'.$q.'\n\n';
+        $tokens = split(' ', $q );
+        $vars = array();
+        $methods = array();
+        $conditions = array();
     
-        <span class="co1">// little parser xD</span>
-        <span class="kw1">foreach</span><span class="br0">&#40;</span> <span class="re0">$tokens</span> <span class="kw1">as</span> <span class="re0">$k</span> <span class="sy0">=\></span> <span class="re0">$v</span> <span class="br0">&#41;</span>
-        <span class="br0">&#123;</span>        
-            <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$v</span> <span class="sy0">==</span> <span class="st0">'select'</span> <span class="br0">&#41;</span>
-            <span class="br0">&#123;</span>
-                <span class="re0">$i</span> <span class="sy0">=</span> <span class="re0">$k</span><span class="sy0">+</span><span class="nu0">1</span><span class="sy0">;</span>
-                <span class="co1">// identifier</span>
-                <span class="kw1">while</span><span class="br0">&#40;</span>  <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st0">'from'</span>  <span class="br0">&#41;</span>
-                <span class="br0">&#123;</span>
-                    <span class="co1">// internal var</span>
-                    <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st0">'/\w/'</span><span class="sy0">,</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span>
-                    <span class="br0">&#123;</span>
-                        <span class="co1">// containing alias ?</span>
-                        <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">'as'</span>  <span class="br0">&#41;</span>
-                        <span class="br0">&#123;</span>
-                            <span class="re0">$vars</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span>  <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span> <span class="sy0">,</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="sy0">+</span><span class="nu0">2</span><span class="br0">&#93;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
-                            <span class="kw1">echo</span> <span class="st0">'Debug Internal Var<span class="es1">\t</span>'</span><span class="sy0">.</span><span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">' as '</span><span class="sy0">.</span><span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="sy0">+</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">' <span class="es1">\n</span>'</span><span class="sy0">;</span>
-                            <span class="re0">$i</span><span class="sy0">++;</span><span class="re0">$i</span><span class="sy0">++;</span>
-                        <span class="br0">&#125;</span>
-                        <span class="kw1">else</span>
-                        <span class="br0">&#123;</span>
-                            <span class="re0">$vars</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span>  <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span>  <span class="br0">&#41;</span><span class="sy0">;</span>
-                            <span class="kw1">echo</span> <span class="st0">'Debug Internal Var<span class="es1">\t</span>'</span><span class="sy0">.</span><span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">'<span class="es1">\n</span>'</span><span class="sy0">;</span>
-                        <span class="br0">&#125;</span>
-                        <span class="co1">// containing alias ?</span>
-                    <span class="br0">&#125;</span>
-                    <span class="re0">$i</span><span class="sy0">++;</span>                
-                <span class="br0">&#125;</span>
+        // little parser xD
+        foreach( $tokens as $k =\> $v )
+        {        
+            if ( $v == 'select' )
+            {
+                $i = $k+1;
+                // identifier
+                while(  $tokens[$i] != 'from'  )
+                {
+                    // internal var
+                    if ( preg_match('/\w/', $tokens[$i] ) )
+                    {
+                        // containing alias ?
+                        if ( $tokens[$i+1] == 'as'  )
+                        {
+                            $vars[] = array(  $tokens[$i] , $tokens[$i+2] );
+                            echo 'Debug Internal Var\t'.$tokens[$i].' as '.$tokens[$i+2].' \n';
+                            $i++;$i++;
+                        }
+                        else
+                        {
+                            $vars[] = array(  $tokens[$i]  );
+                            echo 'Debug Internal Var\t'.$tokens[$i].'\n';
+                        }
+                        // containing alias ?
+                    }
+                    $i++;                
+                }
     
-                <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">'from'</span> <span class="br0">&#41;</span>
-                <span class="br0">&#123;</span>
-                    <span class="co1">// method                </span>
-                    <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">'url'</span>   <span class="br0">&#41;</span>
-                    <span class="br0">&#123;</span>
-                        <span class="re0">$i</span><span class="sy0">++;</span><span class="re0">$i</span><span class="sy0">++;</span>                    
-                        <span class="co1">// options, example retry</span>
-                        <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">'retry'</span> <span class="br0">&#41;</span>
-                        <span class="br0">&#123;</span>
-                            <span class="kw1">echo</span> <span class="st0">'Debug URL <span class="es1">\t</span>'</span><span class="sy0">.</span><span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">' config '</span><span class="sy0">.</span><span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">' '</span><span class="sy0">.</span><span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="sy0">+</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">' <span class="es1">\n</span>'</span><span class="sy0">;</span>
-                            <span class="re0">$methods</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">'url'</span><span class="sy0">,</span><span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">'retry'</span> <span class="sy0">=\></span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="sy0">+</span><span class="nu0">2</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
-                            <span class="re0">$i</span><span class="sy0">++;</span><span class="re0">$i</span><span class="sy0">++;</span>
-                        <span class="br0">&#125;</span>
-                        <span class="kw1">else</span>
-                        <span class="br0">&#123;</span>
-                            <span class="kw1">echo</span> <span class="st0">'Debug URL <span class="es1">\t</span>'</span><span class="sy0">.</span><span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">'<span class="es1">\n</span>'</span><span class="sy0">;</span>
-                            <span class="re0">$methods</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st0">'url'</span><span class="sy0">,</span><span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span>
-                            <span class="re0">$i</span><span class="sy0">++;</span>
-                        <span class="br0">&#125;</span>                    
+                if ( $tokens[$i] == 'from' )
+                {
+                    // method                
+                    if ( $tokens[$i+1] == 'url'   )
+                    {
+                        $i++;$i++;                    
+                        // options, example retry
+                        if ( $tokens[$i+1] == 'retry' )
+                        {
+                            echo 'Debug URL \t'.$tokens[$i].' config '.$tokens[$i+1].' '.$tokens[$i+2].' \n';
+                            $methods[] = array('url',$tokens[$i], array('retry' =\> $tokens[$i+2] ) );
+                            $i++;$i++;
+                        }
+                        else
+                        {
+                            echo 'Debug URL \t'.$tokens[$i].'\n';
+                            $methods[] = array('url',$tokens[$i]);
+                            $i++;
+                        }                    
     
-                        <span class="re0">$i</span><span class="sy0">++;</span>
-                    <span class="br0">&#125;</span>
-                <span class="br0">&#125;</span>
+                        $i++;
+                    }
+                }
     
-                <span class="co1">// where</span>
-                <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">'where'</span> <span class="br0">&#41;</span>
-                <span class="br0">&#123;</span>
-                    <span class="re0">$k</span> <span class="sy0">=</span> <span class="re0">$i</span><span class="sy0">+</span><span class="nu0">1</span><span class="sy0">;</span>                
-                    <span class="kw1">while</span><span class="br0">&#40;</span> <span class="re0">$k</span> <span class="sy0">\<</span> <span class="kw3">count</span><span class="br0">&#40;</span><span class="re0">$tokens</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
-                    <span class="br0">&#123;</span>
-                        <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$k</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st0">'AND'</span> and <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$k</span><span class="br0">&#93;</span> <span class="sy0">!=</span> <span class="st0">'OR'</span>  <span class="br0">&#41;</span>
-                        <span class="br0">&#123;</span>
-                            <span class="co1">// stack conditions rpn</span>
-                            <span class="co1">// expr boolean</span>
-                            <span class="re0">$conditions</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$k</span><span class="br0">&#93;</span><span class="sy0">;</span>
-                            <span class="re0">$conditions</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$k</span><span class="sy0">+</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">;</span>
-                            <span class="re0">$conditions</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$k</span><span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span>
-                            <span class="re0">$k</span><span class="sy0">++;</span><span class="re0">$k</span><span class="sy0">++;</span>
+                // where
+                if ( $tokens[$i] == 'where' )
+                {
+                    $k = $i+1;                
+                    while( $k \< count($tokens) )
+                    {
+                        if ( $tokens[$k] != 'AND' and $tokens[$k] != 'OR'  )
+                        {
+                            // stack conditions rpn
+                            // expr boolean
+                            $conditions[] = $tokens[$k];
+                            $conditions[] = $tokens[$k+2];
+                            $conditions[] = $tokens[$k+1];
+                            $k++;$k++;
     
-                        <span class="br0">&#125;</span>
-                        <span class="kw1">else</span>
-                        <span class="br0">&#123;</span>                        
-                            <span class="re0">$conditions</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$tokens</span><span class="br0">&#91;</span><span class="re0">$k</span><span class="br0">&#93;</span><span class="sy0">;</span>
-                        <span class="br0">&#125;</span>
-                        <span class="re0">$k</span><span class="sy0">++;</span>
-                    <span class="br0">&#125;</span>
-                    <span class="kw1">echo</span> <span class="st0">'Debug Conditions, Stack RPN '</span><span class="sy0">.</span><span class="kw3">join</span><span class="br0">&#40;</span><span class="st0">' '</span><span class="sy0">,</span> <span class="re0">$conditions</span><span class="br0">&#41;</span><span class="sy0">.</span><span class="st0">'<span class="es1">\n</span>'</span><span class="sy0">;</span>
-                <span class="br0">&#125;</span>
-            <span class="br0">&#125;</span>
-        <span class="br0">&#125;</span>
+                        }
+                        else
+                        {                        
+                            $conditions[] = $tokens[$k];
+                        }
+                        $k++;
+                    }
+                    echo 'Debug Conditions, Stack RPN '.join(' ', $conditions).'\n';
+                }
+            }
+        }
     
-        <span class="re0">$out</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
-        <span class="co1">// program</span>
-        <span class="kw1">foreach</span><span class="br0">&#40;</span> <span class="re0">$methods</span> <span class="kw1">as</span> <span class="re0">$k</span> <span class="sy0">=\></span> <span class="re0">$method</span> <span class="br0">&#41;</span>
-        <span class="br0">&#123;</span>        
-            <span class="kw1">if</span> <span class="br0">&#40;</span>  <span class="re0">$method</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">'url'</span> <span class="br0">&#41;</span>
-            <span class="br0">&#123;</span>
-                <span class="re0">$local_vars</span><span class="br0">&#91;</span><span class="st0">'time'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">time</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
-                <span class="re0">$local_vars</span><span class="br0">&#91;</span><span class="st0">'source'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">file_get_contents</span><span class="br0">&#40;</span> <span class="kw3">str_replace</span><span class="br0">&#40;</span><span class="st0">'''</span><span class="sy0">,</span><span class="st0">''</span><span class="sy0">,</span> <span class="re0">$method</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
-                <span class="co1">// get title</span>
-                <span class="kw1">if</span> <span class="br0">&#40;</span>  <span class="kw3">preg_match</span><span class="br0">&#40;</span><span class="st0">'|\<title\>(.*?)\</title\>|is'</span><span class="sy0">,</span> <span class="re0">$local_vars</span><span class="br0">&#91;</span><span class="st0">'source'</span><span class="br0">&#93;</span> <span class="sy0">,</span> <span class="re0">$cap</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span>
-                <span class="br0">&#123;</span>
-                    <span class="re0">$local_vars</span><span class="br0">&#91;</span><span class="st0">'title'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$cap</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span>
-                <span class="br0">&#125;</span>            
-            <span class="br0">&#125;</span>
+        $out = array();
+        // program
+        foreach( $methods as $k =\> $method )
+        {        
+            if (  $method[0] == 'url' )
+            {
+                $local_vars['time'] = time();
+                $local_vars['source'] = file_get_contents( str_replace(''','', $method[1] ) );
+                // get title
+                if (  preg_match('|\<title\>(.*?)\</title\>|is', $local_vars['source'] , $cap ) )
+                {
+                    $local_vars['title'] = $cap[1];
+                }            
+            }
     
-            <span class="re0">$select_vars</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+            $select_vars = array();
     
-            <span class="kw1">if</span> <span class="br0">&#40;</span>  <span class="re0">$local_vars</span> <span class="br0">&#41;</span>
-            <span class="br0">&#123;</span>
-                <span class="kw1">foreach</span><span class="br0">&#40;</span> <span class="re0">$vars</span> <span class="kw1">as</span> <span class="re0">$var</span> <span class="br0">&#41;</span>
-                <span class="br0">&#123;</span>
-                    <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$local_vars</span><span class="br0">&#91;</span> <span class="re0">$var</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>  <span class="br0">&#93;</span><span class="br0">&#41;</span>  <span class="br0">&#41;</span>
-                    <span class="br0">&#123;</span>
-                        <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="kw3">isset</span><span class="br0">&#40;</span> <span class="re0">$var</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="br0">&#41;</span>  <span class="br0">&#41;</span>
-                        <span class="br0">&#123;</span>
-                            <span class="re0">$select_vars</span><span class="br0">&#91;</span> <span class="re0">$var</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="br0">&#93;</span>  <span class="sy0">=</span> <span class="re0">$local_vars</span><span class="br0">&#91;</span> <span class="re0">$var</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>  <span class="br0">&#93;</span><span class="sy0">;</span>
-                        <span class="br0">&#125;</span>
-                        <span class="kw1">else</span>
-                        <span class="br0">&#123;</span>
-                            <span class="re0">$select_vars</span><span class="br0">&#91;</span> <span class="re0">$var</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="br0">&#93;</span>  <span class="sy0">=</span> <span class="re0">$local_vars</span><span class="br0">&#91;</span> <span class="re0">$var</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>  <span class="br0">&#93;</span><span class="sy0">;</span>
-                        <span class="br0">&#125;</span>
-                    <span class="br0">&#125;</span>
-                    <span class="kw1">else</span>
-                    <span class="br0">&#123;</span>                    
-                        <span class="re0">$select_vars</span><span class="br0">&#91;</span> <span class="re0">$var</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="br0">&#93;</span>  <span class="sy0">=</span> <span class="re0">$var</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span>
-                    <span class="br0">&#125;</span>
-                <span class="br0">&#125;</span>
-            <span class="br0">&#125;</span>
-            <span class="re0">$out</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$select_vars</span><span class="sy0">;</span>
+            if (  $local_vars )
+            {
+                foreach( $vars as $var )
+                {
+                    if ( isset($local_vars[ $var[0]  ])  )
+                    {
+                        if ( isset( $var[1] )  )
+                        {
+                            $select_vars[ $var[1] ]  = $local_vars[ $var[0]  ];
+                        }
+                        else
+                        {
+                            $select_vars[ $var[0] ]  = $local_vars[ $var[0]  ];
+                        }
+                    }
+                    else
+                    {                    
+                        $select_vars[ $var[1] ]  = $var[0];
+                    }
+                }
+            }
+            $out[] = $select_vars;
     
-        <span class="br0">&#125;</span>
+        }
     
-        <span class="kw1">return</span> <span class="re0">$out</span><span class="sy0">;</span>
-    <span class="br0">&#125;</span>
+        return $out;
+    }
     
-    <span class="re0">$querys</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">'select time, title , source_content 'my_cat_tom' as my_pet , 20 as years  from url 'http://pyparsing.wikispaces.com/' retry 3 where title = 'pyparsing_Parser' OR time \> 1000'</span><span class="sy0">;</span>
-    <span class="re0">$querys</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">'select title, source from url 'http://pyparsing.wikispaces.com/' retry 3 , url 'http://www.wikipedia.com/' retry 3 '</span><span class="sy0">;</span>
+    $querys[] = 'select time, title , source_content 'my_cat_tom' as my_pet , 20 as years  from url 'http://pyparsing.wikispaces.com/' retry 3 where title = 'pyparsing_Parser' OR time \> 1000';
+    $querys[] = 'select title, source from url 'http://pyparsing.wikispaces.com/' retry 3 , url 'http://www.wikipedia.com/' retry 3 ';
     
-    <span class="kw1">foreach</span><span class="br0">&#40;</span> <span class="re0">$querys</span> <span class="kw1">as</span> <span class="re0">$k</span> <span class="sy0">=\></span> <span class="re0">$query</span> <span class="br0">&#41;</span>
-    <span class="br0">&#123;</span>
-        <span class="kw3">print_r</span><span class="br0">&#40;</span> parse_query<span class="br0">&#40;</span> <span class="re0">$query</span> <span class="br0">&#41;</span> <span class="br0">&#41;</span><span class="sy0">;</span>
-    <span class="br0">&#125;</span>
-    <span class="sy1">?\></span>
+    foreach( $querys as $k =\> $query )
+    {
+        print_r( parse_query( $query ) );
+    }
+    ?\>
 
 
 
@@ -6153,57 +6162,57 @@ I have the following written in python with pyparsing, It does not work with my 
 
 
 
-    <span class="co1">#!/usr/bin/env python</span>
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
-    <span class="kw1">import</span> <span class="kw3">os</span><span class="sy0">,</span> <span class="kw3">sys</span><span class="sy0">,</span> <span class="kw3">getopt</span><span class="sy0">,</span> <span class="kw3">string</span>
-    <span class="kw1">import</span> <span class="kw3">time</span>
-    <span class="co1"># Grammar</span>
+    #!/usr/bin/env python
+    from pyparsing import *
+    import os, sys, getopt, string
+    import time
+    # Grammar
     
-    S_QUOTE <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'''</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    D_QUOTE <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'''</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    DOT <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'.'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    COMMA <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">','</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    SEMI <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">';'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    COLON <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">':'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    EQUAL <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'='</span><span class="br0">&#41;</span>
-    LANGLE <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'\<'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    LBRACE <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'['</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    LPAREN <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'('</span><span class="br0">&#41;</span>
-    PLUS <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'+'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    RANGLE <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'\>'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    RBRACE <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">']'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    RPAREN <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">')'</span><span class="br0">&#41;</span>
+    S_QUOTE = Literal(''').suppress()
+    D_QUOTE = Literal(''').suppress()
+    DOT = Literal('.').suppress()
+    COMMA = Literal(',').suppress()
+    SEMI = Literal(';').suppress()
+    COLON = Literal(':').suppress()
+    EQUAL = Literal('=')
+    LANGLE = Literal('\<').suppress()
+    LBRACE = Literal('[').suppress()
+    LPAREN = Literal('(')
+    PLUS = Literal('+').suppress()
+    RANGLE = Literal('\>').suppress()
+    RBRACE = Literal(']').suppress()
+    RPAREN = Literal(')')
     
-    s_select <span class="sy0">=</span> CaselessKeyword<span class="br0">&#40;</span><span class="st0">'select'</span><span class="br0">&#41;</span>
-    s_from <span class="sy0">=</span> CaselessKeyword<span class="br0">&#40;</span><span class="st0">'from'</span><span class="br0">&#41;</span>
-    s_where <span class="sy0">=</span> CaselessKeyword<span class="br0">&#40;</span><span class="st0">'where'</span><span class="br0">&#41;</span>
-    s_and <span class="sy0">=</span> CaselessKeyword<span class="br0">&#40;</span><span class="st0">'and'</span><span class="br0">&#41;</span>
-    s_as <span class="sy0">=</span> CaselessKeyword<span class="br0">&#40;</span><span class="st0">'as'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    s_select = CaselessKeyword('select')
+    s_from = CaselessKeyword('from')
+    s_where = CaselessKeyword('where')
+    s_and = CaselessKeyword('and')
+    s_as = CaselessKeyword('as').suppress()
     
-    t_val <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphanums + <span class="st0">'_'</span><span class="br0">&#41;</span>
-    num <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums + <span class="st0">'+-.'</span><span class="br0">&#41;</span>
-    var <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas + <span class="st0">'%'</span><span class="br0">&#41;</span>
-    entry <span class="sy0">=</span> Group<span class="br0">&#40;</span>Optional<span class="br0">&#40;</span>t_val + DOT<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'table'</span><span class="br0">&#41;</span> + \
-            t_val.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'name'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'entry'</span><span class="br0">&#41;</span>
-    pseudo <span class="sy0">=</span> Optional<span class="br0">&#40;</span>s_as<span class="br0">&#41;</span> + <span class="br0">&#40;</span>t_val<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'pseudo'</span><span class="br0">&#41;</span>
-    table <span class="sy0">=</span> Group<span class="br0">&#40;</span>t_val.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'name'</span><span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span>pseudo<span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'table'</span><span class="br0">&#41;</span>
-    column <span class="sy0">=</span> <span class="br0">&#40;</span>delimitedList<span class="br0">&#40;</span>entry<span class="br0">&#41;</span> ^ delimitedList<span class="br0">&#40;</span>entry + pseudo<span class="br0">&#41;</span> ^ delimitedList<span class="br0">&#40;</span>entry + s_as + pseudo<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    proc <span class="sy0">=</span> entry + LPAREN + Optional<span class="br0">&#40;</span>Suppress<span class="br0">&#40;</span>SkipTo<span class="br0">&#40;</span>RPAREN<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + RPAREN
+    t_val = Word(alphanums + '_')
+    num = Word(nums + '+-.')
+    var = Word(alphas + '%')
+    entry = Group(Optional(t_val + DOT).setResultsName('table') + \
+            t_val.setResultsName('name')).setResultsName('entry')
+    pseudo = Optional(s_as) + (t_val).setResultsName('pseudo')
+    table = Group(t_val.setResultsName('name') + Optional(pseudo)).setResultsName('table')
+    column = (delimitedList(entry) ^ delimitedList(entry + pseudo) ^ delimitedList(entry + s_as + pseudo))
+    proc = entry + LPAREN + Optional(Suppress(SkipTo(RPAREN))) + RPAREN
     
-    expr <span class="sy0">=</span> Group<span class="br0">&#40;</span>Optional<span class="br0">&#40;</span>LPAREN<span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + entry + oneOf<span class="br0">&#40;</span><span class="st0">'= \> \<'</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'type'</span><span class="br0">&#41;</span> + \
-           Optional<span class="br0">&#40;</span>D_QUOTE<span class="br0">&#41;</span> + <span class="br0">&#40;</span>proc | entry | var | num<span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span>D_QUOTE<span class="br0">&#41;</span> + \
-           Optional<span class="br0">&#40;</span>RPAREN<span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'expr'</span><span class="br0">&#41;</span>
+    expr = Group(Optional(LPAREN).suppress() + entry + oneOf('= \> \<').setResultsName('type') + \
+           Optional(D_QUOTE) + (proc | entry | var | num) + Optional(D_QUOTE) + \
+           Optional(RPAREN).suppress()).setResultsName('expr')
     
-    select_q <span class="sy0">=</span> Group<span class="br0">&#40;</span>s_select + Group<span class="br0">&#40;</span>delimitedList<span class="br0">&#40;</span>column<span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'what'</span><span class="br0">&#41;</span> + \
-                s_from + Group<span class="br0">&#40;</span>delimitedList<span class="br0">&#40;</span>table<span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'whence'</span><span class="br0">&#41;</span> + s_where + \
-                Group<span class="br0">&#40;</span>delimitedList<span class="br0">&#40;</span>expr<span class="sy0">,</span> s_and<span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'where'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'select'</span><span class="br0">&#41;</span>
+    select_q = Group(s_select + Group(delimitedList(column)).setResultsName('what') + \
+                s_from + Group(delimitedList(table)).setResultsName('whence') + s_where + \
+                Group(delimitedList(expr, s_and)).setResultsName('where')).setResultsName('select')
     
     
-    test1 <span class="sy0">=</span> <span class="st0">'''
+    test1 = '''
     select time, title , source_content 'my_cat_tom' as my_pet , 20 as years  from url 'http://pyparsing.wikispaces.com/' retry 3 where title = 'pyparsing_Parser' OR time \> 1000
-    '''</span>
-    <span class="kw1">print</span> test1
-    tokens <span class="sy0">=</span> select_q.<span class="me1">parseString</span><span class="br0">&#40;</span> test1 <span class="br0">&#41;</span>
+    '''
+    print test1
+    tokens = select_q.parseString( test1 )
 
 
 
@@ -7139,40 +7148,40 @@ I use the following code to parse the input:
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    from pyparsing import *
     
-    <span class="kw1">class</span> Macro<span class="br0">&#40;</span><span class="kw2">object</span><span class="br0">&#41;</span>:
-        <span class="kw1">def</span> <span class="kw4">__init__</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">,</span> name<span class="sy0">,</span> block<span class="br0">&#41;</span>:
-            <span class="kw2">self</span>.<span class="me1">name</span> <span class="sy0">=</span> name
-            <span class="kw2">self</span>.<span class="me1">block</span> <span class="sy0">=</span> block
+    class Macro(object):
+        def __init__(self, name, block):
+            self.name = name
+            self.block = block
     
-        <span class="kw1">def</span> <span class="kw4">__repr__</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
-            <span class="kw1">return</span> <span class="st0">'#%s %s'</span> % <span class="br0">&#40;</span><span class="kw2">self</span>.<span class="me1">name</span><span class="sy0">,</span> <span class="kw2">self</span>.<span class="me1">block</span><span class="br0">&#41;</span>
+        def __repr__(self):
+            return '#%s %s' % (self.name, self.block)
     
-    <span class="kw1">class</span> Block<span class="br0">&#40;</span><span class="kw2">object</span><span class="br0">&#41;</span>:
-        <span class="kw1">def</span> <span class="kw4">__init__</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">,</span> content<span class="br0">&#41;</span>:
-            <span class="kw2">self</span>.<span class="me1">content</span> <span class="sy0">=</span> content
+    class Block(object):
+        def __init__(self, content):
+            self.content = content
     
-        <span class="kw1">def</span> <span class="kw4">__repr__</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
-            <span class="kw1">return</span> <span class="st0">'{ %s }'</span> % <span class="br0">&#40;</span><span class="st0">''</span>.<span class="me1">join</span><span class="br0">&#40;</span><span class="br0">&#91;</span><span class="kw2">str</span><span class="br0">&#40;</span>e<span class="br0">&#41;</span> <span class="kw1">for</span> e <span class="kw1">in</span> <span class="kw2">self</span>.<span class="me1">content</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+        def __repr__(self):
+            return '{ %s }' % (''.join([str(e) for e in self.content]))
     
-    lbrace <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'{'</span><span class="br0">&#41;</span>
-    rbrace <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'}'</span><span class="br0">&#41;</span>
-    decorator <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'#'</span><span class="br0">&#41;</span>
+    lbrace = Literal('{')
+    rbrace = Literal('}')
+    decorator = Literal('#')
     
-    block <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    macro <span class="sy0">=</span> decorator + Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'name'</span><span class="br0">&#41;</span> + block.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'block'</span><span class="br0">&#41;</span>
-    macro.<span class="me1">setParseAction</span><span class="br0">&#40;</span><span class="kw1">lambda</span> t: Macro<span class="br0">&#40;</span>t.<span class="me1">name</span><span class="sy0">,</span> t.<span class="me1">block</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    block = Forward()
+    macro = decorator + Word(alphas).setResultsName('name') + block.setResultsName('block')
+    macro.setParseAction(lambda t: Macro(t.name, t.block))
     
-    text <span class="sy0">=</span> Regex<span class="br0">&#40;</span><span class="st0">'[^{}#]+'</span><span class="br0">&#41;</span>
-    content <span class="sy0">=</span> macro ^ text
+    text = Regex('[^{}#]+')
+    content = macro ^ text
     
-    block <span class="sy0">\<\<</span> lbrace + ZeroOrMore<span class="br0">&#40;</span>content<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'content'</span><span class="br0">&#41;</span> + rbrace
-    block.<span class="me1">setParseAction</span><span class="br0">&#40;</span><span class="kw1">lambda</span> t: Block<span class="br0">&#40;</span>t.<span class="me1">content</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    block \<\< lbrace + ZeroOrMore(content).setResultsName('content') + rbrace
+    block.setParseAction(lambda t: Block(t.content))
     
-    <span class="kw3">test</span> <span class="sy0">=</span> <span class="st0">'#i{italic text #b{bolded}<span class="es0">\n</span>  <span class="es0">\n</span>foobar<span class="es0">\n</span><span class="es0">\n</span>baz}'</span>
+    test = '#i{italic text #b{bolded}\n  \nfoobar\n\nbaz}'
     
-    <span class="kw1">print</span> macro.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="kw3">test</span><span class="br0">&#41;</span>
+    print macro.parseString(test)
 
 
 and I get the following output:
@@ -7190,7 +7199,7 @@ As an aside, I've also noticed strange behavior. If I change 'text' to:
 
 
 
-    text <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span><span class="sy0">~</span>lbrace | <span class="sy0">~</span>rbrace | <span class="sy0">~</span>decorator<span class="br0">&#41;</span>
+    text = OneOrMore(~lbrace | ~rbrace | ~decorator)
 
 
 I get an infinite loop, which is similar behavior I saw when I was trying to use NestedExpr with 'OneOrMore' for the content.
@@ -7248,7 +7257,7 @@ though I should warn the code is still in its infancy and only the code from the
 ---
 ## 2011-09-28 18:25:41 - stalwarts - Help on improving performance ...
 
-I have a 10 MB file which has around 60,000 lines. Here is the sample of few lines …
+I have a 10 MB file which has around 60,000 lines. Here is the sample of few lines ï¿½
 
 
 
@@ -7277,13 +7286,13 @@ I have the following grammar defined.
         timeDigit = Word(nums,max=2)
         time =  Combine (timeDigit + ':' + timeDigit + ':' + timeDigit)  
         # delimited List will ignore spaces in between elements
-        dateTime = Combine (delimitedList('[' + month +  day +  time +']'),adjacent=False) # This will match “[Jul 07 12:23:36]”
+        dateTime = Combine (delimitedList('[' + month +  day +  time +']'),adjacent=False) # This will match ï¿½[Jul 07 12:23:36]ï¿½
     
         threadName = SkipTo(dateTime) # First field in the Log , lets skip to the Date ..everything in between is the thread name
     
-        logChannel = Word(alphas+'_') # this will match the log Channel , like “SUBS” or “PEER” …
+        logChannel = Word(alphas+'_') # this will match the log Channel , like ï¿½SUBSï¿½ or ï¿½PEERï¿½ ï¿½
     
-        EOL = SkipTo('\n') # Once we match LOG CHANNEL , from here till New line is the actual “Log Text”
+        EOL = SkipTo('\n') # Once we match LOG CHANNEL , from here till New line is the actual ï¿½Log Textï¿½
     
         logLine =  delimitedList(threadName + dateTime + logChannel + EOL) # A Combined parser which returns a List of Lists
     
@@ -7320,8 +7329,8 @@ Example mentioned in the above code
 #### #################
 
 
-Now , here is the question… for a 10 MB file which has around 60,000 lines it takes ~60 seconds to parse this log, is there any way I can improve this performance … ? Can someone suggest a better grammar …perhaps don’t use certain grammar compared to the other etc …. 
-I’m fairly new to PyParser and I like it a lot for its ease of use. Any help would be greatly appreciated ..
+Now , here is the questionï¿½ for a 10 MB file which has around 60,000 lines it takes ~60 seconds to parse this log, is there any way I can improve this performance ï¿½ ? Can someone suggest a better grammar ï¿½perhaps donï¿½t use certain grammar compared to the other etc ï¿½. 
+Iï¿½m fairly new to PyParser and I like it a lot for its ease of use. Any help would be greatly appreciated ..
 
 #### 2011-09-28 23:30:57 - ptmcg
 This won't be a huge gain, but might save you 10% or so of performance. I've found that building up simple terminals and simple primitives with Combine, Word, etc. (like realNumber = Combine(Word(nums) + '.' + Word(nums) + Optional(oneOf('e E') + Word(nums)) really works better using a Regex, without too much compromising of grammar maintainability.  In your grammar, what kind of improvement do you get if you change dateTime to:
@@ -7733,7 +7742,7 @@ C_val; = [C3: C3_val, C4: C4_val, C5: C5_val]
 
 Thanks
 
-Chahé
+Chahï¿½
 
 #### 2011-10-21 18:07:26 - cadourian
 Maybe the examples here:
@@ -7874,7 +7883,7 @@ Type 1:
     \<ZStatus endtime='2011-Oct-03 22:11:13' starttime='2011-Oct-03 22:10:54' /\>
 
 
-In the Above example the XML is ended with “/\>”
+In the Above example the XML is ended with ï¿½/\>ï¿½
 
 Type 2:
 
@@ -7886,9 +7895,9 @@ Type 2:
     
 
 
-In the Above example the XML is ended with “\</ZStatus\>”
+In the Above example the XML is ended with ï¿½\</ZStatus\>ï¿½
 
-Here is the parser I’m using and it has shortcomings 
+Here is the parser Iï¿½m using and it has shortcomings 
 
 
 
@@ -7898,23 +7907,23 @@ Here is the parser I’m using and it has shortcomings
 What the parser currently doing.
 
 1.    It matches the Type 2. 
-2.    It doesn’t match the type 1 exclusively instead it will return 
+2.    It doesnï¿½t match the type 1 exclusively instead it will return 
 
 
 
     
     \<ZStatus endtime='2011-Oct-03 22:11:13' starttime='2011-Oct-03 22:10:54' /\>
-    Other lines from log…
-    Other lines from log…
-    Other lines from log…
-    Other lines from log…
+    Other lines from logï¿½
+    Other lines from logï¿½
+    Other lines from logï¿½
+    Other lines from logï¿½
     \<ZStatus endtime='2011-Oct-03 19:45:14' starttime='2011-Oct-03 19:45:04' \>
                                                              \<zserver endtime='9' starttime='4' /\>
                                                              \<zserver endtime='9' starttime='4' /\>
                                                              \</ZStatus\>
 
 
-The Result according to the parser is correct, it matches the “ZStatus” from type1 and it skips to the “\</ZStatus\>” in type 2 by including unwanted error log lines.
+The Result according to the parser is correct, it matches the ï¿½ZStatusï¿½ from type1 and it skips to the ï¿½\</ZStatus\>ï¿½ in type 2 by including unwanted error log lines.
 
 Is it possible to write a single expressing which will match only the XML and not return the result above.
 
@@ -8871,7 +8880,7 @@ Example-Code:
     %s
     \\end{itemize}'''
     
-        # prüfe Listenelemente auf html-Tags
+        # prï¿½fe Listenelemente auf html-Tags
         l = ['\\item %s' % htmlTag.transformString(t.entry) for t in token.entries]
         s = '\n'.join(l)
         return listingScel % s

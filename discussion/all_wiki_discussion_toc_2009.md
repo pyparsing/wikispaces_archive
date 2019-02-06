@@ -1,101 +1,110 @@
-[2009-01-06 03:14:24 - kerny404 - Simple logic expression parser](.#2009-01-06-031424---kerny404---simple-logic-expression-parser)  
-[2009-01-08 11:24:01 - bobdevine - small bug + parsing pairs](.#2009-01-08-112401---bobdevine---small-bug--parsing-pairs)  
-[2009-01-26 03:56:34 - HWJ - newbee needs some initial help](.#2009-01-26-035634---hwj---newbee-needs-some-initial-help)  
-[2009-01-27 01:14:54 - HWJ - Most needed : a quick reference](.#2009-01-27-011454---hwj---most-needed--a-quick-reference)  
-[2009-01-27 06:33:11 - HWJ - withoutAttribute - howto](.#2009-01-27-063311---hwj---withoutattribute---howto)  
-[2009-01-29 04:05:09 - HWJ - SkipTo(...,include=True)  BUG ?](.#2009-01-29-040509---hwj---skiptoincludetrue--bug-)  
-[2009-01-29 23:39:18 - HWJ - ignore + SkipTo (how does it work?)](.#2009-01-29-233918---hwj---ignore--skipto-how-does-it-work)  
-[2009-01-30 11:31:57 - HWJ - nestedExpr -> infinite loop (WHY)](.#2009-01-30-113157---hwj---nestedexpr---infinite-loop-why)  
-[2009-02-02 06:09:51 - debug - Parsing a simple LOGO like language](.#2009-02-02-060951---debug---parsing-a-simple-logo-like-language)  
-[2009-02-06 05:29:46 - mvanderw - If I match _this_, then parse it like _that_](.#2009-02-06-052946---mvanderw---if-i-match-_this_-then-parse-it-like-_that_)  
-[2009-02-07 16:02:33 - stakhanov2 - memory issues with Py3k](.#2009-02-07-160233---stakhanov2---memory-issues-with-py3k)  
-[2009-02-17 13:11:34 - djlawler - Ironpython 2.01](.#2009-02-17-131134---djlawler---ironpython-201)  
-[2009-02-18 06:41:05 - mUogoro - C function pointer parser](.#2009-02-18-064105---muogoro---c-function-pointer-parser)  
-[2009-02-18 16:07:52 - ahusak - Issue with lineno() and the loc variable.](.#2009-02-18-160752---ahusak---issue-with-lineno-and-the-loc-variable)  
-[2009-02-26 01:23:22 - asb_india - Help for the newbie](.#2009-02-26-012322---asb_india---help-for-the-newbie)  
-[2009-03-06 10:42:55 - djayc - Match a word in the "right most" position.](.#2009-03-06-104255---djayc---match-a-word-in-the-"right-most"-position)  
-[2009-03-12 01:01:15 - NewbeCaroline - Need to filter out lines based on expr and then calculate time difference](.#2009-03-12-010115---newbecaroline---need-to-filter-out-lines-based-on-expr-and-then-calculate-time-difference)  
-[2009-03-12 17:08:32 - stanchan - Issue with parsing multiline statement](.#2009-03-12-170832---stanchan---issue-with-parsing-multiline-statement)  
-[2009-03-18 09:24:55 - gmonkey5 - Getting more specific error messages from the MatchFirst object](.#2009-03-18-092455---gmonkey5---getting-more-specific-error-messages-from-the-matchfirst-object)  
-[2009-03-21 07:50:56 - dbv - citation parser](.#2009-03-21-075056---dbv---citation-parser)  
-[2009-03-23 07:53:32 - dbv - Special Characters](.#2009-03-23-075332---dbv---special-characters)  
-[2009-03-25 10:03:23 - reeeh2000 - Recursive Grammer](.#2009-03-25-100323---reeeh2000---recursive-grammer)  
-[2009-03-27 12:43:38 - pratdam - pyparsing  for  Windows INF  Files ](.#2009-03-27-124338---pratdam---pyparsing--for--windows-inf--files-)  
-[2009-03-28 19:47:27 - reeeh2000 - Pyparsing for Python3](.#2009-03-28-194727---reeeh2000---pyparsing-for-python3)  
-[2009-03-31 07:22:48 - john-l - Example and lessons learned: parsing SPARQL in RDFLib](.#2009-03-31-072248---john-l---example-and-lessons-learned-parsing-sparql-in-rdflib)  
-[2009-03-31 16:25:30 - reeeh2000 - Tokenizing](.#2009-03-31-162530---reeeh2000---tokenizing)  
-[2009-04-02 13:41:59 - dbv - 64-bit Windows](.#2009-04-02-134159---dbv---64-bit-windows)  
-[2009-04-04 12:03:54 - ellisonbg - Subtle infinite loop with Optional](.#2009-04-04-120354---ellisonbg---subtle-infinite-loop-with-optional)  
-[2009-04-10 07:10:57 - JaimeWyant - 1.5.2 pypi release?](.#2009-04-10-071057---jaimewyant---152-pypi-release)  
-[2009-04-15 08:18:50 - Llanilek - Simple Question](.#2009-04-15-081850---llanilek---simple-question)  
-[2009-04-18 12:49:17 - pynguin - problems with setName()](.#2009-04-18-124917---pynguin---problems-with-setname)  
-[2009-04-20 06:37:44 - stakhanov2 - memory issues with Py3k (reminder)](.#2009-04-20-063744---stakhanov2---memory-issues-with-py3k-reminder)  
-[2009-04-22 13:31:35 - stanchan - Top level parsing](.#2009-04-22-133135---stanchan---top-level-parsing)  
-[2009-04-28 06:47:49 - reynaudd - maximum recursion depth exceeded](.#2009-04-28-064749---reynaudd---maximum-recursion-depth-exceeded)  
-[2009-04-28 12:40:02 - JesterEE - Optional() TypeError Bug?](.#2009-04-28-124002---jesteree---optional-typeerror-bug)  
-[2009-04-29 13:15:02 - catherinedevlin - strange propagation of ignoreExprs into elements](.#2009-04-29-131502---catherinedevlin---strange-propagation-of-ignoreexprs-into-elements)  
-[2009-05-13 15:08:50 - oafilipoai - scanString problem](.#2009-05-13-150850---oafilipoai---scanstring-problem)  
-[2009-05-13 16:20:23 - oafilipoai - White spaces not ignored](.#2009-05-13-162023---oafilipoai---white-spaces-not-ignored)  
-[2009-05-14 10:40:06 - oafilipoai - Excluding keywords in comments or strings](.#2009-05-14-104006---oafilipoai---excluding-keywords-in-comments-or-strings)  
-[2009-05-18 05:03:29 - asb_india - Parsing selected](.#2009-05-18-050329---asb_india---parsing-selected)  
-[2009-05-29 16:18:10 - dbv - Windows amd64](.#2009-05-29-161810---dbv---windows-amd64)  
-[2009-06-02 05:36:06 - ivdkleyn - Problems with recursive parsing](.#2009-06-02-053606---ivdkleyn---problems-with-recursive-parsing)  
-[2009-06-03 01:32:24 - BlGene - C++ parser](.#2009-06-03-013224---blgene---c-parser)  
-[2009-06-05 13:06:10 - ssscripting - need some help](.#2009-06-05-130610---ssscripting---need-some-help)  
-[2009-06-09 03:10:58 - nederhrj - [Newbie] Converting ad-hoc text into XML](.#2009-06-09-031058---nederhrj---[newbie]-converting-ad-hoc-text-into-xml)  
-[2009-06-11 02:24:51 - WernerBruhin - PayPal email - again](.#2009-06-11-022451---wernerbruhin---paypal-email---again)  
-[2009-06-22 02:10:24 - asb_india - Parsing Selected values](.#2009-06-22-021024---asb_india---parsing-selected-values)  
-[2009-06-25 17:51:45 - GrahamDennis - Inconsistent results](.#2009-06-25-175145---grahamdennis---inconsistent-results)  
-[2009-06-27 05:38:30 - GrahamDennis - C statement parser design / max recursion depth exceeded](.#2009-06-27-053830---grahamdennis---c-statement-parser-design--max-recursion-depth-exceeded)  
-[2009-06-30 05:30:38 - ptmcg - DSL article feedback (Mark Fink)](.#2009-06-30-053038---ptmcg---dsl-article-feedback-mark-fink)  
-[2009-06-30 05:41:50 - ptmcg - OnLAMP article feedback (bearophile)](.#2009-06-30-054150---ptmcg---onlamp-article-feedback-bearophile)  
-[2009-06-30 05:45:53 - ptmcg - OnLAMP article feedback (Alex Shinn)](.#2009-06-30-054553---ptmcg---onlamp-article-feedback-alex-shinn)  
-[2009-06-30 05:51:58 - ptmcg - OnLAMP article feedback (Dave Feustel)](.#2009-06-30-055158---ptmcg---onlamp-article-feedback-dave-feustel)  
-[2009-06-30 07:14:09 - ptmcg - GSWP errata (Bruce van der Kooij)](.#2009-06-30-071409---ptmcg---gswp-errata-bruce-van-der-kooij)  
-[2009-07-01 05:56:43 - asb_india - Parsing mutiple line](.#2009-07-01-055643---asb_india---parsing-mutiple-line)  
-[2009-07-23 01:59:25 - asb_india - Parsing non latin and latin character](.#2009-07-23-015925---asb_india---parsing-non-latin-and-latin-character)  
-[2009-07-26 01:52:23 - mbutow - not ignoring some "special" comments?](.#2009-07-26-015223---mbutow---not-ignoring-some-"special"-comments)  
-[2009-07-28 07:17:06 - zaviichen - partial matching](.#2009-07-28-071706---zaviichen---partial-matching)  
-[2009-08-02 17:22:46 - gregglind - initchars, bodychars](.#2009-08-02-172246---gregglind---initchars-bodychars)  
-[2009-08-13 13:16:52 - john-l - indentedBlock performance problem with proposed solution](.#2009-08-13-131652---john-l---indentedblock-performance-problem-with-proposed-solution)  
-[2009-08-19 14:10:33 - gregglind - list of the overloaded operators?](.#2009-08-19-141033---gregglind---list-of-the-overloaded-operators)  
-[2009-08-21 11:01:21 - gregglind - ParseResults item values "stringlike" sometimes, "listlike" other times](.#2009-08-21-110121---gregglind---parseresults-item-values-"stringlike"-sometimes-"listlike"-other-times)  
-[2009-08-24 17:09:58 - oafilipoai - parsing to object hierarchy ](.#2009-08-24-170958---oafilipoai---parsing-to-object-hierarchy-)  
-[2009-08-27 07:12:31 - akonsu - (newbie) setResultsName question](.#2009-08-27-071231---akonsu---newbie-setresultsname-question)  
-[2009-08-31 23:05:00 - marjoj - (newbie) What is needed to run pyparsing?](.#2009-08-31-230500---marjoj---newbie-what-is-needed-to-run-pyparsing)  
-[2009-09-01 16:26:53 - nemith - Trying to use dictOf on a group of objects](.#2009-09-01-162653---nemith---trying-to-use-dictof-on-a-group-of-objects)  
-[2009-09-02 14:30:15 - nemith - Using dictOf with many lines](.#2009-09-02-143015---nemith---using-dictof-with-many-lines)  
-[2009-09-03 06:58:33 - reyman64 - recursive parsing on data](.#2009-09-03-065833---reyman64---recursive-parsing-on-data)  
-[2009-09-10 04:49:28 - asb_india - Thanks for all the help](.#2009-09-10-044928---asb_india---thanks-for-all-the-help)  
-[2009-09-15 21:15:40 - crmccreary - parsing fortran type text files](.#2009-09-15-211540---crmccreary---parsing-fortran-type-text-files)  
-[2009-09-17 01:03:14 - codeape - Missing from subversion repository + praise](.#2009-09-17-010314---codeape---missing-from-subversion-repository--praise)  
-[2009-09-17 02:05:53 - bytecolor - AST](.#2009-09-17-020553---bytecolor---ast)  
-[2009-09-23 15:29:24 - maxstylus - parsing an ini file store in parent-child relationship (lists)](.#2009-09-23-152924---maxstylus---parsing-an-ini-file-store-in-parent-child-relationship-lists)  
-[2009-10-01 06:35:15 - Lllama - iptables parsing](.#2009-10-01-063515---lllama---iptables-parsing)  
-[2009-10-02 04:34:58 - nielAtpyparsing - Problem with recursive/nested parsing](.#2009-10-02-043458---nielatpyparsing---problem-with-recursivenested-parsing)  
-[2009-10-08 03:58:35 - nielAtpyparsing - Installing pyparsing on HP-UX with python 2.5](.#2009-10-08-035835---nielatpyparsing---installing-pyparsing-on-hp-ux-with-python-25)  
-[2009-10-12 14:33:39 - gregglind - isinstance considered harmful :)](.#2009-10-12-143339---gregglind---isinstance-considered-harmful-)  
-[2009-10-16 14:17:23 - nathanielpeterson - extending fourFn.py ](.#2009-10-16-141723---nathanielpeterson---extending-fourfnpy-)  
-[2009-10-19 12:23:49 - gregglind - Treating notAny as words?](.#2009-10-19-122349---gregglind---treating-notany-as-words)  
-[2009-10-29 04:19:17 - zike2000 - AttributeError: 'module' object has no attribute 'copy'](.#2009-10-29-041917---zike2000---attributeerror-module-object-has-no-attribute-copy)  
-[2009-10-29 05:44:22 - marjoj - setResultsName() problem](.#2009-10-29-054422---marjoj---setresultsname-problem)  
-[2009-11-02 13:32:58 - derenrich - Reserved Words](.#2009-11-02-133258---derenrich---reserved-words)  
-[2009-11-14 07:41:13 - tomekpe - nestedExpr and whitespaces](.#2009-11-14-074113---tomekpe---nestedexpr-and-whitespaces)  
-[2009-11-15 06:18:49 - gabriele.lanaro - Ideas on parsing a particular format](.#2009-11-15-061849---gabrielelanaro---ideas-on-parsing-a-particular-format)  
-[2009-11-25 05:00:17 - nfirvine - Parsing a unixy command line language](.#2009-11-25-050017---nfirvine---parsing-a-unixy-command-line-language)  
-[2009-12-03 02:27:07 - drake1337 - nested #ifdef ... #endif](.#2009-12-03-022707---drake1337---nested-ifdef--endif)  
-[2009-12-07 03:34:41 - nielAtpyparsing - Ignoring embedded keywords/punctuation in quoted string characters](.#2009-12-07-033441---nielatpyparsing---ignoring-embedded-keywordspunctuation-in-quoted-string-characters)  
-[2009-12-09 22:23:47 - drake1337 - streamlined issue?](.#2009-12-09-222347---drake1337---streamlined-issue)  
-[2009-12-13 03:32:17 - zzarko - Parse action executed, but it shouldn't](.#2009-12-13-033217---zzarko---parse-action-executed-but-it-shouldnt)  
-[2009-12-18 13:38:34 - tk2600 - Delimiter is multiple <space>](.#2009-12-18-133834---tk2600---delimiter-is-multiple-space)  
-[2009-12-18 14:19:46 - tk2600 - Matching possibly over 100 grammars](.#2009-12-18-141946---tk2600---matching-possibly-over-100-grammars)  
-[2009-12-22 13:09:29 - tk2600 - setParseAction() to take external param?](.#2009-12-22-130929---tk2600---setparseaction-to-take-external-param)  
-[2009-12-22 13:15:06 - tk2600 - Reference across grammars?](.#2009-12-22-131506---tk2600---reference-across-grammars)  
-[2009-12-23 02:59:11 - ptmcg - New DSL code, compatible with Python 2.7 and onward](.#2009-12-23-025911---ptmcg---new-dsl-code-compatible-with-python-27-and-onward)  
-[2009-12-24 10:21:41 - drake1337 - pyparsing core](.#2009-12-24-102141---drake1337---pyparsing-core)  
-[2009-12-26 12:02:48 - cgkanchi - Thanks for the feedback!](.#2009-12-26-120248---cgkanchi---thanks-for-the-feedback)  
-[2009-12-28 00:41:34 - marjoj - LineStart and whitespace](.#2009-12-28-004134---marjoj---linestart-and-whitespace)  
-[2009-12-29 18:39:03 - sighup - Greedy delimited list?](.#2009-12-29-183903---sighup---greedy-delimited-list)  
+## Pyparsing Wikispaces Discussion - 2009
+
+[Note: these entries are fairly old, and predate many new features of pyparsing,
+and are predominantly coded using Python 2.
+They are captured here for historical benefit, but may not contain
+the most current practices or features. We will try to add editor
+notes to entries to indicate when discussions have been 
+overtaken by development events.]
+
+[2009-01-06 03:14:24 - kerny404 - Simple logic expression parser](all_wiki_discussion_toc_2009.md#2009-01-06-031424---kerny404---simple-logic-expression-parser)  
+[2009-01-08 11:24:01 - bobdevine - small bug + parsing pairs](all_wiki_discussion_toc_2009.md#2009-01-08-112401---bobdevine---small-bug--parsing-pairs)  
+[2009-01-26 03:56:34 - HWJ - newbee needs some initial help](all_wiki_discussion_toc_2009.md#2009-01-26-035634---hwj---newbee-needs-some-initial-help)  
+[2009-01-27 01:14:54 - HWJ - Most needed : a quick reference](all_wiki_discussion_toc_2009.md#2009-01-27-011454---hwj---most-needed--a-quick-reference)  
+[2009-01-27 06:33:11 - HWJ - withoutAttribute - howto](all_wiki_discussion_toc_2009.md#2009-01-27-063311---hwj---withoutattribute---howto)  
+[2009-01-29 04:05:09 - HWJ - SkipTo(...,include=True)  BUG ?](all_wiki_discussion_toc_2009.md#2009-01-29-040509---hwj---skiptoincludetrue--bug-)  
+[2009-01-29 23:39:18 - HWJ - ignore + SkipTo (how does it work?)](all_wiki_discussion_toc_2009.md#2009-01-29-233918---hwj---ignore--skipto-how-does-it-work)  
+[2009-01-30 11:31:57 - HWJ - nestedExpr -> infinite loop (WHY)](all_wiki_discussion_toc_2009.md#2009-01-30-113157---hwj---nestedexpr---infinite-loop-why)  
+[2009-02-02 06:09:51 - debug - Parsing a simple LOGO like language](all_wiki_discussion_toc_2009.md#2009-02-02-060951---debug---parsing-a-simple-logo-like-language)  
+[2009-02-06 05:29:46 - mvanderw - If I match _this_, then parse it like _that_](all_wiki_discussion_toc_2009.md#2009-02-06-052946---mvanderw---if-i-match-_this_-then-parse-it-like-_that_)  
+[2009-02-07 16:02:33 - stakhanov2 - memory issues with Py3k](all_wiki_discussion_toc_2009.md#2009-02-07-160233---stakhanov2---memory-issues-with-py3k)  
+[2009-02-17 13:11:34 - djlawler - Ironpython 2.01](all_wiki_discussion_toc_2009.md#2009-02-17-131134---djlawler---ironpython-201)  
+[2009-02-18 06:41:05 - mUogoro - C function pointer parser](all_wiki_discussion_toc_2009.md#2009-02-18-064105---muogoro---c-function-pointer-parser)  
+[2009-02-18 16:07:52 - ahusak - Issue with lineno() and the loc variable.](all_wiki_discussion_toc_2009.md#2009-02-18-160752---ahusak---issue-with-lineno-and-the-loc-variable)  
+[2009-02-26 01:23:22 - asb_india - Help for the newbie](all_wiki_discussion_toc_2009.md#2009-02-26-012322---asb_india---help-for-the-newbie)  
+[2009-03-06 10:42:55 - djayc - Match a word in the "right most" position.](all_wiki_discussion_toc_2009.md#2009-03-06-104255---djayc---match-a-word-in-the-"right-most"-position)  
+[2009-03-12 01:01:15 - NewbeCaroline - Need to filter out lines based on expr and then calculate time difference](all_wiki_discussion_toc_2009.md#2009-03-12-010115---newbecaroline---need-to-filter-out-lines-based-on-expr-and-then-calculate-time-difference)  
+[2009-03-12 17:08:32 - stanchan - Issue with parsing multiline statement](all_wiki_discussion_toc_2009.md#2009-03-12-170832---stanchan---issue-with-parsing-multiline-statement)  
+[2009-03-18 09:24:55 - gmonkey5 - Getting more specific error messages from the MatchFirst object](all_wiki_discussion_toc_2009.md#2009-03-18-092455---gmonkey5---getting-more-specific-error-messages-from-the-matchfirst-object)  
+[2009-03-21 07:50:56 - dbv - citation parser](all_wiki_discussion_toc_2009.md#2009-03-21-075056---dbv---citation-parser)  
+[2009-03-23 07:53:32 - dbv - Special Characters](all_wiki_discussion_toc_2009.md#2009-03-23-075332---dbv---special-characters)  
+[2009-03-25 10:03:23 - reeeh2000 - Recursive Grammer](all_wiki_discussion_toc_2009.md#2009-03-25-100323---reeeh2000---recursive-grammer)  
+[2009-03-27 12:43:38 - pratdam - pyparsing  for  Windows INF  Files ](all_wiki_discussion_toc_2009.md#2009-03-27-124338---pratdam---pyparsing--for--windows-inf--files-)  
+[2009-03-28 19:47:27 - reeeh2000 - Pyparsing for Python3](all_wiki_discussion_toc_2009.md#2009-03-28-194727---reeeh2000---pyparsing-for-python3)  
+[2009-03-31 07:22:48 - john-l - Example and lessons learned: parsing SPARQL in RDFLib](all_wiki_discussion_toc_2009.md#2009-03-31-072248---john-l---example-and-lessons-learned-parsing-sparql-in-rdflib)  
+[2009-03-31 16:25:30 - reeeh2000 - Tokenizing](all_wiki_discussion_toc_2009.md#2009-03-31-162530---reeeh2000---tokenizing)  
+[2009-04-02 13:41:59 - dbv - 64-bit Windows](all_wiki_discussion_toc_2009.md#2009-04-02-134159---dbv---64-bit-windows)  
+[2009-04-04 12:03:54 - ellisonbg - Subtle infinite loop with Optional](all_wiki_discussion_toc_2009.md#2009-04-04-120354---ellisonbg---subtle-infinite-loop-with-optional)  
+[2009-04-10 07:10:57 - JaimeWyant - 1.5.2 pypi release?](all_wiki_discussion_toc_2009.md#2009-04-10-071057---jaimewyant---152-pypi-release)  
+[2009-04-15 08:18:50 - Llanilek - Simple Question](all_wiki_discussion_toc_2009.md#2009-04-15-081850---llanilek---simple-question)  
+[2009-04-18 12:49:17 - pynguin - problems with setName()](all_wiki_discussion_toc_2009.md#2009-04-18-124917---pynguin---problems-with-setname)  
+[2009-04-20 06:37:44 - stakhanov2 - memory issues with Py3k (reminder)](all_wiki_discussion_toc_2009.md#2009-04-20-063744---stakhanov2---memory-issues-with-py3k-reminder)  
+[2009-04-22 13:31:35 - stanchan - Top level parsing](all_wiki_discussion_toc_2009.md#2009-04-22-133135---stanchan---top-level-parsing)  
+[2009-04-28 06:47:49 - reynaudd - maximum recursion depth exceeded](all_wiki_discussion_toc_2009.md#2009-04-28-064749---reynaudd---maximum-recursion-depth-exceeded)  
+[2009-04-28 12:40:02 - JesterEE - Optional() TypeError Bug?](all_wiki_discussion_toc_2009.md#2009-04-28-124002---jesteree---optional-typeerror-bug)  
+[2009-04-29 13:15:02 - catherinedevlin - strange propagation of ignoreExprs into elements](all_wiki_discussion_toc_2009.md#2009-04-29-131502---catherinedevlin---strange-propagation-of-ignoreexprs-into-elements)  
+[2009-05-13 15:08:50 - oafilipoai - scanString problem](all_wiki_discussion_toc_2009.md#2009-05-13-150850---oafilipoai---scanstring-problem)  
+[2009-05-13 16:20:23 - oafilipoai - White spaces not ignored](all_wiki_discussion_toc_2009.md#2009-05-13-162023---oafilipoai---white-spaces-not-ignored)  
+[2009-05-14 10:40:06 - oafilipoai - Excluding keywords in comments or strings](all_wiki_discussion_toc_2009.md#2009-05-14-104006---oafilipoai---excluding-keywords-in-comments-or-strings)  
+[2009-05-18 05:03:29 - asb_india - Parsing selected](all_wiki_discussion_toc_2009.md#2009-05-18-050329---asb_india---parsing-selected)  
+[2009-05-29 16:18:10 - dbv - Windows amd64](all_wiki_discussion_toc_2009.md#2009-05-29-161810---dbv---windows-amd64)  
+[2009-06-02 05:36:06 - ivdkleyn - Problems with recursive parsing](all_wiki_discussion_toc_2009.md#2009-06-02-053606---ivdkleyn---problems-with-recursive-parsing)  
+[2009-06-03 01:32:24 - BlGene - C++ parser](all_wiki_discussion_toc_2009.md#2009-06-03-013224---blgene---c-parser)  
+[2009-06-05 13:06:10 - ssscripting - need some help](all_wiki_discussion_toc_2009.md#2009-06-05-130610---ssscripting---need-some-help)  
+[2009-06-09 03:10:58 - nederhrj - [Newbie] Converting ad-hoc text into XML](all_wiki_discussion_toc_2009.md#2009-06-09-031058---nederhrj---[newbie]-converting-ad-hoc-text-into-xml)  
+[2009-06-11 02:24:51 - WernerBruhin - PayPal email - again](all_wiki_discussion_toc_2009.md#2009-06-11-022451---wernerbruhin---paypal-email---again)  
+[2009-06-22 02:10:24 - asb_india - Parsing Selected values](all_wiki_discussion_toc_2009.md#2009-06-22-021024---asb_india---parsing-selected-values)  
+[2009-06-25 17:51:45 - GrahamDennis - Inconsistent results](all_wiki_discussion_toc_2009.md#2009-06-25-175145---grahamdennis---inconsistent-results)  
+[2009-06-27 05:38:30 - GrahamDennis - C statement parser design / max recursion depth exceeded](all_wiki_discussion_toc_2009.md#2009-06-27-053830---grahamdennis---c-statement-parser-design--max-recursion-depth-exceeded)  
+[2009-06-30 05:30:38 - ptmcg - DSL article feedback (Mark Fink)](all_wiki_discussion_toc_2009.md#2009-06-30-053038---ptmcg---dsl-article-feedback-mark-fink)  
+[2009-06-30 05:41:50 - ptmcg - OnLAMP article feedback (bearophile)](all_wiki_discussion_toc_2009.md#2009-06-30-054150---ptmcg---onlamp-article-feedback-bearophile)  
+[2009-06-30 05:45:53 - ptmcg - OnLAMP article feedback (Alex Shinn)](all_wiki_discussion_toc_2009.md#2009-06-30-054553---ptmcg---onlamp-article-feedback-alex-shinn)  
+[2009-06-30 05:51:58 - ptmcg - OnLAMP article feedback (Dave Feustel)](all_wiki_discussion_toc_2009.md#2009-06-30-055158---ptmcg---onlamp-article-feedback-dave-feustel)  
+[2009-06-30 07:14:09 - ptmcg - GSWP errata (Bruce van der Kooij)](all_wiki_discussion_toc_2009.md#2009-06-30-071409---ptmcg---gswp-errata-bruce-van-der-kooij)  
+[2009-07-01 05:56:43 - asb_india - Parsing mutiple line](all_wiki_discussion_toc_2009.md#2009-07-01-055643---asb_india---parsing-mutiple-line)  
+[2009-07-23 01:59:25 - asb_india - Parsing non latin and latin character](all_wiki_discussion_toc_2009.md#2009-07-23-015925---asb_india---parsing-non-latin-and-latin-character)  
+[2009-07-26 01:52:23 - mbutow - not ignoring some "special" comments?](all_wiki_discussion_toc_2009.md#2009-07-26-015223---mbutow---not-ignoring-some-"special"-comments)  
+[2009-07-28 07:17:06 - zaviichen - partial matching](all_wiki_discussion_toc_2009.md#2009-07-28-071706---zaviichen---partial-matching)  
+[2009-08-02 17:22:46 - gregglind - initchars, bodychars](all_wiki_discussion_toc_2009.md#2009-08-02-172246---gregglind---initchars-bodychars)  
+[2009-08-13 13:16:52 - john-l - indentedBlock performance problem with proposed solution](all_wiki_discussion_toc_2009.md#2009-08-13-131652---john-l---indentedblock-performance-problem-with-proposed-solution)  
+[2009-08-19 14:10:33 - gregglind - list of the overloaded operators?](all_wiki_discussion_toc_2009.md#2009-08-19-141033---gregglind---list-of-the-overloaded-operators)  
+[2009-08-21 11:01:21 - gregglind - ParseResults item values "stringlike" sometimes, "listlike" other times](all_wiki_discussion_toc_2009.md#2009-08-21-110121---gregglind---parseresults-item-values-"stringlike"-sometimes-"listlike"-other-times)  
+[2009-08-24 17:09:58 - oafilipoai - parsing to object hierarchy ](all_wiki_discussion_toc_2009.md#2009-08-24-170958---oafilipoai---parsing-to-object-hierarchy-)  
+[2009-08-27 07:12:31 - akonsu - (newbie) setResultsName question](all_wiki_discussion_toc_2009.md#2009-08-27-071231---akonsu---newbie-setresultsname-question)  
+[2009-08-31 23:05:00 - marjoj - (newbie) What is needed to run pyparsing?](all_wiki_discussion_toc_2009.md#2009-08-31-230500---marjoj---newbie-what-is-needed-to-run-pyparsing)  
+[2009-09-01 16:26:53 - nemith - Trying to use dictOf on a group of objects](all_wiki_discussion_toc_2009.md#2009-09-01-162653---nemith---trying-to-use-dictof-on-a-group-of-objects)  
+[2009-09-02 14:30:15 - nemith - Using dictOf with many lines](all_wiki_discussion_toc_2009.md#2009-09-02-143015---nemith---using-dictof-with-many-lines)  
+[2009-09-03 06:58:33 - reyman64 - recursive parsing on data](all_wiki_discussion_toc_2009.md#2009-09-03-065833---reyman64---recursive-parsing-on-data)  
+[2009-09-10 04:49:28 - asb_india - Thanks for all the help](all_wiki_discussion_toc_2009.md#2009-09-10-044928---asb_india---thanks-for-all-the-help)  
+[2009-09-15 21:15:40 - crmccreary - parsing fortran type text files](all_wiki_discussion_toc_2009.md#2009-09-15-211540---crmccreary---parsing-fortran-type-text-files)  
+[2009-09-17 01:03:14 - codeape - Missing from subversion repository + praise](all_wiki_discussion_toc_2009.md#2009-09-17-010314---codeape---missing-from-subversion-repository--praise)  
+[2009-09-17 02:05:53 - bytecolor - AST](all_wiki_discussion_toc_2009.md#2009-09-17-020553---bytecolor---ast)  
+[2009-09-23 15:29:24 - maxstylus - parsing an ini file store in parent-child relationship (lists)](all_wiki_discussion_toc_2009.md#2009-09-23-152924---maxstylus---parsing-an-ini-file-store-in-parent-child-relationship-lists)  
+[2009-10-01 06:35:15 - Lllama - iptables parsing](all_wiki_discussion_toc_2009.md#2009-10-01-063515---lllama---iptables-parsing)  
+[2009-10-02 04:34:58 - nielAtpyparsing - Problem with recursive/nested parsing](all_wiki_discussion_toc_2009.md#2009-10-02-043458---nielatpyparsing---problem-with-recursivenested-parsing)  
+[2009-10-08 03:58:35 - nielAtpyparsing - Installing pyparsing on HP-UX with python 2.5](all_wiki_discussion_toc_2009.md#2009-10-08-035835---nielatpyparsing---installing-pyparsing-on-hp-ux-with-python-25)  
+[2009-10-12 14:33:39 - gregglind - isinstance considered harmful :)](all_wiki_discussion_toc_2009.md#2009-10-12-143339---gregglind---isinstance-considered-harmful-)  
+[2009-10-16 14:17:23 - nathanielpeterson - extending fourFn.py ](all_wiki_discussion_toc_2009.md#2009-10-16-141723---nathanielpeterson---extending-fourfnpy-)  
+[2009-10-19 12:23:49 - gregglind - Treating notAny as words?](all_wiki_discussion_toc_2009.md#2009-10-19-122349---gregglind---treating-notany-as-words)  
+[2009-10-29 04:19:17 - zike2000 - AttributeError: 'module' object has no attribute 'copy'](all_wiki_discussion_toc_2009.md#2009-10-29-041917---zike2000---attributeerror-module-object-has-no-attribute-copy)  
+[2009-10-29 05:44:22 - marjoj - setResultsName() problem](all_wiki_discussion_toc_2009.md#2009-10-29-054422---marjoj---setresultsname-problem)  
+[2009-11-02 13:32:58 - derenrich - Reserved Words](all_wiki_discussion_toc_2009.md#2009-11-02-133258---derenrich---reserved-words)  
+[2009-11-14 07:41:13 - tomekpe - nestedExpr and whitespaces](all_wiki_discussion_toc_2009.md#2009-11-14-074113---tomekpe---nestedexpr-and-whitespaces)  
+[2009-11-15 06:18:49 - gabriele.lanaro - Ideas on parsing a particular format](all_wiki_discussion_toc_2009.md#2009-11-15-061849---gabrielelanaro---ideas-on-parsing-a-particular-format)  
+[2009-11-25 05:00:17 - nfirvine - Parsing a unixy command line language](all_wiki_discussion_toc_2009.md#2009-11-25-050017---nfirvine---parsing-a-unixy-command-line-language)  
+[2009-12-03 02:27:07 - drake1337 - nested #ifdef ... #endif](all_wiki_discussion_toc_2009.md#2009-12-03-022707---drake1337---nested-ifdef--endif)  
+[2009-12-07 03:34:41 - nielAtpyparsing - Ignoring embedded keywords/punctuation in quoted string characters](all_wiki_discussion_toc_2009.md#2009-12-07-033441---nielatpyparsing---ignoring-embedded-keywordspunctuation-in-quoted-string-characters)  
+[2009-12-09 22:23:47 - drake1337 - streamlined issue?](all_wiki_discussion_toc_2009.md#2009-12-09-222347---drake1337---streamlined-issue)  
+[2009-12-13 03:32:17 - zzarko - Parse action executed, but it shouldn't](all_wiki_discussion_toc_2009.md#2009-12-13-033217---zzarko---parse-action-executed-but-it-shouldnt)  
+[2009-12-18 13:38:34 - tk2600 - Delimiter is multiple <space>](all_wiki_discussion_toc_2009.md#2009-12-18-133834---tk2600---delimiter-is-multiple-space)  
+[2009-12-18 14:19:46 - tk2600 - Matching possibly over 100 grammars](all_wiki_discussion_toc_2009.md#2009-12-18-141946---tk2600---matching-possibly-over-100-grammars)  
+[2009-12-22 13:09:29 - tk2600 - setParseAction() to take external param?](all_wiki_discussion_toc_2009.md#2009-12-22-130929---tk2600---setparseaction-to-take-external-param)  
+[2009-12-22 13:15:06 - tk2600 - Reference across grammars?](all_wiki_discussion_toc_2009.md#2009-12-22-131506---tk2600---reference-across-grammars)  
+[2009-12-23 02:59:11 - ptmcg - New DSL code, compatible with Python 2.7 and onward](all_wiki_discussion_toc_2009.md#2009-12-23-025911---ptmcg---new-dsl-code-compatible-with-python-27-and-onward)  
+[2009-12-24 10:21:41 - drake1337 - pyparsing core](all_wiki_discussion_toc_2009.md#2009-12-24-102141---drake1337---pyparsing-core)  
+[2009-12-26 12:02:48 - cgkanchi - Thanks for the feedback!](all_wiki_discussion_toc_2009.md#2009-12-26-120248---cgkanchi---thanks-for-the-feedback)  
+[2009-12-28 00:41:34 - marjoj - LineStart and whitespace](all_wiki_discussion_toc_2009.md#2009-12-28-004134---marjoj---linestart-and-whitespace)  
+[2009-12-29 18:39:03 - sighup - Greedy delimited list?](all_wiki_discussion_toc_2009.md#2009-12-29-183903---sighup---greedy-delimited-list)  
 
 
 ---
@@ -3504,7 +3513,7 @@ Yes i agree Here is the sample code
     
     print '\nSimple Parse String\n ', main.parseString('{abc, def}')
     
-    t = 'Rosière'
+    t = 'Rosiï¿½re'
     t1 = 'asb'
     
     prs = '{' + ','.join(t,t1) + '}'
@@ -3555,7 +3564,7 @@ I modified and added coding utf-8 but still error
     
     print '\nSimple Parse String\n ', main.parseString('{abc, def}')
     
-    t = 'Rosière'
+    t = 'Rosiï¿½re'
     t1 = 'asb'
     
     prs = '{' + ','.join([t,t1]) + '}'
@@ -3624,11 +3633,11 @@ Ok, good that you learned about adding the encoding at the top of your Python sc
 
 
 
-Look closely at the content of t: 'Rosière'
+Look closely at the content of t: 'Rosiï¿½re'
 
 Now look at the definition of wd: wd = Word( alphanums )
 
-Now look at the input string you created: '{Rosière,asb}'
+Now look at the input string you created: '{Rosiï¿½re,asb}'
 
 Now look at the exception message from pyparsing:
 
@@ -3644,7 +3653,7 @@ In addition to alphanums, pyparsing also includes a string for 8-bit characters 
 
 
 
-Are you using Python3?  If not, then this string '{Rosière,asb}' is NOT a unicode string.  Prior to Python3, a unicode string is indicated with a leading 'u' character, as in u'{Rosière,asb}'.  Pyparsing can parse unicode strings, but you must construct the expressions with unicode as well: wd = Word(unicode(alphanums+alphas8bit)).  In Python3, all strings are unicode, and the leading 'u' is no longer necessary.
+Are you using Python3?  If not, then this string '{Rosiï¿½re,asb}' is NOT a unicode string.  Prior to Python3, a unicode string is indicated with a leading 'u' character, as in u'{Rosiï¿½re,asb}'.  Pyparsing can parse unicode strings, but you must construct the expressions with unicode as well: wd = Word(unicode(alphanums+alphas8bit)).  In Python3, all strings are unicode, and the leading 'u' is no longer necessary.
 
 
 
@@ -3676,7 +3685,7 @@ I am putting my code here again. I get the same error.
     
     main = LCPAR + delimitedList(wd) + RCPAR
     
-    print '\n Unicode Parsing \n ',main.parseString(u'{Rosière,asb}')
+    print '\n Unicode Parsing \n ',main.parseString(u'{Rosiï¿½re,asb}')
     
 
 
@@ -5460,7 +5469,7 @@ Dinesh
 
 ---
 ## 2009-03-23 07:53:32 - dbv - Special Characters
-Hi! I want to use certain special chars (eg. '&', '§') in srange when defining Word. I've tried both:
+Hi! I want to use certain special chars (eg. '&', 'ï¿½') in srange when defining Word. I've tried both:
 
 
 
@@ -5472,7 +5481,7 @@ and
 
 
 
-ii) Word( srange('[A-Z]'), srange('[a-zA-Z0-9.&§]')
+ii) Word( srange('[A-Z]'), srange('[a-zA-Z0-9.&ï¿½]')
 
 
 
@@ -5499,7 +5508,7 @@ You could also just use simple string concatenation.  srange just returns a stri
 
 
 
-Word( srange('[A-Z]'), srange('[a-zA-Z0-9.]') + '&§' )
+Word( srange('[A-Z]'), srange('[a-zA-Z0-9.]') + '&ï¿½' )
 
 
 
@@ -5507,7 +5516,7 @@ or just:
 
 
 
-Word( alphas.upper(), alphanums+'.&§' )
+Word( alphas.upper(), alphanums+'.&ï¿½' )
 
 
 
@@ -5521,7 +5530,7 @@ This is the only format that worked for special characters:
 
 
 
-Word( alphas.upper(), alphanums+'.&§' )
+Word( alphas.upper(), alphanums+'.&ï¿½' )
 
 
 
@@ -5756,31 +5765,31 @@ The text lost all newlines so am resnding it
 
 
     
-    <span class="re0"><span class="br0">&#91;</span>ODBC Connections.Environment<span class="br0">&#93;</span></span> 
+    [ODBC Connections.Environment] 
     
-    %ODBCUserFileDSNDir% <span class="sy0">=</span> Registry, HKR\Software\ODBC\ODBC.INI\ODBC File DSN <span class="re0"><span class="br0">&#91;</span>DefaultDSNDir<span class="br0">&#93;</span></span>
+    %ODBCUserFileDSNDir% = Registry, HKR\Software\ODBC\ODBC.INI\ODBC File DSN [DefaultDSNDir]
     
-    %ODBCSysFileDSNDir% <span class="sy0">=</span> Registry, HKLM\Software\ODBC\ODBC.INI\ODBC File DSN <span class="re0"><span class="br0">&#91;</span>DefaultDSNDir<span class="br0">&#93;</span></span>
+    %ODBCSysFileDSNDir% = Registry, HKLM\Software\ODBC\ODBC.INI\ODBC File DSN [DefaultDSNDir]
     
-    <span class="re0"><span class="br0">&#91;</span>ODBC Connections.Instructions<span class="br0">&#93;</span></span>
+    [ODBC Connections.Instructions]
     
-    <span class="re1">ForceDestReg</span><span class="sy0">=</span><span class="re2">ODBC Connections.ForceDestReg</span>
+    ForceDestReg=ODBC Connections.ForceDestReg
     
-    <span class="re1">AddReg</span><span class="sy0">=</span><span class="re2">ODBC Connections.AddReg</span>
+    AddReg=ODBC Connections.AddReg
     
-    <span class="re1">DelFiles</span><span class="sy0">=</span><span class="re2">ODBC Connections.DelFiles</span>
+    DelFiles=ODBC Connections.DelFiles
     
-    <span class="re1">ForceDestFile</span><span class="sy0">=</span><span class="re2">ODBC Connections.ForceDestFile</span>
+    ForceDestFile=ODBC Connections.ForceDestFile
     
-    <span class="re1">CopyFilesEx</span><span class="sy0">=</span><span class="re2">ODBC Connections.CopyFilesEx</span>
+    CopyFilesEx=ODBC Connections.CopyFilesEx
     
-    <span class="re0"><span class="br0">&#91;</span>ODBC Connections.ForceDestReg<span class="br0">&#93;</span></span>
+    [ODBC Connections.ForceDestReg]
     
     HKR\Software\ODBC\ODBC.INI\*
     
     HKLM\Software\ODBC\ODBC.INI\*
     
-    <span class="re0"><span class="br0">&#91;</span>ODBC Connections.AddReg<span class="br0">&#93;</span></span>
+    [ODBC Connections.AddReg]
     
     HKR\Software\ODBC\ODBC.INI\*
     
@@ -6079,7 +6088,7 @@ DontReflectOffline=1
 
 [PnpLockDown=0|1]
 
-    Specifies whether Plug and Play (PnP) prevents applications from directly modifying the files that a driver package’s INF file specifies. If the PnpLockDown directive is set to 1, PnP prevents applications from directly modifying the files that are copied by INF CopyFiles directives. Otherwise, if the directive is not included in an INF file or the value of the directive is set to zero, an application with administrator privileges can directly modify these files. Driver files that are protected in this manner are referred to as third-party protected driver files.
+    Specifies whether Plug and Play (PnP) prevents applications from directly modifying the files that a driver packageï¿½s INF file specifies. If the PnpLockDown directive is set to 1, PnP prevents applications from directly modifying the files that are copied by INF CopyFiles directives. Otherwise, if the directive is not included in an INF file or the value of the directive is set to zero, an application with administrator privileges can directly modify these files. Driver files that are protected in this manner are referred to as third-party protected driver files.
 
 
 
@@ -6276,7 +6285,7 @@ Prints
         \<aha154x.mpd\>1,,\</aha154x.mpd\>
     \</SourceDisksFiles\>
     \<SourceDisksFiles.x86\>
-        \<aha154x.sys\>2,†\</aha154x.sys\>
+        \<aha154x.sys\>2,ï¿½\</aha154x.sys\>
     \</SourceDisksFiles.x86\>
     \<Strings\>
         \<INF_Provider\>'Adaptec'\</INF_Provider\>
@@ -6376,7 +6385,7 @@ gives
         \<aha154x.mpd\>1,,\</aha154x.mpd\>
     \</SourceDisksFiles\>
     \<SourceDisksFiles.x86\>
-        \<aha154x.sys\>2,†\</aha154x.sys\>
+        \<aha154x.sys\>2,ï¿½\</aha154x.sys\>
     \</SourceDisksFiles.x86\>
     \<Strings\>
         \<INF_Provider\>'Adaptec'\</INF_Provider\>
@@ -6588,29 +6597,29 @@ Thanks for your explanation of the `-` operator; I think it'll be useful in prov
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> Keyword<span class="sy0">,</span> Word<span class="sy0">,</span> alphas<span class="sy0">,</span> NoMatch<span class="sy0">,</span> ParseException
+    from pyparsing import Keyword, Word, alphas, NoMatch, ParseException
     
-    w <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span>
-    branch0 <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'branch0'</span><span class="br0">&#41;</span> - w
-    branch1 <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'branch1'</span><span class="br0">&#41;</span> - w
-    grammar <span class="sy0">=</span> branch0 | branch1
+    w = Word(alphas)
+    branch0 = Keyword('branch0') - w
+    branch1 = Keyword('branch1') - w
+    grammar = branch0 | branch1
     
-    <span class="kw1">try</span>:
-      <span class="kw1">print</span><span class="br0">&#40;</span>grammar.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'branch0 foo'</span><span class="br0">&#41;</span>.<span class="me1">asList</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw1">except</span> ParseException<span class="sy0">,</span> e: <span class="kw1">print</span><span class="br0">&#40;</span>e<span class="br0">&#41;</span>
+    try:
+      print(grammar.parseString('branch0 foo').asList())
+    except ParseException, e: print(e)
     
-    <span class="kw1">try</span>:
-      <span class="kw1">print</span><span class="br0">&#40;</span>grammar.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'branch2 foo'</span><span class="br0">&#41;</span>.<span class="me1">asList</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw1">except</span> ParseException<span class="sy0">,</span> e: <span class="kw1">print</span><span class="br0">&#40;</span>e<span class="br0">&#41;</span>
+    try:
+      print(grammar.parseString('branch2 foo').asList())
+    except ParseException, e: print(e)
     
-    <span class="kw1">def</span> guidepost<span class="br0">&#40;</span>expr<span class="sy0">,</span> message<span class="br0">&#41;</span>:
-      <span class="kw1">return</span> NoMatch<span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">setName</span><span class="br0">&#40;</span>message<span class="br0">&#41;</span> | expr
+    def guidepost(expr, message):
+      return NoMatch().setName(message) | expr
     
-    grammar <span class="sy0">=</span> guidepost<span class="br0">&#40;</span>grammar<span class="sy0">,</span> <span class="st0">'branch0 or branch1'</span><span class="br0">&#41;</span>
+    grammar = guidepost(grammar, 'branch0 or branch1')
     
-    <span class="kw1">try</span>:
-      <span class="kw1">print</span><span class="br0">&#40;</span>grammar.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'branch2 foo'</span><span class="br0">&#41;</span>.<span class="me1">asList</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw1">except</span> ParseException<span class="sy0">,</span> e: <span class="kw1">print</span><span class="br0">&#40;</span>e<span class="br0">&#41;</span>
+    try:
+      print(grammar.parseString('branch2 foo').asList())
+    except ParseException, e: print(e)
 
 When run, this produces the following output:
 
@@ -6805,11 +6814,11 @@ START_SPAN, END_SPAN = makeHTMLTags('span')
 
 
 
-s = '''ExtraText...Elevation(s):\<b\>1882 <span>KB</span>\</b\>
+s = '''ExtraText...Elevation(s):\<b\>1882 KB\</b\>
 
-\<b\>1881 <span>DF</span>\</b\>
+\<b\>1881 DF\</b\>
 
-\<b\>1862 <span>GL</span>\</b\>...ExtraText'''
+\<b\>1862 GL\</b\>...ExtraText'''
 
 
 
@@ -7611,7 +7620,7 @@ pyparsing version - 1.5.2
 
 Thanks
 
-<span class="membersnap">-   <small>Apr 28, 2009</small></span>
+-   <small>Apr 28, 2009</small>
 
 #### 2009-04-28 14:10:17 - ptmcg
 Well, sometimes I do my job too well.  One of my goals in designing the pyparsing API was to make the code look natural to the Python developer's eye, but in a few cases, what looks natural is not really what one intends.
@@ -7683,7 +7692,7 @@ And lastly, the setParseAction was the next line down :).
 
 
 
-<span class="membersnap">-   <small>Apr 28, 2009</small></span>
+-   <small>Apr 28, 2009</small>
 
 ---
 ## 2009-04-29 13:15:02 - catherinedevlin - strange propagation of ignoreExprs into elements
@@ -10832,7 +10841,7 @@ decimal_digit { _ | decimal_digit }
 
 
 
-decimal_base ::= [28] [95LRM 2.5.1] ’d | ’D [26]
+decimal_base ::= [28] [95LRM 2.5.1] ï¿½d | ï¿½D [26]
 
 
 
@@ -11036,26 +11045,26 @@ To begin, I give you a simple script which builds up a grammar for a simple nest
 
 
 
-    <span class="co1">#!/usr/bin/env python</span>
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> <span class="br0">&#40;</span>indentedBlock<span class="sy0">,</span> Regex<span class="sy0">,</span> Suppress<span class="sy0">,</span> Group<span class="sy0">,</span> Optional<span class="sy0">,</span>
-                           OneOrMore<span class="sy0">,</span> restOfLine<span class="sy0">,</span> Forward<span class="sy0">,</span> Literal<span class="sy0">,</span>
-                           ParserElement<span class="sy0">,</span> Combine<span class="sy0">,</span> StringEnd<span class="br0">&#41;</span>
-    <span class="kw1">import</span> <span class="kw3">sys</span>
+    #!/usr/bin/env python
+    from pyparsing import (indentedBlock, Regex, Suppress, Group, Optional,
+                           OneOrMore, restOfLine, Forward, Literal,
+                           ParserElement, Combine, StringEnd)
+    import sys
     
-    ParserElement.<span class="me1">setDefaultWhitespaceChars</span><span class="br0">&#40;</span><span class="st0">' <span class="es0">\t</span>'</span><span class="br0">&#41;</span>
+    ParserElement.setDefaultWhitespaceChars(' \t')
     
-    COLON <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span><span class="st0">':'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    label <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span><span class="st0">'-'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + Group<span class="br0">&#40;</span>OneOrMore<span class="br0">&#40;</span>Regex<span class="br0">&#40;</span>r<span class="st0">'<span class="es0">\w</span>+'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + COLON
-    nonWhite <span class="sy0">=</span> Regex<span class="br0">&#40;</span>r<span class="st0">'<span class="es0">\S</span>+'</span><span class="br0">&#41;</span>
-    value <span class="sy0">=</span> Combine<span class="br0">&#40;</span>nonWhite + restOfLine<span class="br0">&#41;</span>
-    item <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    indentStack <span class="sy0">=</span> <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span>
-    item <span class="sy0">\<\<</span> <span class="br0">&#40;</span>label + Optional<span class="br0">&#40;</span>value<span class="br0">&#41;</span> +
-             Optional<span class="br0">&#40;</span>indentedBlock<span class="br0">&#40;</span>item<span class="sy0">,</span> indentStack<span class="sy0">,</span> <span class="kw2">True</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    COLON = Suppress(Literal(':'))
+    label = Suppress(Literal('-')) + Group(OneOrMore(Regex(r'\w+'))) + COLON
+    nonWhite = Regex(r'\S+')
+    value = Combine(nonWhite + restOfLine)
+    item = Forward()
+    indentStack = [1]
+    item \<\< (label + Optional(value) +
+             Optional(indentedBlock(item, indentStack, True)))
     
-    <span class="kw3">parser</span> <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>indentedBlock<span class="br0">&#40;</span>item<span class="sy0">,</span> indentStack<span class="sy0">,</span> <span class="kw2">False</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + StringEnd<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    parser = OneOrMore(indentedBlock(item, indentStack, False)) + StringEnd()
     
-    <span class="kw3">parser</span>.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'''
+    parser.parseString('''
     - item 1:
       - item 1_1: value for item 1.1
       - item 1_2:
@@ -11076,7 +11085,7 @@ To begin, I give you a simple script which builds up a grammar for a simple nest
         - item 3_1_2: v
       - item 3_2:
         - item 3_2_1: v
-    '''</span><span class="br0">&#41;</span>
+    ''')
 
 
 
@@ -11557,7 +11566,7 @@ The dump file looks like this:
     
     App00    disp_callback    STRING    
     
-    App01    Filters\NAS\records    MSTRING    All AAA Clients¬*¬*
+    App01    Filters\NAS\records    MSTRING    All AAA Clientsï¿½*ï¿½*
     
     App01    Filters\NAS\enabled    STRING    1
     
@@ -11663,7 +11672,7 @@ The dump file looks like this:
     
     App00    disp_callback    STRING    
     
-    App01    Filters\NAS\records    MSTRING    All AAA Clients¬*¬*
+    App01    Filters\NAS\records    MSTRING    All AAA Clientsï¿½*ï¿½*
     
     App01    Filters\NAS\enabled    STRING    1
     
@@ -11798,7 +11807,7 @@ Input File
     ##--- User End
     App00    USER_DEFINED_FIELD_0    STRING    PV Mohandas
     App00    USER_DEFINED_FIELD_1    STRING    NAP_India_Noida_HCL_SAP-Support
-    App01    Filters\NAS\records    MSTRING    All AAA Clients¬*¬*
+    App01    Filters\NAS\records    MSTRING    All AAA Clientsï¿½*ï¿½*
     App01    Filters\NAS\enabled    STRING    1
     ##--- Values End
     #----------------------------------------------------------------------------
@@ -11814,7 +11823,7 @@ Input File
     ##--- User End
     App00    USER_DEFINED_FIELD_0    STRING    Vinod Yene
     App00    USER_DEFINED_FIELD_1    STRING    NAP_India_Noida_HCL_SAP-Support
-    App01    Filters\NAS\records    MSTRING    All AAA Clients¬*¬*
+    App01    Filters\NAS\records    MSTRING    All AAA Clientsï¿½*ï¿½*
     App01    Filters\NAS\enabled    STRING    1
     ##--- Values End
     #-----------------------------------------------------------------------------
@@ -12218,7 +12227,7 @@ Thanks a lot Paul for all your help (with noob in python/pyparsing/parser like m
 
 
 
---Sébastien
+--Sï¿½bastien
 
 ---
 ## 2009-09-10 04:49:28 - asb_india - Thanks for all the help
@@ -15264,7 +15273,7 @@ The test case that I am having trouble with is as follows:
 
 
     [record
-      hash_md5             '½\x90\x00µý\>ç\x9fEì^uG0\x81]'
+      hash_md5             'ï¿½\x90\x00ï¿½ï¿½\>ï¿½\x9fEï¿½^uG0\x81]'
       file_uid             6
       sequence_number      89
       date_time            '20090510'
@@ -15290,19 +15299,19 @@ In this example the ']' is picked up as a 'keyword' and as a result the remainin
     Exception raised:Expected ']' (at char 62), (line:3, col:1)
     Exception raised:Expected ']' (at char 62), (line:3, col:1)
     Info: 1     [record
-    2       hash_md5             '½\x90\x00µý\>ç\x9fEì^uG0\x81]'
+    2       hash_md5             'ï¿½\x90\x00ï¿½ï¿½\>ï¿½\x9fEï¿½^uG0\x81]'
     
     Info: [record
-      hash_md5             '½\x90\x00µý\>ç\x9fEì^uG0\x81]'
+      hash_md5             'ï¿½\x90\x00ï¿½ï¿½\>ï¿½\x9fEï¿½^uG0\x81]'
      --\>
     Info: 
     Info: ^
     Info: Expected ']' (at char 62), (line:3, col:1)
     1     [record
-    2       hash_md5             '½\x90\x00µý\>ç\x9fEì^uG0\x81]'
+    2       hash_md5             'ï¿½\x90\x00ï¿½ï¿½\>ï¿½\x9fEï¿½^uG0\x81]'
     
     [record
-      hash_md5             '½\x90\x00µý\>ç\x9fEì^uG0\x81]'
+      hash_md5             'ï¿½\x90\x00ï¿½ï¿½\>ï¿½\x9fEï¿½^uG0\x81]'
      --\>
     
     ^

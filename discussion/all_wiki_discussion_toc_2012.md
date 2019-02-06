@@ -1,97 +1,106 @@
-[2012-01-07 06:08:59 - DiaaFayed - promote nested elements ...](.#2012-01-07-060859---diaafayed---promote-nested-elements-)  
-[2012-01-09 05:40:45 - DiaaFayed - rearrange parsed tree](.#2012-01-09-054045---diaafayed---rearrange-parsed-tree)  
-[2012-01-11 08:39:18 - DiaaFayed - a letter play two roles](.#2012-01-11-083918---diaafayed---a-letter-play-two-roles)  
-[2012-01-11 08:39:54 - DiaaFayed - how make the parser does not stop](.#2012-01-11-083954---diaafayed---how-make-the-parser-does-not-stop)  
-[2012-01-11 08:43:19 - DiaaFayed -  add logger class](.#2012-01-11-084319---diaafayed----add-logger-class)  
-[2012-01-14 08:16:21 - DiaaFayed - parsing a list of strings](.#2012-01-14-081621---diaafayed---parsing-a-list-of-strings)  
-[2012-01-14 08:29:02 - DiaaFayed - parseResultsSumExample.py](.#2012-01-14-082902---diaafayed---parseresultssumexamplepy)  
-[2012-01-16 23:11:45 - 0xLeFF - Parsing nested c\/c++ blocks](.#2012-01-16-231145---0xleff---parsing-nested-c\c-blocks)  
-[2012-01-19 08:18:31 - masura-san - How to tag parsed elements](.#2012-01-19-081831---masura-san---how-to-tag-parsed-elements)  
-[2012-01-20 08:44:42 - DiaaFayed - file contains lines for parsed.](.#2012-01-20-084442---diaafayed---file-contains-lines-for-parsed)  
-[2012-01-29 11:47:37 - Phxsawdust - Creating manual ParseResults](.#2012-01-29-114737---phxsawdust---creating-manual-parseresults)  
-[2012-01-31 18:24:11 - oafilipoai - Catch-all pattern](.#2012-01-31-182411---oafilipoai---catch-all-pattern)  
-[2012-02-04 15:55:57 - lamakaha - error with setParseAction](.#2012-02-04-155557---lamakaha---error-with-setparseaction)  
-[2012-02-05 14:44:27 - karulis - bug + patch for ParseResults.__dir__ in python3](.#2012-02-05-144427---karulis---bug--patch-for-parseresults__dir__-in-python3)  
-[2012-02-07 16:34:33 - oafilipoai - Finding the end location for a matched expression](.#2012-02-07-163433---oafilipoai---finding-the-end-location-for-a-matched-expression)  
-[2012-02-14 03:49:57 - ror6ax - Trying to parse a file.](.#2012-02-14-034957---ror6ax---trying-to-parse-a-file)  
-[2012-02-17 10:10:07 - DiaaFayed - comma separates outside paranthesis](.#2012-02-17-101007---diaafayed---comma-separates-outside-paranthesis)  
-[2012-02-18 19:57:34 - lamakaha - how to ignore blank lines in line oriented parser?](.#2012-02-18-195734---lamakaha---how-to-ignore-blank-lines-in-line-oriented-parser)  
-[2012-02-21 05:54:17 - ror6ax - parsing tables](.#2012-02-21-055417---ror6ax---parsing-tables)  
-[2012-02-25 13:19:21 - johnmudd - long output, is ths right?](.#2012-02-25-131921---johnmudd---long-output-is-ths-right)  
-[2012-02-29 00:17:37 - lesnar56 - Extending Keyword Classes](.#2012-02-29-001737---lesnar56---extending-keyword-classes)  
-[2012-03-06 06:04:21 - rrian - Unexpected results with name](.#2012-03-06-060421---rrian---unexpected-results-with-name)  
-[2012-03-12 12:46:53 - tarruda - Need help in parsing part of python grammar](.#2012-03-12-124653---tarruda---need-help-in-parsing-part-of-python-grammar)  
-[2012-03-14 12:00:22 - keirian - Recursion Help](.#2012-03-14-120022---keirian---recursion-help)  
-[2012-03-21 11:58:03 - maxime-esa - ambiguous grammar not detected?](.#2012-03-21-115803---maxime-esa---ambiguous-grammar-not-detected)  
-[2012-03-25 00:33:47 - nimbiotics - problems with delimitedList](.#2012-03-25-003347---nimbiotics---problems-with-delimitedlist)  
-[2012-03-29 14:30:05 - nimbiotics - How can I group this?](.#2012-03-29-143005---nimbiotics---how-can-i-group-this)  
-[2012-04-04 14:58:25 - HumbertMason - Parsing a list of structures line by line](.#2012-04-04-145825---humbertmason---parsing-a-list-of-structures-line-by-line)  
-[2012-04-06 10:11:25 - pepinocho9 - Help with parseactions and Morgan's Law](.#2012-04-06-101125---pepinocho9---help-with-parseactions-and-morgans-law)  
-[2012-04-16 10:33:55 - takluyver - Skip optional part if following part matches](.#2012-04-16-103355---takluyver---skip-optional-part-if-following-part-matches)  
-[2012-04-27 12:16:42 - larapsodia - Question about "Or" statement](.#2012-04-27-121642---larapsodia---question-about-"or"-statement)  
-[2012-04-28 06:48:11 - charles_w - working to understand pyparsing, setResultsName, and setParseAction](.#2012-04-28-064811---charles_w---working-to-understand-pyparsing-setresultsname-and-setparseaction)  
-[2012-05-01 01:14:04 - robintw - Labelling of results when using Each](.#2012-05-01-011404---robintw---labelling-of-results-when-using-each)  
-[2012-05-08 11:32:30 - side78 - Parsing nested blocks without any deterministic end](.#2012-05-08-113230---side78---parsing-nested-blocks-without-any-deterministic-end)  
-[2012-05-09 18:23:50 - Caffeinix - C++ qualified types](.#2012-05-09-182350---caffeinix---c-qualified-types)  
-[2012-05-21 12:08:56 - dGRp - Building AST for n-op abstract algebras](.#2012-05-21-120856---dgrp---building-ast-for-n-op-abstract-algebras)  
-[2012-05-23 04:27:27 - Madan2 - TypeError: unsupported operand type(s) for ^: 'NoneType' and 'NoneType'](.#2012-05-23-042727---madan2---typeerror-unsupported-operand-types-for--nonetype-and-nonetype)  
-[2012-05-25 05:33:30 - dGRp - Some thoughts and questions on improvement](.#2012-05-25-053330---dgrp---some-thoughts-and-questions-on-improvement)  
-[2012-05-26 14:51:08 - BrenBarn - get original text from ParseResults](.#2012-05-26-145108---brenbarn---get-original-text-from-parseresults)  
-[2012-06-07 09:56:55 - Madan2 - combine - space bn tokens](.#2012-06-07-095655---madan2---combine---space-bn-tokens)  
-[2012-06-10 06:12:29 - bsr203 - Rules for Repeating sections of data](.#2012-06-10-061229---bsr203---rules-for-repeating-sections-of-data)  
-[2012-06-10 14:23:11 - ofuhrer - Replace only locally](.#2012-06-10-142311---ofuhrer---replace-only-locally)  
-[2012-06-11 02:51:37 - willem179 - ParseResults inconsistent after setitem](.#2012-06-11-025137---willem179---parseresults-inconsistent-after-setitem)  
-[2012-06-25 11:31:52 - Madan2 - Dealing with "\" in data](.#2012-06-25-113152---madan2---dealing-with-"\"-in-data)  
-[2012-06-26 16:47:14 - chlim - parsing identical strings and multi-lines](.#2012-06-26-164714---chlim---parsing-identical-strings-and-multi-lines)  
-[2012-07-02 07:16:21 - DiaaFayed - dynamic extractor statement](.#2012-07-02-071621---diaafayed---dynamic-extractor-statement)  
-[2012-07-02 12:52:58 - DiaaFayed -  a new feature of the Python eval and exec commands](.#2012-07-02-125258---diaafayed----a-new-feature-of-the-python-eval-and-exec-commands)  
-[2012-07-03 13:30:03 - BrenBarn - Copying ParseResults attributes](.#2012-07-03-133003---brenbarn---copying-parseresults-attributes)  
-[2012-07-04 08:25:29 - einar77 - Parsing multi-line records](.#2012-07-04-082529---einar77---parsing-multi-line-records)  
-[2012-07-11 17:36:06 - chlim - svn syntax](.#2012-07-11-173606---chlim---svn-syntax)  
-[2012-07-16 08:45:49 - DiaaFayed - how can we restore setParseAction results ?](.#2012-07-16-084549---diaafayed---how-can-we-restore-setparseaction-results-)  
-[2012-07-18 07:37:10 - paulelastic - Parsing Expression Grammar (PEG)](.#2012-07-18-073710---paulelastic---parsing-expression-grammar-peg)  
-[2012-07-18 07:46:50 - paulelastic - Visual debugger for pyparsing](.#2012-07-18-074650---paulelastic---visual-debugger-for-pyparsing)  
-[2012-08-09 07:35:47 - Leevi3 - multiple parse actions](.#2012-08-09-073547---leevi3---multiple-parse-actions)  
-[2012-08-17 14:36:15 - script_lover - operatorPrecedence generate rules that cannot be validated](.#2012-08-17-143615---script_lover---operatorprecedence-generate-rules-that-cannot-be-validated)  
-[2012-08-17 14:48:13 - script_lover - Avoid duplicating rules](.#2012-08-17-144813---script_lover---avoid-duplicating-rules)  
-[2012-08-22 05:56:40 - Leevi3 - nesting depth of operator precedence parse results](.#2012-08-22-055640---leevi3---nesting-depth-of-operator-precedence-parse-results)  
-[2012-08-25 05:11:18 - simbera.jan - Getting a ParseResults line number](.#2012-08-25-051118---simberajan---getting-a-parseresults-line-number)  
-[2012-09-10 02:50:10 - acjackson5 - Help with datetime conversion](.#2012-09-10-025010---acjackson5---help-with-datetime-conversion)  
-[2012-09-10 05:09:15 - darkest_star - Parse a logfile and detect repetitve textblocks](.#2012-09-10-050915---darkest_star---parse-a-logfile-and-detect-repetitve-textblocks)  
-[2012-09-12 15:11:17 - sravet - need help with verilog parser](.#2012-09-12-151117---sravet---need-help-with-verilog-parser)  
-[2012-09-30 23:19:48 - cqqhzxgh - match multiple lines](.#2012-09-30-231948---cqqhzxgh---match-multiple-lines)  
-[2012-10-01 23:38:09 - cqqhzxgh - question with scanString](.#2012-10-01-233809---cqqhzxgh---question-with-scanstring)  
-[2012-10-05 14:19:50 - dlwatey - Beginner Question](.#2012-10-05-141950---dlwatey---beginner-question)  
-[2012-10-07 21:20:38 - RunSilent - parseString works, scanString fails?](.#2012-10-07-212038---runsilent---parsestring-works-scanstring-fails)  
-[2012-10-08 08:22:01 - DiaaFayed - How can we transform pyparsing string to pyparsing expression](.#2012-10-08-082201---diaafayed---how-can-we-transform-pyparsing-string-to-pyparsing-expression)  
-[2012-10-15 15:14:28 - jsy1972 - question re: indentation and grouped stmts](.#2012-10-15-151428---jsy1972---question-re-indentation-and-grouped-stmts)  
-[2012-10-17 13:30:37 - DiaaFayed - plz give explain and examples ...](.#2012-10-17-133037---diaafayed---plz-give-explain-and-examples-)  
-[2012-10-18 13:50:33 - chlim - Parsing single and multiple records](.#2012-10-18-135033---chlim---parsing-single-and-multiple-records)  
-[2012-10-22 07:30:51 - DiaaFayed - can we simulate the caret and dollar sign functions .?](.#2012-10-22-073051---diaafayed---can-we-simulate-the-caret-and-dollar-sign-functions-)  
-[2012-10-22 12:25:04 - DiaaFayed - simulate caret and dollar sign in regular expression](.#2012-10-22-122504---diaafayed---simulate-caret-and-dollar-sign-in-regular-expression)  
-[2012-10-22 12:34:59 - tvn1981 - Getting line number where error occurs](.#2012-10-22-123459---tvn1981---getting-line-number-where-error-occurs)  
-[2012-10-25 00:26:43 - kmbt - Match only at selected lines](.#2012-10-25-002643---kmbt---match-only-at-selected-lines)  
-[2012-10-25 00:50:16 - ranjith19 - How to get a perticular behaviour with a function parser?](.#2012-10-25-005016---ranjith19---how-to-get-a-perticular-behaviour-with-a-function-parser)  
-[2012-10-26 04:57:27 - pypetey - buildout: Couldn't find a setup script](.#2012-10-26-045727---pypetey---buildout-couldnt-find-a-setup-script)  
-[2012-10-26 11:46:25 - dlwatey - Handling special Characters](.#2012-10-26-114625---dlwatey---handling-special-characters)  
-[2012-10-29 09:04:41 - dlwatey - Getting closer and clearer](.#2012-10-29-090441---dlwatey---getting-closer-and-clearer)  
-[2012-11-06 13:39:41 - tvn1981 - Very slow parsing a simple First order logic form](.#2012-11-06-133941---tvn1981---very-slow-parsing-a-simple-first-order-logic-form)  
-[2012-11-11 21:41:10 - andreadsouza65 - http:\/\/www.tinypaydayloans.co.uk\/](.#2012-11-11-214110---andreadsouza65---http\\wwwtinypaydayloanscouk\)  
-[2012-11-13 00:24:07 - DiaaFayed - expressions matcher module](.#2012-11-13-002407---diaafayed---expressions-matcher-module)  
-[2012-11-13 01:56:45 - DiaaFayed - the space and paranthesis](.#2012-11-13-015645---diaafayed---the-space-and-paranthesis)  
-[2012-11-15 05:55:16 - DiaaFayed - Questions about scaneExamples.py](.#2012-11-15-055516---diaafayed---questions-about-scaneexamplespy)  
-[2012-11-15 06:03:12 - DiaaFayed - Question about Copy()](.#2012-11-15-060312---diaafayed---question-about-copy)  
-[2012-11-22 09:15:57 - cadourian - How to improve parser performance](.#2012-11-22-091557---cadourian---how-to-improve-parser-performance)  
-[2012-11-26 10:12:33 - DiaaFayed - Design Pattern: Chain of Responsibility](.#2012-11-26-101233---diaafayed---design-pattern-chain-of-responsibility)  
-[2012-11-26 17:38:27 - rogersanchez75 - Arithmetic evaluation with variables](.#2012-11-26-173827---rogersanchez75---arithmetic-evaluation-with-variables)  
-[2012-11-28 20:37:48 - rogersanchez75 - Eval functions in arith expressions](.#2012-11-28-203748---rogersanchez75---eval-functions-in-arith-expressions)  
-[2012-11-29 21:07:56 - torfat - parsing C function calls](.#2012-11-29-210756---torfat---parsing-c-function-calls)  
-[2012-12-05 14:38:02 - Demolishun - New to pyparser and impressed by capabilities](.#2012-12-05-143802---demolishun---new-to-pyparser-and-impressed-by-capabilities)  
-[2012-12-05 21:14:00 - Demolishun - Working on Literal Identification](.#2012-12-05-211400---demolishun---working-on-literal-identification)  
-[2012-12-10 15:58:57 - rogersanchez75 - Further DSL and function parsing development](.#2012-12-10-155857---rogersanchez75---further-dsl-and-function-parsing-development)  
-[2012-12-12 00:30:30 - Demolishun - Trouble with moving beyond basic pattern matching.](.#2012-12-12-003030---demolishun---trouble-with-moving-beyond-basic-pattern-matching)  
-[2012-12-22 20:41:51 - rogersanchez75 - Control flow](.#2012-12-22-204151---rogersanchez75---control-flow)  
-[2012-12-24 11:59:11 - catdude - Clarification regarding building a search sting](.#2012-12-24-115911---catdude---clarification-regarding-building-a-search-sting)  
+## Pyparsing Wikispaces Discussion - 2012
+
+[Note: these entries are fairly old, and predate many new features of pyparsing,
+and are predominantly coded using Python 2.
+They are captured here for historical benefit, but may not contain
+the most current practices or features. We will try to add editor
+notes to entries to indicate when discussions have been 
+overtaken by development events.]
+
+[2012-01-07 06:08:59 - DiaaFayed - promote nested elements ...](all_wiki_discussion_toc_2012.md#2012-01-07-060859---diaafayed---promote-nested-elements-)  
+[2012-01-09 05:40:45 - DiaaFayed - rearrange parsed tree](all_wiki_discussion_toc_2012.md#2012-01-09-054045---diaafayed---rearrange-parsed-tree)  
+[2012-01-11 08:39:18 - DiaaFayed - a letter play two roles](all_wiki_discussion_toc_2012.md#2012-01-11-083918---diaafayed---a-letter-play-two-roles)  
+[2012-01-11 08:39:54 - DiaaFayed - how make the parser does not stop](all_wiki_discussion_toc_2012.md#2012-01-11-083954---diaafayed---how-make-the-parser-does-not-stop)  
+[2012-01-11 08:43:19 - DiaaFayed -  add logger class](all_wiki_discussion_toc_2012.md#2012-01-11-084319---diaafayed----add-logger-class)  
+[2012-01-14 08:16:21 - DiaaFayed - parsing a list of strings](all_wiki_discussion_toc_2012.md#2012-01-14-081621---diaafayed---parsing-a-list-of-strings)  
+[2012-01-14 08:29:02 - DiaaFayed - parseResultsSumExample.py](all_wiki_discussion_toc_2012.md#2012-01-14-082902---diaafayed---parseresultssumexamplepy)  
+[2012-01-16 23:11:45 - 0xLeFF - Parsing nested c\/c++ blocks](all_wiki_discussion_toc_2012.md#2012-01-16-231145---0xleff---parsing-nested-c\c-blocks)  
+[2012-01-19 08:18:31 - masura-san - How to tag parsed elements](all_wiki_discussion_toc_2012.md#2012-01-19-081831---masura-san---how-to-tag-parsed-elements)  
+[2012-01-20 08:44:42 - DiaaFayed - file contains lines for parsed.](all_wiki_discussion_toc_2012.md#2012-01-20-084442---diaafayed---file-contains-lines-for-parsed)  
+[2012-01-29 11:47:37 - Phxsawdust - Creating manual ParseResults](all_wiki_discussion_toc_2012.md#2012-01-29-114737---phxsawdust---creating-manual-parseresults)  
+[2012-01-31 18:24:11 - oafilipoai - Catch-all pattern](all_wiki_discussion_toc_2012.md#2012-01-31-182411---oafilipoai---catch-all-pattern)  
+[2012-02-04 15:55:57 - lamakaha - error with setParseAction](all_wiki_discussion_toc_2012.md#2012-02-04-155557---lamakaha---error-with-setparseaction)  
+[2012-02-05 14:44:27 - karulis - bug + patch for ParseResults.__dir__ in python3](all_wiki_discussion_toc_2012.md#2012-02-05-144427---karulis---bug--patch-for-parseresults__dir__-in-python3)  
+[2012-02-07 16:34:33 - oafilipoai - Finding the end location for a matched expression](all_wiki_discussion_toc_2012.md#2012-02-07-163433---oafilipoai---finding-the-end-location-for-a-matched-expression)  
+[2012-02-14 03:49:57 - ror6ax - Trying to parse a file.](all_wiki_discussion_toc_2012.md#2012-02-14-034957---ror6ax---trying-to-parse-a-file)  
+[2012-02-17 10:10:07 - DiaaFayed - comma separates outside paranthesis](all_wiki_discussion_toc_2012.md#2012-02-17-101007---diaafayed---comma-separates-outside-paranthesis)  
+[2012-02-18 19:57:34 - lamakaha - how to ignore blank lines in line oriented parser?](all_wiki_discussion_toc_2012.md#2012-02-18-195734---lamakaha---how-to-ignore-blank-lines-in-line-oriented-parser)  
+[2012-02-21 05:54:17 - ror6ax - parsing tables](all_wiki_discussion_toc_2012.md#2012-02-21-055417---ror6ax---parsing-tables)  
+[2012-02-25 13:19:21 - johnmudd - long output, is ths right?](all_wiki_discussion_toc_2012.md#2012-02-25-131921---johnmudd---long-output-is-ths-right)  
+[2012-02-29 00:17:37 - lesnar56 - Extending Keyword Classes](all_wiki_discussion_toc_2012.md#2012-02-29-001737---lesnar56---extending-keyword-classes)  
+[2012-03-06 06:04:21 - rrian - Unexpected results with name](all_wiki_discussion_toc_2012.md#2012-03-06-060421---rrian---unexpected-results-with-name)  
+[2012-03-12 12:46:53 - tarruda - Need help in parsing part of python grammar](all_wiki_discussion_toc_2012.md#2012-03-12-124653---tarruda---need-help-in-parsing-part-of-python-grammar)  
+[2012-03-14 12:00:22 - keirian - Recursion Help](all_wiki_discussion_toc_2012.md#2012-03-14-120022---keirian---recursion-help)  
+[2012-03-21 11:58:03 - maxime-esa - ambiguous grammar not detected?](all_wiki_discussion_toc_2012.md#2012-03-21-115803---maxime-esa---ambiguous-grammar-not-detected)  
+[2012-03-25 00:33:47 - nimbiotics - problems with delimitedList](all_wiki_discussion_toc_2012.md#2012-03-25-003347---nimbiotics---problems-with-delimitedlist)  
+[2012-03-29 14:30:05 - nimbiotics - How can I group this?](all_wiki_discussion_toc_2012.md#2012-03-29-143005---nimbiotics---how-can-i-group-this)  
+[2012-04-04 14:58:25 - HumbertMason - Parsing a list of structures line by line](all_wiki_discussion_toc_2012.md#2012-04-04-145825---humbertmason---parsing-a-list-of-structures-line-by-line)  
+[2012-04-06 10:11:25 - pepinocho9 - Help with parseactions and Morgan's Law](all_wiki_discussion_toc_2012.md#2012-04-06-101125---pepinocho9---help-with-parseactions-and-morgans-law)  
+[2012-04-16 10:33:55 - takluyver - Skip optional part if following part matches](all_wiki_discussion_toc_2012.md#2012-04-16-103355---takluyver---skip-optional-part-if-following-part-matches)  
+[2012-04-27 12:16:42 - larapsodia - Question about "Or" statement](all_wiki_discussion_toc_2012.md#2012-04-27-121642---larapsodia---question-about-"or"-statement)  
+[2012-04-28 06:48:11 - charles_w - working to understand pyparsing, setResultsName, and setParseAction](all_wiki_discussion_toc_2012.md#2012-04-28-064811---charles_w---working-to-understand-pyparsing-setresultsname-and-setparseaction)  
+[2012-05-01 01:14:04 - robintw - Labelling of results when using Each](all_wiki_discussion_toc_2012.md#2012-05-01-011404---robintw---labelling-of-results-when-using-each)  
+[2012-05-08 11:32:30 - side78 - Parsing nested blocks without any deterministic end](all_wiki_discussion_toc_2012.md#2012-05-08-113230---side78---parsing-nested-blocks-without-any-deterministic-end)  
+[2012-05-09 18:23:50 - Caffeinix - C++ qualified types](all_wiki_discussion_toc_2012.md#2012-05-09-182350---caffeinix---c-qualified-types)  
+[2012-05-21 12:08:56 - dGRp - Building AST for n-op abstract algebras](all_wiki_discussion_toc_2012.md#2012-05-21-120856---dgrp---building-ast-for-n-op-abstract-algebras)  
+[2012-05-23 04:27:27 - Madan2 - TypeError: unsupported operand type(s) for ^: 'NoneType' and 'NoneType'](all_wiki_discussion_toc_2012.md#2012-05-23-042727---madan2---typeerror-unsupported-operand-types-for--nonetype-and-nonetype)  
+[2012-05-25 05:33:30 - dGRp - Some thoughts and questions on improvement](all_wiki_discussion_toc_2012.md#2012-05-25-053330---dgrp---some-thoughts-and-questions-on-improvement)  
+[2012-05-26 14:51:08 - BrenBarn - get original text from ParseResults](all_wiki_discussion_toc_2012.md#2012-05-26-145108---brenbarn---get-original-text-from-parseresults)  
+[2012-06-07 09:56:55 - Madan2 - combine - space bn tokens](all_wiki_discussion_toc_2012.md#2012-06-07-095655---madan2---combine---space-bn-tokens)  
+[2012-06-10 06:12:29 - bsr203 - Rules for Repeating sections of data](all_wiki_discussion_toc_2012.md#2012-06-10-061229---bsr203---rules-for-repeating-sections-of-data)  
+[2012-06-10 14:23:11 - ofuhrer - Replace only locally](all_wiki_discussion_toc_2012.md#2012-06-10-142311---ofuhrer---replace-only-locally)  
+[2012-06-11 02:51:37 - willem179 - ParseResults inconsistent after setitem](all_wiki_discussion_toc_2012.md#2012-06-11-025137---willem179---parseresults-inconsistent-after-setitem)  
+[2012-06-25 11:31:52 - Madan2 - Dealing with "\" in data](all_wiki_discussion_toc_2012.md#2012-06-25-113152---madan2---dealing-with-"\"-in-data)  
+[2012-06-26 16:47:14 - chlim - parsing identical strings and multi-lines](all_wiki_discussion_toc_2012.md#2012-06-26-164714---chlim---parsing-identical-strings-and-multi-lines)  
+[2012-07-02 07:16:21 - DiaaFayed - dynamic extractor statement](all_wiki_discussion_toc_2012.md#2012-07-02-071621---diaafayed---dynamic-extractor-statement)  
+[2012-07-02 12:52:58 - DiaaFayed -  a new feature of the Python eval and exec commands](all_wiki_discussion_toc_2012.md#2012-07-02-125258---diaafayed----a-new-feature-of-the-python-eval-and-exec-commands)  
+[2012-07-03 13:30:03 - BrenBarn - Copying ParseResults attributes](all_wiki_discussion_toc_2012.md#2012-07-03-133003---brenbarn---copying-parseresults-attributes)  
+[2012-07-04 08:25:29 - einar77 - Parsing multi-line records](all_wiki_discussion_toc_2012.md#2012-07-04-082529---einar77---parsing-multi-line-records)  
+[2012-07-11 17:36:06 - chlim - svn syntax](all_wiki_discussion_toc_2012.md#2012-07-11-173606---chlim---svn-syntax)  
+[2012-07-16 08:45:49 - DiaaFayed - how can we restore setParseAction results ?](all_wiki_discussion_toc_2012.md#2012-07-16-084549---diaafayed---how-can-we-restore-setparseaction-results-)  
+[2012-07-18 07:37:10 - paulelastic - Parsing Expression Grammar (PEG)](all_wiki_discussion_toc_2012.md#2012-07-18-073710---paulelastic---parsing-expression-grammar-peg)  
+[2012-07-18 07:46:50 - paulelastic - Visual debugger for pyparsing](all_wiki_discussion_toc_2012.md#2012-07-18-074650---paulelastic---visual-debugger-for-pyparsing)  
+[2012-08-09 07:35:47 - Leevi3 - multiple parse actions](all_wiki_discussion_toc_2012.md#2012-08-09-073547---leevi3---multiple-parse-actions)  
+[2012-08-17 14:36:15 - script_lover - operatorPrecedence generate rules that cannot be validated](all_wiki_discussion_toc_2012.md#2012-08-17-143615---script_lover---operatorprecedence-generate-rules-that-cannot-be-validated)  
+[2012-08-17 14:48:13 - script_lover - Avoid duplicating rules](all_wiki_discussion_toc_2012.md#2012-08-17-144813---script_lover---avoid-duplicating-rules)  
+[2012-08-22 05:56:40 - Leevi3 - nesting depth of operator precedence parse results](all_wiki_discussion_toc_2012.md#2012-08-22-055640---leevi3---nesting-depth-of-operator-precedence-parse-results)  
+[2012-08-25 05:11:18 - simbera.jan - Getting a ParseResults line number](all_wiki_discussion_toc_2012.md#2012-08-25-051118---simberajan---getting-a-parseresults-line-number)  
+[2012-09-10 02:50:10 - acjackson5 - Help with datetime conversion](all_wiki_discussion_toc_2012.md#2012-09-10-025010---acjackson5---help-with-datetime-conversion)  
+[2012-09-10 05:09:15 - darkest_star - Parse a logfile and detect repetitve textblocks](all_wiki_discussion_toc_2012.md#2012-09-10-050915---darkest_star---parse-a-logfile-and-detect-repetitve-textblocks)  
+[2012-09-12 15:11:17 - sravet - need help with verilog parser](all_wiki_discussion_toc_2012.md#2012-09-12-151117---sravet---need-help-with-verilog-parser)  
+[2012-09-30 23:19:48 - cqqhzxgh - match multiple lines](all_wiki_discussion_toc_2012.md#2012-09-30-231948---cqqhzxgh---match-multiple-lines)  
+[2012-10-01 23:38:09 - cqqhzxgh - question with scanString](all_wiki_discussion_toc_2012.md#2012-10-01-233809---cqqhzxgh---question-with-scanstring)  
+[2012-10-05 14:19:50 - dlwatey - Beginner Question](all_wiki_discussion_toc_2012.md#2012-10-05-141950---dlwatey---beginner-question)  
+[2012-10-07 21:20:38 - RunSilent - parseString works, scanString fails?](all_wiki_discussion_toc_2012.md#2012-10-07-212038---runsilent---parsestring-works-scanstring-fails)  
+[2012-10-08 08:22:01 - DiaaFayed - How can we transform pyparsing string to pyparsing expression](all_wiki_discussion_toc_2012.md#2012-10-08-082201---diaafayed---how-can-we-transform-pyparsing-string-to-pyparsing-expression)  
+[2012-10-15 15:14:28 - jsy1972 - question re: indentation and grouped stmts](all_wiki_discussion_toc_2012.md#2012-10-15-151428---jsy1972---question-re-indentation-and-grouped-stmts)  
+[2012-10-17 13:30:37 - DiaaFayed - plz give explain and examples ...](all_wiki_discussion_toc_2012.md#2012-10-17-133037---diaafayed---plz-give-explain-and-examples-)  
+[2012-10-18 13:50:33 - chlim - Parsing single and multiple records](all_wiki_discussion_toc_2012.md#2012-10-18-135033---chlim---parsing-single-and-multiple-records)  
+[2012-10-22 07:30:51 - DiaaFayed - can we simulate the caret and dollar sign functions .?](all_wiki_discussion_toc_2012.md#2012-10-22-073051---diaafayed---can-we-simulate-the-caret-and-dollar-sign-functions-)  
+[2012-10-22 12:25:04 - DiaaFayed - simulate caret and dollar sign in regular expression](all_wiki_discussion_toc_2012.md#2012-10-22-122504---diaafayed---simulate-caret-and-dollar-sign-in-regular-expression)  
+[2012-10-22 12:34:59 - tvn1981 - Getting line number where error occurs](all_wiki_discussion_toc_2012.md#2012-10-22-123459---tvn1981---getting-line-number-where-error-occurs)  
+[2012-10-25 00:26:43 - kmbt - Match only at selected lines](all_wiki_discussion_toc_2012.md#2012-10-25-002643---kmbt---match-only-at-selected-lines)  
+[2012-10-25 00:50:16 - ranjith19 - How to get a perticular behaviour with a function parser?](all_wiki_discussion_toc_2012.md#2012-10-25-005016---ranjith19---how-to-get-a-perticular-behaviour-with-a-function-parser)  
+[2012-10-26 04:57:27 - pypetey - buildout: Couldn't find a setup script](all_wiki_discussion_toc_2012.md#2012-10-26-045727---pypetey---buildout-couldnt-find-a-setup-script)  
+[2012-10-26 11:46:25 - dlwatey - Handling special Characters](all_wiki_discussion_toc_2012.md#2012-10-26-114625---dlwatey---handling-special-characters)  
+[2012-10-29 09:04:41 - dlwatey - Getting closer and clearer](all_wiki_discussion_toc_2012.md#2012-10-29-090441---dlwatey---getting-closer-and-clearer)  
+[2012-11-06 13:39:41 - tvn1981 - Very slow parsing a simple First order logic form](all_wiki_discussion_toc_2012.md#2012-11-06-133941---tvn1981---very-slow-parsing-a-simple-first-order-logic-form)  
+[2012-11-11 21:41:10 - andreadsouza65 - http:\/\/www.tinypaydayloans.co.uk\/](all_wiki_discussion_toc_2012.md#2012-11-11-214110---andreadsouza65---http\\wwwtinypaydayloanscouk\)  
+[2012-11-13 00:24:07 - DiaaFayed - expressions matcher module](all_wiki_discussion_toc_2012.md#2012-11-13-002407---diaafayed---expressions-matcher-module)  
+[2012-11-13 01:56:45 - DiaaFayed - the space and paranthesis](all_wiki_discussion_toc_2012.md#2012-11-13-015645---diaafayed---the-space-and-paranthesis)  
+[2012-11-15 05:55:16 - DiaaFayed - Questions about scaneExamples.py](all_wiki_discussion_toc_2012.md#2012-11-15-055516---diaafayed---questions-about-scaneexamplespy)  
+[2012-11-15 06:03:12 - DiaaFayed - Question about Copy()](all_wiki_discussion_toc_2012.md#2012-11-15-060312---diaafayed---question-about-copy)  
+[2012-11-22 09:15:57 - cadourian - How to improve parser performance](all_wiki_discussion_toc_2012.md#2012-11-22-091557---cadourian---how-to-improve-parser-performance)  
+[2012-11-26 10:12:33 - DiaaFayed - Design Pattern: Chain of Responsibility](all_wiki_discussion_toc_2012.md#2012-11-26-101233---diaafayed---design-pattern-chain-of-responsibility)  
+[2012-11-26 17:38:27 - rogersanchez75 - Arithmetic evaluation with variables](all_wiki_discussion_toc_2012.md#2012-11-26-173827---rogersanchez75---arithmetic-evaluation-with-variables)  
+[2012-11-28 20:37:48 - rogersanchez75 - Eval functions in arith expressions](all_wiki_discussion_toc_2012.md#2012-11-28-203748---rogersanchez75---eval-functions-in-arith-expressions)  
+[2012-11-29 21:07:56 - torfat - parsing C function calls](all_wiki_discussion_toc_2012.md#2012-11-29-210756---torfat---parsing-c-function-calls)  
+[2012-12-05 14:38:02 - Demolishun - New to pyparser and impressed by capabilities](all_wiki_discussion_toc_2012.md#2012-12-05-143802---demolishun---new-to-pyparser-and-impressed-by-capabilities)  
+[2012-12-05 21:14:00 - Demolishun - Working on Literal Identification](all_wiki_discussion_toc_2012.md#2012-12-05-211400---demolishun---working-on-literal-identification)  
+[2012-12-10 15:58:57 - rogersanchez75 - Further DSL and function parsing development](all_wiki_discussion_toc_2012.md#2012-12-10-155857---rogersanchez75---further-dsl-and-function-parsing-development)  
+[2012-12-12 00:30:30 - Demolishun - Trouble with moving beyond basic pattern matching.](all_wiki_discussion_toc_2012.md#2012-12-12-003030---demolishun---trouble-with-moving-beyond-basic-pattern-matching)  
+[2012-12-22 20:41:51 - rogersanchez75 - Control flow](all_wiki_discussion_toc_2012.md#2012-12-22-204151---rogersanchez75---control-flow)  
+[2012-12-24 11:59:11 - catdude - Clarification regarding building a search sting](all_wiki_discussion_toc_2012.md#2012-12-24-115911---catdude---clarification-regarding-building-a-search-sting)  
 
 
 ---
@@ -816,21 +825,21 @@ I have reworked my custom ParseResults code, and it now works as expected. I wis
 
 
 
-    <span class="kw1">def</span> tripHeaderCustomFields<span class="br0">&#40;</span> <span class="kw2">self</span><span class="sy0">,</span> tokens <span class="br0">&#41;</span>:
-            parseSegment <span class="sy0">=</span> tokens
-            <span class="kw1">if</span> <span class="st0">'TripCode'</span> <span class="kw1">in</span> parseSegment:
-                customField <span class="sy0">=</span> <span class="kw2">self</span>.<span class="me1">addCustomField</span><span class="br0">&#40;</span> <span class="st0">'USAir'</span><span class="sy0">,</span> <span class="st0">'PairingCode'</span><span class="sy0">,</span> <span class="st0">'String'</span><span class="sy0">,</span> parseSegment<span class="br0">&#91;</span><span class="st0">'TripCode'</span><span class="br0">&#93;</span><span class="sy0">,</span> parseSegment <span class="br0">&#41;</span>
-            <span class="kw1">if</span> <span class="st0">'Charter'</span> <span class="kw1">in</span> parseSegment<span class="br0">&#91;</span><span class="kw2">self</span>.<span class="me1">NAME</span>.<span class="me1">EFFECTIVEDOWS</span><span class="br0">&#93;</span>:
-                customField <span class="sy0">=</span> <span class="kw2">self</span>.<span class="me1">addCustomField</span><span class="br0">&#40;</span> <span class="st0">'USAir'</span><span class="sy0">,</span> <span class="st0">'Charter'</span><span class="sy0">,</span> <span class="st0">'Boolean'</span><span class="sy0">,</span> <span class="st0">'True'</span><span class="sy0">,</span> parseSegment <span class="br0">&#41;</span>
+    def tripHeaderCustomFields( self, tokens ):
+            parseSegment = tokens
+            if 'TripCode' in parseSegment:
+                customField = self.addCustomField( 'USAir', 'PairingCode', 'String', parseSegment['TripCode'], parseSegment )
+            if 'Charter' in parseSegment[self.NAME.EFFECTIVEDOWS]:
+                customField = self.addCustomField( 'USAir', 'Charter', 'Boolean', 'True', parseSegment )
     
-        <span class="kw1">def</span> buildCustomFieldString<span class="br0">&#40;</span> <span class="kw2">self</span><span class="sy0">,</span> group<span class="sy0">,</span> name<span class="sy0">,</span> datatype<span class="sy0">,</span> value <span class="br0">&#41;</span>:
-            <span class="co1">#TODO: replace any stray '|' that might be in input strings</span>
+        def buildCustomFieldString( self, group, name, datatype, value ):
+            #TODO: replace any stray '|' that might be in input strings
     
-            text <span class="sy0">=</span> group + <span class="st0">'|'</span> + name + <span class="st0">'|'</span> + datatype + <span class="st0">'|'</span> + value
-            <span class="kw1">return</span> text
+            text = group + '|' + name + '|' + datatype + '|' + value
+            return text
     
-        <span class="kw1">def</span> addCustomField<span class="br0">&#40;</span> <span class="kw2">self</span><span class="sy0">,</span> group<span class="sy0">,</span> name<span class="sy0">,</span> datatype<span class="sy0">,</span> value<span class="sy0">,</span> <span class="kw3">token</span> <span class="br0">&#41;</span>:
-            <span class="st0">'''
+        def addCustomField( self, group, name, datatype, value, token ):
+            '''
             custom fields:
             Group: ie, specific airline or category - 'USAir, 'general'
             Name: name of field, ie 'linecheck', 'Medical', 'Deadhead', 'IV Pay'
@@ -850,18 +859,18 @@ I have reworked my custom ParseResults code, and it now works as expected. I wis
                     \<Value\>True\</Value\>
                   \</CustomField\>
                 \</CustomFields\>
-            '''</span>
-            pGroup <span class="sy0">=</span> Word<span class="br0">&#40;</span> alphanums <span class="br0">&#41;</span><span class="br0">&#40;</span> <span class="kw2">self</span>.<span class="me1">NAME</span>.<span class="me1">CFGROUP</span> <span class="br0">&#41;</span>
-            pName <span class="sy0">=</span> Word<span class="br0">&#40;</span> alphanums <span class="br0">&#41;</span><span class="br0">&#40;</span> <span class="kw2">self</span>.<span class="me1">NAME</span>.<span class="me1">CFNAME</span> <span class="br0">&#41;</span>
-            pDatatype <span class="sy0">=</span> Word<span class="br0">&#40;</span> alphanums <span class="br0">&#41;</span><span class="br0">&#40;</span> <span class="kw2">self</span>.<span class="me1">NAME</span>.<span class="me1">CFDATATYPE</span> <span class="br0">&#41;</span>
-            pValue <span class="sy0">=</span> Word<span class="br0">&#40;</span> alphanums <span class="br0">&#41;</span><span class="br0">&#40;</span> <span class="kw2">self</span>.<span class="me1">NAME</span>.<span class="me1">CFVAULE</span> <span class="br0">&#41;</span>
-            delim <span class="sy0">=</span> Suppress<span class="br0">&#40;</span> <span class="st0">'|'</span> <span class="br0">&#41;</span>
-            customField <span class="sy0">=</span> Group<span class="br0">&#40;</span> pGroup + delim + pName + delim + pDatatype + delim + pValue <span class="br0">&#41;</span><span class="br0">&#40;</span> <span class="kw2">self</span>.<span class="me1">NAME</span>.<span class="me1">CUSTOMFIELD</span> <span class="br0">&#41;</span>
-            text <span class="sy0">=</span> <span class="kw2">self</span>.<span class="me1">buildCustomFieldString</span><span class="br0">&#40;</span> group<span class="sy0">,</span> name<span class="sy0">,</span> datatype<span class="sy0">,</span> value <span class="br0">&#41;</span>
-            <span class="kw1">if</span> <span class="kw2">self</span>.<span class="me1">NAME</span>.<span class="me1">CUSTOMFIELDS</span> <span class="kw1">in</span> <span class="kw3">token</span>:
-                <span class="kw3">token</span><span class="br0">&#91;</span><span class="kw2">self</span>.<span class="me1">NAME</span>.<span class="me1">CUSTOMFIELDS</span><span class="br0">&#93;</span> +<span class="sy0">=</span> customField.<span class="me1">parseString</span><span class="br0">&#40;</span> text <span class="br0">&#41;</span>
-            <span class="kw1">else</span> :
-                <span class="kw3">token</span> +<span class="sy0">=</span> Group<span class="br0">&#40;</span> customField <span class="br0">&#41;</span><span class="br0">&#40;</span> <span class="kw2">self</span>.<span class="me1">NAME</span>.<span class="me1">CUSTOMFIELDS</span> <span class="br0">&#41;</span>.<span class="me1">parseString</span><span class="br0">&#40;</span> text <span class="br0">&#41;</span>
+            '''
+            pGroup = Word( alphanums )( self.NAME.CFGROUP )
+            pName = Word( alphanums )( self.NAME.CFNAME )
+            pDatatype = Word( alphanums )( self.NAME.CFDATATYPE )
+            pValue = Word( alphanums )( self.NAME.CFVAULE )
+            delim = Suppress( '|' )
+            customField = Group( pGroup + delim + pName + delim + pDatatype + delim + pValue )( self.NAME.CUSTOMFIELD )
+            text = self.buildCustomFieldString( group, name, datatype, value )
+            if self.NAME.CUSTOMFIELDS in token:
+                token[self.NAME.CUSTOMFIELDS] += customField.parseString( text )
+            else :
+                token += Group( customField )( self.NAME.CUSTOMFIELDS ).parseString( text )
 
 
 
@@ -1034,16 +1043,16 @@ Here is patch with simplest solution:
 
     Index: src/pyparsing_py3.py
     ===================================================================
-    <span class="re3">--- src/pyparsing_py3.py    <span class="br0">&#40;</span>revision 216<span class="br0">&#41;</span></span>
-    <span class="re4">+++ src/pyparsing_py3.py    <span class="br0">&#40;</span>working copy<span class="br0">&#41;</span></span>
-    <span class="re6">@@ -568,7 +568,7 @@</span>
+    --- src/pyparsing_py3.py    (revision 216)
+    +++ src/pyparsing_py3.py    (working copy)
+    @@ -568,7 +568,7 @@
                  self.__parent = None
     
-         def __dir__<span class="br0">&#40;</span>self<span class="br0">&#41;</span>:
-    <span class="re7">-        return dir<span class="br0">&#40;</span>super<span class="br0">&#40;</span>ParseResults,self<span class="br0">&#41;</span><span class="br0">&#41;</span> + self.keys<span class="br0">&#40;</span><span class="br0">&#41;</span></span>
-    <span class="re8">+        return dir<span class="br0">&#40;</span>super<span class="br0">&#40;</span>ParseResults,self<span class="br0">&#41;</span><span class="br0">&#41;</span> + list<span class="br0">&#40;</span>self.keys<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></span>
+         def __dir__(self):
+    -        return dir(super(ParseResults,self)) + self.keys()
+    +        return dir(super(ParseResults,self)) + list(self.keys())
     
-     collections.MutableMapping.register<span class="br0">&#40;</span>ParseResults<span class="br0">&#41;</span>
+     collections.MutableMapping.register(ParseResults)
     
 
 
@@ -1051,8 +1060,8 @@ That will work but its not thread-safe.
 Thread-safe version would be:
 
 
-    <span class="kw1">def</span> __dir__<span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
-        <span class="kw1">return</span> <span class="kw2">dir</span><span class="br0">&#40;</span><span class="kw2">super</span><span class="br0">&#40;</span>ParseResults<span class="sy0">,</span><span class="kw2">self</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + <span class="kw2">list</span><span class="br0">&#40;</span><span class="kw2">self</span>.<span class="me1">keys</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    def __dir__(self):
+        return dir(super(ParseResults,self)) + list(self.keys())
 
 
 I have noticed this issue when using pydev's debbuger:)
@@ -1068,8 +1077,8 @@ Yep no difference there(copy/paste bug;)), it should be:
 
 
 
-    <span class="kw1">def</span> __dir__<span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
-            <span class="kw1">return</span> <span class="kw2">dir</span><span class="br0">&#40;</span><span class="kw2">super</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + <span class="kw2">list</span><span class="br0">&#40;</span><span class="kw2">self</span>.<span class="kw3">copy</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">keys</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
+    def __dir__(self):
+            return dir(super()) + list(self.copy().keys() )
 
 
 I have noticed that there already is bug for it:
@@ -1244,7 +1253,7 @@ but this did not solve the problem
 I do not know the reason
 thanks very much
 #### 2012-05-10 18:57:05 - Mike01915
-Just found this post, it’s very useful. I’d written a method to parse function argument lists that contain nested calls to functions that might also contain a list of arguments. For example the following argument string:
+Just found this post, itï¿½s very useful. Iï¿½d written a method to parse function argument lists that contain nested calls to functions that might also contain a list of arguments. For example the following argument string:
 
 'A1*atan2( A2, A3), power( 10, A4), ( B1 + B2 )/C10'
 
@@ -1421,23 +1430,23 @@ Here's the code I'm having trouble with:
 
 
 
-    primary <span class="sy0">\<\<</span> <span class="br0">&#40;</span>
+    primary \<\< (
         atom 
-        | attributeref  <span class="co1"># If I comment this line, everything is fine</span>
-    <span class="br0">&#41;</span> 
-    attributeref <span class="sy0">\<\<</span> <span class="br0">&#40;</span>primary + DOT + IDENTIFIER<span class="br0">&#41;</span>
-    pow_expr <span class="sy0">\<\<</span> <span class="br0">&#40;</span>primary + Optional<span class="br0">&#40;</span>POW_OP + unary_expr<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="co1">#</span>
-    <span class="co1"># Many other expressions defined</span>
-    <span class="co1">#</span>
-    expr <span class="sy0">\<\<</span> conditional_expr  <span class="co1"># This expression will eventually try to parse a 'pow_expr'  and consequently a 'primary', just like defined in python docs</span>
+        | attributeref  # If I comment this line, everything is fine
+    ) 
+    attributeref \<\< (primary + DOT + IDENTIFIER)
+    pow_expr \<\< (primary + Optional(POW_OP + unary_expr))
+    #
+    # Many other expressions defined
+    #
+    expr \<\< conditional_expr  # This expression will eventually try to parse a 'pow_expr'  and consequently a 'primary', just like defined in python docs
 
 
 The string I'm trying to parse is simple as this
 
 
 
-    <span class="st0">'somevar.someattr'</span>
+    'somevar.someattr'
 
 
 In other words, I'm trying to parse an attribute access. The problem is that when I call expr.parseString('somevar.someattr', parseAll=True), it will sucessfully parse 'somevar' as an identifier, but it will fail since there's a leading '.' (DOT). If I turn off the parseAll flag it will only parse 'somevar' which is not what I want.
@@ -1447,7 +1456,7 @@ If I swap 'atom' and 'attributeref' in the 'primary' definition(so it will try t
 
 
 
-    primary <span class="sy0">\<\<</span> <span class="br0">&#40;</span>atom + <span class="sy0">~</span>DOT | attributeref<span class="br0">&#41;</span>
+    primary \<\< (atom + ~DOT | attributeref)
 
 
 But this will also fall into infinite recursion since it will keep trying to match the 'attributeref' when it meets the 'DOT' token.
@@ -1799,29 +1808,29 @@ I managed to evaluate if a formula is well formed or not so far:
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
-    <span class="kw1">from</span> <span class="kw3">string</span> <span class="kw1">import</span> lowercase
+    from pyparsing import *
+    from string import lowercase
     
-    <span class="kw1">def</span> fbf<span class="br0">&#40;</span><span class="br0">&#41;</span>:
+    def fbf():
     
-        atom <span class="sy0">=</span> Word<span class="br0">&#40;</span>lowercase<span class="sy0">,</span> <span class="kw2">max</span><span class="sy0">=</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="co1">#alphabet</span>
-        op <span class="sy0">=</span> oneOf<span class="br0">&#40;</span><span class="st0">'^ V =\> \<=\>'</span><span class="br0">&#41;</span> <span class="co1">#Operators</span>
-        identOp <span class="sy0">=</span> oneOf<span class="br0">&#40;</span><span class="st0">'( [ {'</span><span class="br0">&#41;</span>
-        identCl <span class="sy0">=</span> oneOf<span class="br0">&#40;</span><span class="st0">') ] }'</span><span class="br0">&#41;</span>
-        form <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span> 
-        <span class="co1">#Grammar</span>
-        form <span class="sy0">\<\<</span> <span class="br0">&#40;</span> <span class="br0">&#40;</span>Group<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span><span class="st0">'~'</span><span class="br0">&#41;</span> + form<span class="br0">&#41;</span><span class="br0">&#41;</span> | <span class="br0">&#40;</span> Group<span class="br0">&#40;</span>identOp + form + op + form + identCl<span class="br0">&#41;</span> <span class="br0">&#41;</span> | <span class="br0">&#40;</span> Group<span class="br0">&#40;</span>identOp + form + identCl<span class="br0">&#41;</span> <span class="br0">&#41;</span> | <span class="br0">&#40;</span>atom<span class="br0">&#41;</span> <span class="br0">&#41;</span>
+        atom = Word(lowercase, max=1) #alphabet
+        op = oneOf('^ V =\> \<=\>') #Operators
+        identOp = oneOf('( [ {')
+        identCl = oneOf(') ] }')
+        form = Forward() 
+        #Grammar
+        form \<\< ( (Group(Literal('~') + form)) | ( Group(identOp + form + op + form + identCl) ) | ( Group(identOp + form + identCl) ) | (atom) )
     
-        <span class="kw1">return</span> form
+        return form
     
-    <span class="co1">#Parsing</span>
-    entrada <span class="sy0">=</span> <span class="kw2">raw_input</span><span class="br0">&#40;</span><span class="st0">'Entrada: '</span><span class="br0">&#41;</span>
-    <span class="kw1">try</span>:
-        <span class="kw1">print</span> fbf<span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">parseString</span><span class="br0">&#40;</span>entrada<span class="sy0">,</span> parseAll<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>
-    <span class="kw1">except</span> ParseException <span class="kw1">as</span> error:
-        <span class="kw1">print</span> error.<span class="me1">markInputline</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-        <span class="kw1">print</span> error
-    <span class="kw1">print</span>
+    #Parsing
+    entrada = raw_input('Entrada: ')
+    try:
+        print fbf().parseString(entrada, parseAll=True)
+    except ParseException as error:
+        print error.markInputline()
+        print error
+    print
 
 
 Now I need to convert the negated forumla ~(form)  acording to the Monrgan's Law, The BNF of Morgan's Law its something like this:
@@ -2925,37 +2934,37 @@ I am new to python and writing a program to parse EDI files. I came across pypar
 
 
     
-    ISA<span class="sy0">*</span><span class="nu8">00</span><span class="sy0">*</span> <span class="sy0">*</span><span class="nu8">00</span><span class="sy0">*</span> <span class="sy0">*</span><span class="nu8">01</span><span class="sy0">*</span><span class="nu0">987654321</span> <span class="sy0">*</span><span class="nu8">01</span><span class="sy0">*</span><span class="nu0">123456789</span> <span class="sy0">*</span><span class="nu19">020917</span><span class="sy0">*</span><span class="nu19">0913</span><span class="sy0">*</span>U<span class="sy0">*</span><span class="nu8">00400</span><span class="sy0">*</span><span class="nu19">000000901</span><span class="sy0">*</span><span class="nu0">0</span><span class="sy0">*</span>P<span class="sy0">*\>@</span> 
-    GS<span class="sy0">*</span>SH<span class="sy0">*</span><span class="nu0">987654321</span><span class="sy0">*</span><span class="nu0">123456789</span><span class="sy0">*</span><span class="nu0">20020917</span><span class="sy0">*</span><span class="nu19">0913</span><span class="sy0">*</span><span class="nu0">965</span><span class="sy0">*</span>X<span class="sy0">*</span><span class="nu8">004010</span><span class="sy0">@</span>
-    ST<span class="sy0">*</span><span class="nu0">856</span><span class="sy0">*</span><span class="nu8">0001</span><span class="sy0">@</span>
-    BSN<span class="sy0">*</span><span class="nu8">00</span><span class="sy0">*</span><span class="nu0">260784</span><span class="sy0">*</span><span class="nu0">20020917</span><span class="sy0">*</span><span class="nu19">0913</span><span class="sy0">@</span>
-    DTM<span class="sy0">*</span><span class="nu8">011</span><span class="sy0">*</span><span class="nu0">20020917</span><span class="sy0">*</span><span class="nu19">0913</span><span class="sy0">*@</span>
-    HL<span class="sy0">*</span><span class="nu8">01</span><span class="sy0">**</span>S<span class="sy0">@</span>
-    MEA<span class="sy0">*</span>PD<span class="sy0">*</span>G<span class="sy0">*</span><span class="nu0">355</span><span class="sy0">*</span>LB<span class="sy0">@</span>
-    TD1<span class="sy0">*</span>CTN90<span class="sy0">*</span><span class="nu0">3</span><span class="sy0">@</span>
-    TD5<span class="sy0">*</span>B<span class="sy0">*</span><span class="nu0">2</span><span class="sy0">*</span>RDWY<span class="sy0">*</span>LT<span class="sy0">****@</span> 
-    TD3<span class="sy0">*</span>TL<span class="sy0">*</span>RDWY<span class="sy0">*</span><span class="nu0">1234567890</span><span class="sy0">@</span>
-    REF<span class="sy0">*</span>BM<span class="sy0">*</span><span class="nu0">260784</span><span class="sy0">@</span>
-    N1<span class="sy0">*</span>MI<span class="sy0">**</span><span class="nu8">01</span><span class="sy0">*</span><span class="nu0">987654321</span><span class="sy0">@</span>
-    N1<span class="sy0">*</span>SU<span class="sy0">**</span><span class="nu8">01</span><span class="sy0">*</span><span class="nu0">123456789</span><span class="sy0">@</span>
-    N1<span class="sy0">*</span>ST<span class="sy0">**</span><span class="nu8">01</span><span class="sy0">*</span><span class="nu0">987654321</span><span class="sy0">@</span>
-    HL<span class="sy0">*</span><span class="nu8">02</span><span class="sy0">*</span><span class="nu8">01</span><span class="sy0">*</span>O<span class="sy0">@</span> 
-    LIN<span class="sy0">**</span>BP<span class="sy0">*</span>PARTNUMBER1<span class="sy0">*</span>PO<span class="sy0">*</span>P012345<span class="sy0">*</span>RE<span class="sy0">*</span><span class="nu8">001</span><span class="sy0">@</span> SN1<span class="sy0">**</span><span class="nu0">40</span><span class="sy0">*</span>PC<span class="sy0">*</span><span class="nu0">1084</span><span class="sy0">@</span>     <span class="co1">//Block 1</span>
-    HL<span class="sy0">*</span><span class="nu8">03</span><span class="sy0">*</span><span class="nu8">02</span><span class="sy0">*</span>I<span class="sy0">@</span>
-    REF<span class="sy0">*</span>DK<span class="sy0">*</span>DOCKA<span class="sy0">@</span>
-    CLD<span class="sy0">*</span><span class="nu0">1</span><span class="sy0">*</span><span class="nu0">40</span><span class="sy0">*</span>CTN90<span class="sy0">@</span>
-    REF<span class="sy0">*</span>LS<span class="sy0">*</span>S562896<span class="sy0">@</span>
-    HL<span class="sy0">*</span><span class="nu8">04</span><span class="sy0">*</span><span class="nu8">01</span><span class="sy0">*</span>O<span class="sy0">@</span> 
-    LIN<span class="sy0">**</span>BP<span class="sy0">*</span>PARTNUMBER2<span class="sy0">*</span>PO<span class="sy0">*</span>P012316<span class="sy0">*</span>RE<span class="sy0">*</span><span class="nu8">004</span><span class="sy0">@</span>  <span class="co1">//Block 2</span>
-    SN1<span class="sy0">**</span><span class="nu0">100</span><span class="sy0">*</span>PC<span class="sy0">*</span><span class="nu0">32400</span><span class="sy0">@</span>
-    HL<span class="sy0">*</span><span class="nu8">05</span><span class="sy0">*</span><span class="nu8">04</span><span class="sy0">*</span>I<span class="sy0">@</span> 
-    REF<span class="sy0">*</span>DK<span class="sy0">*</span>DOCKB<span class="sy0">@</span> 
-    CLD<span class="sy0">*</span><span class="nu0">2</span><span class="sy0">*</span><span class="nu0">50</span><span class="sy0">*</span>CTN90<span class="sy0">@</span> 
-    REF<span class="sy0">*</span>LS<span class="sy0">*</span>S562897<span class="sy0">@</span> 
-    REF<span class="sy0">*</span>LS<span class="sy0">*</span>S562898<span class="sy0">@</span> 
-    CTT<span class="sy0">*</span><span class="nu0">2</span><span class="sy0">@</span> SE<span class="sy0">*</span><span class="nu0">29</span><span class="sy0">*</span><span class="nu8">0001</span><span class="sy0">@</span> 
-    GE<span class="sy0">*</span><span class="nu0">1</span><span class="sy0">*</span><span class="nu0">965</span><span class="sy0">@</span> 
-    IEA<span class="sy0">*</span><span class="nu0">1</span><span class="sy0">*</span><span class="nu19">000000901</span><span class="sy0">@</span>
+    ISA*00* *00* *01*987654321 *01*123456789 *020917*0913*U*00400*000000901*0*P*\>@ 
+    GS*SH*987654321*123456789*20020917*0913*965*X*004010@
+    ST*856*0001@
+    BSN*00*260784*20020917*0913@
+    DTM*011*20020917*0913*@
+    HL*01**S@
+    MEA*PD*G*355*LB@
+    TD1*CTN90*3@
+    TD5*B*2*RDWY*LT****@ 
+    TD3*TL*RDWY*1234567890@
+    REF*BM*260784@
+    N1*MI**01*987654321@
+    N1*SU**01*123456789@
+    N1*ST**01*987654321@
+    HL*02*01*O@ 
+    LIN**BP*PARTNUMBER1*PO*P012345*RE*001@ SN1**40*PC*1084@     //Block 1
+    HL*03*02*I@
+    REF*DK*DOCKA@
+    CLD*1*40*CTN90@
+    REF*LS*S562896@
+    HL*04*01*O@ 
+    LIN**BP*PARTNUMBER2*PO*P012316*RE*004@  //Block 2
+    SN1**100*PC*32400@
+    HL*05*04*I@ 
+    REF*DK*DOCKB@ 
+    CLD*2*50*CTN90@ 
+    REF*LS*S562897@ 
+    REF*LS*S562898@ 
+    CTT*2@ SE*29*0001@ 
+    GE*1*965@ 
+    IEA*1*000000901@
     
 
 
@@ -3107,22 +3116,22 @@ The code below shows two ways to do this:
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> Group<span class="sy0">,</span> ZeroOrMore<span class="sy0">,</span> Word<span class="sy0">,</span> nums<span class="sy0">,</span> ParseResults
+    from pyparsing import Group, ZeroOrMore, Word, nums, ParseResults
     
-    <span class="kw1">def</span> changeNum1 <span class="br0">&#40;</span>res<span class="br0">&#41;</span>:
-        res<span class="br0">&#91;</span><span class="nu0">8</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="nu0">456</span>      <span class="co1"># how to know that the number is at position 8?</span>
-        <span class="kw1">print</span> <span class="st0">'dict:'</span><span class="sy0">,</span> res.<span class="me1">number</span><span class="sy0">,</span> <span class="st0">'list:'</span><span class="sy0">,</span> res<span class="br0">&#91;</span><span class="nu0">8</span><span class="br0">&#93;</span><span class="sy0">,</span>
+    def changeNum1 (res):
+        res[8] = 456      # how to know that the number is at position 8?
+        print 'dict:', res.number, 'list:', res[8],
     
-    <span class="kw1">def</span> changeNum2 <span class="br0">&#40;</span>res<span class="br0">&#41;</span>: <span class="co1"># this does *not* change the returned parse result</span>
-        res.<span class="me1">number</span> <span class="sy0">=</span> <span class="nu0">456</span>
-        <span class="kw1">print</span> <span class="st0">'dict:'</span><span class="sy0">,</span> res.<span class="me1">number</span><span class="sy0">,</span> <span class="st0">'list:'</span><span class="sy0">,</span> res<span class="br0">&#91;</span><span class="nu0">8</span><span class="br0">&#93;</span><span class="sy0">,</span>
+    def changeNum2 (res): # this does *not* change the returned parse result
+        res.number = 456
+        print 'dict:', res.number, 'list:', res[8],
     
-    exp <span class="sy0">=</span> ZeroOrMore <span class="br0">&#40;</span><span class="st0">'x'</span><span class="br0">&#41;</span> + Word <span class="br0">&#40;</span>nums<span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'number'</span><span class="br0">&#41;</span> + ZeroOrMore <span class="br0">&#40;</span><span class="st0">'x'</span><span class="br0">&#41;</span>
-    exp1 <span class="sy0">=</span> exp.<span class="kw3">copy</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span> <span class="br0">&#40;</span>changeNum1<span class="br0">&#41;</span>
-    exp2 <span class="sy0">=</span> exp.<span class="kw3">copy</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span> <span class="br0">&#40;</span>changeNum2<span class="br0">&#41;</span>
+    exp = ZeroOrMore ('x') + Word (nums)('number') + ZeroOrMore ('x')
+    exp1 = exp.copy().setParseAction (changeNum1)
+    exp2 = exp.copy().setParseAction (changeNum2)
     
-    <span class="kw1">print</span> <span class="st0">'--\> '</span> + exp1.<span class="me1">transformString</span> <span class="br0">&#40;</span><span class="st0">'xxxxxxxx123xxx'</span><span class="br0">&#41;</span>
-    <span class="kw1">print</span> <span class="st0">'--\> '</span> + exp2.<span class="me1">transformString</span> <span class="br0">&#40;</span><span class="st0">'xxxxxxxx123xxx'</span><span class="br0">&#41;</span>
+    print '--\> ' + exp1.transformString ('xxxxxxxx123xxx')
+    print '--\> ' + exp2.transformString ('xxxxxxxx123xxx')
 
 
 This example produces the following output:
@@ -3183,7 +3192,7 @@ I am not sure if searchString can do it or not now...
 
 
 
-    sample <span class="sy0">=</span> r<span class="st0">'''changeset:  2916:cbeb5f68b46b725ebeb0192e4b6852db6c9bd6f3
+    sample = r'''changeset:  2916:cbeb5f68b46b725ebeb0192e4b6852db6c9bd6f3
     parent:      2914:ab2526b29654115d3327c4ae31243e019f4739c5
     parent:      -1:0000000000000000000000000000000000000000
     description:
@@ -3193,29 +3202,29 @@ I am not sure if searchString can do it or not now...
     changeset:   2915:b21b281f5bf00350823aadd64730efb18f62150f
     ... another record ...
     
-    '''</span>
-    SkipToNextRecord <span class="sy0">=</span> SkipTo<span class="br0">&#40;</span> <span class="st0">'changeset:'</span><span class="sy0">,</span> include<span class="sy0">=</span><span class="kw2">False</span> <span class="br0">&#41;</span>
-    SkipToKey <span class="sy0">=</span> SkipTo<span class="br0">&#40;</span> Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span><span class="sy0">,</span> include<span class="sy0">=</span><span class="kw2">False</span> <span class="br0">&#41;</span>
-    cset <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'revId'</span><span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span><span class="st0">':'</span><span class="br0">&#41;</span> + Word<span class="br0">&#40;</span>alphanums<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'rev'</span><span class="br0">&#41;</span>
-    changesetStmt <span class="sy0">=</span> Group<span class="br0">&#40;</span> <span class="st0">'changeset:'</span> + cset<span class="br0">&#40;</span><span class="st0">'changeset_group'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> + SkipToKey
-    parCset <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'revId'</span><span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span><span class="st0">':'</span><span class="br0">&#41;</span> + Word<span class="br0">&#40;</span>alphanums<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'rev'</span><span class="br0">&#41;</span>
-    parCsetStmt <span class="sy0">=</span> Group<span class="br0">&#40;</span> <span class="st0">'parent:'</span> + cset<span class="br0">&#40;</span><span class="st0">'pcs_group'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> + SkipToKey
-    pcs2cset <span class="sy0">=</span> ZeroOrMore<span class="br0">&#40;</span><span class="st0">'-'</span><span class="br0">&#41;</span> + Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'revId'</span><span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span><span class="st0">':'</span><span class="br0">&#41;</span> + Word<span class="br0">&#40;</span>alphanums<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'rev'</span><span class="br0">&#41;</span>
-    par2CsetStmt <span class="sy0">=</span> Group<span class="br0">&#40;</span> <span class="st0">'parent:'</span> + pcs2cset<span class="br0">&#40;</span><span class="st0">'pcs2_group'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> + SkipToKey
-    changesetLine <span class="sy0">=</span> <span class="st0">'changeset:'</span> + SkipTo<span class="br0">&#40;</span> Literal<span class="br0">&#40;</span><span class="st0">'<span class="es0">\n</span>'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
+    '''
+    SkipToNextRecord = SkipTo( 'changeset:', include=False )
+    SkipToKey = SkipTo( Word(alphas), include=False )
+    cset = Word(nums).setResultsName('revId') + Suppress(':') + Word(alphanums).setResultsName('rev')
+    changesetStmt = Group( 'changeset:' + cset('changeset_group') ) + SkipToKey
+    parCset = Word(nums).setResultsName('revId') + Suppress(':') + Word(alphanums).setResultsName('rev')
+    parCsetStmt = Group( 'parent:' + cset('pcs_group') ) + SkipToKey
+    pcs2cset = ZeroOrMore('-') + Word(nums).setResultsName('revId') + Suppress(':') + Word(alphanums).setResultsName('rev')
+    par2CsetStmt = Group( 'parent:' + pcs2cset('pcs2_group') ) + SkipToKey
+    changesetLine = 'changeset:' + SkipTo( Literal('\n').suppress() )
     
-    descLine <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphanums<span class="br0">&#41;</span>
-    descrDef <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span> <span class="sy0">~</span>changesetLine <span class="br0">&#41;</span>
-    descrStmt <span class="sy0">=</span> Group<span class="br0">&#40;</span> <span class="st0">'description:'</span> +  descrDef<span class="br0">&#40;</span><span class="st0">'DESCR'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span> + changesetLine
-    changesetDef <span class="sy0">=</span> Dict<span class="br0">&#40;</span>   changesetStmt 
-                         + ZeroOrMore<span class="br0">&#40;</span>parCsetStmt<span class="br0">&#41;</span>
-                         + ZeroOrMore<span class="br0">&#40;</span>par2CsetStmt<span class="br0">&#41;</span>
-                         + ZeroOrMore<span class="br0">&#40;</span>descrStmt<span class="br0">&#41;</span>.<span class="me1">setDebug</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-                        <span class="br0">&#41;</span> + SkipToNextRecord
+    descLine = Word(alphanums)
+    descrDef = OneOrMore( ~changesetLine )
+    descrStmt = Group( 'description:' +  descrDef('DESCR') ) + changesetLine
+    changesetDef = Dict(   changesetStmt 
+                         + ZeroOrMore(parCsetStmt)
+                         + ZeroOrMore(par2CsetStmt)
+                         + ZeroOrMore(descrStmt).setDebug()
+                        ) + SkipToNextRecord
     
-    <span class="kw1">for</span> csetDict <span class="kw1">in</span> changesetDef.<span class="me1">searchString</span><span class="br0">&#40;</span>sample<span class="br0">&#41;</span>:
-        <span class="kw1">print</span> csetDict.<span class="me1">dump</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-        <span class="kw1">print</span>  <span class="st0">'-'</span> * <span class="nu0">8</span>
+    for csetDict in changesetDef.searchString(sample):
+        print csetDict.dump()
+        print  '-' * 8
     
 
 
@@ -3766,20 +3775,20 @@ I want to add 2 parse actions to an element. Adding two functions in one call of
 
 
 
-    <span class="kw1">import</span> pyparsing <span class="kw1">as</span> PYP
+    import pyparsing as PYP
     
-    <span class="kw1">def</span> one<span class="br0">&#40;</span><span class="br0">&#41;</span>:
-        <span class="kw1">print</span> <span class="st0">'one'</span><span class="sy0">,</span>
+    def one():
+        print 'one',
     
-    <span class="kw1">def</span> two<span class="br0">&#40;</span><span class="br0">&#41;</span>:
-        <span class="kw1">print</span> <span class="st0">'two'</span><span class="sy0">,</span>
+    def two():
+        print 'two',
     
-    atom <span class="sy0">=</span> PYP.<span class="me1">Word</span><span class="br0">&#40;</span>PYP.<span class="me1">alphas</span><span class="sy0">,</span> PYP.<span class="me1">alphanums</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span>
-    atom.<span class="me1">setParseAction</span><span class="br0">&#40;</span>one<span class="br0">&#41;</span>
-    atom.<span class="me1">setParseAction</span><span class="br0">&#40;</span>two<span class="br0">&#41;</span>
-    <span class="kw3">test</span> <span class="sy0">=</span> PYP.<span class="me1">delimitedList</span><span class="br0">&#40;</span>atom<span class="br0">&#41;</span>
-    s <span class="sy0">=</span> <span class="st0">'ji2n, d292, o33, ok3'</span>
-    <span class="kw3">test</span>.<span class="me1">parseString</span><span class="br0">&#40;</span>s<span class="br0">&#41;</span>
+    atom = PYP.Word(PYP.alphas, PYP.alphanums, 1)
+    atom.setParseAction(one)
+    atom.setParseAction(two)
+    test = PYP.delimitedList(atom)
+    s = 'ji2n, d292, o33, ok3'
+    test.parseString(s)
 
 returns
 
@@ -3871,17 +3880,17 @@ For example:
 
 
 
-    <span class="kw1">import</span> pyparsing <span class="kw1">as</span> PYP
+    import pyparsing as PYP
     
-    And <span class="sy0">=</span> PYP.<span class="me1">CaselessKeyword</span><span class="br0">&#40;</span><span class="st0">'and'</span><span class="br0">&#41;</span>
-    Not <span class="sy0">=</span> PYP.<span class="me1">CaselessKeyword</span><span class="br0">&#40;</span><span class="st0">'not'</span><span class="br0">&#41;</span>
-    Or <span class="sy0">=</span> PYP.<span class="me1">CaselessKeyword</span><span class="br0">&#40;</span><span class="st0">'or'</span><span class="br0">&#41;</span>
-    Expression <span class="sy0">=</span> PYP.<span class="me1">operatorPrecedence</span><span class="br0">&#40;</span>PYP.<span class="me1">Literal</span><span class="br0">&#40;</span><span class="st0">'a'</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="br0">&#40;</span>Not<span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> PYP.<span class="me1">opAssoc</span>.<span class="me1">RIGHT</span><span class="br0">&#41;</span><span class="sy0">,</span>
-                                                           <span class="br0">&#40;</span>And<span class="sy0">,</span>  <span class="nu0">2</span><span class="sy0">,</span> PYP.<span class="me1">opAssoc</span>.<span class="me1">LEFT</span><span class="br0">&#41;</span><span class="sy0">,</span>
-                                                           <span class="br0">&#40;</span>Or<span class="sy0">,</span> <span class="nu0">2</span><span class="sy0">,</span> PYP.<span class="me1">opAssoc</span>.<span class="me1">LEFT</span><span class="br0">&#41;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+    And = PYP.CaselessKeyword('and')
+    Not = PYP.CaselessKeyword('not')
+    Or = PYP.CaselessKeyword('or')
+    Expression = PYP.operatorPrecedence(PYP.Literal('a'), [(Not, 1, PYP.opAssoc.RIGHT),
+                                                           (And,  2, PYP.opAssoc.LEFT),
+                                                           (Or, 2, PYP.opAssoc.LEFT)])
     
-    <span class="kw1">print</span> Expression.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'a or a and a'</span><span class="br0">&#41;</span>.<span class="me1">asList</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    <span class="kw1">print</span> Expression.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'a'</span><span class="br0">&#41;</span>.<span class="me1">asList</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    print Expression.parseString('a or a and a').asList()
+    print Expression.parseString('a').asList()
 
 
 returns
@@ -3905,7 +3914,7 @@ My question is: <em>Is this difference intended, and if so what is the advantage
 A quick fix in my grammar would of course be
 
 
-    FixedExpression <span class="sy0">=</span> PYP.<span class="me1">Group</span><span class="br0">&#40;</span>PYP.<span class="me1">Literal</span><span class="br0">&#40;</span><span class="st0">'a'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> ^ Expression
+    FixedExpression = PYP.Group(PYP.Literal('a')) ^ Expression
 
 
 Thanks for any info,
@@ -5033,7 +5042,7 @@ You should also be able to install pyparsing using easy_install. Or just downloa
 
 ---
 ## 2012-10-26 11:46:25 - dlwatey - Handling special Characters
-My input stream has several special characters '\000', '©', etc.  The parser stops and emits an error whenever these characters are encountered.  How can I tell the parser to simply ignore them?
+My input stream has several special characters '\000', 'ï¿½', etc.  The parser stops and emits an error whenever these characters are encountered.  How can I tell the parser to simply ignore them?
 
 
 ---
@@ -5062,7 +5071,7 @@ Here is an example of my test harness including sample input:
     LControversy: (n/a)
     Drafter: Brittenham, J.A.
     Turnaround: 24 Hours
-    CopyrightNoticeFirstLine: Copyright © 1996 – 2012, Ernst & Young LLP.
+    CopyrightNoticeFirstLine: Copyright ï¿½ 1996 ï¿½ 2012, Ernst & Young LLP.
     CopyrightNotice: All rights reserved. No part of this document may be reproduced, retransmitted or otherwise redistributed in any form or by any means, electronic or mechanical, including by photocopying, facsimile transmission, recording, rekeying, or using any information storage and retrieval system, without written permission from Ernst & Young LLP.
     DocAuthor: CN=Darryl Hudson/OU=ESS/O=EYLLP/C=US
     DocComposed: 10/23/2012 05:10:52 PM
@@ -5106,7 +5115,7 @@ Here is an example of my test harness including sample input:
     
     
     Personal Financial Services
-    • Kim McFarlane
+    ï¿½ Kim McFarlane
     (330) 255-5247
     
     
@@ -5169,7 +5178,7 @@ here is the corresponding output:
     -----| LControversy :  (n/a)
     -----| Drafter :  Brittenham, J.A.
     -----| Turnaround :  24 Hours
-    -----| CopyrightNoticeFirstLine :  Copyright © 1996 – 2012, Ernst & Young LLP.
+    -----| CopyrightNoticeFirstLine :  Copyright ï¿½ 1996 ï¿½ 2012, Ernst & Young LLP.
     -----| CopyrightNotice :  All rights reserved. No part of this document may be reproduced, retransmitted or otherwise redistributed in any form or by any means, electronic or mechanical, including by photocopying, facsimile transmission, recording, rekeying, or using any information storage and retrieval system, without written permission from Ernst & Young LLP.
     -----| DocAuthor :  CN=Darryl Hudson/OU=ESS/O=EYLLP/C=US
     -----| DocComposed :  10/23/2012 05:10:52 PM
@@ -5596,7 +5605,7 @@ etc.
 
 Thanks for any suggestions.
 
-Chahé
+Chahï¿½
 
 #### 2012-11-22 09:32:58 - cadourian
 Follow up on the question above,
@@ -6519,14 +6528,14 @@ The reason I ask is because I can get false positives using the above rules by a
 
 ---
 ## 2012-12-10 15:58:57 - rogersanchez75 - Further DSL and function parsing development
-I’ve been working on building out my DSL with pyparsing and have made excellent progress. My first milestone was to evaluate expressions that contain arithmetic operators, database field references and a set of functions (Avg, Stdev, etc). In addition, I implemented assignment of expressions to variables so as to be able to build up complex expressions in a modular way. So far so good.
+Iï¿½ve been working on building out my DSL with pyparsing and have made excellent progress. My first milestone was to evaluate expressions that contain arithmetic operators, database field references and a set of functions (Avg, Stdev, etc). In addition, I implemented assignment of expressions to variables so as to be able to build up complex expressions in a modular way. So far so good.
 
-I have now hit my next major snag when trying to calculation functions on variables as arguments. Specifically, my database references (which is the building block on which calcs are performed) requires specifiying a Person as a dimension of the query. I don’t know the best way to force re-evaluation of the expressions assigned to these variables when they are contained within a function. Specific example that has problems:
+I have now hit my next major snag when trying to calculation functions on variables as arguments. Specifically, my database references (which is the building block on which calcs are performed) requires specifiying a Person as a dimension of the query. I donï¿½t know the best way to force re-evaluation of the expressions assigned to these variables when they are contained within a function. Specific example that has problems:
 
 CustomAvg = Avg[Height] + Avg[Weight]
 Avg[CustomAvg]
 
-In these scenarios, I have a list of People that I iterate over to calculate the components of CustomAvg. However, when I evaluate Avg[CustomAvg] the value of CustomAvg is coming from my variable lookup dict rather than being evaluated, so effectively I am iterating over a constant value. What is the best way to introduce ‘awareness’ in my  evaluation so that the variables used as arguments within a function a re-evaluated rather than sourced from the lookup table? Here is streamlined relevant code:
+In these scenarios, I have a list of People that I iterate over to calculate the components of CustomAvg. However, when I evaluate Avg[CustomAvg] the value of CustomAvg is coming from my variable lookup dict rather than being evaluated, so effectively I am iterating over a constant value. What is the best way to introduce ï¿½awarenessï¿½ in my  evaluation so that the variables used as arguments within a function a re-evaluated rather than sourced from the lookup table? Here is streamlined relevant code:
 
 
 
@@ -6617,7 +6626,7 @@ In these scenarios, I have a list of People that I iterate over to calculate the
             (plusop, 2, opAssoc.LEFT, EvalAddOp),
            ])
     
-        EvalDBref.person_ = ‘John Smith’
+        EvalDBref.person_ = ï¿½John Smithï¿½
     
         ret = (assign | expr).parseString(line)[0]
 

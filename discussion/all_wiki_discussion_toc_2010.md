@@ -1,102 +1,111 @@
-[2010-01-01 00:28:06 - pgurumur - Parsing perl hash](.#2010-01-01-002806---pgurumur---parsing-perl-hash)  
-[2010-01-09 04:56:30 - alito - Traversing parsed results](.#2010-01-09-045630---alito---traversing-parsed-results)  
-[2010-01-10 01:03:30 - voltron8 - Algebraic expressions with nonstandard operations](.#2010-01-10-010330---voltron8---algebraic-expressions-with-nonstandard-operations)  
-[2010-01-11 11:48:28 - lcampagn - A new C parser](.#2010-01-11-114828---lcampagn---a-new-c-parser)  
-[2010-01-15 18:17:25 - hach-que - Arithmetic expression with functions](.#2010-01-15-181725---hach-que---arithmetic-expression-with-functions)  
-[2010-01-16 01:40:21 - hach-que - Speeding parsing up](.#2010-01-16-014021---hach-que---speeding-parsing-up)  
-[2010-01-17 04:59:52 - voltron8 - Variables and functions](.#2010-01-17-045952---voltron8---variables-and-functions)  
-[2010-01-20 00:09:40 - hach-que - Combining results](.#2010-01-20-000940---hach-que---combining-results)  
-[2010-01-21 07:36:32 - pmarichal - Can't parse my grammar, please help me](.#2010-01-21-073632---pmarichal---cant-parse-my-grammar-please-help-me)  
-[2010-01-22 16:02:08 - Hory - Stumped by recursive elements](.#2010-01-22-160208---hory---stumped-by-recursive-elements)  
-[2010-01-26 17:01:33 - filter5 - difficulty with nestedExpr](.#2010-01-26-170133---filter5---difficulty-with-nestedexpr)  
-[2010-01-28 04:08:27 - blundeln - Extend pyparsing for bi-directional use](.#2010-01-28-040827---blundeln---extend-pyparsing-for-bi-directional-use)  
-[2010-01-30 11:08:45 - filter5 - dynamic xml tags?](.#2010-01-30-110845---filter5---dynamic-xml-tags)  
-[2010-02-01 08:40:38 - nemith - storing the original text along with nested parsed values](.#2010-02-01-084038---nemith---storing-the-original-text-along-with-nested-parsed-values)  
-[2010-02-12 02:50:51 - marjoj - Comparing different parser generators](.#2010-02-12-025051---marjoj---comparing-different-parser-generators)  
-[2010-02-16 11:01:43 - Skipix - Simple arithmetic grammar](.#2010-02-16-110143---skipix---simple-arithmetic-grammar)  
-[2010-02-22 02:46:38 - josandres - Logical operators problem](.#2010-02-22-024638---josandres---logical-operators-problem)  
-[2010-02-22 08:52:55 - john-l - Selectively disabling `ignoreExprs`](.#2010-02-22-085255---john-l---selectively-disabling-`ignoreexprs`)  
-[2010-03-02 02:54:05 - nerochiaro - How to improve error reporting ?](.#2010-03-02-025405---nerochiaro---how-to-improve-error-reporting-)  
-[2010-03-02 06:37:55 - dharanitharan - How to parse functions in C language](.#2010-03-02-063755---dharanitharan---how-to-parse-functions-in-c-language)  
-[2010-03-05 13:38:36 - bjornjobb - time expression parser](.#2010-03-05-133836---bjornjobb---time-expression-parser)  
-[2010-03-09 01:13:54 - josandres - Pyparsing quoted strings](.#2010-03-09-011354---josandres---pyparsing-quoted-strings)  
-[2010-03-16 22:59:40 - gobnat - Help understanding Expression subclasses and whitespace treatment](.#2010-03-16-225940---gobnat---help-understanding-expression-subclasses-and-whitespace-treatment)  
-[2010-03-17 01:15:48 - elekis - installing pyparsing on python 3.1](.#2010-03-17-011548---elekis---installing-pyparsing-on-python-31)  
-[2010-03-20 10:26:22 - Elby - Reading a table by columns](.#2010-03-20-102622---elby---reading-a-table-by-columns)  
-[2010-03-22 03:01:43 - josandres - Binary operators](.#2010-03-22-030143---josandres---binary-operators)  
-[2010-03-22 16:24:40 - tvn1981 - simple C Expression ](.#2010-03-22-162440---tvn1981---simple-c-expression-)  
-[2010-03-23 08:21:20 - lagpoi - paragraphs of text using SkipTo](.#2010-03-23-082120---lagpoi---paragraphs-of-text-using-skipto)  
-[2010-03-23 11:16:03 - shankarlingayya - pyparsing Optional](.#2010-03-23-111603---shankarlingayya---pyparsing-optional)  
-[2010-03-24 14:21:38 - tvn1981 - Recursive and operatorPrecedence question](.#2010-03-24-142138---tvn1981---recursive-and-operatorprecedence-question)  
-[2010-03-26 06:44:07 - elekis - typeerror :'in <string>' requires string as left operand, not int](.#2010-03-26-064407---elekis---typeerror-in-string-requires-string-as-left-operand-not-int)  
-[2010-03-27 10:35:28 - shankarlingayya - How to ignore the next line in pyarsing](.#2010-03-27-103528---shankarlingayya---how-to-ignore-the-next-line-in-pyarsing)  
-[2010-03-27 11:13:18 - shankarlingayya - How to skip the data between { and } in pyparsing](.#2010-03-27-111318---shankarlingayya---how-to-skip-the-data-between-{-and-}-in-pyparsing)  
-[2010-03-27 12:37:47 - Elby - Good usage of setWhitespaceChars](.#2010-03-27-123747---elby---good-usage-of-setwhitespacechars)  
-[2010-03-30 09:05:05 - mvilanova - Continue parsing after \r character](.#2010-03-30-090505---mvilanova---continue-parsing-after-\r-character)  
-[2010-04-01 14:44:24 - tvn1981 - delimitedList of one or two or three fields](.#2010-04-01-144424---tvn1981---delimitedlist-of-one-or-two-or-three-fields)  
-[2010-04-03 11:15:19 - breamoreboy - new regex module](.#2010-04-03-111519---breamoreboy---new-regex-module)  
-[2010-04-03 11:46:55 - tvn1981 - match everything between '('   ')'](.#2010-04-03-114655---tvn1981---match-everything-between----)  
-[2010-04-09 15:45:40 - edc - problem -- pyparsing results contains extra empty dictionaries (or braces)](.#2010-04-09-154540---edc---problem----pyparsing-results-contains-extra-empty-dictionaries-or-braces)  
-[2010-04-16 11:20:06 - JoshuaREnglish - The Time Parser Script](.#2010-04-16-112006---joshuarenglish---the-time-parser-script)  
-[2010-04-19 02:12:09 - decay_of_mind - How to parse a different type of SQL queries](.#2010-04-19-021209---decay_of_mind---how-to-parse-a-different-type-of-sql-queries)  
-[2010-05-03 03:04:18 - gareth8118 - Passing an object method to setParseAction?](.#2010-05-03-030418---gareth8118---passing-an-object-method-to-setparseaction)  
-[2010-05-03 04:22:51 - rgammans - (Easy_)Installing on windows....](.#2010-05-03-042251---rgammans---easy_installing-on-windows)  
-[2010-05-04 11:57:59 - gareth8118 - Unexpected list grouping of named result](.#2010-05-04-115759---gareth8118---unexpected-list-grouping-of-named-result)  
-[2010-05-04 13:13:00 - skuda - Getting original matched text](.#2010-05-04-131300---skuda---getting-original-matched-text)  
-[2010-05-04 22:10:07 - sakana280 - A faster (near-)substitute for operatorPrecedence()](.#2010-05-04-221007---sakana280---a-faster-near-substitute-for-operatorprecedence)  
-[2010-05-05 04:45:53 - Hory - Optimisation idea for parsing natural language subsets](.#2010-05-05-044553---hory---optimisation-idea-for-parsing-natural-language-subsets)  
-[2010-05-20 10:25:41 - majortal - Bug in cache mechanism?](.#2010-05-20-102541---majortal---bug-in-cache-mechanism)  
-[2010-05-30 21:20:45 - flacoflacco - empty ParseResults.asdict(), values() etc???](.#2010-05-30-212045---flacoflacco---empty-parseresultsasdict-values-etc)  
-[2010-06-02 10:18:24 - jackdaniels2 - BNF to pyparsing](.#2010-06-02-101824---jackdaniels2---bnf-to-pyparsing)  
-[2010-06-02 15:02:58 - etno_thomas - alphas8bit problems](.#2010-06-02-150258---etno_thomas---alphas8bit-problems)  
-[2010-06-13 22:54:39 - gobnat - loc driving me loco.](.#2010-06-13-225439---gobnat---loc-driving-me-loco)  
-[2010-06-20 21:54:44 - jorgeecardona - Create Balanced expressions.](.#2010-06-20-215444---jorgeecardona---create-balanced-expressions)  
-[2010-06-22 06:13:51 - dminor14 - build problem on cent0s5 64-bit](.#2010-06-22-061351---dminor14---build-problem-on-cent0s5-64-bit)  
-[2010-06-30 21:26:16 - Torkn - r199 breaks Python 2 compat](.#2010-06-30-212616---torkn---r199-breaks-python-2-compat)  
-[2010-06-30 21:56:29 - john_nagle - Address parser missing many street types.](.#2010-06-30-215629---john_nagle---address-parser-missing-many-street-types)  
-[2010-07-04 13:11:12 - GregWatson - problem with __builtin__ pyparsing  1.5.3 and Windows Python 3.1.2](.#2010-07-04-131112---gregwatson---problem-with-__builtin__-pyparsing--153-and-windows-python-312)  
-[2010-07-06 19:04:52 - GregWatson - newbie problem with addParseAction and Combine](.#2010-07-06-190452---gregwatson---newbie-problem-with-addparseaction-and-combine)  
-[2010-07-08 09:48:49 - GregWatson - Questions on setDebug() and And()](.#2010-07-08-094849---gregwatson---questions-on-setdebug-and-and)  
-[2010-07-12 03:15:22 - dminor14 - pyparsing and imputil](.#2010-07-12-031522---dminor14---pyparsing-and-imputil)  
-[2010-07-22 10:36:47 - avisenna - need urgent help with information nested in special CStyle Comment blocks](.#2010-07-22-103647---avisenna---need-urgent-help-with-information-nested-in-special-cstyle-comment-blocks)  
-[2010-07-23 11:47:41 - mlissner - No online documentation? ](.#2010-07-23-114741---mlissner---no-online-documentation-)  
-[2010-08-10 15:12:09 - classicgamedev - operatorPrecedence is incredibly slow](.#2010-08-10-151209---classicgamedev---operatorprecedence-is-incredibly-slow)  
-[2010-08-12 18:13:10 - scripteaze - Mac Address Grammer and output](.#2010-08-12-181310---scripteaze---mac-address-grammer-and-output)  
-[2010-08-16 03:08:24 - avisenna - process nested #ifdef](.#2010-08-16-030824---avisenna---process-nested-ifdef)  
-[2010-08-17 04:00:51 - cpuddle - Nested expressions?](.#2010-08-17-040051---cpuddle---nested-expressions)  
-[2010-08-19 03:10:26 - milliams - Parsing simple c++ function calls](.#2010-08-19-031026---milliams---parsing-simple-c-function-calls)  
-[2010-08-19 15:43:08 - classicgamedev - The proper way to track current line and column?](.#2010-08-19-154308---classicgamedev---the-proper-way-to-track-current-line-and-column)  
-[2010-09-03 10:19:54 - classicgamedev - pyparsing masking the built-in struct module](.#2010-09-03-101954---classicgamedev---pyparsing-masking-the-built-in-struct-module)  
-[2010-09-06 16:52:48 - foobar4 - match everyline except something](.#2010-09-06-165248---foobar4---match-everyline-except-something)  
-[2010-09-08 13:56:28 - avisenna - parsing recursive structureswith optional elements](.#2010-09-08-135628---avisenna---parsing-recursive-structureswith-optional-elements)  
-[2010-09-24 19:51:53 - Josh_English - Maybe I don't get groups](.#2010-09-24-195153---josh_english---maybe-i-dont-get-groups)  
-[2010-10-05 13:01:45 - panneer - Struck in Infinite Loop while parsing](.#2010-10-05-130145---panneer---struck-in-infinite-loop-while-parsing)  
-[2010-10-10 05:24:18 - hadim - Parsing piece of latex file](.#2010-10-10-052418---hadim---parsing-piece-of-latex-file)  
-[2010-10-16 16:18:09 - edc - re: cppStyleComment problem](.#2010-10-16-161809---edc---re-cppstylecomment-problem)  
-[2010-10-19 17:57:45 - gobnat - How do I get a 10x speed increase?](.#2010-10-19-175745---gobnat---how-do-i-get-a-10x-speed-increase)  
-[2010-10-20 16:51:14 - jon.dobson - import error, Python 3.1.2](.#2010-10-20-165114---jondobson---import-error-python-312)  
-[2010-10-26 02:09:51 - erastune - pyparsing being "greedy" - I need help](.#2010-10-26-020951---erastune---pyparsing-being-"greedy"---i-need-help)  
-[2010-10-27 14:31:12 - johnny-b - pb with begin end type of expressions](.#2010-10-27-143112---johnny-b---pb-with-begin-end-type-of-expressions)  
-[2010-10-29 04:43:00 - rxe - update on ambiguous grammars](.#2010-10-29-044300---rxe---update-on-ambiguous-grammars)  
-[2010-10-29 04:48:34 - rxe - multisets](.#2010-10-29-044834---rxe---multisets)  
-[2010-11-02 08:11:30 - mikasaari - Noob with Groups once more](.#2010-11-02-081130---mikasaari---noob-with-groups-once-more)  
-[2010-11-07 05:32:01 - ctctc - version 1.5.5 string bug](.#2010-11-07-053201---ctctc---version-155-string-bug)  
-[2010-11-11 12:24:58 - EduardoBarros - Parsing a tag with long text inside](.#2010-11-11-122458---eduardobarros---parsing-a-tag-with-long-text-inside)  
-[2010-11-15 03:02:57 - bsder - QuotedString oddness and question about CPP preprocessing numbers](.#2010-11-15-030257---bsder---quotedstring-oddness-and-question-about-cpp-preprocessing-numbers)  
-[2010-11-16 07:49:03 - kbriggs4 - wordsToNum.py example doesn't work](.#2010-11-16-074903---kbriggs4---wordstonumpy-example-doesnt-work)  
-[2010-11-19 02:36:19 - bsder - Tokens *and* text that produced them](.#2010-11-19-023619---bsder---tokens-and-text-that-produced-them)  
-[2010-11-20 12:43:34 - j.f.k. - Fixed width colun table (noob)](.#2010-11-20-124334---jfk---fixed-width-colun-table-noob)  
-[2010-11-21 06:00:54 - Begbie00 - Returning an empty string when Optional not found.](.#2010-11-21-060054---begbie00---returning-an-empty-string-when-optional-not-found)  
-[2010-11-22 07:52:21 - m3mento - avoiding partial matches?](.#2010-11-22-075221---m3mento---avoiding-partial-matches)  
-[2010-11-29 11:52:29 - rick0cm - Parse Exception location](.#2010-11-29-115229---rick0cm---parse-exception-location)  
-[2010-11-29 16:19:06 - jcress410 - scanstring and unused text](.#2010-11-29-161906---jcress410---scanstring-and-unused-text)  
-[2010-12-02 07:49:34 - openIDTemp-624425161 - Making an array and ignoring some words](.#2010-12-02-074934---openidtemp-624425161---making-an-array-and-ignoring-some-words)  
-[2010-12-09 04:09:52 - andyhhp - bug with indentedBlock](.#2010-12-09-040952---andyhhp---bug-with-indentedblock)  
-[2010-12-20 15:50:58 - haidong - Pattern search with pyparsing](.#2010-12-20-155058---haidong---pattern-search-with-pyparsing)  
-[2010-12-22 09:56:44 - axil - optimization in oneOf code](.#2010-12-22-095644---axil---optimization-in-oneof-code)  
-[2010-12-24 20:13:24 - sskye - setWhitespaceChars() enhancement?](.#2010-12-24-201324---sskye---setwhitespacechars-enhancement)  
-[2010-12-27 08:31:19 - ptmcg - Flurry of pyparsing](.#2010-12-27-083119---ptmcg---flurry-of-pyparsing)  
-[2010-12-27 17:01:00 - bruceba - parsing a proprietary config language (noob)](.#2010-12-27-170100---bruceba---parsing-a-proprietary-config-language-noob)  
+## Pyparsing Wikispaces Discussion - 2010
+
+[Note: these entries are fairly old, and predate many new features of pyparsing,
+and are predominantly coded using Python 2.
+They are captured here for historical benefit, but may not contain
+the most current practices or features. We will try to add editor
+notes to entries to indicate when discussions have been 
+overtaken by development events.]
+
+[2010-01-01 00:28:06 - pgurumur - Parsing perl hash](all_wiki_discussion_toc_2010.md#2010-01-01-002806---pgurumur---parsing-perl-hash)  
+[2010-01-09 04:56:30 - alito - Traversing parsed results](all_wiki_discussion_toc_2010.md#2010-01-09-045630---alito---traversing-parsed-results)  
+[2010-01-10 01:03:30 - voltron8 - Algebraic expressions with nonstandard operations](all_wiki_discussion_toc_2010.md#2010-01-10-010330---voltron8---algebraic-expressions-with-nonstandard-operations)  
+[2010-01-11 11:48:28 - lcampagn - A new C parser](all_wiki_discussion_toc_2010.md#2010-01-11-114828---lcampagn---a-new-c-parser)  
+[2010-01-15 18:17:25 - hach-que - Arithmetic expression with functions](all_wiki_discussion_toc_2010.md#2010-01-15-181725---hach-que---arithmetic-expression-with-functions)  
+[2010-01-16 01:40:21 - hach-que - Speeding parsing up](all_wiki_discussion_toc_2010.md#2010-01-16-014021---hach-que---speeding-parsing-up)  
+[2010-01-17 04:59:52 - voltron8 - Variables and functions](all_wiki_discussion_toc_2010.md#2010-01-17-045952---voltron8---variables-and-functions)  
+[2010-01-20 00:09:40 - hach-que - Combining results](all_wiki_discussion_toc_2010.md#2010-01-20-000940---hach-que---combining-results)  
+[2010-01-21 07:36:32 - pmarichal - Can't parse my grammar, please help me](all_wiki_discussion_toc_2010.md#2010-01-21-073632---pmarichal---cant-parse-my-grammar-please-help-me)  
+[2010-01-22 16:02:08 - Hory - Stumped by recursive elements](all_wiki_discussion_toc_2010.md#2010-01-22-160208---hory---stumped-by-recursive-elements)  
+[2010-01-26 17:01:33 - filter5 - difficulty with nestedExpr](all_wiki_discussion_toc_2010.md#2010-01-26-170133---filter5---difficulty-with-nestedexpr)  
+[2010-01-28 04:08:27 - blundeln - Extend pyparsing for bi-directional use](all_wiki_discussion_toc_2010.md#2010-01-28-040827---blundeln---extend-pyparsing-for-bi-directional-use)  
+[2010-01-30 11:08:45 - filter5 - dynamic xml tags?](all_wiki_discussion_toc_2010.md#2010-01-30-110845---filter5---dynamic-xml-tags)  
+[2010-02-01 08:40:38 - nemith - storing the original text along with nested parsed values](all_wiki_discussion_toc_2010.md#2010-02-01-084038---nemith---storing-the-original-text-along-with-nested-parsed-values)  
+[2010-02-12 02:50:51 - marjoj - Comparing different parser generators](all_wiki_discussion_toc_2010.md#2010-02-12-025051---marjoj---comparing-different-parser-generators)  
+[2010-02-16 11:01:43 - Skipix - Simple arithmetic grammar](all_wiki_discussion_toc_2010.md#2010-02-16-110143---skipix---simple-arithmetic-grammar)  
+[2010-02-22 02:46:38 - josandres - Logical operators problem](all_wiki_discussion_toc_2010.md#2010-02-22-024638---josandres---logical-operators-problem)  
+[2010-02-22 08:52:55 - john-l - Selectively disabling `ignoreExprs`](all_wiki_discussion_toc_2010.md#2010-02-22-085255---john-l---selectively-disabling-`ignoreexprs`)  
+[2010-03-02 02:54:05 - nerochiaro - How to improve error reporting ?](all_wiki_discussion_toc_2010.md#2010-03-02-025405---nerochiaro---how-to-improve-error-reporting-)  
+[2010-03-02 06:37:55 - dharanitharan - How to parse functions in C language](all_wiki_discussion_toc_2010.md#2010-03-02-063755---dharanitharan---how-to-parse-functions-in-c-language)  
+[2010-03-05 13:38:36 - bjornjobb - time expression parser](all_wiki_discussion_toc_2010.md#2010-03-05-133836---bjornjobb---time-expression-parser)  
+[2010-03-09 01:13:54 - josandres - Pyparsing quoted strings](all_wiki_discussion_toc_2010.md#2010-03-09-011354---josandres---pyparsing-quoted-strings)  
+[2010-03-16 22:59:40 - gobnat - Help understanding Expression subclasses and whitespace treatment](all_wiki_discussion_toc_2010.md#2010-03-16-225940---gobnat---help-understanding-expression-subclasses-and-whitespace-treatment)  
+[2010-03-17 01:15:48 - elekis - installing pyparsing on python 3.1](all_wiki_discussion_toc_2010.md#2010-03-17-011548---elekis---installing-pyparsing-on-python-31)  
+[2010-03-20 10:26:22 - Elby - Reading a table by columns](all_wiki_discussion_toc_2010.md#2010-03-20-102622---elby---reading-a-table-by-columns)  
+[2010-03-22 03:01:43 - josandres - Binary operators](all_wiki_discussion_toc_2010.md#2010-03-22-030143---josandres---binary-operators)  
+[2010-03-22 16:24:40 - tvn1981 - simple C Expression ](all_wiki_discussion_toc_2010.md#2010-03-22-162440---tvn1981---simple-c-expression-)  
+[2010-03-23 08:21:20 - lagpoi - paragraphs of text using SkipTo](all_wiki_discussion_toc_2010.md#2010-03-23-082120---lagpoi---paragraphs-of-text-using-skipto)  
+[2010-03-23 11:16:03 - shankarlingayya - pyparsing Optional](all_wiki_discussion_toc_2010.md#2010-03-23-111603---shankarlingayya---pyparsing-optional)  
+[2010-03-24 14:21:38 - tvn1981 - Recursive and operatorPrecedence question](all_wiki_discussion_toc_2010.md#2010-03-24-142138---tvn1981---recursive-and-operatorprecedence-question)  
+[2010-03-26 06:44:07 - elekis - typeerror :'in <string>' requires string as left operand, not int](all_wiki_discussion_toc_2010.md#2010-03-26-064407---elekis---typeerror-in-string-requires-string-as-left-operand-not-int)  
+[2010-03-27 10:35:28 - shankarlingayya - How to ignore the next line in pyarsing](all_wiki_discussion_toc_2010.md#2010-03-27-103528---shankarlingayya---how-to-ignore-the-next-line-in-pyarsing)  
+[2010-03-27 11:13:18 - shankarlingayya - How to skip the data between { and } in pyparsing](all_wiki_discussion_toc_2010.md#2010-03-27-111318---shankarlingayya---how-to-skip-the-data-between-{-and-}-in-pyparsing)  
+[2010-03-27 12:37:47 - Elby - Good usage of setWhitespaceChars](all_wiki_discussion_toc_2010.md#2010-03-27-123747---elby---good-usage-of-setwhitespacechars)  
+[2010-03-30 09:05:05 - mvilanova - Continue parsing after \r character](all_wiki_discussion_toc_2010.md#2010-03-30-090505---mvilanova---continue-parsing-after-\r-character)  
+[2010-04-01 14:44:24 - tvn1981 - delimitedList of one or two or three fields](all_wiki_discussion_toc_2010.md#2010-04-01-144424---tvn1981---delimitedlist-of-one-or-two-or-three-fields)  
+[2010-04-03 11:15:19 - breamoreboy - new regex module](all_wiki_discussion_toc_2010.md#2010-04-03-111519---breamoreboy---new-regex-module)  
+[2010-04-03 11:46:55 - tvn1981 - match everything between '('   ')'](all_wiki_discussion_toc_2010.md#2010-04-03-114655---tvn1981---match-everything-between----)  
+[2010-04-09 15:45:40 - edc - problem -- pyparsing results contains extra empty dictionaries (or braces)](all_wiki_discussion_toc_2010.md#2010-04-09-154540---edc---problem----pyparsing-results-contains-extra-empty-dictionaries-or-braces)  
+[2010-04-16 11:20:06 - JoshuaREnglish - The Time Parser Script](all_wiki_discussion_toc_2010.md#2010-04-16-112006---joshuarenglish---the-time-parser-script)  
+[2010-04-19 02:12:09 - decay_of_mind - How to parse a different type of SQL queries](all_wiki_discussion_toc_2010.md#2010-04-19-021209---decay_of_mind---how-to-parse-a-different-type-of-sql-queries)  
+[2010-05-03 03:04:18 - gareth8118 - Passing an object method to setParseAction?](all_wiki_discussion_toc_2010.md#2010-05-03-030418---gareth8118---passing-an-object-method-to-setparseaction)  
+[2010-05-03 04:22:51 - rgammans - (Easy_)Installing on windows....](all_wiki_discussion_toc_2010.md#2010-05-03-042251---rgammans---easy_installing-on-windows)  
+[2010-05-04 11:57:59 - gareth8118 - Unexpected list grouping of named result](all_wiki_discussion_toc_2010.md#2010-05-04-115759---gareth8118---unexpected-list-grouping-of-named-result)  
+[2010-05-04 13:13:00 - skuda - Getting original matched text](all_wiki_discussion_toc_2010.md#2010-05-04-131300---skuda---getting-original-matched-text)  
+[2010-05-04 22:10:07 - sakana280 - A faster (near-)substitute for operatorPrecedence()](all_wiki_discussion_toc_2010.md#2010-05-04-221007---sakana280---a-faster-near-substitute-for-operatorprecedence)  
+[2010-05-05 04:45:53 - Hory - Optimisation idea for parsing natural language subsets](all_wiki_discussion_toc_2010.md#2010-05-05-044553---hory---optimisation-idea-for-parsing-natural-language-subsets)  
+[2010-05-20 10:25:41 - majortal - Bug in cache mechanism?](all_wiki_discussion_toc_2010.md#2010-05-20-102541---majortal---bug-in-cache-mechanism)  
+[2010-05-30 21:20:45 - flacoflacco - empty ParseResults.asdict(), values() etc???](all_wiki_discussion_toc_2010.md#2010-05-30-212045---flacoflacco---empty-parseresultsasdict-values-etc)  
+[2010-06-02 10:18:24 - jackdaniels2 - BNF to pyparsing](all_wiki_discussion_toc_2010.md#2010-06-02-101824---jackdaniels2---bnf-to-pyparsing)  
+[2010-06-02 15:02:58 - etno_thomas - alphas8bit problems](all_wiki_discussion_toc_2010.md#2010-06-02-150258---etno_thomas---alphas8bit-problems)  
+[2010-06-13 22:54:39 - gobnat - loc driving me loco.](all_wiki_discussion_toc_2010.md#2010-06-13-225439---gobnat---loc-driving-me-loco)  
+[2010-06-20 21:54:44 - jorgeecardona - Create Balanced expressions.](all_wiki_discussion_toc_2010.md#2010-06-20-215444---jorgeecardona---create-balanced-expressions)  
+[2010-06-22 06:13:51 - dminor14 - build problem on cent0s5 64-bit](all_wiki_discussion_toc_2010.md#2010-06-22-061351---dminor14---build-problem-on-cent0s5-64-bit)  
+[2010-06-30 21:26:16 - Torkn - r199 breaks Python 2 compat](all_wiki_discussion_toc_2010.md#2010-06-30-212616---torkn---r199-breaks-python-2-compat)  
+[2010-06-30 21:56:29 - john_nagle - Address parser missing many street types.](all_wiki_discussion_toc_2010.md#2010-06-30-215629---john_nagle---address-parser-missing-many-street-types)  
+[2010-07-04 13:11:12 - GregWatson - problem with __builtin__ pyparsing  1.5.3 and Windows Python 3.1.2](all_wiki_discussion_toc_2010.md#2010-07-04-131112---gregwatson---problem-with-__builtin__-pyparsing--153-and-windows-python-312)  
+[2010-07-06 19:04:52 - GregWatson - newbie problem with addParseAction and Combine](all_wiki_discussion_toc_2010.md#2010-07-06-190452---gregwatson---newbie-problem-with-addparseaction-and-combine)  
+[2010-07-08 09:48:49 - GregWatson - Questions on setDebug() and And()](all_wiki_discussion_toc_2010.md#2010-07-08-094849---gregwatson---questions-on-setdebug-and-and)  
+[2010-07-12 03:15:22 - dminor14 - pyparsing and imputil](all_wiki_discussion_toc_2010.md#2010-07-12-031522---dminor14---pyparsing-and-imputil)  
+[2010-07-22 10:36:47 - avisenna - need urgent help with information nested in special CStyle Comment blocks](all_wiki_discussion_toc_2010.md#2010-07-22-103647---avisenna---need-urgent-help-with-information-nested-in-special-cstyle-comment-blocks)  
+[2010-07-23 11:47:41 - mlissner - No online documentation? ](all_wiki_discussion_toc_2010.md#2010-07-23-114741---mlissner---no-online-documentation-)  
+[2010-08-10 15:12:09 - classicgamedev - operatorPrecedence is incredibly slow](all_wiki_discussion_toc_2010.md#2010-08-10-151209---classicgamedev---operatorprecedence-is-incredibly-slow)  
+[2010-08-12 18:13:10 - scripteaze - Mac Address Grammer and output](all_wiki_discussion_toc_2010.md#2010-08-12-181310---scripteaze---mac-address-grammer-and-output)  
+[2010-08-16 03:08:24 - avisenna - process nested #ifdef](all_wiki_discussion_toc_2010.md#2010-08-16-030824---avisenna---process-nested-ifdef)  
+[2010-08-17 04:00:51 - cpuddle - Nested expressions?](all_wiki_discussion_toc_2010.md#2010-08-17-040051---cpuddle---nested-expressions)  
+[2010-08-19 03:10:26 - milliams - Parsing simple c++ function calls](all_wiki_discussion_toc_2010.md#2010-08-19-031026---milliams---parsing-simple-c-function-calls)  
+[2010-08-19 15:43:08 - classicgamedev - The proper way to track current line and column?](all_wiki_discussion_toc_2010.md#2010-08-19-154308---classicgamedev---the-proper-way-to-track-current-line-and-column)  
+[2010-09-03 10:19:54 - classicgamedev - pyparsing masking the built-in struct module](all_wiki_discussion_toc_2010.md#2010-09-03-101954---classicgamedev---pyparsing-masking-the-built-in-struct-module)  
+[2010-09-06 16:52:48 - foobar4 - match everyline except something](all_wiki_discussion_toc_2010.md#2010-09-06-165248---foobar4---match-everyline-except-something)  
+[2010-09-08 13:56:28 - avisenna - parsing recursive structureswith optional elements](all_wiki_discussion_toc_2010.md#2010-09-08-135628---avisenna---parsing-recursive-structureswith-optional-elements)  
+[2010-09-24 19:51:53 - Josh_English - Maybe I don't get groups](all_wiki_discussion_toc_2010.md#2010-09-24-195153---josh_english---maybe-i-dont-get-groups)  
+[2010-10-05 13:01:45 - panneer - Struck in Infinite Loop while parsing](all_wiki_discussion_toc_2010.md#2010-10-05-130145---panneer---struck-in-infinite-loop-while-parsing)  
+[2010-10-10 05:24:18 - hadim - Parsing piece of latex file](all_wiki_discussion_toc_2010.md#2010-10-10-052418---hadim---parsing-piece-of-latex-file)  
+[2010-10-16 16:18:09 - edc - re: cppStyleComment problem](all_wiki_discussion_toc_2010.md#2010-10-16-161809---edc---re-cppstylecomment-problem)  
+[2010-10-19 17:57:45 - gobnat - How do I get a 10x speed increase?](all_wiki_discussion_toc_2010.md#2010-10-19-175745---gobnat---how-do-i-get-a-10x-speed-increase)  
+[2010-10-20 16:51:14 - jon.dobson - import error, Python 3.1.2](all_wiki_discussion_toc_2010.md#2010-10-20-165114---jondobson---import-error-python-312)  
+[2010-10-26 02:09:51 - erastune - pyparsing being "greedy" - I need help](all_wiki_discussion_toc_2010.md#2010-10-26-020951---erastune---pyparsing-being-"greedy"---i-need-help)  
+[2010-10-27 14:31:12 - johnny-b - pb with begin end type of expressions](all_wiki_discussion_toc_2010.md#2010-10-27-143112---johnny-b---pb-with-begin-end-type-of-expressions)  
+[2010-10-29 04:43:00 - rxe - update on ambiguous grammars](all_wiki_discussion_toc_2010.md#2010-10-29-044300---rxe---update-on-ambiguous-grammars)  
+[2010-10-29 04:48:34 - rxe - multisets](all_wiki_discussion_toc_2010.md#2010-10-29-044834---rxe---multisets)  
+[2010-11-02 08:11:30 - mikasaari - Noob with Groups once more](all_wiki_discussion_toc_2010.md#2010-11-02-081130---mikasaari---noob-with-groups-once-more)  
+[2010-11-07 05:32:01 - ctctc - version 1.5.5 string bug](all_wiki_discussion_toc_2010.md#2010-11-07-053201---ctctc---version-155-string-bug)  
+[2010-11-11 12:24:58 - EduardoBarros - Parsing a tag with long text inside](all_wiki_discussion_toc_2010.md#2010-11-11-122458---eduardobarros---parsing-a-tag-with-long-text-inside)  
+[2010-11-15 03:02:57 - bsder - QuotedString oddness and question about CPP preprocessing numbers](all_wiki_discussion_toc_2010.md#2010-11-15-030257---bsder---quotedstring-oddness-and-question-about-cpp-preprocessing-numbers)  
+[2010-11-16 07:49:03 - kbriggs4 - wordsToNum.py example doesn't work](all_wiki_discussion_toc_2010.md#2010-11-16-074903---kbriggs4---wordstonumpy-example-doesnt-work)  
+[2010-11-19 02:36:19 - bsder - Tokens *and* text that produced them](all_wiki_discussion_toc_2010.md#2010-11-19-023619---bsder---tokens-and-text-that-produced-them)  
+[2010-11-20 12:43:34 - j.f.k. - Fixed width colun table (noob)](all_wiki_discussion_toc_2010.md#2010-11-20-124334---jfk---fixed-width-colun-table-noob)  
+[2010-11-21 06:00:54 - Begbie00 - Returning an empty string when Optional not found.](all_wiki_discussion_toc_2010.md#2010-11-21-060054---begbie00---returning-an-empty-string-when-optional-not-found)  
+[2010-11-22 07:52:21 - m3mento - avoiding partial matches?](all_wiki_discussion_toc_2010.md#2010-11-22-075221---m3mento---avoiding-partial-matches)  
+[2010-11-29 11:52:29 - rick0cm - Parse Exception location](all_wiki_discussion_toc_2010.md#2010-11-29-115229---rick0cm---parse-exception-location)  
+[2010-11-29 16:19:06 - jcress410 - scanstring and unused text](all_wiki_discussion_toc_2010.md#2010-11-29-161906---jcress410---scanstring-and-unused-text)  
+[2010-12-02 07:49:34 - openIDTemp-624425161 - Making an array and ignoring some words](all_wiki_discussion_toc_2010.md#2010-12-02-074934---openidtemp-624425161---making-an-array-and-ignoring-some-words)  
+[2010-12-09 04:09:52 - andyhhp - bug with indentedBlock](all_wiki_discussion_toc_2010.md#2010-12-09-040952---andyhhp---bug-with-indentedblock)  
+[2010-12-20 15:50:58 - haidong - Pattern search with pyparsing](all_wiki_discussion_toc_2010.md#2010-12-20-155058---haidong---pattern-search-with-pyparsing)  
+[2010-12-22 09:56:44 - axil - optimization in oneOf code](all_wiki_discussion_toc_2010.md#2010-12-22-095644---axil---optimization-in-oneof-code)  
+[2010-12-24 20:13:24 - sskye - setWhitespaceChars() enhancement?](all_wiki_discussion_toc_2010.md#2010-12-24-201324---sskye---setwhitespacechars-enhancement)  
+[2010-12-27 08:31:19 - ptmcg - Flurry of pyparsing](all_wiki_discussion_toc_2010.md#2010-12-27-083119---ptmcg---flurry-of-pyparsing)  
+[2010-12-27 17:01:00 - bruceba - parsing a proprietary config language (noob)](all_wiki_discussion_toc_2010.md#2010-12-27-170100---bruceba---parsing-a-proprietary-config-language-noob)  
 
 
 ---
@@ -924,26 +933,26 @@ Here is the grammar I use (or part of it anyway):
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> alphanums<span class="sy0">,</span> nums<span class="sy0">,</span> printables
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> Word<span class="sy0">,</span> Combine<span class="sy0">,</span> OneOrMore<span class="sy0">,</span> Keyword<span class="sy0">,</span> Optional<span class="sy0">,</span> Literal<span class="sy0">,</span> Group<span class="sy0">,</span> LineEnd<span class="sy0">,</span> LineStart
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> restOfLine<span class="sy0">,</span> Suppress
+    from pyparsing import alphanums, nums, printables
+    from pyparsing import Word, Combine, OneOrMore, Keyword, Optional, Literal, Group, LineEnd, LineStart
+    from pyparsing import restOfLine, Suppress
     
     
-    <span class="co1"># basic grammar</span>
-    alphaupper <span class="sy0">=</span> <span class="st0">'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span>
+    # basic grammar
+    alphaupper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     
-    service_name <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphaupper<span class="sy0">,</span> exact<span class="sy0">=</span><span class="nu0">2</span><span class="br0">&#41;</span> <span class="co1"># ZZ</span>
-    sub_service_name <span class="sy0">=</span> Combine<span class="br0">&#40;</span>service_name + <span class="st0">'-'</span> + service_name<span class="br0">&#41;</span> <span class="co1"># Z2-ZZ</span>
-    subsub_service_name <span class="sy0">=</span> Combine<span class="br0">&#40;</span>service_name + <span class="st0">'-'</span> + service_name + <span class="st0">'-'</span> + service_name<span class="br0">&#41;</span> <span class="co1"># Z2-ZZ-01</span>
-    service <span class="sy0">=</span> service_name ^ sub_service_name ^ subsub_service_name <span class="co1"># </span>
-    services <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>service<span class="br0">&#41;</span>
+    service_name = Word(alphaupper, exact=2) # ZZ
+    sub_service_name = Combine(service_name + '-' + service_name) # Z2-ZZ
+    subsub_service_name = Combine(service_name + '-' + service_name + '-' + service_name) # Z2-ZZ-01
+    service = service_name ^ sub_service_name ^ subsub_service_name # 
+    services = OneOrMore(service)
     
-    comment <span class="sy0">=</span> <span class="st0">'/*'</span> + restOfLine <span class="co1"># /* comment</span>
+    comment = '/*' + restOfLine # /* comment
     
-    <span class="co1"># Label</span>
-    label <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'LABEL'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + Combine<span class="br0">&#40;</span>OneOrMore<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>printables<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span>comment<span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    # Label
+    label = Keyword('LABEL').suppress() + Combine(OneOrMore(Word(printables))) + Optional(comment).suppress()
     
-    label_def <span class="sy0">=</span> service + label <span class="co1"># Z2-ZZ-02  LABEL     Task id 654a(+3) /* this is a comment</span>
+    label_def = service + label # Z2-ZZ-02  LABEL     Task id 654a(+3) /* this is a comment
 
 
 
@@ -953,13 +962,13 @@ When I do the following:
 
 
 
-    data <span class="sy0">=</span> <span class="st0">'''
+    data = '''
     Z2-TM-22  LABEL     RTD (+900)
     Z2-TM-22  PREREQ    Z2-TM-21+900
     Z2-TM-23  LABEL     RTD (+30 +9)  /* comment, please discard
     Z2-TM-23  PREREQ    Z2-TM-21+30 Z2-TM-22+9
-    '''</span>
-    <span class="kw1">print</span> <span class="kw2">list</span><span class="br0">&#40;</span>label_def.<span class="me1">scanString</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span><span class="br0">&#41;</span>
+    '''
+    print list(label_def.scanString(data))
 
 
 
@@ -1469,19 +1478,19 @@ The idea is that the elemtent Node() creates a new container object in the parse
 
 
 
-    <span class="co1"># define grammar</span>
-    app_entry <span class="sy0">=</span>  Combine<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphas<span class="sy0">,</span>exact<span class="sy0">=</span><span class="nu0">1</span><span class="br0">&#41;</span> + Word<span class="br0">&#40;</span>alphanums + <span class="st0">' []()-.\<\>='</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    app_list <span class="sy0">=</span> Store<span class="br0">&#40;</span>delimitedList<span class="br0">&#40;</span>app_entry<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    field_entry <span class="sy0">=</span> Node<span class="br0">&#40;</span> Key<span class="br0">&#40;</span>alphas+<span class="st0">'-'</span><span class="br0">&#41;</span> + <span class="st0">':'</span> + app_list <span class="br0">&#41;</span>
-    grammar <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>field_entry<span class="br0">&#41;</span>
+    # define grammar
+    app_entry =  Combine(Word(alphas,exact=1) + Word(alphanums + ' []()-.\<\>='))
+    app_list = Store(delimitedList(app_entry))
+    field_entry = Node( Key(alphas+'-') + ':' + app_list )
+    grammar = OneOrMore(field_entry)
     
-    SAMPLE_TO_BE_PARSED <span class="sy0">=</span> <span class="st0">'''
+    SAMPLE_TO_BE_PARSED = '''
     Build-Depends-Indep: perl (\>= 5.8.8-12), libcarp-assert-more-perl,
                          libconfig-tiny-perl, libexception-class-perl,
                          libparse-recdescent-perl (\>= 1.90.0),
                          liblog-log4perl-perl (\>= 1.11)
     
-                         '''</span>
+                         '''
 
 
 
@@ -1905,7 +1914,7 @@ to
 
 ---
 ## 2010-02-12 02:50:51 - marjoj - Comparing different parser generators
-I'm writing my master's thesis. The subject of my thesis is Implementing a Parser Tool to Visualize Trace and Error Log Files·
+I'm writing my master's thesis. The subject of my thesis is Implementing a Parser Tool to Visualize Trace and Error Log Filesï¿½
 
 
 
@@ -2154,19 +2163,19 @@ I'm happy to provide an actual example of this problem.  I provide a small sampl
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> Suppress<span class="sy0">,</span> Regex<span class="sy0">,</span> restOfLine
+    from pyparsing import Suppress, Regex, restOfLine
     
-    LT <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">'\<'</span><span class="br0">&#41;</span>
-    GT <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">'\>'</span><span class="br0">&#41;</span>
+    LT = Suppress('\<')
+    GT = Suppress('\>')
     
-    IRI_REF <span class="sy0">=</span> LT + IRI + GT
-    IRI_REF.<span class="me1">ignore</span><span class="br0">&#40;</span><span class="st0">'#'</span> + restOfLine<span class="br0">&#41;</span>
+    IRI_REF = LT + IRI + GT
+    IRI_REF.ignore('#' + restOfLine)
     
-    res <span class="sy0">=</span> IRI_REF.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'''# Here we go...
-    \<http://pyparsing.wikispaces.com\>'''</span><span class="br0">&#41;</span>
+    res = IRI_REF.parseString('''# Here we go...
+    \<http://pyparsing.wikispaces.com\>''')
     
-    res <span class="sy0">=</span> IRI_REF.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'''# Here we go...
-    \<#fragment\>'''</span><span class="br0">&#41;</span>
+    res = IRI_REF.parseString('''# Here we go...
+    \<#fragment\>''')
 
 
 #### 2010-02-23 08:32:52 - ptmcg
@@ -6339,7 +6348,7 @@ I have some html that looks  like this:
 
 \<td class='listcontentlight_left'\>
 
-\<a href='/members/expert/alphaOrder/view.do;jsessionid=760AD03B767A90E24F20172AAF74BDDB.node2?language=EN&amp;id=96659' title='ÁDER, János'\>ÁDER, János\</a\>
+\<a href='/members/expert/alphaOrder/view.do;jsessionid=760AD03B767A90E24F20172AAF74BDDB.node2?language=EN&amp;id=96659' title='ï¿½DER, Jï¿½nos'\>ï¿½DER, Jï¿½nos\</a\>
 
 \<br /\>
 
@@ -6351,7 +6360,7 @@ I have some html that looks  like this:
 
 
 
-From this I want to extract the name ÁDER, János. I have written some very simple code to do the job:
+From this I want to extract the name ï¿½DER, Jï¿½nos. I have written some very simple code to do the job:
 
 
 
@@ -6419,7 +6428,7 @@ The code is:
     TESTTEXT1='1. This is some test text to tokenise. \n1.1 It contains: (a) colons; (aa) some    unexplained spaces; (b) semi-colons;\n(c) semicolons preceded by a return; and \n(d) references to 1., 1.1, (a), (i), (XI) within the body of the sentence.'
     TESTTEXT=TESTTEXT1 #[:35]
     PUNCTS= ''':'!@#$%^&*/,?[]{};'''
-    KEEPPUNCTS= ''''“”().'''
+    KEEPPUNCTS= ''''ï¿½ï¿½().'''
     
     class extendedToken:
         def __init__(self,st,loc,tokString):
@@ -8740,23 +8749,23 @@ Header filesinclding the Comment blocks look like this:
 
 
     
-    <span class="coMULTI">/** @defgroup _MSG_DMC_X1_MSF_OPTIONS_SET_ DMC_X1_MSF_Options_Set
+    /** @defgroup _MSG_DMC_X1_MSF_OPTIONS_SET_ DMC_X1_MSF_Options_Set
     * @{
-    */</span>
+    */
     
-    <span class="coMULTI">/* Message ID for DMCmedomMSFOptionsSet . */</span>
-    <span class="co2">#define HXH_DMC_X1_MSF_OPTIONS_SET 0x4098u</span>
+    /* Message ID for DMCmedomMSFOptionsSet . */
+    #define HXH_DMC_X1_MSF_OPTIONS_SET 0x4098u
     
-    <span class="coMULTI">/** Parameter0: L2 Semi-Auto Entry, Bit 11 .
+    /** Parameter0: L2 Semi-Auto Entry, Bit 11 .
     (AA only)
     Only effective if the L2 mode has been enabled (with Bit 8). Enables/Disables the
     automatism for semi-auto L2 entry function. It means the supervision of bandwidth
     utilization as configured by PRR_TH and L2_GUARD in DMC_AA_L2_BC0_Configure.
     - Default Value: NX_DISABLE
-    */</span>
+    */
     
-    <span class="co2">#define HXH_4098_E7_POS 7</span>
-    <span class="coMULTI">/** Parameter0: Granting of an L3 Request from UTA-R .
+    #define HXH_4098_E7_POS 7
+    /** Parameter0: Granting of an L3 Request from UTA-R .
     (AA-CO only)
     Enables/Disables the granting of an orderly shutdown request ('L3 request')
     received from the UTA-R.
@@ -8766,18 +8775,18 @@ Header filesinclding the Comment blocks look like this:
     If disabled, the UTA-C rejects an L3 request in any case. If enabled, the
     UTA-C may grant an L3 request (additional conditions must be fulfilled like
     e.g. Showtime)
-    */</span>
-    <span class="co2">#define HXH_4098_E5_MASK 0x0020u</span>
-    <span class="coMULTI">/* Bit offset of @ref HXH_4098_E5_MASK . */</span>
-    <span class="co2">#define HXH_4098_E5_POS 5</span>
+    */
+    #define HXH_4098_E5_MASK 0x0020u
+    /* Bit offset of @ref HXH_4098_E5_MASK . */
+    #define HXH_4098_E5_POS 5
     
-    <span class="kw4">typedef</span> <span class="kw4">struct</span>
-    <span class="br0">&#123;</span>
-    <span class="coMULTI">/** Parameter0 . */</span>
-    <span class="kw4">uint16</span> Parameter0<span class="sy0">;</span>
-    <span class="br0">&#125;</span> T_HXH_DMCmedomMSFOptionsSet<span class="sy0">;</span>
+    typedef struct
+    {
+    /** Parameter0 . */
+    uint16 Parameter0;
+    } T_HXH_DMCmedomMSFOptionsSet;
     
-    <span class="coMULTI">/** @} */</span>
+    /** @} */
 
 
 
@@ -9837,15 +9846,15 @@ here an example
 
 
 
-    <span class="co2">#ifndef A</span>
-    <span class="co2">#define C </span>
-    <span class="co2">#ifdef E</span>
-    <span class="co2">#define EE</span>
-    <span class="co2">#endif</span>
-    <span class="co2">#else</span>
-    <span class="co2">#define D</span>
-    <span class="kw4">int16</span> aaa<span class="sy0">;</span>
-    <span class="co2">#endif </span>
+    #ifndef A
+    #define C 
+    #ifdef E
+    #define EE
+    #endif
+    #else
+    #define D
+    int16 aaa;
+    #endif 
 
 Assuming that A is not defined and E is defines the output should then be
 
@@ -11621,7 +11630,7 @@ I think the Python 3 equivalent of that code would be 'except ParseException as 
 ## 2010-10-26 02:09:51 - erastune - pyparsing being "greedy" - I need help
 Hi,
 
-First let me say that I really enjoy pyparsing, though I am still very new with it, trying to make some progress…
+First let me say that I really enjoy pyparsing, though I am still very new with it, trying to make some progressï¿½
 
 I have the following small example which is working OK:
 
@@ -11655,17 +11664,17 @@ It gives me the expected result:
     {'name': 'Indiana Jones', 'seq': '01'}
     {'name': 'Matrix'}
 
-My problem comes if I want to allow “name” to contain “-“ (dash), like in:
+My problem comes if I want to allow ï¿½nameï¿½ to contain ï¿½-ï¿½ (dash), like in:
 
 (Twenty-four hours-07) 
 
-If I modify “word” accordingly:
+If I modify ï¿½wordï¿½ accordingly:
 
 
 
     word = Word(nums + alphas + '-')
 
-“name” being “greedy”, I miss to catch the “seq” part:
+ï¿½nameï¿½ being ï¿½greedyï¿½, I miss to catch the ï¿½seqï¿½ part:
 
 
 
@@ -11689,11 +11698,11 @@ Result:
     {'name': 'Matrix', 'seq': ''}
     {'name': 'Twenty-four hours', 'seq': '07'}
 
-But I would prefer to avoid it because I want to take benefit of pyparsing advantages (clarity and self-documentation for example) and I don’t want to jump back to Regex as soon as I have a problem to define properly what I need. 
+But I would prefer to avoid it because I want to take benefit of pyparsing advantages (clarity and self-documentation for example) and I donï¿½t want to jump back to Regex as soon as I have a problem to define properly what I need. 
 
 
 
- I feel there is a smarter way to solve this problem, without Regex, but I can find it and I’m getting mad…
+ I feel there is a smarter way to solve this problem, without Regex, but I can find it and Iï¿½m getting madï¿½
 
 
 
@@ -11941,13 +11950,13 @@ I knew there was an elegant way to solve this!
 
 
 
-My mistake from the beginning was to try to treat the “-“ into the word definition… 
+My mistake from the beginning was to try to treat the ï¿½-ï¿½ into the word definitionï¿½ 
 
-You’re right, when playing with parsing, you need to think differently (*be* the parser!). And that’s why I really appreciate your answer: you are not only giving the quick solution to a problem, but you spend time to explain how you came to the solution. I am sure that it will help me a lot with my future use of pyparsing, with other problems that I will surely meet.
+Youï¿½re right, when playing with parsing, you need to think differently (*be* the parser!). And thatï¿½s why I really appreciate your answer: you are not only giving the quick solution to a problem, but you spend time to explain how you came to the solution. I am sure that it will help me a lot with my future use of pyparsing, with other problems that I will surely meet.
 
 
 
-Thanks to your explanations, I’ve also learned about:
+Thanks to your explanations, Iï¿½ve also learned about:
 
 - oneOf(): I would never think before to try to print the result of onOf(). That is quite interesting.
 
@@ -11961,7 +11970,7 @@ Regarding asDict(), I find it useful to produce results quickly on one line, whe
 
 
 
-Finally, I fully support your view on using specific delimiters to eliminate ambiguity whenever possible. But we are not living in an ideal world, and we do not always choose where and how you get data that you want to process. That’s why it is important to know some tricks, like the ones you explained before, so that we can do something, even if we do not have full control on the input.
+Finally, I fully support your view on using specific delimiters to eliminate ambiguity whenever possible. But we are not living in an ideal world, and we do not always choose where and how you get data that you want to process. Thatï¿½s why it is important to know some tricks, like the ones you explained before, so that we can do something, even if we do not have full control on the input.
 
 
 
@@ -12415,18 +12424,18 @@ The file 'bugtest.py' is
 
 
 
-    <span class="co1"># -*- coding: utf-8 -*-</span>
+    # -*- coding: utf-8 -*-
     
-    __doc__ <span class="sy0">=</span> <span class="st0">''' pyparsing test case '''</span>
+    __doc__ = ''' pyparsing test case '''
     
-    <span class="kw1">import</span> pyparsing_py3_v155 <span class="kw1">as</span> pp
+    import pyparsing_py3_v155 as pp
     
-    <span class="kw1">if</span> __name__<span class="sy0">==</span><span class="st0">'__main__'</span>:
-        exp <span class="sy0">=</span> pp.<span class="me1">Literal</span><span class="br0">&#40;</span><span class="st0">'hello'</span><span class="br0">&#41;</span>
-        <span class="kw1">with</span> <span class="kw2">open</span><span class="br0">&#40;</span><span class="st0">'./pyparsing_py3_v155.py'</span><span class="br0">&#41;</span> <span class="kw1">as</span> f:
-            <span class="kw1">print</span><span class="br0">&#40;</span><span class="kw2">len</span><span class="br0">&#40;</span>f.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-        result <span class="sy0">=</span> exp.<span class="me1">parseFile</span><span class="br0">&#40;</span><span class="st0">'./pyparsing_py3_v155.py'</span><span class="br0">&#41;</span>
-        <span class="kw1">print</span><span class="br0">&#40;</span>result<span class="br0">&#41;</span>
+    if __name__=='__main__':
+        exp = pp.Literal('hello')
+        with open('./pyparsing_py3_v155.py') as f:
+            print(len(f.read()))
+        result = exp.parseFile('./pyparsing_py3_v155.py')
+        print(result)
 
 
 
@@ -12815,17 +12824,17 @@ My primary problem is I don't know how to process empty columns.
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    from pyparsing import *
     
-    testData <span class="sy0">=</span> <span class="st0">'''<span class="es0">\</span>
+    testData = '''\
     -Date1------Date2------Number----String-----------------------------Id----
      2010.10.09 2010.10.09 123.45    abc def and some other text follow 1
                 2010.10.11 22.56     ghi                                2
      2010.10.09            23.45                                        3
      2010.10.09                      abc                                4
-     '''</span>
+     '''
     
-    <span class="st0">'''
+    '''
     Required result follows:
     [
     {'Date1': '2010.10.09', 'Date1': '2010.10.09', 'Number': 123.45, 'String': 'abc def and some other text follow', 'Id': 1},
@@ -12833,29 +12842,29 @@ My primary problem is I don't know how to process empty columns.
     {'Date1': '2010.10.09', 'Date1': None, 'Number': 23.45, 'String': None, 'Id': 3},
     {'Date1': '2010.10.09', 'Date1': None, 'Number': None, 'String': 'abc', 'Id': 4}
     ]
-    '''</span>
+    '''
     
-    <span class="kw1">def</span> tableColParser<span class="br0">&#40;</span><span class="br0">&#41;</span>:
+    def tableColParser():
     
-        <span class="kw1">def</span> defineCol<span class="br0">&#40;</span>t<span class="br0">&#41;</span>:
-            lineExpr <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">' '</span><span class="br0">&#41;</span>
-            <span class="kw1">for</span> col <span class="kw1">in</span> t.<span class="me1">header</span>:
-                lineExpr +<span class="sy0">=</span> Optional<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>printables<span class="sy0">,</span> printables + <span class="st0">' '</span><span class="sy0">,</span> exact<span class="sy0">=</span><span class="kw2">len</span><span class="br0">&#40;</span>col<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-            tabValueLine <span class="sy0">\<\<</span> Group<span class="br0">&#40;</span>lineExpr<span class="br0">&#41;</span>
+        def defineCol(t):
+            lineExpr = Suppress(' ')
+            for col in t.header:
+                lineExpr += Optional(Word(printables, printables + ' ', exact=len(col)))
+            tabValueLine \<\< Group(lineExpr)
     
-        colNameSep <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'-'</span><span class="br0">&#41;</span>
-        header <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>
-            ZeroOrMore<span class="br0">&#40;</span>colNameSep.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> +
-            Combine<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphanums<span class="br0">&#41;</span> + OneOrMore<span class="br0">&#40;</span>colNameSep<span class="br0">&#41;</span><span class="br0">&#41;</span>
-        <span class="br0">&#41;</span>
-        tabLine <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-        table <span class="sy0">=</span> <span class="br0">&#40;</span>
-            header<span class="br0">&#40;</span><span class="st0">'header'</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>defineCol<span class="br0">&#41;</span> +
-            Group<span class="br0">&#40;</span>OneOrMore<span class="br0">&#40;</span>tabLine<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'hdata'</span><span class="br0">&#41;</span>
-        <span class="br0">&#41;</span>
-        <span class="kw1">return</span> Dict<span class="br0">&#40;</span>table<span class="br0">&#41;</span>
+        colNameSep = Literal('-')
+        header = OneOrMore(
+            ZeroOrMore(colNameSep.suppress()) +
+            Combine(Word(alphanums) + OneOrMore(colNameSep))
+        )
+        tabLine = Forward()
+        table = (
+            header('header').setParseAction(defineCol) +
+            Group(OneOrMore(tabLine))('hdata')
+        )
+        return Dict(table)
     
-    <span class="kw1">print</span> tableColParser<span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">parseString</span><span class="br0">&#40;</span>testData<span class="br0">&#41;</span>
+    print tableColParser().parseString(testData)
 
 
 
@@ -13178,8 +13187,8 @@ Sorry, a prettier version:
 
 
 
-    <span class="sy0">\>\>\></span> card.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'A'</span><span class="br0">&#41;</span>
-    <span class="br0">&#91;</span><span class="st0">'A'</span><span class="sy0">,</span><span class="st0">''</span><span class="br0">&#93;</span>
+    \>\>\> card.parseString('A')
+    ['A','']
 
 
 #### 2010-11-21 06:46:03 - Begbie00
@@ -14001,48 +14010,48 @@ I have written a testcase which demonstrates it:
 
 
 
-    <span class="co1">#!/usr/bin/python                                                                                                                                                                                              </span>
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
-    <span class="kw1">import</span> <span class="kw3">unittest</span>
+    #!/usr/bin/python                                                                                                                                                                                              
+    from pyparsing import *
+    import unittest
     
-    ParserElement.<span class="me1">setDefaultWhitespaceChars</span><span class="br0">&#40;</span><span class="st0">' <span class="es0">\t</span><span class="es0">\r</span>'</span><span class="br0">&#41;</span>
+    ParserElement.setDefaultWhitespaceChars(' \t\r')
     
-    indentStack <span class="sy0">=</span> <span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span>
+    indentStack = [1]
     
-    kw_config <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'config'</span><span class="br0">&#41;</span>
-    name <span class="sy0">=</span> Word<span class="br0">&#40;</span>srange<span class="br0">&#40;</span><span class="st0">'[0-9A-Z_]'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    bool_expr <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'bool'</span><span class="br0">&#41;</span> + quotedString + LineEnd<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    default_expr <span class="sy0">=</span> Keyword<span class="br0">&#40;</span><span class="st0">'default'</span><span class="br0">&#41;</span> + <span class="br0">&#40;</span>Literal<span class="br0">&#40;</span><span class="st0">'y'</span><span class="br0">&#41;</span> | Literal<span class="br0">&#40;</span><span class="st0">'n'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + LineEnd<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    kw_config = Keyword('config')
+    name = Word(srange('[0-9A-Z_]'))
+    bool_expr = Keyword('bool') + quotedString + LineEnd()
+    default_expr = Keyword('default') + (Literal('y') | Literal('n')) + LineEnd()
     
-    config_attr <span class="sy0">=</span> bool_expr | default_expr
+    config_attr = bool_expr | default_expr
     
-    config <span class="sy0">=</span> kw_config + name + LineEnd<span class="br0">&#40;</span><span class="br0">&#41;</span> + indentedBlock<span class="br0">&#40;</span>config_attr<span class="sy0">,</span> indentStack<span class="sy0">,</span> <span class="kw2">True</span><span class="br0">&#41;</span>
+    config = kw_config + name + LineEnd() + indentedBlock(config_attr, indentStack, True)
     
     
-    <span class="kw1">class</span> TestIndentBlock<span class="br0">&#40;</span><span class="kw3">unittest</span>.<span class="me1">TestCase</span><span class="br0">&#41;</span>:
+    class TestIndentBlock(unittest.TestCase):
     
-        <span class="kw1">def</span> setUp<span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
-            <span class="kw1">print</span> <span class="st0">'indentStack: %s'</span> % indentStack
+        def setUp(self):
+            print 'indentStack: %s' % indentStack
     
-        <span class="kw1">def</span> test_config<span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
-            <span class="kw3">string</span> <span class="sy0">=</span> <span class="st0">'''config X86_EXTENDED_PLATFORM                                                                                                                                                               
+        def test_config(self):
+            string = '''config X86_EXTENDED_PLATFORM                                                                                                                                                               
             bool 'Support for extended (non-PC) x86 platforms'                                                                                                                                                     
             default y                                                                                                                                                                                              
-    '''</span>
-            config.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="kw3">string</span><span class="sy0">,</span> <span class="kw2">True</span><span class="br0">&#41;</span>
+    '''
+            config.parseString(string, True)
     
-        <span class="kw1">def</span> test_config2<span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
-            <span class="kw3">string</span> <span class="sy0">=</span> <span class="st0">'''config X86_EXTENDED_PLATFORM                                                                                                                                                               
+        def test_config2(self):
+            string = '''config X86_EXTENDED_PLATFORM                                                                                                                                                               
             bool 'Support for extended (non-PC) x86 platforms'                                                                                                                                                     
             default y                                                                                                                                                                                              
-    '''</span>
-            config.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="kw3">string</span><span class="sy0">,</span> <span class="kw2">True</span><span class="br0">&#41;</span>
+    '''
+            config.parseString(string, True)
     
-        <span class="kw1">def</span> tearDown<span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
-            <span class="kw1">print</span> <span class="st0">'indentStack: %s'</span> % indentStack
+        def tearDown(self):
+            print 'indentStack: %s' % indentStack
     
-    <span class="kw1">if</span> __name__ <span class="sy0">==</span> <span class="st0">'__main__'</span>:
-        <span class="kw3">unittest</span>.<span class="me1">main</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    if __name__ == '__main__':
+        unittest.main()
 
 
 
@@ -14433,13 +14442,13 @@ Instead, I wrote a little method to set the whitespace characters for a ParserRe
 
 
 
-    <span class="kw1">def</span> setWhitespaceChars<span class="br0">&#40;</span>e<span class="sy0">,</span>chars<span class="sy0">,</span>recurse<span class="sy0">=</span><span class="kw2">False</span><span class="br0">&#41;</span>:
-      <span class="kw1">if</span> recurse:
-        <span class="kw1">if</span> <span class="kw2">isinstance</span><span class="br0">&#40;</span>e<span class="sy0">,</span>ParseExpression<span class="br0">&#41;</span>:
-          <span class="kw1">for</span> sub <span class="kw1">in</span> e.<span class="me1">exprs</span>: setWhitespaceChars<span class="br0">&#40;</span>sub<span class="sy0">,</span>chars<span class="sy0">,</span><span class="kw2">True</span><span class="br0">&#41;</span>
-        <span class="kw1">elif</span> <span class="kw2">isinstance</span><span class="br0">&#40;</span>e<span class="sy0">,</span>ParseElementEnhance<span class="br0">&#41;</span>:
-          setWhitespaceChars<span class="br0">&#40;</span>e.<span class="me1">expr</span><span class="sy0">,</span>chars<span class="sy0">,</span><span class="kw2">True</span><span class="br0">&#41;</span>
-      e.<span class="me1">setWhitespaceChars</span><span class="br0">&#40;</span>chars<span class="br0">&#41;</span>
+    def setWhitespaceChars(e,chars,recurse=False):
+      if recurse:
+        if isinstance(e,ParseExpression):
+          for sub in e.exprs: setWhitespaceChars(sub,chars,True)
+        elif isinstance(e,ParseElementEnhance):
+          setWhitespaceChars(e.expr,chars,True)
+      e.setWhitespaceChars(chars)
 
 
 

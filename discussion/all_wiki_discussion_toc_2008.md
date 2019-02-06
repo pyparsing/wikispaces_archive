@@ -1,106 +1,115 @@
-[2008-01-02 00:08:32 - piranha - Matching start and end of word](.#2008-01-02-000832---piranha---matching-start-and-end-of-word)  
-[2008-01-03 10:12:21 - wcbarksdale - The evils of a << b | c](.#2008-01-03-101221---wcbarksdale---the-evils-of-a--b-|-c)  
-[2008-01-13 09:03:34 - bardaa1 - Raising an exception when an optional string is not found](.#2008-01-13-090334---bardaa1---raising-an-exception-when-an-optional-string-is-not-found)  
-[2008-01-16 17:05:00 - Rich_Fletcher - setResultsName problem even considering copy behavior](.#2008-01-16-170500---rich_fletcher---setresultsname-problem-even-considering-copy-behavior)  
-[2008-01-22 11:21:53 - michael_ramirez44 - ZeroOrMore](.#2008-01-22-112153---michael_ramirez44---zeroormore)  
-[2008-02-07 00:25:49 - jpj1138 - Handling line ends with continuation characters](.#2008-02-07-002549---jpj1138---handling-line-ends-with-continuation-characters)  
-[2008-02-07 09:15:31 - carterson2 - i need a C languager preprocessor written in python](.#2008-02-07-091531---carterson2---i-need-a-c-languager-preprocessor-written-in-python)  
-[2008-02-07 10:56:43 - ruedi-w - parsing VBA variable declarations](.#2008-02-07-105643---ruedi-w---parsing-vba-variable-declarations)  
-[2008-02-08 06:43:37 - michael_ramirez44 - Adding to parse string during parsing](.#2008-02-08-064337---michael_ramirez44---adding-to-parse-string-during-parsing)  
-[2008-02-08 10:38:50 - propell - Tips for making a BibTeX parser faster?](.#2008-02-08-103850---propell---tips-for-making-a-bibtex-parser-faster)  
-[2008-02-09 12:09:58 - carterson2 - I need a C preprocessor written in python](.#2008-02-09-120958---carterson2---i-need-a-c-preprocessor-written-in-python)  
-[2008-02-11 12:10:39 - wcbarksdale - What is matched by outer patterns?](.#2008-02-11-121039---wcbarksdale---what-is-matched-by-outer-patterns)  
-[2008-02-13 04:07:12 - plomlund - No exception on parse error](.#2008-02-13-040712---plomlund---no-exception-on-parse-error)  
-[2008-02-14 14:32:35 - michael_ramirez44 - Keywords matched as Identifier](.#2008-02-14-143235---michael_ramirez44---keywords-matched-as-identifier)  
-[2008-02-21 12:35:51 - scripteaze - i think i might be doing this the long way.](.#2008-02-21-123551---scripteaze---i-think-i-might-be-doing-this-the-long-way)  
-[2008-02-21 15:27:41 - dang42 - help removing ordering constraint](.#2008-02-21-152741---dang42---help-removing-ordering-constraint)  
-[2008-02-25 04:10:33 - murk8 - Command and arg on the same line - ?](.#2008-02-25-041033---murk8---command-and-arg-on-the-same-line---)  
-[2008-02-29 09:27:57 - crmccreary - Trouble with this grammar](.#2008-02-29-092757---crmccreary---trouble-with-this-grammar)  
-[2008-03-02 18:15:35 - alito - enablePackrat speeds up parsing of simple expression by a factor of >10000](.#2008-03-02-181535---alito---enablepackrat-speeds-up-parsing-of-simple-expression-by-a-factor-of-10000)  
-[2008-03-05 01:53:57 - nagaraj1 - requesting the code format](.#2008-03-05-015357---nagaraj1---requesting-the-code-format)  
-[2008-03-08 17:02:13 - jenhl - Odd dict output](.#2008-03-08-170213---jenhl---odd-dict-output)  
-[2008-03-11 02:22:11 - jenhl - LineEnd confusion](.#2008-03-11-022211---jenhl---lineend-confusion)  
-[2008-03-12 22:32:44 - taknev - Important Pyparsing webpage not rendering nicely](.#2008-03-12-223244---taknev---important-pyparsing-webpage-not-rendering-nicely)  
-[2008-03-13 22:17:59 - alito - Combining Forward and operatorPrecedence](.#2008-03-13-221759---alito---combining-forward-and-operatorprecedence)  
-[2008-03-14 16:04:00 - ricedaddy - parse string and extract certain text](.#2008-03-14-160400---ricedaddy---parse-string-and-extract-certain-text)  
-[2008-03-18 11:08:49 - Poldy - Getting the REAL position of the error](.#2008-03-18-110849---poldy---getting-the-real-position-of-the-error)  
-[2008-03-22 20:50:38 - ecir-hana - FAQ: How to get pyparsing to parse the entire input string?](.#2008-03-22-205038---ecir-hana---faq-how-to-get-pyparsing-to-parse-the-entire-input-string)  
-[2008-04-07 01:43:02 - lolob - Extract HTML table](.#2008-04-07-014302---lolob---extract-html-table)  
-[2008-04-07 13:15:29 - kenpierce - nestedExpr and preserving whitespace](.#2008-04-07-131529---kenpierce---nestedexpr-and-preserving-whitespace)  
-[2008-04-08 15:52:18 - MatTourne - ParseResults and location](.#2008-04-08-155218---mattourne---parseresults-and-location)  
-[2008-04-16 10:38:10 - MatTourne - Error recovery](.#2008-04-16-103810---mattourne---error-recovery)  
-[2008-04-17 00:43:48 - propell - QuotedString problems with escChar](.#2008-04-17-004348---propell---quotedstring-problems-with-escchar)  
-[2008-04-17 15:30:03 - michael_ramirez44 - Optional Ordering](.#2008-04-17-153003---michael_ramirez44---optional-ordering)  
-[2008-04-29 07:47:43 - dminor14 - Can't get alternative keywords to work](.#2008-04-29-074743---dminor14---cant-get-alternative-keywords-to-work)  
-[2008-05-04 15:59:48 - ecir-hana - setParseAction, Optional and Combine](.#2008-05-04-155948---ecir-hana---setparseaction-optional-and-combine)  
-[2008-05-04 23:02:26 - dminor14 - transformString question](.#2008-05-04-230226---dminor14---transformstring-question)  
-[2008-05-13 11:53:40 - MatTourne - ignore rule](.#2008-05-13-115340---mattourne---ignore-rule)  
-[2008-05-27 04:52:05 - jstanforth - WordStart syntax question](.#2008-05-27-045205---jstanforth---wordstart-syntax-question)  
-[2008-05-28 16:08:24 - sli1que - pyparsing usage](.#2008-05-28-160824---sli1que---pyparsing-usage)  
-[2008-06-03 18:51:12 - MatTourne - "Visiting" the ParseResults](.#2008-06-03-185112---mattourne---"visiting"-the-parseresults)  
-[2008-06-06 12:20:37 - skinny_00 - parsing a simple language](.#2008-06-06-122037---skinny_00---parsing-a-simple-language)  
-[2008-06-09 11:57:40 - MatTourne - bug? ignore and maximum recursion excedeed](.#2008-06-09-115740---mattourne---bug-ignore-and-maximum-recursion-excedeed)  
-[2008-06-09 22:44:40 - alxtoth - question on nestedExpr ](.#2008-06-09-224440---alxtoth---question-on-nestedexpr-)  
-[2008-06-10 12:52:56 - maxstylus - skipping lines that don't fit grammar](.#2008-06-10-125256---maxstylus---skipping-lines-that-dont-fit-grammar)  
-[2008-06-13 20:29:48 - eleybourn - I need to match a word unless it is a keyword](.#2008-06-13-202948---eleybourn---i-need-to-match-a-word-unless-it-is-a-keyword)  
-[2008-06-26 20:04:41 - akineko - SkipTo()'s unexpected behaviour](.#2008-06-26-200441---akineko---skiptos-unexpected-behaviour)  
-[2008-06-27 09:37:53 - akineko - process ifdef ... endif](.#2008-06-27-093753---akineko---process-ifdef--endif)  
-[2008-07-01 13:15:49 - akineko - pyparsing aid tool](.#2008-07-01-131549---akineko---pyparsing-aid-tool)  
-[2008-07-17 10:58:53 - agustingianni - Problems with recursive grammars](.#2008-07-17-105853---agustingianni---problems-with-recursive-grammars)  
-[2008-07-24 06:36:26 - jkozak - space complexity](.#2008-07-24-063626---jkozak---space-complexity)  
-[2008-07-24 14:12:55 - 3rdangle - Inquiry Regarding Programatic Setting of setResultsName](.#2008-07-24-141255---3rdangle---inquiry-regarding-programatic-setting-of-setresultsname)  
-[2008-07-27 23:27:21 - mayapower - Read .txt file like .py file](.#2008-07-27-232721---mayapower---read-txt-file-like-py-file)  
-[2008-08-01 16:21:52 - robinsiebler - New to PyParsing](.#2008-08-01-162152---robinsiebler---new-to-pyparsing)  
-[2008-08-02 06:35:38 - ecik - Comments in parsed code](.#2008-08-02-063538---ecik---comments-in-parsed-code)  
-[2008-08-04 11:13:25 - robinsiebler - Text that spans multiple lines](.#2008-08-04-111325---robinsiebler---text-that-spans-multiple-lines)  
-[2008-08-05 13:51:41 - robinsiebler - Another newbie question](.#2008-08-05-135141---robinsiebler---another-newbie-question)  
-[2008-08-06 11:15:45 - efaherty - Recursive terminals](.#2008-08-06-111545---efaherty---recursive-terminals)  
-[2008-08-09 06:06:11 - efaherty - nestedExpr question question](.#2008-08-09-060611---efaherty---nestedexpr-question-question)  
-[2008-08-12 05:58:08 - chris_laws - regular expression extracting groups](.#2008-08-12-055808---chris_laws---regular-expression-extracting-groups)  
-[2008-08-14 16:05:06 - ecir-hana - OT: LPEG](.#2008-08-14-160506---ecir-hana---ot-lpeg)  
-[2008-09-02 18:49:22 - luanzhu - Word match and searchString (newbie question)](.#2008-09-02-184922---luanzhu---word-match-and-searchstring-newbie-question)  
-[2008-09-05 06:48:43 - Leonidas-from-XIV - Handle \r\n like \n?](.#2008-09-05-064843---leonidas-from-xiv---handle-\r\n-like-\n)  
-[2008-09-18 00:13:57 - chrisdew - adding autocomplete to pyparsing](.#2008-09-18-001357---chrisdew---adding-autocomplete-to-pyparsing)  
-[2008-09-19 02:23:16 - kib2 - problem with the given pgn parser](.#2008-09-19-022316---kib2---problem-with-the-given-pgn-parser)  
-[2008-09-20 16:35:57 - pilsn - Dict: why are int converted to string?](.#2008-09-20-163557---pilsn---dict-why-are-int-converted-to-string)  
-[2008-09-22 05:33:29 - nnathan - Adding exception/parse failures in semantics](.#2008-09-22-053329---nnathan---adding-exceptionparse-failures-in-semantics)  
-[2008-09-24 21:55:50 - dminor14 - What is your license](.#2008-09-24-215550---dminor14---what-is-your-license)  
-[2008-09-29 00:57:59 - chrisdew - completion - questions on extending pyparsing for autocompletion](.#2008-09-29-005759---chrisdew---completion---questions-on-extending-pyparsing-for-autocompletion)  
-[2008-09-30 03:29:06 - hgaudecker - nestedExpr with multiple characters in opener/closer](.#2008-09-30-032906---hgaudecker---nestedexpr-with-multiple-characters-in-openercloser)  
-[2008-09-30 05:35:02 - onto - converting a yapps 1.1 program to pyparsing](.#2008-09-30-053502---onto---converting-a-yapps-11-program-to-pyparsing)  
-[2008-09-30 06:45:46 - hgaudecker - Newbie Question on LineStart + Whitespace](.#2008-09-30-064546---hgaudecker---newbie-question-on-linestart--whitespace)  
-[2008-10-01 14:25:48 - pilsn - copying a parser](.#2008-10-01-142548---pilsn---copying-a-parser)  
-[2008-10-01 19:25:24 - eleybourn - SQL Parser](.#2008-10-01-192524---eleybourn---sql-parser)  
-[2008-10-07 11:45:13 - TheGrudge - C++ #include parser](.#2008-10-07-114513---thegrudge---c-include-parser)  
-[2008-10-09 02:50:49 - rhattersley - Recording position of match](.#2008-10-09-025049---rhattersley---recording-position-of-match)  
-[2008-10-12 03:03:10 - steven-d - Ignoring trailing spaces](.#2008-10-12-030310---steven-d---ignoring-trailing-spaces)  
-[2008-10-12 03:29:10 - steven-d - Escaping characters](.#2008-10-12-032910---steven-d---escaping-characters)  
-[2008-10-16 09:00:00 - dozpav - Recursive Element with parseActions](.#2008-10-16-090000---dozpav---recursive-element-with-parseactions)  
-[2008-10-16 17:10:33 - teenwag - pyparsing.py:378: undefined name 'j'](.#2008-10-16-171033---teenwag---pyparsingpy378-undefined-name-j)  
-[2008-10-18 19:33:20 - oyster - need help with my BASIC-like language](.#2008-10-18-193320---oyster---need-help-with-my-basic-like-language)  
-[2008-10-21 15:52:10 - steven-d - Parsing line by line](.#2008-10-21-155210---steven-d---parsing-line-by-line)  
-[2008-10-22 02:02:31 - oyster - nested for and more](.#2008-10-22-020231---oyster---nested-for-and-more)  
-[2008-10-23 15:31:15 - ptmcg - I've been busy with work...](.#2008-10-23-153115---ptmcg---ive-been-busy-with-work)  
-[2008-10-30 00:11:07 - oyster - be carefulwith enablePackrat](.#2008-10-30-001107---oyster---be-carefulwith-enablepackrat)  
-[2008-10-30 19:30:29 - oyster - invisible visible var](.#2008-10-30-193029---oyster---invisible-visible-var)  
-[2008-10-31 14:03:04 - DanFelts - parsing HTML Input ](.#2008-10-31-140304---danfelts---parsing-html-input-)  
-[2008-11-01 07:20:13 - oyster - how to get a real name for this case?](.#2008-11-01-072013---oyster---how-to-get-a-real-name-for-this-case)  
-[2008-11-03 01:06:41 - oyster - did I misunderstand Optional?](.#2008-11-03-010641---oyster---did-i-misunderstand-optional)  
-[2008-11-03 06:36:35 - oyster - reconstruct expressions from operatorPrecedence results](.#2008-11-03-063635---oyster---reconstruct-expressions-from-operatorprecedence-results)  
-[2008-11-03 08:38:39 - cpennington - Line based parsing and empty lines: possible bug?](.#2008-11-03-083839---cpennington---line-based-parsing-and-empty-lines-possible-bug)  
-[2008-11-03 11:28:36 - cpennington - New failOn parameter for SkipTo doesn't work](.#2008-11-03-112836---cpennington---new-failon-parameter-for-skipto-doesnt-work)  
-[2008-11-04 18:54:00 - oyster - be careful with setResultsName and setParseAction](.#2008-11-04-185400---oyster---be-careful-with-setresultsname-and-setparseaction)  
-[2008-11-04 19:04:00 - oyster - operatorPrecedenceWithName](.#2008-11-04-190400---oyster---operatorprecedencewithname)  
-[2008-11-09 03:00:45 - oyster - infinite loops](.#2008-11-09-030045---oyster---infinite-loops)  
-[2008-11-14 04:14:26 - steven-d - Line-oriented parsing, with goodies](.#2008-11-14-041426---steven-d---line-oriented-parsing-with-goodies)  
-[2008-11-14 21:00:58 - oyster - setDefaultWhitespaceChars bug](.#2008-11-14-210058---oyster---setdefaultwhitespacechars-bug)  
-[2008-11-17 14:45:24 - steven-d - Should ParseSyntaxException be a subclass of ParseException?](.#2008-11-17-144524---steven-d---should-parsesyntaxexception-be-a-subclass-of-parseexception)  
-[2008-12-09 12:00:04 - ajone825 - how to input a file (Newb)](.#2008-12-09-120004---ajone825---how-to-input-a-file-newb)  
-[2008-12-13 13:05:38 - orestis82 - Error tolerance (needed for syntax highlighting?)](.#2008-12-13-130538---orestis82---error-tolerance-needed-for-syntax-highlighting)  
-[2008-12-16 09:02:02 - mUogoro - Callback execution inside grammar rules](.#2008-12-16-090202---muogoro---callback-execution-inside-grammar-rules)  
-[2008-12-18 05:40:54 - mayama - Nested elements](.#2008-12-18-054054---mayama---nested-elements)  
-[2008-12-19 03:03:21 - chrisi_g - nestedExpr: unexpected behavior](.#2008-12-19-030321---chrisi_g---nestedexpr-unexpected-behavior)  
-[2008-12-27 23:28:33 - pgurumur - Having some trouble parsing.](.#2008-12-27-232833---pgurumur---having-some-trouble-parsing)  
+## Pyparsing Wikispaces Discussion - 2008
+
+[Note: these entries are fairly old, and predate many new features of pyparsing,
+and are predominantly coded using Python 2.
+They are captured here for historical benefit, but may not contain
+the most current practices or features. We will try to add editor
+notes to entries to indicate when discussions have been 
+overtaken by development events.]
+
+[2008-01-02 00:08:32 - piranha - Matching start and end of word](all_wiki_discussion_toc_2008.md#2008-01-02-000832---piranha---matching-start-and-end-of-word)  
+[2008-01-03 10:12:21 - wcbarksdale - The evils of a << b | c](all_wiki_discussion_toc_2008.md#2008-01-03-101221---wcbarksdale---the-evils-of-a--b-|-c)  
+[2008-01-13 09:03:34 - bardaa1 - Raising an exception when an optional string is not found](all_wiki_discussion_toc_2008.md#2008-01-13-090334---bardaa1---raising-an-exception-when-an-optional-string-is-not-found)  
+[2008-01-16 17:05:00 - Rich_Fletcher - setResultsName problem even considering copy behavior](all_wiki_discussion_toc_2008.md#2008-01-16-170500---rich_fletcher---setresultsname-problem-even-considering-copy-behavior)  
+[2008-01-22 11:21:53 - michael_ramirez44 - ZeroOrMore](all_wiki_discussion_toc_2008.md#2008-01-22-112153---michael_ramirez44---zeroormore)  
+[2008-02-07 00:25:49 - jpj1138 - Handling line ends with continuation characters](all_wiki_discussion_toc_2008.md#2008-02-07-002549---jpj1138---handling-line-ends-with-continuation-characters)  
+[2008-02-07 09:15:31 - carterson2 - i need a C languager preprocessor written in python](all_wiki_discussion_toc_2008.md#2008-02-07-091531---carterson2---i-need-a-c-languager-preprocessor-written-in-python)  
+[2008-02-07 10:56:43 - ruedi-w - parsing VBA variable declarations](all_wiki_discussion_toc_2008.md#2008-02-07-105643---ruedi-w---parsing-vba-variable-declarations)  
+[2008-02-08 06:43:37 - michael_ramirez44 - Adding to parse string during parsing](all_wiki_discussion_toc_2008.md#2008-02-08-064337---michael_ramirez44---adding-to-parse-string-during-parsing)  
+[2008-02-08 10:38:50 - propell - Tips for making a BibTeX parser faster?](all_wiki_discussion_toc_2008.md#2008-02-08-103850---propell---tips-for-making-a-bibtex-parser-faster)  
+[2008-02-09 12:09:58 - carterson2 - I need a C preprocessor written in python](all_wiki_discussion_toc_2008.md#2008-02-09-120958---carterson2---i-need-a-c-preprocessor-written-in-python)  
+[2008-02-11 12:10:39 - wcbarksdale - What is matched by outer patterns?](all_wiki_discussion_toc_2008.md#2008-02-11-121039---wcbarksdale---what-is-matched-by-outer-patterns)  
+[2008-02-13 04:07:12 - plomlund - No exception on parse error](all_wiki_discussion_toc_2008.md#2008-02-13-040712---plomlund---no-exception-on-parse-error)  
+[2008-02-14 14:32:35 - michael_ramirez44 - Keywords matched as Identifier](all_wiki_discussion_toc_2008.md#2008-02-14-143235---michael_ramirez44---keywords-matched-as-identifier)  
+[2008-02-21 12:35:51 - scripteaze - i think i might be doing this the long way.](all_wiki_discussion_toc_2008.md#2008-02-21-123551---scripteaze---i-think-i-might-be-doing-this-the-long-way)  
+[2008-02-21 15:27:41 - dang42 - help removing ordering constraint](all_wiki_discussion_toc_2008.md#2008-02-21-152741---dang42---help-removing-ordering-constraint)  
+[2008-02-25 04:10:33 - murk8 - Command and arg on the same line - ?](all_wiki_discussion_toc_2008.md#2008-02-25-041033---murk8---command-and-arg-on-the-same-line---)  
+[2008-02-29 09:27:57 - crmccreary - Trouble with this grammar](all_wiki_discussion_toc_2008.md#2008-02-29-092757---crmccreary---trouble-with-this-grammar)  
+[2008-03-02 18:15:35 - alito - enablePackrat speeds up parsing of simple expression by a factor of >10000](all_wiki_discussion_toc_2008.md#2008-03-02-181535---alito---enablepackrat-speeds-up-parsing-of-simple-expression-by-a-factor-of-10000)  
+[2008-03-05 01:53:57 - nagaraj1 - requesting the code format](all_wiki_discussion_toc_2008.md#2008-03-05-015357---nagaraj1---requesting-the-code-format)  
+[2008-03-08 17:02:13 - jenhl - Odd dict output](all_wiki_discussion_toc_2008.md#2008-03-08-170213---jenhl---odd-dict-output)  
+[2008-03-11 02:22:11 - jenhl - LineEnd confusion](all_wiki_discussion_toc_2008.md#2008-03-11-022211---jenhl---lineend-confusion)  
+[2008-03-12 22:32:44 - taknev - Important Pyparsing webpage not rendering nicely](all_wiki_discussion_toc_2008.md#2008-03-12-223244---taknev---important-pyparsing-webpage-not-rendering-nicely)  
+[2008-03-13 22:17:59 - alito - Combining Forward and operatorPrecedence](all_wiki_discussion_toc_2008.md#2008-03-13-221759---alito---combining-forward-and-operatorprecedence)  
+[2008-03-14 16:04:00 - ricedaddy - parse string and extract certain text](all_wiki_discussion_toc_2008.md#2008-03-14-160400---ricedaddy---parse-string-and-extract-certain-text)  
+[2008-03-18 11:08:49 - Poldy - Getting the REAL position of the error](all_wiki_discussion_toc_2008.md#2008-03-18-110849---poldy---getting-the-real-position-of-the-error)  
+[2008-03-22 20:50:38 - ecir-hana - FAQ: How to get pyparsing to parse the entire input string?](all_wiki_discussion_toc_2008.md#2008-03-22-205038---ecir-hana---faq-how-to-get-pyparsing-to-parse-the-entire-input-string)  
+[2008-04-07 01:43:02 - lolob - Extract HTML table](all_wiki_discussion_toc_2008.md#2008-04-07-014302---lolob---extract-html-table)  
+[2008-04-07 13:15:29 - kenpierce - nestedExpr and preserving whitespace](all_wiki_discussion_toc_2008.md#2008-04-07-131529---kenpierce---nestedexpr-and-preserving-whitespace)  
+[2008-04-08 15:52:18 - MatTourne - ParseResults and location](all_wiki_discussion_toc_2008.md#2008-04-08-155218---mattourne---parseresults-and-location)  
+[2008-04-16 10:38:10 - MatTourne - Error recovery](all_wiki_discussion_toc_2008.md#2008-04-16-103810---mattourne---error-recovery)  
+[2008-04-17 00:43:48 - propell - QuotedString problems with escChar](all_wiki_discussion_toc_2008.md#2008-04-17-004348---propell---quotedstring-problems-with-escchar)  
+[2008-04-17 15:30:03 - michael_ramirez44 - Optional Ordering](all_wiki_discussion_toc_2008.md#2008-04-17-153003---michael_ramirez44---optional-ordering)  
+[2008-04-29 07:47:43 - dminor14 - Can't get alternative keywords to work](all_wiki_discussion_toc_2008.md#2008-04-29-074743---dminor14---cant-get-alternative-keywords-to-work)  
+[2008-05-04 15:59:48 - ecir-hana - setParseAction, Optional and Combine](all_wiki_discussion_toc_2008.md#2008-05-04-155948---ecir-hana---setparseaction-optional-and-combine)  
+[2008-05-04 23:02:26 - dminor14 - transformString question](all_wiki_discussion_toc_2008.md#2008-05-04-230226---dminor14---transformstring-question)  
+[2008-05-13 11:53:40 - MatTourne - ignore rule](all_wiki_discussion_toc_2008.md#2008-05-13-115340---mattourne---ignore-rule)  
+[2008-05-27 04:52:05 - jstanforth - WordStart syntax question](all_wiki_discussion_toc_2008.md#2008-05-27-045205---jstanforth---wordstart-syntax-question)  
+[2008-05-28 16:08:24 - sli1que - pyparsing usage](all_wiki_discussion_toc_2008.md#2008-05-28-160824---sli1que---pyparsing-usage)  
+[2008-06-03 18:51:12 - MatTourne - "Visiting" the ParseResults](all_wiki_discussion_toc_2008.md#2008-06-03-185112---mattourne---"visiting"-the-parseresults)  
+[2008-06-06 12:20:37 - skinny_00 - parsing a simple language](all_wiki_discussion_toc_2008.md#2008-06-06-122037---skinny_00---parsing-a-simple-language)  
+[2008-06-09 11:57:40 - MatTourne - bug? ignore and maximum recursion excedeed](all_wiki_discussion_toc_2008.md#2008-06-09-115740---mattourne---bug-ignore-and-maximum-recursion-excedeed)  
+[2008-06-09 22:44:40 - alxtoth - question on nestedExpr ](all_wiki_discussion_toc_2008.md#2008-06-09-224440---alxtoth---question-on-nestedexpr-)  
+[2008-06-10 12:52:56 - maxstylus - skipping lines that don't fit grammar](all_wiki_discussion_toc_2008.md#2008-06-10-125256---maxstylus---skipping-lines-that-dont-fit-grammar)  
+[2008-06-13 20:29:48 - eleybourn - I need to match a word unless it is a keyword](all_wiki_discussion_toc_2008.md#2008-06-13-202948---eleybourn---i-need-to-match-a-word-unless-it-is-a-keyword)  
+[2008-06-26 20:04:41 - akineko - SkipTo()'s unexpected behaviour](all_wiki_discussion_toc_2008.md#2008-06-26-200441---akineko---skiptos-unexpected-behaviour)  
+[2008-06-27 09:37:53 - akineko - process ifdef ... endif](all_wiki_discussion_toc_2008.md#2008-06-27-093753---akineko---process-ifdef--endif)  
+[2008-07-01 13:15:49 - akineko - pyparsing aid tool](all_wiki_discussion_toc_2008.md#2008-07-01-131549---akineko---pyparsing-aid-tool)  
+[2008-07-17 10:58:53 - agustingianni - Problems with recursive grammars](all_wiki_discussion_toc_2008.md#2008-07-17-105853---agustingianni---problems-with-recursive-grammars)  
+[2008-07-24 06:36:26 - jkozak - space complexity](all_wiki_discussion_toc_2008.md#2008-07-24-063626---jkozak---space-complexity)  
+[2008-07-24 14:12:55 - 3rdangle - Inquiry Regarding Programatic Setting of setResultsName](all_wiki_discussion_toc_2008.md#2008-07-24-141255---3rdangle---inquiry-regarding-programatic-setting-of-setresultsname)  
+[2008-07-27 23:27:21 - mayapower - Read .txt file like .py file](all_wiki_discussion_toc_2008.md#2008-07-27-232721---mayapower---read-txt-file-like-py-file)  
+[2008-08-01 16:21:52 - robinsiebler - New to PyParsing](all_wiki_discussion_toc_2008.md#2008-08-01-162152---robinsiebler---new-to-pyparsing)  
+[2008-08-02 06:35:38 - ecik - Comments in parsed code](all_wiki_discussion_toc_2008.md#2008-08-02-063538---ecik---comments-in-parsed-code)  
+[2008-08-04 11:13:25 - robinsiebler - Text that spans multiple lines](all_wiki_discussion_toc_2008.md#2008-08-04-111325---robinsiebler---text-that-spans-multiple-lines)  
+[2008-08-05 13:51:41 - robinsiebler - Another newbie question](all_wiki_discussion_toc_2008.md#2008-08-05-135141---robinsiebler---another-newbie-question)  
+[2008-08-06 11:15:45 - efaherty - Recursive terminals](all_wiki_discussion_toc_2008.md#2008-08-06-111545---efaherty---recursive-terminals)  
+[2008-08-09 06:06:11 - efaherty - nestedExpr question question](all_wiki_discussion_toc_2008.md#2008-08-09-060611---efaherty---nestedexpr-question-question)  
+[2008-08-12 05:58:08 - chris_laws - regular expression extracting groups](all_wiki_discussion_toc_2008.md#2008-08-12-055808---chris_laws---regular-expression-extracting-groups)  
+[2008-08-14 16:05:06 - ecir-hana - OT: LPEG](all_wiki_discussion_toc_2008.md#2008-08-14-160506---ecir-hana---ot-lpeg)  
+[2008-09-02 18:49:22 - luanzhu - Word match and searchString (newbie question)](all_wiki_discussion_toc_2008.md#2008-09-02-184922---luanzhu---word-match-and-searchstring-newbie-question)  
+[2008-09-05 06:48:43 - Leonidas-from-XIV - Handle \r\n like \n?](all_wiki_discussion_toc_2008.md#2008-09-05-064843---leonidas-from-xiv---handle-\r\n-like-\n)  
+[2008-09-18 00:13:57 - chrisdew - adding autocomplete to pyparsing](all_wiki_discussion_toc_2008.md#2008-09-18-001357---chrisdew---adding-autocomplete-to-pyparsing)  
+[2008-09-19 02:23:16 - kib2 - problem with the given pgn parser](all_wiki_discussion_toc_2008.md#2008-09-19-022316---kib2---problem-with-the-given-pgn-parser)  
+[2008-09-20 16:35:57 - pilsn - Dict: why are int converted to string?](all_wiki_discussion_toc_2008.md#2008-09-20-163557---pilsn---dict-why-are-int-converted-to-string)  
+[2008-09-22 05:33:29 - nnathan - Adding exception/parse failures in semantics](all_wiki_discussion_toc_2008.md#2008-09-22-053329---nnathan---adding-exceptionparse-failures-in-semantics)  
+[2008-09-24 21:55:50 - dminor14 - What is your license](all_wiki_discussion_toc_2008.md#2008-09-24-215550---dminor14---what-is-your-license)  
+[2008-09-29 00:57:59 - chrisdew - completion - questions on extending pyparsing for autocompletion](all_wiki_discussion_toc_2008.md#2008-09-29-005759---chrisdew---completion---questions-on-extending-pyparsing-for-autocompletion)  
+[2008-09-30 03:29:06 - hgaudecker - nestedExpr with multiple characters in opener/closer](all_wiki_discussion_toc_2008.md#2008-09-30-032906---hgaudecker---nestedexpr-with-multiple-characters-in-openercloser)  
+[2008-09-30 05:35:02 - onto - converting a yapps 1.1 program to pyparsing](all_wiki_discussion_toc_2008.md#2008-09-30-053502---onto---converting-a-yapps-11-program-to-pyparsing)  
+[2008-09-30 06:45:46 - hgaudecker - Newbie Question on LineStart + Whitespace](all_wiki_discussion_toc_2008.md#2008-09-30-064546---hgaudecker---newbie-question-on-linestart--whitespace)  
+[2008-10-01 14:25:48 - pilsn - copying a parser](all_wiki_discussion_toc_2008.md#2008-10-01-142548---pilsn---copying-a-parser)  
+[2008-10-01 19:25:24 - eleybourn - SQL Parser](all_wiki_discussion_toc_2008.md#2008-10-01-192524---eleybourn---sql-parser)  
+[2008-10-07 11:45:13 - TheGrudge - C++ #include parser](all_wiki_discussion_toc_2008.md#2008-10-07-114513---thegrudge---c-include-parser)  
+[2008-10-09 02:50:49 - rhattersley - Recording position of match](all_wiki_discussion_toc_2008.md#2008-10-09-025049---rhattersley---recording-position-of-match)  
+[2008-10-12 03:03:10 - steven-d - Ignoring trailing spaces](all_wiki_discussion_toc_2008.md#2008-10-12-030310---steven-d---ignoring-trailing-spaces)  
+[2008-10-12 03:29:10 - steven-d - Escaping characters](all_wiki_discussion_toc_2008.md#2008-10-12-032910---steven-d---escaping-characters)  
+[2008-10-16 09:00:00 - dozpav - Recursive Element with parseActions](all_wiki_discussion_toc_2008.md#2008-10-16-090000---dozpav---recursive-element-with-parseactions)  
+[2008-10-16 17:10:33 - teenwag - pyparsing.py:378: undefined name 'j'](all_wiki_discussion_toc_2008.md#2008-10-16-171033---teenwag---pyparsingpy378-undefined-name-j)  
+[2008-10-18 19:33:20 - oyster - need help with my BASIC-like language](all_wiki_discussion_toc_2008.md#2008-10-18-193320---oyster---need-help-with-my-basic-like-language)  
+[2008-10-21 15:52:10 - steven-d - Parsing line by line](all_wiki_discussion_toc_2008.md#2008-10-21-155210---steven-d---parsing-line-by-line)  
+[2008-10-22 02:02:31 - oyster - nested for and more](all_wiki_discussion_toc_2008.md#2008-10-22-020231---oyster---nested-for-and-more)  
+[2008-10-23 15:31:15 - ptmcg - I've been busy with work...](all_wiki_discussion_toc_2008.md#2008-10-23-153115---ptmcg---ive-been-busy-with-work)  
+[2008-10-30 00:11:07 - oyster - be carefulwith enablePackrat](all_wiki_discussion_toc_2008.md#2008-10-30-001107---oyster---be-carefulwith-enablepackrat)  
+[2008-10-30 19:30:29 - oyster - invisible visible var](all_wiki_discussion_toc_2008.md#2008-10-30-193029---oyster---invisible-visible-var)  
+[2008-10-31 14:03:04 - DanFelts - parsing HTML Input ](all_wiki_discussion_toc_2008.md#2008-10-31-140304---danfelts---parsing-html-input-)  
+[2008-11-01 07:20:13 - oyster - how to get a real name for this case?](all_wiki_discussion_toc_2008.md#2008-11-01-072013---oyster---how-to-get-a-real-name-for-this-case)  
+[2008-11-03 01:06:41 - oyster - did I misunderstand Optional?](all_wiki_discussion_toc_2008.md#2008-11-03-010641---oyster---did-i-misunderstand-optional)  
+[2008-11-03 06:36:35 - oyster - reconstruct expressions from operatorPrecedence results](all_wiki_discussion_toc_2008.md#2008-11-03-063635---oyster---reconstruct-expressions-from-operatorprecedence-results)  
+[2008-11-03 08:38:39 - cpennington - Line based parsing and empty lines: possible bug?](all_wiki_discussion_toc_2008.md#2008-11-03-083839---cpennington---line-based-parsing-and-empty-lines-possible-bug)  
+[2008-11-03 11:28:36 - cpennington - New failOn parameter for SkipTo doesn't work](all_wiki_discussion_toc_2008.md#2008-11-03-112836---cpennington---new-failon-parameter-for-skipto-doesnt-work)  
+[2008-11-04 18:54:00 - oyster - be careful with setResultsName and setParseAction](all_wiki_discussion_toc_2008.md#2008-11-04-185400---oyster---be-careful-with-setresultsname-and-setparseaction)  
+[2008-11-04 19:04:00 - oyster - operatorPrecedenceWithName](all_wiki_discussion_toc_2008.md#2008-11-04-190400---oyster---operatorprecedencewithname)  
+[2008-11-09 03:00:45 - oyster - infinite loops](all_wiki_discussion_toc_2008.md#2008-11-09-030045---oyster---infinite-loops)  
+[2008-11-14 04:14:26 - steven-d - Line-oriented parsing, with goodies](all_wiki_discussion_toc_2008.md#2008-11-14-041426---steven-d---line-oriented-parsing-with-goodies)  
+[2008-11-14 21:00:58 - oyster - setDefaultWhitespaceChars bug](all_wiki_discussion_toc_2008.md#2008-11-14-210058---oyster---setdefaultwhitespacechars-bug)  
+[2008-11-17 14:45:24 - steven-d - Should ParseSyntaxException be a subclass of ParseException?](all_wiki_discussion_toc_2008.md#2008-11-17-144524---steven-d---should-parsesyntaxexception-be-a-subclass-of-parseexception)  
+[2008-12-09 12:00:04 - ajone825 - how to input a file (Newb)](all_wiki_discussion_toc_2008.md#2008-12-09-120004---ajone825---how-to-input-a-file-newb)  
+[2008-12-13 13:05:38 - orestis82 - Error tolerance (needed for syntax highlighting?)](all_wiki_discussion_toc_2008.md#2008-12-13-130538---orestis82---error-tolerance-needed-for-syntax-highlighting)  
+[2008-12-16 09:02:02 - mUogoro - Callback execution inside grammar rules](all_wiki_discussion_toc_2008.md#2008-12-16-090202---muogoro---callback-execution-inside-grammar-rules)  
+[2008-12-18 05:40:54 - mayama - Nested elements](all_wiki_discussion_toc_2008.md#2008-12-18-054054---mayama---nested-elements)  
+[2008-12-19 03:03:21 - chrisi_g - nestedExpr: unexpected behavior](all_wiki_discussion_toc_2008.md#2008-12-19-030321---chrisi_g---nestedexpr-unexpected-behavior)  
+[2008-12-27 23:28:33 - pgurumur - Having some trouble parsing.](all_wiki_discussion_toc_2008.md#2008-12-27-232833---pgurumur---having-some-trouble-parsing)  
 
 
 ---
@@ -469,17 +478,17 @@ I'm running into a problem with setResultsName, and I don't see why it isn't wor
 
 
 
-    valuetypeDef <span class="sy0">=</span> Group<span class="br0">&#40;</span> Optional<span class="br0">&#40;</span> abstract_ <span class="br0">&#41;</span> + valuetype_ + \
-        identifier + Optional<span class="br0">&#40;</span> colon + delimitedList<span class="br0">&#40;</span> typeName <span class="br0">&#41;</span> <span class="br0">&#41;</span> + \
-        Optional<span class="br0">&#40;</span> supports_ + delimitedList<span class="br0">&#40;</span> typeName <span class="br0">&#41;</span> <span class="br0">&#41;</span> + \
-        lbrace + OneOrMore<span class="br0">&#40;</span> valuetypeItem <span class="br0">&#41;</span> + rbrace + semi <span class="br0">&#41;</span>
-    interfaceItem <span class="sy0">=</span> Group<span class="br0">&#40;</span> constDef | exceptionDef | attributeDef | operationDef <span class="br0">&#41;</span>
-    interfaceDef <span class="sy0">=</span> Group<span class="br0">&#40;</span> interface_ + identifier  + \
-        Optional<span class="br0">&#40;</span> colon + delimitedList<span class="br0">&#40;</span> typeName <span class="br0">&#41;</span> <span class="br0">&#41;</span> + lbrace + \
-        ZeroOrMore<span class="br0">&#40;</span> interfaceItem <span class="br0">&#41;</span> + rbrace + semi <span class="br0">&#41;</span>
-    moduleItem <span class="sy0">=</span> <span class="br0">&#40;</span> interfaceDef | exceptionDef | constDef | \
-        typedefDef | moduleDef | enumDef | valuetypeDef<span class="br0">&#41;</span>
-    moduleDef <span class="sy0">\<\<</span> Group<span class="br0">&#40;</span> module_ + identifier + lbrace + OneOrMore<span class="br0">&#40;</span> moduleItem <span class="br0">&#41;</span> + rbrace + semi <span class="br0">&#41;</span>
+    valuetypeDef = Group( Optional( abstract_ ) + valuetype_ + \
+        identifier + Optional( colon + delimitedList( typeName ) ) + \
+        Optional( supports_ + delimitedList( typeName ) ) + \
+        lbrace + OneOrMore( valuetypeItem ) + rbrace + semi )
+    interfaceItem = Group( constDef | exceptionDef | attributeDef | operationDef )
+    interfaceDef = Group( interface_ + identifier  + \
+        Optional( colon + delimitedList( typeName ) ) + lbrace + \
+        ZeroOrMore( interfaceItem ) + rbrace + semi )
+    moduleItem = ( interfaceDef | exceptionDef | constDef | \
+        typedefDef | moduleDef | enumDef | valuetypeDef)
+    moduleDef \<\< Group( module_ + identifier + lbrace + OneOrMore( moduleItem ) + rbrace + semi )
 
 
 
@@ -487,7 +496,7 @@ The only time I can get any named results is when I add a setResultsType to the 
 
 
 
-    moduleDef <span class="sy0">\<\<</span> Group<span class="br0">&#40;</span> module_ + identifier + lbrace + OneOrMore<span class="br0">&#40;</span> moduleItem <span class="br0">&#41;</span> + rbrace + semi <span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'module'</span><span class="br0">&#41;</span>
+    moduleDef \<\< Group( module_ + identifier + lbrace + OneOrMore( moduleItem ) + rbrace + semi )('module')
 
 
 
@@ -495,10 +504,10 @@ The only time I can get any named results is when I add a setResultsType to the 
 
 
 
-    valuetypeDef <span class="sy0">=</span> Group<span class="br0">&#40;</span> Optional<span class="br0">&#40;</span> abstract_ <span class="br0">&#41;</span> + valuetype_ + \
-        identifier + Optional<span class="br0">&#40;</span> colon + delimitedList<span class="br0">&#40;</span> typeName <span class="br0">&#41;</span> <span class="br0">&#41;</span> + \
-        Optional<span class="br0">&#40;</span> supports_ + delimitedList<span class="br0">&#40;</span> typeName <span class="br0">&#41;</span> <span class="br0">&#41;</span> + \
-        lbrace + OneOrMore<span class="br0">&#40;</span> valuetypeItem <span class="br0">&#41;</span> + rbrace + semi <span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'valuetype'</span><span class="br0">&#41;</span>
+    valuetypeDef = Group( Optional( abstract_ ) + valuetype_ + \
+        identifier + Optional( colon + delimitedList( typeName ) ) + \
+        Optional( supports_ + delimitedList( typeName ) ) + \
+        lbrace + OneOrMore( valuetypeItem ) + rbrace + semi )('valuetype')
 
 
 
@@ -947,12 +956,12 @@ Hi, I just started with pyparsing and try to parse some VBA variable declaration
 
 
 
-    <span class="kw4">Dim</span> j
-        <span class="kw4">Dim</span> j <span class="kw4">As</span> <span class="kw1">Integer</span>
-        <span class="kw4">Dim</span> i() <span class="kw4">As</span> <span class="kw1">Integer</span>, IM(3) <span class="kw4">As</span> <span class="kw1">Integer</span>, IP(4,5) <span class="kw4">As</span> <span class="kw1">Integer</span>
-        <span class="kw4">Dim</span> i() <span class="kw4">As</span> <span class="kw1">Integer</span>, IM(3,5 <span class="kw3">To</span> 9) <span class="kw4">As</span> <span class="kw1">Integer</span>, IP <span class="kw4">As</span> <span class="kw1">Integer</span>  <span class="co1">' a comment
-    </span>    <span class="kw4">Dim</span> WG(0 <span class="kw3">To</span> (N + 1) / 2) <span class="kw4">As</span> <span class="kw1">Double</span>, WGK(0 <span class="kw3">To</span> N) <span class="kw4">As</span> <span class="kw1">Double</span>, XGK(0 <span class="kw3">To</span> N) <span class="kw4">As</span> <span class="kw1">Double</span>
-        <span class="kw4">Dim</span> j(0 <span class="kw3">To</span> (N+1)/2, (0 <span class="kw3">To</span> (N-1)/2)) <span class="kw4">As</span> <span class="kw1">Integer</span>
+    Dim j
+        Dim j As Integer
+        Dim i() As Integer, IM(3) As Integer, IP(4,5) As Integer
+        Dim i() As Integer, IM(3,5 To 9) As Integer, IP As Integer  ' a comment
+        Dim WG(0 To (N + 1) / 2) As Double, WGK(0 To N) As Double, XGK(0 To N) As Double
+        Dim j(0 To (N+1)/2, (0 To (N-1)/2)) As Integer
 
 the problem appears to be that
 
@@ -962,37 +971,37 @@ Here is my attempt, it completely fails to recognize the arrays:
 
 
 
-    examples <span class="sy0">=</span> <span class="st0">'''
+    examples = '''
         Dim j
         Dim j As Integer
         Dim i() As Integer, IM(3) As Integer, IP(4,5) As Integer
         Dim i() As Integer, IM(3,5 To 9) As Integer, IP As Integer  ' a comment
         Dim WG(0 To (N + 1) / 2) As Double, WGK(0 To N) As Double, XGK(0 To N) As Double
         Dim j(0 To (N+1)/2, (0 To (N-1)/2)) As Integer
-        '''</span>
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+        '''
+    from pyparsing import *
     
-    varname <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas+<span class="st0">'_'</span><span class="sy0">,</span> alphanums+<span class="st0">'_'</span><span class="br0">&#41;</span>
-    datatype <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span>
-    comment <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'''</span><span class="br0">&#41;</span> + restOfLine
+    varname = Word(alphas+'_', alphanums+'_')
+    datatype = Word(alphas)
+    comment = Literal(''') + restOfLine
     
-    anything <span class="sy0">=</span> Regex<span class="br0">&#40;</span><span class="st0">'.*'</span><span class="br0">&#41;</span>
-    <span class="kw2">range</span> <span class="sy0">=</span> Optional<span class="br0">&#40;</span>anything + Keyword<span class="br0">&#40;</span><span class="st0">'To'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + anything 
-    shape <span class="sy0">=</span> <span class="st0">'('</span> + delimitedList<span class="br0">&#40;</span><span class="kw2">range</span><span class="br0">&#41;</span> + <span class="st0">')'</span>
+    anything = Regex('.*')
+    range = Optional(anything + Keyword('To')) + anything 
+    shape = '(' + delimitedList(range) + ')'
     
-    decl <span class="sy0">=</span> varname + Optional<span class="br0">&#40;</span>shape<span class="br0">&#41;</span>+Optional<span class="br0">&#40;</span>Suppress<span class="br0">&#40;</span><span class="st0">'As '</span><span class="br0">&#41;</span>+ datatype<span class="br0">&#41;</span>
+    decl = varname + Optional(shape)+Optional(Suppress('As ')+ datatype)
     
-    dim <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'Dim'</span><span class="br0">&#41;</span> + delimitedList<span class="br0">&#40;</span>decl<span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span>comment<span class="br0">&#41;</span> <span class="co1">#+ StringEnd()</span>
+    dim = Literal('Dim') + delimitedList(decl) + Optional(comment) #+ StringEnd()
     
-    <span class="kw1">for</span> i <span class="kw1">in</span> examples.<span class="me1">strip</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">splitlines</span><span class="br0">&#40;</span><span class="br0">&#41;</span>:
-        i <span class="sy0">=</span> i.<span class="me1">strip</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-        <span class="kw1">print</span>
-        <span class="kw1">print</span> i
-        <span class="kw1">try</span>:
-            <span class="kw1">print</span> dim.<span class="me1">parseString</span><span class="br0">&#40;</span>i<span class="br0">&#41;</span>
-        <span class="kw1">except</span> <span class="kw2">Exception</span><span class="sy0">,</span> e:
-            <span class="kw1">print</span> <span class="st0">'got error'</span><span class="sy0">,</span> e
-    <span class="kw1">print</span> <span class="st0">'-'</span>*<span class="nu0">44</span>
+    for i in examples.strip().splitlines():
+        i = i.strip()
+        print
+        print i
+        try:
+            print dim.parseString(i)
+        except Exception, e:
+            print 'got error', e
+    print '-'*44
 
 Strange? Any help would be wellcome!
 
@@ -1118,25 +1127,25 @@ Oups, my typing was faster than my brain: the <u>Interaction of default values a
 
 
 
-    name <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas+<span class="st0">'_'</span><span class="sy0">,</span> alphanums+<span class="st0">'_'</span><span class="br0">&#41;</span>
+    name = Word(alphas+'_', alphanums+'_')
     
-        dtype <span class="sy0">=</span> Optional<span class="br0">&#40;</span> Suppress<span class="br0">&#40;</span><span class="st0">'As'</span><span class="br0">&#41;</span> + Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span><span class="sy0">,</span> default<span class="sy0">=</span><span class="st0">'Variant'</span> <span class="br0">&#41;</span>
-        dtype.<span class="me1">setParseAction</span><span class="br0">&#40;</span><span class="kw1">lambda</span> t: t<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span>                     <span class="co1"># \<\<\<--- THIS MOVES TOKEN 1 LEVEL UP</span>
+        dtype = Optional( Suppress('As') + Word(alphas), default='Variant' )
+        dtype.setParseAction(lambda t: t[0])                     # \<\<\<--- THIS MOVES TOKEN 1 LEVEL UP
     
     
-        comment <span class="sy0">=</span> <span class="st0">'''</span> + restOfLine<span class="br0">&#40;</span><span class="st0">'comment'</span><span class="br0">&#41;</span>
+        comment = ''' + restOfLine('comment')
     
-        shape <span class="sy0">=</span> nestedExpr<span class="br0">&#40;</span><span class="br0">&#41;</span>
-        shape.<span class="me1">setParseAction</span><span class="br0">&#40;</span>keepOriginalText<span class="br0">&#41;</span>
+        shape = nestedExpr()
+        shape.setParseAction(keepOriginalText)
     
-        decl <span class="sy0">=</span> Group<span class="br0">&#40;</span>
-            name<span class="br0">&#40;</span><span class="st0">'name'</span><span class="br0">&#41;</span>
-            + Optional<span class="br0">&#40;</span>shape<span class="br0">&#40;</span><span class="st0">'shape'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-            + dtype<span class="br0">&#40;</span><span class="st0">'type'</span><span class="br0">&#41;</span>
-            <span class="br0">&#41;</span>
-        decl.<span class="me1">setParseAction</span><span class="br0">&#40;</span>create_variable<span class="br0">&#41;</span>
+        decl = Group(
+            name('name')
+            + Optional(shape('shape'))
+            + dtype('type')
+            )
+        decl.setParseAction(create_variable)
     
-        dim <span class="sy0">=</span> Suppress<span class="br0">&#40;</span><span class="st0">'Dim'</span><span class="br0">&#41;</span> + delimitedList<span class="br0">&#40;</span>decl<span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span>comment<span class="br0">&#41;</span>
+        dim = Suppress('Dim') + delimitedList(decl) + Optional(comment)
 
 
 
@@ -4216,13 +4225,13 @@ My query is about some odd (to me, at least) output using result names. My BNF g
 
 
 
-    binary_features <span class="sy4">::=</span> binary_feature+
-    binary_feature <span class="sy4">::=</span> <span class="st0">'Binary Feature'</span>, feature_name, EOL, plus_list, minus_list
-    feature_name <span class="sy4">::=</span> <span class="br0">&#91;</span>A-Za-z<span class="br0">&#93;</span>+
-    plus_list <span class="sy4">::=</span> <span class="st0">'plus:'</span>, char_list
-    minus_list <span class="sy4">::=</span> <span class="st0">'minus:'</span>, char_list
-    char_list <span class="sy4">::=</span> char, <span class="br0">&#40;</span><span class="st0">','</span>, char<span class="br0">&#41;</span><span class="sy4">*</span>, EOL
-    char <span class="sy4">::=</span> Unicode IPA character
+    binary_features ::= binary_feature+
+    binary_feature ::= 'Binary Feature', feature_name, EOL, plus_list, minus_list
+    feature_name ::= [A-Za-z]+
+    plus_list ::= 'plus:', char_list
+    minus_list ::= 'minus:', char_list
+    char_list ::= char, (',', char)*, EOL
+    char ::= Unicode IPA character
 
 
 
@@ -4232,18 +4241,18 @@ And my pyparsing code (simplified with respect to the IPA characters used) is:
 
 
 
-    char <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas<span class="sy0">,</span> exact<span class="sy0">=</span><span class="nu0">1</span><span class="br0">&#41;</span>
-    char_list <span class="sy0">=</span> delimitedList<span class="br0">&#40;</span>char<span class="br0">&#41;</span>.<span class="me1">setName</span><span class="br0">&#40;</span><span class="st0">'list of IPA characters'</span><span class="br0">&#41;</span>
-    plus_list <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'plus:'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + char_list
-    minus_list <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'minus:'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + char_list
-    binary_feature <span class="sy0">=</span> Literal<span class="br0">&#40;</span><span class="st0">'Binary Feature'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span> + 
-        LineEnd<span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + plus_list.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'plus_list'</span><span class="br0">&#41;</span> +
-        minus_list.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'minus_list'</span><span class="br0">&#41;</span>
-    binary_features <span class="sy0">=</span> Group<span class="br0">&#40;</span>OneOrMore<span class="br0">&#40;</span>binary_feature<span class="br0">&#41;</span><span class="br0">&#41;</span>
-        .<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'binary_features'</span><span class="br0">&#41;</span>
-    <span class="kw1">print</span> binary_features.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'''Binary Feature voiced
+    char = Word(alphas, exact=1)
+    char_list = delimitedList(char).setName('list of IPA characters')
+    plus_list = Literal('plus:').suppress() + char_list
+    minus_list = Literal('minus:').suppress() + char_list
+    binary_feature = Literal('Binary Feature').suppress() + Word(alphas) + 
+        LineEnd().suppress() + plus_list.setResultsName('plus_list') +
+        minus_list.setResultsName('minus_list')
+    binary_features = Group(OneOrMore(binary_feature))
+        .setResultsName('binary_features')
+    print binary_features.parseString('''Binary Feature voiced
       plus: b, d
-      minus: a, c, e'''</span><span class="br0">&#41;</span>.<span class="me1">asDict</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+      minus: a, c, e''').asDict()
 
 
 
@@ -4253,9 +4262,9 @@ From which I get:
 
 
 
-    <span class="br0">&#123;</span><span class="st0">'binary_features'</span>: <span class="br0">&#40;</span><span class="br0">&#91;</span><span class="st0">'voiced'</span><span class="sy0">,</span> <span class="st0">'b'</span><span class="sy0">,</span> <span class="st0">'d'</span><span class="sy0">,</span> <span class="st0">'a'</span><span class="sy0">,</span> <span class="st0">'c'</span><span class="sy0">,</span> <span class="st0">'e'</span><span class="br0">&#93;</span><span class="sy0">,</span>
-    <span class="br0">&#123;</span><span class="st0">'minus_list'</span>: <span class="br0">&#91;</span><span class="br0">&#40;</span><span class="br0">&#40;</span><span class="br0">&#91;</span><span class="st0">'a'</span><span class="sy0">,</span> <span class="st0">'c'</span><span class="sy0">,</span> <span class="st0">'e'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="br0">&#123;</span><span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">3</span><span class="br0">&#41;</span><span class="br0">&#93;</span><span class="sy0">,</span>
-    <span class="st0">'plus_list'</span>: <span class="br0">&#91;</span><span class="br0">&#40;</span><span class="br0">&#40;</span><span class="br0">&#91;</span><span class="st0">'b'</span><span class="sy0">,</span> <span class="st0">'d'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="br0">&#123;</span><span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#93;</span><span class="br0">&#125;</span><span class="br0">&#41;</span><span class="br0">&#125;</span>
+    {'binary_features': (['voiced', 'b', 'd', 'a', 'c', 'e'],
+    {'minus_list': [((['a', 'c', 'e'], {}), 3)],
+    'plus_list': [((['b', 'd'], {}), 1)]})}
 
 
 
@@ -4317,9 +4326,9 @@ I do not understand how LineEnd() works, or how it interacts with other elements
 
 
 
-    data <span class="sy0">=</span> <span class="st0">'''a
+    data = '''a
     b
-    '''</span>
+    '''
 
 
 
@@ -4329,12 +4338,12 @@ the following grammar parses it fine:
 
 
 
-    <span class="kw2">list</span> <span class="sy0">=</span> delimitedList<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    g <span class="sy0">=</span> <span class="kw2">list</span> + <span class="kw2">list</span>
-    results <span class="sy0">=</span> g.<span class="me1">parseString</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span>
-    <span class="kw1">print</span> results.<span class="me1">dump</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    list = delimitedList(Word(alphas))
+    g = list + list
+    results = g.parseString(data)
+    print results.dump()
     
-    <span class="br0">&#91;</span><span class="st0">'a'</span><span class="sy0">,</span> <span class="st0">'b'</span><span class="br0">&#93;</span>
+    ['a', 'b']
 
 
 
@@ -4344,13 +4353,13 @@ But if I add in a LineEnd() to the end of the list definition, it fails:
 
 
 
-    <span class="kw2">list</span> <span class="sy0">=</span> delimitedList<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span><span class="br0">&#41;</span> + LineEnd<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    g <span class="sy0">=</span> <span class="kw2">list</span> + <span class="kw2">list</span>
-    results <span class="sy0">=</span> g.<span class="me1">parseString</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span>
-    <span class="kw1">print</span> results.<span class="me1">dump</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    list = delimitedList(Word(alphas)) + LineEnd()
+    g = list + list
+    results = g.parseString(data)
+    print results.dump()
     
-    pyparsing.<span class="me1">ParseException</span>: Expected end of line <span class="br0">&#40;</span>at char <span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">,</span>
-    <span class="br0">&#40;</span>line:<span class="nu0">2</span><span class="sy0">,</span> col:<span class="nu0">1</span><span class="br0">&#41;</span>
+    pyparsing.ParseException: Expected end of line (at char 2),
+    (line:2, col:1)
 
 
 
@@ -4360,16 +4369,16 @@ If I then add a second element to the first list, it goes back to working:
 
 
 
-    data <span class="sy0">=</span> <span class="st0">'''a, b
+    data = '''a, b
     b
-    '''</span>
+    '''
     
-    <span class="kw2">list</span> <span class="sy0">=</span> delimitedList<span class="br0">&#40;</span>Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span><span class="br0">&#41;</span> + LineEnd<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    g <span class="sy0">=</span> <span class="kw2">list</span> + <span class="kw2">list</span>
-    results <span class="sy0">=</span> g.<span class="me1">parseString</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span>
-    <span class="kw1">print</span> results.<span class="me1">dump</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    list = delimitedList(Word(alphas)) + LineEnd()
+    g = list + list
+    results = g.parseString(data)
+    print results.dump()
     
-    <span class="br0">&#91;</span><span class="st0">'a'</span><span class="sy0">,</span> <span class="st0">'b'</span><span class="sy0">,</span> <span class="st0">'<span class="es0">\n</span>'</span><span class="sy0">,</span> <span class="st0">'b'</span><span class="br0">&#93;</span>
+    ['a', 'b', '\n', 'b']
 
 
 
@@ -4386,7 +4395,7 @@ From reading some other threads here, it appears that what I should do is:
 
 
 
-    ParserElement.<span class="me1">setDefaultWhitespaceChars</span><span class="br0">&#40;</span><span class="st0">' <span class="es0">\t</span>'</span><span class="br0">&#41;</span>
+    ParserElement.setDefaultWhitespaceChars(' \t')
 
 
 
@@ -5121,7 +5130,7 @@ Here is another one, that parses table cells and extracts the cell value (also h
 
 
 
-<span class="membersnap">-   <small>Apr 7, 2008</small></span>
+-   <small>Apr 7, 2008</small>
 #### 2008-04-07 19:04:24 - lolob
 Thanks ptmcg for the explanation, it helps a lot..
 
@@ -5134,16 +5143,16 @@ I receive the following callback error when I try to run 'withAttribute.py' file
 
 
     
-    azzam:~<span class="sy0">/</span>Desktop azzam$ python withAttribute.<span class="me1">py</span> 
-    Traceback <span class="br0">&#40;</span>most recent <span class="kw3">call</span> last<span class="br0">&#41;</span>:
-      File <span class="st0">'withAttribute.py'</span>, line <span class="nu0">18</span>, <span class="kw1">in</span> ?
-        realNum = Combine<span class="br0">&#40;</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span> + <span class="st0">'.'</span> + Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span> <span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>lambda t:float<span class="br0">&#40;</span>t<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-      File <span class="st0">'/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/pyparsing.py'</span>, line <span class="nu0">773</span>, <span class="kw1">in</span> setParseAction
-        self.<span class="me1">parseAction</span> = map<span class="br0">&#40;</span>self._normalizeParseActionArgs, <span class="kw3">list</span><span class="br0">&#40;</span>fns<span class="br0">&#41;</span><span class="br0">&#41;</span>
-      File <span class="st0">'/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/pyparsing.py'</span>, line <span class="nu0">739</span>, <span class="kw1">in</span> _normalizeParseActionArgs
+    azzam:~/Desktop azzam$ python withAttribute.py 
+    Traceback (most recent call last):
+      File 'withAttribute.py', line 18, in ?
+        realNum = Combine( Word(nums) + '.' + Word(nums) ).setParseAction(lambda t:float(t[0]))
+      File '/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/pyparsing.py', line 773, in setParseAction
+        self.parseAction = map(self._normalizeParseActionArgs, list(fns))
+      File '/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/pyparsing.py', line 739, in _normalizeParseActionArgs
         tmp.__name__ = f.__name__
     TypeError: readonly attribute
-    azzam:~<span class="sy0">/</span>Desktop azzam$ 
+    azzam:~/Desktop azzam$ 
     
 
 
@@ -5188,28 +5197,28 @@ Now, I want the output to look like a table-form..So,how do I control within the
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
-    <span class="kw1">import</span> <span class="kw3">urllib</span>
+    from pyparsing import *
+    import urllib
     
-    <span class="co1"># define basic text pattern</span>
-    tdS<span class="sy0">,</span>tdE <span class="sy0">=</span> makeHTMLTags<span class="br0">&#40;</span><span class="st0">'TD'</span><span class="br0">&#41;</span>
-    anchorS<span class="sy0">,</span>anchorE <span class="sy0">=</span> makeHTMLTags<span class="br0">&#40;</span><span class="st0">'A'</span><span class="br0">&#41;</span>
-    fontS<span class="sy0">,</span>fontE <span class="sy0">=</span> makeHTMLTags<span class="br0">&#40;</span><span class="st0">'FONT'</span><span class="br0">&#41;</span>
-    realNum <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphanums+<span class="st0">'./-: '</span><span class="br0">&#41;</span>
-    patt <span class="sy0">=</span> tdS + anchorS + fontS + realNum<span class="br0">&#40;</span><span class="st0">'value'</span><span class="br0">&#41;</span>+ fontE + anchorE + tdE
-    patt2 <span class="sy0">=</span> tdS + fontS + realNum<span class="br0">&#40;</span><span class="st0">'value'</span><span class="br0">&#41;</span>+ fontE + tdE
+    # define basic text pattern
+    tdS,tdE = makeHTMLTags('TD')
+    anchorS,anchorE = makeHTMLTags('A')
+    fontS,fontE = makeHTMLTags('FONT')
+    realNum = Word(alphanums+'./-: ')
+    patt = tdS + anchorS + fontS + realNum('value')+ fontE + anchorE + tdE
+    patt2 = tdS + fontS + realNum('value')+ fontE + tdE
     
-    <span class="co1"># get list of time servers</span>
-    nistTimeServerURL <span class="sy0">=</span> <span class="st0">'http://infobanjir.water.gov.my/perlisw.htm'</span>
-    serverListPage <span class="sy0">=</span> <span class="kw3">urllib</span>.<span class="me1">urlopen</span><span class="br0">&#40;</span> nistTimeServerURL <span class="br0">&#41;</span>
-    serverListHTML <span class="sy0">=</span> serverListPage.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    serverListPage.<span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    # get list of time servers
+    nistTimeServerURL = 'http://infobanjir.water.gov.my/perlisw.htm'
+    serverListPage = urllib.urlopen( nistTimeServerURL )
+    serverListHTML = serverListPage.read()
+    serverListPage.close()
     
-    tdS.<span class="me1">setParseAction</span><span class="br0">&#40;</span> withAttribute<span class="br0">&#40;</span>align<span class="sy0">=</span><span class="st0">'center'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
-    <span class="kw1">for</span> srvrtokens<span class="sy0">,</span>startloc<span class="sy0">,</span>endloc <span class="kw1">in</span> patt.<span class="me1">scanString</span><span class="br0">&#40;</span> serverListHTML<span class="br0">&#41;</span>:
-        <span class="kw1">print</span> srvrtokens.<span class="me1">value</span>
-    <span class="kw1">for</span> srvrtokens2<span class="sy0">,</span>startloc2<span class="sy0">,</span>endloc2 <span class="kw1">in</span> patt2.<span class="me1">scanString</span><span class="br0">&#40;</span>serverListHTML<span class="br0">&#41;</span>:
-        <span class="kw1">print</span> srvrtokens2.<span class="me1">value</span> <span class="co1">#+ srvrtokens2.value        </span>
+    tdS.setParseAction( withAttribute(align='center') )
+    for srvrtokens,startloc,endloc in patt.scanString( serverListHTML):
+        print srvrtokens.value
+    for srvrtokens2,startloc2,endloc2 in patt2.scanString(serverListHTML):
+        print srvrtokens2.value #+ srvrtokens2.value        
 
 
 
@@ -5221,8 +5230,8 @@ One more thing, can somebody explain about the code below? Because normal 'for' 
 
 
 
-    <span class="kw1">for</span> srvrtokens<span class="sy0">,</span>startloc<span class="sy0">,</span>endloc <span class="kw1">in</span> patt
-        <span class="kw1">print</span> patt
+    for srvrtokens,startloc,endloc in patt
+        print patt
 
 
 #### 2008-04-11 03:20:02 - ptmcg
@@ -9379,7 +9388,7 @@ prints:
     ['PGF2ZG5fcG5tIHZlcnNpb249IjEuMSIgc2VuZGVyPSJhdmRud2VzdGRjMSIgZG9jbnVtVy', 
         'PSJvaHV0bHBxeXptM25xd3lrYm9wd3pwdTUiIHN0YXR1cz0ic3VjY2Vzc2Z1bCI+PGbnR=']
     \<avdn_pnm version='1.1' sender='avdnwestdc1' docnum
-    W#Ò&ö‡WFÇ—¦Ó6çw–¶&÷w§SR'7FGW3Ò'7V66W76gVÂ#ãÆnt
+    W#ï¿½&ï¿½ï¿½WFï¿½ï¿½ï¿½ï¿½6ï¿½wï¿½ï¿½&ï¿½wï¿½SR'7FGW3ï¿½'7V66W76gVï¿½#ï¿½ï¿½nt
 
 (The base64 decoding is probably scrambled because you snipped some of the intervening encoded lines.)
 #### 2008-08-04 12:30:22 - robinsiebler
@@ -12209,18 +12218,18 @@ My wish is to obtain this xml:
 
 
 
-    <span class="sc3"><span class="re1">\<query<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<context<span class="re2">\></span></span></span>/books/book<span class="sc3"><span class="re1">\</context<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<predicate<span class="re2">\></span></span></span>
-           <span class="sc3"><span class="re1">\<context<span class="re2">\></span></span></span>para<span class="sc3"><span class="re1">\</context<span class="re2">\></span></span></span>
-           <span class="sc3"><span class="re1">\<contains<span class="re2">\></span></span></span>sandokan<span class="sc3"><span class="re1">\</contains<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\</predicate<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<context<span class="re2">\></span></span></span>title<span class="sc3"><span class="re1">\</context<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<predicate<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<context<span class="re2">\></span></span></span>.<span class="sc3"><span class="re1">\</context<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<contains<span class="re2">\></span></span></span>Adventures<span class="sc3"><span class="re1">\</contains<span class="re2">\></span></span></span> 
-        <span class="sc3"><span class="re1">\</predicate<span class="re2">\></span></span></span>
-    <span class="sc3"><span class="re1">\</query<span class="re2">\></span></span></span>
+    \<query\>
+        \<context\>/books/book\</context\>
+        \<predicate\>
+           \<context\>para\</context\>
+           \<contains\>sandokan\</contains\>
+        \</predicate\>
+        \<context\>title\</context\>
+        \<predicate\>
+          \<context\>.\</context\>
+          \<contains\>Adventures\</contains\> 
+        \</predicate\>
+    \</query\>
 
           
 
@@ -12230,13 +12239,13 @@ Using this semplified form of grammar taken from W3 Full-text xquery
 
 
 
-    RelativePathExpr <span class="sy0">=</span> Group<span class="br0">&#40;</span>StepExpr + <span class="br0">&#40;</span>ZeroOrMore<span class="br0">&#40;</span>oneOf<span class="br0">&#40;</span><span class="st0">'/ //'</span><span class="br0">&#41;</span> + StepExpr<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>RelativePathExpr_f<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'RelativePathExpr'</span><span class="br0">&#41;</span>
+    RelativePathExpr = Group(StepExpr + (ZeroOrMore(oneOf('/ //') + StepExpr))).setParseAction(RelativePathExpr_f).setResultsName('RelativePathExpr')
     
     StepExpr brings to AxisStep
     
-    AxisStep        <span class="sy0">=</span> Group<span class="br0">&#40;</span><span class="br0">&#40;</span>ReverseStep ^ ForwardStep<span class="br0">&#41;</span> + Predicate<span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'AxisStep'</span><span class="br0">&#41;</span> 
+    AxisStep        = Group((ReverseStep ^ ForwardStep) + Predicate).setResultsName('AxisStep') 
     
-    Predicate       <span class="sy0">=</span> Group<span class="br0">&#40;</span><span class="st0">'['</span>+ Expr + FTContainsExpr<span class="st0">']'</span><span class="br0">&#41;</span>.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'Predicate'</span><span class="br0">&#41;</span>
+    Predicate       = Group('['+ Expr + FTContainsExpr']').setResultsName('Predicate')
 
 
 
