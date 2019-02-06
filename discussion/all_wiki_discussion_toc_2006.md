@@ -1,11 +1,11 @@
 ## Pyparsing Wikispaces Discussion - 2006
 
-[Note: these entries are fairly old, and predate many new features of pyparsing,
+_[Note: these entries are fairly old, and predate many new features of pyparsing,
 and are predominantly coded using Python 2.
 They are captured here for historical benefit, but may not contain
 the most current practices or features. We will try to add editor
 notes to entries to indicate when discussions have been 
-overtaken by development events.]
+overtaken by development events.]_
 
 [2006-05-17 08:01:32 - knguyen - Grammar Suggestion](all_wiki_discussion_toc_2006.md#2006-05-17-080132---knguyen---grammar-suggestion)  
 [2006-05-31 00:26:48 - ideefixe - Parse actions return values](all_wiki_discussion_toc_2006.md#2006-05-31-002648---ideefixe---parse-actions-return-values)  
@@ -264,51 +264,29 @@ But except for this tuple issue, my intent is that parse actions should be able 
 An alternative approach might be to try using the pyparsing Dict class (shown here being created with the dictOf helper factory method).  For your data, I think this would look something like:
 
 
-
-
-
-from pyparsing import *
-
-
-
-data = 'name1 val1 name2 val2 name3 val3'
-
-
-
-key = Word(alphanums)
-
-value = Word(alphanums)
-
-proplist = dictOf(key, value)
-
-
-
-props = proplist.parseString(data)
-
-
-
-print props.items()
-
-for k in sorted(props.keys()):
-
-    print k,'-\>',props[k]
-
-
+    from pyparsing import *
+    
+    
+    
+    data = 'name1 val1 name2 val2 name3 val3'    
+    
+    key = Word(alphanums)
+    value = Word(alphanums)
+    proplist = dictOf(key, value)
+    
+    props = proplist.parseString(data)
+    
+    print props.items()
+    for k in sorted(props.keys()):
+        print k,'->',props[k]
 
 Giving:
 
 
-
-[('name2', 'val2'), ('name3', 'val3'), ('name1', 'val1')]
-
-name1 -\> val1
-
-name2 -\> val2
-
-name3 -\> val3
-
-
-
+    [('name2', 'val2'), ('name3', 'val3'), ('name1', 'val1')]
+    name1 -> val1
+    name2 -> val2
+    name3 -> val3
 
 
 I hope to get the next release out sometime in June, if work will just let up for a few days!
@@ -321,18 +299,15 @@ Oh, thank you for your support. No doubt that I'll put that dictOf() goody to pr
 
 
 
-\>backwards-compatbility state is that parse actions can
+>backwards-compatbility state is that parse actions can
 
-\>return lists, dicts, ints, ParseResults - but *not* 
+>return lists, dicts, ints, ParseResults - but *not* 
 
-\>tuples! So as of the next release, I am removing the
+>tuples! So as of the next release, I am removing the
 
 
 
 Regarding parse actions returning dicts, if you let me repeat myself, there is at least a problem when they are named, which shows off at ParseResults construction time:
-
-
-
 
 
     try:
@@ -404,7 +379,7 @@ Here is a *very* crude wiki marker-upper.
       *This is in italics.*
       **This is in bold!**
       ***This is in bold italics!***
-      Here's a URL to {{Pyparsing's Wiki Page-\>http://pyparsing.wikispaces.com}}
+      Here's a URL to {{Pyparsing's Wiki Page->http://pyparsing.wikispaces.com}}
     '''
     
     def convertToHTML(opening,closing):
@@ -412,15 +387,15 @@ Here is a *very* crude wiki marker-upper.
             return opening + t[0] + closing
         return conversionParseAction
     
-    italicized = QuotedString('*').setParseAction(convertToHTML('\<I\>','\</I\>'))
-    bolded = QuotedString('**').setParseAction(convertToHTML('\<B\>','\</B\>'))
-    boldItalicized = QuotedString('***').setParseAction(convertToHTML('\<B\>\<I\>','\</I\>\</B\>'))
+    italicized = QuotedString('*').setParseAction(convertToHTML('<I>','</I>'))
+    bolded = QuotedString('**').setParseAction(convertToHTML('<B>','</B>'))
+    boldItalicized = QuotedString('***').setParseAction(convertToHTML('<B><I>','</I></B>'))
     def convertToHTML_A(s,l,t):
         try:
-            text,url=t[0].split('-\>')
+            text,url=t[0].split('->')
         except ValueError:
             raise ParseFatalException(s,l,'invalid URL link reference: ' + t[0])
-        return '\<A href='%s'\>%s\</A\>' % (url,text)
+        return '<A href='%s'>%s</A>' % (url,text)
     
     urlRef = QuotedString('{{',endQuoteChar='}}').setParseAction(convertToHTML_A)
     
@@ -437,15 +412,15 @@ Here is a *very* crude wiki marker-upper.
       *This is in italics.*
       **This is in bold!**
       ***This is in bold italics!***
-      Here's a URL to {{Pyparsing's Wiki Page-\>http://pyparsing.wikispaces.com}}
+      Here's a URL to {{Pyparsing's Wiki Page->http://pyparsing.wikispaces.com}}
     
     
     
     Here is a simple Wiki input:
-      \<I\>This is in italics.\</I\>
-      \<B\>This is in bold!\</B\>
-      \<B\>\<I\>This is in bold italics!\</I\>\</B\>
-      Here's a URL to \<A href='http://pyparsing.wikispaces.com'\>Pyparsing's Wiki Page\</A\>
+      <I>This is in italics.</I>
+      <B>This is in bold!</B>
+      <B><I>This is in bold italics!</I></B>
+      Here's a URL to <A href='http://pyparsing.wikispaces.com'>Pyparsing's Wiki Page</A>
 
 
 #### 2006-06-04 17:35:17 - prologic
@@ -477,7 +452,7 @@ So when working with transformString, the general process is to layout the patte
 
 
 
-Since you are doing your own wiki marker upper, you have the luxury/burden of designing your own markup patterns (much like I made up bold, italic, and URL link off the top of my head).  To keep track of depth for headings, you'll need to keep a stack of headings, and push and pop the stack as necessary in a parse action.  For tables, I would define a parse expression that matches the entire table, with nested expressions for table rows and column fields, and then build the appropriate HTML in that expression's parse action.  If you use Group to wrap the rows and column fields, then the tokens argument to the parse action will have the correct hierarchy to it, and you can just iterate through that, assembling \<TR\>, \<TD\>, etc. tags as you go.  Then emit the whole mess from the parse action, so that transformString will replace the marked-up table text with the HTML-ified table text.
+Since you are doing your own wiki marker upper, you have the luxury/burden of designing your own markup patterns (much like I made up bold, italic, and URL link off the top of my head).  To keep track of depth for headings, you'll need to keep a stack of headings, and push and pop the stack as necessary in a parse action.  For tables, I would define a parse expression that matches the entire table, with nested expressions for table rows and column fields, and then build the appropriate HTML in that expression's parse action.  If you use Group to wrap the rows and column fields, then the tokens argument to the parse action will have the correct hierarchy to it, and you can just iterate through that, assembling <TR>, <TD>, etc. tags as you go.  Then emit the whole mess from the parse action, so that transformString will replace the marked-up table text with the HTML-ified table text.
 
 
 
@@ -555,11 +530,11 @@ In the  example below pyParsing fails to parse the input string with the error '
 
 
 ```
-from pyparsing import *<br />
-<br />
-A = Keyword('Quote') + QuotedString('&quot;')<br />
-B = Word(alphas) + Literal('thing') + Literal('value')<br />
-S = A | B<br />
+from pyparsing import *
+
+A = Keyword('Quote') + QuotedString('&quot;')
+B = Word(alphas) + Literal('thing') + Literal('value')
+S = A | B
 print S.parseString('Quote thing here?')
 ```
 
@@ -702,42 +677,29 @@ Hi I have this problem where I can't figure out how to get pass.
 
 
 
-\<outer part\>
-
-stuff
-
-\<inner part\>
-
-stuff
-
-\<end\>
-
-more stuff
-
-\<end\>
+    <outer part>    
+    stuff
+    <inner part>
+    stuff
+    <end>
+    more stuff
+    <end>
 
 
 
-Say I want to capture this entire outer part and the only things I have to identify it is \<outer part\> and \<end\>. The problem is that the \<inner part\> has the same ending. How can do this by somehow skipping over the inner \<end\>?
+Say I want to capture this entire outer part and the only things I have to identify it is <outer part> and <end>. The problem is that the <inner part> has the same ending. How can do this by somehow skipping over the inner <end>?
 
 #### 2007-06-29 14:05:44 - vineshp
 I'd say:
 
-
-
-inner = '\<inner part\>' + stuff + '\<end\>'
-
-outer = '\<outer part\>' + stuff + Optional(inner) + stuff + '\<end\>'
-
-
+    inner = '<inner part>' + stuff + '<end>'
+    outer = '<outer part>' + stuff + Optional(inner) + stuff + '<end>'
 
 where stuff is what's allowed there, say 
 
-stuff = CharsNotIn('\<')
+    stuff = CharsNotIn('<')
 
-
-
-This way you combine the \<inner part\> ... \<end\> into a single block that must be evaluated together.
+This way you combine the <inner part> ... <end> into a single block that must be evaluated together.
 
 
 
@@ -769,23 +731,17 @@ Hi I have this problem where I can't figure out how to get pass.
 
 
 
-\<outer part\>
-
-stuff
-
-\<inner part\>
-
-stuff
-
-\<end\>
-
-more stuff
-
-\<end\>
+    <outer part>
+    stuff
+    <inner part>
+    stuff
+    <end>
+    more stuff
+    <end>
 
 
 
-Say I want to capture this entire outer part and the only things I have to identify it is \<outer part\> and \<end\>. The problem is that the \<inner part\> has the same ending. How can do this by somehow skipping over the inner \<end\>?
+Say I want to capture this entire outer part and the only things I have to identify it is <outer part> and <end>. The problem is that the <inner part> has the same ending. How can do this by somehow skipping over the inner <end>?
 
 #### 2006-07-24 12:04:32 - ptmcg
 Qman -
@@ -794,15 +750,9 @@ Qman -
 
 How complicated is 'stuff'? Can you create expressions for them, so that you could define something like:
 
-
-
-stuff = ~Literal('\<end\>') + Word(printables)
-
-innerExpr = '\<inner part\>' + ZeroOrMore( stuff ) + '\<end\>'
-
-outerExpr = '\<outer part\>' + ZeroOrMore( stuff | innerExpr ) + '\<end\>'
-
-
+    stuff = ~Literal('<end>') + Word(printables)
+    innerExpr = '<inner part>' + ZeroOrMore( stuff ) + '<end>'
+    outerExpr = '<outer part>' + ZeroOrMore( stuff | innerExpr ) + '<end>'
 
 -- Paul
 #### 2006-07-24 14:41:20 - Qman
@@ -852,7 +802,7 @@ item = Combine( Word(alphas,max=1) + Word(nums, max=3) + Word( alphas, max=1) )
 
 list = Forward()
 
-list \<\< (item + Literal(',').suppress() + list) | item
+list << (item + Literal(',').suppress() + list) | item
 
 
 
@@ -1178,7 +1128,7 @@ How can I generate an opposite of CharsNotIn, eg. CharsIn which parses only thos
 
 
 
-1244 <strong>if</strong> self.maxSpecified <strong>and</strong> loc \< instrlen <strong>and</strong> instring[loc] <strong>in</strong> bodychars:
+1244 <strong>if</strong> self.maxSpecified <strong>and</strong> loc < instrlen <strong>and</strong> instring[loc] <strong>in</strong> bodychars:
 
 1245            throwException = <strong>True</strong>
 
@@ -1496,7 +1446,7 @@ First, I am parsing lines which represent the information about a single song:
 
 
 
--\>[0/1314] Realtime - Lost in Space (07:30)
+->[0/1314] Realtime - Lost in Space (07:30)
 
 
 
@@ -1508,13 +1458,13 @@ Also, I tried to add some attributes to the ParseResults object but was not allo
 
 
 
-<ol><li>parse song data</li><li>-\>[0/1314] Realtime - Lost in Space (07:30)</li></ol>
+<ol><li>parse song data</li><li>->[0/1314] Realtime - Lost in Space (07:30)</li></ol>
 
 class song_parse:
 
     '''Designed to parse lines like this:
 
-    -\>[0/1314] Realtime - Lost in Space (07:30)
+    ->[0/1314] Realtime - Lost in Space (07:30)
 
     '''
 
@@ -1530,7 +1480,7 @@ class song_parse:
 
 
 
-    current_marker = Literal('-\>')            .setResultsName('current_marker')
+    current_marker = Literal('->')            .setResultsName('current_marker')
 
     song_id = '[' + playlist_id + '/' + medialib_id + ']'
 
@@ -1593,7 +1543,7 @@ Some Python fixes:
     
     class song_parse(object):
         '''Designed to parse lines like this:
-        -\>[0/1314] Realtime - Lost in Space (07:30)
+        ->[0/1314] Realtime - Lost in Space (07:30)
         '''
         playlist_id = Regex(r'\d+') .setResultsName('playlist_id')
         medialib_id = Regex(r'\d+') .setResultsName('medialib_id')
@@ -1601,7 +1551,7 @@ Some Python fixes:
         minutes = Regex(r'\d+') .setResultsName('minutes')
         seconds = Regex(r'\d+') .setResultsName('seconds')
     
-        current_marker = Literal('-\>') .setResultsName('current_marker')
+        current_marker = Literal('->') .setResultsName('current_marker')
         song_id = '[' + playlist_id + '/' + medialib_id + ']'
         artist_title = Regex(r'[^(]+') .setResultsName('artist_title')
     
@@ -1614,7 +1564,7 @@ Some Python fixes:
             artist, title = my.scan.artist_title.split(' - ')
     
     
-    song_line = '-\>[0/1314] Realtime - Lost in Space (07:30)'
+    song_line = '->[0/1314] Realtime - Lost in Space (07:30)'
     sp = song_parse(song_line)
     print sp.scan.dump()
     sp.scan['artist'],sp.scan['title'] = sp.scan.artist_title.split(' - ')print sp.scan.dump()
@@ -1625,17 +1575,17 @@ Will print:
 
 
 
-    ['-\>', '[', '0', '/', '1314', ']', 'Realtime - Lost in Space ', '(', '07', ':', '30', ')']
+    ['->', '[', '0', '/', '1314', ']', 'Realtime - Lost in Space ', '(', '07', ':', '30', ')']
     - artist_title: Realtime - Lost in Space 
-    - current_marker: -\>
+    - current_marker: ->
     - medialib_id: 1314
     - minutes: 07
     - playlist_id: 0
     - seconds: 30
-    ['-\>', '[', '0', '/', '1314', ']', 'Realtime - Lost in Space ', '(', '07', ':', '30', ')']
+    ['->', '[', '0', '/', '1314', ']', 'Realtime - Lost in Space ', '(', '07', ':', '30', ')']
     - artist: Realtime
     - artist_title: Realtime - Lost in Space 
-    - current_marker: -\>
+    - current_marker: ->
     - medialib_id: 1314
     - minutes: 07
     - playlist_id: 0
@@ -1659,7 +1609,7 @@ Here are some suggestions on your program:
     
     class song_parse(object):
         '''Designed to parse lines like this:
-        -\>[0/1314] Realtime - Lost in Space (07:30)
+        ->[0/1314] Realtime - Lost in Space (07:30)
         '''
         playlist_id = Regex(r'\d+') .setResultsName('playlist_id')
         medialib_id = Regex(r'\d+') .setResultsName('medialib_id')
@@ -1667,7 +1617,7 @@ Here are some suggestions on your program:
         minutes = Regex(r'\d+') .setResultsName('minutes')
         seconds = Regex(r'\d+') .setResultsName('seconds')
     
-        current_marker = Literal('-\>') .setResultsName('current_marker')
+        current_marker = Literal('->') .setResultsName('current_marker')
         song_id = '[' + playlist_id + '/' + medialib_id + ']'
         artist_title = Regex(r'[^(]+') .setResultsName('artist_title')
         artist_title.setParseAction(splitArtistAndTitle)
@@ -1761,20 +1711,20 @@ Hi, my pyparsing function is not tokenizing the unquoted terms into discrete tok
 
 
 ```
-<br />
-def tokenize(s):<br />
-    &quot;&quot;&quot;Take a single line of terms and return as a list of terms<br />
-    For example:<br />
-      &gt;&gt;&gt; sqlgen.tokenize(&quot;Phase I&quot; cerv* cerc* &quot;ovarian cyst&quot;)<br />
-      &gt;&gt;&gt; ['&quot;Phase I&quot;', 'cerc*', 'cerv*', '&quot;ovarian cancer&quot;']<br />
-    &quot;&quot;&quot;<br />
-    quote_term = Regex('&quot;[^&quot;]+&quot;') # not needed<br />
-    other_term = Regex('[^&quot;]+')<br />
-<br />
-    search_term = quotedString | other_term<br />
-<br />
-    line = OneOrMore(search_term)<br />
-    return line.parseString(s)<br />
+
+def tokenize(s):
+    &quot;&quot;&quot;Take a single line of terms and return as a list of terms
+    For example:
+      &gt;&gt;&gt; sqlgen.tokenize(&quot;Phase I&quot; cerv* cerc* &quot;ovarian cyst&quot;)
+      &gt;&gt;&gt; ['&quot;Phase I&quot;', 'cerc*', 'cerv*', '&quot;ovarian cancer&quot;']
+    &quot;&quot;&quot;
+    quote_term = Regex('&quot;[^&quot;]+&quot;') # not needed
+    other_term = Regex('[^&quot;]+')
+
+    search_term = quotedString | other_term
+
+    line = OneOrMore(search_term)
+    return line.parseString(s)
 
 ```
 
@@ -2292,7 +2242,7 @@ throws this exception
         tokens = fn( instring, tokensStart, retTokens )
       File 'C:\dev\parserFwk\pyparsing.py', line 590, in tmp
         return f(t)
-      File 'paExceptions.py', line 5, in \<lambda\>
+      File 'paExceptions.py', line 5, in <lambda>
         A_expr.setParseAction( lambda t: t[1] )
       File 'C:\dev\parserFwk\pyparsing.py', line 230, in __getitem__
         return self.__toklist[i]
@@ -2306,134 +2256,71 @@ throws this exception
 
 <u>versionTime</u> = '19 October 2006 23:11'
 
-
-
 Looks like a pretty recent one.  I should note that useDef is NOT the top level expression, so perhaps that is somehow hiding it?  The top level expression is:
-
-
 
   vhdlCode = OneOrMore(libraryDef | useDef | architectureDef | entityDef | packageBodyDef | packageDef| configurationDeclarationDef) + StringEnd()
 
 
-
-
-
 I just changed it back and when I try to parse a file, I get:
 
-
-
-File vhd/work/system_pkg.vhd changed.  Reparsing.
-
-Traceback (most recent call last):
-
-  File './generateTools.py', line 46, in ?
-
-    proj.findVHDLfiles('vhd')
-
-  File '/cygdrive/c/fpga/tools/FPGAProject.py', line 480, in findVHDLfiles
-
-    vh.parse()
-
-  File '/cygdrive/c/fpga/tools/VHDLFile.py', line 545, in parse
-
-    result = vhdlCode.parseString(self.filecontents)
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 803, in parseString
-
-    loc, tokens = self._parse( instring.expandtabs(), 0 )
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 694, in _parseNoCache
-
-    loc,tokens = self.parseImpl( instring, preloc, doActions )
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 1845, in parseImpl
-
-    loc, exprtokens = e._parse( instring, loc, doActions )
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 698, in _parseNoCache
-
-    loc,tokens = self.parseImpl( instring, preloc, doActions )
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 1725, in parseImpl
-
-    raise exc
-
-pyparsing.ParseException: Expected end of text (at char 14), (line:2, col:1)
-
-
+    File vhd/work/system_pkg.vhd changed.  Reparsing.
+    Traceback (most recent call last):
+      File './generateTools.py', line 46, in ?
+        proj.findVHDLfiles('vhd')
+      File '/cygdrive/c/fpga/tools/FPGAProject.py', line 480, in findVHDLfiles
+        vh.parse()
+      File '/cygdrive/c/fpga/tools/VHDLFile.py', line 545, in parse
+        result = vhdlCode.parseString(self.filecontents)
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 803, in parseString
+        loc, tokens = self._parse( instring.expandtabs(), 0 )
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 694, in _parseNoCache
+        loc,tokens = self.parseImpl( instring, preloc, doActions )
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 1845, in parseImpl
+        loc, exprtokens = e._parse( instring, loc, doActions )
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 698, in _parseNoCache
+        loc,tokens = self.parseImpl( instring, preloc, doActions )
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 1725, in parseImpl
+        raise exc
+    pyparsing.ParseException: Expected end of text (at char 14), (line:2, col:1)
 
 
 
 If I turn on debugging for useDef and vhdlCode (and whatever else is in my list of statements I turn debugging on for), I get this:
 
-File vhd/work/system_pkg.vhd changed.  Reparsing.
-
-Match `{libraryDef | useDef | architectureDef | entityDef | packageBodyDef | packageDef | configurationDeclarationDef`... StringEnd} at loc 0 (1,1)
-
-Match useDef at loc 14 (2,1)
-
-Match fullNameTok at loc 17 (2,4)
-
-Matched fullNameTok -\> ['IEEE.std_logic_1164.all']
-
-Match architectureDef at loc 14 (2,1)
-
-Exception raised: Expected 'architecture' (at char 14), (line:2, col:1)
-
-Match entityDef at loc 14 (2,1)
-
-Exception raised: Expected 'entity' (at char 14), (line:2, col:1)
-
-Match packageBodyDef at loc 14 (2,1)
-
-Exception raised: Expected 'package' (at char 14), (line:2, col:1)
-
-Match packageDef at loc 14 (2,1)
-
-Exception raised: Expected 'package' (at char 14), (line:2, col:1)
-
-Match configurationDeclarationDef at loc 14 (2,1)
-
-Exception raised: Expected 'configuration' (at char 14), (line:2, col:1)
-
-Exception raised: Expected end of text (at char 14), (line:2, col:1)
-
-Traceback (most recent call last):
-
-  File './generateTools.py', line 46, in ?
-
-    proj.findVHDLfiles('vhd')
-
-  File '/cygdrive/c/fpga/tools/FPGAProject.py', line 480, in findVHDLfiles
-
-    vh.parse()
-
-  File '/cygdrive/c/fpga/tools/VHDLFile.py', line 545, in parse
-
-    result = vhdlCode.parseString(self.filecontents)
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 803, in parseString
-
-    loc, tokens = self._parse( instring.expandtabs(), 0 )
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 674, in _parseNoCache
-
-    loc,tokens = self.parseImpl( instring, preloc, doActions )
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 1845, in parseImpl
-
-    loc, exprtokens = e._parse( instring, loc, doActions )
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 698, in _parseNoCache
-
-    loc,tokens = self.parseImpl( instring, preloc, doActions )
-
-  File '/cygdrive/c/fpga/tools/pyparsing.py', line 1725, in parseImpl
-
-    raise exc
-
-pyparsing.ParseException: Expected end of text (at char 14), (line:2, col:1)
-
+    File vhd/work/system_pkg.vhd changed.  Reparsing.
+    Match `{libraryDef | useDef | architectureDef | entityDef | packageBodyDef | packageDef | configurationDeclarationDef`... StringEnd} at loc 0 (1,1)
+    Match useDef at loc 14 (2,1)
+    Match fullNameTok at loc 17 (2,4)
+    Matched fullNameTok -> ['IEEE.std_logic_1164.all']
+    Match architectureDef at loc 14 (2,1)
+    Exception raised: Expected 'architecture' (at char 14), (line:2, col:1)
+    Match entityDef at loc 14 (2,1)
+    Exception raised: Expected 'entity' (at char 14), (line:2, col:1)
+    Match packageBodyDef at loc 14 (2,1)
+    Exception raised: Expected 'package' (at char 14), (line:2, col:1)
+    Match packageDef at loc 14 (2,1)
+    Exception raised: Expected 'package' (at char 14), (line:2, col:1)
+    Match configurationDeclarationDef at loc 14 (2,1)
+    Exception raised: Expected 'configuration' (at char 14), (line:2, col:1)
+    Exception raised: Expected end of text (at char 14), (line:2, col:1)
+    Traceback (most recent call last):
+      File './generateTools.py', line 46, in ?
+        proj.findVHDLfiles('vhd')
+      File '/cygdrive/c/fpga/tools/FPGAProject.py', line 480, in findVHDLfiles
+        vh.parse()
+      File '/cygdrive/c/fpga/tools/VHDLFile.py', line 545, in parse
+        result = vhdlCode.parseString(self.filecontents)
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 803, in parseString
+        loc, tokens = self._parse( instring.expandtabs(), 0 )
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 674, in _parseNoCache
+        loc,tokens = self.parseImpl( instring, preloc, doActions )
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 1845, in parseImpl
+        loc, exprtokens = e._parse( instring, loc, doActions )
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 698, in _parseNoCache
+        loc,tokens = self.parseImpl( instring, preloc, doActions )
+      File '/cygdrive/c/fpga/tools/pyparsing.py', line 1725, in parseImpl
+        raise exc
+    pyparsing.ParseException: Expected end of text (at char 14), (line:2, col:1)
 
 
 I can only assume it is moving on to trying to match architectureDef because the useDef parseAction threw an exception that it somehow interpreted as being a failed match.
@@ -2452,7 +2339,7 @@ Since the formatting there did some odd things, here is that second output again
     Match {{{libraryDef | useDef | architectureDef | entityDef | packageBodyDef | packageDef | configurationDeclarationDef}}... StringEnd} at loc 0 (1,1)
     Match useDef at loc 14 (2,1)
     Match fullNameTok at loc 17 (2,4)
-    Matched fullNameTok -\> ['IEEE.std_logic_1164.all']
+    Matched fullNameTok -> ['IEEE.std_logic_1164.all']
     Match architectureDef at loc 14 (2,1)
     Exception raised: Expected 'architecture' (at char 14), (line:2, col:1)
     Match entityDef at loc 14 (2,1)
@@ -2560,14 +2447,14 @@ However, I think we are talking a little 'apples and oranges' with respect to Ha
     Consider the following example parser: 
     
     testOr  =   string '(a)'
-            \<|\> string '(b)'
+            <|> string '(b)'
     
     
     The (string s) parser accepts input that equals the string s. Since 
     both strings in the example start with the same initial character, 
     the behaviour is probably not what the user expected: 
     
-    Main\> run testOr '(b)'      
+    Main> run testOr '(b)'      
     parse error at (line 1, column 2):
     unexpected 'b'
     expecting 'a'
@@ -2579,7 +2466,7 @@ However, I think we are talking a little 'apples and oranges' with respect to Ha
     merging common prefixes. The following parser works as expected: 
     
     testOr1 = do{ char '('
-                ; char 'a' \<|\> char 'b'
+                ; char 'a' <|> char 'b'
                 ; char ')'
                 }
     
@@ -2589,11 +2476,11 @@ However, I think we are talking a little 'apples and oranges' with respect to Ha
     There is a primitive combinator called try that handles these cases in 
     an elegant manner. The parser (try p) behaves just like p except that 
     it pretends that it hasn't consumed any input whenever p fails. In 
-    combination with (\<|\>) this allows for infinite look-ahead in the 
+    combination with (<|>) this allows for infinite look-ahead in the 
     grammar. Here is the above parser written using try: 
     
     testOr2 =   try (string '(a)')
-            \<|\> string '(b)'
+            <|> string '(b)'
     
 
 
@@ -2677,16 +2564,16 @@ When I run that, I get:
     >>> url.parseString('http://www.blah.com/some/directories/filename.png')
     Match url at loc 0 (1,1)
     Match knownUrl at loc 0 (1,1)
-    Matched knownUrl -\> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename', '.png']
-    Matched url -\> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename', '.png']
+    Matched knownUrl -> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename', '.png']
+    Matched url -> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename', '.png']
     (['http', ':/', 'www.blah.com', 'some', 'directories', 'filename', '.png'], {})
     >>> url.parseString('http://www.blah.com/some/directories/filename.aaa')
     Match url at loc 0 (1,1)
     Match knownUrl at loc 0 (1,1)
     Exception raised: Expected '.' (at char 49), (line:1, col:50)
     Match unknownUrl at loc 0 (1,1)
-    Matched unknownUrl -\> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.aaa']
-    Matched url -\> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.aaa']
+    Matched unknownUrl -> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.aaa']
+    Matched url -> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.aaa']
     (['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.aaa'], {})
 
 
@@ -2811,8 +2698,8 @@ I am still inclined to say that pyparsing DOES have lookahead.  For example:
     Exception raised: Expected Re:('html|htm|gif|jpg|jpeg|png') (at char 50), (line:1, col:51)
     Exception raised: Expected Re:('html|htm|gif|jpg|jpeg|png') (at char 50), (line:1, col:51)
     Match unknownUrl at loc 0 (1,1)
-    Matched unknownUrl -\> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.png.pnrty']
-    Matched url -\> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.png.pnrty']
+    Matched unknownUrl -> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.png.pnrty']
+    Matched url -> ['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.png.pnrty']
     (['http', ':/', 'www.blah.com', 'some', 'directories', 'filename.png.pnrty'], {})
 
 
@@ -2941,7 +2828,7 @@ And I would love to be able to pull out all the signal names.  I suppose I might
     '777'
     
     r.asXML()
-    '\n\<Integer\>\n  \<Integer\>21342\</Integer\>\n  \<Alpha\>lalala\</Alpha\>\n  \<Integer\>1111\</Integer\>\n  \<Alpha\>qwerty\</Alpha\>\n  \<Alpha\>splat\</Alpha\>\n  \<Integer\>777\</Integer\>\n\</Integer\>'
+    '\n<Integer>\n  <Integer>21342</Integer>\n  <Alpha>lalala</Alpha>\n  <Integer>1111</Integer>\n  <Alpha>qwerty</Alpha>\n  <Alpha>splat</Alpha>\n  <Integer>777</Integer>\n</Integer>'
 
 
 
@@ -2994,7 +2881,7 @@ Ideally we want left-factoring to be an optional optimization to improve perform
 
 I think haskell's parsec does have something to teach here. 
 
-You still have to turn on backtracking using the '\<|\>' operator (it's not the try keyword like I said before), but now you have a way to avoid left-factoring and yet have a nice grammar that reflects the true underlying structure of the language.
+You still have to turn on backtracking using the '<|>' operator (it's not the try keyword like I said before), but now you have a way to avoid left-factoring and yet have a nice grammar that reflects the true underlying structure of the language.
 
 
 
@@ -3055,23 +2942,23 @@ Here is the other post's comments/complaints about the difficulty of writing a U
 
 
 ```
-<br />
-from pyparsing import *<br />
-protocol =  (Literal(&quot;http&quot;) | &quot;ftp&quot;) + Suppress(&quot;:<em>&quot;)<br />
-domain = OneOrMore(CharsNotIn(&quot;/&quot;))<br />
-path = Combine(Literal(&quot;/&quot;) + OneOrMore(CharsNotIn(&quot;&quot;)))<br />
-url = protocol + domain + path<br />
-<br />
-print url.parseString(&quot;<!-- ws:start:WikiTextUrlRule:50:http://web.de/index --><a class="wiki_link_ext" href="http://web.de/index" rel="nofollow">http://web.de/index</a><!-- ws:end:WikiTextUrlRule:50 -->&quot;)<br />
-<br />
-Everything ok, until here.<br />
-<br />
-image_url = url + Or(&quot;.png&quot;, &quot;.gif&quot;)<br />
-print image_url.parseString(&quot;<!-- ws:start:WikiTextUrlRule:51:http://web.de/index.png --><a class="wiki_link_ext" href="http://web.de/index.png" rel="nofollow">http://web.de/index.png</a><!-- ws:end:WikiTextUrlRule:51 -->&quot;)<br />
-<br />
-This will throw an exception, because url will parse until the end of the string and nothing is left for the Or(&quot;.png&quot;, &quot;.gif&quot;).<br />
-<br />
-PyParsing is probably nice for a little screenscraping, but it isn't a full parser.<br />
+
+from pyparsing import *
+protocol =  (Literal(&quot;http&quot;) | &quot;ftp&quot;) + Suppress(&quot;:<em>&quot;)
+domain = OneOrMore(CharsNotIn(&quot;/&quot;))
+path = Combine(Literal(&quot;/&quot;) + OneOrMore(CharsNotIn(&quot;&quot;)))
+url = protocol + domain + path
+
+print url.parseString(&quot;<!-- ws:start:WikiTextUrlRule:50:http://web.de/index --><a class="wiki_link_ext" href="http://web.de/index" rel="nofollow">http://web.de/index</a><!-- ws:end:WikiTextUrlRule:50 -->&quot;)
+
+Everything ok, until here.
+
+image_url = url + Or(&quot;.png&quot;, &quot;.gif&quot;)
+print image_url.parseString(&quot;<!-- ws:start:WikiTextUrlRule:51:http://web.de/index.png --><a class="wiki_link_ext" href="http://web.de/index.png" rel="nofollow">http://web.de/index.png</a><!-- ws:end:WikiTextUrlRule:51 -->&quot;)
+
+This will throw an exception, because url will parse until the end of the string and nothing is left for the Or(&quot;.png&quot;, &quot;.gif&quot;).
+
+PyParsing is probably nice for a little screenscraping, but it isn't a full parser.
 
 ```
 
@@ -3300,7 +3187,7 @@ Does this get you closer?
     # modify line to start at beginning of the line, and 
     # tell Regex not to skip leading whitespace
     line = LineStart() + Regex(r'.*').leaveWhitespace()
-    #~ patch = List(countedArray(line))  \<\<--- what is List?
+    #~ patch = List(countedArray(line))  <<--- what is List?
     patch = countedArray(line)
     
     test = '''\
@@ -3347,7 +3234,7 @@ es indeed. Your solution still had a problem handling leading whitespace in the 
         line = lineStart + Regex(r'.*').leaveWhitespace()                            
         def countFieldParseAction(s,l,t):                                            
             n = int(t[0])
-            arrayExpr \<\< (n and Group(And([line]*n)) or Group(empty))                
+            arrayExpr << (n and Group(And([line]*n)) or Group(empty))                
             return []
         return ( Word(nums).setParseAction(countFieldParseAction) + arrayExpr )      
 
@@ -3590,7 +3477,7 @@ Seems like this should really be a general change to the Forward() implementatio
 
 
 
-These are the same lines in the ParseElementEnhance <u>init</u> method, but Forward can't benefit from them at init time since the contained expr is not defined at that time.  So when the contained expr is defined using the '\<\<' operator, we can include them at that time.
+These are the same lines in the ParseElementEnhance <u>init</u> method, but Forward can't benefit from them at init time since the contained expr is not defined at that time.  So when the contained expr is defined using the '<<' operator, we can include them at that time.
 
 
 
@@ -4237,7 +4124,7 @@ I actually found a much more elegant solution to my problem.  Eventually, I want
 
     def commentAdd(self,s,l,t):
       if t[0]=='@':
-        if (len(t)\>1):
+        if (len(t)>1):
           self.docs.extend(t.asList()[1])
         else:
           print 'Empty doc comment!'
@@ -4268,21 +4155,21 @@ I want to do some replacement in html file.
 
 The detail is:
 
-1. find all \<img\> tags that the 'src' starts with 'blogdb/'
+1. find all <img> tags that the 'src' starts with 'blogdb/'
 
-2. add a \<a\> arround those \<img\>s as the following example.
+2. add a <a> arround those <img>s as the following example.
 
 example:
 
-\<img src='blogdb/test.jpg'\> 
+<img src='blogdb/test.jpg'> 
 
--\>
+->
 
-\<a href='view.py?file=test.jpg'\>\<img src='blogdb/test.jpg'\>\</a\>
+<a href='view.py?file=test.jpg'><img src='blogdb/test.jpg'></a>
 
 
 
-\<img src='/others/test.jpg'\> should not be changed.
+<img src='/others/test.jpg'> should not be changed.
 
 
 
@@ -4296,11 +4183,11 @@ from pyparsing import *
 
 def addLink(s, l, t):
 
-    tocStr = s[l:s.find('\>',l)+1]   #1
+    tocStr = s[l:s.find('>',l)+1]   #1
 
     if t.src.startswith('blogdb/'):
 
-        s = '\<a href='' + t.src[7:] + ''\>' + tocStr + '\</a\>'
+        s = '<a href='' + t.src[7:] + ''>' + tocStr + '</a>'
 
         return s
 
@@ -4336,9 +4223,9 @@ sorry, the code again:
     from pyparsing import *
     
     def addLink(s, l, t):
-        tocStr = s[l:s.find('\>',l)+1]   #1
+        tocStr = s[l:s.find('>',l)+1]   #1
         if t.src.startswith('blogdb/'):
-            s = '\<a href='' + t.src[7:] + ''\>' + tocStr + '\</a\>'
+            s = '<a href='' + t.src[7:] + ''>' + tocStr + '</a>'
             return s
         else:
             return tocStr    #2
@@ -4358,9 +4245,9 @@ Here's a modified version of your program:
     from pyparsing import *
     
     test = '''
-    \<img src='blogdb/test.jpg'\> 
+    <img src='blogdb/test.jpg'> 
     
-    \<img src='/others/test.jpg'\> should not be changed.
+    <img src='/others/test.jpg'> should not be changed.
     '''
     
     def addLink2(s, l, t):
@@ -4370,7 +4257,7 @@ Here's a modified version of your program:
         imgParts = makeHTMLTags('img')[0].parseString(t[0])
         #~ print imgParts.dump()
         if imgParts.src.startswith('blogdb/'):
-            s = '\<a href='view.py?' + imgParts.src.split('/')[1] + ''\>' + t[0] + '\</a\>'
+            s = '<a href='view.py?' + imgParts.src.split('/')[1] + ''>' + t[0] + '</a>'
             return s
         else:
             return None    # same as return t[0]
@@ -4397,7 +4284,7 @@ I'll use a couple of new pyparsing features to propose one way to address your p
 
 
 
-You'll see that I extend the call to setParseAction to insert another method, the recent keepOriginalText.  Now the input to addLink (which I've copied to addLink2 so you can try them both yourself) is back to the unstructured string '\<img src=whatever'\>'.  Unfortunately we still want some of that structure, and I don't want to hack in some error-prone string slicing thing.  So I reparse this string in the parse action, using a non-parse-action-enhanced parser expression returned as the 0'th element from makeHTMLTags.  Now I have both the original string AND the parsed data fields.
+You'll see that I extend the call to setParseAction to insert another method, the recent keepOriginalText.  Now the input to addLink (which I've copied to addLink2 so you can try them both yourself) is back to the unstructured string '<img src=whatever'>'.  Unfortunately we still want some of that structure, and I don't want to hack in some error-prone string slicing thing.  So I reparse this string in the parse action, using a non-parse-action-enhanced parser expression returned as the 0'th element from makeHTMLTags.  Now I have both the original string AND the parsed data fields.
 
 
 
@@ -4415,7 +4302,7 @@ I'm actually partial to the third choice.  Raising a ParseException in a parse a
 
 
 
-Here's another way to filter on non-interesting \<img\> tags, also using ParseExceptions.  In this case, we do the filtering 'up front', or more precisely, upstream in the chain of parse actions.
+Here's another way to filter on non-interesting <img> tags, also using ParseExceptions.  In this case, we do the filtering 'up front', or more precisely, upstream in the chain of parse actions.
 
 
 
@@ -4432,7 +4319,7 @@ Here's another way to filter on non-interesting \<img\> tags, also using ParseEx
         imgParts = makeHTMLTags('img')[0].parseString(t[0])
         # now no need to test for src attribute starting with 'blogdb/' 
         # - we wouldn't have made it this far if it didn't
-        s = '\<a href='view.py?' + imgParts.src.split('/')[1] + ''\>' + t[0] + '\</a\>'
+        s = '<a href='view.py?' + imgParts.src.split('/')[1] + ''>' + t[0] + '</a>'
         return s
     
     imgOpenTag.setParseAction( srcMustStartWithBlogdb, keepOriginalText, addLink3 )
@@ -4481,7 +4368,7 @@ Have up to 'n' copies of expression expr
 
 
 
-Have 'm' to 'n' copies of expression expr (n\>m)
+Have 'm' to 'n' copies of expression expr (n>m)
 
 
 
@@ -4577,45 +4464,35 @@ Hi, I am trying to parse some data where the key is syntactically distinct (I ha
 
 
 ```
-{<br />
-<br />
-from pyparsing import *<br />
-<br />
-record_sep = &quot;<strong>* BRS DOCUMENT BOUNDARY </strong>*&quot;<br />
-<br />
-key   =  Regex (r'\.\.[A-Z]+:')<br />
-value = NotAny (key)<br />
-<br />
-key_value_pair = Group (key + value)<br />
-<br />
-record = record_sep + OneOrMore (key_value_pair)<br />
-recordset = OneOrMore(record)<br />
-<br />
-s = &quot;&quot;&quot;<strong>* BRS DOCUMENT BOUNDARY </strong>*<br />
-..PGP:<br />
-     PN_WO2006089317 PN_A1 PN_WO PN_firstpub<br />
-..DA1:<br />
-     20060831<br />
-..DS:<br />
-     AE AG AL AM AT AU AZ BA BB BG BR BW BY BZ CA CH CN CO CR CU CZ DE DK DM DZ<br />
-     EC EE EG ES FI GB GD GE GH GM HR HU ID IL IN IS JP KE KG KM KN KP KR KZ LC<br />
-&quot;&quot;&quot;<br />
-<br />
-<br />
-print recordset.parseString(s)<br />
-<br />
-<br />
+{
+from pyparsing import *
+
+record_sep = '*** BRS DOCUMENT BOUNDARY ***'
+
+key   =  Regex (r'\.\.[A-Z]+:')
+value = NotAny (key)
+
+key_value_pair = Group (key + value)
+
+record = record_sep + OneOrMore (key_value_pair)
+recordset = OneOrMore(record)
+
+s = '''*** BRS DOCUMENT BOUNDARY ***
+..PGP:
+     PN_WO2006089317 PN_A1 PN_WO PN_firstpub
+..DA1:
+     20060831
+..DS:
+     AE AG AL AM AT AU AZ BA BB BG BR BW BY BZ CA CH CN CO CR CU CZ DE DK DM DZ
+     EC EE EG ES FI GB GD GE GH GM HR HU ID IL IN IS JP KE KG KM KN KP KR KZ LC
+'''
+print recordset.parseString(s)
 }
 ```
 
 
 #### 2006-12-14 14:23:15 - metaperl
 Ok, SkipTo works a little better, but even though include defaults to false, it gobbled up the next key:
-
-
-
-
-
     
     from pyparsing import *
     
@@ -4639,7 +4516,6 @@ Ok, SkipTo works a little better, but even though include defaults to false, it 
          EC EE EG ES FI GB GD GE GH GM HR HU ID IL IN IS JP KE KG KM KN KP KR KZ LC
     '''
     
-    
     print recordset.parseString(s)
     
 
@@ -4651,19 +4527,11 @@ Hey metaperl, good to hear from you.
 
 1. '..DA1:' does not match your regexp.  Try: 
 
-
-
     key   =  Regex (r'[.][.][A-Z0-9]+:')
-
-
 
 2. You lose the last key-value because there is no key to 'skip to'.  Change value to:
 
-
-
     value = SkipTo (key | StringEnd() )
-
-
 
 Cheers,
 
@@ -4671,39 +4539,24 @@ Cheers,
 #### 2006-12-14 18:59:11 - ptmcg
 Or rather, since you can have the separater for the next record terminate a list of key-values, value should probably be:
 
-
-
     value = SkipTo (record_sep | key | StringEnd() )
-
-
 
 -- Paul
 #### 2006-12-14 19:09:41 - ptmcg
 Also, let me put in a plug for using dictOf, since you are parsing key-value pairs.  Try replacing record with:
 
-
-
     record = record_sep + dictOf(key,value)
 
-
-
 This will return the same sets of tokens, in the same hierarchy as before, but will now give you dict-like access to them, by key, as in:
-
-
 
     res = recordset.parseString(s)
     print res.dump()
     print res['..PGP:']
     print
     for k in res.keys():
-        print 'res['%s'] -\> %s' % (k,res[k])
-    
-
-
+        print 'res['%s'] -> %s' % (k,res[k])
 
 with these results:
-
-
 
     ['*** BRS DOCUMENT BOUNDARY ***', ['..PGP:', 'PN_WO2006089317 PN_A1 PN_WO PN_firstpub'], 
     ['..DA1:', '20060831'], ['..DS:', 'AE AG AL AM AT AU AZ BA BB BG BR BW BY BZ CA CH CN CO CR CU CZ DE DK DM DZ\n
@@ -4714,24 +4567,16 @@ with these results:
     - ..PGP:: PN_WO2006089317 PN_A1 PN_WO PN_firstpub
     PN_WO2006089317 PN_A1 PN_WO PN_firstpub
     
-    res['..DA1:'] -\> 20060831
-    res['..DS:'] -\> AE AG AL AM AT AU AZ BA BB BG BR BW BY BZ CA CH CN CO CR CU CZ DE DK DM DZ
+    res['..DA1:'] -> 20060831
+    res['..DS:'] -> AE AG AL AM AT AU AZ BA BB BG BR BW BY BZ CA CH CN CO CR CU CZ DE DK DM DZ
          EC EE EG ES FI GB GD GE GH GM HR HU ID IL IN IS JP KE KG KM KN KP KR KZ LC
-    res['..PGP:'] -\> PN_WO2006089317 PN_A1 PN_WO PN_firstpub
-
-
-
-
+    res['..PGP:'] -> PN_WO2006089317 PN_A1 PN_WO PN_firstpub
 
 -- Paul
 #### 2006-12-14 21:13:48 - metaperl
 dictOf rocks! and the 
 
-
-
 `value = SkipTo (record_sep | key | StringEnd() ) `
-
-
 
 idea came to me in the shower after work... funny how being tied to a desk impairs your thinking.
 
@@ -4901,39 +4746,24 @@ Thanks for your persistence in working with pyparsing!
 #### 2006-12-15 18:22:05 - ptmcg
 I looked again at your 'infinitely looping' version, and I now see what you are referring to.
 
-
-
     key_value_pair = Group (key + value)
-    #key_value_pair = dictOf (key,value)  \<-- what you tried in using dictOf
+    #key_value_pair = dictOf (key,value)  <-- what you tried in using dictOf
     
     record = record_sep + OneOrMore (key_value_pair)
     recordset = OneOrMore(record)
 
-
-
 The key_value_pair does not itself compose the Dict, just as a single definition is not a dictionary.  It is the collection of key-value pairs which is the Dict.  In the code I sent you, I did not use key_value_pair at all, hoping that dictOf would have been clearer.  But instead of making any modification to key_value_pair, look at the definition of record:
-
-
 
     record = record_sep + dictOf(key,value)
 
-
-
 That is, within a record, after the record_sep header there is a Dict of key-value pairs.  We could have used your key_value_pair as you originally wrote it, with the original Dict class (since dictOf uses the individual key and value expressions, which are merged in your definition of key_value_pair):
-
-
 
     key_value_pair = Group (key + value)
     record = record_sep + Dict( OneOrMore (key_value_pair) )
 
-
-
 As I said before, Dict does not change the parsing at all, it just adds key definitions to the returned ParseResults.  The Dict class defines a postParse method, which iterates over the nested groups in the parsed tokens, assumes that the first element of each group is a 'key' and the remaining elements form a 'value', and then inserts that key-value definition into the parse results.
 
-
-
 Your 'infinite loop' version was trying to create a Dict out of a single key-value pair.  I'm not exactly sure why this would loop forever, but suffice to say that when Dict is correctly wrapped around a collection of groups of tokens, it builds the proper return value.
-
 
 
 -- Paul
@@ -4991,8 +4821,6 @@ Not urgent, but it seems to be worth getting to the bottom of.
 #### 2006-12-25 20:55:43 - ptmcg
 Yes, these behave the same for me, with pyparinsg 1.4.5.  Try inserting the statement 'lineStart.setDebug()' to get a little more insight into what is happening.
 
-
-
 Then, consider that (lineStart + Literal('4')) is the same as And([lineStart, Literal('4')]).  In earlier versions, even if I invoked leaveWhitespace on lineStart, the whitespace would still be skipped because the containing And was *not* set to skip whitespace.  I fixed this so that And now looks at its 0'th expr element to determine its whitespace-skipping behavior.  Still there seems to be some loophole in this logic, which would be nice to close up.
 
 
@@ -5001,16 +4829,9 @@ Then, consider that (lineStart + Literal('4')) is the same as And([lineStart, Li
 #### 2006-12-26 01:13:29 - akkartik
 A little searching found  by your own self, indicating that the whole purpose of LineStart() is to match items immediately following a newline. That seems reasonable.
 
-
-
 I finally figured out how to properly define line, very similar to :
 
-
-
-
-
     line = LineStart().leaveWhitespace() + Regex(r'.*').leaveWhitespace()
-
 
 
 It seems a little non-intuitive setting leaveWhitespace() twice, but it's not too confusing if one thinks of LineStart() as a zero-length regex pattern.
@@ -5023,13 +4844,7 @@ We could of course create a new variant of LineStart that resets skipWhitespace 
 
 The phrasing that seemed confusing to me :
 
-
-
-
-
     foo = Word(num).leaveWhitespace() + line
-
-
 
 ..is confusing only because we're declaring parsers before calling _parse() on them. Methods are executed at declaration time even though the parser itself waits until parse time to execute. Seems almost obvious when I put it like that.
 
@@ -5037,13 +4852,7 @@ The phrasing that seemed confusing to me :
 
 In order to say:
 
-
-
-
-
     foo = leaveWhitespace() + Word(num) + line
-
-
 
 ..we'd have to set skipWhitespace in some sort of global namespace that And can then check, change semantics of next expr, then reset. It hardly seems worth it. It's more elegant to mould my mind around pyparsing rather than the other way around. Not the first time this has happened either.
 
