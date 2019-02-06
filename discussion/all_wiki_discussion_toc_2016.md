@@ -1,35 +1,37 @@
-[2016-01-20 20:17:11 - sivabudh - Learning how to use nestedExpr](.#2016-01-20-201711---sivabudh---learning-how-to-use-nestedexpr)  
-[2016-01-23 02:24:38 - Jeroen537 - getName() returns name for unnamed element?](.#2016-01-23-022438---jeroen537---getname-returns-name-for-unnamed-element)  
-[2016-01-26 19:38:16 - ldelossa - Parsing HAProxy config, new line issues](.#2016-01-26-193816---ldelossa---parsing-haproxy-config-new-line-issues)  
-[2016-02-04 21:51:15 - palmer1979 - Pickle 3.5.1](.#2016-02-04-215115---palmer1979---pickle-351)  
-[2016-02-05 07:23:39 - Spida2 - Parsing LaTeX](.#2016-02-05-072339---spida2---parsing-latex)  
-[2016-02-06 09:02:39 - palmer1979 - Pickle pyparsing in Python 2.7.11 versus 3.5.1](.#2016-02-06-090239---palmer1979---pickle-pyparsing-in-python-2711-versus-351)  
-[2016-02-18 15:20:04 - Spida2 - Escaped Comment Indicator (LaTeX)](.#2016-02-18-152004---spida2---escaped-comment-indicator-latex)  
-[2016-02-28 09:46:58 - sivabudh - Parsing a simple nested expression](.#2016-02-28-094658---sivabudh---parsing-a-simple-nested-expression)  
-[2016-03-07 08:16:30 - Jeroen537 - Obtaining name for pattern using API?](.#2016-03-07-081630---jeroen537---obtaining-name-for-pattern-using-api)  
-[2016-03-15 12:27:33 - fantomasdnb - Redundant result for Each(&) statement](.#2016-03-15-122733---fantomasdnb---redundant-result-for-each-statement)  
-[2016-03-16 03:44:07 - Jeroen537 - Python 3 issue?](.#2016-03-16-034407---jeroen537---python-3-issue)  
-[2016-03-16 06:04:16 - fantomasdnb - OneOrMore, ZeroOrMore + Optional hangs](.#2016-03-16-060416---fantomasdnb---oneormore-zeroormore--optional-hangs)  
-[2016-03-20 21:51:41 - aeiro1 - Each doesn't work unless used with Optionals](.#2016-03-20-215141---aeiro1---each-doesnt-work-unless-used-with-optionals)  
-[2016-03-21 15:53:02 - toddreed - Parse action is not always called](.#2016-03-21-155302---toddreed---parse-action-is-not-always-called)  
-[2016-03-22 03:20:54 - LawfulEvil - Performance with parsing braces "()"](.#2016-03-22-032054---lawfulevil---performance-with-parsing-braces-"")  
-[2016-04-12 07:21:05 - Williamzjc - just a question about infixNotation](.#2016-04-12-072105---williamzjc---just-a-question-about-infixnotation)  
-[2016-04-28 08:54:05 - webpentest - Pypasing hangs on parsing dblQuotedString](.#2016-04-28-085405---webpentest---pypasing-hangs-on-parsing-dblquotedstring)  
-[2016-04-29 07:52:17 - Cloudo - parsing cyrillic keywords](.#2016-04-29-075217---cloudo---parsing-cyrillic-keywords)  
-[2016-05-03 10:19:49 - pjc42 - import Upcase error for v 2.1.1 python 3.5](.#2016-05-03-101949---pjc42---import-upcase-error-for-v-211-python-35)  
-[2016-05-09 02:24:06 - janoglop - Help getting started](.#2016-05-09-022406---janoglop---help-getting-started)  
-[2016-05-22 02:07:59 - AndreWin - How to check if word is in code block?](.#2016-05-22-020759---andrewin---how-to-check-if-word-is-in-code-block)  
-[2016-06-03 10:51:26 - ankur2002 - Url works without '\/' at the end but not if enclosed in quotes](.#2016-06-03-105126---ankur2002---url-works-without-\-at-the-end-but-not-if-enclosed-in-quotes)  
-[2016-07-14 11:33:43 - yurivkhan - Constructing ParseResults](.#2016-07-14-113343---yurivkhan---constructing-parseresults)  
-[2016-08-04 20:06:32 - Akshay7790 - Generate dynamic regex from input data](.#2016-08-04-200632---akshay7790---generate-dynamic-regex-from-input-data)  
-[2016-08-22 10:05:07 - nileshp - Defining BNF grammar for CLI](.#2016-08-22-100507---nileshp---defining-bnf-grammar-for-cli)  
-[2016-09-22 09:04:01 - lhughes42 - odd error with double back slash and using setDebug](.#2016-09-22-090401---lhughes42---odd-error-with-double-back-slash-and-using-setdebug)  
-[2016-10-20 12:45:49 - rcrowe123 - How to grab the key:value from parseResults and send to setParseAction](.#2016-10-20-124549---rcrowe123---how-to-grab-the-keyvalue-from-parseresults-and-send-to-setparseaction)  
-[2016-10-26 10:15:50 - Amoghavarsha - Parsed nested text using pyparsing](.#2016-10-26-101550---amoghavarsha---parsed-nested-text-using-pyparsing)  
-[2016-10-27 09:58:04 - infecto - Parsing Expressions for Data Retrieval and Evaluation](.#2016-10-27-095804---infecto---parsing-expressions-for-data-retrieval-and-evaluation)  
-[2016-10-28 09:11:49 - susdu - pyparsing nested structure not working as expected](.#2016-10-28-091149---susdu---pyparsing-nested-structure-not-working-as-expected)  
-[2016-12-07 18:50:12 - delisson - Can't get the simplest expression to work](.#2016-12-07-185012---delisson---cant-get-the-simplest-expression-to-work)  
-[2016-12-29 20:57:49 - Friudorian - Forward() anc recursion error](.#2016-12-29-205749---friudorian---forward-anc-recursion-error)  
+## Pyparsing Wikispaces Discussion - 2016
+
+[2016-01-20 20:17:11 - sivabudh - Learning how to use nestedExpr](all_wiki_discussion_toc_2016.md#2016-01-20-201711---sivabudh---learning-how-to-use-nestedexpr)  
+[2016-01-23 02:24:38 - Jeroen537 - getName() returns name for unnamed element?](all_wiki_discussion_toc_2016.md#2016-01-23-022438---jeroen537---getname-returns-name-for-unnamed-element)  
+[2016-01-26 19:38:16 - ldelossa - Parsing HAProxy config, new line issues](all_wiki_discussion_toc_2016.md#2016-01-26-193816---ldelossa---parsing-haproxy-config-new-line-issues)  
+[2016-02-04 21:51:15 - palmer1979 - Pickle 3.5.1](all_wiki_discussion_toc_2016.md#2016-02-04-215115---palmer1979---pickle-351)  
+[2016-02-05 07:23:39 - Spida2 - Parsing LaTeX](all_wiki_discussion_toc_2016.md#2016-02-05-072339---spida2---parsing-latex)  
+[2016-02-06 09:02:39 - palmer1979 - Pickle pyparsing in Python 2.7.11 versus 3.5.1](all_wiki_discussion_toc_2016.md#2016-02-06-090239---palmer1979---pickle-pyparsing-in-python-2711-versus-351)  
+[2016-02-18 15:20:04 - Spida2 - Escaped Comment Indicator (LaTeX)](all_wiki_discussion_toc_2016.md#2016-02-18-152004---spida2---escaped-comment-indicator-latex)  
+[2016-02-28 09:46:58 - sivabudh - Parsing a simple nested expression](all_wiki_discussion_toc_2016.md#2016-02-28-094658---sivabudh---parsing-a-simple-nested-expression)  
+[2016-03-07 08:16:30 - Jeroen537 - Obtaining name for pattern using API?](all_wiki_discussion_toc_2016.md#2016-03-07-081630---jeroen537---obtaining-name-for-pattern-using-api)  
+[2016-03-15 12:27:33 - fantomasdnb - Redundant result for Each(&) statement](all_wiki_discussion_toc_2016.md#2016-03-15-122733---fantomasdnb---redundant-result-for-each-statement)  
+[2016-03-16 03:44:07 - Jeroen537 - Python 3 issue?](all_wiki_discussion_toc_2016.md#2016-03-16-034407---jeroen537---python-3-issue)  
+[2016-03-16 06:04:16 - fantomasdnb - OneOrMore, ZeroOrMore + Optional hangs](all_wiki_discussion_toc_2016.md#2016-03-16-060416---fantomasdnb---oneormore-zeroormore--optional-hangs)  
+[2016-03-20 21:51:41 - aeiro1 - Each doesn't work unless used with Optionals](all_wiki_discussion_toc_2016.md#2016-03-20-215141---aeiro1---each-doesnt-work-unless-used-with-optionals)  
+[2016-03-21 15:53:02 - toddreed - Parse action is not always called](all_wiki_discussion_toc_2016.md#2016-03-21-155302---toddreed---parse-action-is-not-always-called)  
+[2016-03-22 03:20:54 - LawfulEvil - Performance with parsing braces "()"](all_wiki_discussion_toc_2016.md#2016-03-22-032054---lawfulevil---performance-with-parsing-braces-"")  
+[2016-04-12 07:21:05 - Williamzjc - just a question about infixNotation](all_wiki_discussion_toc_2016.md#2016-04-12-072105---williamzjc---just-a-question-about-infixnotation)  
+[2016-04-28 08:54:05 - webpentest - Pypasing hangs on parsing dblQuotedString](all_wiki_discussion_toc_2016.md#2016-04-28-085405---webpentest---pypasing-hangs-on-parsing-dblquotedstring)  
+[2016-04-29 07:52:17 - Cloudo - parsing cyrillic keywords](all_wiki_discussion_toc_2016.md#2016-04-29-075217---cloudo---parsing-cyrillic-keywords)  
+[2016-05-03 10:19:49 - pjc42 - import Upcase error for v 2.1.1 python 3.5](all_wiki_discussion_toc_2016.md#2016-05-03-101949---pjc42---import-upcase-error-for-v-211-python-35)  
+[2016-05-09 02:24:06 - janoglop - Help getting started](all_wiki_discussion_toc_2016.md#2016-05-09-022406---janoglop---help-getting-started)  
+[2016-05-22 02:07:59 - AndreWin - How to check if word is in code block?](all_wiki_discussion_toc_2016.md#2016-05-22-020759---andrewin---how-to-check-if-word-is-in-code-block)  
+[2016-06-03 10:51:26 - ankur2002 - Url works without '\/' at the end but not if enclosed in quotes](all_wiki_discussion_toc_2016.md#2016-06-03-105126---ankur2002---url-works-without-\-at-the-end-but-not-if-enclosed-in-quotes)  
+[2016-07-14 11:33:43 - yurivkhan - Constructing ParseResults](all_wiki_discussion_toc_2016.md#2016-07-14-113343---yurivkhan---constructing-parseresults)  
+[2016-08-04 20:06:32 - Akshay7790 - Generate dynamic regex from input data](all_wiki_discussion_toc_2016.md#2016-08-04-200632---akshay7790---generate-dynamic-regex-from-input-data)  
+[2016-08-22 10:05:07 - nileshp - Defining BNF grammar for CLI](all_wiki_discussion_toc_2016.md#2016-08-22-100507---nileshp---defining-bnf-grammar-for-cli)  
+[2016-09-22 09:04:01 - lhughes42 - odd error with double back slash and using setDebug](all_wiki_discussion_toc_2016.md#2016-09-22-090401---lhughes42---odd-error-with-double-back-slash-and-using-setdebug)  
+[2016-10-20 12:45:49 - rcrowe123 - How to grab the key:value from parseResults and send to setParseAction](all_wiki_discussion_toc_2016.md#2016-10-20-124549---rcrowe123---how-to-grab-the-keyvalue-from-parseresults-and-send-to-setparseaction)  
+[2016-10-26 10:15:50 - Amoghavarsha - Parsed nested text using pyparsing](all_wiki_discussion_toc_2016.md#2016-10-26-101550---amoghavarsha---parsed-nested-text-using-pyparsing)  
+[2016-10-27 09:58:04 - infecto - Parsing Expressions for Data Retrieval and Evaluation](all_wiki_discussion_toc_2016.md#2016-10-27-095804---infecto---parsing-expressions-for-data-retrieval-and-evaluation)  
+[2016-10-28 09:11:49 - susdu - pyparsing nested structure not working as expected](all_wiki_discussion_toc_2016.md#2016-10-28-091149---susdu---pyparsing-nested-structure-not-working-as-expected)  
+[2016-12-07 18:50:12 - delisson - Can't get the simplest expression to work](all_wiki_discussion_toc_2016.md#2016-12-07-185012---delisson---cant-get-the-simplest-expression-to-work)  
+[2016-12-29 20:57:49 - Friudorian - Forward() anc recursion error](all_wiki_discussion_toc_2016.md#2016-12-29-205749---friudorian---forward-anc-recursion-error)  
 
 
 ---
@@ -437,7 +439,7 @@ bracketright     = ']'
 curlyleft        = '{'
 curlyright       = '}'
 special_chars    = backslash + percent + bracketleft + bracketright + curlyleft + curlyright
-standard_chars   = printables.translate(string.maketrans('', '', ), special_chars) + 'äöüÄÖÜß'
+standard_chars   = printables.translate(string.maketrans('', '', ), special_chars) + 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
 
 esc_percent      = Literal(backslash + percent)
 esc_backslash    = Literal(backslash + backslash)
@@ -564,50 +566,50 @@ Hi Paul, I had posted this question on stackoverflow, too. You already replied. 
 I am trying to parse LaTeX, which uses the percent sign as comment indicator. While this works, I cannot include the percent sign escaped by a backslash into the text:
 
 
-    <span class="kw1">import</span> <span class="kw3">string</span>
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
-    teststring <span class="sy0">=</span> r<span class="st0">'''
-    escaped backslash <span class="es0">\\</span> in text
-    escaped percent <span class="es0">\%</span> in text
-    '''</span>
+    import string
+    from pyparsing import *
+    teststring = r'''
+    escaped backslash \\ in text
+    escaped percent \% in text
+    '''
     
     
-    backslash        <span class="sy0">=</span> <span class="st0">'<span class="es0">\\</span>'</span>
-    percent          <span class="sy0">=</span> <span class="st0">'%'</span>
-    curlyleft        <span class="sy0">=</span> <span class="st0">'{'</span>
-    curlyright       <span class="sy0">=</span> <span class="st0">'}'</span>
-    special_chars    <span class="sy0">=</span> percent + backslash + curlyleft + curlyright
-    standard_chars   <span class="sy0">=</span> printables.<span class="me1">translate</span><span class="br0">&#40;</span><span class="kw3">string</span>.<span class="me1">maketrans</span><span class="br0">&#40;</span><span class="st0">''</span><span class="sy0">,</span> <span class="st0">''</span><span class="sy0">,</span> <span class="br0">&#41;</span><span class="sy0">,</span> special_chars<span class="br0">&#41;</span>
+    backslash        = '\\'
+    percent          = '%'
+    curlyleft        = '{'
+    curlyright       = '}'
+    special_chars    = percent + backslash + curlyleft + curlyright
+    standard_chars   = printables.translate(string.maketrans('', '', ), special_chars)
     
-    argumentvalue    <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    argument         <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span>curlyleft<span class="br0">&#41;</span><span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span>argumentvalue<span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span>Literal<span class="br0">&#40;</span>curlyright<span class="br0">&#41;</span><span class="br0">&#41;</span>
+    argumentvalue    = Forward()
+    argument         = Suppress(Literal(curlyleft)) + Optional(argumentvalue) + Suppress(Literal(curlyright))
     
-    commandname      <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span>
-    command          <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>backslash<span class="br0">&#41;</span> + commandname + argument
+    commandname      = Word(alphas)
+    command          = Suppress(backslash) + commandname + argument
     
-    text             <span class="sy0">=</span> Combine<span class="br0">&#40;</span>OneOrMore<span class="br0">&#40;</span>White<span class="br0">&#40;</span><span class="br0">&#41;</span> | Word<span class="br0">&#40;</span>standard_chars<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    text             = Combine(OneOrMore(White() | Word(standard_chars)))
     
-    comment          <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>percent<span class="br0">&#41;</span> + restOfLine
+    comment          = Suppress(percent) + restOfLine
     
-    escapebackslash  <span class="sy0">=</span> Literal<span class="br0">&#40;</span>backslash<span class="br0">&#41;</span> + Literal<span class="br0">&#40;</span>backslash<span class="br0">&#41;</span>
-    escapepercent    <span class="sy0">=</span> Literal<span class="br0">&#40;</span>backslash<span class="br0">&#41;</span> + Literal<span class="br0">&#40;</span>percent<span class="br0">&#41;</span>
-    escape           <span class="sy0">=</span> escapebackslash | escapepercent
+    escapebackslash  = Literal(backslash) + Literal(backslash)
+    escapepercent    = Literal(backslash) + Literal(percent)
+    escape           = escapebackslash | escapepercent
     
-    commandortext    <span class="sy0">=</span> command | escape | text
-    argumentvalue   <span class="sy0">\<\<</span> OneOrMore<span class="br0">&#40;</span>commandortext<span class="br0">&#41;</span>
+    commandortext    = command | escape | text
+    argumentvalue   << OneOrMore(commandortext)
     
-    texgrammar       <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>commandortext<span class="br0">&#41;</span>
-    texgrammar.<span class="me1">ignore</span><span class="br0">&#40;</span>comment<span class="br0">&#41;</span>
+    texgrammar       = OneOrMore(commandortext)
+    texgrammar.ignore(comment)
     
     
-    <span class="kw1">try</span>:
-        res <span class="sy0">=</span> texgrammar.<span class="me1">parseString</span><span class="br0">&#40;</span>teststring<span class="sy0">,</span> parseAll<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>
-    <span class="kw1">except</span> ParseException<span class="sy0">,</span> err:
-        <span class="kw1">print</span> <span class="st0">''</span>
-        <span class="kw1">print</span> <span class="st0">'Parse Error:'</span>
-        <span class="kw1">print</span> err
-        <span class="kw1">print</span> err.<span class="me1">line</span>
-        <span class="kw1">print</span> <span class="st0">' '</span> * <span class="br0">&#40;</span>err.<span class="me1">column</span> - <span class="nu0">1</span><span class="br0">&#41;</span> + <span class="st0">'^'</span>
+    try:
+        res = texgrammar.parseString(teststring, parseAll=True)
+    except ParseException, err:
+        print ''
+        print 'Parse Error:'
+        print err
+        print err.line
+        print ' ' * (err.column - 1) + '^'
 
 Error message:
 
@@ -850,7 +852,7 @@ In order to support reusing the same expression multiple times in a parser with 
 
 The solution is to attach the parse action to ordering_term immediately after you have defined it, and before it is used elsewhere, especially with results names. When I move the setParseAction call up to right below the initial definition of ordering_term, then I get consistent double-calling of the parse action. Not a bug, but definitely a gotcha when defining your grammar.
 #### 2016-03-21 17:44:05 - toddreed
-Right—the last case should have been:
+Rightï¿½the last case should have been:
 
 
 
@@ -1074,100 +1076,100 @@ The following `pyparsing` grammar naturally follows:
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    from pyparsing import *
     
-    word <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span>
-    members <span class="sy0">=</span> Group<span class="br0">&#40;</span>word<span class="br0">&#40;</span><span class="st0">'type'</span><span class="br0">&#41;</span>
-        + Group<span class="br0">&#40;</span>delimitedList<span class="br0">&#40;</span>word<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'names'</span><span class="br0">&#41;</span>
-        + Suppress<span class="br0">&#40;</span><span class="st0">';'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'members'</span><span class="br0">&#41;</span>
-    structKeyword <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Keyword<span class="br0">&#40;</span><span class="st0">'struct'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw3">struct</span> <span class="sy0">=</span> Group<span class="br0">&#40;</span>
-        structKeyword + word<span class="br0">&#40;</span><span class="st0">'name'</span><span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span><span class="st0">'{'</span><span class="br0">&#41;</span>
-        + Group<span class="br0">&#40;</span>ZeroOrMore<span class="br0">&#40;</span>members<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'members'</span><span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span><span class="st0">'}'</span><span class="br0">&#41;</span>
-        + Suppress<span class="br0">&#40;</span><span class="st0">';'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'struct'</span><span class="br0">&#41;</span>
+    word = Word(alphas)
+    members = Group(word('type')
+        + Group(delimitedList(word))('names')
+        + Suppress(';'))('members')
+    structKeyword = Suppress(Keyword('struct'))
+    struct = Group(
+        structKeyword + word('name') + Suppress('{')
+        + Group(ZeroOrMore(members))('members') + Suppress('}')
+        + Suppress(';'))('struct')
 
 
 This grammar produces `ParseResults` of the following kind:
 
 
 
-    <span class="sc3"><span class="re1">\<root<span class="re2">\></span></span></span>
-      <span class="sc3"><span class="re1">\<struct<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<name<span class="re2">\></span></span></span>Foo<span class="sc3"><span class="re1">\</name<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<members<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<members<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<type<span class="re2">\></span></span></span>int<span class="sc3"><span class="re1">\</type<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<names<span class="re2">\></span></span></span>
-              <span class="sc3"><span class="re1">\<ITEM<span class="re2">\></span></span></span>x<span class="sc3"><span class="re1">\</ITEM<span class="re2">\></span></span></span>
-              <span class="sc3"><span class="re1">\<ITEM<span class="re2">\></span></span></span>y<span class="sc3"><span class="re1">\</ITEM<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\</names<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\</members<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<members<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<type<span class="re2">\></span></span></span>float<span class="sc3"><span class="re1">\</type<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<names<span class="re2">\></span></span></span>
-              <span class="sc3"><span class="re1">\<ITEM<span class="re2">\></span></span></span>z<span class="sc3"><span class="re1">\</ITEM<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\</names<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\</members<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\</members<span class="re2">\></span></span></span>
-      <span class="sc3"><span class="re1">\</struct<span class="re2">\></span></span></span>
-    <span class="sc3"><span class="re1">\</root<span class="re2">\></span></span></span>
+    \<root\>
+      \<struct\>
+        \<name\>Foo\</name\>
+        \<members\>
+          \<members\>
+            \<type\>int\</type\>
+            \<names\>
+              \<ITEM\>x\</ITEM\>
+              \<ITEM\>y\</ITEM\>
+            \</names\>
+          \</members\>
+          \<members\>
+            \<type\>float\</type\>
+            \<names\>
+              \<ITEM\>z\</ITEM\>
+            \</names\>
+          \</members\>
+        \</members\>
+      \</struct\>
+    \</root\>
 
 
 However, this is a nuisance to work with later. I would like to desugar the comma-separated definitions, to get the following tree:
 
 
 
-    <span class="sc3"><span class="re1">\<root<span class="re2">\></span></span></span>
-      <span class="sc3"><span class="re1">\<struct<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<name<span class="re2">\></span></span></span>Foo<span class="sc3"><span class="re1">\</name<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<members<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<member<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<type<span class="re2">\></span></span></span>int<span class="sc3"><span class="re1">\</type<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<name<span class="re2">\></span></span></span>x<span class="sc3"><span class="re1">\</name<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\</member<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<member<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<type<span class="re2">\></span></span></span>int<span class="sc3"><span class="re1">\</type<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<name<span class="re2">\></span></span></span>y<span class="sc3"><span class="re1">\</name<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\</member<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<member<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<type<span class="re2">\></span></span></span>float<span class="sc3"><span class="re1">\</type<span class="re2">\></span></span></span>
-            <span class="sc3"><span class="re1">\<name<span class="re2">\></span></span></span>z<span class="sc3"><span class="re1">\</name<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\</member<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\</members<span class="re2">\></span></span></span>
-      <span class="sc3"><span class="re1">\</struct<span class="re2">\></span></span></span>
-    <span class="sc3"><span class="re1">\</root<span class="re2">\></span></span></span>
+    \<root\>
+      \<struct\>
+        \<name\>Foo\</name\>
+        \<members\>
+          \<member\>
+            \<type\>int\</type\>
+            \<name\>x\</name\>
+          \</member\>
+          \<member\>
+            \<type\>int\</type\>
+            \<name\>y\</name\>
+          \</member\>
+          \<member\>
+            \<type\>float\</type\>
+            \<name\>z\</name\>
+          \</member\>
+        \</members\>
+      \</struct\>
+    \</root\>
 
 
 I could do that as a postprocessing step, by walking the `ParsingResults` and building a data structure of my own. This is straightforward but boring, especially considering that in the real program there are quite a few more grammar rules.
 
-The next obvious way is to add a parsing action, and that’s where I get stumped.
+The next obvious way is to add a parsing action, and thatï¿½s where I get stumped.
 
-I imagine the action needs to be attached to the `members` grammar rule. It receives a “list” of one element which is a “dictionary” whose one key is `type` and the other is `names`. `type` is a string while `names` is a list of strings. The action needs to return a “list” of “dictionaries”, one for each name in the original’s `names`.
+I imagine the action needs to be attached to the `members` grammar rule. It receives a ï¿½listï¿½ of one element which is a ï¿½dictionaryï¿½ whose one key is `type` and the other is `names`. `type` is a string while `names` is a list of strings. The action needs to return a ï¿½listï¿½ of ï¿½dictionariesï¿½, one for each name in the originalï¿½s `names`.
 
 The following <em>kind of</em> works:
 
 
 
-    <span class="kw1">def</span> expand<span class="br0">&#40;</span>tokens<span class="br0">&#41;</span>:
-        <span class="kw1">return</span> <span class="br0">&#91;</span><span class="br0">&#123;</span><span class="st0">'type'</span>: <span class="kw3">token</span>.<span class="kw2">type</span><span class="sy0">,</span> <span class="st0">'name'</span>: name<span class="br0">&#125;</span>
-                <span class="kw1">for</span> <span class="kw3">token</span> <span class="kw1">in</span> tokens
-                <span class="kw1">for</span> name <span class="kw1">in</span> <span class="kw3">token</span>.<span class="me1">names</span><span class="br0">&#93;</span>
+    def expand(tokens):
+        return [{'type': token.type, 'name': name}
+                for token in tokens
+                for name in token.names]
 
 
 Namely, it produces the following structure:
 
 
 
-    <span class="sc3"><span class="re1">\<root<span class="re2">\></span></span></span>
-      <span class="sc3"><span class="re1">\<struct<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<name<span class="re2">\></span></span></span>Foo<span class="sc3"><span class="re1">\</name<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\<members<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<members<span class="re2">\></span></span></span>{<span class="sc1">&apos;</span>name<span class="sc1">&apos;</span>: <span class="sc1">&apos;</span>x<span class="sc1">&apos;</span>, <span class="sc1">&apos;</span>type<span class="sc1">&apos;</span>: <span class="sc1">&apos;</span>int<span class="sc1">&apos;</span>}<span class="sc3"><span class="re1">\</members<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<ITEM<span class="re2">\></span></span></span>{<span class="sc1">&apos;</span>name<span class="sc1">&apos;</span>: <span class="sc1">&apos;</span>y<span class="sc1">&apos;</span>, <span class="sc1">&apos;</span>type<span class="sc1">&apos;</span>: <span class="sc1">&apos;</span>int<span class="sc1">&apos;</span>}<span class="sc3"><span class="re1">\</ITEM<span class="re2">\></span></span></span>
-          <span class="sc3"><span class="re1">\<members<span class="re2">\></span></span></span>{<span class="sc1">&apos;</span>name<span class="sc1">&apos;</span>: <span class="sc1">&apos;</span>z<span class="sc1">&apos;</span>, <span class="sc1">&apos;</span>type<span class="sc1">&apos;</span>: <span class="sc1">&apos;</span>float<span class="sc1">&apos;</span>}<span class="sc3"><span class="re1">\</members<span class="re2">\></span></span></span>
-        <span class="sc3"><span class="re1">\</members<span class="re2">\></span></span></span>
-      <span class="sc3"><span class="re1">\</struct<span class="re2">\></span></span></span>
-    <span class="sc3"><span class="re1">\</root<span class="re2">\></span></span></span>
+    \<root\>
+      \<struct\>
+        \<name\>Foo\</name\>
+        \<members\>
+          \<members\>{&apos;name&apos;: &apos;x&apos;, &apos;type&apos;: &apos;int&apos;}\</members\>
+          \<ITEM\>{&apos;name&apos;: &apos;y&apos;, &apos;type&apos;: &apos;int&apos;}\</ITEM\>
+          \<members\>{&apos;name&apos;: &apos;z&apos;, &apos;type&apos;: &apos;float&apos;}\</members\>
+        \</members\>
+      \</struct\>
+    \</root\>
 
 
 Notice how individual member definitions are rendered as a text representation of a Python dictionary. When accessed as Python dictionaries (`x['type']`), they work as intended. But they cannot be accessed as namespaces (`x.type`) or lists (`x[0]`), and the XML rendition is ugly.
@@ -1176,65 +1178,65 @@ It becomes clear that I have to construct a proper `ParseResults` structure. I <
 
 
 
-    <span class="kw1">import</span> pyparsing
+    import pyparsing
     
-    <span class="kw1">def</span> expand<span class="br0">&#40;</span>tokens<span class="br0">&#41;</span>:
-        items <span class="sy0">=</span> <span class="br0">&#91;</span><span class="br0">&#93;</span>
-        <span class="kw1">for</span> name <span class="kw1">in</span> tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="me1">names</span>:
-            item <span class="sy0">=</span> ParseResults<span class="br0">&#40;</span><span class="br0">&#91;</span>tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="kw2">type</span><span class="sy0">,</span> name<span class="br0">&#93;</span><span class="sy0">,</span> <span class="st0">'member'</span><span class="br0">&#41;</span>
-            item<span class="br0">&#91;</span><span class="st0">'type'</span><span class="br0">&#93;</span> <span class="sy0">=</span> tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="kw2">type</span>
-            item<span class="br0">&#91;</span><span class="st0">'name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> pyparsing._ParseResultsWithOffset<span class="br0">&#40;</span>name<span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span>
-            items.<span class="me1">append</span><span class="br0">&#40;</span>item<span class="br0">&#41;</span>
-        <span class="kw1">return</span> ParseResults<span class="br0">&#40;</span>items<span class="br0">&#41;</span>
+    def expand(tokens):
+        items = []
+        for name in tokens[0].names:
+            item = ParseResults([tokens[0].type, name], 'member')
+            item['type'] = tokens[0].type
+            item['name'] = pyparsing._ParseResultsWithOffset(name, 1)
+            items.append(item)
+        return ParseResults(items)
 
 
-I don’t like it because (1) I have to duplicate the element values in the constructor call and in subsequent item assignments, and (2) I am forced to delve into undocumented private implementation details (`_ParseResultsWithOffset`).
+I donï¿½t like it because (1) I have to duplicate the element values in the constructor call and in subsequent item assignments, and (2) I am forced to delve into undocumented private implementation details (`_ParseResultsWithOffset`).
 
-So what I’d like to ask is:
+So what Iï¿½d like to ask is:
 
 <ul><li>Is my goal (to apply structural transformations during parsing, while keeping the whole tree accessible as `ParseResults`) sane? Or should I fall back to transforming the complete parsed AST to a different data structure after the fact?</li><li>If it is sane, what is the proper approach that does not suffer from the deficiencies outlined above?</li></ul>
-For easy reproduction, here’s the complete test program:
+For easy reproduction, hereï¿½s the complete test program:
 
 
 
-    <span class="co1">#!/usr/bin/python3</span>
+    #!/usr/bin/python3
     
-    <span class="kw1">import</span> pyparsing
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    import pyparsing
+    from pyparsing import *
     
-    <span class="kw1">def</span> expand1<span class="br0">&#40;</span>tokens<span class="br0">&#41;</span>:
-        <span class="kw1">return</span> <span class="br0">&#91;</span><span class="br0">&#123;</span><span class="st0">'type'</span>: <span class="kw3">token</span>.<span class="kw2">type</span><span class="sy0">,</span> <span class="st0">'name'</span>: name<span class="br0">&#125;</span>
-                <span class="kw1">for</span> <span class="kw3">token</span> <span class="kw1">in</span> tokens
-                <span class="kw1">for</span> name <span class="kw1">in</span> <span class="kw3">token</span>.<span class="me1">names</span><span class="br0">&#93;</span>
+    def expand1(tokens):
+        return [{'type': token.type, 'name': name}
+                for token in tokens
+                for name in token.names]
     
-    <span class="kw1">def</span> expand<span class="br0">&#40;</span>tokens<span class="br0">&#41;</span>:
-        items <span class="sy0">=</span> <span class="br0">&#91;</span><span class="br0">&#93;</span>
-        <span class="kw1">for</span> name <span class="kw1">in</span> tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="me1">names</span>:
-            item <span class="sy0">=</span> ParseResults<span class="br0">&#40;</span><span class="br0">&#91;</span>tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="kw2">type</span><span class="sy0">,</span> name<span class="br0">&#93;</span><span class="sy0">,</span> <span class="st0">'member'</span><span class="br0">&#41;</span>
-            item<span class="br0">&#91;</span><span class="st0">'type'</span><span class="br0">&#93;</span> <span class="sy0">=</span> tokens<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="kw2">type</span>
-            item<span class="br0">&#91;</span><span class="st0">'name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> pyparsing._ParseResultsWithOffset<span class="br0">&#40;</span>name<span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span>
-            items.<span class="me1">append</span><span class="br0">&#40;</span>item<span class="br0">&#41;</span>
-        <span class="kw1">return</span> ParseResults<span class="br0">&#40;</span>items<span class="br0">&#41;</span>
+    def expand(tokens):
+        items = []
+        for name in tokens[0].names:
+            item = ParseResults([tokens[0].type, name], 'member')
+            item['type'] = tokens[0].type
+            item['name'] = pyparsing._ParseResultsWithOffset(name, 1)
+            items.append(item)
+        return ParseResults(items)
     
-    word <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span>
-    members <span class="sy0">=</span> Group<span class="br0">&#40;</span>word<span class="br0">&#40;</span><span class="st0">'type'</span><span class="br0">&#41;</span>
-        + Group<span class="br0">&#40;</span>delimitedList<span class="br0">&#40;</span>word<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'names'</span><span class="br0">&#41;</span>
-        + Suppress<span class="br0">&#40;</span><span class="st0">';'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'members'</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>expand<span class="br0">&#41;</span>
-    structKeyword <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Keyword<span class="br0">&#40;</span><span class="st0">'struct'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw3">struct</span> <span class="sy0">=</span> Group<span class="br0">&#40;</span>
-        structKeyword + word<span class="br0">&#40;</span><span class="st0">'name'</span><span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span><span class="st0">'{'</span><span class="br0">&#41;</span>
-        + Group<span class="br0">&#40;</span>ZeroOrMore<span class="br0">&#40;</span>members<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'members'</span><span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span><span class="st0">'}'</span><span class="br0">&#41;</span>
-        + Suppress<span class="br0">&#40;</span><span class="st0">';'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'struct'</span><span class="br0">&#41;</span>
+    word = Word(alphas)
+    members = Group(word('type')
+        + Group(delimitedList(word))('names')
+        + Suppress(';'))('members').setParseAction(expand)
+    structKeyword = Suppress(Keyword('struct'))
+    struct = Group(
+        structKeyword + word('name') + Suppress('{')
+        + Group(ZeroOrMore(members))('members') + Suppress('}')
+        + Suppress(';'))('struct')
     
-    testString <span class="sy0">=</span> <span class="st0">'''
+    testString = '''
     struct Foo {
         int x, y;
         float z;
     };
-    '''</span>
+    '''
     
-    result <span class="sy0">=</span> <span class="kw3">struct</span>.<span class="me1">parseString</span><span class="br0">&#40;</span>testString<span class="sy0">,</span> parseAll<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>
-    <span class="kw1">print</span><span class="br0">&#40;</span>result.<span class="me1">asXML</span><span class="br0">&#40;</span><span class="st0">'root'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    result = struct.parseString(testString, parseAll=True)
+    print(result.asXML('root'))
 
 
 
@@ -1347,7 +1349,7 @@ Which looks closer to your desired expanded struct. If you *absolutely* need XML
 
 -- Paul
 #### 2016-07-14 13:58:55 - ptmcg
-Here is an après-parse converter for these ParseResults to XML:
+Here is an aprï¿½s-parse converter for these ParseResults to XML:
 
 
 
@@ -1401,9 +1403,9 @@ Gives:
 #### 2016-07-15 00:54:43 - yurivkhan
 Thank you for the reply.
 
-I am not particularly attached to `asXML`, I just found its output easier to read initially. Something in its element name assignment did in fact strike me as strange, but I didn’t expect it to be downright misleading.
+I am not particularly attached to `asXML`, I just found its output easier to read initially. Something in its element name assignment did in fact strike me as strange, but I didnï¿½t expect it to be downright misleading.
 
-Now that I don’t have to assign results names in a way that makes `asXML` output pretty, I find that it is sufficient to drop the results name on `members` (which I didn’t like anyway) and do away with the `_ParseResultsWithOffset` invocation. Moving the action up to `ZeroOrMore(members)` seems to be unnecessary, which is just as well because in the actual grammar I’m implementing `members` can be interleaved with other rules.
+Now that I donï¿½t have to assign results names in a way that makes `asXML` output pretty, I find that it is sufficient to drop the results name on `members` (which I didnï¿½t like anyway) and do away with the `_ParseResultsWithOffset` invocation. Moving the action up to `ZeroOrMore(members)` seems to be unnecessary, which is just as well because in the actual grammar Iï¿½m implementing `members` can be interleaved with other rules.
 
 Iteration over `tokens` does look nicer than accessing `tokens[0]`, although does not affect operation if I keep the action attached to `members`.
 
@@ -1411,39 +1413,39 @@ Here is the final implementation I ended up with:
 
 
 
-    <span class="co1">#!/usr/bin/python3</span>
+    #!/usr/bin/python3
     
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    from pyparsing import *
     
-    <span class="kw1">def</span> expand<span class="br0">&#40;</span>tokens<span class="br0">&#41;</span>:
-        items <span class="sy0">=</span> <span class="br0">&#91;</span><span class="br0">&#93;</span>
-        <span class="kw1">for</span> <span class="kw3">token</span> <span class="kw1">in</span> tokens:
-            <span class="kw1">for</span> name <span class="kw1">in</span> <span class="kw3">token</span>.<span class="me1">names</span>:
-                item <span class="sy0">=</span> ParseResults<span class="br0">&#40;</span><span class="br0">&#91;</span><span class="kw3">token</span>.<span class="kw2">type</span><span class="sy0">,</span> name<span class="br0">&#93;</span><span class="br0">&#41;</span>
-                item<span class="br0">&#91;</span><span class="st0">'type'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw3">token</span>.<span class="kw2">type</span>
-                item<span class="br0">&#91;</span><span class="st0">'name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> name
-                items.<span class="me1">append</span><span class="br0">&#40;</span>item<span class="br0">&#41;</span>
-        <span class="kw1">return</span> ParseResults<span class="br0">&#40;</span>items<span class="br0">&#41;</span>
+    def expand(tokens):
+        items = []
+        for token in tokens:
+            for name in token.names:
+                item = ParseResults([token.type, name])
+                item['type'] = token.type
+                item['name'] = name
+                items.append(item)
+        return ParseResults(items)
     
-    word <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphas<span class="br0">&#41;</span>
-    members <span class="sy0">=</span> Group<span class="br0">&#40;</span>word<span class="br0">&#40;</span><span class="st0">'type'</span><span class="br0">&#41;</span>
-        + Group<span class="br0">&#40;</span>delimitedList<span class="br0">&#40;</span>word<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'names'</span><span class="br0">&#41;</span>
-        + Suppress<span class="br0">&#40;</span><span class="st0">';'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>expand<span class="br0">&#41;</span>
-    structKeyword <span class="sy0">=</span> Suppress<span class="br0">&#40;</span>Keyword<span class="br0">&#40;</span><span class="st0">'struct'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw3">struct</span> <span class="sy0">=</span> Group<span class="br0">&#40;</span>
-        structKeyword + word<span class="br0">&#40;</span><span class="st0">'name'</span><span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span><span class="st0">'{'</span><span class="br0">&#41;</span>
-        + Group<span class="br0">&#40;</span>ZeroOrMore<span class="br0">&#40;</span>members<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'members'</span><span class="br0">&#41;</span> + Suppress<span class="br0">&#40;</span><span class="st0">'}'</span><span class="br0">&#41;</span>
-        + Suppress<span class="br0">&#40;</span><span class="st0">';'</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#40;</span><span class="st0">'struct'</span><span class="br0">&#41;</span>
+    word = Word(alphas)
+    members = Group(word('type')
+        + Group(delimitedList(word))('names')
+        + Suppress(';')).setParseAction(expand)
+    structKeyword = Suppress(Keyword('struct'))
+    struct = Group(
+        structKeyword + word('name') + Suppress('{')
+        + Group(ZeroOrMore(members))('members') + Suppress('}')
+        + Suppress(';'))('struct')
     
-    testString <span class="sy0">=</span> <span class="st0">'''
+    testString = '''
     struct Foo {
         int x, y;
         float z;
     };
-    '''</span>
+    '''
     
-    result <span class="sy0">=</span> <span class="kw3">struct</span>.<span class="me1">parseString</span><span class="br0">&#40;</span>testString<span class="sy0">,</span> parseAll<span class="sy0">=</span><span class="kw2">True</span><span class="br0">&#41;</span>
-    <span class="kw1">print</span><span class="br0">&#40;</span>result.<span class="me1">dump</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    result = struct.parseString(testString, parseAll=True)
+    print(result.dump())
 
 
 #### 2016-07-15 02:37:30 - ptmcg
@@ -1561,9 +1563,9 @@ Gives:
 
 
 #### 2016-07-15 04:32:34 - yurivkhan
-Thanks but I’m not actually parsing C. I just chose a small part of it as a simplified view on the problem I was facing.
+Thanks but Iï¿½m not actually parsing C. I just chose a small part of it as a simplified view on the problem I was facing.
 
-The actual project will have next to no keywords, a line- and indentation-based grammar with shell-style line-end comments, and the thing for which I substituted `word` is in fact an `Or` of a double-quoted single-line string, triple-double-quoted multiline string, and an unquoted non-empty sequence of non-whitespace Unicode characters except for `#`, `&quot;` and `,`. I did not include any of that in the example because it wasn’t relevant to the question.
+The actual project will have next to no keywords, a line- and indentation-based grammar with shell-style line-end comments, and the thing for which I substituted `word` is in fact an `Or` of a double-quoted single-line string, triple-double-quoted multiline string, and an unquoted non-empty sequence of non-whitespace Unicode characters except for `#`, `&quot;` and `,`. I did not include any of that in the example because it wasnï¿½t relevant to the question.
 
 ---
 ## 2016-08-04 20:06:32 - Akshay7790 - Generate dynamic regex from input data

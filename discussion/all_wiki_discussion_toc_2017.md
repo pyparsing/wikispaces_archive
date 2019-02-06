@@ -958,16 +958,16 @@ Below is my attempt on this. I am just trying to make a slight modification to t
         return bnf
     
     # map operator symbols to corresponding arithmetic operations
-    opn = <span class="br0">&#123; '+' : operator.add,
+    opn = { '+' : operator.add,
             '-' : operator.sub,
             '*' : operator.mul,
             '/' : operator.truediv,
             '^' : operator.pow,
-            '+=' : operator.iadd<span class="br0">&#125;
-    fn  = <span class="br0">&#123; 'Max' : max,
+            '+=' : operator.iadd}
+    fn  = { 'Max' : max,
             'Min' : min,
             'abs' : abs,
-           'Scalar' : Scalar<span class="br0">&#125;
+           'Scalar' : Scalar}
     
     def evaluateStack( s ):
         op = s.pop() 
@@ -1009,7 +1009,7 @@ I have tried a bit with new style of code like below by making list a kind of pa
     
     varname = Regex(r'[a-zA-Z_][a-zA-Z0-9_]*')
     fname = Regex(r'[a-zA-Z][a-zA-Z0-9_]*')
-    decimalnumber = Regex(r'[+-]?<span class="es0">\d+(<span class="es0">\.<span class="es0">\d*)?')
+    decimalnumber = Regex(r'[+-]?\d+(\.\d*)?')
     
     expr = Forward()
     listmaker = Group(LBRA + delimitedList(expr) + RBRA)('list')
