@@ -53,7 +53,7 @@ I tried changing the nestedExpr expression to parse content inside nestedExpr:
 
 
     attributes = Word(printables) + ':' + Word(printables)
-    command = nestedExpr('\<%', '%\>', content=OneOrMore(attributes))
+    command = nestedExpr('<%', '%>', content=OneOrMore(attributes))
 
 
 but instead got everything out as plain text:
@@ -74,7 +74,7 @@ What I really want to do is to turn each attribute in the nestedExpr into a dict
 If anyone could please share what I'm doing wrong, that'd be great. Thank you so much.
 
 #### 2016-01-21 04:59:20 - ptmcg
-If all you want to do is to process the various '\<%...%\>' tags, then you are better off using scanString or searchString, instead of parseString.  parseString forces you to define a grammar for the complete input string, but scanString and searchString will work on just the sub-pattern that you are looking for.  Also, none of your expressions actually nest groups - you don't have '\<%... \<%...%\> ... %\>'.  If you don't actually have nesting, easier to not use nestedExpr, but just define the pattern with leading '\<%' and trailing '%\>'.  Lastly, your definition of attributes uses 'Word(printables)' as the value part of the key-value, but in your sample code, one of the attributes has a quoted string as the value. This is easily fixed with 'attributes = Word(printables) + ':' + (quotedString | Word(printables))'. (You may have to come back to this and be a little more specific on these - 'Word(printables)' will match *anything* that is not whitespace.)
+If all you want to do is to process the various '<%...%>' tags, then you are better off using scanString or searchString, instead of parseString.  parseString forces you to define a grammar for the complete input string, but scanString and searchString will work on just the sub-pattern that you are looking for.  Also, none of your expressions actually nest groups - you don't have '<%... <%...%> ... %>'.  If you don't actually have nesting, easier to not use nestedExpr, but just define the pattern with leading '<%' and trailing '%>'.  Lastly, your definition of attributes uses 'Word(printables)' as the value part of the key-value, but in your sample code, one of the attributes has a quoted string as the value. This is easily fixed with 'attributes = Word(printables) + ':' + (quotedString | Word(printables))'. (You may have to come back to this and be a little more specific on these - 'Word(printables)' will match *anything* that is not whitespace.)
 #### 2016-01-21 06:58:01 - sivabudh
 Wow! Thanks for such a prompt response, Paul! I'm sorry I didn't make things clear, I think this Gist will sum up what I actually wanted to achieve. I'm not sure if it's expressible in Pyparsing or not.
 
@@ -98,7 +98,7 @@ Uses the input variable `data` from
     attr_value = quotedString.setParseAction(removeQuotes) | Word(printables)
     attribute = Group(identifier + Suppress(':') + attr_value)
     
-    command_group = Suppress('\<%') + Dict(OneOrMore(attribute))('data') + Suppress('%\>')
+    command_group = Suppress('<%') + Dict(OneOrMore(attribute))('data') + Suppress('%>')
     command_group.ignore(pythonStyleComment)
     
     command_group.setParseAction(lambda t: t.data.asDict())
@@ -120,7 +120,7 @@ Uses the input variable `data` from
     last = 0
     output = []
     for t,s,e in command_group.scanString(data):
-        if s \> last:
+        if s > last:
             # get everything since the last match
             unmatched = data[last:s]
             output.extend(extract_statements(unmatched))
@@ -160,16 +160,24 @@ subexpressions of the parsed string by name so as to analyze and modify them.
 I ran into a difficulty, whereby a name for a subexpression
 seems to be assigned not only to this  subexpression, 
 but also to the enveloping expression. A simple demonstrative example:
+    
+    a = Word(nums)
+    test = a('left') + a('right')
+    r = test.parseString('123 456')
+    print(r)
 
-a = Word(nums)
-test = a('left') + a('right')
-r = test.parseString('123 456')
-print(r)
-<ol><li>['123', '456'] (as expected)</li></ol>print(list(r.keys()))
-['right', 'left'] # as expected
-print(r.left, r.right)
-<ol><li>123 456 (as expected)</li></ol>print(r.getName())
+<ol><li>['123', '456'] (as expected)</li></ol>
+
+    print(list(r.keys()))
+
+    ['right', 'left'] # as expected
+    print(r.left, r.right)
+<ol><li>123 456 (as expected)</li></ol>
+
+    print(r.getName())
+
 <ol><li>left (???)</li></ol>
+
 I would expect no name to be assigned to r.
 
 For my purpose, this makes analyzing the parse result difficult. Is this intended
@@ -182,25 +190,25 @@ Jeroen.
 #### 2016-01-23 06:11:08 - Jeroen537
 I think I found a solution that works for me:
 
-a = Word(nums)
-test = Group((a('left') + a('right')))('fullexp')
-
-r = test.parseString('123 456')
-
-print(r)
-print(list(r.keys()))
-print(list(r.fullexp.keys()))
-print(r.fullexp.left, r.fullexp.right)
-print(r.getName())
+    a = Word(nums)
+    test = Group((a('left') + a('right')))('fullexp')
+    
+    r = test.parseString('123 456')
+    
+    print(r)
+    print(list(r.keys()))
+    print(list(r.fullexp.keys()))
+    print(r.fullexp.left, r.fullexp.right)
+    print(r.getName())
 
 Gives when run:
 
-
-['fullexp']
-['right', 'left']
-123 456
-fullexp
-
+    
+    ['fullexp']
+    ['right', 'left']
+    123 456
+    fullexp
+    
 so that there is no confusion between the names of nested levels. So I think I can 
 go on.
 
@@ -243,17 +251,13 @@ and may variations of that, and I always get an error saying either expecting en
 #### 2016-01-26 21:49:16 - ptmcg
 Looking at your pastebin, you are very close. But this:
 
-
     default_block.parseString(config)
 
 won't work because config doesn't start with a default block, it starts with a global block.
 
 Try this instead:
 
-
     (global_block + default_block).parseString(config).pprint()
-
-
 
 BTW, the code I posted *does* create several lists.
 
@@ -265,8 +269,6 @@ BTW, the code I posted *does* create several lists.
 
 prints
 
-
-
     [['global'], ['log', '127.0.0.1', 'local1', 'notice'], ['chroot', '/var/lib/haproxy'], ['user', 'haproxy'], ['group', 'haproxy'], ['daemon'], ['stats', 'socket', '/var/run/haproxysock', 'level', 'admin']]
     [['defaults'], ['log', 'global'], ['mode', 'http'], ['option', 'httplog'], ['option', 'dontlognull'], ['option', 'forwardfor'], ['option', 'http-server-close'], ['timeout', 'connect', '5000'], ['timeout', 'client', '50000'], ['timeout', 'server', '50000']]
     [['frontend', 'frontend'], ['bind', '127.0.0.1:80'], ['option', 'tcplog'], ['default_backend', 'backend']]
@@ -277,12 +279,9 @@ prints
 #### 2016-01-26 21:54:40 - ptmcg
 Also, when you find yourself repeating chunks like:
 
-
     OneOrMore(Group(OneOrMore(word) + new_line.suppress()))
 
-
 assign it to its own variable like:
-
 
     block_body = OneOrMore(Group(OneOrMore(word) + new_line.suppress()))
 
@@ -309,21 +308,21 @@ Thank you for this ptmcg, very helpful. But now I'm curious,
 
 The Haproxy config will almost always have Global, then default blocks, but after that, it could be any combination of backend and frontend blocks, e.g.
 
-Global block{}
-
-defaults block{}
-
-frontend{}
-frontend{}
-backend{}
-backend{}
+    Global block{}
+    
+    defaults block{}
+    
+    frontend{}
+    frontend{}
+    backend{}
+    backend{}
 
 Or it could be 
 
-frontend{}
-backend{}
-frontend{}
-backend{}
+    frontend{}
+    backend{}
+    frontend{}
+    backend{}
 
 Or any permutation of that. I I need to specify which block to parse, how can I tell pyparser to parse a 'frontend' block OR a 'backend' block in any order they may be specified ? (technically I can leave the differentiation between frontend, and backend, after I have the list, but this is a task for me get to know pyparsing better)
 #### 2016-01-27 20:29:11 - ldelossa
@@ -365,13 +364,14 @@ I have code that worked perfect in Python 2.7.11 and now it goes 'full retard' u
 
     import grammar
     schema_data = grammar.entity_decl.parseString(schema)
-    print(schema_data[0].entity_id) # prints the entity id -\> everyting parses fine
-    pickle.dump(schema_data, open(storage_file, 'wb')) # -\> ok
-    pickle.load(open(storage_file, 'rb')) # -\> error
+    print(schema_data[0].entity_id) # prints the entity id -> everyting parses fine
+    pickle.dump(schema_data, open(storage_file, 'wb')) # -> ok
+    pickle.load(open(storage_file, 'rb')) # -> error
 
 
 The error message is as follows:
-TypeError: <u>new</u>() missing 1 required positional argument: 'toklist'
+
+    TypeError: __new__() missing 1 required positional argument: 'toklist'
 
 What changed??
 
@@ -379,113 +379,114 @@ What changed??
 ---
 ## 2016-02-05 07:23:39 - Spida2 - Parsing LaTeX
 I am trying to parse LaTeX (or at least some subset). I assume that every latex command starts with a backslash, followed by an arbitrary number of parameters and arguments enclosed in [] and {}, respectively. I am also successfully ignoring both comments introduced by the percent character and block comments in \begin{comment}\end{comment}
-[code]import string
-from pyparsing import *
 
-test = '''\documentclass[opt1,opt2][foo]{a4paper}
-\\newcommand{foo}{\secondarg[opt]{arg}}
-\\begin{document}
-\chapter{Intro}
-Chapter Intro Introduction %comment at end of line
-\section{First Section}
-Section Content text
-escaped backslash \\\\ in text
-escaped percent \\% in text
-This is a test
-\\begin{comment}
-\section{Commented Section}
-\end{comment}
-\end{document}
-'''
+    import string
+    from pyparsing import *
+    
+    test = '''\documentclass[opt1,opt2][foo]{a4paper}
+    \\newcommand{foo}{\secondarg[opt]{arg}}
+    \\begin{document}
+    \chapter{Intro}
+    Chapter Intro Introduction %comment at end of line
+    \section{First Section}
+    Section Content text
+    escaped backslash \\\\ in text
+    escaped percent \\% in text
+    This is a test
+    \\begin{comment}
+    \section{Commented Section}
+    \end{comment}
+    \end{document}
+    '''
+    
+    class FoundCommand:
+        def __init__(self, st, locn, toks):
+            self.st = st
+            self.locn = locn
+            self.toks = toks
+            print '>>> Tex Command \'%s\' at line %s'%(self.toks[0][0], lineno(self.locn, self.st))
+    
+    class FoundParameter:
+        def __init__(self, st, locn, toks):
+            self.st = st
+            self.locn = locn
+            self.toks = toks
+            print '  [ Tex Command Parameter %s at line %s'%(self.toks, lineno(self.locn, self.st))
+    
+    class FoundArgument:
+        def __init__(self, st, locn, toks):
+            self.st = st
+            self.locn = locn
+            self.toks = toks
+            print '  { Tex Command Argument %s at line %s'%(self.toks, lineno(self.locn, self.st))
+    
+    #class FoundLineComment:
+    <ol><li>def __init__(self, st, locn, toks):</li><li>self.st = st</li><li>self.locn = locn</li><li>self.toks = toks</li><li>print '*** Line Comment \'%s\' at line %s'%(self.toks[0], lineno(self.locn, self.st))</li></ol>#
+    #class FoundBlockComment:
+    <ol><li>def __init__(self, st, locn, toks):</li><li>toks = ''.join(toks[0])</li><li>self.st = st</li><li>self.locn = locn</li><li>self.toks = toks</li><li>print '<strong>* Block Comment at line %s'%(lineno(locn, self.st))</li><li>#print '</strong>* Block Comment \'%s\' at line %s'%(self.toks, lineno(self.locn, self.st))</li></ol>
+    class FoundText:
+        def __init__(self, st, locn, toks):
+            toks = ''.join(toks)
+            self.st = st
+            self.locn = locn
+            self.toks = toks
+            print '... Text \'%s\' at line %s'%(self.toks, lineno(self.locn, self.st))
+    
+    
+    <ol><li>Characters</li></ol>backslash        = '\\'
+    percent          = '%'
+    bracketleft      = '['
+    bracketright     = ']'
+    curlyleft        = '{'
+    curlyright       = '}'
+    special_chars    = backslash + percent + bracketleft + bracketright + curlyleft + curlyright
+    standard_chars   = printables.translate(string.maketrans('', '', ), special_chars) + '''''''''
+    
+    esc_percent      = Literal(backslash + percent)
+    esc_backslash    = Literal(backslash + backslash)
+    esc_bracketleft  = Literal(backslash + bracketleft)
+    esc_bracketright = Literal(backslash + bracketright)
+    esc_curlyleft    = Literal(backslash + curlyleft)
+    esc_curlyright   = Literal(backslash + curlyright)
+    escape           = esc_percent | esc_backslash | esc_bracketleft | esc_bracketright | esc_curlyleft | esc_curlyright
+    escape.setParseAction(lambda st, locn, toks: toks[0][1])
+    
+    <ol><li>Tex commands</li></ol>text             = Forward()
+    commandname      = Word(alphas)
+    parametervalue   = Word(alphas)
+    #parametervalue   = text
+    parameter        = Suppress(Literal(bracketleft)) + parametervalue + Suppress(Literal(bracketright))
+    parameter.setParseAction(FoundParameter)
+    argumentvalue    = Word(alphas)
+    #argumentvalue    = text
+    argument         = Suppress(Literal(curlyleft)) + argumentvalue + Suppress(Literal(curlyright))
+    argument.setParseAction(FoundArgument)
+    
+    texcommand       = Group(Suppress(backslash) + commandname + ZeroOrMore(parameter) + ZeroOrMore(argument))
+    texcommand.setParseAction(FoundCommand)
+    
+    <ol><li>Text</li></ol>text             = OneOrMore(White() | Word(standard_chars) | escape)
+    text.setParseAction(FoundText)
+    tex              = OneOrMore(texcommand)
+    
+    linecomment      = Suppress(percent) + restOfLine
+    #linecomment.setParseAction(FoundLineComment)
+    blockcomment     = nestedExpr('\\begin{comment}', '\\end{comment}')
+    #blockcomment.setParseAction(FoundBlockComment)
+    comment          = linecomment | blockcomment
+    
+    
+    texgrammar = OneOrMore(text | tex)
+    texgrammar.ignore(comment)
+    
+    
+    if __name__ == '__main__':
+        print '== scan =========================='
+        for i in texgrammar.scanString(test):
+            pass
+        print '== parse ========================='
+        info = texgrammar.parseString(test, parseAll=True)
 
-class FoundCommand:
-    def <u>init</u>(self, st, locn, toks):
-        self.st = st
-        self.locn = locn
-        self.toks = toks
-        print '\>\>\> Tex Command \'%s\' at line %s'%(self.toks[0][0], lineno(self.locn, self.st))
-
-class FoundParameter:
-    def <u>init</u>(self, st, locn, toks):
-        self.st = st
-        self.locn = locn
-        self.toks = toks
-        print '  [ Tex Command Parameter %s at line %s'%(self.toks, lineno(self.locn, self.st))
-
-class FoundArgument:
-    def <u>init</u>(self, st, locn, toks):
-        self.st = st
-        self.locn = locn
-        self.toks = toks
-        print '  { Tex Command Argument %s at line %s'%(self.toks, lineno(self.locn, self.st))
-
-#class FoundLineComment:
-<ol><li>def <u>init</u>(self, st, locn, toks):</li><li>self.st = st</li><li>self.locn = locn</li><li>self.toks = toks</li><li>print '*** Line Comment \'%s\' at line %s'%(self.toks[0], lineno(self.locn, self.st))</li></ol>#
-#class FoundBlockComment:
-<ol><li>def <u>init</u>(self, st, locn, toks):</li><li>toks = ''.join(toks[0])</li><li>self.st = st</li><li>self.locn = locn</li><li>self.toks = toks</li><li>print '<strong>* Block Comment at line %s'%(lineno(locn, self.st))</li><li>#print '</strong>* Block Comment \'%s\' at line %s'%(self.toks, lineno(self.locn, self.st))</li></ol>
-class FoundText:
-    def <u>init</u>(self, st, locn, toks):
-        toks = ''.join(toks)
-        self.st = st
-        self.locn = locn
-        self.toks = toks
-        print '... Text \'%s\' at line %s'%(self.toks, lineno(self.locn, self.st))
-
-
-<ol><li>Characters</li></ol>backslash        = '\\'
-percent          = '%'
-bracketleft      = '['
-bracketright     = ']'
-curlyleft        = '{'
-curlyright       = '}'
-special_chars    = backslash + percent + bracketleft + bracketright + curlyleft + curlyright
-standard_chars   = printables.translate(string.maketrans('', '', ), special_chars) + '�������'
-
-esc_percent      = Literal(backslash + percent)
-esc_backslash    = Literal(backslash + backslash)
-esc_bracketleft  = Literal(backslash + bracketleft)
-esc_bracketright = Literal(backslash + bracketright)
-esc_curlyleft    = Literal(backslash + curlyleft)
-esc_curlyright   = Literal(backslash + curlyright)
-escape           = esc_percent | esc_backslash | esc_bracketleft | esc_bracketright | esc_curlyleft | esc_curlyright
-escape.setParseAction(lambda st, locn, toks: toks[0][1])
-
-<ol><li>Tex commands</li></ol>text             = Forward()
-commandname      = Word(alphas)
-parametervalue   = Word(alphas)
-#parametervalue   = text
-parameter        = Suppress(Literal(bracketleft)) + parametervalue + Suppress(Literal(bracketright))
-parameter.setParseAction(FoundParameter)
-argumentvalue    = Word(alphas)
-#argumentvalue    = text
-argument         = Suppress(Literal(curlyleft)) + argumentvalue + Suppress(Literal(curlyright))
-argument.setParseAction(FoundArgument)
-
-texcommand       = Group(Suppress(backslash) + commandname + ZeroOrMore(parameter) + ZeroOrMore(argument))
-texcommand.setParseAction(FoundCommand)
-
-<ol><li>Text</li></ol>text             = OneOrMore(White() | Word(standard_chars) | escape)
-text.setParseAction(FoundText)
-tex              = OneOrMore(texcommand)
-
-linecomment      = Suppress(percent) + restOfLine
-#linecomment.setParseAction(FoundLineComment)
-blockcomment     = nestedExpr('\\begin{comment}', '\\end{comment}')
-#blockcomment.setParseAction(FoundBlockComment)
-comment          = linecomment | blockcomment
-
-
-texgrammar = OneOrMore(text | tex)
-texgrammar.ignore(comment)
-
-
-if <u>name</u> == '<u>main</u>':
-    print '== scan =========================='
-    for i in texgrammar.scanString(test):
-        pass
-    print '== parse ========================='
-    info = texgrammar.parseString(test, parseAll=True)
-[/code]
 
 However, the above code seems to work with scanString, but not with parseString:
 
@@ -513,7 +514,7 @@ This is a test
 ' at line 14
 <h2 id="toc1"> parse =======================</h2>
 <ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>Tex Command 'documentclass' at line 1</li></ul></ul></ul>Traceback (most recent call last):
-  File 'test6.py', line 125, in \<module\>
+  File 'test6.py', line 125, in <module>
     info = texgrammar.parseString(test, parseAll=True)
   File '/usr/lib/python2.7/dist-packages/pyparsing.py', line 1125, in parseString
     raise exc
@@ -531,7 +532,7 @@ import pyparsing as pp
 import pickle
 
 class Greeting():
-    def <u>init</u>(self, toks):
+    def __init__(self, toks):
         self.salutation = toks[0]
         self.greetee = toks[1]
 
@@ -715,7 +716,7 @@ Traceback (most recent call last):
     return self._getPyDictionary(var)
   File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 171, in _getPyDictionary
     names = dir(var)
-  File '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/pyparsing.py', line 574, in <u>dir</u>
+  File '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/pyparsing.py', line 574, in __dir__
     return dir(super(ParseResults,self)) + self.keys()
 TypeError: can only concatenate list (not 'dict_keys') to list
 Error evaluating: thread_id: pid56297_seq2
@@ -729,7 +730,7 @@ Traceback (most recent call last):
     return self._getPyDictionary(var)
   File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 171, in _getPyDictionary
     names = dir(var)
-  File '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/pyparsing.py', line 574, in <u>dir</u>
+  File '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/pyparsing.py', line 574, in __dir__
     return dir(super(ParseResults,self)) + self.keys()
 TypeError: can only concatenate list (not 'dict_keys') to list
 
@@ -752,7 +753,7 @@ Look at this example:
 
 
 
-    \>\>\> print((Optional('a') + Optional('b')).parseString(''))
+    >>> print((Optional('a') + Optional('b')).parseString(''))
     []
 
 
@@ -852,7 +853,7 @@ In order to support reusing the same expression multiple times in a parser with 
 
 The solution is to attach the parse action to ordering_term immediately after you have defined it, and before it is used elsewhere, especially with results names. When I move the setParseAction call up to right below the initial definition of ordering_term, then I get consistent double-calling of the parse action. Not a bug, but definitely a gotcha when defining your grammar.
 #### 2016-03-21 17:44:05 - toddreed
-Right�the last case should have been:
+Right'the last case should have been:
 
 
 
@@ -866,9 +867,9 @@ Thanks for the explanation!
 ---
 ## 2016-03-22 03:20:54 - LawfulEvil - Performance with parsing braces "()"
 Hi,
-I have done simple parser of logical expressions by example and add operators \<,\>, =, etc. (infixNotation). It's good but parsing of a string vary from 0.2 to 2 s. I read about associating parse actions with the concret tokens and will try it. Now solve that by caching parse results )
+I have done simple parser of logical expressions by example and add operators <,>, =, etc. (infixNotation). It's good but parsing of a string vary from 0.2 to 2 s. I read about associating parse actions with the concret tokens and will try it. Now solve that by caching parse results )
 But it's does not a problem. My problem is that when there are braces '()' in expression, parsing time increase till 20 seconds!
-E.g.: ({a.b} \< 1or {a.d} = 2) and k in [1, 2, 3] - '{}' is my quoted string and i have no problem with it if there no braces in expression. If I remove braces, parsing is fast (with consequent calculation result). I have not wrote any special token definitions to parse the braces and need in advice how to improve infix parser to do with. Do I have to do any definitions to speed up priority braces recognition?
+E.g.: ({a.b} < 1or {a.d} = 2) and k in [1, 2, 3] - '{}' is my quoted string and i have no problem with it if there no braces in expression. If I remove braces, parsing is fast (with consequent calculation result). I have not wrote any special token definitions to parse the braces and need in advice how to improve infix parser to do with. Do I have to do any definitions to speed up priority braces recognition?
 
 P.S. Calculation of result on parsed expression is very fast!
 
@@ -949,33 +950,34 @@ This module is the hardest readable from all other I used before.
 
 What I would like to build:
 Program which can extract the imports, classes, functions and some other stuff from python source codes and put it into a new file as an outline.
-[code]
+
 full python file:
-'''doc string of python module'''
-import module1
-from module2 import func, Class
 
-def helper_function(param1,param2):
-    print(param1,param2,'logic')
-
-
-class FullModule():
-    def <u>init</u>(self):
-         print('init logic')
-
-outlined_file.py:
-
-'''doc string of python module'''
-import module1
-from module2 import func, Class
-
-def helper_function(param1,param2):
-    pass
-
-
-class FullModule():
-    def <u>init</u>(self):
-         pass
+    '''doc string of python module'''
+    import module1
+    from module2 import func, Class
+    
+    def helper_function(param1,param2):
+        print(param1,param2,'logic')
+    
+    
+    class FullModule():
+        def __init__(self):
+             print('init logic')
+    
+    outlined_file.py:
+    
+    '''doc string of python module'''
+    import module1
+    from module2 import func, Class
+    
+    def helper_function(param1,param2):
+        pass
+    
+    
+    class FullModule():
+        def __init__(self):
+             pass
 
 #### 2016-05-09 02:31:31 - janoglop
 
@@ -1021,12 +1023,9 @@ Writing a Python structure extractor is pretty ambitious for a first-time pypars
 Hello!
 I'm trying to write converter from wiki to markdown. I need to convert ''inline_code'' to `inline_code`. I wrote:
 
-
-
     inlineCode = pp.QuotedString('''')('content').setParseAction(lambda t: '`' + t.content + '`')
 
-
-This works fine, but this parse string inline code blocks \<code\>...\</code\>
+This works fine, but this parse string inline code blocks <code>...</code>
 
 How can I turn off parsing in code blocks or check if my word is in it?
 
@@ -1043,12 +1042,17 @@ Best regards, Andrey.
 ## 2016-06-03 10:51:26 - ankur2002 - Url works without '\/' at the end but not if enclosed in quotes
 So this one is kind of a strange one I am trying to verify a particular file by specifying each of it's elements. Everything was working fine until I came across a line such as ''
 Now here is the strange part if I just use this following expression to match  it works:
-policies_url = Combine(scheme + colon + delimiter + delimiter + OneOrMore(name + dot) + OneOrMore(delimiter & name) + Optional(index) + restOfLine)
+
+    policies_url = Combine(scheme + colon + delimiter + delimiter + OneOrMore(name + dot) + OneOrMore(delimiter & name) + Optional(index) + restOfLine)
 
 But if I use something like 
- policies_url = Combine(scheme + colon + delimiter + delimiter + OneOrMore(name + dot) + OneOrMore(delimiter & name) + Optional(index))
-dir_url = Combine(quote + policies_url + quote + restOfLine)
-to match '' it will not work however if I simply add a / at the end such as '' then it works fine. 
+
+    policies_url = Combine(scheme + colon + delimiter + delimiter + OneOrMore(name + dot) + OneOrMore(delimiter & name) + Optional(index))
+    dir_url = Combine(quote + policies_url + quote + restOfLine)
+
+to match '' 
+
+it will not work however if I simply add a / at the end such as '' then it works fine. 
 
 So my question is why does this expression need a closing '/' when quote i.e. quote = Literal(''') is added to the expression?
 
@@ -1065,7 +1069,6 @@ Versions: Python 3.5.1 and pyparsing 2.0.3 as packaged in Ubuntu 16.04.
 Suppose a grammar very much like C structures. Basically, a structure has a name and a bunch of members. A member has a type and a name. For simplicity, assume that types and names are arbitrary words. As a convenience, several consecutive members of the same type can be introduced by listing their names delimited with commas.
 
 
-
     struct Foo {
         int x, y;
         float z;
@@ -1073,8 +1076,6 @@ Suppose a grammar very much like C structures. Basically, a structure has a name
 
 
 The following `pyparsing` grammar naturally follows:
-
-
 
     from pyparsing import *
     
@@ -1091,62 +1092,59 @@ The following `pyparsing` grammar naturally follows:
 
 This grammar produces `ParseResults` of the following kind:
 
-
-
-    \<root\>
-      \<struct\>
-        \<name\>Foo\</name\>
-        \<members\>
-          \<members\>
-            \<type\>int\</type\>
-            \<names\>
-              \<ITEM\>x\</ITEM\>
-              \<ITEM\>y\</ITEM\>
-            \</names\>
-          \</members\>
-          \<members\>
-            \<type\>float\</type\>
-            \<names\>
-              \<ITEM\>z\</ITEM\>
-            \</names\>
-          \</members\>
-        \</members\>
-      \</struct\>
-    \</root\>
+    <root>
+      <struct>
+        <name>Foo</name>
+        <members>
+          <members>
+            <type>int</type>
+            <names>
+              <ITEM>x</ITEM>
+              <ITEM>y</ITEM>
+            </names>
+          </members>
+          <members>
+            <type>float</type>
+            <names>
+              <ITEM>z</ITEM>
+            </names>
+          </members>
+        </members>
+      </struct>
+    </root>
 
 
 However, this is a nuisance to work with later. I would like to desugar the comma-separated definitions, to get the following tree:
 
 
-
-    \<root\>
-      \<struct\>
-        \<name\>Foo\</name\>
-        \<members\>
-          \<member\>
-            \<type\>int\</type\>
-            \<name\>x\</name\>
-          \</member\>
-          \<member\>
-            \<type\>int\</type\>
-            \<name\>y\</name\>
-          \</member\>
-          \<member\>
-            \<type\>float\</type\>
-            \<name\>z\</name\>
-          \</member\>
-        \</members\>
-      \</struct\>
-    \</root\>
+    <root>
+      <struct>
+        <name>Foo</name>
+        <members>
+          <member>
+            <type>int</type>
+            <name>x</name>
+          </member>
+          <member>
+            <type>int</type>
+            <name>y</name>
+          </member>
+          <member>
+            <type>float</type>
+            <name>z</name>
+          </member>
+        </members>
+      </struct>
+    </root>
 
 
 I could do that as a postprocessing step, by walking the `ParsingResults` and building a data structure of my own. This is straightforward but boring, especially considering that in the real program there are quite a few more grammar rules.
 
-The next obvious way is to add a parsing action, and that�s where I get stumped.
+The next obvious way is to add a parsing action, and that's where I get stumped.
 
-I imagine the action needs to be attached to the `members` grammar rule. It receives a �list� of one element which is a �dictionary� whose one key is `type` and the other is `names`. `type` is a string while `names` is a list of strings. The action needs to return a �list� of �dictionaries�, one for each name in the original�s `names`.
+I imagine the action needs to be attached to the `members` grammar rule. It receives a 'list' of one element which is a 'dictionary' whose one key is `type` and the other is `names`. `type` is a string while `names` is a list of strings. The action needs to return a 'list' of 'dictionaries', one for each name in the original's `names`.
 
-The following <em>kind of</em> works:
+The following _kind of_ works:
 
 
 
@@ -1158,24 +1156,21 @@ The following <em>kind of</em> works:
 
 Namely, it produces the following structure:
 
-
-
-    \<root\>
-      \<struct\>
-        \<name\>Foo\</name\>
-        \<members\>
-          \<members\>{&apos;name&apos;: &apos;x&apos;, &apos;type&apos;: &apos;int&apos;}\</members\>
-          \<ITEM\>{&apos;name&apos;: &apos;y&apos;, &apos;type&apos;: &apos;int&apos;}\</ITEM\>
-          \<members\>{&apos;name&apos;: &apos;z&apos;, &apos;type&apos;: &apos;float&apos;}\</members\>
-        \</members\>
-      \</struct\>
-    \</root\>
+    <root>
+      <struct>
+        <name>Foo</name>
+        <members>
+          <members>{'name': 'x', 'type': 'int'}</members>
+          <ITEM>{'name': 'y', 'type': 'int'}</ITEM>
+          <members>{'name': 'z', 'type': 'float'}</members>
+        </members>
+      </struct>
+    </root>
 
 
 Notice how individual member definitions are rendered as a text representation of a Python dictionary. When accessed as Python dictionaries (`x['type']`), they work as intended. But they cannot be accessed as namespaces (`x.type`) or lists (`x[0]`), and the XML rendition is ugly.
 
 It becomes clear that I have to construct a proper `ParseResults` structure. I <em>sort of</em> managed to do this:
-
 
 
     import pyparsing
@@ -1190,12 +1185,12 @@ It becomes clear that I have to construct a proper `ParseResults` structure. I <
         return ParseResults(items)
 
 
-I don�t like it because (1) I have to duplicate the element values in the constructor call and in subsequent item assignments, and (2) I am forced to delve into undocumented private implementation details (`_ParseResultsWithOffset`).
+I don't like it because (1) I have to duplicate the element values in the constructor call and in subsequent item assignments, and (2) I am forced to delve into undocumented private implementation details (`_ParseResultsWithOffset`).
 
-So what I�d like to ask is:
+So what I'd like to ask is:
 
 <ul><li>Is my goal (to apply structural transformations during parsing, while keeping the whole tree accessible as `ParseResults`) sane? Or should I fall back to transforming the complete parsed AST to a different data structure after the fact?</li><li>If it is sane, what is the proper approach that does not suffer from the deficiencies outlined above?</li></ul>
-For easy reproduction, here�s the complete test program:
+For easy reproduction, here's the complete test program:
 
 
 
@@ -1349,7 +1344,7 @@ Which looks closer to your desired expanded struct. If you *absolutely* need XML
 
 -- Paul
 #### 2016-07-14 13:58:55 - ptmcg
-Here is an apr�s-parse converter for these ParseResults to XML:
+Here is an apr's-parse converter for these ParseResults to XML:
 
 
 
@@ -1374,7 +1369,7 @@ Here is an apr�s-parse converter for these ParseResults to XML:
     ET.ElementTree(to_struct_XML(result)).write(out)
     xml = out.getvalue().decode('UTF-8')
     
-    xml = xml.replace('\>\<', '\>\n\<')
+    xml = xml.replace('><', '>\n<')
     print(xml)
 
 
@@ -1382,30 +1377,30 @@ Gives:
 
 
 
-    \<Foo\>
-    \<members\>
-    \<member\>
-    \<type\>int\</type\>
-    \<name\>x\</name\>
-    \</member\>
-    \<member\>
-    \<type\>int\</type\>
-    \<name\>y\</name\>
-    \</member\>
-    \<member\>
-    \<type\>float\</type\>
-    \<name\>z\</name\>
-    \</member\>
-    \</members\>
-    \</Foo\>
+    <Foo>
+    <members>
+    <member>
+    <type>int</type>
+    <name>x</name>
+    </member>
+    <member>
+    <type>int</type>
+    <name>y</name>
+    </member>
+    <member>
+    <type>float</type>
+    <name>z</name>
+    </member>
+    </members>
+    </Foo>
 
 
 #### 2016-07-15 00:54:43 - yurivkhan
 Thank you for the reply.
 
-I am not particularly attached to `asXML`, I just found its output easier to read initially. Something in its element name assignment did in fact strike me as strange, but I didn�t expect it to be downright misleading.
+I am not particularly attached to `asXML`, I just found its output easier to read initially. Something in its element name assignment did in fact strike me as strange, but I didn't expect it to be downright misleading.
 
-Now that I don�t have to assign results names in a way that makes `asXML` output pretty, I find that it is sufficient to drop the results name on `members` (which I didn�t like anyway) and do away with the `_ParseResultsWithOffset` invocation. Moving the action up to `ZeroOrMore(members)` seems to be unnecessary, which is just as well because in the actual grammar I�m implementing `members` can be interleaved with other rules.
+Now that I don't have to assign results names in a way that makes `asXML` output pretty, I find that it is sufficient to drop the results name on `members` (which I didn't like anyway) and do away with the `_ParseResultsWithOffset` invocation. Moving the action up to `ZeroOrMore(members)` seems to be unnecessary, which is just as well because in the actual grammar I'm implementing `members` can be interleaved with other rules.
 
 Iteration over `tokens` does look nicer than accessing `tokens[0]`, although does not affect operation if I keep the action attached to `members`.
 
@@ -1490,12 +1485,12 @@ Here are some style suggestions for your parser - use any or none as you prefer:
         + SEMI).setParseAction(expand_multiple_member_names)
     
     struct_type = Group(
-        STRUCT + Optional(ident, '\<none\>')('name') + LBRACE
+        STRUCT + Optional(ident, '<none>')('name') + LBRACE
         + Group(ZeroOrMore(struct_members_decl))('members') + RBRACE
         )
     
     # expand as necessary to include '*'s, '&'s, etc.
-    type_decl \<\<= Group(struct_type('struct')) | ident
+    type_decl <<= Group(struct_type('struct')) | ident
     
     struct_decl = struct_type('struct') + SEMI
     
@@ -1525,14 +1520,14 @@ Gives:
 
 
 
-    [['struct', 'Foo', [[[['struct', '\<none\>', [['float', 'a'], ['float', 'b'], etc. ...
-    - struct: ['struct', 'Foo', [[[['struct', '\<none\>', [['float', 'a'],  etc. ...
-      - members: [[[['struct', '\<none\>', [['float', 'a'], ['float', 'b'],  etc. ...
+    [['struct', 'Foo', [[[['struct', '<none>', [['float', 'a'], ['float', 'b'], etc. ...
+    - struct: ['struct', 'Foo', [[[['struct', '<none>', [['float', 'a'],  etc. ...
+      - members: [[[['struct', '<none>', [['float', 'a'], ['float', 'b'],  etc. ...
         [0]:
-          [[['struct', '\<none\>', [['float', 'a'], ['float', 'b'], ['float', 'c']]]], 'values']
+          [[['struct', '<none>', [['float', 'a'], ['float', 'b'], ['float', 'c']]]], 'values']
           - name: values
-          - type: [['struct', '\<none\>', [['float', 'a'], ['float', 'b'], ['float', 'c']]]]
-            - struct: ['struct', '\<none\>', [['float', 'a'], ['float', 'b'], ['float', 'c']]]
+          - type: [['struct', '<none>', [['float', 'a'], ['float', 'b'], ['float', 'c']]]]
+            - struct: ['struct', '<none>', [['float', 'a'], ['float', 'b'], ['float', 'c']]]
               - members: [['float', 'a'], ['float', 'b'], ['float', 'c']]
                 [0]:
                   ['float', 'a']
@@ -1546,7 +1541,7 @@ Gives:
                   ['float', 'c']
                   - name: c
                   - type: float
-              - name: \<none\>
+              - name: <none>
         [1]:
           ['int', 'x']
           - name: x
@@ -1563,9 +1558,13 @@ Gives:
 
 
 #### 2016-07-15 04:32:34 - yurivkhan
-Thanks but I�m not actually parsing C. I just chose a small part of it as a simplified view on the problem I was facing.
+Thanks but I'm not actually parsing C. I just chose a small part of it as a simplified view on the problem I was facing.
 
-The actual project will have next to no keywords, a line- and indentation-based grammar with shell-style line-end comments, and the thing for which I substituted `word` is in fact an `Or` of a double-quoted single-line string, triple-double-quoted multiline string, and an unquoted non-empty sequence of non-whitespace Unicode characters except for `#`, `&quot;` and `,`. I did not include any of that in the example because it wasn�t relevant to the question.
+The actual project will have next to no keywords, a line- and indentation-based 
+grammar with shell-style line-end comments, and the thing for which I substituted `word` 
+is in fact an `Or` of a double-quoted single-line string, triple-double-quoted multiline 
+string, and an unquoted non-empty sequence of non-whitespace Unicode characters 
+except for `#`, `"` and `,`. I did not include any of that in the example because it wasn't relevant to the question.
 
 ---
 ## 2016-08-04 20:06:32 - Akshay7790 - Generate dynamic regex from input data
@@ -1580,15 +1579,15 @@ thank you for your response :)
 ---
 ## 2016-08-22 10:05:07 - nileshp - Defining BNF grammar for CLI
 Hi All,
-   I am working on parsing a text file that has a bunch of commands (CLIs as they're fondly called in some circles)  in BNF format. I need to parse each elements in a set of groups into a list and process them and convert them to XML with appropriate tags (as per the DITA architecture). Here are some examples of commands:
+  I am working on parsing a text file that has a bunch of commands (CLIs as they're fondly called in some circles)  in BNF format. I need to parse each elements in a set of groups into a list and process them and convert them to XML with appropriate tags (as per the DITA architecture). Here are some examples of commands:
 
-a b c { de | ed | fg }
-a b c [ de | ed | fg ]
-a b c  { de \<variable\> | ed | fg }
+    a b c { de | ed | fg }
+    a b c [ de | ed | fg ]
+    a b c  { de <variable> | ed | fg }
 
 The a, b, c, de, ed, fg, are all words and can be alpha numeric. I'm struggling to define the grammar for the {} and [] parts. The arguments must be enclosed in either {} or [] and must be separated by a |. How do we define a grammar like this? I gave this a shot but I'm pretty sure its not right. 
 
-Group(OneOrMore(Word(alpha))) + OneOf(Literal('{ [')) + Group(OneOrMore(Word(alpha))) ^ Group(OneOrMore(alpha))) + OneOf('|') + OneOf(Literal('} ]'))
+    Group(OneOrMore(Word(alpha))) + OneOf(Literal('{ [')) + Group(OneOrMore(Word(alpha))) ^ Group(OneOrMore(alpha))) + OneOf('|') + OneOf(Literal('} ]'))
 
 Any help would be greatly appreciated.
 
@@ -1597,7 +1596,6 @@ Nilesh
 
 #### 2016-08-23 21:19:38 - ptmcg
 The delimitedList helper will make it much easier to define those '|'-delimited lists inside the braces:
-
 
 
     from pyparsing import *
@@ -1625,26 +1623,32 @@ Thanks a lot! This works like a charm!
 ---
 ## 2016-09-22 09:04:01 - lhughes42 - odd error with double back slash and using setDebug
 This is surely my stupidity but I thought I would mention. I am trying to parse out '' (I am aware of dblSlashComment) . If I do it this way things are fine:
-[[pat = Literal('')result = pat.parseString(simple_str)print result]]
+
+    [[pat = Literal('')result = pat.parseString(simple_str)print result]]
 --
 But if i do it this way with a setDebug:
 
 I get 'TypeError: 'str' object is not callable'
+
 I don't get this with other literal patterns only with double back slash. Tore my hair for awhile till I traced it to the setDebug
 
 #### 2016-09-22 09:05:48 - lhughes42
 Not sure why my square brackets failed for the first code chunk. ignore them please. Should have read like this:
-simple_str = '<em>#command choice'
-pat = Literal('</em>')
-result = pat.parseString(simple_str)
-print result
+
+    simple_str = '<em>#command choice'
+    pat = Literal('</em>')
+    result = pat.parseString(simple_str)
+    print result
+
 #### 2016-09-22 09:07:43 - lhughes42
 damn the double back slashes keep getting remove from my code when I post. Arrgh.
 Ok so the string is in english '# FORWARDSLASH FORWARDSLASH #command choice'
 pat = Literal('FORWARDSLASH FORWARDSLASH')
 (what fun it is to deal with forward slashes)
+
 #### 2016-09-22 20:20:21 - ptmcg
 Maybe you can use a pastebin and post the link? But in your first example, you are calling setDebug on the parsed results, not on the expression. ParseResults will accept just about any attribute name as a potential results name, and if the name was not defined in the grammar, will return ''. So your code is trying to retrieve the 'setDebug' name of some parsed result, which gives '', then you are trying to call it with (), giving the Python error ''str' object is not callable'. I think you want 'pat.setDebug()'
+
 #### 2016-09-22 20:20:28 - ptmcg
 From your follow-up messages, I think you tried to do this:
 
@@ -1659,7 +1663,7 @@ which prints:
 
 
     Match '//' at loc 0(1,1)
-    Matched '//' -\> ['//']
+    Matched '//' -> ['//']
     ['//']
 
 
@@ -1669,6 +1673,7 @@ Does that get you any closer?
 #### 2016-09-23 10:07:05 - lhughes42
 Thanks for the quick reply. My bad for not reading carefully about 'True' for debug.
 Thank you. And again great work (I sent you a contribution).
+
 #### 2016-09-23 11:23:30 - ptmcg
 It is much appreciated, thanks!
 
@@ -1677,16 +1682,22 @@ It is much appreciated, thanks!
 I've inherited some code that uses a lot of PyParsing in it. I have never used PP before and need to make a few changes to the code.
 I am trying to pull the key:value from my parse string and send them to a function using setParseAction. Using the tokens.
 I have this parser defined:
-sni_entry=Combine(Literal('sni')+Word(alphas)+Literal('vector')+Literal('[32:0]:').suppress(),adjacent=False)+Word(printables)
+
+    sni_entry=Combine(Literal('sni')+Word(alphas)+Literal('vector')+Literal('[32:0]:').suppress(),adjacent=False)+Word(printables)
 
 and when I parse the text I get this:
-([(['snifaultvector', '0x00000000'], {}), (['snistuckvector', '0x00100000'], {}), (['sniundvector', '0x00000000'], {}), (['sniovrvector', '0x00000000'], {}), (['sniemptyvector', '0x3fffffff'], {})], {})
+
+    ([(['snifaultvector', '0x00000000'], {}), (['snistuckvector', '0x00100000'], {}), (['sniundvector', '0x00000000'], {}), (['sniovrvector', '0x00000000'], {}), (['sniemptyvector', '0x3fffffff'], {})], {})
 
 I want to send the name and value to the function:
-my_function('snifaultvector','0x00000000')
+
+    my_function('snifaultvector','0x00000000')
+
 How do i do that using the setParserAction?
+
 I've tried something like this, but it seems that only the value is in the token.
-.setParseAction(lambda t: store_key_val(t[0])
+
+    .setParseAction(lambda t: store_key_val(t[0])
 
 I was expecting t[0] to contain ['snifaultvector', '0x00000000'], but seems it only contains '0x00000000'.
 This seems like it should be easy, but I just can't get it to work. I could easily process the output of the parsing and pass k:v to the function, but wanted to get it to work using setParseAction.
@@ -1694,8 +1705,10 @@ Is it possible?
 
 #### 2016-10-20 18:48:06 - ptmcg
 Change your parse action from a one-line lambda into a full method definition, taking an argument 'tokens', and then insert 'print(tokens.dump())' as the first line and see what kind of parsed results are being passed to your parse action. Pyparsing creates ParseResults objects out of its tokens, which support list, dict, and attribute semantics. As such, the repr format is somewhat complex, and does *not* reflect the actual access paths to the parsed content. In this case it looks like you are getting a series of one-entry ParseResults, each with a different key. You should be able to combine these into a single mapping object using 'tokens = sum(tokens)' - then you should be able to get at the contents using dict style ('tokens['snifaultvector']') or attribute style ('tokens.snifaultvector').  The names you are seeing are for the name-based accesses. If you access this using list semantics, then it will be like you are indexing into a list of unnamed tokens, which is what you have already observed.  Please look over some of the new online docs and examples, I've added about 1000 lines of inline documentation, hopefully to help clarify some of these points. If not, please post back, so I can expand on these important elements. -- Paul
+
 #### 2016-10-21 09:34:32 - rcrowe123
 Thanks for the reply. My biggest problems was using the lambda function instead of just sending the full tokens to the function. And with my lack of knowledge on Pyparsing I just followed what previous developer was doing. Anyway, I got it to work by grouping the combined results and that gave me both the name and value in the token.
+
 #### 2016-10-21 16:46:54 - ptmcg
 Ah, I see - it would not be difficult to convert this named data, but it sounds like it is doing what you need. But feel free to write back if you want to make other enhancements to this parser.
 
@@ -1728,7 +1741,7 @@ My code is as follows:
     value   = Forward()
     entry   = name + COMMA + cppStyleComment
     struct = LBRACE + value + RBRACE + COMMA
-    value \<\< (  ZeroOrMore(entry) | struct )
+    value << (  ZeroOrMore(entry) | struct )
     result = OneOrMore(struct).parseString(sample)
     pprint(result.asList())
 
@@ -1736,7 +1749,7 @@ My code is as follows:
 Any help will be appreciated.
 
 #### 2016-10-27 07:11:33 - ptmcg
-I think you just need to change value's definition to 'value \<\< ZeroOrMore(entry | struct)'
+I think you just need to change value's definition to `value << ZeroOrMore(entry | struct)`
 
 ---
 ## 2016-10-27 09:58:04 - infecto - Parsing Expressions for Data Retrieval and Evaluation
@@ -1745,12 +1758,14 @@ Thanks for such a powerful library!
 Prototyping a system that does the below and just wanted a check since I am still having some difficulty seeing if there is a better way to do this in pyparsing.
 
 - Take the string '(Metric1 + Metric2) * 2'
+
 - Metric1 and Metric2 represent UIDs that need to be retrieved from a datastore. In this case this is a time series so we will need to evaluate this expression for each point in time required.
 
 So far I have reviewed the fourFn.py example and it makes a lot of sense. I also have created some examples where I create a grammer for what a metric is and it is returned in parseString as a MetricClass. My currently approach then was to retrieve all metric class types via a loop but I am curious if there is a better approach?
 
 #### 2016-10-27 15:54:19 - ptmcg
 In general, I usually steer people to the more current pyparsing mechanism for parsing arithmetic notations, 'infixNotation'. The SimpleArith.py and SimpleBool.py examples show how this is used, and you can still attach parse actions or classes to individual levels, and to operands, to support evaluation of the parsed expression.
+
 #### 2016-10-27 15:55:30 - ptmcg
 You might see references to infixNotation under its former (deprecated) name of operatorPrecedence.  Here is a link to the online doc: 
 
@@ -1764,20 +1779,18 @@ I'm trying to parse a simple JSON-like structure into python dics and then turn 
         # HEADER TEXT
         # HEADER TEXT
         ###################################################
-        NAME =\> {
-            NAME              =\> VALUE,
-            NAME              =\> VALUE,
-            NAME                =\> VALUE,
-            NAME     =\> {
-                NAME =\> {
-                    NAME        =\> VALUE,  NAME =\> VALUE,  NAME =\> VALUE,
+        NAME => {
+            NAME              => VALUE,
+            NAME              => VALUE,
+            NAME                => VALUE,
+            NAME     => {
+                NAME => {
+                    NAME        => VALUE,  NAME => VALUE,  NAME => VALUE,
                 },
             } # comment 
         }, # more comments
 
 and repeating. Rules:
-
-
     
         NAME = alphanums and _
         VALUE = decimal(6) | hex (0xA) | list of hex ([0x1,0x2]) | text in brackets([A]) | string('A')
@@ -1785,9 +1798,9 @@ and repeating. Rules:
 I set up the following grammar:
 
 
-    comment = Literal('#') + restOfLine
+        comment = Literal('#') + restOfLine
         header = OneOrMore('#').suppress()
-        equals = Literal('=\>').suppress()
+        equals = Literal('=>').suppress()
         lbrace = Literal('{').suppress()
         rbrace = Literal('}').suppress()
         comma = Literal(',').suppress()
@@ -1802,7 +1815,7 @@ I set up the following grammar:
         entry.ignore(comment)
     
         struct = Group(lbrace + ZeroOrMore(entry) + rbrace)
-        value \<\< (quotedString | struct | hex_number | dec_number | block)
+        value << (quotedString | struct | hex_number | dec_number | block)
         result = OneOrMore(entry).parseString(test_string)
         pprint(result.asList())
 
@@ -1811,23 +1824,21 @@ but I'm getting `pyparsing.ParseException: Expected {quotedString using single o
 #### 2016-10-28 17:03:06 - susdu
 OK, I've managed to improve the grammer:
 
-
-
     cfgName = Word(alphanums+'_')
     cfgString = dblQuotedString().setParseAction(removeQuotes)
     cfgNumber = Word('0123456789ABCDEFx')
     
     LBRACK, RBRACK, LBRACE, RBRACE = map(Suppress, '[]{}')
-    EQUAL = Literal('=\>').suppress()
+    EQUAL = Literal('=>').suppress()
     
     cfgObject = Forward()
     cfgValue = Forward()
     cfgElements = delimitedList(cfgValue)
     cfgArray = Group(LBRACK + Optional(cfgElements, []) + RBRACK)
-    cfgValue \<\< (cfgString | cfgNumber | cfgArray | cfgName | Group(cfgObject))
+    cfgValue << (cfgString | cfgNumber | cfgArray | cfgName | Group(cfgObject))
     memberDef = Group(cfgName + EQUAL + cfgValue)
     cfgMembers = delimitedList(memberDef)
-    cfgObject \<\< Dict(LBRACE + Optional(cfgMembers) + RBRACE)
+    cfgObject << Dict(LBRACE + Optional(cfgMembers) + RBRACE)
     cfgComment = pythonStyleComment 
     cfgObject.ignore(cfgComment)
 
@@ -1850,8 +1861,6 @@ This was reposted and answered on StackOverflow:
 ## 2016-12-07 18:50:12 - delisson - Can't get the simplest expression to work
 Hello all, I'm starting to use pyparsing for a DSL I'm creating, and am stuck at the simplest beginner code:
 
-
-
     w = delimitedList(Word(alphas), delim=' ') 
     w.parseString('set', parseAll=True) # Ok...
     w.parseString('set endianness', parseAll=True) # ERROR! Expected end of text (at char 3), (line:1, col:4)
@@ -1867,7 +1876,7 @@ Thanks, that was awesome! Now I have a more complicated parser, but for the life
 Parser definition:
 
 
-    attribute = pp.Group(pp.Suppress('[') + pp.OneOrMore(pp.Word(pp.alphas)) + pp.Suppress(']'))
+        attribute = pp.Group(pp.Suppress('[') + pp.OneOrMore(pp.Word(pp.alphas)) + pp.Suppress(']'))
         member = pp.Group(pp.Word(pp.printables) + pp.Word(pp.printables.replace(';', '')) + pp.Suppress(';'))
     
         msgHeader = pp.ZeroOrMore(attribute)
@@ -1905,20 +1914,21 @@ Test file:
 
 
 #### 2016-12-08 20:21:01 - ptmcg
-'[identifier uint64 19023789]' does not match your expression for attribute.
+
+`[identifier uint64 19023789]` does not match your expression for attribute.
 
 ---
 ## 2016-12-29 20:57:49 - Friudorian - Forward() anc recursion error
 Hello all, i'm trying to understand how to use forward with this simple example:
 
-variable= Word(alphanums)
-p1=Word('(')
-p2=Word(')')
-v=Word(',')
-name=Word(alphanums)
-funct=Forward()
-arg=funct|argFunct
-funct \<\< (name+p1+arg+ZeroOrMore(v+arg)+p2)
+    variable= Word(alphanums)
+    p1=Word('(')
+    p2=Word(')')
+    v=Word(',')
+    name=Word(alphanums)
+    funct=Forward()
+    arg=funct|argFunct
+    funct << (name+p1+arg+ZeroOrMore(v+arg)+p2)
 
 But this code doesnt work when i try to parse strings like 'a(a(a))'
 Can you help me?
