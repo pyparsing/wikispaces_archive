@@ -1,11 +1,11 @@
 ## Pyparsing Wikispaces Discussion - 2014
 
-[Note: these entries are fairly old, and predate many new features of pyparsing,
+_[Note: these entries are fairly old, and predate many new features of pyparsing,
 and are predominantly coded using Python 2.
 They are captured here for historical benefit, but may not contain
 the most current practices or features. We will try to add editor
 notes to entries to indicate when discussions have been 
-overtaken by development events.]
+overtaken by development events.]_
 
 [2014-01-18 08:23:58 - matthewbward - housenumber help with address parsing](all_wiki_discussion_toc_2014.md#2014-01-18-082358---matthewbward---housenumber-help-with-address-parsing)  
 [2014-02-09 08:39:23 - D3f0 - Grammar with functions with one or many arguments](all_wiki_discussion_toc_2014.md#2014-02-09-083923---d3f0---grammar-with-functions-with-one-or-many-arguments)  
