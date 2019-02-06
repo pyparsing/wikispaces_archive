@@ -1,33 +1,42 @@
-[2006-05-17 08:01:32 - knguyen - Grammar Suggestion](.#2006-05-17-080132---knguyen---grammar-suggestion)  
-[2006-05-31 00:26:48 - ideefixe - Parse actions return values](.#2006-05-31-002648---ideefixe---parse-actions-return-values)  
-[2006-06-04 02:51:18 - prologic - Wiki Parser](.#2006-06-04-025118---prologic---wiki-parser)  
-[2006-06-16 05:22:10 - peter21081944 - Exceptions](.#2006-06-16-052210---peter21081944---exceptions)  
-[2006-07-19 10:29:15 - lenx - bug report: wrong pos when strings contain '\t'](.#2006-07-19-102915---lenx---bug-report-wrong-pos-when-strings-contain-\t)  
-[2006-07-23 14:12:47 - Qman - Help with parsing](.#2006-07-23-141247---qman---help-with-parsing)  
-[2006-07-23 14:13:41 - Qman - problem](.#2006-07-23-141341---qman---problem)  
-[2006-08-11 07:31:58 - kndyer - Matching question](.#2006-08-11-073158---kndyer---matching-question)  
-[2006-08-26 14:00:10 - kwm - Plural possessives](.#2006-08-26-140010---kwm---plural-possessives)  
-[2006-08-28 12:17:57 - cie - a bug? combine and recursion](.#2006-08-28-121757---cie---a-bug-combine-and-recursion)  
-[2006-09-04 10:21:40 - cie - Opposite of CharsNotIn](.#2006-09-04-102140---cie---opposite-of-charsnotin)  
-[2006-09-14 07:30:36 - nycterent - parser fails when http auth username is email](.#2006-09-14-073036---nycterent---parser-fails-when-http-auth-username-is-email)  
-[2006-09-15 23:52:29 - CosmicStars - Idea how to skip masked linefeeds?](.#2006-09-15-235229---cosmicstars---idea-how-to-skip-masked-linefeeds)  
-[2006-09-16 12:28:17 - metaperl - whitespace field discrim, adding ParseResults attributes](.#2006-09-16-122817---metaperl---whitespace-field-discrim-adding-parseresults-attributes)  
-[2006-09-16 18:57:17 - metaperl - Debug output goes to stdout?](.#2006-09-16-185717---metaperl---debug-output-goes-to-stdout)  
-[2006-09-27 14:22:29 - metaperl - a line of quoted and unquoted terms](.#2006-09-27-142229---metaperl---a-line-of-quoted-and-unquoted-terms)  
-[2006-09-27 17:45:53 - metaperl - why is parseString returning a tuple consisting of a list and dictionary?](.#2006-09-27-174553---metaperl---why-is-parsestring-returning-a-tuple-consisting-of-a-list-and-dictionary)  
-[2006-09-28 12:09:43 - chuckbiscuito - parsing config files with incomplete grammar](.#2006-09-28-120943---chuckbiscuito---parsing-config-files-with-incomplete-grammar)  
-[2006-10-23 08:34:58 - korvus - setParseAction problems](.#2006-10-23-083458---korvus---setparseaction-problems)  
-[2006-10-28 15:43:58 - akkartik - backtracking?](.#2006-10-28-154358---akkartik---backtracking)  
-[2006-11-04 07:15:46 - ptmcg - re: coding style](.#2006-11-04-071546---ptmcg---re-coding-style)  
-[2006-11-09 03:03:40 - akkartik - Chomping lines without removing leading whitespace](.#2006-11-09-030340---akkartik---chomping-lines-without-removing-leading-whitespace)  
-[2006-11-11 15:15:40 - CosmicStars - How raise exception by ](.#2006-11-11-151540---cosmicstars---how-raise-exception-by-)  
-[2006-11-14 18:53:24 - korvus - max recursion depth exceeded](.#2006-11-14-185324---korvus---max-recursion-depth-exceeded)  
-[2006-11-14 23:45:21 - hyry - how to do some replacement with HTML](.#2006-11-14-234521---hyry---how-to-do-some-replacement-with-html)  
-[2006-12-06 14:36:59 - aJanuary - Repeating within a range of repetitions](.#2006-12-06-143659---ajanuary---repeating-within-a-range-of-repetitions)  
-[2006-12-06 16:00:31 - aJanuary - Avoiding greedy behaviour.](.#2006-12-06-160031---ajanuary---avoiding-greedy-behaviour)  
-[2006-12-14 11:29:54 - metaperl - multi-line key-value pair parsing help needed](.#2006-12-14-112954---metaperl---multi-line-key-value-pair-parsing-help-needed)  
-[2006-12-15 06:39:05 - metaperl - verbose parsing](.#2006-12-15-063905---metaperl---verbose-parsing)  
-[2006-12-25 18:35:56 - akkartik - Whitespace at the very start of a parse](.#2006-12-25-183556---akkartik---whitespace-at-the-very-start-of-a-parse)  
+## Pyparsing Wikispaces Discussion - 2006
+
+[Note: these entries are fairly old, and predate many new features of pyparsing,
+and are predominantly coded using Python 2.
+They are captured here for historical benefit, but may not contain
+the most current practices or features. We will try to add editor
+notes to entries to indicate when discussions have been 
+overtaken by development events.]
+
+[2006-05-17 08:01:32 - knguyen - Grammar Suggestion](all_wiki_discussion_toc_2006.#2006-05-17-080132---knguyen---grammar-suggestion)  
+[2006-05-31 00:26:48 - ideefixe - Parse actions return values](all_wiki_discussion_toc_2006.#2006-05-31-002648---ideefixe---parse-actions-return-values)  
+[2006-06-04 02:51:18 - prologic - Wiki Parser](all_wiki_discussion_toc_2006.#2006-06-04-025118---prologic---wiki-parser)  
+[2006-06-16 05:22:10 - peter21081944 - Exceptions](all_wiki_discussion_toc_2006.#2006-06-16-052210---peter21081944---exceptions)  
+[2006-07-19 10:29:15 - lenx - bug report: wrong pos when strings contain '\t'](all_wiki_discussion_toc_2006.#2006-07-19-102915---lenx---bug-report-wrong-pos-when-strings-contain-\t)  
+[2006-07-23 14:12:47 - Qman - Help with parsing](all_wiki_discussion_toc_2006.#2006-07-23-141247---qman---help-with-parsing)  
+[2006-07-23 14:13:41 - Qman - problem](all_wiki_discussion_toc_2006.#2006-07-23-141341---qman---problem)  
+[2006-08-11 07:31:58 - kndyer - Matching question](all_wiki_discussion_toc_2006.#2006-08-11-073158---kndyer---matching-question)  
+[2006-08-26 14:00:10 - kwm - Plural possessives](all_wiki_discussion_toc_2006.#2006-08-26-140010---kwm---plural-possessives)  
+[2006-08-28 12:17:57 - cie - a bug? combine and recursion](all_wiki_discussion_toc_2006.#2006-08-28-121757---cie---a-bug-combine-and-recursion)  
+[2006-09-04 10:21:40 - cie - Opposite of CharsNotIn](all_wiki_discussion_toc_2006.#2006-09-04-102140---cie---opposite-of-charsnotin)  
+[2006-09-14 07:30:36 - nycterent - parser fails when http auth username is email](all_wiki_discussion_toc_2006.#2006-09-14-073036---nycterent---parser-fails-when-http-auth-username-is-email)  
+[2006-09-15 23:52:29 - CosmicStars - Idea how to skip masked linefeeds?](all_wiki_discussion_toc_2006.#2006-09-15-235229---cosmicstars---idea-how-to-skip-masked-linefeeds)  
+[2006-09-16 12:28:17 - metaperl - whitespace field discrim, adding ParseResults attributes](all_wiki_discussion_toc_2006.#2006-09-16-122817---metaperl---whitespace-field-discrim-adding-parseresults-attributes)  
+[2006-09-16 18:57:17 - metaperl - Debug output goes to stdout?](all_wiki_discussion_toc_2006.#2006-09-16-185717---metaperl---debug-output-goes-to-stdout)  
+[2006-09-27 14:22:29 - metaperl - a line of quoted and unquoted terms](all_wiki_discussion_toc_2006.#2006-09-27-142229---metaperl---a-line-of-quoted-and-unquoted-terms)  
+[2006-09-27 17:45:53 - metaperl - why is parseString returning a tuple consisting of a list and dictionary?](all_wiki_discussion_toc_2006.#2006-09-27-174553---metaperl---why-is-parsestring-returning-a-tuple-consisting-of-a-list-and-dictionary)  
+[2006-09-28 12:09:43 - chuckbiscuito - parsing config files with incomplete grammar](all_wiki_discussion_toc_2006.#2006-09-28-120943---chuckbiscuito---parsing-config-files-with-incomplete-grammar)  
+[2006-10-23 08:34:58 - korvus - setParseAction problems](all_wiki_discussion_toc_2006.#2006-10-23-083458---korvus---setparseaction-problems)  
+[2006-10-28 15:43:58 - akkartik - backtracking?](all_wiki_discussion_toc_2006.#2006-10-28-154358---akkartik---backtracking)  
+[2006-11-04 07:15:46 - ptmcg - re: coding style](all_wiki_discussion_toc_2006.#2006-11-04-071546---ptmcg---re-coding-style)  
+[2006-11-09 03:03:40 - akkartik - Chomping lines without removing leading whitespace](all_wiki_discussion_toc_2006.#2006-11-09-030340---akkartik---chomping-lines-without-removing-leading-whitespace)  
+[2006-11-11 15:15:40 - CosmicStars - How raise exception by ](all_wiki_discussion_toc_2006.#2006-11-11-151540---cosmicstars---how-raise-exception-by-)  
+[2006-11-14 18:53:24 - korvus - max recursion depth exceeded](all_wiki_discussion_toc_2006.#2006-11-14-185324---korvus---max-recursion-depth-exceeded)  
+[2006-11-14 23:45:21 - hyry - how to do some replacement with HTML](all_wiki_discussion_toc_2006.#2006-11-14-234521---hyry---how-to-do-some-replacement-with-html)  
+[2006-12-06 14:36:59 - aJanuary - Repeating within a range of repetitions](all_wiki_discussion_toc_2006.#2006-12-06-143659---ajanuary---repeating-within-a-range-of-repetitions)  
+[2006-12-06 16:00:31 - aJanuary - Avoiding greedy behaviour.](all_wiki_discussion_toc_2006.#2006-12-06-160031---ajanuary---avoiding-greedy-behaviour)  
+[2006-12-14 11:29:54 - metaperl - multi-line key-value pair parsing help needed](all_wiki_discussion_toc_2006.#2006-12-14-112954---metaperl---multi-line-key-value-pair-parsing-help-needed)  
+[2006-12-15 06:39:05 - metaperl - verbose parsing](all_wiki_discussion_toc_2006.#2006-12-15-063905---metaperl---verbose-parsing)  
+[2006-12-25 18:35:56 - akkartik - Whitespace at the very start of a parse](all_wiki_discussion_toc_2006.#2006-12-25-183556---akkartik---whitespace-at-the-very-start-of-a-parse)  
 
 
 ---
@@ -176,19 +185,19 @@ I tried to be the less intrusive I could. Briefly, any python object is handled 
 
 
     
-    <span class="kw1">class</span> OneToken<span class="br0">&#40;</span><span class="kw2">tuple</span><span class="br0">&#41;</span>:
-        <span class="kw1">def</span> <span class="kw4">__new__</span><span class="br0">&#40;</span>cls<span class="sy0">,</span> tok<span class="sy0">,</span> off <span class="sy0">=</span> <span class="nu0">0</span><span class="br0">&#41;</span>:
-            <span class="kw1">return</span> <span class="kw2">tuple</span>.<span class="kw4">__new__</span><span class="br0">&#40;</span>cls<span class="sy0">,</span> <span class="br0">&#40;</span>tok<span class="sy0">,</span> off<span class="br0">&#41;</span><span class="br0">&#41;</span>
+    class OneToken(tuple):
+        def __new__(cls, tok, off = 0):
+            return tuple.__new__(cls, (tok, off))
     
-    <span class="kw1">class</span> ParseResults:
-        <span class="kw1">def</span> <span class="kw4">__init__</span><span class="br0">&#40;</span><span class="kw2">self</span><span class="sy0">,</span> toklist<span class="sy0">,</span> ...<span class="br0">&#41;</span>:
-           <span class="br0">&#91;</span>...<span class="br0">&#93;</span>
-           <span class="kw1">if</span> <span class="kw2">isinstance</span><span class="br0">&#40;</span>toklist<span class="sy0">,</span> <span class="kw2">list</span><span class="br0">&#41;</span>:
-               <span class="kw2">self</span>.__toklist <span class="sy0">=</span> toklist<span class="br0">&#91;</span>:<span class="br0">&#93;</span>
-           <span class="kw1">elif</span> <span class="kw2">isinstance</span><span class="br0">&#40;</span>toklist<span class="sy0">,</span> OneToken<span class="br0">&#41;</span>:
-               <span class="kw2">self</span>.__toklist <span class="sy0">=</span> <span class="br0">&#91;</span>toklist<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#93;</span>
-           <span class="kw1">else</span>:
-               <span class="kw2">self</span>.__toklist <span class="sy0">=</span> <span class="br0">&#91;</span>toklist<span class="br0">&#93;</span>
+    class ParseResults:
+        def __init__(self, toklist, ...):
+           [...]
+           if isinstance(toklist, list):
+               self.__toklist = toklist[:]
+           elif isinstance(toklist, OneToken):
+               self.__toklist = [toklist[0]]
+           else:
+               self.__toklist = [toklist]
     
 
 
@@ -200,14 +209,14 @@ Even so if you try to pass a tuple it would be remorselessly dismembered by </u>
 
 
     
-    <span class="kw1">def</span> <span class="kw4">__setitem__</span><span class="br0">&#40;</span> <span class="kw2">self</span><span class="sy0">,</span> k<span class="sy0">,</span> v <span class="br0">&#41;</span>:
-        <span class="kw1">if</span> <span class="kw2">isinstance</span><span class="br0">&#40;</span>v<span class="sy0">,</span><span class="kw2">tuple</span><span class="br0">&#41;</span>:
-           <span class="kw2">self</span>.__tokdict<span class="br0">&#91;</span>k<span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw2">self</span>.__tokdict.<span class="me1">get</span><span class="br0">&#40;</span>k<span class="sy0">,</span><span class="kw2">list</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + <span class="br0">&#91;</span>v<span class="br0">&#93;</span>
-        <span class="br0">&#91;</span>...<span class="br0">&#93;</span>
+    def __setitem__( self, k, v ):
+        if isinstance(v,tuple):
+           self.__tokdict[k] = self.__tokdict.get(k,list()) + [v]
+        [...]
     
-    <span class="kw1">def</span> <span class="kw4">__getitem__</span><span class="br0">&#40;</span> <span class="kw2">self</span><span class="sy0">,</span> i <span class="br0">&#41;</span>:
-        <span class="br0">&#91;</span>...<span class="br0">&#93;</span>
-        <span class="kw1">return</span> ParseResults<span class="br0">&#40;</span><span class="br0">&#91;</span> v<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="kw1">for</span> v <span class="kw1">in</span> <span class="kw2">self</span>.__tokdict<span class="br0">&#91;</span>i<span class="br0">&#93;</span> <span class="br0">&#93;</span><span class="br0">&#41;</span>
+    def __getitem__( self, i ):
+        [...]
+        return ParseResults([ v[0] for v in self.__tokdict[i] ])
     
 
 
@@ -218,9 +227,9 @@ So for the same price you just get more from petty OneToken. As it stands out, a
 
 
 
-    <span class="kw1">def</span> <span class="kw4">__setitem__</span><span class="br0">&#40;</span> <span class="kw2">self</span><span class="sy0">,</span> k<span class="sy0">,</span> v <span class="br0">&#41;</span>:
-       <span class="kw1">if</span> <span class="kw2">isinstance</span><span class="br0">&#40;</span>v<span class="sy0">,</span>OneToken<span class="br0">&#41;</span>:
-          <span class="kw2">self</span>.__tokdict<span class="br0">&#91;</span>k<span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw2">self</span>.__tokdict.<span class="me1">get</span><span class="br0">&#40;</span>k<span class="sy0">,</span><span class="kw2">list</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + <span class="br0">&#91;</span>v<span class="br0">&#93;</span>
+    def __setitem__( self, k, v ):
+       if isinstance(v,OneToken):
+          self.__tokdict[k] = self.__tokdict.get(k,list()) + [v]
 
 
 
@@ -1200,11 +1209,11 @@ A simplified version of the grammar:
 
 
 
-    element<span class="sy0">=</span>Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>
-    frac<span class="sy0">=</span><span class="st0">'<span class="es0">\\</span>frac'</span>+element+element
-    sqrt<span class="sy0">=</span><span class="st0">'<span class="es0">\\</span>sqrt'</span>+element
-    group<span class="sy0">=</span><span class="st0">'{'</span>+ZeroOrMore<span class="br0">&#40;</span>element<span class="br0">&#41;</span>+<span class="st0">'}'</span>
-    element<span class="sy0">\<\<</span><span class="br0">&#40;</span>frac | sqrt | group | Word<span class="br0">&#40;</span>alphas<span class="sy0">,</span><span class="kw2">max</span><span class="sy0">=</span><span class="nu0">1</span><span class="br0">&#41;</span> | Word<span class="br0">&#40;</span>printables<span class="sy0">,</span><span class="kw2">max</span><span class="sy0">=</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    element=Forward()
+    frac='\\frac'+element+element
+    sqrt='\\sqrt'+element
+    group='{'+ZeroOrMore(element)+'}'
+    element << (frac | sqrt | group | Word(alphas,max=1) | Word(printables,max=1))
 
 
 
@@ -1778,19 +1787,19 @@ Too bad you cant edit posts. But I'm going to get this right :)
 
 
     
-    <span class="kw1">def</span> <span class="kw3">tokenize</span><span class="br0">&#40;</span>s<span class="br0">&#41;</span>:
-        <span class="st0">'''Take a single line of terms and return as a list of terms
+    def tokenize(s):
+        '''Take a single line of terms and return as a list of terms
         For example:
           >>> sqlgen.tokenize('Phase I' cerv* cerc* 'ovarian cyst')
           >>> [''Phase I'', 'cerc*', 'cerv*', ''ovarian cancer'']
-        '''</span>
-        quote_term <span class="sy0">=</span> Regex<span class="br0">&#40;</span><span class="st0">''[^']+''</span><span class="br0">&#41;</span> <span class="co1"># not needed</span>
-        other_term <span class="sy0">=</span> Regex<span class="br0">&#40;</span><span class="st0">'[^']+'</span><span class="br0">&#41;</span>
+        '''
+        quote_term = Regex(''[^']+'') # not needed
+        other_term = Regex('[^']+')
     
-        search_term <span class="sy0">=</span> quotedString | other_term
+        search_term = quotedString | other_term
     
-        line <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>search_term<span class="br0">&#41;</span>
-        <span class="kw1">return</span> line.<span class="me1">parseString</span><span class="br0">&#40;</span>s<span class="br0">&#41;</span>
+        line = OneOrMore(search_term)
+        return line.parseString(s)
     
 
 
@@ -1802,7 +1811,7 @@ This thread is a complete embarrassment:
 
 
     
-        other_term <span class="sy0">=</span> Regex<span class="br0">&#40;</span><span class="st0">'[^'<span class="es0">\s</span>]+'</span><span class="br0">&#41;</span>
+        other_term = Regex('[^'\s]+')
     
     
 
@@ -1881,20 +1890,20 @@ I am wondering why I am not just getting back a list of tokens.
 
 
 
-    <span class="kw1">def</span> <span class="kw3">tokenize</span><span class="br0">&#40;</span>s<span class="br0">&#41;</span>:
-        <span class="st0">'''Take a single line of terms and return as a list of terms
+    def tokenize(s):
+        '''Take a single line of terms and return as a list of terms
         For example:
           >>> sqlgen.tokenize(''Phase I' cerv* cerc* 'ovarian cyst'')
           >>> [''Phase I'', 'cerc*', 'cerv*', ''ovarian cancer'']
-        '''</span>
-        quote_term <span class="sy0">=</span> Regex<span class="br0">&#40;</span><span class="st0">''[^']+''</span><span class="br0">&#41;</span>  <span class="co1"># not needed</span>
-        other_term <span class="sy0">=</span> Word<span class="br0">&#40;</span>printables<span class="br0">&#41;</span> <span class="co1">#Regex('[^'\s]+')</span>
+        '''
+        quote_term = Regex(''[^']+'')  # not needed
+        other_term = Word(printables) #Regex('[^'\s]+')
     
-        search_term <span class="sy0">=</span> quotedString | other_term
+        search_term = quotedString | other_term
     
-        line <span class="sy0">=</span> OneOrMore<span class="br0">&#40;</span>search_term<span class="br0">&#41;</span> + StringEnd<span class="br0">&#40;</span><span class="br0">&#41;</span>
+        line = OneOrMore(search_term) + StringEnd()
     
-        <span class="kw1">return</span> line.<span class="me1">parseString</span><span class="br0">&#40;</span>s<span class="br0">&#41;</span>
+        return line.parseString(s)
     
 
 
@@ -2755,7 +2764,7 @@ Yes, I like that this second solution doesn't use parseActions. However, it fail
 
 
 
-    url.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">'http://www.blah.com/some/directories/filename.png.png'</span><span class="br0">&#41;</span>
+    url.parseString('http://www.blah.com/some/directories/filename.png.png')
 
 
 
@@ -2765,7 +2774,7 @@ The second extension is no longer part of the url. This is a little more subtle 
 
 
 
-    knownName <span class="sy0">=</span> Word<span class="br0">&#40;</span>alphanums+<span class="st0">'_-'</span><span class="br0">&#41;</span>+ZeroOrMore<span class="br0">&#40;</span>NotAny<span class="br0">&#40;</span>fileExtension<span class="br0">&#41;</span>+Literal<span class="br0">&#40;</span><span class="st0">'.'</span><span class="br0">&#41;</span>+Word<span class="br0">&#40;</span>alphanums+<span class="st0">'_-'</span><span class="br0">&#41;</span>+fileExtension<span class="br0">&#41;</span>
+    knownName = Word(alphanums+'_-')+ZeroOrMore(NotAny(fileExtension)+Literal('.')+Word(alphanums+'_-')+fileExtension)
 
 
 
@@ -2775,7 +2784,7 @@ to:
 
 
 
-    knownName <span class="sy0">=</span> ZeroOrMore<span class="br0">&#40;</span>CharsNotIn<span class="br0">&#40;</span><span class="st0">'.'</span><span class="br0">&#41;</span> + <span class="st0">'.'</span><span class="br0">&#41;</span> + oneOf<span class="br0">&#40;</span><span class="st0">'htm html gif jpg jpeg png'</span><span class="br0">&#41;</span>
+    knownName = ZeroOrMore(CharsNotIn('.') + '.') + oneOf('htm html gif jpg jpeg png')
 
 
 
@@ -2964,8 +2973,8 @@ In the example of this thread, what we would like to be able to say is something
 
 <ul><li>Paul's technique:</li></ul>
 
-    image_url <span class="sy0">=</span> url.<span class="me1">setResultsName</span><span class="br0">&#40;</span><span class="st0">'image_url'</span><span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>
-        pathEndsWithOneOf<span class="br0">&#40;</span><span class="st0">'.gif'</span><span class="sy0">,</span><span class="st0">'.png'</span><span class="sy0">,</span><span class="st0">'.jpg'</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
+    image_url = url.setResultsName('image_url').setParseAction(
+        pathEndsWithOneOf('.gif','.png','.jpg') )
 
 Here we don't have to say anything about the previous token not containing .gif/.png/.jpg in the end, but we have part of our grammar specification in this extra setParseAction block.
 
@@ -2973,7 +2982,7 @@ Here we don't have to say anything about the previous token not containing .gif/
 
 <ul><li>korvus's technique, which can be reduced to:</li></ul>
 
-    knownName <span class="sy0">=</span> ZeroOrMore<span class="br0">&#40;</span>CharsNotIn<span class="br0">&#40;</span><span class="st0">'.'</span><span class="br0">&#41;</span> + <span class="st0">'.'</span><span class="br0">&#41;</span> + oneOf<span class="br0">&#40;</span><span class="st0">'htm html gif jpg jpeg png'</span><span class="br0">&#41;</span>
+    knownName = ZeroOrMore(CharsNotIn('.') + '.') + oneOf('htm html gif jpg jpeg png')
 
 As he points out, this is more elegant in that we no longer have semantic actions affecting parse tree results. But now we have to explicitly say things like 'this doesn't have period until now, and now it does.' In other words, this grammar has been a little left-factored, increasing its complexity.
 
@@ -3266,9 +3275,9 @@ As a primitive for reading rcs files, I'd like to read in a number n followed by
 
 
 
-    line <span class="sy0">=</span> Regex<span class="br0">&#40;</span>r<span class="st0">'.*'</span><span class="br0">&#41;</span>
-    patch <span class="sy0">=</span> List<span class="br0">&#40;</span>countedArray<span class="br0">&#40;</span>line<span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw1">print</span> patch.<span class="me1">parseFile</span><span class="br0">&#40;</span><span class="kw3">sys</span>.<span class="me1">argv</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+    line = Regex(r'.*')
+    patch = List(countedArray(line))
+    print patch.parseFile(sys.argv[1])
 
 
 
@@ -3323,8 +3332,8 @@ es indeed. Your solution still had a problem handling leading whitespace in the 
 
 
 
-    <span class="kw1">def</span> countedLines<span class="br0">&#40;</span><span class="br0">&#41;</span>:
-        <span class="st0">'''Helper to define a counted list of lines.                                 
+    def countedLines():
+        '''Helper to define a counted list of lines.                                 
            This helper defines a pattern of the form::                               
                integer                                                               
                line
@@ -3333,14 +3342,14 @@ es indeed. Your solution still had a problem handling leading whitespace in the 
            where the leading integer tells how many lines to read.                   
            The matched tokens returns the array of lines as a list - the leading count
            token is suppressed.
-        '''</span>
-        arrayExpr <span class="sy0">=</span> Forward<span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">leaveWhitespace</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-        line <span class="sy0">=</span> lineStart + Regex<span class="br0">&#40;</span>r<span class="st0">'.*'</span><span class="br0">&#41;</span>.<span class="me1">leaveWhitespace</span><span class="br0">&#40;</span><span class="br0">&#41;</span>                            
-        <span class="kw1">def</span> countFieldParseAction<span class="br0">&#40;</span>s<span class="sy0">,</span>l<span class="sy0">,</span>t<span class="br0">&#41;</span>:                                            
-            n <span class="sy0">=</span> <span class="kw2">int</span><span class="br0">&#40;</span>t<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
-            arrayExpr <span class="sy0">\<\<</span> <span class="br0">&#40;</span>n <span class="kw1">and</span> Group<span class="br0">&#40;</span>And<span class="br0">&#40;</span><span class="br0">&#91;</span>line<span class="br0">&#93;</span>*n<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">or</span> Group<span class="br0">&#40;</span>empty<span class="br0">&#41;</span><span class="br0">&#41;</span>                
-            <span class="kw1">return</span> <span class="br0">&#91;</span><span class="br0">&#93;</span>
-        <span class="kw1">return</span> <span class="br0">&#40;</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>.<span class="me1">setParseAction</span><span class="br0">&#40;</span>countFieldParseAction<span class="br0">&#41;</span> + arrayExpr <span class="br0">&#41;</span>      
+        '''
+        arrayExpr = Forward().leaveWhitespace()
+        line = lineStart + Regex(r'.*').leaveWhitespace()                            
+        def countFieldParseAction(s,l,t):                                            
+            n = int(t[0])
+            arrayExpr \<\< (n and Group(And([line]*n)) or Group(empty))                
+            return []
+        return ( Word(nums).setParseAction(countFieldParseAction) + arrayExpr )      
 
 
 
@@ -3358,8 +3367,8 @@ es indeed. Your solution still had a problem handling leading whitespace in the 
 
 
 
-    <span class="kw1">def</span> List<span class="br0">&#40;</span>a<span class="br0">&#41;</span>:
-        <span class="kw1">return</span> Group<span class="br0">&#40;</span>ZeroOrMore<span class="br0">&#40;</span>a<span class="br0">&#41;</span><span class="br0">&#41;</span>
+    def List(a):
+        return Group(ZeroOrMore(a))
 
 
 
@@ -3369,10 +3378,10 @@ This allows me to do the following easily:
 
 
 
-    patchList <span class="sy0">=</span> List<span class="br0">&#40;</span>patch<span class="br0">&#41;</span>.<span class="me1">setResultName</span><span class="br0">&#40;</span><span class="st0">'patches'</span><span class="br0">&#41;</span>
+    patchList = List(patch).setResultName('patches')
     
-    <span class="kw1">for</span> i <span class="kw1">in</span> patchList.<span class="me1">parseFile</span><span class="br0">&#40;</span><span class="st0">'foo'</span><span class="br0">&#41;</span>.<span class="me1">patches</span>:
-        <span class="kw1">print</span> i
+    for i in patchList.parseFile('foo').patches:
+        print i
 
 Comments welcome :)
 #### 2006-11-09 20:31:22 - ptmcg
@@ -3452,13 +3461,13 @@ I wonder if being able to say
 
 
 
-    foo <span class="sy0">=</span> Word<span class="br0">&#40;</span>num<span class="br0">&#41;</span> + leaveWhitespace<span class="br0">&#40;</span><span class="br0">&#41;</span> + line
+    foo = Word(num) + leaveWhitespace() + line
 
 would feel more natural than
 
 
 
-    foo <span class="sy0">=</span> Word<span class="br0">&#40;</span>num<span class="br0">&#41;</span>.<span class="me1">leaveWhitespace</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + line
+    foo = Word(num).leaveWhitespace() + line
 
 
 
@@ -3488,7 +3497,7 @@ I had in fact looked at White earlier, but your nudge was sufficient to get me t
 
 
 
-    line <span class="sy0">=</span> Optional<span class="br0">&#40;</span>White<span class="br0">&#40;</span><span class="st0">'<span class="es0">\n</span>'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + lineStart + Combine <span class="br0">&#40;</span>Optional<span class="br0">&#40;</span>White<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + Regex<span class="br0">&#40;</span>r<span class="st0">'.*'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    line = Optional(White('\n').suppress()) + lineStart + Combine (Optional(White()) + Regex(r'.*'))
 
 
 
@@ -3496,15 +3505,15 @@ Test cases that succeed:
 
 
 
-    <span class="kw3">test</span> <span class="sy0">=</span> <span class="st0">'''<span class="es0">\</span>
+    test = '''\
      4
      a
-     5'''</span>
+     5'''
     
-    foo1 <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span> + line + line
-    foo2 <span class="sy0">=</span> Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span> + line + Word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>
-    <span class="kw1">print</span> foo1.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="kw3">test</span><span class="br0">&#41;</span>
-    <span class="kw1">print</span> foo2.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="kw3">test</span><span class="br0">&#41;</span>
+    foo1 = Word(nums) + line + line
+    foo2 = Word(nums) + line + Word(nums)
+    print foo1.parseString(test)
+    print foo2.parseString(test)
 
 
 
@@ -3514,8 +3523,8 @@ Only remaining issue that I can see - These don't work because of the leading wh
 
 
 
-    foo3 <span class="sy0">=</span> line + line + word<span class="br0">&#40;</span>nums<span class="br0">&#41;</span>
-    foo4 <span class="sy0">=</span> line + line + line
+    foo3 = line + line + word(nums)
+    foo4 = line + line + line
 
 
 
@@ -3523,14 +3532,14 @@ The critical nonintuitiveness to me here is that these succeed:
 
 
 
-    lineStart.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">' 4'</span><span class="br0">&#41;</span>
-    <span class="br0">&#40;</span>lineStart.<span class="me1">leaveWhitespace</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + Optional<span class="br0">&#40;</span>White<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> + Regex<span class="br0">&#40;</span>r<span class="st0">'.*'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">' 4'</span><span class="br0">&#41;</span>
+    lineStart.parseString(' 4')
+    (lineStart.leaveWhitespace() + Optional(White()) + Regex(r'.*')).parseString(' 4')
 
 but this fails:
 
 
 
-    <span class="br0">&#40;</span>lineStart+Literal<span class="br0">&#40;</span><span class="st0">'4'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">' 4'</span><span class="br0">&#41;</span>
+    (lineStart+Literal('4')).parseString(' 4')
 
 
 #### 2006-11-10 14:26:43 - akkartik
@@ -3540,7 +3549,7 @@ addendum: this succeeds as well:
 
 
 
-    <span class="br0">&#40;</span>lineStart.<span class="me1">leaveWhitespace</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + Literal<span class="br0">&#40;</span><span class="st0">'4'</span><span class="br0">&#41;</span><span class="br0">&#41;</span>.<span class="me1">parseString</span><span class="br0">&#40;</span><span class="st0">' 4'</span><span class="br0">&#41;</span>
+    (lineStart.leaveWhitespace() + Literal('4')).parseString(' 4')
 
 
 #### 2007-01-25 09:56:13 - akkartik
@@ -3621,24 +3630,24 @@ I'm parsing text in the form of
 
 
 
-    <span class="co1"># Items without Cc und Whitespaces</span>
-    noControlChars <span class="sy0">=</span> pp.<span class="me1">Word</span><span class="br0">&#40;</span>u<span class="st0">''</span>.<span class="me1">join</span><span class="br0">&#40;</span><span class="br0">&#40;</span><span class="kw2">unichr</span><span class="br0">&#40;</span>char<span class="br0">&#41;</span> <span class="kw1">for</span> char <span class="kw1">in</span> <span class="kw2">xrange</span><span class="br0">&#40;</span><span class="nu0">2</span>**<span class="nu0">16</span><span class="br0">&#41;</span> <span class="kw1">if</span>
-                               <span class="kw1">not</span> <span class="kw3">unicodedata</span>.<span class="me1">category</span><span class="br0">&#40;</span><span class="kw2">unichr</span><span class="br0">&#40;</span>char<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="st0">'Cc'</span> <span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    # Items without Cc und Whitespaces
+    noControlChars = pp.Word(u''.join((unichr(char) for char in xrange(2**16) if
+                               not unicodedata.category(unichr(char)) == 'Cc' )))
     
-    <span class="co1"># Gruppenname</span>
-    groupname <span class="sy0">=</span> pp.<span class="me1">lineStart</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + noControlChars + pp.<span class="me1">lineEnd</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    <span class="co1"># Begin of group : Gruppenname + {</span>
-    initgroup <span class="sy0">=</span> groupname + pp.<span class="me1">lineStart</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + pp.<span class="me1">Literal</span><span class="br0">&#40;</span><span class="st0">'{'</span><span class="br0">&#41;</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span> + pp.<span class="me1">lineEnd</span>.<span class="me1">suppress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    <span class="co1"># End of group: }</span>
-    exitgroup <span class="sy0">=</span> pp.<span class="me1">lineStart</span> + pp.<span class="me1">Literal</span><span class="br0">&#40;</span><span class="st0">'}'</span><span class="br0">&#41;</span> + pp.<span class="me1">lineEnd</span>
-    <span class="co1"># Up to end without itself }</span>
-    bodygroup <span class="sy0">=</span> pp.<span class="me1">SkipTo</span><span class="br0">&#40;</span>exitgroup<span class="br0">&#41;</span>
-    <span class="co1"># Complete</span>
-    group <span class="sy0">=</span> initgroup + bodygroup
-    <span class="co1"># Need still tabs</span>
-    group.<span class="me1">parseWithTabs</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
-    <span class="co1"># Need all ws as they are</span>
-    group.<span class="me1">leaveWhitespace</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    # Gruppenname
+    groupname = pp.lineStart.suppress() + noControlChars + pp.lineEnd.suppress()
+    # Begin of group : Gruppenname + {
+    initgroup = groupname + pp.lineStart.suppress() + pp.Literal('{').suppress() + pp.lineEnd.suppress()
+    # End of group: }
+    exitgroup = pp.lineStart + pp.Literal('}') + pp.lineEnd
+    # Up to end without itself }
+    bodygroup = pp.SkipTo(exitgroup)
+    # Complete
+    group = initgroup + bodygroup
+    # Need still tabs
+    group.parseWithTabs()
+    # Need all ws as they are
+    group.leaveWhitespace()
 
 
 
@@ -3733,16 +3742,16 @@ Then I forgotten to paste some imports
 
 
 
-    <span class="kw1">import</span> <span class="kw3">unicodedata</span>
-    <span class="kw1">import</span> pyparsing <span class="kw1">as</span> pp
-    <span class="kw1">class</span> ParserError<span class="br0">&#40;</span><span class="kw2">Exception</span><span class="br0">&#41;</span>: 
-        <span class="kw1">pass</span>
+    import unicodedata
+    import pyparsing as pp
+    class ParserError(Exception): 
+        pass
     
     
-    <span class="co1"># This means, give all unicode chars without any Control char (not unicodedata.category is 'Cc')</span>
-    noControlChars <span class="sy0">=</span> pp.<span class="me1">Word</span><span class="br0">&#40;</span>u<span class="st0">''</span>.<span class="me1">join</span><span class="br0">&#40;</span><span class="br0">&#40;</span><span class="kw2">unichr</span><span class="br0">&#40;</span>char<span class="br0">&#41;</span> <span class="kw1">for</span> char <span class="kw1">in</span> <span class="kw2">xrange</span><span class="br0">&#40;</span><span class="nu0">2</span>**<span class="nu0">16</span><span class="br0">&#41;</span> <span class="kw1">if</span>
-                                   <span class="kw1">not</span> <span class="kw3">unicodedata</span>.<span class="me1">category</span><span class="br0">&#40;</span><span class="kw2">unichr</span><span class="br0">&#40;</span>char<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">==</span> <span class="st0">'Cc'</span> <span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="co1"># And so on</span>
+    # This means, give all unicode chars without any Control char (not unicodedata.category is 'Cc')
+    noControlChars = pp.Word(u''.join((unichr(char) for char in xrange(2**16) if
+                                   not unicodedata.category(unichr(char)) == 'Cc' )))
+    # And so on
 
 
 
@@ -3752,14 +3761,14 @@ Here some more I forgotten what I do with the parsed results:
 
 
 
-    groupall <span class="sy0">=</span> <span class="br0">&#123;</span><span class="br0">&#125;</span>
-    <span class="kw1">for</span> groupitem<span class="sy0">,</span>begin<span class="sy0">,</span>end <span class="kw1">in</span> group.<span class="me1">scanString</span><span class="br0">&#40;</span>rawtext<span class="br0">&#41;</span>:
-        <span class="co1"># Check first that item is not already inserted</span>
-        <span class="kw1">if</span> groupitem<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="kw1">in</span> groupall:
-            <span class="kw1">raise</span> ParserError<span class="sy0">,</span> u<span class="st0">'Doubled group entry found: '</span> + groupitem<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>
-        <span class="co1"># All ok add item in dictionary</span>
-        groupall<span class="br0">&#91;</span>groupitem<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#93;</span> <span class="sy0">=</span> groupitem<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span>
-        <span class="co1"># No item was get back</span>
+    groupall = ģĥ
+    for groupitem,begin,end in group.scanString(rawtext):
+        # Check first that item is not already inserted
+        if groupitem[0] in groupall:
+            raise ParserError, u'Doubled group entry found: ' + groupitem[0]
+        # All ok add item in dictionary
+        groupall[groupitem[0]] = groupitem[1]
+        # No item was get back
 
 
 
@@ -3773,7 +3782,7 @@ For these I want to extend my code.
 
 
 
-<span class="membersnap">-   <small>Nov 12, 2006</small></span>
+-   <small>Nov 12, 2006</small>
 #### 2006-11-12 07:56:45 - CosmicStars
 Hello, 
 
@@ -3785,21 +3794,21 @@ I found an possible solution by searching for an new begin of an group in the re
 
 
 
-    <span class="co1"># Put all groups in an dictionary</span>
-    groupdict <span class="sy0">=</span> <span class="br0">&#123;</span><span class="br0">&#125;</span>
-    <span class="kw1">for</span> groupitem<span class="sy0">,</span>begin<span class="sy0">,</span>end <span class="kw1">in</span> group.<span class="me1">scanString</span><span class="br0">&#40;</span>rawtext<span class="br0">&#41;</span>:
-        groupkey<span class="sy0">,</span> groupvalue <span class="sy0">=</span> groupitem
-        <span class="co1"># Check first that item is not already inserted</span>
-        <span class="kw1">if</span> groupkey <span class="kw1">in</span> groupdict:
-            message <span class="sy0">=</span> u<span class="st0">'Doubled group entry found:'</span> + groupkey
-            <span class="kw1">raise</span> ParserError<span class="sy0">,</span> message
-        <span class="co1"># Check that no new group begin is found in the result</span>
-        <span class="kw1">if</span> initgroup.<span class="me1">searchString</span><span class="br0">&#40;</span>groupvalue<span class="br0">&#41;</span>:
-            message <span class="sy0">=</span> u<span class="st0">'New groupbegin found before old ended:'</span> + groupkey
-            <span class="kw1">raise</span> ParserError<span class="sy0">,</span> message
-        <span class="co1"># All ok add item in dictionary</span>
-        groupdict<span class="br0">&#91;</span>groupkey<span class="br0">&#93;</span> <span class="sy0">=</span> groupvalue
-        <span class="co1"># No item was get back</span>
+    # Put all groups in an dictionary
+    groupdict = ģĥ
+    for groupitem,begin,end in group.scanString(rawtext):
+        groupkey, groupvalue = groupitem
+        # Check first that item is not already inserted
+        if groupkey in groupdict:
+            message = u'Doubled group entry found:' + groupkey
+            raise ParserError, message
+        # Check that no new group begin is found in the result
+        if initgroup.searchString(groupvalue):
+            message = u'New groupbegin found before old ended:' + groupkey
+            raise ParserError, message
+        # All ok add item in dictionary
+        groupdict[groupkey] = groupvalue
+        # No item was get back
     
 
 
@@ -3810,7 +3819,7 @@ I think the skipTo rule could be a problem.
 
 
 
-<span class="membersnap">-   <small>Nov 12, 2006</small></span>
+-   <small>Nov 12, 2006</small>
 #### 2006-11-13 13:40:21 - ptmcg
 Cosmic Stars - Please bear with me, I will try to give you a thorough reply in the next day or so.
 
@@ -4324,21 +4333,21 @@ sorry, the code again:
 
 
 
-    <span class="kw1">from</span> pyparsing <span class="kw1">import</span> *
+    from pyparsing import *
     
-    <span class="kw1">def</span> addLink<span class="br0">&#40;</span>s<span class="sy0">,</span> l<span class="sy0">,</span> t<span class="br0">&#41;</span>:
-        tocStr <span class="sy0">=</span> s<span class="br0">&#91;</span>l:s.<span class="me1">find</span><span class="br0">&#40;</span><span class="st0">'\>'</span><span class="sy0">,</span>l<span class="br0">&#41;</span>+<span class="nu0">1</span><span class="br0">&#93;</span>   <span class="co1">#1</span>
-        <span class="kw1">if</span> t.<span class="me1">src</span>.<span class="me1">startswith</span><span class="br0">&#40;</span><span class="st0">'blogdb/'</span><span class="br0">&#41;</span>:
-            s <span class="sy0">=</span> <span class="st0">'\<a href=''</span> + t.<span class="me1">src</span><span class="br0">&#91;</span><span class="nu0">7</span>:<span class="br0">&#93;</span> + <span class="st0">''\>'</span> + tocStr + <span class="st0">'\</a\>'</span>
-            <span class="kw1">return</span> s
-        <span class="kw1">else</span>:
-            <span class="kw1">return</span> tocStr    <span class="co1">#2</span>
+    def addLink(s, l, t):
+        tocStr = s[l:s.find('\>',l)+1]   #1
+        if t.src.startswith('blogdb/'):
+            s = '\<a href='' + t.src[7:] + ''\>' + tocStr + '\</a\>'
+            return s
+        else:
+            return tocStr    #2
     
-    imgOpenTag<span class="sy0">,</span> imgCloseTag <span class="sy0">=</span> makeHTMLTags<span class="br0">&#40;</span><span class="st0">'img'</span><span class="br0">&#41;</span>
-    imgOpenTag.<span class="me1">setParseAction</span><span class="br0">&#40;</span> addLink <span class="br0">&#41;</span>
+    imgOpenTag, imgCloseTag = makeHTMLTags('img')
+    imgOpenTag.setParseAction( addLink )
     
-    d <span class="sy0">=</span> imgOpenTag.<span class="me1">transformString</span><span class="br0">&#40;</span><span class="kw2">file</span><span class="br0">&#40;</span><span class="st0">'blog.htm'</span><span class="br0">&#41;</span>.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
-    <span class="kw2">file</span><span class="br0">&#40;</span><span class="st0">'blognew.htm'</span><span class="sy0">,</span><span class="st0">'w'</span><span class="br0">&#41;</span>.<span class="me1">write</span><span class="br0">&#40;</span>d<span class="br0">&#41;</span>
+    d = imgOpenTag.transformString(file('blog.htm').read())
+    file('blognew.htm','w').write(d)
 
 
 #### 2006-11-15 09:01:34 - ptmcg
