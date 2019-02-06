@@ -7,10 +7,11 @@ the most current practices or features. We will try to add editor
 notes to entries to indicate when discussions have been 
 overtaken by development events.]_
 
+
 [2007-01-02 08:04:39 - remyblank - Two bugs with packrat parsing](all_wiki_discussion_toc_2007.md#2007-01-02-080439---remyblank---two-bugs-with-packrat-parsing)  
 [2007-01-08 17:58:03 - IanSparks - re: Optional usage. Is this correct output?](all_wiki_discussion_toc_2007.md#2007-01-08-175803---iansparks---re-optional-usage-is-this-correct-output)  
 [2007-01-25 07:35:15 - akkartik - v1.4.5 update to And](all_wiki_discussion_toc_2007.md#2007-01-25-073515---akkartik---v145-update-to-and)  
-[2007-01-29 15:57:48 - bca48150 - Memory optimization... ](all_wiki_discussion_toc_2007.md#2007-01-29-155748---bca48150---memory-optimization-)  
+[2007-01-29 15:57:48 - bca48150 - Memory optimization... ](all_wiki_discussion_toc_2007.md#2007-01-29-155748---bca48150---memory-optimization)  
 [2007-01-30 12:07:40 - metaperl - incremental / generator / memory-efficient parsing?](all_wiki_discussion_toc_2007.md#2007-01-30-120740---metaperl---incremental--generator--memory-efficient-parsing)  
 [2007-02-11 02:40:14 - Digitalxero - Is Pyparsing right now me?](all_wiki_discussion_toc_2007.md#2007-02-11-024014---digitalxero---is-pyparsing-right-now-me)  
 [2007-02-11 14:09:25 - nickzam - bug report: another unicode bug](all_wiki_discussion_toc_2007.md#2007-02-11-140925---nickzam---bug-report-another-unicode-bug)  
