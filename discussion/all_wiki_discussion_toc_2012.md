@@ -14,7 +14,7 @@ overtaken by development events.]_
 [2012-01-11 08:43:19 - DiaaFayed -  add logger class](all_wiki_discussion_toc_2012.md#2012-01-11-084319---diaafayed----add-logger-class)  
 [2012-01-14 08:16:21 - DiaaFayed - parsing a list of strings](all_wiki_discussion_toc_2012.md#2012-01-14-081621---diaafayed---parsing-a-list-of-strings)  
 [2012-01-14 08:29:02 - DiaaFayed - parseResultsSumExample.py](all_wiki_discussion_toc_2012.md#2012-01-14-082902---diaafayed---parseresultssumexamplepy)  
-[2012-01-16 23:11:45 - 0xLeFF - Parsing nested c\/c++ blocks](all_wiki_discussion_toc_2012.md#2012-01-16-231145---0xleff---parsing-nested-c\c-blocks)  
+[2012-01-16 23:11:45 - 0xLeFF - Parsing nested c\/c++ blocks](all_wiki_discussion_toc_2012.md#2012-01-16-231145---0xleff---parsing-nested-cc-blocks)  
 [2012-01-19 08:18:31 - masura-san - How to tag parsed elements](all_wiki_discussion_toc_2012.md#2012-01-19-081831---masura-san---how-to-tag-parsed-elements)  
 [2012-01-20 08:44:42 - DiaaFayed - file contains lines for parsed.](all_wiki_discussion_toc_2012.md#2012-01-20-084442---diaafayed---file-contains-lines-for-parsed)  
 [2012-01-29 11:47:37 - Phxsawdust - Creating manual ParseResults](all_wiki_discussion_toc_2012.md#2012-01-29-114737---phxsawdust---creating-manual-parseresults)  
@@ -37,7 +37,7 @@ overtaken by development events.]_
 [2012-04-04 14:58:25 - HumbertMason - Parsing a list of structures line by line](all_wiki_discussion_toc_2012.md#2012-04-04-145825---humbertmason---parsing-a-list-of-structures-line-by-line)  
 [2012-04-06 10:11:25 - pepinocho9 - Help with parseactions and Morgan's Law](all_wiki_discussion_toc_2012.md#2012-04-06-101125---pepinocho9---help-with-parseactions-and-morgans-law)  
 [2012-04-16 10:33:55 - takluyver - Skip optional part if following part matches](all_wiki_discussion_toc_2012.md#2012-04-16-103355---takluyver---skip-optional-part-if-following-part-matches)  
-[2012-04-27 12:16:42 - larapsodia - Question about "Or" statement](all_wiki_discussion_toc_2012.md#2012-04-27-121642---larapsodia---question-about-"or"-statement)  
+[2012-04-27 12:16:42 - larapsodia - Question about "Or" statement](all_wiki_discussion_toc_2012.md#2012-04-27-121642---larapsodia---question-about-or-statement)  
 [2012-04-28 06:48:11 - charles_w - working to understand pyparsing, setResultsName, and setParseAction](all_wiki_discussion_toc_2012.md#2012-04-28-064811---charles_w---working-to-understand-pyparsing-setresultsname-and-setparseaction)  
 [2012-05-01 01:14:04 - robintw - Labelling of results when using Each](all_wiki_discussion_toc_2012.md#2012-05-01-011404---robintw---labelling-of-results-when-using-each)  
 [2012-05-08 11:32:30 - side78 - Parsing nested blocks without any deterministic end](all_wiki_discussion_toc_2012.md#2012-05-08-113230---side78---parsing-nested-blocks-without-any-deterministic-end)  
@@ -50,7 +50,7 @@ overtaken by development events.]_
 [2012-06-10 06:12:29 - bsr203 - Rules for Repeating sections of data](all_wiki_discussion_toc_2012.md#2012-06-10-061229---bsr203---rules-for-repeating-sections-of-data)  
 [2012-06-10 14:23:11 - ofuhrer - Replace only locally](all_wiki_discussion_toc_2012.md#2012-06-10-142311---ofuhrer---replace-only-locally)  
 [2012-06-11 02:51:37 - willem179 - ParseResults inconsistent after setitem](all_wiki_discussion_toc_2012.md#2012-06-11-025137---willem179---parseresults-inconsistent-after-setitem)  
-[2012-06-25 11:31:52 - Madan2 - Dealing with "\" in data](all_wiki_discussion_toc_2012.md#2012-06-25-113152---madan2---dealing-with-"\"-in-data)  
+[2012-06-25 11:31:52 - Madan2 - Dealing with "\" in data](all_wiki_discussion_toc_2012.md#2012-06-25-113152---madan2---dealing-with--in-data)  
 [2012-06-26 16:47:14 - chlim - parsing identical strings and multi-lines](all_wiki_discussion_toc_2012.md#2012-06-26-164714---chlim---parsing-identical-strings-and-multi-lines)  
 [2012-07-02 07:16:21 - DiaaFayed - dynamic extractor statement](all_wiki_discussion_toc_2012.md#2012-07-02-071621---diaafayed---dynamic-extractor-statement)  
 [2012-07-02 12:52:58 - DiaaFayed -  a new feature of the Python eval and exec commands](all_wiki_discussion_toc_2012.md#2012-07-02-125258---diaafayed----a-new-feature-of-the-python-eval-and-exec-commands)  
@@ -198,7 +198,8 @@ the error
 
 I need the result to be
 
-['diaa fayed-', 'engineer']
+    ['diaa fayed-', 'engineer']
+
 #### 2012-01-18 21:29:03 - ptmcg
 Thank you for providing an example that displays adequately in ASCII characters.  I'll refer to '-' in your example as a standin for tatweel.
 
@@ -1048,8 +1049,8 @@ I am disappointed that setup.py is not picking up your Python version though, I'
 ## 2012-02-05 14:44:27 - karulis - bug + patch for ParseResults.__dir__ in python3
 Hi
 
-I have noticed that ParseResults.__dir__ tries to 
-concatenate list to dict_keys(in python3.x dict.keys()
+I have noticed that `ParseResults.__dir__` tries to 
+concatenate list to dict_keys(in python3.x `dict.keys()`
 returns dict_keys iterable view).
 
 Here is patch with simplest solution:
@@ -1343,11 +1344,12 @@ actually my work-around looks more like this
 
 but it's besides the point - still not happy with this as I have more cases in my parser where SkipTo would skip over pieces which I'm interested in
 #### 2012-02-20 18:57:54 - ptmcg
-Sometime LineStart() does not match as well as we would expect. Try defining blankline as just plain EOL.  Or define EOL as OneOrMore(LineEnd()), and get rid of the ignore.
+Sometime `LineStart()` does not match as well as we would expect. 
+Try defining blankline as just plain EOL.  Or define EOL as `OneOrMore(LineEnd())`, and get rid of the ignore.
 
 -- Paul
 #### 2012-02-20 19:15:12 - lamakaha
-'define EOL as OneOrMore(LineEnd()), and get rid of the ignore' - worked really well - issue resolved- thank you!!
+'define EOL as `OneOrMore(LineEnd())`, and get rid of the ignore' - worked really well - issue resolved- thank you!!
 
 ---
 ## 2012-02-21 05:54:17 - ror6ax - parsing tables
@@ -1745,13 +1747,13 @@ In the following definition; is there any way to obtain the amounts, dates and r
 I tried Group() and it doesn't work,
 
 
-    single = StringStart() +\
-             delimitedList(Amount('amount') +\
-                           Optional(Date)('date') +\
-                           Optional(QuotedString(quoteChar='''))('reference')) +\
-             journalName('journalName') +\
-             Optional(Comments)('comments') +\
-             StringEnd()
+    single = (StringStart() +
+              delimitedList(Amount('amount') +
+                            Optional(Date)('date') +
+                            Optional(QuotedString(quoteChar='''))('reference')) +
+              journalName('journalName') +
+              Optional(Comments)('comments') +
+              StringEnd())
     
 
 
@@ -1921,7 +1923,7 @@ I'm running 1.5.6, on Python 3.2.
 #### 2012-04-16 16:57:35 - ptmcg
 Sorry, I misread your question.
 
-So a single isn't just a single letter, it's a single letter that is followed by at least one more letter, or conversely, it's a letter that is not followed by the end of the line.
+So a `single` isn't just a single letter, it's a single letter that is followed by at least one more letter, or conversely, it's a letter that is not followed by the end of the line.
 
 This kind of lookahead is the only way to tell pyparsing to look beyond just the current character, but what comes next as well.  It helps to have a kind of self-imposed tunnel vision while writing a pyparsing grammar, because unless you explicitly spell out any required looking ahead, it's not going to happen.
 
@@ -1936,7 +1938,7 @@ or
     single = Word(alphas,max=1) + ~FollowedBy(LineEnd())
 
 
-The first only matches a single if there is at least something after it, which could be a single or a mult. The second only matches a single if it is not the last thing on the current line.
+The first only matches a `single` if there is at least something after it, which could be a single or a mult. The second only matches a `single` if it is not the last thing on the current line.
 
 Change single to either one of these, and 'A B C' parses just fine.
 
@@ -2471,10 +2473,15 @@ Robin
 
 ---
 ## 2012-05-08 11:32:30 - side78 - Parsing nested blocks without any deterministic end
-I'm trying to parse command output that unfortunately isn't very nicely structured. The output is loosely structured as a series of outer blocks, containing zero or more inner blocks. It's possible to determine the start of different blocks but not necessarily the end of them, except to potentially match on a list of block starting matches.
+I'm trying to parse command output that unfortunately isn't very nicely structured. The 
+output is loosely structured as a series of outer blocks, containing zero or more inner 
+blocks. It's possible to determine the start of different blocks but not necessarily the end of them, except to potentially match on a list of block starting matches.
 
-I'm not sure if I'm using the right approach to parsing this. What I've done below has the problem that it doesn't break when it reaches the second outer block, and thus all the inner blocks inside the second block are included in the results for the first outer block. If I try to break by adding
-Suppress(SkipTo(inner_block_begin | outer_block_begin)) to the end of the inner_block construct it seems to greedily slurp until the end (I think).
+I'm not sure if I'm using the right approach to parsing this. What I've done below has 
+the problem that it doesn't break when it reaches the second outer block, and thus all 
+the inner blocks inside the second block are included in the results for the first outer 
+block. If I try to break by adding
+`Suppress(SkipTo(inner_block_begin | outer_block_begin))` to the end of the inner_block construct it seems to greedily slurp until the end (I think).
 
 What's an appropriate way to handle this kind of parsing using pyparsing (if any)?
 
@@ -2803,9 +2810,9 @@ Thank for clarifying. Ofc I read the link You provided, I next projects I will s
 ## 2012-05-23 04:27:27 - Madan2 - TypeError: unsupported operand type(s) for ^: 'NoneType' and 'NoneType'
 Hi,
 
-    I'm new to Python and Pyparsing and trying to parse a program. Initially I've had success. When the expressions are complicated 
+I'm new to Python and Pyparsing and trying to parse a program. Initially I've had success. When the expressions are complicated 
 
-   I'm trying to build tokens and try to reuse them to define other tokens / expressions. This is where I'm getting the errors. 
+I'm trying to build tokens and try to reuse them to define other tokens / expressions. This is where I'm getting the errors. 
 
 I have code like this
 
@@ -3466,7 +3473,8 @@ What I'd like instead would be to have
 I'm fairly sure I'm getting things wrong here. Where?
 
 #### 2012-07-04 10:11:25 - ptmcg
-I usually like to try to 'be the parser'. When you see the word 'DRUG', how do you know that it is not supposed to match the leading ``Word(alphanums)` in drug_content? Probably because 'DRUG' is a special word in your syntax. So you specifically want to exclude 'DRUG' from matching that first word - the easiest is to use a negative lookahead, using NotAny, or use the `~` operator.  Try this:
+I usually like to try to 'be the parser'. When you see the word 'DRUG', how do you know 
+that it is not supposed to match the leading `Word(alphanums)` in drug_content? Probably because 'DRUG' is a special word in your syntax. So you specifically want to exclude 'DRUG' from matching that first word - the easiest is to use a negative lookahead, using NotAny, or use the `~` operator.  Try this:
 
 
     drug_content = ~drug + Word(alphanums) + originalTextFor(OneOrMore(Word(
@@ -3526,18 +3534,27 @@ But how can I tell pyparsing to parse 'up to a certain point'?
 #### 2012-07-06 01:11:43 - einar77
 I forgot to add: the 'good' text may also contain parentheses, so I can't just ignore text starting from the first parens('(') onwards.
 #### 2012-07-07 07:51:35 - ptmcg
-Hmm, your last statement kind of confounds the issue. I was going to suggest using SkipTo('('), but that won't work if you have ()'s in your desired text as well.
+Hmm, your last statement kind of confounds the issue. I was going to suggest using `SkipTo('(')`, but that won't work if you have ()'s in your desired text as well.
 
-It looks like what you want is to read up to something matching this: '(EC:2.7.10.2)'. Create an expression that matches that with some rigor, not just '(' + Word(alphanums+':.') + ')', which might still match some text that you actually want, but more like Combine('(' + Word(alphas.upper) + ':' + delimitedList(Word(nums),'.') + ')' ) or if you prefer, Regex(r'\([A-Z]{2}\d+(\.\d+)+\)').  This looks like some kind of reference to me so I'll call it 'reference'. You can then use SkipTo(reference) to read the desired text.
+It looks like what you want is to read up to something matching this: `'(EC:2.7.10.2)'`. Create 
+an expression that matches that with some rigor, not just 
+`'(' + Word(alphanums+':.') + ')'`, which might still match some text that you actually 
+want, but more like 
+`Combine('(' + Word(alphas.upper) + ':' + delimitedList(Word(nums),'.') + ')' )` or if 
+you prefer, `Regex(r'\([A-Z]{2}\d+(\.\d+)+\)')`.  This looks like some kind of reference 
+to me so I'll call it 'reference'. You can then use `SkipTo(reference)` to read the desired text.
 
-A side note: when you are parsing the first word ('LCK' in your sample), you are using this expression:
-
-
+A side note: when you are parsing the first word ('LCK' in your sample), you are using 
+this expression:
 
     Word(alphanums, excludeChars=';')
 
-
-There is no point in using excludeChars here, since ';' is not one of the characters in alphanums. The purpose of excludeChars is to simplify defining words like 'any printable character except '/' or '.'' as Word(printables, excludeChars='/.') . Before I added excludeChars, you had to write something like Word(printables.replace('/','').replace('.','')) . In your case, Word(alphanums) will work just fine, and still not read the trailing ';'.
+There is no point in using excludeChars here, since ';' is not one of the characters in alphanums. 
+The purpose of excludeChars is to simplify defining words like 'any printable character 
+except '/' or '.'' as `Word(printables, excludeChars='/.')` . Before I added excludeChars, 
+you had to write something like 
+`Word(printables.replace('/','').replace('.',''))` . In your case, `Word(alphanums)` will 
+work just fine, and still not read the trailing ';'.
 
 ---
 ## 2012-07-11 17:36:06 - chlim - svn syntax
@@ -3694,13 +3711,13 @@ It seems to me that it boils down to the ability to make an ordered choice, as w
 
 If I'm not mistaken, the 7 operators specified in PEG have pyparsing analogues:
 
-- Sequence: e1 e2 -> e1 + e2
-- Ordered Choice: e1 / e2 -> e1 | e2
-- Zero-or-More: e* -> ZeroOrMore(e)
-- One-or-More: e+ -> OneOrMore(e)
-- Optional: e? -> Optional(e)
-- And-predicate: &e -> FollowedBy(e)
-- Not-predicate: !e -> ~e
+- Sequence: `e1 e2 -> e1 + e2`
+- Ordered Choice: `e1 / e2 -> e1 | e2`
+- Zero-or-More: `e* -> ZeroOrMore(e)`
+- One-or-More: `e+ -> OneOrMore(e)`
+- Optional: `e? -> Optional(e)`
+- And-predicate: `&e -> FollowedBy(e)`
+- Not-predicate: `!e -> ~e`
 
 And packrat parsing in pyparsing is turned on using:
 
@@ -3765,15 +3782,20 @@ For instance:
     results = statement.parseString('2.4 <= x1 <= 4.2')
 
 
-I'd like to build a tool where if I hover my mouse over the parse expression 'Optional(float + cmp)' in 'statement', it will highlight '2.4 <=' in the input string. Or if I hover over the float, it will highlight '2.4' and '4.2' in the input string.
+I'd like to build a tool where if I hover my mouse over the parse expression 
+`'Optional(float + cmp)'` in `'statement'`, it will highlight `'2.4 <='` in the input 
+string. Or if I hover over the `float`, it will highlight `'2.4'` and `'4.2'` in the input string.
 
-To do this, there would need to be some mechanism for each matched token to return--upon parsing--a tuple containing its start and end position in the input string (or a list of them in the case of ZeroOrMore/OneOrMore's). 
+To do this, there would need to be some mechanism for each matched token to return--upon 
+parsing--a tuple containing its start and end position in the input string (or a list of 
+them in the case of `ZeroOrMore/OneOrMore`'s). 
 
 Is this hard to do?
 
 I'm just thinking this would help greatly in debugging ambiguous grammars, where I'm always wondering where a parse expression match stops matching, and the next parse expression starts to match.
 #### 2012-07-20 02:33:38 - ptmcg
-What you describe does sound helpful. If I were writing this, I would use scanString, which returns a generator that yields (tokens,start,end) tuples. The debugger would take the selected grammar fragment, run fragment.scanString, and highlight all the start-end regions. (Watch out for embedded tabs characters.)
+What you describe does sound helpful. If I were writing this, I would use scanString, 
+which returns a generator that yields `(tokens,start,end)` tuples. The debugger would take the selected grammar fragment, run fragment.scanString, and highlight all the start-end regions. (Watch out for embedded tabs characters.)
 
 But where would you mouse-hover in that expression for your debugger to detect that you wanted to highlight matches for 'Optional(float + cmp)'? If the mouse was just over the word 'float', would you want every float highlighted?  How would you hover over 'float + cmp'?  Maybe you would have to actually select a region of the grammar so that your scanner could comprehend when you are trying to match larger pieces of the grammar.
 
@@ -3849,7 +3871,7 @@ L.
 #### 2012-08-09 07:44:00 - ptmcg
 Sorry - the docs should read to 'call addParseAction multiple times', not setParseAction.  Will fix.
 
-Whenever I have had to define a dynamic grammar (which changes based on data that has been parsed so far), I use a Forward expression, and then inject new expressions into it at parse time using a parse action. See how this is done in the countedArray helper.
+Whenever I have had to define a dynamic grammar (which changes based on data that has been parsed so far), I use a Forward expression, and then inject new expressions into it at parse time using a parse action. See how this is done in the `countedArray` helper.
 #### 2012-08-09 07:50:20 - Leevi3
 Thanks for the super fast reply, it works. Are there further ways of viewing, or removing the actions currently attached to an element, or is cumulative <em>adding</em> the way of using actions?
 
@@ -3861,7 +3883,7 @@ Welcome to pyparsing, glad you are enjoying it!
 
 ---
 ## 2012-08-17 14:36:15 - script_lover - operatorPrecedence generate rules that cannot be validated
-Take the example of , if I run boolExpr.validate() it reports that a left recursion is found.
+Take the example of , if I run `boolExpr.validate()` it reports that a left recursion is found.
 
 Is this correct? 
 
@@ -3954,7 +3976,13 @@ Thanks for any info,
 Leevi.
 
 #### 2012-08-27 20:55:17 - ptmcg
-Unfortunately, if you retained the nesting in operator precedence, then every atomic operand would be buried inside a nested list as deep as the number of levels defined in the precedence list. Rather than wade through these nestings, you might be better off using parse actions to construct a hierarchy of evaluatable objects - see how this is done in the SimpleBool.py example. The values in any binary operation are (value, operator, value, operator, etc.), where value itself can be an atomic operand, or a nested object.  Write back if you want to discuss this in more detail.
+Unfortunately, if you retained the nesting in operator precedence, then every atomic 
+operand would be buried inside a nested list as deep as the number of levels defined in 
+the precedence list. Rather than wade through these nestings, you might be better off 
+using parse actions to construct a hierarchy of evaluatable objects - see how this is 
+done in the SimpleBool.py example. The values in any binary operation 
+are `(value, operator, value, operator, etc.)`, where value itself can be an atomic 
+operand, or a nested object.  Write back if you want to discuss this in more detail.
 
 -- Paul
 #### 2012-08-28 16:06:32 - Leevi3
@@ -3977,8 +4005,18 @@ Btw: My hope is that, when I am finished with this project I might appear on you
 ---
 ## 2012-08-25 05:11:18 - simbera.jan - Getting a ParseResults line number
 Hi,
-I've been working on a parser for nested expressions that are then translated according to external specifications. I use the pyparsing-based parser to produce a document tree and then construct a hierarchy of various objects from it. The parser has been tremendously helpful so far, but now I have the following problem: I want each ParseResults object in the tree to carry its line number, so that when an error during the construction of the hierarchy occurs, I can easily report it.
-I tried using parse actions to insert the line number into the passed token list (such as tokens.lineNumber = pyparsing.lineno(loc, string) and then return tokens, but I tried dictionary access as well). It might work when I print the line number using a following parse action, but when I try it on the final results from parseString, there is nothing stored (when retrieving tokens.lineNumber, I get an empty string).
+I've been working on a parser for nested expressions that are then translated according to external specifications. 
+I use the pyparsing-based parser to produce a document tree and then construct a hierarchy of various 
+objects from it. The parser has been tremendously helpful so far, but now I have the following problem:
+I want each ParseResults object in the tree to carry its line number, so that when an error 
+during the construction of the hierarchy occurs, I can easily report it.
+
+I tried using parse actions to insert the line number into the passed token list (such 
+as `tokens.lineNumber = pyparsing.lineno(loc, string)` and then return tokens, but I tried 
+dictionary access as well). It might work when I print the line number using a following parse action, 
+but when I try it on the final results from parseString, there is nothing stored 
+(when retrieving tokens.lineNumber, I get an empty string).
+
 Could anybody show me a way to accomplish this (a clean way, preferrably)?
 Thanks,
 Jan
@@ -4026,7 +4064,7 @@ Not sure why using dictionary-style access to add thelocation to the tokens didn
         print ivowelInfo.locn, ':', ivowelInfo.word
 
 
-The parse action addLocnToTokens embellishes the parsed tokens with new results names 'locn' and 'word'.
+The parse action `addLocnToTokens` embellishes the parsed tokens with new results names 'locn' and 'word'.
 
 Alternatively, you can define your own placeholder using an Empty, and add any kind of behavior to it you want, such as in this case, saving the current parse location:
 
@@ -4426,9 +4464,14 @@ However if I want to use the iterator to read the file like
 Is there a way to work around this case. Thanks...
 
 #### 2012-10-01 01:56:08 - ptmcg
-No, pyparsing must have the full source string read into a local string variable for it to parse.
+No, pyparsing must have the full source string read into a local string variable for it to 
+parse.
 
-If your top-level grammar looks something like OneOrMore(expr), and creating a single ParseResults containing all the expr results is slow to create or too large in memory, you could switch from using parseString to using scanString with the repeated expression. That is, convert OneOrMore(expr).parseString(inputstring) to expr.scanString(inputString).  scanString returns a generator that gives the matched tokens, start, and end location of each match. Perhaps this will help address what I assume are memory issues.
+If your top-level grammar looks something like `OneOrMore(expr)`, and creating a single 
+ParseResults containing all the expr results is slow to create or too large in memory, you 
+could switch from using parseString to using scanString with the repeated expression. 
+That is, convert `OneOrMore(expr).parseString(inputstring)` to `expr.scanString(inputString)`.
+scanString returns a generator that gives the matched tokens, start, and end location of each match. Perhaps this will help address what I assume are memory issues.
 
 -- Paul
 #### 2012-10-01 04:34:11 - cqqhzxgh
@@ -4448,7 +4491,7 @@ In the my_call_back_function I will generate corresponding objects, store them i
 
 So I will not be using the big ParseResults returned from the parseString. I guess scanString will perform the similar function in this case.
 
-my concerns for using  open('file_name').read()  is I guess python will load the entire file to the memory which exceeds 200MB. It consumes too much memory in this case. This is especially true if I am intended to run multiple pyparsing parser together.  Can you enlighten on me for this. BTW, I am not sure If I make myself clear. I am not sure if I am structure the grammar correctly either. Sorry for my crapping English.
+my concerns for using `open('file_name').read()`  is I guess python will load the entire file to the memory which exceeds 200MB. It consumes too much memory in this case. This is especially true if I am intended to run multiple pyparsing parser together.  Can you enlighten on me for this. BTW, I am not sure If I make myself clear. I am not sure if I am structure the grammar correctly either. Sorry for my crapping English.
 #### 2012-10-01 06:00:16 - ptmcg
 I think you are in a good place to just switch over to using scanString.  Define your grammar as:
 
@@ -5407,16 +5450,16 @@ Example:
 
 method1
 input: the output of expression1
-output: [ 'diaa fayed', 'diaa mohamed fayed' ]
+output: `[ 'diaa fayed', 'diaa mohamed fayed' ]`
 
 
 method2
 input: the output of expression2
-output: [ 'diaa', 'diaa fayed' ]
+output: `[ 'diaa', 'diaa fayed' ]`
 
 method3
 input: the output of expression3
-output: [ 'fayed', 'diaa fayed' ]
+output: `[ 'fayed', 'diaa fayed' ]`
 
 ....
 
@@ -5615,11 +5658,11 @@ I have been working with pyparsing for some time and have written a parser to pa
 
 For example, here's what I see when I run the profiler on the code.
 
-ncalls      tottime    percall    cumtime    percall    filename:lineno(function)
-4087463/1284    28.829    0    96.989    0.076    pyparsing.py:909(_parseNoCache)
-1959051/1543061    8.517    0    19.598    0    pyparsing.py:291(__init__)
-1380    7.235    0.005    7.235    0.005    {_omnipy.invoke}
-393192/7383    7.167    0    95.522    0.013    pyparsing.py:2524(parseImpl)
+    ncalls           tottime    percall    cumtime    percall    filename:lineno(function)
+    4087463/1284      28.829          0     96.989      0.076    pyparsing.py:909(_parseNoCache)
+    1959051/1543061    8.517          0     19.598          0    pyparsing.py:291(__init__)
+    1380               7.235      0.005      7.235      0.005    {_omnipy.invoke}
+    393192/7383        7.167          0     95.522      0.013    pyparsing.py:2524(parseImpl)
 
 
 
@@ -5642,7 +5685,7 @@ how can I trace which parser rule is being called the most or/and taking how muc
 
 Tx
 #### 2012-11-22 10:37:38 - ptmcg
-Try calling ParserElement.enablePackrat() before calling parseString - this will do internal memoization of parser matches/exceptions. Also, a common easy-to-change speedup is to replace low-level tokens that are built up using Combine(lots of other pyparsing bits) can be sped up by replacing with a Regex - floating-point numbers matched using Regex(r'\d+\.\d*') will be much faster than Combine(Word(nums)+'.'+Optional(Word(nums))), with little loss of readability.
+Try calling `ParserElement.enablePackrat()` before calling parseString - this will do internal memoization of parser matches/exceptions. Also, a common easy-to-change speedup is to replace low-level tokens that are built up using Combine(lots of other pyparsing bits) can be sped up by replacing with a Regex - floating-point numbers matched using `Regex(r'\d+\.\d*')` will be much faster than `Combine(Word(nums)+'.'+Optional(Word(nums)))`, with little loss of readability.
 
 You can add your own custom debug action to all of your expressions of interest to keep a tally of attempts, matches, and exceptions.
 #### 2012-11-22 10:47:35 - cadourian
@@ -5664,16 +5707,18 @@ Second question. The enablePackRat
 
 can I just use something like (given the pyparsing STRING def above),
 
-    STRING = Combine(Literal(''') + ZeroOrMore(S_CHAR | S_ESCAPE) + Literal('''))
+    STRING = Combine(Literal('"') + ZeroOrMore(S_CHAR | S_ESCAPE) + Literal('"'))
     STRING.enablePackRat()
 
-and later on use STRING.parseString(...) as before?
+and later on use `STRING.parseString(...)` as before?
 
 Thanks
 #### 2012-11-22 11:10:59 - ptmcg
-For your definition of STRING, just use QuotedString(''', escChar='\\'), which will internally generate its own regex.
+For your definition of STRING, just use `QuotedString('"', escChar='\\')`, which will internally generate its own regex.
 
-enablePackrat has to be globally enabled so that all expressions get memoized. After importing pyparsing, do 'ParserElement.enablePackrat()'.  More info here: 
+`enablePackrat` has to be globally enabled so that all expressions get memoized. After 
+importing pyparsing, do `'ParserElement.enablePackrat()'`.  More info here: 
+
 #### 2012-11-22 11:16:58 - ptmcg
 Didn't mean to stomp on your post - your regex sample is on the right track too, if you prefer to use that over QuotedString.
 
@@ -5938,10 +5983,10 @@ I am now trying to add a layer of recursion to support variables, but having tro
 
 In general, what would be awesome and I think useful to the pyparsing community is to expand the eval_arith example such that it shows the use of nested variables, something like:
 
-a = 3
-b = 8
-c = a + b
-2*c - b
+    a = 3
+    b = 8
+    c = a + b
+    2*c - b
 
 Thanks for the help, I can post some code if needed
 
@@ -6084,8 +6129,8 @@ Can you see why?  (hint: '|' means 'match first' - must take care not to interpr
 #### 2012-11-27 09:34:30 - rogersanchez75
 Yes, understood on the ordering. I changed the operand parsing around but still having an issue: when testing simple expressions such as
 
-a = 2.5
-b = Person:Height
+    a = 2.5
+    b = Person:Height
 
 I still am ending up with EvalConstant being the first parse action that is called. It does not seem like the assignment grammar is being executed so I never end up with the StoreVariable function being executed:
 
@@ -6518,7 +6563,7 @@ Why doesn't commented out identifier work?  To me it looks equivalent to the Wor
 alphas, nums, and alphanums are not pyparsing expressions, they are just plain old strings. pyparsing does auto-promotion of strings to Literals in many cases, so that you can easily write:
 
 
-    socSecNumber = Word(nums,exact=3)+'-'+Word(nums,exact=2)+'-'+Word(nums,exact=4)
+    socSecNumber = Word(nums,exact=3) + '-' + Word(nums,exact=2) + '-' + Word(nums,exact=4)
 
 alphas, nums, etc. are convenience string constants for defining Words, so that you don't have to constantly define 'alphas = 'abcdefghi...etc.' ' in all you pyparsing code. But because alphas is a string, and pyparsing auto-promotes strings to Literals if they are used as a Literal, what you are actually writing is 'OneOrMore(Literal('_abcdefghi...etc.') + ZeroOrMore('_abcdefghi...0123456789')'   so the repetition is looking for those actual strings, not using those strings as Word does, which is as the definition of allowed leading and optionally body characters. Also, Word does not allow any intervening whitespace, but looks for contiguous 'words' of letters that are composed from the given leading and body string characters. But by default 'expr + expr' (where 'expr' is any pyparsing expression) will allow whitespace to be found between the two expressions and still match.
 
@@ -6692,7 +6737,21 @@ I have developed a DSL for manipulating database content using pyparsing. I am n
 I don't really know where to start and whether this is even a good idea to try to do with an external DSL and pyparsing. Anyone have experience in this or advice?
 
 #### 2012-12-23 02:44:39 - ptmcg
-A while back I wrote an article for Python Magazine describing a Brainfuck compiler/interpreter written with pyparsing. The main concept was to compile the code into a corresponding structure of executable objects (similar to what is done in the online example SimpleBool.py, but with objects for IfStatement, AssignStatement, etc.) Design a Virtual Machine in which these objects can be run, possibly something as simple as a dict of variable values. Implement for each object class a method execute(vm). Then associate each class with the corresponding statements expression in your parser as a parse action. When you have parsed successfully, you will get a ParseResults containing executable objects - create an empty VM and then call object.execute(vm) for each object you have parsed. For control flow (like if-then-else or for/while loops), implement the control flow in that statement's execute function. What was fun about making this a 'compiler' was that the parsed code could be pickled and saved to a file. This could then be unpickled and run directly, without having to reparse the original DSL source.
+A while back I wrote an article for Python Magazine describing a Brainfuck 
+compiler/interpreter written with pyparsing. The main concept was to compile the code into 
+a corresponding structure of executable objects (similar to what is done in the online 
+example SimpleBool.py, but with objects for `IfStatement`, `AssignStatement`, etc.) Design a 
+Virtual Machine in which these objects can be run, possibly something as simple as a 
+dict of variable values. Implement for each object class a method `execute(vm)`. 
+Then associate each class with the corresponding statements expression in your parser 
+as a parse action. When you have parsed successfully, you will get a ParseResults 
+containing executable objects - create an empty VM and then call `object.execute(vm)` for 
+each object you have parsed. For control flow (like if-then-else or for/while loops), 
+implement the control flow in that statement's execute function. What was fun about 
+making this a 'compiler' was that the parsed code could be pickled and saved to a file. 
+This could then be unpickled and run directly, without having to reparse the original 
+DSL source.
+
 HTH,
 -- Paul
 #### 2012-12-23 07:56:48 - rogersanchez75
@@ -6700,7 +6759,11 @@ Cool.  I've see that article referenced a few places and tried to find the back 
 
 ---
 ## 2012-12-24 11:59:11 - catdude - Clarification regarding building a search sting
-This is my first attempt to use pyparsing for serious work. I have a script that currently uses regular expressions to parse log files, looking for specific type of log lines. In my current testing, I'm being given a message containing 'Accepted publickey for nagios from 10.70.50.101 port 43382 ssh2'. I had been parsing this with a regex '(Accepted publickey for ([a-zA-Z0-9\.]+) from [0-9\.]+).*'. 
+This is my first attempt to use pyparsing for serious work. I have a script that 
+currently uses regular expressions to parse log files, looking for specific type of log 
+lines. In my current testing, I'm being given a message containing 
+`'Accepted publickey for nagios from 10.70.50.101 port 43382 ssh2'`. I had been parsing this with a regex 
+`'(Accepted publickey for ([a-zA-Z0-9\.]+) from [0-9\.]+).*'`. 
 
 If I use :
 
@@ -6711,8 +6774,9 @@ If I use :
     string = a + user + Literal('from') + ip + Regex('.*')
 
 I get:
-string.searchString(msg)
-([(['Accepted publickey for', 'nagios', 'from', '10.70.50.101', 'port 43382 ssh2'], {})], {})
+
+    string.searchString(msg)
+    ([(['Accepted publickey for', 'nagios', 'from', '10.70.50.101', 'port 43382 ssh2'], {})], {})
 
 But if I do:
 
@@ -6720,8 +6784,9 @@ But if I do:
     string2 = Literal('Accepted publickkey for')+ Word(alphanums + '_') + Literal('from') + Word(nums + '.') + Regex('.*')
 
 I get :
-string2.searchString(msg)
-([], {})
+
+    string2.searchString(msg)
+    ([], {})
 
 So my question is, why do I get a parsed output when I build the pieces of the match string piece by piece then combine them, but not when I build the match string in place?
 
