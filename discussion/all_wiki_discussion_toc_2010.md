@@ -24,7 +24,7 @@ overtaken by development events.]_
 [2010-02-12 02:50:51 - marjoj - Comparing different parser generators](all_wiki_discussion_toc_2010.md#2010-02-12-025051---marjoj---comparing-different-parser-generators)  
 [2010-02-16 11:01:43 - Skipix - Simple arithmetic grammar](all_wiki_discussion_toc_2010.md#2010-02-16-110143---skipix---simple-arithmetic-grammar)  
 [2010-02-22 02:46:38 - josandres - Logical operators problem](all_wiki_discussion_toc_2010.md#2010-02-22-024638---josandres---logical-operators-problem)  
-[2010-02-22 08:52:55 - john-l - Selectively disabling `ignoreExprs`](all_wiki_discussion_toc_2010.md#2010-02-22-085255---john-l---selectively-disabling-`ignoreexprs`)  
+[2010-02-22 08:52:55 - john-l - Selectively disabling `ignoreExprs`](all_wiki_discussion_toc_2010.md#2010-02-22-085255---john-l---selectively-disabling-ignoreexprs)  
 [2010-03-02 02:54:05 - nerochiaro - How to improve error reporting ?](all_wiki_discussion_toc_2010.md#2010-03-02-025405---nerochiaro---how-to-improve-error-reporting-)  
 [2010-03-02 06:37:55 - dharanitharan - How to parse functions in C language](all_wiki_discussion_toc_2010.md#2010-03-02-063755---dharanitharan---how-to-parse-functions-in-c-language)  
 [2010-03-05 13:38:36 - bjornjobb - time expression parser](all_wiki_discussion_toc_2010.md#2010-03-05-133836---bjornjobb---time-expression-parser)  
@@ -39,7 +39,7 @@ overtaken by development events.]_
 [2010-03-24 14:21:38 - tvn1981 - Recursive and operatorPrecedence question](all_wiki_discussion_toc_2010.md#2010-03-24-142138---tvn1981---recursive-and-operatorprecedence-question)  
 [2010-03-26 06:44:07 - elekis - typeerror :'in <string>' requires string as left operand, not int](all_wiki_discussion_toc_2010.md#2010-03-26-064407---elekis---typeerror-in-string-requires-string-as-left-operand-not-int)  
 [2010-03-27 10:35:28 - shankarlingayya - How to ignore the next line in pyarsing](all_wiki_discussion_toc_2010.md#2010-03-27-103528---shankarlingayya---how-to-ignore-the-next-line-in-pyarsing)  
-[2010-03-27 11:13:18 - shankarlingayya - How to skip the data between { and } in pyparsing](all_wiki_discussion_toc_2010.md#2010-03-27-111318---shankarlingayya---how-to-skip-the-data-between-{-and-}-in-pyparsing)  
+[2010-03-27 11:13:18 - shankarlingayya - How to skip the data between { and } in pyparsing](all_wiki_discussion_toc_2010.md#2010-03-27-111318---shankarlingayya---how-to-skip-the-data-between--and--in-pyparsing)  
 [2010-03-27 12:37:47 - Elby - Good usage of setWhitespaceChars](all_wiki_discussion_toc_2010.md#2010-03-27-123747---elby---good-usage-of-setwhitespacechars)  
 [2010-03-30 09:05:05 - mvilanova - Continue parsing after \r character](all_wiki_discussion_toc_2010.md#2010-03-30-090505---mvilanova---continue-parsing-after-\r-character)  
 [2010-04-01 14:44:24 - tvn1981 - delimitedList of one or two or three fields](all_wiki_discussion_toc_2010.md#2010-04-01-144424---tvn1981---delimitedlist-of-one-or-two-or-three-fields)  
@@ -63,7 +63,7 @@ overtaken by development events.]_
 [2010-06-22 06:13:51 - dminor14 - build problem on cent0s5 64-bit](all_wiki_discussion_toc_2010.md#2010-06-22-061351---dminor14---build-problem-on-cent0s5-64-bit)  
 [2010-06-30 21:26:16 - Torkn - r199 breaks Python 2 compat](all_wiki_discussion_toc_2010.md#2010-06-30-212616---torkn---r199-breaks-python-2-compat)  
 [2010-06-30 21:56:29 - john_nagle - Address parser missing many street types.](all_wiki_discussion_toc_2010.md#2010-06-30-215629---john_nagle---address-parser-missing-many-street-types)  
-[2010-07-04 13:11:12 - GregWatson - problem with __builtin__ pyparsing  1.5.3 and Windows Python 3.1.2](all_wiki_discussion_toc_2010.md#2010-07-04-131112---gregwatson---problem-with-__builtin__-pyparsing--153-and-windows-python-312)  
+[2010-07-04 13:11:12 - GregWatson - problem with `__builtin__` pyparsing  1.5.3 and Windows Python 3.1.2](all_wiki_discussion_toc_2010.md#2010-07-04-131112---gregwatson---problem-with-__builtin__-pyparsing--153-and-windows-python-312)  
 [2010-07-06 19:04:52 - GregWatson - newbie problem with addParseAction and Combine](all_wiki_discussion_toc_2010.md#2010-07-06-190452---gregwatson---newbie-problem-with-addparseaction-and-combine)  
 [2010-07-08 09:48:49 - GregWatson - Questions on setDebug() and And()](all_wiki_discussion_toc_2010.md#2010-07-08-094849---gregwatson---questions-on-setdebug-and-and)  
 [2010-07-12 03:15:22 - dminor14 - pyparsing and imputil](all_wiki_discussion_toc_2010.md#2010-07-12-031522---dminor14---pyparsing-and-imputil)  
@@ -84,7 +84,7 @@ overtaken by development events.]_
 [2010-10-16 16:18:09 - edc - re: cppStyleComment problem](all_wiki_discussion_toc_2010.md#2010-10-16-161809---edc---re-cppstylecomment-problem)  
 [2010-10-19 17:57:45 - gobnat - How do I get a 10x speed increase?](all_wiki_discussion_toc_2010.md#2010-10-19-175745---gobnat---how-do-i-get-a-10x-speed-increase)  
 [2010-10-20 16:51:14 - jon.dobson - import error, Python 3.1.2](all_wiki_discussion_toc_2010.md#2010-10-20-165114---jondobson---import-error-python-312)  
-[2010-10-26 02:09:51 - erastune - pyparsing being "greedy" - I need help](all_wiki_discussion_toc_2010.md#2010-10-26-020951---erastune---pyparsing-being-"greedy"---i-need-help)  
+[2010-10-26 02:09:51 - erastune - pyparsing being "greedy" - I need help](all_wiki_discussion_toc_2010.md#2010-10-26-020951---erastune---pyparsing-being-greedy---i-need-help)  
 [2010-10-27 14:31:12 - johnny-b - pb with begin end type of expressions](all_wiki_discussion_toc_2010.md#2010-10-27-143112---johnny-b---pb-with-begin-end-type-of-expressions)  
 [2010-10-29 04:43:00 - rxe - update on ambiguous grammars](all_wiki_discussion_toc_2010.md#2010-10-29-044300---rxe---update-on-ambiguous-grammars)  
 [2010-10-29 04:48:34 - rxe - multisets](all_wiki_discussion_toc_2010.md#2010-10-29-044834---rxe---multisets)  
@@ -471,15 +471,16 @@ Okay, I removed ( and ), but in the new code (shown below) I can no longer do:
 
 
     a + func(a * 8)[4]
-
     a + func('test', 8 * 2, 'another argument') / 6
-
     a + func[4]
 
 
 
-In the first, I get 'pyparsing.ParseException: Expected ')' (at char 16)', presumably because that Group hasn't been told to allow [ ] on the end.
+In the first, I get 
 
+    pyparsing.ParseException: Expected ')' (at char 16)
+
+presumably because that Group hasn't been told to allow [ ] on the end.
 
 
 In the second, the arguments aren't parsed correctly, with ''test', 8 ' being the first parameter, '*' the second and ' 2, 'another argument'' the third.  In this case, it seems that I will also need PyParsing to handle argument seperation by comma and split the arguments as well :/
@@ -591,7 +592,7 @@ I currently have this parsing code:
 
 
 
-When it parses 'print(func(123) + abc(456))' it takes on average around 4 seconds which is fairly slow.  Is there a way to speed this up (to under 1/10th of a second)?
+When it parses `'print(func(123) + abc(456))'` it takes on average around 4 seconds which is fairly slow.  Is there a way to speed this up (to under 1/10th of a second)?
 
 #### 2010-01-16 19:14:14 - hach-que
 My code is now (there's a few Group()s added so that the ParseResults list is easier to sort through):
@@ -1801,7 +1802,7 @@ to
 
 ---
 ## 2010-02-12 02:50:51 - marjoj - Comparing different parser generators
-I'm writing my master's thesis. The subject of my thesis is Implementing a Parser Tool to Visualize Trace and Error Log Files�
+I'm writing my master's thesis. The subject of my thesis is Implementing a Parser Tool to Visualize Trace and Error Log Files
 
 
 
@@ -1868,7 +1869,7 @@ I'm trying to build my own simple arithmetic expression parser, which does +-*/,
 
 
 
-This works so far (in that my program can parse expressions like 1*2+3 and 1+2*3, observing operator precedence, and calculate the right answer). The Group() parts help preserve the operator precedence.
+This works so far (in that my program can parse expressions like `1*2+3` and `1+2*3`, observing operator precedence, and calculate the right answer). The Group() parts help preserve the operator precedence.
 
 
 
@@ -1969,7 +1970,7 @@ Then i have two problems:
 
 
 
-1.- <> Operator: When parsing an expression like A <> B i get this error:
+1.- <> Operator: When parsing an expression like `A <> B` i get this error:
 
 
 
@@ -1979,7 +1980,7 @@ Then i have two problems:
 
 
 
-2.- Arithmetic operation inside logical operation. When parsing an expression like A + 5 < B i get this error:
+2.- Arithmetic operation inside logical operation. When parsing an expression like `A + 5 < B` i get this error:
 
 
 
@@ -2026,7 +2027,7 @@ I'm hard pressed to come up with a clean way to do this.  You could define the e
 
 
 
-It may be that you are trying to force a filtering or extracting application into using parseString, when scanString, searchString, or transformString might be more appropriate.  For example, if I am scanning for <a href> tags, but I want to not match tags within comments, I would do this:
+It may be that you are trying to force a filtering or extracting application into using parseString, when scanString, searchString, or transformString might be more appropriate.  For example, if I am scanning for `<a href>` tags, but I want to not match tags within comments, I would do this:
 
 
 
@@ -2063,7 +2064,7 @@ I'm happy to provide an actual example of this problem.  I provide a small sampl
 
 
 #### 2010-02-23 08:32:52 - ptmcg
-I think your solution of IRI.ignoreExprs=None looks fine to me.
+I think your solution of `IRI.ignoreExprs=None` looks fine to me.
 
 ---
 ## 2010-03-02 02:54:05 - nerochiaro - How to improve error reporting ?
@@ -3303,12 +3304,8 @@ Thanks for the hints :
 
 
  * for the first point, when my parseAction was returning columns, r.table was
-
-   a string and not a parseResults, so r.table.dump() crashed.  I changed my
-
-   parseAction to return [columns] instead, and this seems to work.
-
-
+   a string and not a parseResults, so `r.table.dump()` crashed.  I changed my
+   parseAction to return `[columns]` instead, and this seems to work.
 
  * for the second point, I used Forward elements and this did the trick.
 
@@ -3689,16 +3686,16 @@ Gives the output
 
 
 ```
-<br />
-block!(one line<br />
-two line<br />
-three line)<br />
-block!(<br />
-four line<br />
-five line)<br />
-<br />
-six<br />
-foo<br />
+
+block!(one line
+two line
+three line)
+block!(
+four line
+five line)
+
+six
+foo
 
 ```
 
@@ -3711,16 +3708,16 @@ If I modify the sample text, adding a trailing newline, I get.
 
 
 ```
-<br />
-block!(one line<br />
-two line<br />
-three line)<br />
-block!(<br />
-four line<br />
-five line)<br />
-block!(<br />
-six<br />
-foo)<br />
+
+block!(one line
+two line
+three line)
+block!(
+four line
+five line)
+block!(
+six
+foo)
 
 ```
 
@@ -5421,7 +5418,7 @@ Some parting thoughts: the And implementation is definitely buggy, and I fixed i
 
 
 
-I THINK that because of your parse result <u>new</u> implementation, this copy does not always happen, but I have not yet seen this with my debugger.
+I THINK that because of your parse result __new__ implementation, this copy does not always happen, but I have not yet seen this with my debugger.
 
 
 
@@ -6138,13 +6135,13 @@ As of r199, setup.py says:
 
     -# cleaned up for Py2/Py3 compatibility - thanks to Mark Roddy
      if _PY3:
-    -    from pyparsing_py3 import <u>version</u>
+    -    from pyparsing_py3 import __version__
     -    modules = ['pyparsing_py3',]
-    +    from pyparsing_py3 import <u>version</u> as pyparsing_version
+    +    from pyparsing_py3 import __version__ as pyparsing_version
      else:
-    -    from pyparsing import <u>version</u>
+    -    from pyparsing import __version__
     -    modules = ['pyparsing',]
-    +    from pyparsing_py2 import <u>version</u> as pyparsing_version
+    +    from pyparsing_py2 import __version__ as pyparsing_version
 
 Unfortunately pyparsing_py2.py does not exist.
 
@@ -6549,7 +6546,8 @@ Unfortunately, after doing this, one of the test cases, '1500 Deer Creek Lane', 
         'wy'        :    'way',
     }
     #
-    # Unit abbreviations, expanded to full word</li></ol>#
+    # Unit abbreviations, expanded to full word
+    #
     Unit_Code = {
         'suite'        :    'suite',
         'ste'        :    'suite',
@@ -7197,25 +7195,27 @@ FYI
 
 I just installed pyparsing 1.5.3 with the latest Python 3.1.2 (r312:79149) and tried to run the hello world.
 
-It gave an ImportError about not finding <u>builtin</u>
+It gave an ImportError about not finding `__builtin__`
 
 
 
 So I just commented out the line 
 
-'import <u>builtin</u>'
+    'import __builtin__'
 
 and then changed
 
-        singleArgBuiltins.append(getattr(<u>builtin</u>,fname))
+        singleArgBuiltins.append(getattr(__builtin__,fname))
 
 
 
-to         singleArgBuiltins.append(getattr(<u>builtins</u>,fname))
+to
+
+        singleArgBuiltins.append(getattr(__builtins__,fname))
 
 
 
-(i.e. <u>builtin</u> => <u>builtins</u>)
+(i.e. `__builtin__` => `__builtins__`)
 
 
 
@@ -7246,10 +7246,10 @@ I can't even get pyparsing to install with python 3.1:
     c:\Downloads\pyparsing-1.5.3>c:\Python31\python.exe setup.py -v install
     Traceback (most recent call last):
       File 'setup.py', line 12, in <module>
-        from pyparsing_py3 import <u>version</u> as pyparsing_version
+        from pyparsing_py3 import __version__ as pyparsing_version
       File 'c:\Downloads\pyparsing-1.5.3\pyparsing_py3.py', line 141, in <module>
-        import <u>builtin</u>
-    ImportError: No module named <u>builtin</u>
+        import __builtin__
+    ImportError: No module named __builtin__
 
 I tried running the executable installer and that failed too.  It didn't give a very detailed error message.
 
@@ -7332,14 +7332,9 @@ then the output becomes:
 
 
 
-CharRange text was \x20..\x21
+CharRange text was \x20..\x21 saw tokens `['2021']`
 
-   saw tokens ['2021']
-
-['2021']
-
-
-
+    ['2021']
 
 
 So the hexchar and SingleChar actions seem not to have been invoked, and yet they clearly have been given that the \x have been removed.
@@ -7466,22 +7461,13 @@ I am encountering a couple of problems which I have reduced to a very simple par
 
 The output from running this (Python 3.1.2 Windows,  pyparsing 1.5.3) is:
 
-
-
-Match SymType at loc 0(1,1)
-
-Match A at loc 0(1,1)
-
-Matched A -> ['A']
-
-Match A at loc 0(1,1)
-
-Matched A -> ['A']
-
-Matched SymType -> ['A']
-
-['A']
-
+    Match SymType at loc 0(1,1)
+    Match A at loc 0(1,1)
+    Matched A -> ['A']
+    Match A at loc 0(1,1)
+    Matched A -> ['A']
+    Matched SymType -> ['A']
+    ['A']
 
 
 Two things confuse me:
@@ -7576,84 +7562,45 @@ Header filesinclding the Comment blocks look like this:
 
 
 
-/<strong> @defgroup _MSG_DMC_X1_MSF_OPTIONS_SET_ DMC_X1_MSF_Options_Set
+    /** @defgroup _MSG_DMC_X1_MSF_OPTIONS_SET_ DMC_X1_MSF_Options_Set
+     *  @
+     */
 
- *  @{
+    /** Message ID for DMCmedomMSFOptionsSet . */
+    #define HXH_DMC_X1_MSF_OPTIONS_SET 0x4098u
 
- */
+    /** Parameter0: L2 Semi-Auto Entry, Bit 11 .
+    (AA only)
+    Only effective if the L2 mode has been enabled (with Bit 8). Enables/Disables the
+    automatism for semi-auto L2 entry function. It means the supervision of bandwidth
+    utilization as configured by PRR_TH and L2_GUARD in DMC_AA_L2_BC0_Configure.
+    - Default Value: NX_DISABLE
+    */
 
-
-
-/</strong> Message ID for DMCmedomMSFOptionsSet . */
-
-#define HXH_DMC_X1_MSF_OPTIONS_SET 0x4098u
-
-
-
-/<strong> Parameter0: L2 Semi-Auto Entry, Bit 11 .
-
-   (AA only)
-
-   Only effective if the L2 mode has been enabled (with Bit 8). Enables/Disables the
-
-   automatism for semi-auto L2 entry function. It means the supervision of bandwidth
-
-   utilization as configured by PRR_TH and L2_GUARD in DMC_AA_L2_BC0_Configure.
-
-   - Default Value: NX_DISABLE
-
-*/
-
-
-
-#define HXH_4098_E7_POS 7
-
-/</strong> Parameter0: Granting of an L3 Request from UTA-R .
-
-   (AA-CO only)
-
-   Enables/Disables the granting of an orderly shutdown request ('L3 request')
-
-   received from the UTA-R.
-
-   - Default Value: NX_DISABLE
-
-
-
-   @note
-
-    If disabled, the UTA-C rejects an L3 request in any case. If enabled, the
-
-   UTA-C may grant an L3 request (additional conditions must be fulfilled like
-
-   e.g. Showtime)
-
-*/
-
-#define HXH_4098_E5_MASK 0x0020u
-
-/<strong> Bit offset of @ref HXH_4098_E5_MASK . */
-
-#define HXH_4098_E5_POS 5
-
-
-
-typedef struct
-
-{
-
-   /</strong> Parameter0 . */
-
-   uint16 Parameter0;
-
-} T_HXH_DMCmedomMSFOptionsSet;
-
-
-
-/** @} */
-
-
-
+    #define HXH_4098_E7_POS 7
+    /** Parameter0: Granting of an L3 Request from UTA-R .
+       (AA-CO only)
+       Enables/Disables the granting of an orderly shutdown request ('L3 request')
+       received from the UTA-R.
+       - Default Value: NX_DISABLE
+    
+       @note
+        If disabled, the UTA-C rejects an L3 request in any case. If enabled, the
+       UTA-C may grant an L3 request (additional conditions must be fulfilled like
+       e.g. Showtime)
+    */
+    
+    #define HXH_4098_E5_MASK 0x0020u
+    /** Bit offset of @ref HXH_4098_E5_MASK . */
+    #define HXH_4098_E5_POS 5
+    
+    typedef struct
+    {
+       /** Parameter0 . */
+       uint16 Parameter0;
+    } T_HXH_DMCmedomMSFOptionsSet;
+    
+    /** @} */
 
 
 apart from the C-expressions which are parsed correctly, ignoring the comment blocks
@@ -7662,12 +7609,11 @@ I need to extract the information in the lines starting with '-' the a 'keyword'
 
 for example:
 
-- Default Value: xxx utut erui 
+    - Default Value: xxx utut erui 
 
 or 
 
-- Min. Val: -1D
-
+    - Min. Val: -1D
 
 
 Can anybody please help?
@@ -7772,11 +7718,7 @@ Putting your C code into a variable named 'csource', I used this to extract your
         for info in specialinfo.searchString(ccomment[0]):
             print info.dump()
 
-
-
 Gives:
-
-
 
     ['-', 'Default Value', ':', ' NX_DISABLE']
     - name: Default Value
@@ -7805,31 +7747,19 @@ Paul,
 
 many Thanks for your help 
 
-I#m working on some extensions and
-
+I'm working on some extensions and
 have problems to extract more than one specialinfo-blocks out of one comment block.
 
-
-
 in order to be able to corelate the data between two passes i have to know that the
-
 data is related to 'parameter0' which is declared in the typedef struct block.
-
-
 
 So i need to that the the default/min/max value is related to Parameter0. using the code below I get only Paramet0 and its desription but not the default/Min/Max value 
 
 Any hints on that? 
 
-
-
-
-
-    
+   
     from pyparsing import *
-    
     csource = '''
-    
     /** @defgroup _MSG_DMC_MEDOM_MSF_OPTIONS_SET_ DMC_Medom_MSF_Options_Set
      *  @{
      */
@@ -7997,31 +7927,18 @@ this is the gerated output
 
 
 
-['Parameter', '0', '', 'L2 Semi-Auto Entry, Bit 11 ']
-
-- ParameterDescr: L2 Semi-Auto Entry, Bit 11 
-
-- name: 
-
-['Default Value', 'VNX_DISABLE', '\n', 'Min. Value', '1H', '\n', 'Max. Value', 'FFFFFFFEH', '\n']
-
-- ConstraintValue: ['FFFFFFFEH']
-
-- key: Max. Value 
-
-
+    ['Parameter', '0', '', 'L2 Semi-Auto Entry, Bit 11 ']
+    - ParameterDescr: L2 Semi-Auto Entry, Bit 11 
+    - name: 
+    ['Default Value', 'VNX_DISABLE', '\n', 'Min. Value', '1H', '\n', 'Max. Value', 'FFFFFFFEH', '\n']
+    - ConstraintValue: ['FFFFFFFEH']
+    - key: Max. Value 
 
 that's the new code
 
-
-
-
-
-    
     from pyparsing import *
-    
+   
     csource = '''
-    
     /** @defgroup _MSG_DMC_MEDOM_MSF_OPTIONS_SET_ DMC_Medom_MSF_Options_Set
      *  @{
      */
@@ -8178,32 +8095,17 @@ that's the new code
         #print ccomment[0]
         for info in specialinfo.searchString(ccomment[0][0]):
             print info.dump()
-    
-    
-    
-    
-
 
 #### 2010-07-22 21:47:55 - ptmcg
 Change specialinfo to:
 
-
-
-
-
     specialinfo = Constraints | ParameterX | defBlock 
-
-
 
 ---
 ## 2010-07-23 11:47:41 - mlissner - No online documentation? 
 It looks like the online documentation is now no longer working. I guess we should remove the link, but it would be great if we could get some documentation posted somewhere for people like myself that don't know how to find the documentation that ships with a package.
 
-
-
 Thanks,
-
-
 
 Mike
 
@@ -8218,10 +8120,6 @@ Fixed. Thanks for the link - it really helps.
 ## 2010-08-10 15:12:09 - classicgamedev - operatorPrecedence is incredibly slow
 I am using operatorPrecedence to implement some simple arithmetic operators as part of a simple assembler.  My pyparsing rules look something like this:
 
-
-
-
-
     immediate = operatorPrecedence(Word(nums),
                                    [ (oneOf('+ -'), 2, opAssoc.LEFT),
                                      (oneOf('* /'), 2, opAssoc.LEFT)])
@@ -8234,154 +8132,118 @@ I am using operatorPrecedence to implement some simple arithmetic operators as p
 
 this is obviously stripped down, but it is design to parse simple lines of assembly like so:
 
-
-
-
-
     ldy #2
     ldx #(1+2) * 3
 
-
-
 What I'm finding is that it works, but it is incredibly slow.  It takes 2 minutes to parse a single line on a core2duo 3.0 GHz with 4 GB of RAM.  Is there anything I can do to speed this up?  It doesn't seem like this should take that long.  I noticed that it takes much longer if there are parenthesis involved like the second line above.
 
-
-
 Do you have any suggestions?
-
-
 
 Thanks.
 
 #### 2010-08-10 15:27:59 - classicgamedev
 So I just ran a simple test with the above code and it seems to be almost instantaneous.  My actual code is considerably more complex than the given example.
 
-
-
 For instance, the opcode is defined as:
 
-
-
-opcode = Or([CaselessKeyword(op) for op in Opcode.OPCODES])
-
-
+    opcode = Or([CaselessKeyword(op) for op in Opcode.OPCODES])
 
 where Opcode.OPCODES is an array of 56 different opcodes.
 
-
-
 The base operand passed to operatorPrecedence is a complex Or that looks like:
 
-
-
-variable_ref = Group(Name + ZeroOrMore(Suppress('.') + Name))
-
-imm = Or([NumericValue, ArrayValue, variable_ref])
-
-operatorPrecedence(imm, [...])
-
-
+    variable_ref = Group(Name + ZeroOrMore(Suppress('.') + Name))
+    imm = Or([NumericValue, ArrayValue, variable_ref])
+    operatorPrecedence(imm, [...])
 
 NumericValue handles parsing numbers in decimal, hexidecimal (0x0000 and $0000), binary 1000101b, etc.  The ArrayValue handles parsing things like foo[0].  The variable_ref handles variable names like 'foo' and 'bar.baz'.
-
-
 
 So my real code is more complex but I still think it shouldn't take 2 minutes to drop into the parse action for the operatorPrecedence rule.
 #### 2010-08-10 17:39:33 - classicgamedev
 So I was able to get the runtime down to something quick by removing all of the clauses of the operatorPrecedence except for one.  I then played around with adding clauses back in and discovered a few things:
 
-
-
 1. adding single argument, right-associative operators costs almost nothing.  I have eight of them in my full operator list.
 
-
-
 2. adding in two-argument, left-associative operators increases exponentially as each one is added.
-
-
 
 I used the time command on Linux to measure the real time it took to process a single line of input.  Each time I added a new two-argument, left-associative operator.  Here are the numbers:
 
 
 
-
-
-<table class="wiki_table">
-    <tr>
-        <th>Operators
-
-</th>
-        <th>Seconds
-
-</th>
-    </tr>
-    <tr>
-        <td>1
-
-</td>
-        <td>0.27
-
-</td>
-    </tr>
-    <tr>
-        <td>2
-
-</td>
-        <td>0.32
-
-</td>
-    </tr>
-    <tr>
-        <td>3
-
-</td>
-        <td>0.49
-
-</td>
-    </tr>
-    <tr>
-        <td>4
-
-</td>
-        <td>1.18
-
-</td>
-    </tr>
-    <tr>
-        <td>5
-
-</td>
-        <td>3.83
-
-</td>
-    </tr>
-    <tr>
-        <td>6
-
-</td>
-        <td>14.67
-
-</td>
-    </tr>
-    <tr>
-        <td>7
-
-</td>
-        <td>57.18
-
-</td>
-    </tr>
-    <tr>
-        <td>8
-
-</td>
-        <td>233.77
-
-</td>
-    </tr>
-</table>
-
-
+    <table class="wiki_table">
+        <tr>
+            <th>Operators
+    
+    </th>
+            <th>Seconds
+    
+    </th>
+        </tr>
+        <tr>
+            <td>1
+    
+    </td>
+            <td>0.27
+    
+    </td>
+        </tr>
+        <tr>
+            <td>2
+    
+    </td>
+            <td>0.32
+    
+    </td>
+        </tr>
+        <tr>
+            <td>3
+    
+    </td>
+            <td>0.49
+    
+    </td>
+        </tr>
+        <tr>
+            <td>4
+    
+    </td>
+            <td>1.18
+    
+    </td>
+        </tr>
+        <tr>
+            <td>5
+    
+    </td>
+            <td>3.83
+    
+    </td>
+        </tr>
+        <tr>
+            <td>6
+    
+    </td>
+            <td>14.67
+    
+    </td>
+        </tr>
+        <tr>
+            <td>7
+    
+    </td>
+            <td>57.18
+    
+    </td>
+        </tr>
+        <tr>
+            <td>8
+    
+    </td>
+            <td>233.77
+    
+    </td>
+        </tr>
+    </table>
 
 So you can see, when I have all eight of my two-argument, left-associative operators, the processing time is just shy of 4 minutes per line of text.
 
@@ -8391,11 +8253,6 @@ Is there anything I can do to make this faster?
 #### 2010-08-10 17:41:23 - classicgamedev
 Just for reference, here's the code that sets up my operatorPrecedence:
 
-
-
-
-
-    
     signop = oneOf('+ -')
     sizeof_ = Literal('sizeof')
     lo_ = Literal('lo')
@@ -8445,54 +8302,28 @@ Just for reference, here's the code that sets up my operatorPrecedence:
 #### 2010-08-10 21:07:11 - ptmcg
 It looks like packrat parsing will really help your parser.  After importing pyparsing, add this line:
 
-
-
     ParserElement.enablePackrat()
-
-
 
 My time to run your parser went from 28 seconds to about .1 second.
 #### 2010-08-10 21:32:12 - ptmcg
 Some other comments on your parser:
 
-
-
 1) An Or of 56 different opcodes is going to be a lot less efficient than if you use MatchFirst.  MatchFirst does short-circuiting, returning the first matching term.  By contrast, Or has to examine all given options, even after finding an exact match.  Since you are creating CaselessKeywords for all your opcodes, you run no risk of incorrectly matching the wrong opcode.  You can even do some ordering of the opcodes in the list, to put more frequent opcodes ahead of less frequent ones.
-
-
-
-
 
 2) 
 
-
-
     variable_ref = Group(Name + ZeroOrMore(Suppress('.') + Name))
 
-
-
 can be replaced with
-
-
-
-
 
     variable_ref = Group(delimitedList(Name, delim='.'))
 
 
-
-
-
 3) I've found that the terminal items like decimal numbers, hex, etc. are best implemented using Regexes, instead of building them up with Word, Combine, and so forth:
-
-
-
-
 
     decimal = Regex(r'\d+(\.\d*)?')
     hexadecimal = Regex(r'(0x|$)[0-9a-fA-F]+')
     binary = Regex(r'[01]+b')
-
 
 #### 2010-08-11 10:26:47 - classicgamedev
 Wow.  I just added:
@@ -8519,66 +8350,34 @@ Great, I'm glad this paid off for you! You can see more discussion of packrattin
 ## 2010-08-12 18:13:10 - scripteaze - Mac Address Grammer and output
 all is working fine, however, im trying to grab just the mac address.
 
-[code]
-
-from pyparsing import *
-
-import os, string
-
-
-
-# grammer</li></ol>
-
-firstline    = Suppress(ZeroOrMore(Word(alphas)))
-
-secondline   = Suppress(ZeroOrMore('='))
-
-thirdline    = ZeroOrMore(Word(alphanums + '-'))
-
-
-
-# pattern</li></ol>
-
-pattern = Combine(firstline + secondline + thirdline)
-
-
-
-ws = 'cia'
-
-x = ''
-
-p = os.popen('GETMAC /S %s' %(ws))
-
-for line in p.readlines():
-
-    x = pattern.parseString(line)
-
-    print x
-
-[/code]
-
-
+    from pyparsing import *
+    import os, string
+    
+    # grammer
+    firstline    = Suppress(ZeroOrMore(Word(alphas)))
+    secondline   = Suppress(ZeroOrMore('='))
+    thirdline    = ZeroOrMore(Word(alphanums + '-'))
+    
+    # pattern</li></ol>
+    pattern = Combine(firstline + secondline + thirdline)
+    
+    ws = 'cia'
+    x = ''
+    p = os.popen('GETMAC /S %s' %(ws))
+    for line in p.readlines():
+        x = pattern.parseString(line)
+        print x
 
 the output is:
 
-
-
-['']
-
-['']
-
-['']
-
-['00-23-8B-20-4F-8A']
-
-['']
-
+    ['']
+    ['']
+    ['']
+    ['00-23-8B-20-4F-8A']
+    ['']
 
 
 im trying to just get the mac into a variable for later use, not all the remaining [], [], []
-
-
-
 
 
 thanks!!
@@ -8586,38 +8385,21 @@ thanks!!
 #### 2010-08-12 20:04:21 - ptmcg
 Use a results name.  Change:
 
-
-
     thirdline = ZeroOrMore(Word(alphanums + '-'))
-
-
 
 to
 
-
-
     thirdline = ZeroOrMore(Word(alphanums + '-')('macaddress'))
-
-
 
 Then do:
 
-
-
     if x.macaddress:
             print x.macaddress
-
-
+            
 #### 2010-08-13 20:02:24 - scripteaze
 thanks for the reply and solution..
 
-
-
 i went with this, it does work, although woundnt mind cleaning it up a bit.
-
-
-
-
 
     from pyparsing import Suppress, ZeroOrMore, Word, alphas, alphanums
     import os, socket, sys
@@ -8821,61 +8603,37 @@ avisenna
 
 ---
 ## 2010-08-19 03:10:26 - milliams - Parsing simple c++ function calls
-<h1 id="toc0">Background</h1>
+
+- Background
+
+  I'm currently writing an extension for Sphinx called . Basically it scans some XML output from Doxygen (a C++ documentation tool) and allows the Sphinx user to link to the Doxygen HTML documentation of an symbol or function they want.
+
+- My use of pyparsing
+
+  For each symbol in the XML file, I add it to a mapping dictionary. However, for functions, C++ allows you to have multiple versions of the same function differing only by their argument list. To this end I parse the function signatures and normalise them so that the user can easily specify which version they want.
+
+  I use pyparsing to parse the argument list, extract the argument types and normalise them into a new string.
+
+  The 'problem' I'm facing is that for a large XML file, there can easily be tens of thousands of symbols needing parsing (OGRE3D for example has about 16,000). Now, for each symbol I need to make a call to parseString() and so I'm trying to make it as fast as possible.
+
+  Currently for OGRE3D it takes about 40 seconds to parse all the items which isn't too bad but I'd like to improve it if possible.
 
 
-I'm currently writing an extension for Sphinx called . Basically it scans some XML output from Doxygen (a C++ documentation tool) and allows the Sphinx user to link to the Doxygen HTML documentation of an symbol or function they want.
+- Optimisations tried so far</h1>
 
+  I've tried packratting but in my case it made everything about twice as slow. This is likely due to the fact that each string I parse is only about 10-50 characters long so caching doesn't help.
 
+  For all the common cases for which I can easily account (empty argument lists mostly), I'm bypassing pyparsing entirely which gives a small performance boost (and allows me to reduce my usage of pyparsing.Optional).
 
-<h1 id="toc1">My use of pyparsing</h1>
+- Current code
 
+  The current code is at  and the unittests (to give you an idea of the inputs and outputs) is at .
 
-For each symbol in the XML file, I add it to a mapping dictionary. However, for functions, C++ allows you to have multiple versions of the same function differing only by their argument list. To this end I parse the function signatures and normalise them so that the user can easily specify which version they want.
+  parsing.py basically just consists of the pyparsing setup and a normalise() function.
 
+  If there's anything obvious I'm doing wrong or places where I could improve the code, please let me know. Please not that I'm not trying to make a completely conformant c++ function parser, simply something that does the job I need. 
 
-
-I use pyparsing to parse the argument list, extract the argument types and normalise them into a new string.
-
-
-
-The 'problem' I'm facing is that for a large XML file, there can easily be tens of thousands of symbols needing parsing (OGRE3D for example has about 16,000). Now, for each symbol I need to make a call to parseString() and so I'm trying to make it as fast as possible.
-
-
-
-Currently for OGRE3D it takes about 40 seconds to parse all the items which isn't too bad but I'd like to improve it if possible.
-
-
-
-<h1 id="toc2">Optimisations tried so far</h1>
-
-
-I've tried packratting but in my case it made everything about twice as slow. This is likely due to the fact that each string I parse is only about 10-50 characters long so caching doesn't help.
-
-
-
-For all the common cases for which I can easily account (empty argument lists mostly), I'm bypassing pyparsing entirely which gives a small performance boost (and allows me to reduce my usage of pyparsing.Optional).
-
-
-
-<h1 id="toc3">Current code</h1>
-
-
-The current code is at  and the unittests (to give you an idea of the inputs and outputs) is at .
-
-
-
-parsing.py basically just consists of the pyparsing setup and a normalise() function.
-
-
-
-If there's anything obvious I'm doing wrong or places where I could improve the code, please let me know. Please not that I'm not trying to make a completely conformant c++ function parser, simply something that does the job I need. 
-
-
-
-I'm also aware that I may not be able to make it any faster since perhaps I've reached the limit of what tweaking can do.
-
-
+  I'm also aware that I may not be able to make it any faster since perhaps I've reached the limit of what tweaking can do.
 
 See  and  for the discussion I had previously on the sphinx-dev mailing list.
 
@@ -8963,7 +8721,7 @@ i'm going crazy here trying to figure this out, and i expect it is real easy, i'
 
 
 
-i would like to match every line that has a = in it, or starts with whitespace followed by 'for' and do something with it, and every other line do something else.  i can't figure it out.  first i define the lines i am interested in:
+i would like to match every line that has a `=` in it, or starts with whitespace followed by 'for' and do something with it, and every other line do something else.  i can't figure it out.  first i define the lines i am interested in:
 
 
 
@@ -9082,17 +8840,11 @@ here is the code
     MsgPropDoxyLine.setParseAction(msgIDPropAction)
     
     msgIdBlock = MsgIdDoxyLine + MsgId
-    
     msgPropBlock =   MsgPropDoxyLine + MsgProp
     
-    
     msgBlock = msgIdBlock + Optional(msgPropBlock)
-    
     defGroupBody <<  (msgBlock + ZeroOrMore(defGroup))
-    
-    
     defGroup << DefGroupStart + DefGroupHeader.suppress() + defGroupBody + DefGroupEnd.suppress()
-    
     
     tst1 = '''
     /** @defgroup _MSG_CMD_HS_FE_CAPABILITIES_GET_1 CMD_HS_FE_Capabilities_Get1
@@ -9104,7 +8856,6 @@ here is the code
     /** Message properties for CmdmdmFsmOptionsSet1 . */
     #define HMH_CMD_mdm_FSM_OPTIONS_SET_EXTEND1 (HMH_CMD_mdm_FSM_OPTIONS_SET1 | PROP_VDSL1 | PROP_LSDA1 | PROP_V3_X1 | PROP_IDLE1)
     
-    
     /** @defgroup _MSG_CMD_HS_FE_CAPABILITIES_GET_2 CMD_HS_FE_Capabilities_Get2
      *  @{
      */
@@ -9112,8 +8863,7 @@ here is the code
      #define HMH_CMD_mdm_FSM_OPTIONS_SET2 0x2204u
     
      /** Message properties for CmdmdmFsmOptionsSet2 . */
-    #define HMH_CMD_mdm_FSM_OPTIONS_SET_EXTEND2 (HMH_CMD_mdm_FSM_OPTIONS_SET2 | PROP_LSDV2 | PROP_LSDA2 | PROP_V3_X2 | PROP_IDLE2)
-    
+     #define HMH_CMD_mdm_FSM_OPTIONS_SET_EXTEND2 (HMH_CMD_mdm_FSM_OPTIONS_SET2 | PROP_LSDV2 | PROP_LSDA2 | PROP_V3_X2 | PROP_IDLE2)
     
      /** @defgroup _MSG_CMD_HS_FE_CAPABILITIES_GET_3 CMD_HS_FE_Capabilities_Get3
      *  @{
@@ -9169,142 +8919,76 @@ here is the code
      /** Message properties for CmdmdmFsmOptionsSet3 . */
     #define HMH_CMD_mdm_FSM_OPTIONS_SET_EXTEND3 (HMH_CMD_mdm_FSM_OPTIONS_SET3 | PROP_LSDV3 | PROP_LSDA3 | PROP_V3_X3 | PROP_IDLE3)
     
-    
-    
     /** @} */ 
     
     /** @} */
-    
-    
     
     /** @} */
     '''
     
     res = defGroup.parseString(tst2)
     pprint.pprint( res.asList() )
-    
-
-
 
 with test1 we get the following correct result:
 
---
 
-['_MSG_CMD_HS_FE_CAPABILITIES_GET_1 CMD_HS_FE_Capabilities_Get1',
-
- 'CmdmdmFsmOptionsSet1 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET1',
-
- '0x1104u',
-
- 'CmdmdmFsmOptionsSet1 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET1',
-
- 'PROP_VDSL1',
-
- 'PROP_LSDA1',
-
- 'PROP_V3_X1',
-
- 'PROP_IDLE1',
-
- '_MSG_CMD_HS_FE_CAPABILITIES_GET_2 CMD_HS_FE_Capabilities_Get2',
-
- 'CmdmdmFsmOptionsSet2 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET2',
-
- '0x2204u',
-
- 'CmdmdmFsmOptionsSet2 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET2',
-
- 'PROP_LSDV2',
-
- 'PROP_LSDA2',
-
- 'PROP_V3_X2',
-
- 'PROP_IDLE2',
-
- '_MSG_CMD_HS_FE_CAPABILITIES_GET_3 CMD_HS_FE_Capabilities_Get3',
-
- 'CmdmdmFsmOptionsSet3 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET3',
-
- '0x3304u',
-
- 'CmdmdmFsmOptionsSet3 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET3',
-
- 'PROP_LSDV3',
-
- 'PROP_LSDA3',
-
- 'PROP_V3_X3',
-
- 'PROP_IDLE3']
-
---
-
-
+    ['_MSG_CMD_HS_FE_CAPABILITIES_GET_1 CMD_HS_FE_Capabilities_Get1',
+     'CmdmdmFsmOptionsSet1 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET1',
+     '0x1104u',
+     'CmdmdmFsmOptionsSet1 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET1',
+     'PROP_VDSL1',
+     'PROP_LSDA1',
+     'PROP_V3_X1',
+     'PROP_IDLE1',
+     '_MSG_CMD_HS_FE_CAPABILITIES_GET_2 CMD_HS_FE_Capabilities_Get2',
+     'CmdmdmFsmOptionsSet2 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET2',
+     '0x2204u',
+     'CmdmdmFsmOptionsSet2 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET2',
+     'PROP_LSDV2',
+     'PROP_LSDA2',
+     'PROP_V3_X2',
+     'PROP_IDLE2',
+     '_MSG_CMD_HS_FE_CAPABILITIES_GET_3 CMD_HS_FE_Capabilities_Get3',
+     'CmdmdmFsmOptionsSet3 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET3',
+     '0x3304u',
+     'CmdmdmFsmOptionsSet3 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET3',
+     'PROP_LSDV3',
+     'PROP_LSDA3',
+     'PROP_V3_X3',
+     'PROP_IDLE3']
 
 in test2 one item is missing which shouldn't lead to an error because the element msgPropBlock is optional but I get the following wrong result:
 
 --
 
-['_MSG_CMD_HS_FE_CAPABILITIES_GET_1 CMD_HS_FE_Capabilities_Get1',
-
- 'CmdmdmFsmOptionsSet1 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET1',
-
- '0x1104u',
-
- 'CmdmdmFsmOptionsSet1 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET1',
-
- 'PROP_VDSL1',
-
- 'PROP_LSDA1',
-
- 'PROP_V3_X1',
-
- 'PROP_IDLE1',
-
- '_MSG_CMD_HS_FE_CAPABILITIES_GET_2 CMD_HS_FE_Capabilities_Get2',
-
- 'CmdmdmFsmOptionsSet2 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET2',
-
- '0x2204u',
-
- 'CmdmdmFsmOptionsSet3 . ',
-
- 'HMH_CMD_mdm_FSM_OPTIONS_SET3',
-
- 'PROP_LSDV3',
-
- 'PROP_LSDA3',
-
- 'PROP_V3_X3',
-
- 'PROP_IDLE3']
-
---
-
-
+    ['_MSG_CMD_HS_FE_CAPABILITIES_GET_1 CMD_HS_FE_Capabilities_Get1',
+     'CmdmdmFsmOptionsSet1 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET1',
+     '0x1104u',
+     'CmdmdmFsmOptionsSet1 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET1',
+     'PROP_VDSL1',
+     'PROP_LSDA1',
+     'PROP_V3_X1',
+     'PROP_IDLE1',
+     '_MSG_CMD_HS_FE_CAPABILITIES_GET_2 CMD_HS_FE_Capabilities_Get2',
+     'CmdmdmFsmOptionsSet2 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET2',
+     '0x2204u',
+     'CmdmdmFsmOptionsSet3 . ',
+     'HMH_CMD_mdm_FSM_OPTIONS_SET3',
+     'PROP_LSDV3',
+     'PROP_LSDA3',
+     'PROP_V3_X3',
+     'PROP_IDLE3']
 
 Any hints how I can solve the problem?
-
-
 
 thanks in advance,
 
@@ -9315,29 +8999,17 @@ sorry. there was an error in the sample text. now it works fine
 #### 2010-09-08 16:22:39 - ptmcg
 Glad you were able to resolve this on your own. Debugging these parsers isn't always the easiest thing.
 
-
-
 -- Paul
 
 ---
 ## 2010-09-24 19:51:53 - Josh_English - Maybe I don't get groups
 I have a mini language I want to use for a project to layout widgets in a GUI. I think pyparsing may be able to handle this, but I am not so sure, as I can't get this code to work.
 
-
-
 A basic control string looks like this:
 
-
-
-  name('label', Text)
-
-
+    name('label', Text)
 
 I have this code:
-
-
-
-
 
     import pyparsing as P
     
@@ -9349,7 +9021,6 @@ I have this code:
     
     control_type = P.oneOf('Text Read DatePicker Choice').setResultsName('ctrl')
     
-    
     control = control_name + P.Optional( \
         P.Suppress('(') + \
         P.delimitedList(control_label | control_type ) + \
@@ -9357,26 +9028,15 @@ I have this code:
     
     control = control.setResultsName('control')
     
-    
     for s in ['id', 'id('ID')', 'id('ID', Read)', 'id(Choice)', \
         'storycode('Story Code', Choice)', 'marketcode('Market')' ]:
         r = control.parseString(s)
 
-
-
 Since some of the terms are optional, I'm testing against some standard variations.
-
-
 
 Now I want to be able to have a single line of text with more than one control string but return multiple parsingresults objects, or a list of them.
 
-
-
 So I tried:
-
-
-
-
 
     control_row = P.LineStart() + P.Group( P.OneOrMore(control) ) + P.LineEnd()
     
@@ -9390,78 +9050,41 @@ So I tried:
         print r.asDict()
         print r.dump()
 
-
-
 What I get is:
-
-
 
 --
 
-storycode('Story Code', Choice) marketcode('Market')
+    storycode('Story Code', Choice) marketcode('Market')
 
-
-
-<ITEM>
-
-  <control>
-
-    <name>storycode</name>
-
-    <label>Story Code</label>
-
-    <ctrl>Choice</ctrl>
-
-    <name>marketcode</name>
-
-    <label>Market</label>
-
-  </control>
-
-</ITEM>
-
-{}
-
-
-
-
+    <ITEM>
+      <control>
+        <name>storycode</name>
+        <label>Story Code</label>
+        <ctrl>Choice</ctrl>
+        <name>marketcode</name>
+        <label>Market</label>
+      </control>
+    </ITEM>
+    {}
 
 The individual controls aren't separated, but I thought that's what Group did.
 
-
-
 Any suggestions?
-
-
 
 Josh
 
 #### 2010-09-24 22:34:55 - ptmcg
 You are really on the right track.  The default behavior for pyparsing is to just string all the matched tokens into a single list. Group will create sublists, giving your results structure.
 
-
-
 Your definition of control_row is:
-
-
 
     control_row = P.LineStart() + P.Group( P.OneOrMore(control) ) + P.LineEnd()
 
-
-
 You want to Group each separate control within the OneOrMore:
-
-
 
     control_row = P.LineStart() + P.OneOrMore( P.Group(control) ) + P.LineEnd()
 
-
-
 Now each line will give you a list of sublists, one for each control.  So to get at their data, you need to iterate over the results:
-
-
-
-
 
     for line in lines.splitlines():
         rr = control_row.parseString(line)
@@ -9470,27 +9093,17 @@ Now each line will give you a list of sublists, one for each control.  So to get
             print line
             print r.asXML()
             print r.asDict()
-            print r.dump()    
-
-
+            print r.dump()
 
 Otherwise, it looks like you are doing very well on your own - welcome to pyparsing!
-
-
 
 -- Paul
 #### 2010-09-27 16:56:36 - Josh_English
 Thank you, that actually did what I wanted.
 
-
-
 There's a lot here to learn, and a small speed bump can make me want to scream and throw it all away.
 #### 2010-09-27 17:45:32 - Josh_English
 Okay, more confusion. Later on in this project I have
-
-
-
-
 
     comment = (P.Literal('#').suppress() + P.restOfLine).setResultsName('comment')
     
@@ -9506,17 +9119,11 @@ Okay, more confusion. Later on in this project I have
     storycode('Story Code', Choice) marketcode('Market')
     :box end
     '''
-    
-    
+
     parser = P.OneOrMore(command | comment | P.Group(control_row) )('layout')
-    
     print parser.parseString(text).asXML()
 
-
-
 The resultant XML is:
-
-
 
     <layout>
       <layout> start layout</layout>
@@ -9525,15 +9132,9 @@ The resultant XML is:
       <se>start</se>
     </layout>
 
-
-
 The 'layout' tag name is being applied to the top level and the first child.
 
-
-
 I had the same problem trying to parse two control rows together, I got:
-
-
 
     <row>
       <row> ... </row>
@@ -9541,11 +9142,7 @@ I had the same problem trying to parse two control rows together, I got:
       <control> ... </control>
     </row>
 
-
-
 What I wanted was a structure more like:
-
-
 
     <layout>
     <comment> ... </comment>
@@ -9555,13 +9152,7 @@ What I wanted was a structure more like:
     <command> ... </command>
     </layout>
 
-
-
 Even better would be the box command to have the rows as children:
-
-
-
-
 
     <layout>
     <box>
@@ -9575,29 +9166,16 @@ Even better would be the box command to have the rows as children:
     </box>
     </layout>
 
-
-
 Sorry for the long post and apparent bull-headedness. I'm not groking this pyparsing thing yet.
+
 #### 2010-09-27 19:04:37 - ptmcg
 There is clearly some structure in the text you are parsing. That's great, you just need to represent a corresponding structure in your parser.
 
-
-
 Your definition of parser is:
-
-
-
-
 
     parser = P.OneOrMore(command | comment | P.Group(control_row) )
 
-
-
 There is no real structure here.  There is no relationship between the comment, the command or any of the control rows.  If you want to get some kind of command-level structure, then the expression for a command should be the main element, and your parser should be simply OneOrMore(command).  Here is a more structured parser:
-
-
-
-
 
     cmd = P.oneOf('box hbox')
     COLON = P.Suppress(':')
@@ -9610,15 +9188,7 @@ There is no real structure here.  There is no relationship between the comment, 
     
     parser = P.OneOrMore(command)
 
-
-
-
-
 Do you see how the control_row's are defined as a field with the command?  Now when you dump the parsed data, you can iterate over the individual controls captured in the command.controls attribute:
-
-
-
-
 
     data = parser.parseString(text)
     print data.dump()
@@ -9629,13 +9199,7 @@ Do you see how the control_row's are defined as a field with the command?  Now w
             if ctrl.strip():
                 print ''%s'' % ctrl
 
-
-
 Prints:
-
-
-
-
 
     [' start layout', ['box', 'start', '\n', ['id', 'Read'], ['title'], ['storycode', ...
     - command: ['box', 'start', '\n', ['id', 'Read'], ['title'], ['storycode', ...
@@ -9667,25 +9231,17 @@ Prints:
     - label: Market
     - name: marketcode
 
-
-
 Are you really enamored with asXML()?  Or you just trying to dump out the parsed data and results names?  If that is the case, then just use dump().  asXML() is a kind of finicky method, and really requires a lot of structure over the parsed data and the corresponding results names. At this point in your parser development, I'd recommend against it. The advantage of dump() is that it shows your structure, and any results names that you can use to access the nested fields.
-
-
 
 Hang in there! :)
 #### 2010-10-03 16:48:34 - Josh_English
 I understand the tree structure of XML better than the dump() results. I think I'm hitting another problem with my basic tactic of trying to build smaller parsers and include them in larger parsers as I go, instead of starting from the top and going into the specifics. 
-
-
 
 I'm running into more trouble with this, but since I don't know my goals, I have to determine what those are first.
 
 ---
 ## 2010-10-05 13:01:45 - panneer - Struck in Infinite Loop while parsing
 I'm new to PyParsing and I'm trying to parse the following block from a configuration file to get a dict structure out of it.
-
-
 
     {GeneralConfig1
     Type=1
@@ -9723,89 +9279,55 @@ I'm new to PyParsing and I'm trying to parse the following block from a configur
     }
     }
 
-
-
 Here is my code, which is struck in an infinte loop.
 
-
-
-
-
     fh_inFile = open('E:\\pyparsing_input.txt')
-            self.pyparsingInput = ''.join(fh_inFile.readlines())
-            String = CharsNotIn('{}')
-            SectionBegin = Literal('{').suppress()
-            SectionEnd = Literal('}').suppress()
-            SectionName = Word(alphanums)
-            ParamName = Word(alphanums,'_')
-            ParamValue = restOfLine
-            Parameter = ZeroOrMore(ParamName+'='+ParamValue)
-            SectionHeader = SectionBegin + SectionName
-            SectionGroup = Forward()
+    self.pyparsingInput = ''.join(fh_inFile.readlines())
+    String = CharsNotIn('{}')
+    SectionBegin = Literal('{').suppress()
+    SectionEnd = Literal('}').suppress()
+    SectionName = Word(alphanums)
+    ParamName = Word(alphanums,'_')
+    ParamValue = restOfLine
+    Parameter = ZeroOrMore(ParamName+'='+ParamValue)
+    SectionHeader = SectionBegin + SectionName
+    SectionGroup = Forward()
     
-            SectionGroup << Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String
+    SectionGroup << Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String
     
-            toplevel = OneOrMore(SectionGroup)
-            tokens = toplevel.parseString(self.pyparsingInput)
-            pp = pprint.PrettyPrinter(2)
-            pp.pprint(tokens.asList())
+    toplevel = OneOrMore(SectionGroup)
+    tokens = toplevel.parseString(self.pyparsingInput)
+    pp = pprint.PrettyPrinter(2)
+    pp.pprint(tokens.asList())
     
-
-
 
 Can you please help?
 
 #### 2010-10-06 00:42:10 - ptmcg
 Just a couple of misconceptions about some pyparsing classes and behavior.  But in the interests of 'teaching you to fish', let me show you how I debugged your parser.
 
-
-
 The first thing I did was to extract your posted code, and just ran it, and I got this warning:
-
-
 
     paneer1.py:57: SyntaxWarning: Cannot combine element of type <type 'NoneType'> with ParserElement
       SectionGroup << Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String
 
-
-
-
-
 I added this warning a few releases ago to help highlight potential bugs in users' code.  Because '<<' has a higher precedence than '|', Python performs the '<<' operation first, then tries to add the '|' part afterward.  For this to work, you must wrap the right-hand side of the '<<' operator in ()'s:
-
-
 
     SectionGroup << (Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String)
 
-
-
 Then I ran your code, and sure enough, it just sits there looping forever.  So to get some insight into the parser, I started to add some names to some of your elements, and turn on debugging for them:
-
-
 
     SectionHeader.setName('SectionHeader')
     SectionHeader.setDebug()
 
-
-
 This gave me this output:
-
-
 
     Match SectionHeader at loc 0(1,1)
     Matched SectionHeader -> ['GeneralConfig1']
 
-
-
-
-
 and then nothing else.  This is the default output for setDebug.  It reports whenever the expression is about to be matched (including the location), and then if successful, what the matched tokens look like, or if unsuccessful, what the parse exception was.
 
-
-
 So I instrumented Parameter as well, and this told the story:
-
-
 
     Match SectionHeader at loc 0(1,1)
     Matched SectionHeader -> ['GeneralConfig1']
@@ -9819,37 +9341,21 @@ So I instrumented Parameter as well, and this told the story:
     Matched Parameter -> []
     (... continue looping forever ...)
 
-
-
 Parameter appears to be matching on an empty string, but not advancing any further through the input (as shown by the parsing location staying at 16, or line 2, column 1).  Looking a little deeper at Parameter, it is defined with these statements:
-
-
 
     ParamName = Word(alphanums,'_')
     ParamValue = restOfLine
     Parameter = ZeroOrMore(ParamName+'='+ParamValue)
 
-
-
 And the culprit of the infinite loop is the ZeroOrMore construct.  This is really unnecessary, as you already define the SectionGroup later on to consist of OneOrMore Parameters.  Having seen similar parsers before, I was fairly sure that you will eventually want to group your parameters and values for easier handling later, so I changed Parameter to:
-
-
 
     Parameter = Group(ParamName+'='+ParamValue)
 
-
-
 Group is very useful for providing structure to the parsed tokens; otherwise, your SectionGroup would just contain all the tokens in one list, and you'd have to walk this list to pick out the actual parameter names and values. In addition, I would suppress the '=' tokens from the parsed results - they are useful during the parsing process as helpful delimiting punctuation, but they are just in the way when reading the results.  So we make one last change to Parameter to suppress the '=' from the parsed output:
-
-
 
     Parameter = Group(ParamName + Suppress('=') + ParamValue)
 
-
-
 Now we rerun the parser, and we get a little further:
-
-
 
     Match SectionHeader at loc 1(2,1)
     Matched SectionHeader -> ['GeneralConfig1']
@@ -9861,27 +9367,15 @@ Now we rerun the parser, and we get a little further:
     Exception raised:Expected W:(abcd...,_) (at char 67), (line:9, col:1)
     (... long traceback follows ...)
 
-
-
 In trying to parse 'Type=1' as a Parameter, the parser failed to match 'Type' as a ParamName.  ParamName is defined as:
-
-
 
     ParamName = Word(alphanums,'_')
 
-
-
 Word's 2-argument constructor uses the first string as the set of allowed initial characters, and the second string as the set of allowed body characters.  As you have defined it, you only allow '_' characters in the body of ParamName, so ParamName would match 'A', 'f', '7', 'B_', '8___', or even 'q_________', but not 'Type'.  Most likely you meant for the body characters to allow for any alphanum OR '_', not just '_'s.  So ParamName becomes:
-
-
 
     ParamName = Word(alphanums, alphanums+'_')
 
-
-
 With these changes, you now get your full test text to parse successfully, pretty-printing as:
-
-
 
     [ [ 'GeneralConfig1',
         ['Type', '1'],
@@ -9909,37 +9403,19 @@ With these changes, you now get your full test text to parse successfully, prett
           ['SubType', 'Text'],
           ['Path', 'C:\\Temp\\JustAnotherFile.txt']]]]
 
-
-
-
-
-
-
 Some added tips:
 
-
-
 An advanced pyparsing technique is to use the Dict class to provide some automatic key-value definitions from your tokens.  Since this is a config file format, key-value access seems like a pretty natural fit.  By changing SectionGroup from
-
-
 
     SectionGroup << (Group(SectionHeader + 
                        (OneOrMore(Parameter|SectionGroup))+SectionEnd) | String)
 
-
-
 to:
-
-
 
     SectionGroup << Dict(Group(SectionHeader +
                        Dict(OneOrMore(Parameter|SectionGroup))+SectionEnd) | String)
 
-
-
 pyparsing does not change any of its parsing behavior.  But it does an added post-parsing step - for each group matched within the Dict, a key-value pair will be defined using the first token in the group as the key, and all remaining tokens as the value.  Since SectionGroup is a Forward with a recursive definition, then we get back a nicely structured hierarchy.  Your pprint output is the same, but if you print out tokens.dump(), you'll see:
-
-
 
     [['GeneralConfig1', ['Type', '1'], ['To_Load', '1'], ['Is_file', '1'], ...
     - DetailedConfig: [['filetype1', ['Name', 'JustAFile'], ['Type', '1'], ...
@@ -9968,35 +9444,19 @@ pyparsing does not change any of its parsing behavior.  But it does an added pos
       - file: 
       - fill_type: 0
 
-
-
 The indented names show you the keys that were extracted from the input text, and you can use ordinary Python dict-like API to retrieve individual items, or iterate over the keys() or values() or items() lists.
-
-
 
     print tokens['DetailedConfig']['filetype1']['Path']
 
-
-
 When I first wrote pyparsing, I was still pretty new to Python, and was not sure whether Python programmers would prefer to use dict or object attribute style in accessing these values, so pyparsing also supports accessing the tokens as if they were attributes of a Python object:
-
-
 
     print tokens.DetailedConfig.filetype1.Path
 
-
-
 I find this form to be easier to read, but it requires that you know in advance what the keys will be, and that they be valid attribute names and not collide with any Python keyword.  If you happened to have a key with a name like 'def' for instance, then you would have to shift to dict style access:
-
-
 
     print tokens.DetailedConfig['def'].Path
 
-
-
 Lastly, I encourage you to follow some of the PEP8 guidelines regarding upper/lower case in names.  I find it to be very helpful to use leading capitals only for classes, and use leading lowercase for variables.  Your code would change to something like this:
-
-
 
     string = CharsNotIn('{}')
     sectionBegin = Literal('{').suppress()
@@ -10006,11 +9466,7 @@ Lastly, I encourage you to follow some of the PEP8 guidelines regarding upper/lo
     paramValue = restOfLine
     parameter = Group(paramName + Suppress('=') + paramValue)
 
-
-
 This will help you in working with other Python developers, or when posting snippets on usenet or other public channels, as it is the more commonly accepted style.  But it is not strictly necessary to do this for your code to run.
-
-
 
 Whew! After all that, you really were pretty close to having a working parser all on your own - just a few minor tweaks were all that were necessary.  I've just been meaning to write up some more elaborate parser debugging notes.  Good luck, and welcome to pyparsing!
 
@@ -10020,19 +9476,11 @@ Whew! After all that, you really were pretty close to having a working parser al
 #### 2010-10-07 12:40:06 - panneer
 Hi Paul,
 
-
-
 Thank you very much for your efforts to put up a step-by-step explanation to resolve my query. 
-
-
 
 I've learned my mistakes now. You've also shown me on how to debug the pyparsing code. That'll be helpful to construct another parser in pyparsing.
 
-
-
 Thanks for your tips about PEP8 guidelines. I'm fairly new to Python as well. That was really helpful.
-
-
 
 pyparsing Rocks!!!
 
@@ -10187,7 +9635,7 @@ arrrrgh...I meant
 
 does not work...
 #### 2010-10-17 12:24:38 - ptmcg
-For one thing, cppStyleComment will also match cStyleComment, so there is no need to ignore both of them.  What is it about the comments at the end of the file that is not working?  Is it possible that there is no trailing newline after the last comment?
+For one thing, `cppStyleComment` will also match `cStyleComment`, so there is no need to ignore both of them.  What is it about the comments at the end of the file that is not working?  Is it possible that there is no trailing newline after the last comment?
 #### 2010-10-17 14:13:14 - edc
 Thanks for the reply!
 
@@ -10269,11 +9717,11 @@ I have tried packrat, but it doesn't seem to have any effect (or maybe a slight 
 
 My intended tokenisation is:
 
-drop whitespace
+- drop whitespace
 
-punctuation gets a separate token
+- punctuation gets a separate token
 
-some numbering (1.1 etc) gets a separate token
+- some numbering (1.1 etc) gets a separate token
 
 what's left gets a token which records its text and location.  
 
@@ -10415,16 +9863,14 @@ You can post a file to the pastebin -  - and then post the link to your pasted d
 #### 2010-10-20 18:12:27 - gobnat
 I've added a .tar.gz with the working tokeniser a short scaffolding file and a sample file.  Hmmm... no I haven't, since pastebin doesn't let me do that. 
 
-
-
 Instead here are the pieces:
 
-Scaffold= 
-
-Tokeniser = 
-
-Test Data = 
-
+    Scaffold= 
+    
+    Tokeniser = 
+    
+    Test Data = 
+    
 
 
 The sample is only half the size of my original test.  It comes in at a little under 1s (but I'd be looking to get it under 0.25s given the scaling).
@@ -10471,100 +9917,67 @@ Hey,
 
 I get the following import error with Python 3.1.2 and Pyparsing 1.5.5 (win installer):
 
-
-
-
-
-Traceback (most recent call last):
-
-  File 'C:\Jonathan\Python\PyCode\IF\Model.py', line 2, in <module>
-
-    from pyparsing import *
-
-  File 'C:\Python31\lib\site-packages\pyparsing.py', line 2538
-
-    except ParseException, err:
-
-                         ^
-
-SyntaxError: invalid syntax
-
-
+    Traceback (most recent call last):
+      File 'C:\Jonathan\Python\PyCode\IF\Model.py', line 2, in <module>
+        from pyparsing import *
+      File 'C:\Python31\lib\site-packages\pyparsing.py', line 2538
+        except ParseException, err:
+                             ^
+    SyntaxError: invalid syntax
 
 I realize this is due to the updated syntax for exceptions Python 3 - I can run through and change them all, but just thought I should let you know.
 
 #### 2010-10-20 18:43:24 - ptmcg
 I created separate win installers for each of the different Python versions, since I have two different source files, so please be sure you got the right one.
 
-
-
 If you just want to change the except statements, this is the only one that needs to be changed; all of the others are of the form 'except ParseException:', which works for both Python 2 and 3.
-
-
 
 -- Paul
 #### 2010-10-21 03:10:11 - jon.dobson
 I downloaded and installed 'pyparsing-1.5.5.win32-py3.1.exe', which I assume is the right one.
 
-
-
 <If you just want to change the except statements, this is the only one that needs to be changed; all of the others are of the form 'except ParseException:', which works for both Python 2 and 3>
 
-
-
-Right on - thanks.  I changed the exception statement this morning, and up came the 'no module named <u>builtin</u>' error as mentioned previously in July by GregWatson.  That was vesion 1.5.3, so I don't know if you had meant to fix this as of 1.5.5, but it's still there.
-
-
+Right on - thanks.  I changed the exception statement this morning, and up came the 'no module named `__builtin__` error as mentioned previously in July by GregWatson.  That was vesion 1.5.3, so I don't know if you had meant to fix this as of 1.5.5, but it's still there.
 
 GregWatson's solution:
 
-
-
 [So I just commented out the line 
 
-'import builtin'
+    'import builtin'
 
 and then changed
 
-singleArgBuiltins.append(getattr(builtin,fname))
+    singleArgBuiltins.append(getattr(builtin,fname))
 
+to
 
-
-to singleArgBuiltins.append(getattr(builtins,fname))
-
-
+    singleArgBuiltins.append(getattr(builtins,fname))
 
 (i.e. builtin => builtins)
 
-
-
 Now it works.] 
 
-
-
-This didn't completely work for me.  I could not comment out the line 'import <u>builtin</u>', but had to change it to 'import builtins'.
+This didn't completely work for me.  I could not comment out the line `'import __builtin__'`, but had to change it to `'import builtins'`.
 #### 2010-10-21 06:30:47 - ptmcg
 <sigh>
 
 I hope to get this right by version 1.5.46 or so.  I have some other bugfixes and changes in the works, so I think I'll have another point release out in a few weeks, and will include this fix.  Thanks for writing, and welcome to pyparsing!
 
-
-
 -- Paul
 #### 2010-10-21 10:44:55 - jon.dobson
 Okay - thanks for the welcome.  And thanks for pyparsing!
+
 #### 2011-08-26 15:41:36 - ohaaga
 I'm using 1.5.6 and python 3.1.2, and I made the two changes mentioned.  In particular, I changed 
 
-except ParseException, err:
+    except ParseException, err:
 
 to
 
-except ParseException(err):
+    except ParseException(err):
 
 The module now loads fine, but when I try to do a recursive match using Forward() I get 'NameError: global name 'err' is not defined'.  I suspect I'm not understanding either the new syntax or the intent of the code.  Is there a better fix?
-
-
 
 thanks,
 
@@ -10610,17 +10023,17 @@ It gives me the expected result:
     {'name': 'Indiana Jones', 'seq': '01'}
     {'name': 'Matrix'}
 
-My problem comes if I want to allow �name� to contain �-� (dash), like in:
+My problem comes if I want to allow "name" to contain "-" (dash), like in:
 
 (Twenty-four hours-07) 
 
-If I modify �word� accordingly:
+If I modify "word" accordingly:
 
 
 
     word = Word(nums + alphas + '-')
 
-�name� being �greedy�, I miss to catch the �seq� part:
+"name" being "greedy", I miss to catch the "seq" part:
 
 
 
@@ -10644,11 +10057,11 @@ Result:
     {'name': 'Matrix', 'seq': ''}
     {'name': 'Twenty-four hours', 'seq': '07'}
 
-But I would prefer to avoid it because I want to take benefit of pyparsing advantages (clarity and self-documentation for example) and I don�t want to jump back to Regex as soon as I have a problem to define properly what I need. 
+But I would prefer to avoid it because I want to take benefit of pyparsing advantages (clarity and self-documentation for example) and I don't want to jump back to Regex as soon as I have a problem to define properly what I need. 
 
 
 
- I feel there is a smarter way to solve this problem, without Regex, but I can find it and I�m getting mad�
+ I feel there is a smarter way to solve this problem, without Regex, but I can find it and I'm getting mad
 
 
 
@@ -10896,13 +10309,13 @@ I knew there was an elegant way to solve this!
 
 
 
-My mistake from the beginning was to try to treat the �-� into the word definition� 
+My mistake from the beginning was to try to treat the '-' into the word definition. 
 
-You�re right, when playing with parsing, you need to think differently (*be* the parser!). And that�s why I really appreciate your answer: you are not only giving the quick solution to a problem, but you spend time to explain how you came to the solution. I am sure that it will help me a lot with my future use of pyparsing, with other problems that I will surely meet.
+You're right, when playing with parsing, you need to think differently (*be* the parser!). And that's why I really appreciate your answer: you are not only giving the quick solution to a problem, but you spend time to explain how you came to the solution. I am sure that it will help me a lot with my future use of pyparsing, with other problems that I will surely meet.
 
 
 
-Thanks to your explanations, I�ve also learned about:
+Thanks to your explanations, I've also learned about:
 
 - oneOf(): I would never think before to try to print the result of onOf(). That is quite interesting.
 
@@ -10916,7 +10329,7 @@ Regarding asDict(), I find it useful to produce results quickly on one line, whe
 
 
 
-Finally, I fully support your view on using specific delimiters to eliminate ambiguity whenever possible. But we are not living in an ideal world, and we do not always choose where and how you get data that you want to process. That�s why it is important to know some tricks, like the ones you explained before, so that we can do something, even if we do not have full control on the input.
+Finally, I fully support your view on using specific delimiters to eliminate ambiguity whenever possible. But we are not living in an ideal world, and we do not always choose where and how you get data that you want to process. That's why it is important to know some tricks, like the ones you explained before, so that we can do something, even if we do not have full control on the input.
 
 
 
@@ -11120,16 +10533,9 @@ Hi,
 
   And I would like to see this:
 
-
-
     ['function', ''Weird Call Name #1'', ['receiver', 'local'], [['i', '=', '6'], ['i', '++'], ['b', '=', '' Test ''], ['call', [''looper'', 'i']]]]
     ['function', ''loopper'', ['loop'], [['for', ['i', '=', '0'], ['i', '<', 'loop'], ['i', '++'], ['print', [], 'print', ['i'], 'print', ['i', 'i'], 'print', [''Test''], 'if', ['i', '==', '5'], ['print', [[''Test %s'', '%', 'i']]], 'test', ['b']]]]]
     ['function', ''test'', ['r'], ['some_generic_function', ['r']]]
-
-
-
-
-
 
 
     #!/usr/local/bin/python3.1
@@ -11475,19 +10881,13 @@ Thanks, I just didn't see it (just saw another exception trace popping up at nig
 
 ---
 ## 2010-11-11 12:24:58 - EduardoBarros - Parsing a tag with long text inside
-I have an HTML text with a few '''<td class='right_there1'></td>''' tags, each at times full of random tags in it (I know, I hate poorly designed docs as well). As those internal tags are random, this is as far as I can go assigning a pattern.
-
-
+I have an HTML text with a few `'''<td class='right_there1'></td>'''` tags, each at times full of random tags in it (I know, I hate poorly designed docs as well). As those internal tags are random, this is as far as I can go assigning a pattern.
 
 What would be the expression to define just that pattern (that would be the whole grammar, I guess)?
 
-
-
 I'm stuck with something like:
 
-
-
-rthere1tag = '''<td class='right_there1'>''' + OneOrMore(Word( alphas )) + '</td>'
+    rthere1tag = '''<td class='right_there1'>''' + OneOrMore(Word( alphas )) + '</td>'
 
 
 
@@ -11553,11 +10953,9 @@ Thanks,
     #!/usr/bin/env python
     
     import sys
-    
     from pyparsing import *
     
     myPrintables = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-    
     cppNumberChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.'
     cppExponents = 'e+ e- E+ E-'
     
@@ -11594,16 +10992,9 @@ Thanks,
 Definition of a preprocessing number from:
 
 
-
-
-
 A preprocessing number has a rather bizarre definition. The category includes all the normal integer and floating point constants one expects of C, but also a number of other things one might not initially recognize as a number. Formally, preprocessing numbers begin with an optional period, a required decimal digit, and then continue with any sequence of letters, digits, underscores, periods, and exponents. Exponents are the two-character sequences `e+', `e-', `E+', `E-', `p+', `p-', `P+', and `P-'. (The exponents that begin with `p' or `P' are new to C99. They are used for hexadecimal floating-point constants.)
 
-
-
 The purpose of this unusual definition is to isolate the preprocessor from the full complexity of numeric constants. It does not have to distinguish between lexically valid and invalid floating-point numbers, which is complicated. The definition also permits you to split an identifier at any position and get exactly two tokens, which can then be pasted back together with the `##' operator.
-
-
 
 It's possible for preprocessing numbers to cause programs to be misinterpreted. For example, 0xE+12 is a preprocessing number which does not translate to any valid numeric constant, therefore a syntax error. It does not mean 0xE + 12, which is what you might have intended.
 
@@ -11612,52 +11003,31 @@ Yes, this is odd, nay I would even say it's a bug.  I'll have it fixed in 1.5.6 
 
 ---
 ## 2010-11-16 07:49:03 - kbriggs4 - wordsToNum.py example doesn't work
-kbriggs@gold:~/python> python --version
 
-Python 2.5.1
-
-
-
-kbriggs@gold:~/python> python wordsToNum.py 
-
-Traceback (most recent call last):
-
-  File 'wordsToNum.py', line 76, in <module>
-
-    numWords.ignore('-')
-
-  File '/usr/lib/python2.5/site-packages/pyparsing.py', line 2327, in ignore
-
-    super( ParseExpression, self).ignore( other )
-
-  File '/usr/lib/python2.5/site-packages/pyparsing.py', line 1416, in ignore
-
-    self.ignoreExprs.append( Suppress( other.copy() ) )
-
-AttributeError: 'str' object has no attribute 'copy'
+    kbriggs@gold:~/python> python --version
+    Python 2.5.1
+    kbriggs@gold:~/python> python wordsToNum.py 
+    Traceback (most recent call last):
+      File 'wordsToNum.py', line 76, in <module>
+        numWords.ignore('-')
+      File '/usr/lib/python2.5/site-packages/pyparsing.py', line 2327, in ignore
+        super( ParseExpression, self).ignore( other )
+      File '/usr/lib/python2.5/site-packages/pyparsing.py', line 1416, in ignore
+        self.ignoreExprs.append( Suppress( other.copy() ) )
+    AttributeError: 'str' object has no attribute 'copy'
 
 #### 2010-11-22 08:22:23 - ptmcg
 I'm sorry, but I can't reproduce this problem.  Make sure you are using the original wordToNum.py and pyparsing sources. (It looks like the automatic promotion of strings to Literals isn't happening for some reason.)
-
-
 
 -- Paul
 #### 2010-11-24 02:51:20 - kbriggs4
 I don't know what the 'original' wordToNum.py and pyparsing sources are - I used the latest, current ones.   Anyway, I found the problem is fixed if
 
-
-
-numWords.ignore('-')
-
-
+    numWords.ignore('-')
 
 is changed to
 
-
-
-numWords.ignore(CaselessLiteral('-'))
-
-
+    numWords.ignore(CaselessLiteral('-'))
 
 Keith
 
@@ -12154,48 +11524,30 @@ I realize this is super noob, but I guess pyparsing is not working the way I tho
 
 I have this regex:
 
-([a-zA-Z]\d{3}|[a-zA-Z]\d{5}(-\d{2})?)
-
-
+    ([a-zA-Z]\d{3}|[a-zA-Z]\d{5}(-\d{2})?)
 
 I turned it into the following:
 
-find_me = Combine( (Word(alphas,exact=1) + Word(nums,exact=5) + '-' + Word(nums,exact=2)) | (Word(alphas,exact=1) + Word(nums,exact=3)) )
-
-
+    find_me = Combine( (Word(alphas,exact=1) + Word(nums,exact=5) + '-' + Word(nums,exact=2)) | (Word(alphas,exact=1) + Word(nums,exact=3)) )
 
 Then made the following to test:
 
-test_word = Word(alphanums+'.-*_/:+')
-
-line = ZeroOrMore(findme('found')|test_word)
-
-
+    test_word = Word(alphanums+'.-*_/:+')
+    line = ZeroOrMore(findme('found')|test_word)
 
 I'm trying to pull that regex out of a line of text.
 
-
-
-In [103]: line.parseString('this a0000 is a test')
-
-Out[103]: (['this', 'a000', '0', 'is', 'a', 'test'], {'found': [('a000', 1)]})
-
-
+    In [103]: line.parseString('this a0000 is a test')
+    Out[103]: (['this', 'a000', '0', 'is', 'a', 'test'], {'found': [('a000', 1)]})
 
 Why does pyparsing parse a partial word as one identifier and the rest of it as the other? I could understand if my ordering was wrong, and it was matching test_word before anything else, but in this case it doesn't even regard the splits in the words, and 'exact' only extends as far as it reads.
-
-
 
 I guess I'm confused because I've read that pyparsing has no real read-ahead, but if that's the case i have no idea how to do this...
 
 #### 2010-11-22 08:11:35 - ptmcg
 What version of pyparsing are you using? I did not reproduce your results with your code as posted, until I changed find_me to use the pyparsing Regex class with your original RE expression:
 
-
-
     find_me = Regex(r'([a-zA-Z]\d{3}|[a-zA-Z]\d{5}(-\d{2})?)')
-
-
 
 Your original RE only reads up to 3 digits after a leading alpha, and that's what you get, then pyparsing picks up from there and finds a valid test_word, '0'.  If you want to only match whole words, look into adding \b tags in your RE, or the corresponding WordStart and WordEnd classes in pyparsing.
 #### 2010-11-22 08:13:09 - ptmcg
@@ -12203,95 +11555,50 @@ Also, if you are just searching a string for matches, look into the searchString
 #### 2010-11-22 22:40:20 - m3mento
 Not really sure why im getting these results. I'm working in a fresh virtualenv and installed with pip.
 
-
-
-
-
-
-
-Python 2.6.6 (r266:84292, Sep 15 2010, 16:22:56)
-
-Type 'copyright', 'credits' or 'license' for more information.
-
-
-
-IPython 0.10.1 -- An enhanced Interactive Python.
-
-?         -> Introduction and overview of IPython's features.
-
-%quickref -> Quick reference.
-
-help      -> Python's own help system.
-
-object?   -> Details about 'object'. ?object also works, ?? prints more.
-
-
-
-In [1]: from pyparsing import *
-
-
-
-In [2]: find_me = Combine( (Word(alphas,exact=1) + Word(nums,exact=5) + '-' + Word(nums,exact=2)) | (Word(alphas,exact=1) + Word(nums,exact=3)) )
-
-
-
-In [3]: test_word = Word(alphanums+'.-*_/:+')
-
-
-
-In [4]: line = ZeroOrMore(find_me('found')|test_word)
-
-
-
-In [5]: line.parseString('this a1234 is a test')
-
-Out[5]: (['this', 'a123', '4', 'is', 'a', 'test'], {'found': [('a123', 1)]})
-
-
-
-In [6]: import pyparsing
-
-
-
-In [7]: pyparsing.<u>version</u>
-
-Out[7]: '1.5.5'
+    Python 2.6.6 (r266:84292, Sep 15 2010, 16:22:56)
+    Type 'copyright', 'credits' or 'license' for more information.
+    
+    IPython 0.10.1 -- An enhanced Interactive Python.
+    ?         -> Introduction and overview of IPython's features.
+    %quickref -> Quick reference.
+    help      -> Python's own help system.
+    object?   -> Details about 'object'. ?object also works, ?? prints more.
+    
+    In [1]: from pyparsing import *
+    
+    In [2]: find_me = Combine( (Word(alphas,exact=1) + Word(nums,exact=5) + '-' + Word(nums,exact=2)) | (Word(alphas,exact=1) + Word(nums,exact=3)) )
+    
+    In [3]: test_word = Word(alphanums+'.-*_/:+')
+    
+    In [4]: line = ZeroOrMore(find_me('found')|test_word)
+    
+    In [5]: line.parseString('this a1234 is a test')
+    Out[5]: (['this', 'a123', '4', 'is', 'a', 'test'], {'found': [('a123', 1)]})
+    
+    In [6]: import pyparsing
+    
+    In [7]: pyparsing.__version__
+    Out[7]: '1.5.5'
+    
 #### 2010-11-22 22:46:44 - m3mento
 changing find_me to:
 
-In [21]: find_me = Combine( (Word(alphas,exact=1) + Word(nums,exact=5) + '-' + Word(nums,exact=2)) | (Word(alphas,exact=1) + Word(nums,exact=3)) ) + WordEnd()
+    In [21]: find_me = Combine( (Word(alphas,exact=1) + Word(nums,exact=5) + '-' + Word(nums,exact=2)) | (Word(alphas,exact=1) + Word(nums,exact=3)) ) + WordEnd()
 
+    In [22]: find_me.searchString('this a12345 is a test')
+    Out[22]: ([], {})
 
-
-In [22]: find_me.searchString('this a12345 is a test')
-
-Out[22]: ([], {})
-
-
-
-In [23]: find_me.searchString('this a123 is a test')
-
-Out[23]: ([(['a123'], {})], {})
-
-
-
-In [24]: find_me.searchString('this a12345-67 is a test')
-
-Out[24]: ([(['a12345-67'], {})], {})
-
-
-
-In [25]: find_me.searchString('this a12345-678 is a test')
-
-Out[25]: ([], {})
-
-
-
-In [26]: find_me.searchString('this a1234-678 is a test')
-
-Out[26]: ([], {})
-
-
+    In [23]: find_me.searchString('this a123 is a test')
+    Out[23]: ([(['a123'], {})], {})
+    
+    In [24]: find_me.searchString('this a12345-67 is a test')
+    Out[24]: ([(['a12345-67'], {})], {})
+    
+    In [25]: find_me.searchString('this a12345-678 is a test')
+    Out[25]: ([], {})
+    
+    In [26]: find_me.searchString('this a1234-678 is a test')
+    Out[26]: ([], {})
 
 Appears to have worked. Still annoying, I guess I dont understand why its needed.
 #### 2010-11-23 02:54:11 - ptmcg
@@ -12308,225 +11615,120 @@ This is still a mystery to me too.  Try using this definition of your expression
 
 
 #### 2010-11-23 12:53:12 - m3mento
-In [1]: from pyparsing import *
 
+    In [1]: from pyparsing import *
+    
+    In [2]: %cpaste
+    Pasting code; enter '--' alone on the line to stop.
+    :num5 = Word(nums,exact=5).setName('num5').setDebug()
+    :num2 = Word(nums,exact=2).setName('num2').setDebug()
+    :num3 = Word(nums,exact=3).setName('num3').setDebug()
+    :find_me = Combine( (Word(alphas,exact=1) + num5 + '-' + num2) | (Word(alphas,exact=1) + num3) )
+    :--
+
+    In [3]: find_me.searchString('this a1234-678 is a test')
+    Match num5 at loc 1(1,2)
+    Exception raised:Expected num5 (at char 1), (line:1, col:2)
+    Match num3 at loc 1(1,2)
+    Exception raised:Expected num3 (at char 1), (line:1, col:2)
+    Match num5 at loc 2(1,3)
+    Exception raised:Expected num5 (at char 2), (line:1, col:3)
+    Match num3 at loc 2(1,3)
+    Exception raised:Expected num3 (at char 2), (line:1, col:3)
+    Match num5 at loc 3(1,4)
+    Exception raised:Expected num5 (at char 3), (line:1, col:4)
+    Match num3 at loc 3(1,4)
+    Exception raised:Expected num3 (at char 3), (line:1, col:4)
+    Match num5 at loc 4(1,5)
+    Exception raised:Expected num5 (at char 4), (line:1, col:5)
+    Match num3 at loc 4(1,5)
+    Exception raised:Expected num3 (at char 4), (line:1, col:5)
+    Match num5 at loc 6(1,7)
+    Exception raised:Expected num5 (at char 10), (line:1, col:11)
+    Match num3 at loc 6(1,7)
+    Matched num3 -> ['123']
+    Match num5 at loc 16(1,17)
+    Exception raised:Expected num5 (at char 16), (line:1, col:17)
+    Match num3 at loc 16(1,17)
+    Exception raised:Expected num3 (at char 16), (line:1, col:17)
+    Match num5 at loc 17(1,18)
+    Exception raised:Expected num5 (at char 17), (line:1, col:18)
+    Match num3 at loc 17(1,18)
+    Exception raised:Expected num3 (at char 17), (line:1, col:18)
+    Match num5 at loc 19(1,20)
+    Exception raised:Expected num5 (at char 19), (line:1, col:20)
+    Match num3 at loc 19(1,20)
+    Exception raised:Expected num3 (at char 19), (line:1, col:20)
+    Match num5 at loc 21(1,22)
+    Exception raised:Expected num5 (at char 21), (line:1, col:22)
+    Match num3 at loc 21(1,22)
+    Exception raised:Expected num3 (at char 21), (line:1, col:22)
+    Match num5 at loc 22(1,23)
+    Exception raised:Expected num5 (at char 22), (line:1, col:23)
+    Match num3 at loc 22(1,23)
+    Exception raised:Expected num3 (at char 22), (line:1, col:23)
+    Match num5 at loc 23(1,24)
+    Exception raised:Expected num5 (at char 23), (line:1, col:24)
+    Match num3 at loc 23(1,24)
+    Exception raised:Expected num3 (at char 23), (line:1, col:24)
+    Match num5 at loc 24(1,25)
+    Exception raised:Expected num5 (at char 24), (line:1, col:25)
+    Match num3 at loc 24(1,25)
+    Exception raised:Expected num3 (at char 24), (line:1, col:25)
+    Out[3]: ([(['a123'], {})], {})
+
+### 2010-11-23 12:54:30 - m3mento
+    In [4]: find_me.searchString('this a12345 is a test')
+    Match num5 at loc 1(1,2)
+    Exception raised:Expected num5 (at char 1), (line:1, col:2)
+    Match num3 at loc 1(1,2)
+    Exception raised:Expected num3 (at char 1), (line:1, col:2)
+    Match num5 at loc 2(1,3)
+    Exception raised:Expected num5 (at char 2), (line:1, col:3)
+    Match num3 at loc 2(1,3)
+    Exception raised:Expected num3 (at char 2), (line:1, col:3)
+    Match num5 at loc 3(1,4)
+    Exception raised:Expected num5 (at char 3), (line:1, col:4)
+    Match num3 at loc 3(1,4)
+    Exception raised:Expected num3 (at char 3), (line:1, col:4)
+    Match num5 at loc 4(1,5)
+    Exception raised:Expected num5 (at char 4), (line:1, col:5)
+    Match num3 at loc 4(1,5)
+    Exception raised:Expected num3 (at char 4), (line:1, col:5)
+    Match num5 at loc 6(1,7)
+    Matched num5 -> ['12345']
+    Match num3 at loc 6(1,7)
+    Matched num3 -> ['123']
+    Match num5 at loc 13(1,14)
+    Exception raised:Expected num5 (at char 13), (line:1, col:14)
+    Match num3 at loc 13(1,14)
+    Exception raised:Expected num3 (at char 13), (line:1, col:14)
+    Match num5 at loc 14(1,15)
+    Exception raised:Expected num5 (at char 14), (line:1, col:15)
+    Match num3 at loc 14(1,15)
+    Exception raised:Expected num3 (at char 14), (line:1, col:15)
+    Match num5 at loc 16(1,17)
+    Exception raised:Expected num5 (at char 16), (line:1, col:17)
+    Match num3 at loc 16(1,17)
+    Exception raised:Expected num3 (at char 16), (line:1, col:17)
+    Match num5 at loc 18(1,19)
+    Exception raised:Expected num5 (at char 18), (line:1, col:19)
+    Match num3 at loc 18(1,19)
+    Exception raised:Expected num3 (at char 18), (line:1, col:19)
+    Match num5 at loc 19(1,20)
+    Exception raised:Expected num5 (at char 19), (line:1, col:20)
+    Match num3 at loc 19(1,20)
+    Exception raised:Expected num3 (at char 19), (line:1, col:20)
+    Match num5 at loc 20(1,21)
+    Exception raised:Expected num5 (at char 20), (line:1, col:21)
+    Match num3 at loc 20(1,21)
+    Exception raised:Expected num3 (at char 20), (line:1, col:21)
+    Match num5 at loc 21(1,22)
+    Exception raised:Expected num5 (at char 21), (line:1, col:22)
+    Match num3 at loc 21(1,22)
+    Exception raised:Expected num3 (at char 21), (line:1, col:22)
+    Out[4]: ([(['a123'], {})], {})
 
-
-In [2]: %cpaste
-
-Pasting code; enter '--' alone on the line to stop.
-
-:num5 = Word(nums,exact=5).setName('num5').setDebug()
-
-:num2 = Word(nums,exact=2).setName('num2').setDebug()
-
-:num3 = Word(nums,exact=3).setName('num3').setDebug()
-
-:find_me = Combine( (Word(alphas,exact=1) + num5 + '-' + num2) | (Word(alphas,exact=1) + num3) )
-
-:--
-
-
-
-In [3]: find_me.searchString('this a1234-678 is a test')
-
-Match num5 at loc 1(1,2)
-
-Exception raised:Expected num5 (at char 1), (line:1, col:2)
-
-Match num3 at loc 1(1,2)
-
-Exception raised:Expected num3 (at char 1), (line:1, col:2)
-
-Match num5 at loc 2(1,3)
-
-Exception raised:Expected num5 (at char 2), (line:1, col:3)
-
-Match num3 at loc 2(1,3)
-
-Exception raised:Expected num3 (at char 2), (line:1, col:3)
-
-Match num5 at loc 3(1,4)
-
-Exception raised:Expected num5 (at char 3), (line:1, col:4)
-
-Match num3 at loc 3(1,4)
-
-Exception raised:Expected num3 (at char 3), (line:1, col:4)
-
-Match num5 at loc 4(1,5)
-
-Exception raised:Expected num5 (at char 4), (line:1, col:5)
-
-Match num3 at loc 4(1,5)
-
-Exception raised:Expected num3 (at char 4), (line:1, col:5)
-
-Match num5 at loc 6(1,7)
-
-Exception raised:Expected num5 (at char 10), (line:1, col:11)
-
-Match num3 at loc 6(1,7)
-
-Matched num3 -> ['123']
-
-Match num5 at loc 16(1,17)
-
-Exception raised:Expected num5 (at char 16), (line:1, col:17)
-
-Match num3 at loc 16(1,17)
-
-Exception raised:Expected num3 (at char 16), (line:1, col:17)
-
-Match num5 at loc 17(1,18)
-
-Exception raised:Expected num5 (at char 17), (line:1, col:18)
-
-Match num3 at loc 17(1,18)
-
-Exception raised:Expected num3 (at char 17), (line:1, col:18)
-
-Match num5 at loc 19(1,20)
-
-Exception raised:Expected num5 (at char 19), (line:1, col:20)
-
-Match num3 at loc 19(1,20)
-
-Exception raised:Expected num3 (at char 19), (line:1, col:20)
-
-Match num5 at loc 21(1,22)
-
-Exception raised:Expected num5 (at char 21), (line:1, col:22)
-
-Match num3 at loc 21(1,22)
-
-Exception raised:Expected num3 (at char 21), (line:1, col:22)
-
-Match num5 at loc 22(1,23)
-
-Exception raised:Expected num5 (at char 22), (line:1, col:23)
-
-Match num3 at loc 22(1,23)
-
-Exception raised:Expected num3 (at char 22), (line:1, col:23)
-
-Match num5 at loc 23(1,24)
-
-Exception raised:Expected num5 (at char 23), (line:1, col:24)
-
-Match num3 at loc 23(1,24)
-
-Exception raised:Expected num3 (at char 23), (line:1, col:24)
-
-Match num5 at loc 24(1,25)
-
-Exception raised:Expected num5 (at char 24), (line:1, col:25)
-
-Match num3 at loc 24(1,25)
-
-Exception raised:Expected num3 (at char 24), (line:1, col:25)
-
-Out[3]: ([(['a123'], {})], {})
-#### 2010-11-23 12:54:30 - m3mento
-In [4]: find_me.searchString('this a12345 is a test')
-
-Match num5 at loc 1(1,2)
-
-Exception raised:Expected num5 (at char 1), (line:1, col:2)
-
-Match num3 at loc 1(1,2)
-
-Exception raised:Expected num3 (at char 1), (line:1, col:2)
-
-Match num5 at loc 2(1,3)
-
-Exception raised:Expected num5 (at char 2), (line:1, col:3)
-
-Match num3 at loc 2(1,3)
-
-Exception raised:Expected num3 (at char 2), (line:1, col:3)
-
-Match num5 at loc 3(1,4)
-
-Exception raised:Expected num5 (at char 3), (line:1, col:4)
-
-Match num3 at loc 3(1,4)
-
-Exception raised:Expected num3 (at char 3), (line:1, col:4)
-
-Match num5 at loc 4(1,5)
-
-Exception raised:Expected num5 (at char 4), (line:1, col:5)
-
-Match num3 at loc 4(1,5)
-
-Exception raised:Expected num3 (at char 4), (line:1, col:5)
-
-Match num5 at loc 6(1,7)
-
-Matched num5 -> ['12345']
-
-Match num3 at loc 6(1,7)
-
-Matched num3 -> ['123']
-
-Match num5 at loc 13(1,14)
-
-Exception raised:Expected num5 (at char 13), (line:1, col:14)
-
-Match num3 at loc 13(1,14)
-
-Exception raised:Expected num3 (at char 13), (line:1, col:14)
-
-Match num5 at loc 14(1,15)
-
-Exception raised:Expected num5 (at char 14), (line:1, col:15)
-
-Match num3 at loc 14(1,15)
-
-Exception raised:Expected num3 (at char 14), (line:1, col:15)
-
-Match num5 at loc 16(1,17)
-
-Exception raised:Expected num5 (at char 16), (line:1, col:17)
-
-Match num3 at loc 16(1,17)
-
-Exception raised:Expected num3 (at char 16), (line:1, col:17)
-
-Match num5 at loc 18(1,19)
-
-Exception raised:Expected num5 (at char 18), (line:1, col:19)
-
-Match num3 at loc 18(1,19)
-
-Exception raised:Expected num3 (at char 18), (line:1, col:19)
-
-Match num5 at loc 19(1,20)
-
-Exception raised:Expected num5 (at char 19), (line:1, col:20)
-
-Match num3 at loc 19(1,20)
-
-Exception raised:Expected num3 (at char 19), (line:1, col:20)
-
-Match num5 at loc 20(1,21)
-
-Exception raised:Expected num5 (at char 20), (line:1, col:21)
-
-Match num3 at loc 20(1,21)
-
-Exception raised:Expected num3 (at char 20), (line:1, col:21)
-
-Match num5 at loc 21(1,22)
-
-Exception raised:Expected num5 (at char 21), (line:1, col:22)
-
-Match num3 at loc 21(1,22)
-
-Exception raised:Expected num3 (at char 21), (line:1, col:22)
-
-Out[4]: ([(['a123'], {})], {})
 #### 2010-12-01 15:13:51 - m3mento
 anyone?
 
@@ -12534,17 +11736,10 @@ anyone?
 ## 2010-11-29 11:52:29 - rick0cm - Parse Exception location
 Hi,
 
-
-
 I am having a problem with how pyparsing handles exceptions on
-
 nested grammars.  The code below shows my issue. My problem is 
-
 that the obvious error - BAD on DATA line 7, results in a 
-
 ParseException pointing at line 3.  
-
-
 
 This grammar is intended for parsing fairly large files, and debugging 
 
@@ -12593,7 +11788,7 @@ designed to catch anything not in your 'keyword' set?
 
 
 
-top = stmts + ZeroOrMore(Word(alphas)+literal('\(')+Word(nums)+literal('\)'))
+    top = stmts + ZeroOrMore(Word(alphas)+literal('\(')+Word(nums)+literal('\)'))
 
 
 
@@ -12769,99 +11964,65 @@ Paul,
 
 
 Thanks for the great explanation. While I follow your
-
 logic, I believe your proposed solution is a bit too 
-
 simplistic.
 
-
-
 While the 
-
-
 
     empty - ~Word(printables).setName('<unknown>')
 
 properly detects syntax errors, it also causes
-
 false parse errors on Good input.  It can't handle
-
 the end of nesting - '}' in my grammar, ')' in yours.
 
-
-
 I've tried
-
-
 
     CharsNotIn('}') - ~Word(printables).setName('<unknown>')
 
 as an alternative to your error catcher. This improves matters
-
 by accepting valid input, but has the side effect of causing
-
 parse errors to be reported at the closing '}' rather than 
-
 the mis-spelled keyword in my example above.
-
-
 
 Conceptually, I dislike having to redundantly code the '}' also.
 
-
-
 I'm in full agreement 'this is not a simple area in pyparsing' !!
-
-
 
 Rick
 
 ---
 ## 2010-11-29 16:19:06 - jcress410 - scanstring and unused text
-scanstring returns the stringposition of matches [start, stop] 
-
-
+scanstring returns the stringposition of matches `[start, stop]` 
 
 what's the easiest way to collect these positions and return the *unparsed* text from a string? 
 
-
-
 seems like being able to return a list()
 
-[str(unused text), [begin, end]] or
-
-[str(unused text), begin, end] 
-
-
+    [str(unused text), [begin, end]] or
+    [str(unused text), begin, end] 
 
 is important for debugging parsers. 
-
-
 
 thoughts?
 
 #### 2010-11-29 16:47:09 - ptmcg
-Look at how transformString splices the parsed and transformed text in with the unparsed text between matches.  Basically, keep a lastEndPosition variable initialized to 0.  When processing each scanString iteration, the unparsed text is instring[lastEndPosition:startPosn].  Then reset lastEndPosition = endPosn.  Finally, after the scanString for loop, the trailing unparsed bit can be gotten using instring[lastEndPosition:]
+Look at how transformString splices the parsed and transformed text in with the unparsed text between matches.  Basically, keep a lastEndPosition variable initialized to 0.  When processing each scanString iteration, the unparsed text is `instring[lastEndPosition:startPosn]`.  Then reset `lastEndPosition = endPosn`.  Finally, after the scanString for loop, the trailing unparsed bit can be gotten using `instring[lastEndPosition:]`
+
 #### 2010-11-29 17:55:57 - jcress410
 I think it'd be nice if scanString had an option to return either the parsed results or the unparsed text, or both.
 
-
-
 Could that be achieved with a decorator over the scanString method?
 
-
-
 I mean, your solution makes a ton of sense, and I appreciate the advice.  I'll try to implement it.  I just worry I would be adding too much overhead to the scanString function.  
-
-
 
 I'm trying to avoid adding my own bottlenecks.  The code I'm writing now is going to be feeding cpu intensive operations.  
 
 
 
-I could be wrong, but if I call instring[lastEndPosition:startPosn] every time I get a result from scanString, I'm duplicating the effort necessary to read the string (i.e. reading it twice) instead of scanString giving me the text it (already) read but didn't parse
+I could be wrong, but if I call `instring[lastEndPosition:startPosn]` every time I get a result from scanString, I'm duplicating the effort necessary to read the string (i.e. reading it twice) instead of scanString giving me the text it (already) read but didn't parse
+
 #### 2010-11-29 18:03:51 - ptmcg
-I wouldn't worry about performance overhead of instring[lastEndPosition:startPosn] - getting a slice of a string is not the same as rereading the string, and is way cheaper than all the parsing logic of looking at each character position and evaluating the parser at the position to see if there is a match.
+I wouldn't worry about performance overhead of `instring[lastEndPosition:startPosn]` - getting a slice of a string is not the same as rereading the string, and is way cheaper than all the parsing logic of looking at each character position and evaluating the parser at the position to see if there is a match.
 
 ---
 ## 2010-12-02 07:49:34 - openIDTemp-624425161 - Making an array and ignoring some words
@@ -12873,68 +12034,42 @@ I'm working with the examples but I have a doubt.
 
 If I do this:
 
-
-
-text='My name is Marco and im learning pyparsing'
-
-parser=OneOrMore(Word(alphas))
-
-
+    text='My name is Marco and im learning pyparsing'
+    parser=OneOrMore(Word(alphas))
 
 How can I get each word into an array?
 
 something like:
 
-array[0]='My'
-
-array[1]='name'
-
-array[2]='is'
-
-.
-
-.
-
-
+    array[0]='My'
+    array[1]='name'
+    array[2]='is'
+    .
+    .
 
 And another thing, I'm doing something like this:
 
-parser.ignore(CaselessLiteral('-'))
+    parser.ignore(CaselessLiteral('-'))
 
 
 
 But how can I ignore a list of words??
 
-
-
 kind of I need to ingore: '-', '#', '%'
-
-
 
 Thanks!
 
 #### 2011-02-14 20:20:19 - ptmcg
 Once you create your parser, then you process the source text using one of the parsing methods: parseString, scanString, searchString, or transformString.
 
-
-
 For your first question, to get your array, do:
-
-
-
-
 
     array = parser.parseString(text)
 
 
-
 and then you can access the individual words of array.
 
-
-
 ignore takes a pyparsing expression, so if you need to ignore multiple elements, create a pyparsing expression that will match any of them, and then ignore that.
-
-
 
 (Sorry not to respond sooner, I don't visit the discussion tab on this page very often.)
 
@@ -12946,15 +12081,9 @@ ignore takes a pyparsing expression, so if you need to ignore multiple elements,
 ## 2010-12-09 04:09:52 - andyhhp - bug with indentedBlock
 Hello,
 
-
-
 I am having problems parsing the Linux Kernel Configuration files (KConfig) and appear to have found a bug with the indentedBlock helper function.
 
-
-
 I have written a testcase which demonstrates it:
-
-
 
     #!/usr/bin/python                                                                                                                                                                                              
     from pyparsing import *
@@ -13066,84 +12195,50 @@ After some debugging of the problem, I have a tentative fix to the indentedBlock
 
 ---
 ## 2010-12-20 15:50:58 - haidong - Pattern search with pyparsing
+
 sample text:
 
 
 
-'''
-
-iojefwewjpojofw domain\login fnwoofwjeifewo
-
-anotherDomain\login1 fwijoipwieojiofw
-
-jfofiwioe domain5\login5
-
-'''
-
-
+    '''
+    iojefwewjpojofw domain\login fnwoofwjeifewo
+    anotherDomain\login1 fwijoipwieojiofw
+    jfofiwioe domain5\login5
+    '''
 
 objective: suck alphanums\alphanums patterns out and put them in a list like so:
 
-['domain\login', 'anotherDomain\login1', 'domain5\login5']
+    ['domain\login', 'anotherDomain\login1', 'domain5\login5']
 
 
 
 Figured I've wasted for too long for such a simple task, so I thought I should ask. Here is some code I've messed with, the next thing I am searching for would be some kind of skip stuff:
 
+    from pyparsing import *
+    
+    In [17]: grammar = Combine(Word(alphanums) + '\\' + Word(alphanums))
+    
+    In [18]: token = grammar.parseString('jwfoleow fjlwowe\jfoew lwfweolwfo\jofweojw lifewijowe')
 
 
-from pyparsing import *
-
-
-
-In [17]: grammar = Combine(Word(alphanums) + '\\' + Word(alphanums))
-
-
-
-In [18]: token = grammar.parseString('jwfoleow fjlwowe\jfoew lwfweolwfo\jofweojw lifewijowe')
-
-<hr />
-ParseException                            Traceback (most recent call last)
-
-
-
-/home/haidong/<ipython console> in <module>()
-
-
-
-/usr/lib/python2.6/site-packages/pyparsing-1.5.5-py2.6.egg/pyparsing.pyc in parseString(self, instring, parseAll)
-
-   1098                 # catch and re-raise exception from here, clears out pyparsing internal stack trace
-
-
-
-   1099                 exc = sys.exc_info()[1]
-
--> 1100                 raise exc
-
-   1101         else:
-
-   1102             return tokens
-
-
-
-ParseException: Expected '\' (at char 8), (line:1, col:9)
-
-
-
-
+    ParseException                            Traceback (most recent call last)
+    
+    /home/haidong/<ipython console> in <module>()
+    /usr/lib/python2.6/site-packages/pyparsing-1.5.5-py2.6.egg/pyparsing.pyc in parseString(self, instring, parseAll)
+    
+       1098                 # catch and re-raise exception from here, clears out pyparsing internal stack trace
+       1099                 exc = sys.exc_info()[1]
+    -> 1100                 raise exc
+       1101         else:
+       1102             return tokens
+    
+    ParseException: Expected '\' (at char 8), (line:1, col:9)
 
 Really appreciate it if you could answer these 3 questions:
 
-
-
 1. Does somebody have a short and sweet solution for this simple thing with pyparsing?
 
-
-
 2. Taking a step back, is pyparsing even the right tool for task like this?
-
-
 
 3. What are the pros and cons for pyparsing vs simpleparse?
 
@@ -13153,18 +12248,14 @@ Thanks in advance.
 
 #### 2010-12-20 19:21:58 - ptmcg
 parseString assumes that your grammar fully describes the content of the input string.  Try searchString or scanString.
+
 #### 2010-12-20 20:48:39 - haidong
 Do you have a good example?
 
-
-
 I've looked at the examples in the documentation and I didn't see one that I can base my code on, or at least I haven't found a good one yet...
+
 #### 2010-12-20 20:58:43 - ptmcg
 searchString is just a different method from parseString (like findall vs. match in regexes).  Here is your posted example, using searchString:
-
-
-
-
 
     >>> from pyparsing import *
     >>> grammar = Combine(Word(alphanums) + '\\' + Word(alphanums))
@@ -13251,6 +12342,7 @@ Thanks Paul for the detailed explanation. The same thing ran 10.24 seconds on my
 
 ---
 ## 2010-12-22 09:56:44 - axil - optimization in oneOf code
+
 Line 3316 in version 1.5.5 ( cur = other ) is excess.
 
 
@@ -13258,69 +12350,36 @@ Line 3316 in version 1.5.5 ( cur = other ) is excess.
 Also, rearranging symbols could be slightly optimized:
 
 
-
-
-
---- a/pyparsing.py
-
-+++ b/pyparsing.py
-
-@@ -3305,17 +3305,14 @@ def oneOf( strs, caseless=False, useRegex=True ):
-
-
-
-     i = 0
-
-     while i < len(symbols)-1:
-
--        cur = symbols[i]
-
--        for j,other in enumerate(symbols[i+1:]):
-
--            if ( isequal(other, cur) ):
-
--                del symbols[i+j+1]
-
--                break
-
--            elif ( masks(cur, other) ):
-
--                del symbols[i+j+1]
-
--                symbols.insert(i,other)
-
--                cur = other
-
--                break
-
--        else:
-
-+        j = i+1
-
-+        while j < len(symbols):
-
-+            if ( isequal(symbols[i], symbols[j]) ):
-
-+                del symbols[j]
-
-+                continue
-
-+            elif ( masks(symbols[i], symbols[j]) ):
-
-+                symbols[i], symbols[j] = symbols[j], symbols[i]
-
-+            j += 1
-
-         i += 1
-
+    --- a/pyparsing.py
+    +++ b/pyparsing.py
+    @@ -3305,17 +3305,14 @@ def oneOf( strs, caseless=False, useRegex=True ):
+    
+         i = 0
+         while i < len(symbols)-1:
+    -        cur = symbols[i]
+    -        for j,other in enumerate(symbols[i+1:]):
+    -            if ( isequal(other, cur) ):
+    -                del symbols[i+j+1]
+    -                break
+    -            elif ( masks(cur, other) ):
+    -                del symbols[i+j+1]
+    -                symbols.insert(i,other)
+    -                cur = other
+    -                break
+    -        else:
+    +        j = i+1
+    +        while j < len(symbols):
+    +            if ( isequal(symbols[i], symbols[j]) ):
+    +                del symbols[j]
+    +                continue
+    +            elif ( masks(symbols[i], symbols[j]) ):
+    +                symbols[i], symbols[j] = symbols[j], symbols[i]
+    +            j += 1
+             i += 1
 
 
 #### 2010-12-22 10:07:30 - axil
 Or slightly less readable but a bit more efficient and closed to the original code:
-
-
-
-
 
     --- a/pyparsing.py
     +++ b/pyparsing.py
@@ -13567,6 +12626,3 @@ To make it work, I had to look ahead to see if the configuration was either a li
 
 
 Is this kosher or am I missing something?
-
-
-
