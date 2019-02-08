@@ -26,7 +26,7 @@ overtaken by development events.]_
 [2011-03-06 11:13:40 - Zedric123 - make dict case insensitive](all_wiki_discussion_toc_2011.md#2011-03-06-111340---zedric123---make-dict-case-insensitive)  
 [2011-03-07 13:25:42 - _Mot_ - Recursiv parsing: Unexpected abort](all_wiki_discussion_toc_2011.md#2011-03-07-132542---_mot_---recursiv-parsing-unexpected-abort)  
 [2011-03-14 15:28:00 - muhackl - Strange behavior when reusing index string variables for parse actions](all_wiki_discussion_toc_2011.md#2011-03-14-152800---muhackl---strange-behavior-when-reusing-index-string-variables-for-parse-actions)  
-[2011-03-17 03:49:55 - ashish.sawankar - How to match empty\/null token in a delimited list](all_wiki_discussion_toc_2011.md#2011-03-17-034955---ashishsawankar---how-to-match-empty\null-token-in-a-delimited-list)  
+[2011-03-17 03:49:55 - ashish.sawankar - How to match empty\/null token in a delimited list](all_wiki_discussion_toc_2011.md#2011-03-17-034955---ashishsawankar---how-to-match-emptynull-token-in-a-delimited-list)  
 [2011-03-18 06:40:54 - flyingeek - Multiline parser fail](all_wiki_discussion_toc_2011.md#2011-03-18-064054---flyingeek---multiline-parser-fail)  
 [2011-04-18 23:46:18 - chihiro - Plans for future releases](all_wiki_discussion_toc_2011.md#2011-04-18-234618---chihiro---plans-for-future-releases)  
 [2011-04-21 15:31:44 - haggisbones - Parsing a filter expression with nestedExpr](all_wiki_discussion_toc_2011.md#2011-04-21-153144---haggisbones---parsing-a-filter-expression-with-nestedexpr)  
@@ -1724,7 +1724,7 @@ Ashish
 
 ---
 ## 2011-03-18 06:40:54 - flyingeek - Multiline parser fail
-Hi, I am quite new to pyparsing and python but having read many messages here, I'm still stuck for few hours �.
+Hi, I am quite new to pyparsing and python but having read many messages here, I'm still stuck for few hours '.
 
 Basically I want to extract data from quite unstructured text, here is the code:
 
@@ -1832,7 +1832,7 @@ Well I give up and I'm using a regex:
         #--------------------------------------------------
         (?:                        # non capturing group
            \n                         # yes begin by a newline
-           ^(?:T[e�]l\.?|Standard)    # start with Tel or T�l or T�l. or Standard
+           ^(?:T[e']l\.?|Standard)    # start with Tel or T'l or T'l. or Standard
            \s+                        # allow spaces
            :                          # mandatory : separator
            \s+                        # allow spaces
@@ -7270,8 +7270,6 @@ added: (ca line 77)
 
 Then I try to use it on data like this:
 
-
-
     ;; HMF V1.25 TEXT
     ;; (Microsoft Win64 X64)  HOOPS 19.10-1
     (Alias '?include library' '/include library')
@@ -7425,7 +7423,7 @@ I'd be happy to put the code up. It's a *very* pared down version of a grammar I
     }
 
 
-In this case, '#table', '#eqn', and '#document' are predefined macros, but it's easy enough to write a '#vennDiagram' macro if you needed it. If this does interest anyone, the code is currently available at:
+In this case, `'#table'`, `'#eqn'`, and `'#document'` are predefined macros, but it's easy enough to write a `'#vennDiagram'` macro if you needed it. If this does interest anyone, the code is currently available at:
 
 
 
@@ -7450,7 +7448,9 @@ I have a 10 MB file which has around 60,000 lines. Here is the sample of few lin
     [a30]ZTimer          [Jul 07 12:23:36] SUBS     ZSubscriptionResolution() -> Res #5
 
 
-This logs follows a 4 Field pattern [Thread Name] [Date Time] [LOG CHANNEL] [Text..].
+This logs follows a 4 Field pattern 
+
+    [Thread Name] [Date Time] [LOG CHANNEL] [Text..].
 
 I have the following grammar defined. 
 
@@ -7461,13 +7461,13 @@ I have the following grammar defined.
     timeDigit = Word(nums,max=2)
     time =  Combine (timeDigit + ':' + timeDigit + ':' + timeDigit)  
     # delimited List will ignore spaces in between elements
-    dateTime = Combine (delimitedList('[' + month +  day +  time +']'),adjacent=False) # This will match �[Jul 07 12:23:36]�
+    dateTime = Combine (delimitedList('[' + month +  day +  time +']'),adjacent=False) # This will match '[Jul 07 12:23:36]'
 
     threadName = SkipTo(dateTime) # First field in the Log , lets skip to the Date ..everything in between is the thread name
 
-    logChannel = Word(alphas+'_') # this will match the log Channel , like �SUBS� or �PEER� �
+    logChannel = Word(alphas+'_') # this will match the log Channel , like 'SUBS' or 'PEER' '
 
-    EOL = SkipTo('\n') # Once we match LOG CHANNEL , from here till New line is the actual �Log Text�
+    EOL = SkipTo('\n') # Once we match LOG CHANNEL , from here till New line is the actual 'Log Text'
 
     logLine =  delimitedList(threadName + dateTime + logChannel + EOL) # A Combined parser which returns a List of Lists
     
@@ -7599,7 +7599,7 @@ Just wanted to mention that I joined to ask this exact same question--my project
 ## 2011-10-05 11:11:40 - graingert - Can't seem to get parseaction working on a originalTextFor token
 
 <pre>
-    #Parsing the date
+    # Parsing the date
     abrWeekday = oneOf('Mon Tue Wed Thu Fri Sat Sun')
     abrMonth = oneOf('Jan Feb Mar Apr May Jun Jul Aug Sept Oct Nov Dec')
     dayOfMonth = Word(nums)
@@ -7609,9 +7609,9 @@ Just wanted to mention that I joined to ask this exact same question--my project
     timeZoneName = Word(alphas)
     yearWithCent = Word(nums)
 
-    #Parse the date, use datetime to convert into a UTC iso string - as 
-    #json requires all date/times to be in UTC
-    #Yep that's right two different date formats! (this one doesn't have a timezone either)
+    # Parse the date, use datetime to convert into a UTC iso string - as 
+    # json requires all date/times to be in UTC
+    # Yep that's right two different date formats! (this one doesn't have a timezone either)
     global date_tkn
     date_tkn = originalTextFor(
         (abrWeekday + abrMonth + dayOfMonth + hour24 + ':' + minute + ':' + second + timeZoneName + yearWithCent) |
@@ -7634,9 +7634,9 @@ TypeError: <lambda>() takes exactly 3 arguments (0 given)
 </pre>
 
 #### 2011-10-05 13:03:22 - ptmcg
-(You have to use [[code]] tags on this wiki, instead of <pre>.)
+(You have to use `[[code]]` tags on this wiki, instead of `<pre>`.)
 
-Okay, you correctly used addParseAction instead of setParseAction.  I suspect that you may be getting some exception in your lambda - did you try calling dateutil.parser.parse('Tue Oct 4 18:23:38 BST 2011').isoFormat() directly, to make sure your lambda will process correctly?  Also, originalTextFor returns a string, not a list, so you might want to just pass t instead of t[0].
+Okay, you correctly used addParseAction instead of setParseAction.  I suspect that you may be getting some exception in your lambda - did you try calling `dateutil.parser.parse('Tue Oct 4 18:23:38 BST 2011').isoFormat()` directly, to make sure your lambda will process correctly?  Also, originalTextFor returns a string, not a list, so you might want to just pass t instead of t[0].
 
 -- Paul
 #### 2011-10-05 15:18:00 - graingert
@@ -7696,7 +7696,8 @@ Notice the \r, \n escape characters
 I am unable to write a parser for this that works
 
 Tried using the following line:
-ParserElement.setDefaultWhitespaceChars(' \t')
+
+    ParserElement.setDefaultWhitespaceChars(' \t')
 
 but it didn't help.
 
@@ -7710,7 +7711,7 @@ The example I'm working from is:
     statements = ZeroOrMore(statement)
     document = StringStart() + statements + StringEnd()
 
-   test = '5498\n\r foobar'
+    test = '5498\n\r foobar'
     print test, '->', document.parseString(test)
 
 Any Ideas?
@@ -7747,7 +7748,8 @@ Also, if you are in fact parsing escaped characters from a larger string, and yo
 Hi Paul,
 
 thanks for the info. You have a point in terms of S_ESCAPE being incoherent with the rest. I have copied the definition of S_ESCAPE from a grammar definition. After some exploration, I came to the conclusion that the following
-['\'','\'','?','\\','\a','\b','\f','\n','\r','\t','\v']
+
+    ['\'','\'','?','\\','\a','\b','\f','\n','\r','\t','\v']
 
 was actually meant to be interpreted 'raw' like you suggested. So, we have to use r'\'', r'\''...
 This makes more sense.
@@ -7778,21 +7780,25 @@ grammar can now parse 'ABC 123' into ['ABC','123'].  But you'll get the same res
 
 By telling pyparsing what the default whitespace characters are, you don't have to write:
 
-
     whitespace = Suppress(' \t\n\r')
     grammar = OneOrMore(word + Optional(whitespace)) + Optional(whitespace) + integer
-
-
 
 ---
 ## 2011-10-15 13:51:30 - projetmbc - Fist steps with pyparsing
 Hello, for my first use of pyparsing I would like to parse expressions like :
 
-<ul class="quotelist"><li>f(x+y**'Some text with (parenthesis)')</li></ul>
+    > f(x+y**'Some text with (parenthesis)')
 
 The tree structure of this is the following one :
 
-<ul class="quotelist"><li>f<ul class="quotelist"><li>() I need to know that parenthesis has been used<ul class="quotelist"><li>+<ul class="quotelist"><li>x</li><li>**<ul class="quotelist"><li>[]<ul class="quotelist"><li>y-5</li><li>'Some text with (parenthesis)'</li></ul></li></ul></li></ul></li></ul></li></ul></li></ul>
+    > f
+        > () I need to know that parenthesis has been used
+            > +
+                > x
+                > **
+                    > []
+                        > y-5
+                        > 'Some text with (parenthesis)'
 
 #### 2011-10-15 16:07:09 - ptmcg
 If this is your first effort at pyparsing, then I suggest the first step is to *not* start writing code, but to write out a good definition of the grammar you plan to implement. Your expression looks like normal 5-function arithmetic, but the inlcusion of a quoted string as what looks like an exponent is definitely unexpected. It's also not clear where 'y-5' comes from in your input string. This gives a roadmap to work from in defining your pyparsing constructs, it helps you think through how you might have conflicts or ambiguities in your grammar, and it gives an implementation checklist so you know when you are done.  Then as you start writing test cases, don't jump right to the most complex expression possible, but build up to it, like:
@@ -7816,7 +7822,7 @@ PS : You're right with y-5, I've forgotten to change it...
 ## 2011-10-18 07:56:02 - almoni - NotAny Question
 Hey.
 
-I parse code that contains variables of the form /[a-zA-Z_][a-zA-Z0-9_]*/, and some reserved keywords. I do:
+I parse code that contains variables of the form `[a-zA-Z_][a-zA-Z0-9_]*`, and some reserved keywords. I do:
 
     keywords = oneOf('button ...')
     v = ~keywords + Word(alphas+'_', alphanums+'_')
@@ -7892,12 +7898,15 @@ I wrote the grammar using pyparsing for a programming language called Modelica. 
 Once I have parsed the code, I need to explore the parseResults and extract the tree of rules that have been detected.
 
 For example assume the following rules
-A := B + C
-B := b1 + b2
-C := C1 + C2 | C3 + C4 + C5
+
+    A := B + C
+    B := b1 + b2
+    C := C1 + C2 | C3 + C4 + C5
 
 If I use 
-p = A.parseString(str) 
+
+    p = A.parseString(str) 
+
 to get the parse results, I want to then have a tree that reflects what was detected.
 
 I have tried using 'setResultsName()' to name the various tokens and grammar rules, I have used asDict() to convert the parseresults to a dictionary and to some extent this works. 
@@ -7933,8 +7942,13 @@ Thanks
 #### 2011-10-21 18:59:39 - cadourian
 I wanted to provide more information as to where I am. For example, I can print the following information:
 
-<ul><ul><li>Input: 5+10</li></ul></ul>
-<ul><ul><ul><ul><li>(key: value) = ( arithmetic_expression : ['5', '+', '10'] , type: <class 'pyparsing.ParseResults'> )</li><li>(key: value) = ( term : ['10'] , type: <class 'pyparsing.ParseResults'> )</li><li>(key: value) = ( add_op : + , type: <type 'str'> )</li><li>(key: value) = ( primary : 10 , type: <type 'str'> )</li><li>(key: value) = ( factor : ['10'] , type: <class 'pyparsing.ParseResults'> )</li></ul></ul></ul></ul><strong>SS</strong> Result = SUCCESS with parse result: ['5', '+', '10']
+    -- Input: 5+10
+    ----(key: value) = ( arithmetic_expression : ['5', '+', '10'] , type: <class 'pyparsing.ParseResults'> )
+    ----(key: value) = ( term : ['10'] , type: <class 'pyparsing.ParseResults'> )
+    ----(key: value) = ( add_op : + , type: <type 'str'> )
+    ----(key: value) = ( primary : 10 , type: <type 'str'> )
+    ----(key: value) = ( factor : ['10'] , type: <class 'pyparsing.ParseResults'> )
+    -- Result = SUCCESS with parse result: ['5', '+', '10']
 
 Where I have an input '5+10' and I parse it. Each rule has an attached ResultsName, then I print the dictionary keys and values. 
 
@@ -8062,7 +8076,7 @@ Type 1:
     <ZStatus endtime='2011-Oct-03 22:11:13' starttime='2011-Oct-03 22:10:54' />
 
 
-In the Above example the XML is ended with �/>�
+In the Above example the XML is ended with '/>'
 
 Type 2:
 
@@ -8074,9 +8088,9 @@ Type 2:
     
 
 
-In the Above example the XML is ended with �</ZStatus>�
+In the Above example the XML is ended with '</ZStatus>'
 
-Here is the parser I�m using and it has shortcomings 
+Here is the parser I'm using and it has shortcomings 
 
 
 
@@ -8086,23 +8100,23 @@ Here is the parser I�m using and it has shortcomings
 What the parser currently doing.
 
 1.    It matches the Type 2. 
-2.    It doesn�t match the type 1 exclusively instead it will return 
+2.    It doesn't match the type 1 exclusively instead it will return 
 
 
 
     
     <ZStatus endtime='2011-Oct-03 22:11:13' starttime='2011-Oct-03 22:10:54' />
-    Other lines from log�
-    Other lines from log�
-    Other lines from log�
-    Other lines from log�
+    Other lines from log...
+    Other lines from log...
+    Other lines from log...
+    Other lines from log...
     <ZStatus endtime='2011-Oct-03 19:45:14' starttime='2011-Oct-03 19:45:04' >
                                                              <zserver endtime='9' starttime='4' />
                                                              <zserver endtime='9' starttime='4' />
                                                              </ZStatus>
 
 
-The Result according to the parser is correct, it matches the �ZStatus� from type1 and it skips to the �</ZStatus>� in type 2 by including unwanted error log lines.
+The Result according to the parser is correct, it matches the ...ZStatus... from type1 and it skips to the ...</ZStatus>... in type 2 by including unwanted error log lines.
 
 Is it possible to write a single expressing which will match only the XML and not return the result above.
 
@@ -8152,12 +8166,12 @@ Thanks a lot !
 
 I was able to use this filter 
 
-
-
     
     zStatusParser = Literal('<ZStatus') + (SkipTo('/>',failOn='zserver') | SkipTo('</ZStatus>')) + restOfLine
     
-    instead of zStatusParser = Literal('<ZStatus') + SkipTo('</ZStatus>').
+instead of 
+    
+    zStatusParser = Literal('<ZStatus') + SkipTo('</ZStatus>').
     
 
 
@@ -8215,11 +8229,8 @@ My code:
     from pyparsing import *
     
     text = Word(printables)
-    
     script = OneOrMore(Group(Literal('DATA_') + text + Literal('=') + text))
-    
     parsed = script.parseString(open('data.txt', 'r').read())
-    
     print parsed[[code]]
     
 data.txt:
@@ -8275,7 +8286,7 @@ Another way you might interpret that line is that any word that is immediately f
 
 Now we have to exclude '=' from value strings too.
 
-This issue of lookahead is a common one for new pyparsing writers. Pyparsing does not do any forward matching/lookahead, the way regular expressions do for instance.  If you write 'OneOrMore(Word(printables))' in your grammar, there is a good chance that one expression will read the entire rest of your input string.  More likely, you would want something like 'OneOrMore(~specialWordMarkingTheStartOfTheNextGroup + Word(printables))', so that pyparsing knows when a word is really the beginning of the next structure to be parsed.
+This issue of lookahead is a common one for new pyparsing writers. Pyparsing does not do any forward matching/lookahead, the way regular expressions do for instance.  If you write `'OneOrMore(Word(printables))'` in your grammar, there is a good chance that one expression will read the entire rest of your input string.  More likely, you would want something like `'OneOrMore(~specialWordMarkingTheStartOfTheNextGroup + Word(printables))'`, so that pyparsing knows when a word is really the beginning of the next structure to be parsed.
 
 ---
 ## 2011-11-03 13:00:51 - spastor2 - RightMost match or last match
@@ -8462,10 +8473,12 @@ Im having trouble defining a grammer that supports empty lines (multiple).
 The grammar in the code sample states that every action should have a result.
 
 When I parse specs1 I get a clean exception:
-pyparsing.ParseException: Expected 'result' (at char 17), (line:2, col:1)
+
+    pyparsing.ParseException: Expected 'result' (at char 17), (line:2, col:1)
 
 When I parse specs2 I get a doubtful exception
-pyparsing.ParseException: Expected end of text (at char 33), (line:4, col:1)
+
+    pyparsing.ParseException: Expected end of text (at char 33), (line:4, col:1)
 
 
 I suspect that there is something wrong with my empty line specification.
@@ -9061,7 +9074,7 @@ Example-Code:
     %s
     \\end{itemize}'''
     
-        # pr�fe Listenelemente auf html-Tags
+        # pr'fe Listenelemente auf html-Tags
         l = ['\\item %s' % htmlTag.transformString(t.entry) for t in token.entries]
         s = '\n'.join(l)
         return listingScel % s
