@@ -8407,7 +8407,7 @@ So what am I doing wrong ? Thanks in advance !
 #### 2011-11-05 08:06:52 - ptmcg
 The problem you are having is that you are using NotAny in isolation, combined with searchString's scanning behavior.
 
-NotAny is good as part of a larger parser, often used in language parsers to avoid accidentally parsing keywords as variable or function names.  These parsers are run using parseString, which expects to have a definition for the full input string.
+`NotAny` is good as part of a larger parser, often used in language parsers to avoid accidentally parsing keywords as variable or function names.  These parsers are run using parseString, which expects to have a definition for the full input string.
 
 In contrast, searchString works through the input string looking for any substring match, character by character.  We see your negative lookahead working when pyparsing is positioned at the leading 'd' in 'doe' - the NotAny correctly fails on 'doe' and advances to the next position.  The confusion is that we humans tend to scan through a sentence word by word, so you would think the next postion is 'homer', but the next position is the 'o' in 'doe'.  At this point, the NotAny does *not* match, so the remaining 'oe' is returned as the matching text.
 
@@ -8594,7 +8594,7 @@ Now, going back to your parser, I made this change in my version:
     action =  typeAndName - zeroOrMoreEmptyLines + result
 
 
-That is, once a typeAndName are found, a result *must* follow or this is a syntax error.
+That is, once a `typeAndName` are found, a result *must* follow or this is a syntax error.
 
 You would think that every '+' should just be replaced with '-', but let's go back to our letter-number case.  What if we had another kind of pair that might be followed by '.'?  Then we would need to parse various alternatives beyond just letter-number, we wouldn't want a failed letter-number parse of 'x.' to terminate all parsing.  In this case, to add the '-' error stop, we would actually have to refactor our expressions so that after a letter, we *must* find either a number or a '.'.
 
@@ -8691,13 +8691,13 @@ jim
 #### 2011-12-01 05:37:18 - ptmcg
 Jim -
 
-I was just re-reading my post. I think you will have faster parsing if you define dots as Word('.', min=2) instead of all those Literals.  Plus, repetition of the Literals would also allow intervening whitespace, which I don't think you want to permit. With Word, the '.' have to be contiguous.
+I was just re-reading my post. I think you will have faster parsing if you define dots as `Word('.', min=2)` instead of all those Literals.  Plus, repetition of the Literals would also allow intervening whitespace, which I don't think you want to permit. With Word, the '.' have to be contiguous.
 
 Glad you are making headway,
 
 -- Paul
 #### 2011-12-01 16:21:07 - jimcollum
-I tried the Word('.',min=2) since your first post and found it had worked.. didn't know why or if it was a better choice though... 
+I tried the `Word('.',min=2)` since your first post and found it had worked.. didn't know why or if it was a better choice though... 
 
 The parsing is being done on a very large string (output from a router's cli command showing some status). i only need a few dozen values from a few hundred, so rather than create that many entries individually, i created a list of the first words (used in SkipTo), and looped thru that extracting the corresponding values
 
@@ -8832,19 +8832,19 @@ For example, I want to edit nested 'name' field in the following PHP file. There
 
 
     <?php
-    <em> 
+    -- 
     ```
     { Header
-    /<strong>
+    **
      * some irrelevant stuff
      */
-    </em> }
+    -- }
     ```
     
     
     $config = array
     (
-        /</strong> automatically updated version of this configuration file */
+        ** automatically updated version of this configuration file */
         'version' => '$Rev$',
     
         'nested_settings' => array(
@@ -9155,6 +9155,3 @@ The output should look like this:
 
 Regards,
 denj
-
-
-

@@ -1,11 +1,11 @@
 ## Pyparsing Wikispaces Discussion - 2010
 
-[Note: these entries are fairly old, and predate many new features of pyparsing,
+_[Note: these entries are fairly old, and predate many new features of pyparsing,
 and are predominantly coded using Python 2.
 They are captured here for historical benefit, but may not contain
 the most current practices or features. We will try to add editor
 notes to entries to indicate when discussions have been 
-overtaken by development events.]
+overtaken by development events.]_
 
 [2010-01-01 00:28:06 - pgurumur - Parsing perl hash](all_wiki_discussion_toc_2010.md#2010-01-01-002806---pgurumur---parsing-perl-hash)  
 [2010-01-09 04:56:30 - alito - Traversing parsed results](all_wiki_discussion_toc_2010.md#2010-01-09-045630---alito---traversing-parsed-results)  
@@ -115,12 +115,14 @@ overtaken by development events.]
     perlattr = suppress('my')
     config = Keyword('$config').suppress()
     identifier = Word(alphanums + '-' + '_')
-    assign = suppress('=\>')
+    assign = suppress('=>')
     listvar = self._lbk + OneOrMore(self._quoted + suppress(',')) + self._rbk
     dictionary = Forward()
     values = self._quoted | Word(nums) | listvar | dictionary
     
-    item = Group(identifier + assign + values + suppress(','))      dictionary \<\< Dict(perlattr + config + suppress('=') + self._lb + \            OneOrMore(item) + self._rb)
+    item = Group(identifier + assign + values + suppress(','))
+    dictionary << Dict(perlattr + config + suppress('=') + self._lb + \
+                OneOrMore(item) + self._rb)
     
 
 
@@ -128,7 +130,7 @@ overtaken by development events.]
 I am getting an error after the first item, any idea what am I doing wrong?
 
 #### 2010-01-01 00:29:02 - pgurumur
-Just so that it is clear, self._lbk and self._rbk are nothing but [ and ]
+Just so that it is clear, `self._lbk` and `self._rbk` are nothing but `[` and `]`
 #### 2010-01-01 08:35:01 - ptmcg
 You have a couple of places where it looks like you are trying to parse a comma-delimited list of something as `OneOrMore(something + Suppress(','))`.  You are much better off using `delimitedList(something)`, since the expression you are using will require a comma even after the last item in the list.
 
@@ -138,16 +140,22 @@ I question your definition of dictionary as:
 
 
 
-    dictionary \<\< Dict(perlattr + config + suppress('=') + self._lb +     
+    dictionary << Dict(perlattr + config + suppress('=') + self._lb +     
                    OneOrMore(item) + self._rb)
 
 
 
-Does a hash that contains a hash really repeat the `&quot;my $config = {...}&quot;` for the subitem hash?  I haven't worked with Perl since the 20th century, so I may not remember this quite right.  (Perhaps you could post a sample of the source text you are trying to parse.)
+Does a hash that contains a hash really repeat the `"my $config = {...}"` for the subitem hash?  I haven't worked with Perl since the 20th century, so I may not remember this quite right.  (Perhaps you could post a sample of the source text you are trying to parse.)
 
 
 
-I'm guessing a hash looks like `<!-- ws:start:WikiTextRawRule:0:``{a=&amp;gt;1, b=&amp;gt;&amp;quot;a string&amp;quot;, c=&amp;gt;[&amp;quot;a&amp;quot;,&amp;quot;list&amp;quot;,&amp;quot;of&amp;quot;,&amp;quot;values&amp;quot;], d=&amp;gt;{da=&amp;gt;&amp;quot;a&amp;quot;, db=&amp;gt;&amp;quot;nested&amp;quot;, dc=&amp;gt;&amp;quot;hash&amp;quot;}}`` -->{a=&gt;1, b=&gt;&quot;a string&quot;, c=&gt;[&quot;a&quot;,&quot;list&quot;,&quot;of&quot;,&quot;values&quot;], d=&gt;{da=&gt;&quot;a&quot;, db=&gt;&quot;nested&quot;, dc=&gt;&quot;hash&quot;}}<!-- ws:end:WikiTextRawRule:0 -->`.  This may not be exactly right, but I'll go along with this assumption for now.
+I'm guessing a hash looks like 
+
+    <!-- ws:start:WikiTextRawRule:0:
+    {a=<1, b=<"a string", c=<["a","list","of","values"], d=<{da=<"a", db=<"nested", dc=<"hash"}}`` -->{a=&gt;1, b=&gt;"a string", c=&gt;["a","list","of","values"], d=&gt;{da=&gt;"a", db=&gt;"nested", dc=&gt;"hash"}}
+    <!-- ws:end:WikiTextRawRule:0 -->.  
+    
+This may not be exactly right, but I'll go along with this assumption for now.
 
 
 
@@ -158,9 +166,9 @@ Is listvar really restricted to only containing quoted strings?  Could it not co
     listvar = Forward()
     dictionary = Forward()
     values = self._quoted | Word(nums) | listvar | dictionary
-    listvar \<\< self._lbk + delimitedList(values) + self._rbk
+    listvar << self._lbk + delimitedList(values) + self._rbk
     item = Group(identifier + assign + values)
-    dictionary \<\< self._lb + delimitedList(item) + self._rb
+    dictionary << self._lb + delimitedList(item) + self._rb
 
 
 
@@ -168,7 +176,7 @@ Extra points for trying to use Dict, one of the more difficult pyparsing classes
 
 
 
-    dictionary \<\< self._lb + Dict(delimitedList(item)) + self._rb
+    dictionary << self._lb + Dict(delimitedList(item)) + self._rb
 
 
 
@@ -186,25 +194,16 @@ Thanks paul,
 
 Here is an example:
 
+    my $config = {
+       FOO => 'BAR',
+       TEST => 1,
+       DICT => {
+          test1 => 4,
+          test2 => [ 1, 2, 3, 4, 5 ],
+       }
+       test4 => [1, 2, 4, 5, ],
+    }
 
-
-my $config = {
-
-   FOO =\> 'BAR',
-
-   TEST =\> 1,
-
-   DICT =\> {
-
-      test1 =\> 4,
-
-      test2 =\> [ 1, 2, 3, 4, 5 ],
-
-   }
-
-   test4 =\> [1, 2, 4, 5, ],
-
-}
 #### 2010-01-02 21:57:48 - ptmcg
 This gets the job done (after adding a missing ',' between test2 and test4):
 
@@ -217,14 +216,14 @@ This gets the job done (after adding a missing ',' between test2 and test4):
     
     config = Keyword('$config').suppress()
     identifier = Word(alphanums + '-' + '_')
-    assign = Suppress('=\>')
+    assign = Suppress('=>')
     
     listvar = Forward()
     dictionary = Forward()
     values = _quoted | Word(nums) | listvar | dictionary
-    listvar \<\< Group(_lbk + delimitedList(values) + Optional(_cma) + _rbk)
+    listvar << Group(_lbk + delimitedList(values) + Optional(_cma) + _rbk)
     item = Group(identifier + assign + values)
-    dictionary \<\< _lb + Dict(delimitedList(item)) + Optional(_cma) + _rb
+    dictionary << _lb + Dict(delimitedList(item)) + Optional(_cma) + _rb
     
     identref = Combine(Suppress('$') + identifier)
     
@@ -261,7 +260,7 @@ I've been using pyparsing for a while now.  While I really like the description 
 
 
 
-What I usually want to know while traversing is what type of node I'm at so as to branch to the right part of code that handles that type of node.  The combination of setResultsName and getName almost gets me there, except that getName does a bit of magic and doesn't really give me the type of node we are at, but a best-approximation. eg if it's a node with no name and only one child and the child has a name, it returns the child's name, which then leads to broken assumptions.  Would it be possible to add a function that returns the <u>name argument without any trickery, or changing </u>name to just name (ie make it public)?
+What I usually want to know while traversing is what type of node I'm at so as to branch to the right part of code that handles that type of node.  The combination of setResultsName and getName almost gets me there, except that getName does a bit of magic and doesn't really give me the type of node we are at, but a best-approximation. eg if it's a node with no name and only one child and the child has a name, it returns the child's name, which then leads to broken assumptions.  Would it be possible to add a function that returns the `__name` argument without any trickery, or changing `__name` to just `name` (ie make it public)?
 
 
 
@@ -288,15 +287,13 @@ That's not quite what happens in the tutorials, at least not the ones I'm thinki
 ## 2010-01-10 01:03:30 - voltron8 - Algebraic expressions with nonstandard operations
 I need to parse and evaluate algebraic expressions with variables. Variables are simply a variable name in square brackets '[]', but some variables have an optional part after name. For example, simple expression is
 
-
-
     [var1] + [var2]{1} - 120
 
-Optional part {1} is similar with power operator, '^', when variable has this part I need to make special operation with variable and number in figure brackets (number in figure brackets is 1, 2 or 3).
+Optional part `{1}` is similar with power operator, `'^'`, when variable has this part I need to make special operation with variable and number in figure brackets (number in figure brackets is 1, 2 or 3).
 
 I look at example SimpleCalc.py and seems than is mainly what I need. But I can't understand how extend grammar to parse my expressions.
 
-Also I try to replace {n} with @n and make a rule similar to rule with ^-operator but have no success.
+Also I try to replace `{n}` with `@n` and make a rule similar to rule with ^-operator but have no success.
 
 Can any one help me?
 
@@ -305,7 +302,7 @@ Can any one help me?
 Sorry for my bad English.
 
 #### 2010-01-10 07:25:37 - ptmcg
-Don't treat '{1}' as an operator, but as an optional element of your variable name.  You can give it a results name, and then test for its existence at variable evaluation time, or you can define a default value of 0 or -1 or None, and then every variable evaluation can branch off the index value to do the right thing.
+Don't treat `'{1}'` as an operator, but as an optional element of your variable name.  You can give it a results name, and then test for its existence at variable evaluation time, or you can define a default value of 0 or -1 or None, and then every variable evaluation can branch off the index value to do the right thing.
 #### 2010-01-10 11:18:59 - voltron8
 ptmcg, thanks for help.
 
@@ -391,11 +388,11 @@ I currently have this code (slightly modified from the example to include syntax
 
 
 
-func(a) * 2
-
-func(123, b, 'test') / 6 + abc
-
-def + func234(abc, 123, 'xyz')[4][76] + array2[5]
+    func(a) * 2
+    
+    func(123, b, 'test') / 6 + abc
+    
+    def + func234(abc, 123, 'xyz')[4][76] + array2[5]
 
 
 
@@ -403,7 +400,7 @@ and pretty much any other variation, except for when there are expressions in th
 
 
 
-func(a * 2) / 6
+    func(a * 2) / 6
 
 
 
@@ -411,7 +408,7 @@ because the * is not included as a valid character in the variable definition.  
 
 
 
-func(a * 2) * 6
+    func(a * 2) * 6
 
 
 
@@ -455,7 +452,7 @@ You can't just define a function call by expanding a variable this way, as you l
 
 
 
-For this to work, you'll have to have defined expr as a Forward().  Then, when you assign the operatorPrecedence to expr, use '\<\<' instead of '='.
+For this to work, you'll have to have defined expr as a Forward().  Then, when you assign the operatorPrecedence to expr, use '<<' instead of '='.
 
 
 
@@ -473,11 +470,11 @@ Okay, I removed ( and ), but in the new code (shown below) I can no longer do:
 
 
 
-a + func(a * 8)[4]
+    a + func(a * 8)[4]
 
-a + func('test', 8 * 2, 'another argument') / 6
+    a + func('test', 8 * 2, 'another argument') / 6
 
-a + func[4]
+    a + func[4]
 
 
 
@@ -510,7 +507,7 @@ The third just reports the string as func[4] and while this is the same as befor
     multop = oneOf('* /')
     plusop = oneOf('+ -')
     
-    expr \<\< operatorPrecedence( operand,
+    expr << operatorPrecedence( operand,
     [('^', 2, opAssoc.RIGHT),
         (signop, 1, opAssoc.RIGHT),
         (multop, 2, opAssoc.LEFT),
@@ -526,57 +523,32 @@ Okay, I've got it working.  It's not so hard to modify the parser once you start
 
 
 
-
-
-expr = Forward()
-
-
-
-double = Word(nums + '.').setParseAction(lambda t:float(t[0]))
-
-integer = Word(nums).setParseAction(lambda t:int(t[0]))
-
-variable = Word(alphas)
-
-string = dblQuotedString
-
-funccall = Group(variable + '(' + Group(Optional(delimitedList(expr))) + ')')
-
-array_func = Group(funccall + '[' + Group(delimitedList(expr, '][')) + ']')
-
-array_var = Group(variable + '[' + Group(delimitedList(expr, '][')) + ']')
-
-
-
-operand = double | string | array_func | funccall | array_var | variable
-
-
-
-expop = Literal('^')
-
-signop = oneOf('+ -')
-
-multop = oneOf('* /')
-
-plusop = oneOf('+ -')
-
-
-
-expr \<\< operatorPrecedence( operand,
-
-[('^', 2, opAssoc.RIGHT),
-
-    (signop, 1, opAssoc.RIGHT),
-
-    (multop, 2, opAssoc.LEFT),
-
-    (plusop, 2, opAssoc.LEFT),]
-
-)
-
-
-
-<ol><li>Use pyParsing to interpret the expression</li></ol>result = expr.parseString(expression)
+    expr = Forward()
+    
+    double = Word(nums + '.').setParseAction(lambda t:float(t[0]))
+    integer = Word(nums).setParseAction(lambda t:int(t[0]))
+    variable = Word(alphas)
+    string = dblQuotedString
+    funccall = Group(variable + '(' + Group(Optional(delimitedList(expr))) + ')')
+    array_func = Group(funccall + '[' + Group(delimitedList(expr, '][')) + ']')
+    array_var = Group(variable + '[' + Group(delimitedList(expr, '][')) + ']')
+    
+    operand = double | string | array_func | funccall | array_var | variable
+    
+    expop = Literal('^')
+    signop = oneOf('+ -')
+    multop = oneOf('* /')
+    plusop = oneOf('+ -')
+    
+    expr << operatorPrecedence( operand,
+    [('^', 2, opAssoc.RIGHT),
+        (signop, 1, opAssoc.RIGHT),
+        (multop, 2, opAssoc.LEFT),
+        (plusop, 2, opAssoc.LEFT),]
+    )
+    
+    # Use pyParsing to interpret the expression
+    result = expr.parseString(expression)
 
 
 #### 2010-01-15 23:14:07 - ptmcg
@@ -607,7 +579,7 @@ I currently have this parsing code:
     multop = oneOf('* /')
     plusop = oneOf('+ -')
     
-    expr \<\< operatorPrecedence( operand,
+    expr << operatorPrecedence( operand,
     [('^', 2, opAssoc.RIGHT),
         (signop, 1, opAssoc.RIGHT),
         (multop, 2, opAssoc.LEFT),
@@ -646,7 +618,7 @@ My code is now (there's a few Group()s added so that the ParseResults list is ea
     plusop = oneOf('+ -')
     classop = Literal('.')
     
-    expr \<\< operatorPrecedence( operand,
+    expr << operatorPrecedence( operand,
     [(classop, 2, opAssoc.LEFT),
         ('^', 2, opAssoc.RIGHT),
         (signop, 1, opAssoc.RIGHT),
@@ -663,7 +635,7 @@ Parsing the string:
 
 
 
-print(b.func())
+    print(b.func())
 
 
 
@@ -671,13 +643,13 @@ takes around 30 seconds.  Parsing the string:
 
 
 
-print(b.func(a.newObj()))
+    print(b.func(a.newObj()))
 
 
 
 takes over 10 minutes (I don't know exactly how long because I didn't let it run any longer).  There must be some way to considerably speed this parsing up.
 #### 2010-01-17 02:23:07 - hach-que
-Packrat parsing solved my speed issue.  print(b.func(a.newObj())) now parses in less than a second.
+Packrat parsing solved my speed issue.  `print(b.func(a.newObj()))` now parses in less than a second.
 #### 2010-01-17 12:41:33 - ptmcg
 Ah, good to hear it!  Packratting is not always a cureall, but it is worth trying, especially with deep operatorPrecedence lists.
 
@@ -726,22 +698,19 @@ Here is my parser.
            )
     
     factor = Forward()
-    factor \<\< atom + ( ( band + factor ).setParseAction( pushFirst ) | ZeroOrMore( ( expop + factor ).setParseAction( pushFirst ) ) )
+    factor << atom + ( ( band + factor ).setParseAction( pushFirst ) | ZeroOrMore( ( expop + factor ).setParseAction( pushFirst ) ) )
     
     term = factor + ZeroOrMore( ( multop + factor ).setParseAction( pushFirst ) )
-    expr \<\< term + ZeroOrMore( ( addop + term ).setParseAction( pushFirst ) )
+    expr << term + ZeroOrMore( ( addop + term ).setParseAction( pushFirst ) )
     bnf = expr
     
     pattern =  bnf + StringEnd()
-    [[/code]]
-    Now it can parse expressions without functions, when I try to add an function support - it fails.
 
-fn = Word( alphas )
+Now it can parse expressions without functions, when I try to add an function support - it fails.
 
-atom = ( ( e | floatnumber | integer | ident | ( fn + lpar + expr + rpar ) ).setParseAction(pushFirst) | 
-
+    fn = Word( alphas )
+    atom = ( ( e | floatnumber | integer | ident | ( fn + lpar + expr + rpar ) ).setParseAction(pushFirst) | 
          ( lpar + expr.suppress() + rpar )
-
        )
 
 
@@ -783,23 +752,15 @@ Can you explain me how I can add functions definition?
 
 I try this
 
-
-
-fn = Word( alphas )
-
-atom = ( ( e | floatnumber | integer | ident | ( fn + lpar + expr + rpar ) ).setParseAction(pushFirst) |
-
-( lpar + expr.suppress() + rpar )
-
-)
-
+    fn = Word( alphas )
+    atom = ( ( e | floatnumber | integer | ident | ( fn + lpar + expr + rpar ) ).setParseAction(pushFirst) |
+    ( lpar + expr.suppress() + rpar )
+    )
 
 
 but when run parseString I've get an error
 #### 2010-01-18 06:16:08 - ptmcg
 Please see this version of your program: 
-
-
 
 -- Paul
 #### 2010-01-18 08:56:53 - voltron8
@@ -829,7 +790,7 @@ I have the following code:
         primaryOperand = side
         secondaryOperand = double | string | array_func | funccall | array_var | variable
     
-        equalityop = oneOf('== \<= \>= \< \> !=')
+        equalityop = oneOf('== <= >= < > !=')
         assignmentop = Literal('=')
         expop = Literal('^')
         signop = oneOf('+ -')
@@ -839,7 +800,7 @@ I have the following code:
     
         # Secondary expressions (that is, inside brackets)
         # can use all of the operators.
-        secondaryExpr \<\< operatorPrecedence( secondaryOperand,
+        secondaryExpr << operatorPrecedence( secondaryOperand,
         [(equalityop, 2, opAssoc.LEFT),
             (classop, 2, opAssoc.LEFT),
             ('^', 2, opAssoc.RIGHT),
@@ -850,7 +811,7 @@ I have the following code:
     
         # The primary expression can only have the
         # class property operator
-        primaryExpr \<\< operatorPrecedence( primaryOperand,
+        primaryExpr << operatorPrecedence( primaryOperand,
         [(assignmentop, 2, opAssoc.LEFT)]
         )
     
@@ -868,7 +829,7 @@ The problem is that the results come back as:
 
 
 
-['print(obj.array[1.0obj.getIndex()])']
+    ['print(obj.array[1.0obj.getIndex()])']
 
 
 
@@ -1099,14 +1060,10 @@ I have a grammar which can be simplified to something like this:
 
 
 
-subject = personal_pronoun | noun
-
-predicator = verb
-
-object = preposition + (noun | clause)
-
-clause = Optional(subject) + predicator + Optional(object)
-
+    subject = personal_pronoun | noun
+    predicator = verb
+    object = preposition + (noun | clause)
+    clause = Optional(subject) + predicator + Optional(object)
 
 
 The problem is that the 'object' can be represented not just by a 'noun' but also a 'clause' - which is in this case defined after it. These rules are correct, however, according to the English grammar. Can this limitation be avoided?
@@ -1132,7 +1089,7 @@ Finally, insert the expression into the created Forward:
 
 
 
-    clause \<\< (Optional(subject) + predicator + Optional(object))
+    clause << (Optional(subject) + predicator + Optional(object))
 
 
 
@@ -1179,36 +1136,28 @@ Essentialy I have a structure like this:
 
 
 
-group1 (
-
-    color = (blue)
+    group1 (
+        color = (blue)
 
 #### 2010-01-26 17:09:07 - filter5
 sorry accidentaly submitted too soon!
 
 
 
-group1 (
-
-    color=(blue)
-
-    title=('main')
-
-    group2 (
-
-        color=(red)
-
-        title=('sub')
-
+    group1 (
+        color=(blue)
+        title=('main')
+        group2 (
+            color=(red)
+            title=('sub')
+        )
     )
-
-)
 
 
 
 I'd like to get back something like
 
-['group 1 color=(blue) title=('main')', [group 2  color=(red) title=('sub')]]
+    ['group 1 color=(blue) title=('main')', [group 2  color=(red) title=('sub')]]
 
 
 
@@ -1236,7 +1185,7 @@ nestedExpr is really targeted at very loosely structured data that happens to co
     valueDef = Group(ident + EQ + value)
     compound = Group(OneOrMore(valueDef))
     
-    value \<\< LPAR + (compound | Word(alphas) | QuotedString(''')) + RPAR
+    value << LPAR + (compound | Word(alphas) | QuotedString(''')) + RPAR
     
     from pprint import pprint
     pprint( valueDef.parseString(data).asList() )
@@ -1479,16 +1428,16 @@ The idea is that the elemtent Node() creates a new container object in the parse
 
 
     # define grammar
-    app_entry =  Combine(Word(alphas,exact=1) + Word(alphanums + ' []()-.\<\>='))
+    app_entry =  Combine(Word(alphas,exact=1) + Word(alphanums + ' []()-.<>='))
     app_list = Store(delimitedList(app_entry))
     field_entry = Node( Key(alphas+'-') + ':' + app_list )
     grammar = OneOrMore(field_entry)
     
     SAMPLE_TO_BE_PARSED = '''
-    Build-Depends-Indep: perl (\>= 5.8.8-12), libcarp-assert-more-perl,
+    Build-Depends-Indep: perl (>= 5.8.8-12), libcarp-assert-more-perl,
                          libconfig-tiny-perl, libexception-class-perl,
-                         libparse-recdescent-perl (\>= 1.90.0),
-                         liblog-log4perl-perl (\>= 1.11)
+                         libparse-recdescent-perl (>= 1.90.0),
+                         liblog-log4perl-perl (>= 1.11)
     
                          '''
 
@@ -1546,7 +1495,7 @@ Does pyparsing have any mechanism to dynamically name xml tags? For example
 
 
 
-[[pair = tag.suppress() + val.setResultsName(tagName)]]
+    [[pair = tag.suppress() + val.setResultsName(tagName)]]
 
 
 
@@ -1572,14 +1521,14 @@ You can assign named results in a parse action instead.  Something like:
         seqNumber += 1
         tokens[seqName] = tokens[0]
     
-    tag = Literal('\<A\>')
+    tag = Literal('<A>')
     val = Word(alphas)
     pair = tag.suppress() + val.setParseAction(setSequentialName)
     
     data = '''\
-        \<A\>red
-        \<A\>green
-        \<A\>blue'''
+        <A>red
+        <A>green
+        <A>blue'''
     
     results = OneOrMore(pair).parseString(data)
     print results.dump()
@@ -1612,115 +1561,60 @@ Is there a way to store the original text along with the parsed values.
 For example I have this user block
 
 
-
-
-
     #-----------------------------------------------------------------------------
-    
     Name          :    N5233928
-    
     Password      :    0x0020 b5 30 22 22 6f f8 9b 99 71 cb da f5 a3 71 eb 5d 2e b1 50 6e 8c b2 8d 00 2a 7e 70 39 63 d8 17 e4 
-    
     Chap password :    0x0020 b5 30 22 22 6f f8 9b 99 02 aa 81 d1 81 55 e4 61 ac ce 44 dd 57 1e 43 63 82 f3 52 13 78 5e 41 53 
-    
     State         :    0
-    
     S_flags       :    0
-    
     Aging policy  :    group115
-    
     Good count    :    0
-    
     Warning count :    0
-    
     Change count  :    0
-    
     Last change Lo:    170663072
-    
     Last change Hi:    29932368
-    
     Last auth Lo  :    0
-    
     Last auth Hi  :    0
-    
     Rights        :    1
-    
     Type          :    2560
-    
     EnableType    :    4
-    
     Status        :    1
-    
     Reset         :    1
-    
     Expiry        :    171    108    1    4364    0    5
-    
     MaxSession    :    65535
-    
     MaxSess2      :    0
-    
     Profile       :    115
-    
     LogonHrs      :    0x0016 00 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
-    
     Alias         :    0    
-    
     Value Flags   :    524336
-    
     CounterVals_00:    0    0    0    0
-    
     CounterRst_00 :    0     0
-    
     CounterVals_01:    0    0    0    0
-    
     CounterRst_01 :    0     0
-    
     ##--- User End
     
     App00    USER_DEFINED_FIELD_0    STRING    Karla Isabel Velazquez
-    
     App00    USER_DEFINED_FIELD_1    STRING    
-    
     App00    USER_DEFINED_FIELD_2    STRING    GL-1041
-    
     App00    IP_ACS_POOLS_LENGTH    INTEGER    1
-    
     App00    IP_ACS_POOLS    STRING    
-    
     App00    IP_ALLOCATION_METHOD    INTEGER    5
-    
     App00    IP_STATIC_ADDR_LENGTH    INTEGER    1
-    
     App00    IP_STATIC_ADDR    STRING    
-    
     App00    IP_NAS_POOL_LENGTH    INTEGER    1
-    
     App00    IP_NAS_POOL    STRING    
-    
     App00    user_callback_type    INTEGER    0
-    
     App00    user_callback    STRING    
-    
     App00    disp_callback    STRING    
-    
     App01    Filters\NAS\records    MSTRING    
-    
     App01    Filters\NAS\enabled    STRING    0
-    
     App01    Filters\NAS\option    STRING    
-    
     App01    Filters\Dialup\records    MSTRING    
-    
     App01    Filters\Dialup\enabled    STRING    0
-    
     App01    Filters\Dialup\option    STRING    
-    
     App01    max_priv    STRING    0,0
-    
     App01    max_priv_LENGTH    INTEGER    3
-    
     App01    PROFILE    STRING    {default = deny default service = deny default cmd = ignore default attribute = deny}===={shell{3}{}{}}
-    
     ##--- Values End
 
 
@@ -1735,58 +1629,58 @@ Here is the code I have so far
 
     ParserElement.setDefaultWhitespaceChars(' \t\r\n')
     
-            COLON = Literal(':').suppress()
-            SPACE = Literal(' ').suppress()
-            EOL = LineEnd().suppress()
-    
-            userStart = Word('#','-').suppress()
-            userEnd = Literal('##--- User End').suppress()
-            valuesEnd = Literal('##--- Values End').suppress()
-            dumpEnd = Literal('#End Of Dump').suppress()
-    
-            def stripWhitespace(val):
-                return val[0].strip()
-    
-            def setFieldNames(tokens):
-                ret = ParseResults([])
-                for valueline in tokens:
-                    if not valueline.key in ret:
-                        ret[valueline.key] = ParseResults([])
-                    ret[valueline.key][valueline.fieldname] = ParseResults([])
-                    ret[valueline.key][valueline.fieldname]['fieldname'] = valueline.fieldname
-                    ret[valueline.key][valueline.fieldname]['type'] = valueline.type
-                    ret[valueline.key][valueline.fieldname]['value'] = valueline.value
-                return ret
-    
-            #DB dumped on NBBNEN01 at 16:30 August 24 2009
-            header_1 = ('#DB dumped on' + Word(printables)('hostname') + Literal('at').suppress() +
-                        Combine(Combine(Word(nums) + Literal(':') + Word(nums)) +
-                        Word(alphas) + Word(nums) + Word(nums), ' ', adjacent=False)('datetime') + EOL)
-            #DB version 10.0
-            header_2 = '#DB version' + Word(printables)('db_version')
-            #SW version 3.3(2.2)
-            header_3 = '#SW version' + Word(printables)('sw_version')    
-    
-            header = header_1 + header_2 + header_3
-    
-            variable_chars = alphanums + '_'
-    
-            variableName = Combine(OneOrMore(Word(variable_chars)), ' ', adjacent=False)
-            userVariables = dictOf(variableName + COLON, restOfLine.setParseAction(stripWhitespace)) + EOL
-    
-            userBlock = userStart  + OneOrMore(userVariables)  + userEnd
-    
-            valuesTypes = Literal('INTEGER') | Literal('STRING') | Literal('MSTRING') | Literal('ESTRING') 
-            valuesLine = Group(Combine(Literal('App') + Word(nums))('key') +  
-                               Word(printables)('fieldname') +
-                               valuesTypes('type') + 
-                               restOfLine('value').setParseAction(stripWhitespace)) + EOL
-    
-            valuesBlock = Optional(OneOrMore(valuesLine)) + valuesEnd 
-            valuesBlock.setParseAction(setFieldNames)
-    
-            parser = header('header') + OneOrMore(Group(userBlock + valuesBlock('Values')))('users') + userStart + dumpEnd
-            return parser.parseFile(filename)
+    COLON = Literal(':').suppress()
+    SPACE = Literal(' ').suppress()
+    EOL = LineEnd().suppress()
+
+    userStart = Word('#','-').suppress()
+    userEnd = Literal('##--- User End').suppress()
+    valuesEnd = Literal('##--- Values End').suppress()
+    dumpEnd = Literal('#End Of Dump').suppress()
+
+    def stripWhitespace(val):
+        return val[0].strip()
+
+    def setFieldNames(tokens):
+        ret = ParseResults([])
+        for valueline in tokens:
+            if not valueline.key in ret:
+                ret[valueline.key] = ParseResults([])
+            ret[valueline.key][valueline.fieldname] = ParseResults([])
+            ret[valueline.key][valueline.fieldname]['fieldname'] = valueline.fieldname
+            ret[valueline.key][valueline.fieldname]['type'] = valueline.type
+            ret[valueline.key][valueline.fieldname]['value'] = valueline.value
+        return ret
+
+    #DB dumped on NBBNEN01 at 16:30 August 24 2009
+    header_1 = ('#DB dumped on' + Word(printables)('hostname') + Literal('at').suppress() +
+                Combine(Combine(Word(nums) + Literal(':') + Word(nums)) +
+                Word(alphas) + Word(nums) + Word(nums), ' ', adjacent=False)('datetime') + EOL)
+    #DB version 10.0
+    header_2 = '#DB version' + Word(printables)('db_version')
+    #SW version 3.3(2.2)
+    header_3 = '#SW version' + Word(printables)('sw_version')    
+
+    header = header_1 + header_2 + header_3
+
+    variable_chars = alphanums + '_'
+
+    variableName = Combine(OneOrMore(Word(variable_chars)), ' ', adjacent=False)
+    userVariables = dictOf(variableName + COLON, restOfLine.setParseAction(stripWhitespace)) + EOL
+
+    userBlock = userStart  + OneOrMore(userVariables)  + userEnd
+
+    valuesTypes = Literal('INTEGER') | Literal('STRING') | Literal('MSTRING') | Literal('ESTRING') 
+    valuesLine = Group(Combine(Literal('App') + Word(nums))('key') +  
+                       Word(printables)('fieldname') +
+                       valuesTypes('type') + 
+                       restOfLine('value').setParseAction(stripWhitespace)) + EOL
+
+    valuesBlock = Optional(OneOrMore(valuesLine)) + valuesEnd 
+    valuesBlock.setParseAction(setFieldNames)
+
+    parser = header('header') + OneOrMore(Group(userBlock + valuesBlock('Values')))('users') + userStart + dumpEnd
+    return parser.parseFile(filename)
 
 
 
@@ -1799,16 +1693,11 @@ Header:
 
 
     #DB dumped on WSCSAP05 at 01:00 August 24 2009
-    
     #DB version 10.0
-    
     #SW version 3.3(2.2)
 
 
-
 Footer:
-
-
 
     #End Of Dump
 
@@ -1824,9 +1713,7 @@ This comes up every so often, usually with respect to the helpers like makeHTMLT
 
 
     aTag,aEnd = makeHTMLTags('A')
-    
-    source = 'some text \<a href='sldjflsj'\> sldfjsldj;'
-    
+    source = 'some text <a href='sldjflsj'> sldfjsldj;'
     print aTag.searchString(source)[0].dump()
 
 
@@ -1856,7 +1743,7 @@ and get back
 
 
 
-    ['\<a href='sldjflsj'\>']
+    ['<a href='sldjflsj'>']
 
 
 
@@ -1887,7 +1774,7 @@ This gives:
     ['A', ['href', 'sldjflsj'], False]
     - empty: False
     - href: sldjflsj
-    - originalText: \<a href='sldjflsj'\>
+    - originalText: <a href='sldjflsj'>
     - startA: ['A', ['href', 'sldjflsj'], False]
       - empty: False
       - href: sldjflsj
@@ -1969,7 +1856,7 @@ I'm trying to build my own simple arithmetic expression parser, which does +-*/,
 
     expr = Forward().setResultsName('expression')
     expr_list = Forward()
-    expr_list \<\< expr + ZeroOrMore(comma + expr)
+    expr_list << expr + ZeroOrMore(comma + expr)
     
     atom = number ^ Group(lparen + expr + rparen) ^ \
        Group(funcname + lparen + Optional(expr_list) + rparen)
@@ -1977,7 +1864,7 @@ I'm trying to build my own simple arithmetic expression parser, which does +-*/,
     factor = Group(atom + ZeroOrMore(ex + atom))
     factor1 = Group(factor + ZeroOrMore(div + factor))
     term = Group(factor1 + ZeroOrMore(mult + factor1))
-    expr \<\< Group(term + ZeroOrMore(addop + term)) 
+    expr << Group(term + ZeroOrMore(addop + term)) 
 
 
 
@@ -1989,13 +1876,10 @@ The problem I have with the above, is that it produces unnecessary Group()s. For
 
 
 
-        factor = Group(atom + ZeroOrMore(ex + atom))
-
-        factor1 = Group(factor + ZeroOrMore(div + factor))
-
-        term = Group(factor1 + ZeroOrMore(mult + factor1))
-
-        expr \<\< term | Group(term + OneOrMore(addop + term)) 
+    factor = Group(atom + ZeroOrMore(ex + atom))
+    factor1 = Group(factor + ZeroOrMore(div + factor))
+    term = Group(factor1 + ZeroOrMore(mult + factor1))
+    expr << term | Group(term + OneOrMore(addop + term)) 
 
 
 
@@ -2003,7 +1887,7 @@ Does anyone know how I can achieve the same thing, without having lots of nested
 
 
 
-expr \<\< term | Group(term + OneOrMore(addop + term))
+    expr << term | Group(term + OneOrMore(addop + term))
 
 
 
@@ -2020,7 +1904,7 @@ sk
 #### 2010-02-16 12:03:12 - ptmcg
 a. test the more restrictive expression first
 
-b. enclose right-hand side in ()'s ('\<\<' was poor choice of operator for Forward assignment, has lower precedence than '|')
+b. enclose right-hand side in ()'s ('<<' was poor choice of operator for Forward assignment, has lower precedence than '|')
 
 
 
@@ -2028,7 +1912,7 @@ Try:
 
 
 
-    expr \<\< (Group(term+OneOrMore(addop+term)) | term)
+    expr << (Group(term+OneOrMore(addop+term)) | term)
 
 
 #### 2010-02-16 12:33:13 - Skipix
@@ -2039,7 +1923,7 @@ Also check out pyparsing's delimitedList construct, which allows you to replace:
 
 
     expr_list = Forward()
-    expr_list \<\< expr + ZeroOrMore(comma + expr)
+    expr_list << expr + ZeroOrMore(comma + expr)
 
 with
 
@@ -2055,7 +1939,7 @@ It will parse for the commas, but will strip them from the results.  It will als
 ## 2010-02-22 02:46:38 - josandres - Logical operators problem
 Good morning,
 
-I'm trying to make a parser which recognises logical operations with operators such as \<, \>, AND, OR, and \<\> (NOT EQUALS). I have defined my grammar like this:
+I'm trying to make a parser which recognises logical operations with operators such as <, >, AND, OR, and <> (NOT EQUALS). I have defined my grammar like this:
 
 
 
@@ -2063,9 +1947,9 @@ I'm trying to make a parser which recognises logical operations with operators s
 
     class LogicalOperator:
     
-        #NE = Literal('\<\>').setParseAction(lambda t : '!=')
-        LT = Literal('\<')
-        GT = Literal('\>')
+        #NE = Literal('<>').setParseAction(lambda t : '!=')
+        LT = Literal('<')
+        GT = Literal('>')
         EQ = Literal('=').setParseAction(lambda t : '==')
         AND = Literal('AND').setParseAction(lambda t : 'and')
         OR = Literal('OR').setParseAction(lambda t : 'or')
@@ -2085,7 +1969,7 @@ Then i have two problems:
 
 
 
-1.- \<\> Operator: When parsing an expression like A \<\> B i get this error:
+1.- <> Operator: When parsing an expression like A <> B i get this error:
 
 
 
@@ -2095,13 +1979,13 @@ Then i have two problems:
 
 
 
-2.- Arithmetic operation inside logical operation. When parsing an expression like A + 5 \< B i get this error:
+2.- Arithmetic operation inside logical operation. When parsing an expression like A + 5 < B i get this error:
 
 
 
 
 
-    pyparsing.pyparsing.ParseException: Expected '\<' (at char 2), (line:1, col:3)
+    pyparsing.pyparsing.ParseException: Expected '<' (at char 2), (line:1, col:3)
 
 
 
@@ -2120,9 +2004,9 @@ The answer to the first question is put the NE operator before the LT and GT ope
 
     class LogicalOperator:
     
-        NE = Literal('\<\>').setParseAction(lambda t : '!=')
-        LT = Literal('\<')
-        GT = Literal('\>')
+        NE = Literal('<>').setParseAction(lambda t : '!=')
+        LT = Literal('<')
+        GT = Literal('>')
         EQ = Literal('=').setParseAction(lambda t : '==')
         AND = Literal('AND').setParseAction(lambda t : 'and')
         OR = Literal('OR').setParseAction(lambda t : 'or')
@@ -2142,14 +2026,14 @@ I'm hard pressed to come up with a clean way to do this.  You could define the e
 
 
 
-It may be that you are trying to force a filtering or extracting application into using parseString, when scanString, searchString, or transformString might be more appropriate.  For example, if I am scanning for \<a href\> tags, but I want to not match tags within comments, I would do this:
+It may be that you are trying to force a filtering or extracting application into using parseString, when scanString, searchString, or transformString might be more appropriate.  For example, if I am scanning for <a href> tags, but I want to not match tags within comments, I would do this:
 
 
 
     aTag,aEndTag = makeHTMLTags('A')
     matchingATags = (htmlStyleComment.suppress() | aTag).searchString(htmlSource)
 
-While searching through the HTML, I match and skip over HTML comments first, and only if I'm not in a comment do I test for a matching \<A\> tag.
+While searching through the HTML, I match and skip over HTML comments first, and only if I'm not in a comment do I test for a matching <A> tag.
 
 
 
@@ -2165,17 +2049,17 @@ I'm happy to provide an actual example of this problem.  I provide a small sampl
 
     from pyparsing import Suppress, Regex, restOfLine
     
-    LT = Suppress('\<')
-    GT = Suppress('\>')
+    LT = Suppress('<')
+    GT = Suppress('>')
     
     IRI_REF = LT + IRI + GT
     IRI_REF.ignore('#' + restOfLine)
     
     res = IRI_REF.parseString('''# Here we go...
-    \<http://pyparsing.wikispaces.com\>''')
+    <http://pyparsing.wikispaces.com>''')
     
     res = IRI_REF.parseString('''# Here we go...
-    \<#fragment\>''')
+    <#fragment>''')
 
 
 #### 2010-02-23 08:32:52 - ptmcg
@@ -2269,7 +2153,7 @@ But a string with a missing comma gives me your more helpful message, and even t
     print definition.parseString('a,b c')
     
     Traceback (most recent call last):
-      File 'error.py', line 32, in \<module\>
+      File 'error.py', line 32, in <module>
         print definition.parseString('a,b c')
       File 'C:\Python25\lib\site-packages\pyparsing.py', line 1076, in parseString
         raise exc
@@ -2287,7 +2171,7 @@ Best I can do on short notice...
 ## 2010-03-02 06:37:55 - dharanitharan - How to parse functions in C language
 Hi friends,
 
-              I'm doing a project on 'Static C source code analyzing' for that i need to parse the functions in C language... How can i do that using pyparsing.. Im really need of this.
+I'm doing a project on 'Static C source code analyzing' for that i need to parse the functions in C language... How can i do that using pyparsing.. Im really need of this.
 
 
 
@@ -2370,11 +2254,11 @@ Thanks so much Paul, this is definitely a better correction to head in. I'm clos
 #### 2010-03-08 05:31:04 - dharanitharan
 Hi friends,
 
-            thanks for the reply.... it worked fine but how can make this code to read the c language file and find the function blocks :)
+thanks for the reply.... it worked fine but how can make this code to read the c language file and find the function blocks :)
 #### 2010-03-08 06:07:09 - dharanitharan
 friends,
 
-         Here i give my problem clearly... From a C file i want to extract the function blocks to count the number of lines in each function block.... I have to get the C file as an input and i have to print the number of lines in each function block... Wat i have to do for this :)
+Here i give my problem clearly... From a C file i want to extract the function blocks to count the number of lines in each function block.... I have to get the C file as an input and i have to print the number of lines in each function block... Wat i have to do for this :)
 #### 2010-03-08 06:54:44 - ptmcg
 Dharanitharn -
 
@@ -2400,27 +2284,17 @@ Come back after you have something to show of your own work.
 #### 2010-03-08 07:03:13 - dharanitharan
 Sorry Mr.Paul for ur clear understanding only i reveal my problem... Not intentionally want all the coding :) You said 
 
-
-
-test = '''\
-
-    sin(30)
-
-    round(3.14159,2)
-
-    int(sin(60))
-
-    draw_line(x1,y1,x2,y2)'''
-
-
-
-for t in test.splitlines():
-
-    print function_call.parseString(t).asList()
-
-
+    test = '''\
+        sin(30)
+        round(3.14159,2)
+        int(sin(60))
+        draw_line(x1,y1,x2,y2)'''
+    
+    for t in test.splitlines():
+        print function_call.parseString(t).asList()
 
 this know ... from this,is it possible for me to find function definition
+
 #### 2010-03-08 07:26:02 - ptmcg
 Unfortunately, there are no function definitions in any of these lines of code.  Nor would I expect to find many on any single line of code in a C source file.  Do you know what a C function definition looks like?  Could you write a simple C function that:
 
@@ -2448,17 +2322,12 @@ thank u sir :). Let me start to write the function and will surely contact you i
 #### 2012-11-29 19:04:24 - torfat
 Hi ptmcg,  I'm trying to match quoted string in function parameter:
 
-'''
-
-print_string('a string', anotherParam)
-
-'''
-
+    print_string('a string', anotherParam)
 
 
 by changing the 'expr' statement to
 
-expr \<\< (function_call | identifier | real | integer | quotedString)
+    expr << (function_call | identifier | real | integer | quotedString)
 
 
 
@@ -2511,9 +2380,9 @@ Now try to search for any simple variable declarations in your source file, usin
 
 How would you expand varDecl to include:
 
-leading '*'s (for pointers)
+- leading '*'s (for pointers)
 
-trailing '[]'s (for arrays)
+- trailing '[]'s (for arrays)
 
 
 
@@ -2521,17 +2390,14 @@ Now you should be getting the hang of using pyparsing a bit.  Now start thinking
 #### 2010-03-03 08:31:21 - sbmlly
 I think the problem is not parse function declarations but to parse function calls;
 
-
-
-i.e. float x = sqrt(67*2) - \> sqrt
+    i.e. float x = sqrt(67*2) - > sqrt
 
 
 
 I'm having trouble with a similar task, in that I can't parse nested function calls in a c-style language.
 
+    i.e. sqrt(sum(array)) should parse as two separate calls.
 
-
-i.e. sqrt(sum(array)) should parse as two separate calls.
 #### 2010-03-03 21:56:54 - ptmcg
 This is a pretty typical parsing challenge, to be able to parse an expression that can recursively be composed of pieces that themselves match the parent expression.  Pyparsing handles this recursion using the Forward class.
 
@@ -2569,11 +2435,11 @@ Finally, we'll define what can go into an expr:
 
     integer = Regex(r'-?\d+')
     real = Regex(r'-?\d+\.\d*')
-    expr \<\< (function_call | identifier | real | integer)
+    expr << (function_call | identifier | real | integer)
 
 
 
-We used the '\<\<' operator to 'inject' the expression's definition, so that we use the existing expr variable, rather than binding some new value to the name 'expr'.
+We used the '<<' operator to 'inject' the expression's definition, so that we use the existing expr variable, rather than binding some new value to the name 'expr'.
 
 
 
@@ -2620,12 +2486,12 @@ operatorPrecedence gets called using the form:
 
 
 
-Each element in the list_of_operations_by_precedence_level is a tuple of the operator (or an operator expression), the value 1 or 2 depending if this is a unary or binary operation, and a flag indication whether the operator is right or left associative.  To insert our simple arithmetic expression into our previous function call, we'll replace the 'expr \<\< ...' statement with:
+Each element in the list_of_operations_by_precedence_level is a tuple of the operator (or an operator expression), the value 1 or 2 depending if this is a unary or binary operation, and a flag indication whether the operator is right or left associative.  To insert our simple arithmetic expression into our previous function call, we'll replace the 'expr << ...' statement with:
 
 
 
     operand = (function_call | identifier | real | integer)
-    expr \<\< operatorPrecedence(operand,
+    expr << operatorPrecedence(operand,
         [
         (oneOf('* / %'), 2, opAssoc.LEFT),
         (oneOf('+ -'), 2, opAssoc.LEFT),
@@ -2653,7 +2519,7 @@ Here is the whole parser:
     real = Regex(r'-?\d+\.\d*')
     
     operand = (function_call | identifier | real | integer)
-    expr \<\< operatorPrecedence(operand,
+    expr << operatorPrecedence(operand,
         [
         (oneOf('* / %'), 2, opAssoc.LEFT),
         (oneOf('+ -'), 2, opAssoc.LEFT),
@@ -2709,17 +2575,13 @@ Thanks for your help, but it looks like the code you posted fails in real world 
 
 For example:
 
-[code]
 
-test = '''\
+    test = '''\
+        variable x = sin(30)
+        x = round(3.14159,2) + 7
+        gethandle() = 3)
+        '''
 
-    variable x = sin(30)
-
-    x = round(3.14159,2) + 7
-
-    gethandle() = 3)''
-
-[/code]
 
 will fail as the function calls are part of larger expressions. I've tried to convert the code you posted to handle this but I've only had success using simple hacks to try and special-case the above examples, I'm sure a general solution exists.
 
@@ -2756,7 +2618,7 @@ I'm trying to parse quoted strings using this expression:
 
 
 
-STRING = Suppress(''') + Group(Word(alphanums)) + Suppress(''')
+    STRING = Suppress(''') + Group(Word(alphanums)) + Suppress(''')
 
 
 
@@ -2764,7 +2626,7 @@ But when trying to parse a expression like 'a' i get the error:
 
 
 
-pyparsing.pyparsing.ParseException: Expected ''' (at char 0), (line:1, col:1)
+    pyparsing.pyparsing.ParseException: Expected ''' (at char 0), (line:1, col:1)
 
 
 
@@ -2821,24 +2683,15 @@ Which outputs:
 
 
 
-`W:(abcd...,abcd...) &amp; &lt;SPC&gt;`...
-
-['I', '  ', 'want', ' ', 'to', ' ', 'tokenise', '     ', 'the', ' ', 'white', ' ', 'space', ' ', 'in', ' ', 'a', ' ']
-
-['I', '  ', 'want', ' ', 'to', ' ', 'tokenise', '     ', 'the', ' ', 'white', ' ', 'space', ' ', 'in', ' ', 'a', ' ']
-
-`{W:(abcd...,abcd...) &amp; &lt;SPC&gt;`... LineEnd}
-
-None
-
-None
-
-`W:(abcd...,abcd...) ^ &lt;SPC&gt;`...
-
-['I', 'want', 'to', 'tokenise', 'the', 'white', 'space', 'in', 'a', 'string']
-
-['   ', 'I', '  ', 'want', ' ', 'to', ' ', 'tokenise', '     ', 'the', ' ', 'white', ' ', 'space', ' ', 'in', ' ', 'a', ' ', 'string']
-
+    `W:(abcd...,abcd...) &amp; &lt;SPC&gt;`...
+    ['I', '  ', 'want', ' ', 'to', ' ', 'tokenise', '     ', 'the', ' ', 'white', ' ', 'space', ' ', 'in', ' ', 'a', ' ']
+    ['I', '  ', 'want', ' ', 'to', ' ', 'tokenise', '     ', 'the', ' ', 'white', ' ', 'space', ' ', 'in', ' ', 'a', ' ']
+    `{W:(abcd...,abcd...) &amp; &lt;SPC&gt;`... LineEnd}
+    None
+    None
+    `W:(abcd...,abcd...) ^ &lt;SPC&gt;`...
+    ['I', 'want', 'to', 'tokenise', 'the', 'white', 'space', 'in', 'a', 'string']
+    ['   ', 'I', '  ', 'want', ' ', 'to', ' ', 'tokenise', '     ', 'the', ' ', 'white', ' ', 'space', ' ', 'in', ' ', 'a', ' ', 'string']
 
 
 How come & preserves whitespace by default but ^ requires leaveWhitespace to work? And what am I doing wrong with LineEnd?
@@ -2864,11 +2717,11 @@ Thanks for your explanation and your ParserElement.setDefaultWhitespaceChars('')
 
 Application domain: parsing contracts.  At the moment this primarily will involve:
 
-identify leading numbering; and
+- identify leading numbering; and
 
-splitting strings of the form \<anything\> \<one member of (a set of specific set of words in a specific order)\> \<anything\>
+- splitting strings of the form <anything> <one member of (a set of specific set of words in a specific order)> <anything>
 
-some other structures like subparagraphs ': (a) ...; (b) ... ; and (z)  '
+- some other structures like subparagraphs ': (a) ...; (b) ... ; and (z)  '
 
 
 
@@ -2904,13 +2757,13 @@ I ve tried this
 
 
 
-    c:\Python31\pyparsinginstall3.1\>python
+    c:\Python31\pyparsinginstall3.1>python
     Python 3.1.1 (r311:74483, Aug 17 2009, 16:45:59) [MSC v.1500 64 bit (AMD64)] on
     win32
     Type 'help', 'copyright', 'credits' or 'license' for more information.
-    \>\>\> import pyparsing;
+    >>> import pyparsing;
     Traceback (most recent call last):
-      File '\<stdin\>', line 1, in \<module\>
+      File '<stdin>', line 1, in <module>
       File 'pyparsing.py', line 2471
         except ParseException, err:
                              ^
@@ -2948,6 +2801,8 @@ there is
 
 
 a+++
+
+_[ED - the special 'pyparsing_py3' import was discarded in version 1.5.3.]_
 
 ---
 ## 2010-03-20 10:26:22 - Elby - Reading a table by columns
@@ -3039,8 +2894,6 @@ This is almost working, but there are some issues :
 
  1) I don't check that the table is well formed and has the same number of columns on each row. Is there a simple way to do that ?
 
-
-
  2) I get the results : 
 
 
@@ -3075,7 +2928,6 @@ Is there a way to fulfill this ? I tried with the following hack :
     
 
 but this wasn't smart enough...
-
 
 
  2) I don't know what the best way to validate the the data read, check the units and convert values into the best python tuple. I was thinking to add ParseAction to constDef and others, but I'm not sure if this is the good way to go.
@@ -3362,7 +3214,7 @@ See comment changes below:
         numcols = len(tableTokens.header)
         for row in tableTokens.data:
             print len(row)
-            if len(row) \< numcols:
+            if len(row) < numcols:
                 row += ParseResults(['0.0']*(numcols-len(row)))
     
         #~ columns = {}
@@ -3542,7 +3394,7 @@ Now I've added support for unit conversion :
                 # TODO : handle exeption where converter is unknown
                 value = unit_converter['%s_to_%s' % (toks.unit[0], wishUnit)](value)
             else:
-            print '%s ==\> %s supposed to be in %s' % (s, toks.name, wishUnit)
+            print '%s ==> %s supposed to be in %s' % (s, toks.name, wishUnit)
     
         # TODO : delete toks.unit ?
         return [toks.name, value]
@@ -3577,8 +3429,8 @@ Now I've added support for unit conversion :
         ''' define unitLine and tableValueLine to match the same number of row than
         in header'''
         nbcols = len(t.header)
-        unitLine \<\< (~EOL + unitDef*nbcols + EOL)
-        tableValueLine \<\< Group(~EOL + tabValueDef*nbcols + EOL)
+        unitLine << (~EOL + unitDef*nbcols + EOL)
+        tableValueLine << Group(~EOL + tabValueDef*nbcols + EOL)
     
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     # grammar definition
@@ -3631,19 +3483,9 @@ Now I've added support for unit conversion :
 
 
 
-I'm pretty impressed by the simplicity and flexibility I've reach with this
+I'm pretty impressed by the simplicity and flexibility I've reach with this first contact with pyparsing.
 
-first contact with pyparsing.
-
-
-
-I think I'll add an entry in the Scipy cookbook to share this if I have time,
-
-but now, I would like to make this code more robust and add custom exceptions
-
-to warn when conversions failed or when the parser did not reach the end of
-
-file.  Is there a simple way to do that ?
+I think I'll add an entry in the Scipy cookbook to share this if I have time, but now, I would like to make this code more robust and add custom exceptions to warn when conversions failed or when the parser did not reach the end of file.  Is there a simple way to do that ?
 
 
 
@@ -3660,25 +3502,15 @@ Good morning,
 I'm trying to define a grammar for accepting binary operators, using the following expression (as seen over here):
 
 
-
-OPERAND = NUM|IDENTIFIER
-
-
-
-SUM_SUB = oneOf('+ -')
-
-ML_DIV = oneOf('* /')
-
-
-
-OPERATION = operatorPrecedence(OPERAND,
-
-                               [ (SUM_SUB,2,opAssoc.LEFT),
-
-                               (MUL_DIV,2,opAsoc.LEFT)
-
-                               ]
-
+    OPERAND = NUM|IDENTIFIER
+    
+    SUM_SUB = oneOf('+ -')
+    ML_DIV = oneOf('* /')
+    
+    OPERATION = operatorPrecedence(OPERAND,
+                                   [ (SUM_SUB,2,opAssoc.LEFT),
+                                   (MUL_DIV,2,opAsoc.LEFT)
+                                   ]
 
 
 My problem is that an expression such as 'identifier' is accepted as an operation, when it should not.
@@ -3714,16 +3546,16 @@ First just to wet my feet
 
 I try to generate a grammar that recognizes simple Expression  such as
 
-a,      
-
-a \< b   ,  
-
-( a == b)    ,   
-
-( a  &&  ( a == b)  && c==d)   ,   
-
-((foo(a[*i - 1])) && (foo(src[*i + 1])) && (src[*i - 1] \<= src[*i + 1]))
-
+    a,      
+    
+    a < b   ,  
+    
+    ( a == b)    ,   
+    
+    ( a  &&  ( a == b)  && c==d)   ,   
+    
+    ((foo(a[*i - 1])) && (foo(src[*i + 1])) && (src[*i - 1] <= src[*i + 1]))
+    
 
 
 so far I have something like this   
@@ -3731,67 +3563,35 @@ so far I have something like this
 
 
     lp=Literal('(')
-
     rp=Literal(')')
-
     lb=Literal('[')
-
     rb=Literal(']')
-
     arith=oneOf('+ / - *')
-
     ptr=Literal('*')
 
 
-
-
-
     identifier = Word(alphas,alphanums+'_')
-
     integer = Word(nums)
-
-    boolops2 = oneOf('&& ||  <h1 id="toc0">= !</h1>
- \< \> \<= \>= ')
-
-
+    boolops2 = oneOf('&& || == >= != < > <= >= ')
 
     ptr_derf = ptr + identifier
 
-
-
     val = identifier | integer |ptr_derf 
-
     val1 = Group(val + arith + val) |  val 
-
     array_idx = Group(identifier+ lb +val1+ rb)
-
-
 
     var = array_idx|val
 
-
-
     funcall = Group(identifier + lp + var +rp)
 
-
-
     exp0= funcall | var  
-
     exp1= Group(exp0 + boolops2 + exp0)
-
     exp2 = exp1 | Group(exp0 )
-
     exp3 = Group(lp + exp2 + rp)   | exp2  
-
-
 
     exps = exp3 + boolops2 + exp3 | exp3  
 
-
-
     exps_f = exps + ZeroOrMore(boolops2 + exps)
-
-
 
 
 
@@ -3810,7 +3610,8 @@ sorry I think the format get messed up when posting
 
 
 
-boolops2 = oneOf('&& ||  \< \> \<= \>= ')  #seems like  the = = and ! = are wiki syntax so I can't put it here
+    boolops2 = oneOf('&& ||  < > <= >= ')  #seems like  the = = and ! = are wiki syntax so I can't put it here
+
 #### 2010-03-22 16:30:41 - ptmcg
 Try reposting, and put [[code]] tags around your code, each on a line by itself, one before and one after, and just use [[code]], there is no [[/code]].
 
@@ -3824,47 +3625,25 @@ a quick question,
 
 how do I match special characters such as 
 
-
-
-
-
-'\0
-
-'@'
-
-'*'
-
-'%'
-
-'$'
-
-'?'
-
-'['
-
-']'
-
-'^'
-
-'!'
-
-'c'    
-
-'-'
-
-
+    
+    '\0
+    '@'
+    '*'
+    '%'
+    '$'
+    '?'
+    '['
+    ']'
+    '^'
+    '!'
+    'c'    
+    '-'
 
 in other words, I want it to match the character between ' ' 
 
-
-
 I have something like  
 
-
-
-rules  =  Suppress(''') + Word(alphas+'@#$%^&*()-_[]{}\|!~`') + Suppress(''')  
-
-
+    rules  =  Suppress(''') + Word(alphas+'@#$%^&*()-_[]{}\|!~`') + Suppress(''')  
 
 but it doesn't match things like   '\0'  ,  '\n'
 
@@ -3994,7 +3773,7 @@ I am trying to get my head around how the operators compose.
 
 -- lagpoi
 #### 2010-04-01 17:42:12 - ptmcg
-Yes, 'a | b | c' is the same as MatchFirst([a,b,c]).  '|' is the lowest precedence operator, so it gets processed last.  So 'a+d | b+e | c' becomes MatchFirst([a+d,b+e,c]).
+Yes, `'a | b | c'` is the same as `MatchFirst([a,b,c])`.  '|' is the lowest precedence operator, so it gets processed last.  So `'a+d | b+e | c'` becomes `MatchFirst([a+d,b+e,c])`.
 
 ---
 ## 2010-03-23 11:16:03 - shankarlingayya - pyparsing Optional
@@ -4004,17 +3783,9 @@ I just started using the pyparsing module for parsing the C++ header file, curre
 
 sample Code :
 
-Optional(functionSpecifierName) + Optional(typeDef) + identifier
+    Optional(functionSpecifierName) + Optional(typeDef) + identifier
 
-
-
-here i specified 'functionSpecifierName' &  'typeDef' are optional,
-
-
-
-when i give the input to the above code as only the identifier data then it is not parsing the data
-
-even though i specified 'functionSpecifierName' & 'typeDef' as optional
+here i specified 'functionSpecifierName' &  'typeDef' are optional, when i give the input to the above code as only the identifier data then it is not parsing the data even though i specified 'functionSpecifierName' & 'typeDef' as optional
 
 
 
@@ -4091,7 +3862,7 @@ Thanks,
             exp,[('*',2,opAssoc.LEFT),
                  ('+',2,opAssoc.RIGHT)],)
     
-        exp \<\< (arith|idx|name|num)  #works ok if take out arith
+        exp << (arith|idx|name|num)  #works ok if take out arith
         return exp
     
 
@@ -4110,7 +3881,7 @@ This looks very close, I think I've done this like this in the past:
     
     operand = idx|name|num
     
-    exp \<\< operatorPrecedence(operand,
+    exp << operatorPrecedence(operand,
          [('*',2,opAssoc.LEFT),
           ('+',2,opAssoc.RIGHT)],)
     
@@ -4130,7 +3901,7 @@ When I've used this, it was to add support for function calls:
     
     operand = functionCall|idx|name|num
     
-    exp \<\< operatorPrecedence(operand,
+    exp << operatorPrecedence(operand,
          [('*',2,opAssoc.LEFT),
           ('+',2,opAssoc.RIGHT)],)
     
@@ -4153,339 +3924,166 @@ in a first time, I just try a simple list of token. There is my parser
 
 
 
-[CODE]
-
-from pyparsing_py3 import *
-
-
-
-
-
-
-
-abstractToken    = Keyword('abstract')
-
-asToken          = Keyword('as')
-
-baseToken        = Keyword('base')
-
-boolToken        = Keyword('bool')
-
-breakToken       = Keyword('break')
-
-byteToken        = Keyword('byte')
-
-caseToken        = Keyword('case')
-
-catchToken       = Keyword('catch')
-
-charToken        = Keyword('char')
-
-checkedToken     = Keyword('checked')
-
-classToken       = Keyword('class')
-
-constToken       = Keyword('const')
-
-continueToken    = Keyword('continue')
-
-decimalToken     = Keyword('decimal')
-
-defaultToken     = Keyword('default')
-
-delegateToken    = Keyword('delegate')
-
-doToken          = Keyword('do')
-
-doubleToken      = Keyword('double')
-
-elseToken        = Keyword('else')
-
-enumToken        = Keyword('enum')
-
-eventToken       = Keyword('event')
-
-explicitToken    = Keyword('explicit')
-
-externToken      = Keyword('extern')
-
-falseToken       = Keyword('false')
-
-finallyToken     = Keyword('finally')
-
-fixedToken       = Keyword('fixed')
-
-floatToken       = Keyword('float')
-
-forToken         = Keyword('for')
-
-foreachToken     = Keyword('foreach')
-
-gotoToken        = Keyword('goto')
-
-ifToken          = Keyword('if')
-
-implicitToken    = Keyword('implicit')
-
-inToken          = Keyword('in')
-
-intToken         = Keyword('int')
-
-interfaceToken   = Keyword('interface')
-
-internalToken    = Keyword('internal')
-
-isToken          = Keyword('is')
-
-lockToken        = Keyword('lock')
-
-longToken        = Keyword('long')
-
-namespaceToken   = Keyword('namespace')
-
-newToken         = Keyword('new')
-
-nullToken        = Keyword('null')
-
-objectToken      = Keyword('object')
-
-operatorToken    = Keyword('operator')
-
-outToken         = Keyword('out')
-
-overrideToken    = Keyword('override')
-
-paramsToken      = Keyword('params')
-
-privateToken     = Keyword('private')
-
-protectedToken   = Keyword('protected')
-
-publicToken      = Keyword('public')
-
-readonlyToken    = Keyword('readonly')
-
-refToken         = Keyword('ref')
-
-returnToken      = Keyword('return')
-
-sbyteToken       = Keyword('sbyte')
-
-sealedToken      = Keyword('sealed')
-
-shortToken       = Keyword('short')
-
-sizeofToken      = Keyword('sizeof')
-
-stackallocToken  = Keyword('stackalloc')
-
-staticToken      = Keyword('static')
-
-stringToken      = Keyword('string')
-
-structToken      = Keyword('struct')
-
-switchToken      = Keyword('switch')
-
-thisToken        = Keyword('this')
-
-throwToken       = Keyword('throw')
-
-trueToken        = Keyword('true')
-
-tryToken         = Keyword('try')
-
-typeofToken      = Keyword('typeof')
-
-uintToken        = Keyword('uint')
-
-ulongToken       = Keyword('ulong')
-
-uncheckedToken   = Keyword('unchecked')
-
-unsafeToken      = Keyword('unsafe')
-
-ushortToken      = Keyword('ushort')
-
-usingToken       = Keyword('using')
-
-virtualToken     = Keyword('virtual')
-
-voidToken        = Keyword('void')
-
-volatileToken    = Keyword('volatile')
-
-whileToken       = Keyword('while')
-
-pointvirgule     = Keyword(';')
-
-
-
-comment1 = '<em>' + restOfLine
-
-
-
-tokens = Forward() 
-
-
-
-tokens \<\< ( abstractToken    |asToken          |baseToken        |boolToken        |
-
-            breakToken       |byteToken        |caseToken        |catchToken       |
-
-            charToken        |checkedToken     |classToken       |constToken       |
-
-            continueToken    |decimalToken     |defaultToken     |delegateToken    |
-
-            doToken          |doubleToken      |elseToken        |enumToken        |
-
-            eventToken       |explicitToken    |externToken      |falseToken       |
-
-            finallyToken     |fixedToken       |floatToken       |forToken         |
-
-            foreachToken     |gotoToken        |ifToken          |implicitToken    |
-
-            inToken          |intToken         |interfaceToken   |internalToken    |
-
-            isToken          |lockToken        |longToken        |namespaceToken   |
-
-            newToken         |nullToken        |objectToken      |operatorToken    |
-
-            outToken         |overrideToken    |paramsToken      |privateToken     |
-
-            protectedToken   |publicToken      |readonlyToken    |refToken         |
-
-            returnToken      |sbyteToken       |sealedToken      |shortToken       |
-
-            sizeofToken      |stackallocToken  |staticToken      |stringToken      |
-
-            structToken      |switchToken      |thisToken        |throwToken       |
-
-            trueToken        |tryToken         |typeofToken      |uintToken        |
-
-            ulongToken       |uncheckedToken   |unsafeToken      |ushortToken      |
-
-            usingToken       |virtualToken     |voidToken        |volatileToken    |
-
-            whileToken       |pointvirgule)       
-
-
-
-
-
-ident = Word( alphas, alphanums ).setName('identifier')
-
-
-
-parser = Forward()
-
-parser \<\< ZeroOrMore( tokens | ident )
-
-parser.ignore(comment1)
-
-
-
-if <u>name</u> == '<u>main</u>':
-
-  prg = parser.parseFile('E:\CSParser\Test\HelloWorld.cs')
-
-[/CODE]
+    from pyparsing_py3 import *
+
+    abstractToken    = Keyword('abstract')
+    asToken          = Keyword('as')
+    baseToken        = Keyword('base')
+    boolToken        = Keyword('bool')
+    breakToken       = Keyword('break')
+    byteToken        = Keyword('byte')
+    caseToken        = Keyword('case')
+    catchToken       = Keyword('catch')
+    charToken        = Keyword('char')
+    checkedToken     = Keyword('checked')
+    classToken       = Keyword('class')
+    constToken       = Keyword('const')
+    continueToken    = Keyword('continue')
+    decimalToken     = Keyword('decimal')
+    defaultToken     = Keyword('default')
+    delegateToken    = Keyword('delegate')
+    doToken          = Keyword('do')
+    doubleToken      = Keyword('double')
+    elseToken        = Keyword('else')
+    enumToken        = Keyword('enum')
+    eventToken       = Keyword('event')
+    explicitToken    = Keyword('explicit')
+    externToken      = Keyword('extern')
+    falseToken       = Keyword('false')
+    finallyToken     = Keyword('finally')
+    fixedToken       = Keyword('fixed')
+    floatToken       = Keyword('float')
+    forToken         = Keyword('for')
+    foreachToken     = Keyword('foreach')
+    gotoToken        = Keyword('goto')
+    ifToken          = Keyword('if')
+    implicitToken    = Keyword('implicit')
+    inToken          = Keyword('in')
+    intToken         = Keyword('int')
+    interfaceToken   = Keyword('interface')
+    internalToken    = Keyword('internal')
+    isToken          = Keyword('is')
+    lockToken        = Keyword('lock')
+    longToken        = Keyword('long')
+    namespaceToken   = Keyword('namespace')
+    newToken         = Keyword('new')
+    nullToken        = Keyword('null')
+    objectToken      = Keyword('object')
+    operatorToken    = Keyword('operator')
+    outToken         = Keyword('out')
+    overrideToken    = Keyword('override')
+    paramsToken      = Keyword('params')
+    privateToken     = Keyword('private')
+    protectedToken   = Keyword('protected')
+    publicToken      = Keyword('public')
+    readonlyToken    = Keyword('readonly')
+    refToken         = Keyword('ref')
+    returnToken      = Keyword('return')
+    sbyteToken       = Keyword('sbyte')
+    sealedToken      = Keyword('sealed')
+    shortToken       = Keyword('short')
+    sizeofToken      = Keyword('sizeof')
+    stackallocToken  = Keyword('stackalloc')
+    staticToken      = Keyword('static')
+    stringToken      = Keyword('string')
+    structToken      = Keyword('struct')
+    switchToken      = Keyword('switch')
+    thisToken        = Keyword('this')
+    throwToken       = Keyword('throw')
+    trueToken        = Keyword('true')
+    tryToken         = Keyword('try')
+    typeofToken      = Keyword('typeof')
+    uintToken        = Keyword('uint')
+    ulongToken       = Keyword('ulong')
+    uncheckedToken   = Keyword('unchecked')
+    unsafeToken      = Keyword('unsafe')
+    ushortToken      = Keyword('ushort')
+    usingToken       = Keyword('using')
+    virtualToken     = Keyword('virtual')
+    voidToken        = Keyword('void')
+    volatileToken    = Keyword('volatile')
+    whileToken       = Keyword('while')
+    pointvirgule     = Keyword(';')
+    
+    comment1 = '//' + restOfLine
+    
+    tokens = Forward() 
+    
+    tokens << ( abstractToken    |asToken          |baseToken        |boolToken        |
+                breakToken       |byteToken        |caseToken        |catchToken       |
+                charToken        |checkedToken     |classToken       |constToken       |
+                continueToken    |decimalToken     |defaultToken     |delegateToken    |
+                doToken          |doubleToken      |elseToken        |enumToken        |
+                eventToken       |explicitToken    |externToken      |falseToken       |
+                finallyToken     |fixedToken       |floatToken       |forToken         |
+                foreachToken     |gotoToken        |ifToken          |implicitToken    |
+                inToken          |intToken         |interfaceToken   |internalToken    |
+                isToken          |lockToken        |longToken        |namespaceToken   |
+                newToken         |nullToken        |objectToken      |operatorToken    |
+                outToken         |overrideToken    |paramsToken      |privateToken     |
+                protectedToken   |publicToken      |readonlyToken    |refToken         |
+                returnToken      |sbyteToken       |sealedToken      |shortToken       |
+                sizeofToken      |stackallocToken  |staticToken      |stringToken      |
+                structToken      |switchToken      |thisToken        |throwToken       |
+                trueToken        |tryToken         |typeofToken      |uintToken        |
+                ulongToken       |uncheckedToken   |unsafeToken      |ushortToken      |
+                usingToken       |virtualToken     |voidToken        |volatileToken    |
+                whileToken       |pointvirgule)       
+    
+    
+    ident = Word( alphas, alphanums ).setName('identifier')
+    
+    parser = Forward()
+    parser << ZeroOrMore( tokens | ident )
+    parser.ignore(comment1)
+    
+    if __name__ == '__main__':
+        prg = parser.parseFile('E:\CSParser\Test\HelloWorld.cs')
 
 
 
 my hello world looks like
 
-[CODE]
-
     using System;
 
-
-
-public class HelloWorld
-
-{
-
-    public static void Main()
-
+    public class HelloWorld
     {
-
-        </em> This is a single line comment
-
-        /* This is a
-
-        multiple
-
-        line comment */
-
-        Console.WriteLine('Hello World! From Softsteel Solutions');
-
+        public static void Main()
+        {
+            // This is a single line comment
+            /* This is a
+            multiple
+            line comment */
+            Console.WriteLine('Hello World! From Softsteel Solutions');
+        }
     }
 
-}
-
-[/CODE]
 
 
 
 but when I lauch the stuff, I have the following error 
 
-[CODE]
-
-E:\CSParser\Engine\>python CSMain.py
-
-Traceback (most recent call last):
-
-  File 'CSMain.py', line 117, in \<module\>
-
-    prg = parser.parseFile('E:\CSParser\Test\HelloWorld.cs')
-
-  File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 1409, in parseFile
-
-
-
-    return self.parseString(file_contents, parseAll)
-
-  File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 1067, in parseStri
-
-ng
-
-    loc, tokens = self._parse( instring, 0 )
-
-  File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 934, in _parseNoCa
-
-che
-
-    preloc = self.preParse( instring, loc )
-
-  File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 887, in preParse
-
-    loc = self._skipIgnorables( instring, loc )
-
-  File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 879, in _skipIgnor
-
-ables
-
-    loc,dummy = e._parse( instring, loc )
-
-  File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 934, in _parseNoCa
-
-che
-
-    preloc = self.preParse( instring, loc )
-
-  File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 892, in preParse
-
-    while loc \< instrlen and instring[loc] in wt:
-
-TypeError: 'in \<string\>' requires string as left operand, not int
-
-
-
-E:\CSParser\Engine\>
-
-[/CODE]
-
-
+    E:\CSParser\Engine>python CSMain.py
+    Traceback (most recent call last):
+      File 'CSMain.py', line 117, in <module>
+        prg = parser.parseFile('E:\CSParser\Test\HelloWorld.cs')
+      File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 1409, in parseFile
+    
+        return self.parseString(file_contents, parseAll)
+      File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 1067, in parseString
+        loc, tokens = self._parse( instring, 0 )
+      File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 934, in _parseNoCache
+        preloc = self.preParse( instring, loc )
+      File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 887, in preParse
+        loc = self._skipIgnorables( instring, loc )
+      File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 879, in _skipIgnorables
+        loc,dummy = e._parse( instring, loc )
+      File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 934, in _parseNoCache
+        preloc = self.preParse( instring, loc )
+      File 'C:\Python31\lib\site-packages\pyparsing_py3.py', line 892, in preParse
+        while loc < instrlen and instring[loc] in wt:
+    TypeError: 'in <string>' requires string as left operand, not int
+    
 
 any idea ?
 
@@ -4533,34 +4131,19 @@ Thanks
 ## 2010-03-27 11:13:18 - shankarlingayya - How to skip the data between { and } in pyparsing
 I am writing a parser for C++ header file, and i am facing one problem.
 
-
-
 i want to extract only the function signature from a class, but some times class may also contains function definition
-
-
 
 is there any way to ignore the data between '{' and '}', then my below code will work:
 
-
-
-paramlist = ( delimitedList( Group( (typeName + identifier + Optional( equals + ( identifier ^ Combine(quote+identifier+quote) ^ integer ^ real ) ) ) | (ptrTypeName + identifier) | (typeName + ptrIdentifier)  ) ) )
-
-
-
-operationDef = Group( ( Optional(functionSpecifierName) + Optional(typeDef) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(ptrTypeDef) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(typeDef) + ptrIdentifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(typeDef) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(ptrTypeDef) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(typeDef) + ptrIdentifier + lparen + Optional(paramlist) + rparen + Optional(const_) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + Optional(semi) ) | ( enipFunctionExport) ).setResultsName('operation')
-
+    paramlist = ( delimitedList( Group( (typeName + identifier + Optional( equals + ( identifier ^ Combine(quote+identifier+quote) ^ integer ^ real ) ) ) | (ptrTypeName + identifier) | (typeName + ptrIdentifier)  ) ) )
+    
+    operationDef = Group( ( Optional(functionSpecifierName) + Optional(typeDef) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(ptrTypeDef) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(typeDef) + ptrIdentifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(equals+zero) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(typeDef) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(ptrTypeDef) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + Optional(semi) ) | ( Optional(functionSpecifierName) + Optional(typeDef) + ptrIdentifier + lparen + Optional(paramlist) + rparen + Optional(const_) + semi ) | ( Optional(functionSpecifierName) + identifier + lparen + Optional(paramlist) + rparen + Optional(const_) + Optional(semi) ) | ( enipFunctionExport) ).setResultsName('operation')
 
 ---
 ## 2010-03-27 12:37:47 - Elby - Good usage of setWhitespaceChars
-    Hi,
-
-
+Hi,
 
 I've made a tentative to detect matrix in a text file:
-
-
-
-
 
     from    pyparsing   import *
     from    pprint        import pprint
@@ -4610,7 +4193,7 @@ I've made a tentative to detect matrix in a text file:
         ''' define matrixLine to match the same number of col than t has '''
         print 'First row is : ', t
         nbcols = len(t[0])
-        matrixLine \<\< Group( SOL + rowValue*nbcols + EOL )
+        matrixLine << Group( SOL + rowValue*nbcols + EOL )
     
     matrixDef = (
           Group( SOL + OneOrMore(rowValue) + EOL).setParseAction(defineMatrixCol)
@@ -4822,7 +4405,7 @@ I have defined that a message will have two parts: message_id and message_body. 
     t = transcript.parseString(f.read())
     
     for m in range(len(t)):
-            print 'Message #' + str(m) + ' -\> ' + str(t[m])
+            print 'Message #' + str(m) + ' -> ' + str(t[m])
             f.close()
 
 
@@ -4840,9 +4423,7 @@ Marc
 #### 2010-03-30 09:40:02 - mvilanova
 Solved!
 
-
-
-message_body = SkipTo(message_id,include=False, ignore=None, failOn=None)
+    message_body = SkipTo(message_id,include=False, ignore=None, failOn=None)
 #### 2010-03-30 16:24:41 - ptmcg
 Glad you found a solution.  You can also try using restOfLine.
 
@@ -4935,7 +4516,7 @@ Hi, I try to write a rule that parse
 
 something like  
 
-(something1 something2, something, something3 something4 something 5) or ().  In other words, an delimited List of zeroOrMore fields of [1 to 3] alphas 
+    (something1 something2, something, something3 something4 something 5) or ().  In other words, an delimited List of zeroOrMore fields of [1 to 3] alphas 
 
 
 
@@ -4943,7 +4524,7 @@ The rule I wrote looks like this:
 
 
 
-'(' + ZeroOrMore(delimitedList(al+al+al | al+al | al)) + ')'  where al = Word(alphas)
+    '(' + ZeroOrMore(delimitedList(al+al+al | al+al | al)) + ')'  where al = Word(alphas)
 
 
 
@@ -4989,13 +4570,13 @@ Sorry, installation fail:
 
 
 
-    C:\Downloads\Python\regex-0.1.20100331\>python setup.py install
+    C:\Downloads\Python\regex-0.1.20100331>python setup.py install
     running install
     running build
     running build_py
     creating build
     creating build\lib.win32-2.5
-    copying regex.py -\> build\lib.win32-2.5
+    copying regex.py -> build\lib.win32-2.5
     running build_ext
     error: Python was built with Visual Studio 2003;
     extensions must be built with a compiler than can generate compatible binaries.
@@ -5077,156 +4658,86 @@ I wrote some code using pyparsing to parse some input file of the following form
         attr2b entry2b;
     }
 
-
-
-
-
 The code I wrote was:
 
 
-
-fB = open('someFile.txt','r')
-
-expressions = fB.read();
-
-
-
-LBRACE,RBRACE,SEMI = map(Suppress,'{};')
-
-LPAREN,RPAREN = map(Suppress,'()')
-
-
-
-intEntry = Combine(Optional('-') + Word(nums)) \
-
-           .setParseAction(lambda t : int(t[0]))
-
-realEntry = Combine(Optional('-') + Optional(Word(nums)) \
-
-                    + '.' + Optional(Word(nums))) \
-
-           .setParseAction(lambda t : float(t[0]))
-
-numEntry = realEntry | intEntry
-
-realOrSciEntry = Combine(  numEntry \
-
-                         + Optional(CaselessLiteral('E') \
-
-                                    + Word('+-'+nums,nums))) \
-
-                 .setParseAction(lambda t : float(t[0]))
-
-
-
-<ol><li>define tokens, expressions and entries</li></ol>objEntry = Forward()
-
-listEntry = Forward()
-
-
-
-keyToken = Word(alphas+'_', alphanums+'_')
-
-entryToken = ( keyToken | intEntry | realOrSciEntry |
-
-               quotedString.copy().setParseAction(removeQuotes))
-
-
-
-<ol><li>define lists</li></ol>numList = (OneOrMore(realOrSciEntry))
-
-intList = (OneOrMore(intEntry))
-
-keyTokenList = (OneOrMore(keyToken))
-
-entryList = intList | numList | keyTokenList
-
-
-
-<ol><li>define expressions and entries</li></ol>objExpr = Group(keyToken + objEntry)
-
-expr = Group(keyToken + entryToken + SEMI) \
-
-      | Group(keyToken + LPAREN + entryList + RPAREN + SEMI)
-
-
-
-<ol><li>expr needs to come before the list ones</li></ol>mixedExpr = (expr | objExpr)
-
-
-
-objEntry \<\< (  LBRACE + Dict(OneOrMore(mixedExpr)) + RBRACE)
-
-
-
-dict_t = Dict(OneOrMore(mixedExpr)) \
-
-          .ignore(cStyleComment).ignore('//' + restOfLine) \
-
-          .parseString(expressions,parseAll=True)
-
-fB.close()
-
-
-
-print dict_t.dump()
-
-
-
-for ki in dict_t.keys():
-
-    print dict_t[ki].values()
-
-
-
+    fB = open('someFile.txt','r')
+    expressions = fB.read();
     
+    LBRACE,RBRACE,SEMI = map(Suppress,'{};')
+    LPAREN,RPAREN = map(Suppress,'()')
     
-    upon 'dump()' the results look like this:
-
-[['obj1', ['attr1a', 'entry1a'], ['list1a', 'item1a', 'item1b'], ['list1b', 0.5, 0.0]], ['obj2', ['attr2a', 'entry2a'], ['attr2b', 'entry2b']]]
-
-- obj1: [['attr1a', 'entry1a'], ['list1a', 'item1a', 'item1b'], ['list1b', 0.5, 0.0]]
-
-  - attr1a: entry1a
-
-  - list1a: ['item1a', 'item1b']
-
-  - list1b: [0.5, 0.0]
-
-- obj2: [['attr2a', 'entry2a'], ['attr2b', 'entry2b']]
-
-  - attr2a: entry2a
-
-  - attr2b: entry2b
-
-
-
+    intEntry = Combine(Optional('-') + Word(nums)) \
+               .setParseAction(lambda t : int(t[0]))
+    realEntry = Combine(Optional('-') + Optional(Word(nums)) \
+                        + '.' + Optional(Word(nums))) \
+               .setParseAction(lambda t : float(t[0]))
+    numEntry = realEntry | intEntry
+    realOrSciEntry = Combine(  numEntry \
+                             + Optional(CaselessLiteral('E') \
+                                        + Word('+-'+nums,nums))) \
+                     .setParseAction(lambda t : float(t[0]))
     
-    all is fine.  But then when I access the result values as dictionaries (using the for statement in the last part of the code above), I got this:
+    # define tokens, expressions and entries
+    objEntry = Forward()
+    
+    listEntry = Forward()
+    
+    keyToken = Word(alphas+'_', alphanums+'_')
+    entryToken = ( keyToken | intEntry | realOrSciEntry |
+                   quotedString.copy().setParseAction(removeQuotes))
+    
+    # define lists
+    numList = (OneOrMore(realOrSciEntry))
+    intList = (OneOrMore(intEntry))
+    keyTokenList = (OneOrMore(keyToken))
+    entryList = intList | numList | keyTokenList
+    
+    # define expressions and entries
+    objExpr = Group(keyToken + objEntry)
+    expr = Group(keyToken + entryToken + SEMI) \
+          | Group(keyToken + LPAREN + entryList + RPAREN + SEMI)
+    
+    # expr needs to come before the list ones
+    mixedExpr = (expr | objExpr)
+    
+    objEntry << (  LBRACE + Dict(OneOrMore(mixedExpr)) + RBRACE)
+    
+    dict_t = Dict(OneOrMore(mixedExpr)) \
+              .ignore(cStyleComment).ignore('//' + restOfLine) \
+              .parseString(expressions,parseAll=True)
+    fB.close()
+    
+    print dict_t.dump()
+    
+    for ki in dict_t.keys():
+        print dict_t[ki].values()
+
+   
+ upon 'dump()' the results look like this:
+
+    [['obj1', ['attr1a', 'entry1a'], ['list1a', 'item1a', 'item1b'], ['list1b', 0.5, 0.0]], ['obj2', ['attr2a', 'entry2a'], ['attr2b', 'entry2b']]]
+    - obj1: [['attr1a', 'entry1a'], ['list1a', 'item1a', 'item1b'], ['list1b', 0.5, 0.0]]
+      - attr1a: entry1a
+      - list1a: ['item1a', 'item1b']
+      - list1b: [0.5, 0.0]
+    - obj2: [['attr2a', 'entry2a'], ['attr2b', 'entry2b']]
+      - attr2a: entry2a
+      - attr2b: entry2b
+    
+all is fine.  But then when I access the result values as dictionaries (using the for statement in the last part of the code above), I got this:
+    
+    ['entry1a', (['item1a', 'item1b'], {}), ([0.5, 0.0], {})]
+    ['entry2a', 'entry2b']
+
+I want to get rid of the extra braces when the input is a list.  I just want a nested dictionary of the input, something like this:
     
 
-['entry1a', (['item1a', 'item1b'], {}), ([0.5, 0.0], {})]
-
-['entry2a', 'entry2b']
-
-
-
-    
-    I want to get rid of the extra braces when the input is a list.  I just want a nested dictionary of the input, something like this:
-    
-
-{'obj1': [{'attr1a':'entry1a'}, 
-
-          {'list1a':['item1a1', 'item1a2']},
-
-          {'list1b':['item1b1', 'item1b2']},]},
-
-{'obj2': [{'attr2a':'entry2a'},
-
-          {'attr2b':'entry2b'}]}
-
-
-
+    {'obj1': [{'attr1a':'entry1a'}, 
+              {'list1a':['item1a1', 'item1a2']},
+              {'list1b':['item1b1', 'item1b2']},]},
+    {'obj2': [{'attr2a':'entry2a'},
+              {'attr2b':'entry2b'}]}
 
 
 It's very frustrating.  Any help is appreciated!!
@@ -5301,7 +4812,7 @@ The code I wrote was:
     
     mixedExpr = (expr | objExpr)
     
-    objEntry \<\< ( LBRACE + Dict(OneOrMore(mixedExpr)) + RBRACE)
+    objEntry << ( LBRACE + Dict(OneOrMore(mixedExpr)) + RBRACE)
     
     dict_t = Dict(OneOrMore(mixedExpr)) \
             .ignore(cStyleComment).ignore('//' + restOfLine) \
@@ -5409,11 +4920,11 @@ Hi, I am trying to write an flex SQL SELECT parser. This is my code:
     SEMI = Literal(';').suppress()
     COLON = Literal(':').suppress()
     EQUAL = Literal('=')
-    LANGLE = Literal('\<').suppress()
+    LANGLE = Literal('<').suppress()
     LBRACE = Literal('[').suppress()
     LPAREN = Literal('(')
     PLUS = Literal('+').suppress()
-    RANGLE = Literal('\>').suppress()
+    RANGLE = Literal('>').suppress()
     RBRACE = Literal(']').suppress()
     RPAREN = Literal(')')
     
@@ -5433,7 +4944,7 @@ Hi, I am trying to write an flex SQL SELECT parser. This is my code:
     column = Group(entry + Optional(pseudo)).setResultsName('column')
     proc = entry + LPAREN + Optional(Suppress(SkipTo(RPAREN))) + RPAREN
     
-    expr = Group(Optional(LPAREN).suppress() + entry + oneOf('= \> \<').setResultsName('type') + \
+    expr = Group(Optional(LPAREN).suppress() + entry + oneOf('= > <').setResultsName('type') + \
            Optional(D_QUOTE) + (proc | entry | var | num) + Optional(D_QUOTE) + \
            Optional(RPAREN).suppress()).setResultsName('expr')
     
@@ -5491,7 +5002,7 @@ Is there a way to pass an instance method as a parse action? I'm trying to wrap 
           ...
        def create_parser(self):
           parser = blahblah
-          parser.setParseAction(parse_action) # \<= like this
+          parser.setParseAction(parse_action) # <= like this
           return parser
 
 
@@ -5519,38 +5030,20 @@ Unfortunately it downloads the windows install and tries to run setup.py from in
 
 See:-
 
-
-
-C:\\>c:\Python26\Scripts\easy_install.exe pyparsing
-
-Searching for pyparsing
-
-Reading 
-
-Reading 
-
-Reading 
-
-Reading 
-
-Reading 
-
-Reading 
-
-Best match: pyparsing 1.5.2
-
-Downloading 
-
-1.5.2/pyparsing-1.5.2.win32.exe/download
-
-Processing download
-
-error: Couldn't find a setup script in c:\docume~1\roger\locals~1\temp\easy_inst
-
-all-heexie\download
-
-
-
+    C:\> c:\Python26\Scripts\easy_install.exe pyparsing
+    Searching for pyparsing
+    Reading 
+    Reading 
+    Reading 
+    Reading 
+    Reading 
+    Reading 
+    Best match: pyparsing 1.5.2
+    Downloading 
+    1.5.2/pyparsing-1.5.2.win32.exe/download
+    Processing download
+    error: Couldn't find a setup script in c:\docume~1\roger\locals~1\temp\easy_inst
+    all-heexie\download
 
 
 The executable is not easy to run either as it requires MSVCR71.dll which is not universally deployed on windows XP.  
@@ -5566,7 +5059,7 @@ Otherwise I hae to put a seriously complicated set of installation instructions 
 #### 2010-05-03 18:25:19 - ptmcg
 I have been promising this next release (1.5.3) for months now, but I think I'll actually get some time for it very soon, and I'll try to include a windows bdist zip as one of the options.  As a workaround, you can just include the pyparsing.py file in with your own code.  I intentionally kept pyparsing's code footprint down to a single source file, so it would be easy to include with a project's code.
 #### 2010-05-28 04:27:59 - merridus
-If you download the pyparse zip file and then easy_install \<location of zip file\> it should work.
+If you download the pyparse zip file and then easy_install <location of zip file> it should work.
 
 ---
 ## 2010-05-04 11:57:59 - gareth8118 - Unexpected list grouping of named result
@@ -5689,7 +5182,7 @@ Pyparsing 1.5.2 introduced the helper originalTextFor, which should be used in p
 
 
 
-    \>\>\> print OneOrMore(Word(nums) + Optional('.')).parseString('1.2.3.4')
+    >>> print OneOrMore(Word(nums) + Optional('.')).parseString('1.2.3.4')
     ['1', '.', '2', '.', '3', '.', '4']
 
 
@@ -5698,7 +5191,7 @@ But wrap the expression in originalTextFor:
 
 
 
-    \>\>\> print originalTextFor(OneOrMore(Word(nums) + Optional('.'))).parseString('1.2.3.4')
+    >>> print originalTextFor(OneOrMore(Word(nums) + Optional('.'))).parseString('1.2.3.4')
     ['1.2.3.4']
 
 
@@ -5801,7 +5294,7 @@ Anyway, here it is:
                 lastExpr = (op + lastExpr).setParseAction( pa ) | lastExpr
             elif terms == 2:
                 lastExpr = (lastExpr + OneOrMore( op + lastExpr )).setParseAction( pa ) | lastExpr
-        expr \<\< lastExpr
+        expr << lastExpr
         return expr
 
 
@@ -5891,12 +5384,12 @@ With and without packrat parsing, I get the same results:
 
 
 
-    \>pythonw -u 'majortal1.py'
+    >pythonw -u 'majortal1.py'
     super triple room
-    \>Exit code: 0
-    \>pythonw -u 'majortal1.py'
+    >Exit code: 0
+    >pythonw -u 'majortal1.py'
     super triple room
-    \>Exit code: 0
+    >Exit code: 0
 
 What version of pyparsing is this?
 #### 2010-05-21 14:26:49 - majortal
@@ -5970,34 +5463,26 @@ The implementation of AND is faulty.
 
 in And.parseImpl():
 
-loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
+    loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
 
 When caching is on, resultlist is also stored in the cache. But a few lines later we see:
 
-resultlist += exprtokens
+    resultlist += exprtokens
 
 So you are also using resultlist as an accumulator and changing it, even though it is in the cache! So when the first expression in the And is parsed again, it will return the accumulation of the entire And!
 
 Solution:
 
-parse_results = ParseResults([])
-
+        parse_results = ParseResults([])
         loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
-
         parse_results += resultlist
 
 and
 
             loc, exprtokens = e._parse( instring, loc, doActions )
-
             if exprtokens or exprtokens.keys():
-
                 parse_results += exprtokens
-
-return loc, parse_results
-
-
-
+        return loc, parse_results
 
 
 I want my 10 hours back...
@@ -6048,23 +5533,23 @@ Also, are there any easy AST transformation tools available in pyparsing or do I
             thisExpr.setName('expr%d' % i)#.setDebug()
             if rightLeftAssoc == 'L':
                 if arity == 1:
-                    thisExpr \<\< ( Group( lastExpr + opExpr ) | lastExpr )
+                    thisExpr << ( Group( lastExpr + opExpr ) | lastExpr )
                 else:
-                    thisExpr \<\< ( Group( lastExpr + OneOrMore( opExpr + lastExpr) ) | lastExpr )
+                    thisExpr << ( Group( lastExpr + OneOrMore( opExpr + lastExpr) ) | lastExpr )
             else:
                 if arity == 1:
                     # try to avoid LR with this extra test
                     if isinstance(opExpr, Optional):
-                        thisExpr \<\< (( FollowedBy(opExpr.expr + thisExpr) + \
+                        thisExpr << (( FollowedBy(opExpr.expr + thisExpr) + \
                         Group( opExpr + thisExpr )) | lastExpr )
                     else:
-                        thisExpr \<\< ( opExpr + thisExpr )
+                        thisExpr << ( opExpr + thisExpr )
                 else:
-                    thisExpr \<\< ( Group( lastExpr + OneOrMore( opExpr + thisExpr ) ) | lastExpr )
+                    thisExpr << ( Group( lastExpr + OneOrMore( opExpr + thisExpr ) ) | lastExpr )
             lastExpr = thisExpr
             thisExpr = Forward()
             i += 1
-            ret \<\< lastExpr
+            ret << lastExpr
         return ret
     
     
@@ -6079,14 +5564,14 @@ Also, are there any easy AST transformation tools available in pyparsing or do I
     negop = Optional( Literal('!') )
     andop = Literal('^')
     orop = Literal('v')
-    impop = Literal('=\>')
-    iffop = Literal('\<=\>')
+    impop = Literal('=>')
+    iffop = Literal('<=>')
     faop = Word('FORALL') | Word('ForAll') | Word('forall')
     
     identifier = Word(alphas)
     constant = Group( Optional( perconstantop ).setResultsName('perconstant') + identifier + Optional( exhaustiveop ).setResultsName('exhaustive') )
     atom = Forward()
-    atom \<\< Group( identifier.setResultsName('pred') + lpar +  Group( delimitedList( constant ).setResultsName('args') ) + rpar )
+    atom << Group( identifier.setResultsName('pred') + lpar +  Group( delimitedList( constant ).setResultsName('args') ) + rpar )
     
     expr = operatorGrammar( atom,
     [
@@ -6101,10 +5586,10 @@ Also, are there any easy AST transformation tools available in pyparsing or do I
     
     test = ['foo(x)',
     '!foo(x) v smells(x)',
-    'foo(x) \<=\> * smells(x)',
-    'foo(x) \<=\> * smells(x,y!)',
-    'foo(x) \<=\> * smells(+x)',
-    'foo(x) =\> foo(x,y) v smells(x)',]
+    'foo(x) <=> * smells(x)',
+    'foo(x) <=> * smells(x,y!)',
+    'foo(x) <=> * smells(+x)',
+    'foo(x) => foo(x,y) v smells(x)',]
     
     for t in test:
         out = expr.parseString(t)
@@ -6195,7 +5680,7 @@ setResultsName is one of the most important features of pyparsing, but I hate th
 
 
 
-    atom \<\< Group( identifier.setResultsName('pred') + lpar +  Group( delimitedList( constant ).setResultsName('args') ) + rpar )
+    atom << Group( identifier.setResultsName('pred') + lpar +  Group( delimitedList( constant ).setResultsName('args') ) + rpar )
 
 
 
@@ -6205,7 +5690,7 @@ And here it is converted to new form:
 
 
 
-    atom \<\< Group( identifier('pred') + lpar +  Group( delimitedList( constant ) )('args') + rpar )
+    atom << Group( identifier('pred') + lpar +  Group( delimitedList( constant ) )('args') + rpar )
 
 
 
@@ -6224,12 +5709,12 @@ I see that you use a simplified form of operatorPrecedence in your operatorGramm
 
 
     if isinstance(opExpr, Optional):
-        thisExpr \<\< (( FollowedBy(opExpr.expr + thisExpr) + \
+        thisExpr << (( FollowedBy(opExpr.expr + thisExpr) + \
         Group( opExpr + thisExpr )) | lastExpr )
     else:
         # change the following line as shown
-        #~ thisExpr \<\< ( opExpr + thisExpr )
-        thisExpr \<\< ( Group(opExpr + thisExpr) | lastExpr )
+        #~ thisExpr << ( opExpr + thisExpr )
+        thisExpr << ( Group(opExpr + thisExpr) | lastExpr )
 
 
 
@@ -6253,46 +5738,33 @@ Out of curiosity, one thing I didn't in the examples see was having a non-operat
 
 
 
-[code]
-
-boolOperand = Word(alphas,max=1) | oneOf('True False')
-
-boolExpr = operatorPrecedence( boolOperand,
-
-    [
-
-    ('not', 1, opAssoc.RIGHT, BoolNot),
-
-    ('or',  2, opAssoc.LEFT,  BoolOr),
-
-    ('and', 2, opAssoc.LEFT,  BoolAnd),
-
-    ])
-
-[code]
+    boolOperand = Word(alphas,max=1) | oneOf('True False')
+    
+    boolExpr = operatorPrecedence( boolOperand,
+    
+        [
+    
+        ('not', 1, opAssoc.RIGHT, BoolNot),
+    
+        ('or',  2, opAssoc.LEFT,  BoolOr),
+    
+        ('and', 2, opAssoc.LEFT,  BoolAnd),
+    
+        ])
 
 
 
 This is fine for stuff like
 
-[code]
-
-'p and not q'
-
-'not(p and q)'
-
-[code]
+    'p and not q'
+    
+    'not(p and q)'
 
 
 
 But what about when we just have
 
-[code]
-
-'p'
-
-[code]
-
+    'p'
 
 
 Is there a way to give a simple boolOperand an AST type, and in general to give all nodes in the AST a default type if not otherwise specified?
@@ -6346,42 +5818,31 @@ I have some html that looks  like this:
 
 
 
-\<td class='listcontentlight_left'\>
-
-\<a href='/members/expert/alphaOrder/view.do;jsessionid=760AD03B767A90E24F20172AAF74BDDB.node2?language=EN&amp;id=96659' title='�DER, J�nos'\>�DER, J�nos\</a\>
-
-\<br /\>
+    <td class='listcontentlight_left'>
+    
+    <a href='/members/expert/alphaOrder/view.do;jsessionid=760AD03B767A90E24F20172AAF74BDDB.node2?language=EN&amp;id=96659' title='�DER, J�nos'>�DER, J�nos</a>
+    
+    <br />
 
                             Group of the European People's Party (Christian Democrats)
 
-                            \<br /\>
+                            <br />
 
-\</td\>
+    </td>
 
 
 
 From this I want to extract the name �DER, J�nos. I have written some very simple code to do the job:
 
-
-
-name = Word(unicode(alphas + alphas8bit))
-
-begin = Literal('\>')
-
-end = Literal('\<')
-
-
-
-names = begin + name + ',' + name + end
-
-
-
-out = names.searchString(html)
-
-
+    name = Word(unicode(alphas + alphas8bit))
+    begin = Literal('>')
+    end = Literal('<')
+    
+    names = begin + name + ',' + name + end
+    
+    out = names.searchString(html)
 
 However this does not extract the name, can anyone tell me what I am doing wrong?
-
 
 
 Best, Thomas
@@ -6393,7 +5854,7 @@ This works for me, I get a complete match:
 
 
 
-    [['\>', '\xc1DER', ',', 'J\xe1nos', '\<']]
+    [['>', '\xc1DER', ',', 'J\xe1nos', '<']]
 
 
 
@@ -6435,13 +5896,13 @@ The code is:
             self.tokenString = tokString
             self.start =loc
             self.end = self.start + len(tokString)
-            print '\>tokstring\<, len, \>extract\<, outcome = ','\>'+tokString+'\<', len(tokString),'\>'+st[self.start:self.end]+'\<',
+            print '>tokstring<, len, >extract<, outcome = ','>'+tokString+'<', len(tokString),'>'+st[self.start:self.end]+'<',
             if tokString == st[self.start+1:self.end+1]:
-                print ' \<- location off by one!'
+                print ' <- location off by one!'
             elif tokString == st[self.start:self.end]:
-                print ' \<- location accurate!!!!'
+                print ' <- location accurate!!!!'
             else:
-                print ' \<-???'
+                print ' <-???'
     
         def __str__(self):
             return '%(tokenString)s (locn: %(start)d)' % self.__dict__
@@ -6469,104 +5930,55 @@ The code is:
         tokenise(TESTTEXT)
     
     
-    
-
-
+   
 
 And the output is:
 
-
-
-1. This is some test text to tokenise. 
-
-1.1 It contains: (a) colons; (aa) some    unexplained spaces; (b) semi-colons;
-
-(c) semicolons preceded by a return; and 
-
-(d) references to 1., 1.1, (a), (i), (XI) within the body of the sentence.
-
-in createtokenobject, printing toks =  ['1.']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>1.\< 2 \>1.\<  \<- location accurate!!!!
-
-in createtokenobject, printing toks =  ['This']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>This\< 4 \> Thi\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['is']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>is\< 2 \> i\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['some']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>some\< 4 \> som\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['test']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>test\< 4 \> tes\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['text']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>text\< 4 \> tex\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['to']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>to\< 2 \> t\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['tokenise']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>tokenise\< 8 \> tokenis\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['.']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>.\< 1 \>.\<  \<- location accurate!!!!
-
-in createtokenobject, printing toks =  ['1.1']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>1.1\< 3 \> 
-
-1\<  \<-???
-
-in createtokenobject, printing toks =  ['It']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>It\< 2 \> I\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['contains']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>contains\< 8 \> contain\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['a']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>a\< 1 \>a\<  \<- location accurate!!!!
-
-in createtokenobject, printing toks =  ['colons']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>colons\< 6 \> colon\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['aa']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>aa\< 2 \>aa\<  \<- location accurate!!!!
-
-in createtokenobject, printing toks =  ['some']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>some\< 4 \> som\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['unexplained']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>unexplained\< 11 \>    unexpla\<  \<-???
-
-in createtokenobject, printing toks =  ['spaces']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>spaces\< 6 \> space\<  \<- location off by one!
-
-in createtokenobject, printing toks =  ['b']
-
-\>tokstring\<, len, \>extract\<, outcome =  \>b\< 1 \>b\<  \<- location accurate!!!!
-
-in createtokenobject, printing toks =  ['semi']
-
-[snip]
-
+    1. This is some test text to tokenise. 
+    1.1 It contains: (a) colons; (aa) some    unexplained spaces; (b) semi-colons;
+    (c) semicolons preceded by a return; and 
+    (d) references to 1., 1.1, (a), (i), (XI) within the body of the sentence.
+    in createtokenobject, printing toks =  ['1.']
+    >tokstring<, len, >extract<, outcome =  >1.< 2 >1.<  <- location accurate!!!!
+    in createtokenobject, printing toks =  ['This']
+    >tokstring<, len, >extract<, outcome =  >This< 4 > Thi<  <- location off by one!
+    in createtokenobject, printing toks =  ['is']
+    >tokstring<, len, >extract<, outcome =  >is< 2 > i<  <- location off by one!
+    in createtokenobject, printing toks =  ['some']
+    >tokstring<, len, >extract<, outcome =  >some< 4 > som<  <- location off by one!
+    in createtokenobject, printing toks =  ['test']
+    >tokstring<, len, >extract<, outcome =  >test< 4 > tes<  <- location off by one!
+    in createtokenobject, printing toks =  ['text']
+    >tokstring<, len, >extract<, outcome =  >text< 4 > tex<  <- location off by one!
+    in createtokenobject, printing toks =  ['to']
+    >tokstring<, len, >extract<, outcome =  >to< 2 > t<  <- location off by one!
+    in createtokenobject, printing toks =  ['tokenise']
+    >tokstring<, len, >extract<, outcome =  >tokenise< 8 > tokenis<  <- location off by one!
+    in createtokenobject, printing toks =  ['.']
+    >tokstring<, len, >extract<, outcome =  >.< 1 >.<  <- location accurate!!!!
+    in createtokenobject, printing toks =  ['1.1']
+    >tokstring<, len, >extract<, outcome =  >1.1< 3 > 
+    1<  <-???
+    in createtokenobject, printing toks =  ['It']
+    >tokstring<, len, >extract<, outcome =  >It< 2 > I<  <- location off by one!
+    in createtokenobject, printing toks =  ['contains']
+    >tokstring<, len, >extract<, outcome =  >contains< 8 > contain<  <- location off by one!
+    in createtokenobject, printing toks =  ['a']
+    >tokstring<, len, >extract<, outcome =  >a< 1 >a<  <- location accurate!!!!
+    in createtokenobject, printing toks =  ['colons']
+    >tokstring<, len, >extract<, outcome =  >colons< 6 > colon<  <- location off by one!
+    in createtokenobject, printing toks =  ['aa']
+    >tokstring<, len, >extract<, outcome =  >aa< 2 >aa<  <- location accurate!!!!
+    in createtokenobject, printing toks =  ['some']
+    >tokstring<, len, >extract<, outcome =  >some< 4 > som<  <- location off by one!
+    in createtokenobject, printing toks =  ['unexplained']
+    >tokstring<, len, >extract<, outcome =  >unexplained< 11 >    unexpla<  <-???
+    in createtokenobject, printing toks =  ['spaces']
+    >tokstring<, len, >extract<, outcome =  >spaces< 6 > space<  <- location off by one!
+    in createtokenobject, printing toks =  ['b']
+    >tokstring<, len, >extract<, outcome =  >b< 1 >b<  <- location accurate!!!!
+    in createtokenobject, printing toks =  ['semi']
+    [snip]
 
 
 Ideas about what I'm doing wrong?
@@ -6648,18 +6060,18 @@ I was trying to use something similar to makeHTMLTags and makeXMLTags, but they 
 
 
 
-    \>\>\> from pyparsing import *
-    \>\>\> a,b = makeXMLTags(Word(alphas))
-    \>\>\> c = a + Word(alphas) + b
-    \>\>\> c.parseString(r'\<a\>test\</a\>')
-    (['a', False, 'test', '\</a\>'], {'endW(Abcd...)': [('\</a\>', 3)], 'startW(Abcd...)': [((['a', False], {'empty': [(False, 1)]}), 0)], 'empty': [(False, 1)]})
-    \>\>\> c.parseString(r'\<a\>test\</b\>')
-    (['a', False, 'test', '\</b\>'], {'endW(Abcd...)': [('\</b\>', 3)], 'startW(Abcd...)': [((['a', False], {'empty': [(False, 1)]}), 0)], 'empty': [(False, 1)]})
-    \>\>\> 
+    >>> from pyparsing import *
+    >>> a,b = makeXMLTags(Word(alphas))
+    >>> c = a + Word(alphas) + b
+    >>> c.parseString(r'<a>test</a>')
+    (['a', False, 'test', '</a>'], {'endW(Abcd...)': [('</a>', 3)], 'startW(Abcd...)': [((['a', False], {'empty': [(False, 1)]}), 0)], 'empty': [(False, 1)]})
+    >>> c.parseString(r'<a>test</b>')
+    (['a', False, 'test', '</b>'], {'endW(Abcd...)': [('</b>', 3)], 'startW(Abcd...)': [((['a', False], {'empty': [(False, 1)]}), 0)], 'empty': [(False, 1)]})
+    >>> 
 
 
 
-I was  expecting to see a error with \</b\>.
+I was  expecting to see a error with </b>.
 
 
 
@@ -6701,25 +6113,17 @@ This will only match classes a and b, not c.
 
 ---
 ## 2010-06-22 06:13:51 - dminor14 - build problem on cent0s5 64-bit
-[root@david-fc6 pyparsing-1.5.2]# python setup.py install
 
-running install
-
-running build
-
-running build_py
-
-running install_lib
-
-byte-compiling /usr/lib/python2.4/site-packages/pyparsing_py3.py to pyparsing_py3.pyc
-
-  File '/usr/lib/python2.4/site-packages/pyparsing_py3.py', line 2470
-
-    except ParseException as err:
-
-                           ^
-
-SyntaxError: invalid syntax
+    [root@david-fc6 pyparsing-1.5.2]# python setup.py install
+    running install
+    running build
+    running build_py
+    running install_lib
+    byte-compiling /usr/lib/python2.4/site-packages/pyparsing_py3.py to pyparsing_py3.pyc
+      File '/usr/lib/python2.4/site-packages/pyparsing_py3.py', line 2470
+        except ParseException as err:
+                               ^
+    SyntaxError: invalid syntax
 
 #### 2010-06-22 13:51:00 - ptmcg
 Yes, yes, this is a known bug in 1.5.2, stemming from my faulty support for both Python 2 and Python 3.  I will have this fixed in the next day or two.
@@ -6730,29 +6134,17 @@ No problem, I downloaded from the svn it works fine
 ## 2010-06-30 21:26:16 - Torkn - r199 breaks Python 2 compat
 As of r199, setup.py says:
 
-(diff of r198 vs r199)
+    (diff of r198 vs r199)
 
-
-
--# cleaned up for Py2/Py3 compatibility - thanks to Mark Roddy
-
- if _PY3:
-
--    from pyparsing_py3 import <u>version</u>
-
--    modules = ['pyparsing_py3',]
-
-+    from pyparsing_py3 import <u>version</u> as pyparsing_version
-
- else:
-
--    from pyparsing import <u>version</u>
-
--    modules = ['pyparsing',]
-
-+    from pyparsing_py2 import <u>version</u> as pyparsing_version
-
-
+    -# cleaned up for Py2/Py3 compatibility - thanks to Mark Roddy
+     if _PY3:
+    -    from pyparsing_py3 import <u>version</u>
+    -    modules = ['pyparsing_py3',]
+    +    from pyparsing_py3 import <u>version</u> as pyparsing_version
+     else:
+    -    from pyparsing import <u>version</u>
+    -    modules = ['pyparsing',]
+    +    from pyparsing_py2 import <u>version</u> as pyparsing_version
 
 Unfortunately pyparsing_py2.py does not exist.
 
@@ -6760,7 +6152,7 @@ Unfortunately pyparsing_py2.py does not exist.
 
 Perhaps this patch is missing the following:
 
-svn move src/pyparsing.py src/pyparsing_py2.py
+    svn move src/pyparsing.py src/pyparsing_py2.py
 
 #### 2010-07-01 02:34:20 - ptmcg
 My SVN repository on SF is not really a good source for installing pyparsing.  You are better off downloading the source installation (zip or tarball), and running setup.py with that.  The source dists contain the correct pyparsing_pyX.py files for setup.py to do its thing.
@@ -6778,791 +6170,403 @@ The address parser has a useful list of street types, but not a complete one.
 Below are the official USPS lists of street types and unit types.  Including this in the address parser example would move it closer to a working parser.
 
 
-
 To use this list, change the parser code line
-
 for 'types' to 
-
 
 
     # types of streets - extend as desired
     type_ = Combine( MatchFirst(map(CaselessKeyword,streettypes)) + Optional('.').suppress())
-    [[/code]]
     
-    Unfortunately, after doing this, one of the test cases, '1500 Deer Creek Lane', will mis-parse, because 'Creek' is now a known street type.  So this brings out a parser bug where there is a street type word in the name.  Haven't been able to fix that. 
+Unfortunately, after doing this, one of the test cases, '1500 Deer Creek Lane', will mis-parse, because 'Creek' is now a known street type.  So this brings out a parser bug where there is a street type word in the name.  Haven't been able to fix that. 
     
 
-<ol><li>Street_Type</li></ol>
-
-<ol><li>Maps lowercased USPS standard street types to their canonical postal</li><li>abbreviations as found in TIGER/Line.  See eg/get_street_abbrev.pl in</li><li>the distrbution for how this map was generated.</li></ol>
-
-Street_Type = {
-
-    'allee'        :    'aly',
-
-    'alley'        :    'aly',
-
-    'ally'        :    'aly',
-
-    'anex'        :    'anx',
-
-    'annex'        :    'anx',
-
-    'annx'        :    'anx',
-
-    'arcade'    :    'arc',
-
-    'av'        :    'ave',
-
-    'aven'        :    'ave',
-
-    'avenu'        :    'ave',
-
-    'avenue'    :    'ave',
-
-    'avn'        :    'ave',
-
-    'avnue'        :    'ave',
-
-    'bayoo'        :    'byu',
-
-    'bayou'        :    'byu',
-
-    'beach'        :    'bch',
-
-    'bend'        :    'bnd',
-
-    'bluf'        :    'blf',
-
-    'bluff'        :    'blf',
-
-    'bluffs'    :    'blfs',
-
-    'bot'        :    'btm',
-
-    'bottm'        :    'btm',
-
-    'bottom'    :    'btm',
-
-    'boul'        :    'blvd',
-
-    'boulevard'    :    'blvd',
-
-    'boulv'        :    'blvd',
-
-    'branch'    :    'br',
-
-    'brdge'        :    'brg',
-
-    'bridge'    :    'brg',
-
-    'brnch'        :    'br',
-
-    'brook'        :    'brk',
-
-    'brooks'    :    'brks',
-
-    'burg'        :    'bg',
-
-    'burgs'        :    'bgs',
-
-    'bypa'        :    'byp',
-
-    'bypas'        :    'byp',
-
-    'bypass'    :    'byp',
-
-    'byps'        :    'byp',
-
-    'camp'        :    'cp',
-
-    'canyn'        :    'cyn',
-
-    'canyon'    :    'cyn',
-
-    'cape'        :    'cpe',
-
-    'causeway'    :    'cswy',
-
-    'causway'    :    'cswy',
-
-    'cen'        :    'ctr',
-
-    'cent'        :    'ctr',
-
-    'center'    :    'ctr',
-
-    'centers'    :    'ctrs',
-
-    'centr'        :    'ctr',
-
-    'centre'    :    'ctr',
-
-    'circ'        :    'cir',
-
-    'circl'        :    'cir',
-
-    'circle'    :    'cir',
-
-    'circles'    :    'cirs',
-
-    'ck'        :    'crk',
-
-    'cliff'        :    'clf',
-
-    'cliffs'    :    'clfs',
-
-    'club'        :    'clb',
-
-    'cmp'        :    'cp',
-
-    'cnter'        :    'ctr',
-
-    'cntr'        :    'ctr',
-
-    'cnyn'        :    'cyn',
-
-    'common'    :    'cmn',
-
-    'corner'    :    'cor',
-
-    'corners'    :    'cors',
-
-    'course'    :    'crse',
-
-    'court'        :    'ct',
-
-    'courts'    :    'cts',
-
-    'cove'        :    'cv',
-
-    'coves'        :    'cvs',
-
-    'cr'        :    'crk',
-
-    'crcl'        :    'cir',
-
-    'crcle'        :    'cir',
-
-    'crecent'    :    'cres',
-
-    'creek'        :    'crk',
-
-    'crescent'    :    'cres',
-
-    'cresent'    :    'cres',
-
-    'crest'        :    'crst',
-
-    'crossing'    :    'xing',
-
-    'crossroad'    :    'xrd',
-
-    'crscnt'    :    'cres',
-
-    'crsent'    :    'cres',
-
-    'crsnt'        :    'cres',
-
-    'crssing'    :    'xing',
-
-    'crssng'    :    'xing',
-
-    'crt'        :    'ct',
-
-    'curve'        :    'curv',
-
-    'dale'        :    'dl',
-
-    'dam'        :    'dm',
-
-    'div'        :    'dv',
-
-    'divide'    :    'dv',
-
-    'driv'        :    'dr',
-
-    'drive'        :    'dr',
-
-    'drives'    :    'drs',
-
-    'drv'        :    'dr',
-
-    'dvd'        :    'dv',
-
-    'estate'    :    'est',
-
-    'estates'   :    'ests',
-
-    'exp'        :    'expy',
-
-    'expr'        :    'expy',
-
-    'express'    :    'expy',
-
-    'expressway':    'expy',
-
-    'expw'        :    'expy',
-
-    'extension' :    'ext',
-
-    'extensions':    'exts',
-
-    'extn'        :    'ext',
-
-    'extnsn'    :    'ext',
-
-    'falls'     :    'fls',
-
-    'ferry'     :    'fry',
-
-    'field'     :    'fld',
-
-    'fields'    :    'flds',
-
-    'flat'        :    'flt',
-
-    'flats'     :    'flts',
-
-    'ford'        :    'frd',
-
-    'fords'     :    'frds',
-
-    'forest'    :    'frst',
-
-    'forests'    :    'frst',
-
-    'forg'        :    'frg',
-
-    'forge'     :    'frg',
-
-    'forges'    :    'frgs',
-
-    'fork'        :    'frk',
-
-    'forks'        :    'frks',
-
-    'fort'        :    'ft',
-
-    'freeway'    :    'fwy',
-
-    'freewy'    :    'fwy',
-
-    'frry'        :    'fry',
-
-    'frt'        :    'ft',
-
-    'frway'     :    'fwy',
-
-    'frwy'        :    'fwy',
-
-    'garden'    :    'gdn',
-
-    'gardens'    :    'gdns',
-
-    'gardn'        :    'gdn',
-
-    'gateway'    :    'gtwy',
-
-    'gatewy'    :    'gtwy',
-
-    'gatway'    :    'gtwy',
-
-    'glen'        :    'gln',
-
-    'glens'     :    'glns',
-
-    'grden'     :    'gdn',
-
-    'grdn'        :    'gdn',
-
-    'grdns'     :    'gdns',
-
-    'green'     :    'grn',
-
-    'greens'    :    'grns',
-
-    'grov'        :    'grv',
-
-    'grove'     :    'grv',
-
-    'groves'    :    'grvs',
-
-    'gtway'     :    'gtwy',
-
-    'harb'        :    'hbr',
-
-    'harbor'    :    'hbr',
-
-    'harbors'    :    'hbrs',
-
-    'harbr'     :    'hbr',
-
-    'haven'     :    'hvn',
-
-    'havn'        :    'hvn',
-
-    'height'    :    'hts',
-
-    'heights'    :    'hts',
-
-    'hgts'        :    'hts',
-
-    'highway'    :    'hwy',
-
-    'highwy'    :    'hwy',
-
-    'hill'        :    'hl',
-
-    'hills'     :    'hls',
-
-    'hiway'     :    'hwy',
-
-    'hiwy'        :    'hwy',
-
-    'hllw'        :    'holw',
-
-    'hollow'    :    'holw',
-
-    'hollows'    :    'holw',
-
-    'holws'     :    'holw',
-
-    'hrbor'     :    'hbr',
-
-    'ht'        :    'hts',
-
-    'hway'        :    'hwy',
-
-    'inlet'     :    'inlt',
-
-    'island'    :    'is',
-
-    'islands'    :    'iss',
-
-    'isles'     :    'isle',
-
-    'islnd'     :    'is',
-
-    'islnds'    :    'iss',
-
-    'jction'    :    'jct',
-
-    'jctn'        :    'jct',
-
-    'jctns'     :    'jcts',
-
-    'junction'    :    'jct',
-
-    'junctions'    :    'jcts',
-
-    'junctn'    :    'jct',
-
-    'juncton'    :    'jct',
-
-    'key'        :    'ky',
-
-    'keys'        :    'kys',
-
-    'knol'        :    'knl',
-
-    'knoll'     :    'knl',
-
-    'knolls'    :    'knls',
-
-    'la'        :    'ln',
-
-    'lake'        :    'lk',
-
-    'lakes'        :    'lks',
-
-    'landing'    :    'lndg',
-
-    'lane'        :    'ln',
-
-    'lanes'     :    'ln',
-
-    'ldge'        :    'ldg',
-
-    'light'     :    'lgt',
-
-    'lights'    :    'lgts',
-
-    'lndng'     :    'lndg',
-
-    'loaf'        :    'lf',
-
-    'lock'        :    'lck',
-
-    'locks'     :    'lcks',
-
-    'lodg'        :    'ldg',
-
-    'lodge'     :    'ldg',
-
-    'loops'     :    'loop',
-
-    'manor'     :    'mnr',
-
-    'manors'    :    'mnrs',
-
-    'meadow'    :    'mdw',
-
-    'meadows'    :    'mdws',
-
-    'medows'    :    'mdws',
-
-    'mill'        :    'ml',
-
-    'mills'        :    'mls',
-
-    'mission'    :    'msn',
-
-    'missn'     :    'msn',
-
-    'mnt'        :    'mt',
-
-    'mntain'    :    'mtn',
-
-    'mntn'        :    'mtn',
-
-    'mntns'     :    'mtns',
-
-    'motorway'    :    'mtwy',
-
-    'mount'     :    'mt',
-
-    'mountain'    :    'mtn',
-
-    'mountains'    :    'mtns',
-
-    'mountin'    :    'mtn',
-
-    'mssn'        :    'msn',
-
-    'mtin'        :    'mtn',
-
-    'neck'        :    'nck',
-
-    'orchard'    :    'orch',
-
-    'orchrd'    :    'orch',
-
-    'overpass'    :    'opas',
-
-    'ovl'        :    'oval',
-
-    'parks'     :    'park',
-
-    'parkway'    :    'pkwy',
-
-    'parkways'    :    'pkwy',
-
-    'parkwy'    :    'pkwy',
-
-    'passage'    :    'psge',
-
-    'paths'     :    'path',
-
-    'pikes'     :    'pike',
-
-    'pine'        :    'pne',
-
-    'pines'     :    'pnes',
-
-    'pk'        :    'park',
-
-    'pkway'     :    'pkwy',
-
-    'pkwys'     :    'pkwy',
-
-    'pky'        :    'pkwy',
-
-    'place'     :    'pl',
-
-    'plain'     :    'pln',
-
-    'plaines'    :    'plns',
-
-    'plains'    :    'plns',
-
-    'plaza'     :    'plz',
-
-    'plza'        :    'plz',
-
-    'point'     :    'pt',
-
-    'points'    :    'pts',
-
-    'port'        :    'prt',
-
-    'ports'     :    'prts',
-
-    'prairie'    :    'pr',
-
-    'prarie'    :    'pr',
-
-    'prk'        :    'park',
-
-    'prr'        :    'pr',
-
-    'rad'        :    'radl',
-
-    'radial'    :    'radl',
-
-    'radiel'    :    'radl',
-
-    'ranch'     :    'rnch',
-
-    'ranches'    :    'rnch',
-
-    'rapid'     :    'rpd',
-
-    'rapids'    :    'rpds',
-
-    'rdge'        :    'rdg',
-
-    'rest'        :    'rst',
-
-    'ridge'     :    'rdg',
-
-    'ridges'    :    'rdgs',
-
-    'river'     :    'riv',
-
-    'rivr'        :    'riv',
-
-    'rnchs'     :    'rnch',
-
-    'road'        :    'rd',
-
-    'roads'     :    'rds',
-
-    'route'     :    'rte',
-
-    'rvr'        :    'riv',
-
-    'shoal'     :    'shl',
-
-    'shoals'    :    'shls',
-
-    'shoar'     :    'shr',
-
-    'shoars'    :    'shrs',
-
-    'shore'     :    'shr',
-
-    'shores'    :    'shrs',
-
-    'skyway'    :    'skwy',
-
-    'spng'        :    'spg',
-
-    'spngs'        :    'spgs',
-
-    'spring'    :    'spg',
-
-    'springs'    :    'spgs',
-
-    'sprng'     :    'spg',
-
-    'sprngs'    :    'spgs',
-
-    'spurs'     :    'spur',
-
-    'sqr'        :    'sq',
-
-    'sqre'        :    'sq',
-
-    'sqrs'        :    'sqs',
-
-    'squ'        :    'sq',
-
-    'square'    :    'sq',
-
-    'squares'    :    'sqs',
-
-    'station'    :    'sta',
-
-    'statn'     :    'sta',
-
-    'stn'        :    'sta',
-
-    'str'        :    'st',
-
-    'strav'     :    'stra',
-
-    'strave'    :    'stra',
-
-    'straven'    :    'stra',
-
-    'stravenue'    :    'stra',
-
-    'stravn'    :    'stra',
-
-    'stream'    :    'strm',
-
-    'street'    :    'st',
-
-    'streets'    :    'sts',
-
-    'streme'    :    'strm',
-
-    'strt'        :    'st',
-
-    'strvn'     :    'stra',
-
-    'strvnue'    :    'stra',
-
-    'sumit'     :    'smt',
-
-    'sumitt'    :    'smt',
-
-    'summit'    :    'smt',
-
-    'terr'        :    'ter',
-
-    'terrace'    :    'ter',
-
-    'throughway':    'trwy',
-
-    'tpk'        :    'tpke',
-
-    'tr'        :    'trl',
-
-    'trace'     :    'trce',
-
-    'traces'    :    'trce',
-
-    'track'     :    'trak',
-
-    'tracks'    :    'trak',
-
-    'trafficway':    'trfy',
-
-    'trail'     :    'trl',
-
-    'trails'    :    'trl',
-
-    'trk'        :    'trak',
-
-    'trks'        :    'trak',
-
-    'trls'        :    'trl',
-
-    'trnpk'        :    'tpke',
-
-    'trpk'        :    'tpke',
-
-    'tunel'     :    'tunl',
-
-    'tunls'     :    'tunl',
-
-    'tunnel'    :    'tunl',
-
-    'tunnels'    :    'tunl',
-
-    'tunnl'     :    'tunl',
-
-    'turnpike'    :    'tpke',
-
-    'turnpk'    :    'tpke',
-
-    'underpass'    :    'upas',
-
-    'union'     :    'un',
-
-    'unions'    :    'uns',
-
-    'valley'    :    'vly',
-
-    'valleys'    :    'vlys',
-
-    'vally'     :    'vly',
-
-    'vdct'        :    'via',
-
-    'viadct'    :    'via',
-
-    'viaduct'    :    'via',
-
-    'view'        :    'vw',
-
-    'views'     :    'vws',
-
-    'vill'        :    'vlg',
-
-    'villag'    :    'vlg',
-
-    'village'    :    'vlg',
-
-    'villages'    :    'vlgs',
-
-    'ville'     :    'vl',
-
-    'villg'     :    'vlg',
-
-    'villiage'    :    'vlg',
-
-    'vist'        :    'vis',
-
-    'vista'     :    'vis',
-
-    'vlly'        :    'vly',
-
-    'vst'        :    'vis',
-
-    'vsta'        :    'vis',
-
-    'walks'     :    'walk',
-
-    'well'        :    'wl',
-
-    'wells'     :    'wls',
-
-    'wy'        :    'way',
-
-}
-
-#
-
-<ol><li>Unit abbreviations, expanded to full word</li></ol>#
-
-Unit_Code = {
-
-    'suite'        :    'suite',
-
-    'ste'        :    'suite',
-
-    'box'        :    'box',
-
-    'mailbox'    :    'box',
-
-    'pobox'        :    'box',
-
-    'pmb'        :    'box',
-
-    'department':    'department',
-
-    'dept'        :    'department',
-
-    'apartment'    :    'apartment',
-
-    'apt'        :    'apartment',
-
-    'room'        :    'room',
-
-    'rm'        :    'room',
-
-    'floor'        :    'floor',
-
-    'fl'        :    'floor',
-
-    'unit'        :    'unit'
-
-}
-
-
+    # Street_Type
+    # Maps lowercased USPS standard street types to their canonical postal
+    # abbreviations as found in TIGER/Line.  See eg/get_street_abbrev.pl in
+    # the distrbution for how this map was generated.
+    Street_Type = {
+        'allee'        :    'aly',
+        'alley'        :    'aly',
+        'ally'        :    'aly',
+        'anex'        :    'anx',
+        'annex'        :    'anx',
+        'annx'        :    'anx',
+        'arcade'    :    'arc',
+        'av'        :    'ave',
+        'aven'        :    'ave',
+        'avenu'        :    'ave',
+        'avenue'    :    'ave',
+        'avn'        :    'ave',
+        'avnue'        :    'ave',
+        'bayoo'        :    'byu',
+        'bayou'        :    'byu',
+        'beach'        :    'bch',
+        'bend'        :    'bnd',
+        'bluf'        :    'blf',
+        'bluff'        :    'blf',
+        'bluffs'    :    'blfs',
+        'bot'        :    'btm',
+        'bottm'        :    'btm',
+        'bottom'    :    'btm',
+        'boul'        :    'blvd',
+        'boulevard'    :    'blvd',
+        'boulv'        :    'blvd',
+        'branch'    :    'br',
+        'brdge'        :    'brg',
+        'bridge'    :    'brg',
+        'brnch'        :    'br',
+        'brook'        :    'brk',
+        'brooks'    :    'brks',
+        'burg'        :    'bg',
+        'burgs'        :    'bgs',
+        'bypa'        :    'byp',
+        'bypas'        :    'byp',
+        'bypass'    :    'byp',
+        'byps'        :    'byp',
+        'camp'        :    'cp',
+        'canyn'        :    'cyn',
+        'canyon'    :    'cyn',
+        'cape'        :    'cpe',
+        'causeway'    :    'cswy',
+        'causway'    :    'cswy',
+        'cen'        :    'ctr',
+        'cent'        :    'ctr',
+        'center'    :    'ctr',
+        'centers'    :    'ctrs',
+        'centr'        :    'ctr',
+        'centre'    :    'ctr',
+        'circ'        :    'cir',
+        'circl'        :    'cir',
+        'circle'    :    'cir',
+        'circles'    :    'cirs',
+        'ck'        :    'crk',
+        'cliff'        :    'clf',
+        'cliffs'    :    'clfs',
+        'club'        :    'clb',
+        'cmp'        :    'cp',
+        'cnter'        :    'ctr',
+        'cntr'        :    'ctr',
+        'cnyn'        :    'cyn',
+        'common'    :    'cmn',
+        'corner'    :    'cor',
+        'corners'    :    'cors',
+        'course'    :    'crse',
+        'court'        :    'ct',
+        'courts'    :    'cts',
+        'cove'        :    'cv',
+        'coves'        :    'cvs',
+        'cr'        :    'crk',
+        'crcl'        :    'cir',
+        'crcle'        :    'cir',
+        'crecent'    :    'cres',
+        'creek'        :    'crk',
+        'crescent'    :    'cres',
+        'cresent'    :    'cres',
+        'crest'        :    'crst',
+        'crossing'    :    'xing',
+        'crossroad'    :    'xrd',
+        'crscnt'    :    'cres',
+        'crsent'    :    'cres',
+        'crsnt'        :    'cres',
+        'crssing'    :    'xing',
+        'crssng'    :    'xing',
+        'crt'        :    'ct',
+        'curve'        :    'curv',
+        'dale'        :    'dl',
+        'dam'        :    'dm',
+        'div'        :    'dv',
+        'divide'    :    'dv',
+        'driv'        :    'dr',
+        'drive'        :    'dr',
+        'drives'    :    'drs',
+        'drv'        :    'dr',
+        'dvd'        :    'dv',
+        'estate'    :    'est',
+        'estates'   :    'ests',
+        'exp'        :    'expy',
+        'expr'        :    'expy',
+        'express'    :    'expy',
+        'expressway':    'expy',
+        'expw'        :    'expy',
+        'extension' :    'ext',
+        'extensions':    'exts',
+        'extn'        :    'ext',
+        'extnsn'    :    'ext',
+        'falls'     :    'fls',
+        'ferry'     :    'fry',
+        'field'     :    'fld',
+        'fields'    :    'flds',
+        'flat'        :    'flt',
+        'flats'     :    'flts',
+        'ford'        :    'frd',
+        'fords'     :    'frds',
+        'forest'    :    'frst',
+        'forests'    :    'frst',
+        'forg'        :    'frg',
+        'forge'     :    'frg',
+        'forges'    :    'frgs',
+        'fork'        :    'frk',
+        'forks'        :    'frks',
+        'fort'        :    'ft',
+        'freeway'    :    'fwy',
+        'freewy'    :    'fwy',
+        'frry'        :    'fry',
+        'frt'        :    'ft',
+        'frway'     :    'fwy',
+        'frwy'        :    'fwy',
+        'garden'    :    'gdn',
+        'gardens'    :    'gdns',
+        'gardn'        :    'gdn',
+        'gateway'    :    'gtwy',
+        'gatewy'    :    'gtwy',
+        'gatway'    :    'gtwy',
+        'glen'        :    'gln',
+        'glens'     :    'glns',
+        'grden'     :    'gdn',
+        'grdn'        :    'gdn',
+        'grdns'     :    'gdns',
+        'green'     :    'grn',
+        'greens'    :    'grns',
+        'grov'        :    'grv',
+        'grove'     :    'grv',
+        'groves'    :    'grvs',
+        'gtway'     :    'gtwy',
+        'harb'        :    'hbr',
+        'harbor'    :    'hbr',
+        'harbors'    :    'hbrs',
+        'harbr'     :    'hbr',
+        'haven'     :    'hvn',
+        'havn'        :    'hvn',
+        'height'    :    'hts',
+        'heights'    :    'hts',
+        'hgts'        :    'hts',
+        'highway'    :    'hwy',
+        'highwy'    :    'hwy',
+        'hill'        :    'hl',
+        'hills'     :    'hls',
+        'hiway'     :    'hwy',
+        'hiwy'        :    'hwy',
+        'hllw'        :    'holw',
+        'hollow'    :    'holw',
+        'hollows'    :    'holw',
+        'holws'     :    'holw',
+        'hrbor'     :    'hbr',
+        'ht'        :    'hts',
+        'hway'        :    'hwy',
+        'inlet'     :    'inlt',
+        'island'    :    'is',
+        'islands'    :    'iss',
+        'isles'     :    'isle',
+        'islnd'     :    'is',
+        'islnds'    :    'iss',
+        'jction'    :    'jct',
+        'jctn'        :    'jct',
+        'jctns'     :    'jcts',
+        'junction'    :    'jct',
+        'junctions'    :    'jcts',
+        'junctn'    :    'jct',
+        'juncton'    :    'jct',
+        'key'        :    'ky',
+        'keys'        :    'kys',
+        'knol'        :    'knl',
+        'knoll'     :    'knl',
+        'knolls'    :    'knls',
+        'la'        :    'ln',
+        'lake'        :    'lk',
+        'lakes'        :    'lks',
+        'landing'    :    'lndg',
+        'lane'        :    'ln',
+        'lanes'     :    'ln',
+        'ldge'        :    'ldg',
+        'light'     :    'lgt',
+        'lights'    :    'lgts',
+        'lndng'     :    'lndg',
+        'loaf'        :    'lf',
+        'lock'        :    'lck',
+        'locks'     :    'lcks',
+        'lodg'        :    'ldg',
+        'lodge'     :    'ldg',
+        'loops'     :    'loop',
+        'manor'     :    'mnr',
+        'manors'    :    'mnrs',
+        'meadow'    :    'mdw',
+        'meadows'    :    'mdws',
+        'medows'    :    'mdws',
+        'mill'        :    'ml',
+        'mills'        :    'mls',
+        'mission'    :    'msn',
+        'missn'     :    'msn',
+        'mnt'        :    'mt',
+        'mntain'    :    'mtn',
+        'mntn'        :    'mtn',
+        'mntns'     :    'mtns',
+        'motorway'    :    'mtwy',
+        'mount'     :    'mt',
+        'mountain'    :    'mtn',
+        'mountains'    :    'mtns',
+        'mountin'    :    'mtn',
+        'mssn'        :    'msn',
+        'mtin'        :    'mtn',
+        'neck'        :    'nck',
+        'orchard'    :    'orch',
+        'orchrd'    :    'orch',
+        'overpass'    :    'opas',
+        'ovl'        :    'oval',
+        'parks'     :    'park',
+        'parkway'    :    'pkwy',
+        'parkways'    :    'pkwy',
+        'parkwy'    :    'pkwy',
+        'passage'    :    'psge',
+        'paths'     :    'path',
+        'pikes'     :    'pike',
+        'pine'        :    'pne',
+        'pines'     :    'pnes',
+        'pk'        :    'park',
+        'pkway'     :    'pkwy',
+        'pkwys'     :    'pkwy',
+        'pky'        :    'pkwy',
+        'place'     :    'pl',
+        'plain'     :    'pln',
+        'plaines'    :    'plns',
+        'plains'    :    'plns',
+        'plaza'     :    'plz',
+        'plza'        :    'plz',
+        'point'     :    'pt',
+        'points'    :    'pts',
+        'port'        :    'prt',
+        'ports'     :    'prts',
+        'prairie'    :    'pr',
+        'prarie'    :    'pr',
+        'prk'        :    'park',
+        'prr'        :    'pr',
+        'rad'        :    'radl',
+        'radial'    :    'radl',
+        'radiel'    :    'radl',
+        'ranch'     :    'rnch',
+        'ranches'    :    'rnch',
+        'rapid'     :    'rpd',
+        'rapids'    :    'rpds',
+        'rdge'        :    'rdg',
+        'rest'        :    'rst',
+        'ridge'     :    'rdg',
+        'ridges'    :    'rdgs',
+        'river'     :    'riv',
+        'rivr'        :    'riv',
+        'rnchs'     :    'rnch',
+        'road'        :    'rd',
+        'roads'     :    'rds',
+        'route'     :    'rte',
+        'rvr'        :    'riv',
+        'shoal'     :    'shl',
+        'shoals'    :    'shls',
+        'shoar'     :    'shr',
+        'shoars'    :    'shrs',
+        'shore'     :    'shr',
+        'shores'    :    'shrs',
+        'skyway'    :    'skwy',
+        'spng'        :    'spg',
+        'spngs'        :    'spgs',
+        'spring'    :    'spg',
+        'springs'    :    'spgs',
+        'sprng'     :    'spg',
+        'sprngs'    :    'spgs',
+        'spurs'     :    'spur',
+        'sqr'        :    'sq',
+        'sqre'        :    'sq',
+        'sqrs'        :    'sqs',
+        'squ'        :    'sq',
+        'square'    :    'sq',
+        'squares'    :    'sqs',
+        'station'    :    'sta',
+        'statn'     :    'sta',
+        'stn'        :    'sta',
+        'str'        :    'st',
+        'strav'     :    'stra',
+        'strave'    :    'stra',
+        'straven'    :    'stra',
+        'stravenue'    :    'stra',
+        'stravn'    :    'stra',
+        'stream'    :    'strm',
+        'street'    :    'st',
+        'streets'    :    'sts',
+        'streme'    :    'strm',
+        'strt'        :    'st',
+        'strvn'     :    'stra',
+        'strvnue'    :    'stra',
+        'sumit'     :    'smt',
+        'sumitt'    :    'smt',
+        'summit'    :    'smt',
+        'terr'        :    'ter',
+        'terrace'    :    'ter',
+        'throughway':    'trwy',
+        'tpk'        :    'tpke',
+        'tr'        :    'trl',
+        'trace'     :    'trce',
+        'traces'    :    'trce',
+        'track'     :    'trak',
+        'tracks'    :    'trak',
+        'trafficway':    'trfy',
+        'trail'     :    'trl',
+        'trails'    :    'trl',
+        'trk'        :    'trak',
+        'trks'        :    'trak',
+        'trls'        :    'trl',
+        'trnpk'        :    'tpke',
+        'trpk'        :    'tpke',
+        'tunel'     :    'tunl',
+        'tunls'     :    'tunl',
+        'tunnel'    :    'tunl',
+        'tunnels'    :    'tunl',
+        'tunnl'     :    'tunl',
+        'turnpike'    :    'tpke',
+        'turnpk'    :    'tpke',
+        'underpass'    :    'upas',
+        'union'     :    'un',
+        'unions'    :    'uns',
+        'valley'    :    'vly',
+        'valleys'    :    'vlys',
+        'vally'     :    'vly',
+        'vdct'        :    'via',
+        'viadct'    :    'via',
+        'viaduct'    :    'via',
+        'view'        :    'vw',
+        'views'     :    'vws',
+        'vill'        :    'vlg',
+        'villag'    :    'vlg',
+        'village'    :    'vlg',
+        'villages'    :    'vlgs',
+        'ville'     :    'vl',
+        'villg'     :    'vlg',
+        'villiage'    :    'vlg',
+        'vist'        :    'vis',
+        'vista'     :    'vis',
+        'vlly'        :    'vly',
+        'vst'        :    'vis',
+        'vsta'        :    'vis',
+        'walks'     :    'walk',
+        'well'        :    'wl',
+        'wells'     :    'wls',
+        'wy'        :    'way',
+    }
+    #
+    # Unit abbreviations, expanded to full word</li></ol>#
+    Unit_Code = {
+        'suite'        :    'suite',
+        'ste'        :    'suite',
+        'box'        :    'box',
+        'mailbox'    :    'box',
+        'pobox'        :    'box',
+        'pmb'        :    'box',
+        'department':    'department',
+        'dept'        :    'department',
+        'apartment'    :    'apartment',
+        'apt'        :    'apartment',
+        'room'        :    'room',
+        'rm'        :    'room',
+        'floor'        :    'floor',
+        'fl'        :    'floor',
+        'unit'        :    'unit'
+    }
 
 #### 2010-06-30 21:59:46 - john_nagle
 (Aargh.  This forum uses nonstandard formatting primitives.  Trying code snippet again.)
@@ -8039,128 +7043,124 @@ That grammar has the pre-directional ('nsew') BEFORE the street number. That wou
 
 
 
-'N. 1235 Main St.', which is not a standard address, but does not match
-
-
-
-'1235 N. Main St.'.
-
+    'N. 1235 Main St.', which is not a standard address, but does not match
+    '1235 N. Main St.'.
 
 
 That looks like a bug.
+
 #### 2010-07-07 10:45:46 - john_nagle
-I've been making progress on an improved version of the street address parser.  Here are 100 real-world (well, California) addresses I've run through it. The entries marked '<strong>*ERROR</strong>*' were mis-parsed.  The main remaining problems seem to be 1) the need to handle SUITE, APT, etc. on the address line, and
+I've been making progress on an improved version of the street address parser.  Here are 
+100 real-world (well, California) addresses I've run through it. The entries 
+marked '***ERROR***' were mis-parsed.  The main remaining problems seem to be 
+
+1) the need to handle SUITE, APT, etc. on the address line, and
 
 2) street names like STATE HIGHWAY 123.
-
-
 
 Anyway, here are some parse results:
 
 
-
-
-
-    1. 12200 West Olympic Blvd Suite 270 --\> streetnumber: 12200  streetname: OLYMPIC BLVD SUITE  predirectional: WEST
-       2. 7828 N. 19th Ave Suite #14 --\> streettype: AVE  streetnumber: 7828  streetname: 19TH  predirectional: N
-       3. 10815 Beaver Dam Rd --\> streettype: RD  streetnumber: 10815  streetname: BEAVER DAM
-       4. 1205 Bobwhite Lane --\> streettype: LANE  streetnumber: 1205  streetname: BOBWHITE
-       5. 3349 Cottage Way, Ste 28 --\> streettype: WAY  streetnumber: 3349  streetname: COTTAGE
-       6. 2058 N. Mills Ave. #132 --\> streettype: AVE  streetnumber: 2058  streetname: MILLS  predirectional: N
-       7. 38 Copper Cove Drive --\> streettype: DRIVE  streetnumber: 38  streetname: COPPER COVE
-       8. 49 Outlook Circle --\> streettype: CIRCLE  streetnumber: 49  streetname: OUTLOOK
-       9. P. O. Box 6379 --\> pobox: 6379
-      10. PO BOX 368 --\> pobox: 368
-      11. 11549 Sheldon --\> streetnumber: 11549  streetname: SHELDON
-      12. 19859 Hodge Road --\> streettype: ROAD  streetnumber: 19859  streetname: HODGE
-      13. Mission Oaks --\> streetname: MISSION OAKS
-      14. 1031 s palmetto #L3 --\> streetnumber: 1031  streetname: PALMETTO  predirectional: S
-      15. Po Box 70 --\> streetname: PO BOX
-      16. 400 Lenrey Avenue --\> streettype: AVENUE  streetnumber: 400  streetname: LENREY
-      17. 1125 Victoria --\> streetnumber: 1125  streetname: VICTORIA
-      18. 4738 Palo Verde Av --\> streettype: AV  streetnumber: 4738  streetname: PALO VERDE
-      19. 4738 Palo Verde Ave --\> streettype: AVE  streetnumber: 4738  streetname: PALO VERDE
-      20. 3951 Development Drive Suite 6 --\> streetnumber: 3951  streetname: DEVELOPMENT DRIVE SUITE
-      21. 1416 Westwood Boulevard, Suite 210 --\> streettype: BOULEVARD  streetnumber: 1416  streetname: WESTWOOD
-      22. 195 S. Beverly Dr --\> streettype: DR  streetnumber: 195  streetname: BEVERLY  predirectional: S
-      23. 10940 Wilshire Boulevard --\> streettype: BOULEVARD  streetnumber: 10940  streetname: WILSHIRE
-      24. P.O. Box 1886 --\> pobox: 1886
-      25. 2814 Landco Drive --\> streettype: DRIVE  streetnumber: 2814  streetname: LANDCO
-      26. P. O. Box 292555 --\> pobox: 292555
-      27. 11836 Downey Ave, #104 --\> streettype: AVE  streetnumber: 11836  streetname: DOWNEY
-      28. P.O. Box 533 --\> pobox: 533
-      29. 5724 Mendocino Boulevard --\> streettype: BOULEVARD  streetnumber: 5724  streetname: MENDOCINO
-      30. 3765 S Main St --\> streettype: ST  streetnumber: 3765  streetname: MAIN  predirectional: S
-      31. 9223 S Vermont Avenue --\> streettype: AVENUE  streetnumber: 9223  streetname: VERMONT  predirectional: S
-      32. 885 Embarcadero Road --\> streettype: ROAD  streetnumber: 885  streetname: EMBARCADERO
-      33. P.O. Box 26 --\> pobox: 26
-      34. 2902 Del Rosa Ave --\> streettype: AVE  streetnumber: 2902  streetname: DEL ROSA
-      35. 2800 Guadalupe Dr --\> streettype: DR  streetnumber: 2800  streetname: GUADALUPE
-      36. 777 North Colusa Street --\> streettype: STREET  streetnumber: 777  streetname: COLUSA  predirectional: NORTH
-      37. 8100 Lemon Cove Court --\> streettype: COURT  streetnumber: 8100  streetname: LEMON COVE
-      38. 1015 Grandview Avenue --\> streettype: AVENUE  streetnumber: 1015  streetname: GRANDVIEW
-      39. 1349 B Orange Ave. --\> streettype: AVE  streetnumber: 1349  streetname: B ORANGE
-      40. 1950 E. Chapman Ave, Suite 2 --\> streettype: AVE  streetnumber: 1950  streetname: CHAPMAN  predirectional: E
-      41. 2440 Sand Creek Rd --\> streettype: RD  streetnumber: 2440  streetname: SAND CREEK
-      42. P.O Box 306 --\> pobox: 306
-      43. 7522 Park Ave --\> streettype: AVE  streetnumber: 7522  streetname: PARK
-      44. 1211 Griffith Avenue --\> streettype: AVENUE  streetnumber: 1211  streetname: GRIFFITH
-      45. P.O. Box 0933 --\> pobox: 0933
-      46. 11860 La Cienga --\> streetnumber: 11860  streetname: LA CIENGA
-      47. 2008 Reed Ave --\> streettype: AVE  streetnumber: 2008  streetname: REED
-      48. 466 San Domingo Drive --\> streettype: DRIVE  streetnumber: 466  streetname: SAN DOMINGO
-      49. PO Box 3741 --\> pobox: 3741
-      50. P.O. Box 5450 --\> pobox: 5450
-      51. 2315 Geer Rd --\> streettype: RD  streetnumber: 2315  streetname: GEER
-      52. 16199 Avenue 296 --\> streetnumber: 16199  streetname: AVENUE  ***ERROR***
-      53. 919 Fourth Avenue --\> streettype: AVENUE  streetnumber: 919  streetname: FOURTH
-      54. 16922 Lynn Street Suite B --\> streetnumber: 16922  streetname: LYNN STREET SUITE B
-      55. 3770 Hancock St, Suite G --\> streettype: ST  streetnumber: 3770  streetname: HANCOCK
-      56. 100 E Patterson Street --\> streettype: STREET  streetnumber: 100  streetname: PATTERSON  predirectional: E
-      57. 1788 El Prado --\> streetnumber: 1788  streetname: EL PRADO
-      58. P O Box 1053 --\> pobox: 1053
-      59. 780 North Euclid, Suite 212c --\> streetnumber: 780  streetname: EUCLID  predirectional: NORTH
-      60. 6041 Mission Gorge Rd. --\> streettype: RD  streetnumber: 6041  streetname: MISSION GORGE
-      61. 564 Mateo St --\> streettype: ST  streetnumber: 564  streetname: MATEO
-      62. 908 North Hollywood Way --\> streettype: WAY  streetnumber: 908  streetname: HOLLYWOOD  predirectional: NORTH
-      63. 425 Grant Ave, #22 --\> streettype: AVE  streetnumber: 425  streetname: GRANT
-      64. 17875 Sky Park North, # G --\> streetnumber: 17875  streetname: SKY PARK NORTH
-      65. 7176 Regional Street --\> streettype: STREET  streetnumber: 7176  streetname: REGIONAL
-      66. 1000 Greenly Road --\> streettype: ROAD  streetnumber: 1000  streetname: GREENLY
-      67. 5100 N St --\> streettype: ST  streetnumber: 5100  streetname: N
-      68. 1954 Hillhurst Avenue PMB 10 --\> streetnumber: 1954  streetname: HILLHURST AVENUE PMB  ***ERROR***
-      69. 1626 Wilcox Avenue 418 --\> streetnumber: 1626  streetname: WILCOX AVENUE
-      70. 9541 S Santa Fe Springs Rd --\> streettype: RD  streetnumber: 9541  streetname: SANTA FE SPRINGS  predirectional: S
-      71. 982 Broadway --\> streetnumber: 982  streetname: BROADWAY
-      72. 123 MAIN ST --\> streettype: ST  streetnumber: 123  streetname: MAIN
-      73. 2146 East Chevy Chase Drive --\> streettype: DRIVE  streetnumber: 2146  streetname: CHEVY CHASE  predirectional: EAST
-      74. 2750 East Imperial Highway --\> streettype: HIGHWAY  streetnumber: 2750  streetname: IMPERIAL  predirectional: EAST
-      75. Marlin Way --\> streettype: WAY  streetname: MARLIN
-      76. 5434 North Oakbank Avenue --\> streettype: AVENUE  streetnumber: 5434  streetname: OAKBANK  predirectional: NORTH
-      77. 8670 Matilija Avenue --\> streettype: AVENUE  streetnumber: 8670  streetname: MATILIJA
-      78. 2200 Hermosa Court, # 45 --\> streettype: COURT  streetnumber: 2200  streetname: HERMOSA
-      79. 390 Swift Avenue Suite 16 --\> streetnumber: 390  streetname: SWIFT AVENUE SUITE
-      80. 164 South Park Street --\> streettype: STREET  streetnumber: 164  streetname: PARK  predirectional: SOUTH
-      81. Post Office box 1111 --\> streetname: POST OFFICE BOX  ***ERROR***
-      82. 7000 Marina Blvd. --\> streettype: BLVD  streetnumber: 7000  streetname: MARINA
-      83. 45535 Northport Loop W, # E --\> streetnumber: 45535  streetname: NORTHPORT LOOP W  ***ERROR***
-      84. 1373 Promontory Point Drive --\> streettype: DRIVE  streetnumber: 1373  streetname: PROMONTORY POINT
-      85. 20710 Leapwood Ave. --\> streettype: AVE  streetnumber: 20710  streetname: LEAPWOOD
-      86. 264 Avalon Harbor --\> streettype: HARBOR  streetnumber: 264  streetname: AVALON
-      87. 23133 Hawthorne Blvd --\> streettype: BLVD  streetnumber: 23133  streetname: HAWTHORNE
-      88. 969 Edgewater G370 --\> streetnumber: 969  streetname: EDGEWATER G
-      89. San Francisco International Airport --\> streetname: SAN FRANCISCO INTERNATIONAL AIRPORT
-      90. 2204 El Camino Real, Suite 200 --\> streetnumber: 2204  streetname: EL CAMINO REAL
-      91. P.O. Box 336 --\> pobox: 336
-      92. 2382 Faraday Avenue --\> streettype: AVENUE  streetnumber: 2382  streetname: FARADAY
-      93. 1407 Greenwich Drive, Suite A --\> streettype: DRIVE  streetnumber: 1407  streetname: GREENWICH
-      94. 3510 Wilson Rd --\> streettype: RD  streetnumber: 3510  streetname: WILSON
-      95. P.O. Box 1259 --\> pobox: 1259
-      96. Post Office Box 2108 --\> streetname: POST OFFICE BOX  ***ERROR***
-      97. 1112 Ozone Drive --\> streettype: DRIVE  streetnumber: 1112  streetname: OZONE
-      98. 2075 Newport Boulevard Suite 101 --\> streetnumber: 2075  streetname: NEWPORT BOULEVARD SUITE
-      99. 1555 River Park Drive, Suite 109 --\> streettype: DRIVE  streetnumber: 1555  streetname: RIVER PARK
-     100. 307 E Jefferson Blvd, Local 243 --\> streettype: BLVD  streetnumber: 307  streetname: JEFFERSON  predirectional: E
+       1. 12200 West Olympic Blvd Suite 270 --> streetnumber: 12200  streetname: OLYMPIC BLVD SUITE  predirectional: WEST
+       2. 7828 N. 19th Ave Suite #14 --> streettype: AVE  streetnumber: 7828  streetname: 19TH  predirectional: N
+       3. 10815 Beaver Dam Rd --> streettype: RD  streetnumber: 10815  streetname: BEAVER DAM
+       4. 1205 Bobwhite Lane --> streettype: LANE  streetnumber: 1205  streetname: BOBWHITE
+       5. 3349 Cottage Way, Ste 28 --> streettype: WAY  streetnumber: 3349  streetname: COTTAGE
+       6. 2058 N. Mills Ave. #132 --> streettype: AVE  streetnumber: 2058  streetname: MILLS  predirectional: N
+       7. 38 Copper Cove Drive --> streettype: DRIVE  streetnumber: 38  streetname: COPPER COVE
+       8. 49 Outlook Circle --> streettype: CIRCLE  streetnumber: 49  streetname: OUTLOOK
+       9. P. O. Box 6379 --> pobox: 6379
+      10. PO BOX 368 --> pobox: 368
+      11. 11549 Sheldon --> streetnumber: 11549  streetname: SHELDON
+      12. 19859 Hodge Road --> streettype: ROAD  streetnumber: 19859  streetname: HODGE
+      13. Mission Oaks --> streetname: MISSION OAKS
+      14. 1031 s palmetto #L3 --> streetnumber: 1031  streetname: PALMETTO  predirectional: S
+      15. Po Box 70 --> streetname: PO BOX
+      16. 400 Lenrey Avenue --> streettype: AVENUE  streetnumber: 400  streetname: LENREY
+      17. 1125 Victoria --> streetnumber: 1125  streetname: VICTORIA
+      18. 4738 Palo Verde Av --> streettype: AV  streetnumber: 4738  streetname: PALO VERDE
+      19. 4738 Palo Verde Ave --> streettype: AVE  streetnumber: 4738  streetname: PALO VERDE
+      20. 3951 Development Drive Suite 6 --> streetnumber: 3951  streetname: DEVELOPMENT DRIVE SUITE
+      21. 1416 Westwood Boulevard, Suite 210 --> streettype: BOULEVARD  streetnumber: 1416  streetname: WESTWOOD
+      22. 195 S. Beverly Dr --> streettype: DR  streetnumber: 195  streetname: BEVERLY  predirectional: S
+      23. 10940 Wilshire Boulevard --> streettype: BOULEVARD  streetnumber: 10940  streetname: WILSHIRE
+      24. P.O. Box 1886 --> pobox: 1886
+      25. 2814 Landco Drive --> streettype: DRIVE  streetnumber: 2814  streetname: LANDCO
+      26. P. O. Box 292555 --> pobox: 292555
+      27. 11836 Downey Ave, #104 --> streettype: AVE  streetnumber: 11836  streetname: DOWNEY
+      28. P.O. Box 533 --> pobox: 533
+      29. 5724 Mendocino Boulevard --> streettype: BOULEVARD  streetnumber: 5724  streetname: MENDOCINO
+      30. 3765 S Main St --> streettype: ST  streetnumber: 3765  streetname: MAIN  predirectional: S
+      31. 9223 S Vermont Avenue --> streettype: AVENUE  streetnumber: 9223  streetname: VERMONT  predirectional: S
+      32. 885 Embarcadero Road --> streettype: ROAD  streetnumber: 885  streetname: EMBARCADERO
+      33. P.O. Box 26 --> pobox: 26
+      34. 2902 Del Rosa Ave --> streettype: AVE  streetnumber: 2902  streetname: DEL ROSA
+      35. 2800 Guadalupe Dr --> streettype: DR  streetnumber: 2800  streetname: GUADALUPE
+      36. 777 North Colusa Street --> streettype: STREET  streetnumber: 777  streetname: COLUSA  predirectional: NORTH
+      37. 8100 Lemon Cove Court --> streettype: COURT  streetnumber: 8100  streetname: LEMON COVE
+      38. 1015 Grandview Avenue --> streettype: AVENUE  streetnumber: 1015  streetname: GRANDVIEW
+      39. 1349 B Orange Ave. --> streettype: AVE  streetnumber: 1349  streetname: B ORANGE
+      40. 1950 E. Chapman Ave, Suite 2 --> streettype: AVE  streetnumber: 1950  streetname: CHAPMAN  predirectional: E
+      41. 2440 Sand Creek Rd --> streettype: RD  streetnumber: 2440  streetname: SAND CREEK
+      42. P.O Box 306 --> pobox: 306
+      43. 7522 Park Ave --> streettype: AVE  streetnumber: 7522  streetname: PARK
+      44. 1211 Griffith Avenue --> streettype: AVENUE  streetnumber: 1211  streetname: GRIFFITH
+      45. P.O. Box 0933 --> pobox: 0933
+      46. 11860 La Cienga --> streetnumber: 11860  streetname: LA CIENGA
+      47. 2008 Reed Ave --> streettype: AVE  streetnumber: 2008  streetname: REED
+      48. 466 San Domingo Drive --> streettype: DRIVE  streetnumber: 466  streetname: SAN DOMINGO
+      49. PO Box 3741 --> pobox: 3741
+      50. P.O. Box 5450 --> pobox: 5450
+      51. 2315 Geer Rd --> streettype: RD  streetnumber: 2315  streetname: GEER
+      52. 16199 Avenue 296 --> streetnumber: 16199  streetname: AVENUE  ***ERROR***
+      53. 919 Fourth Avenue --> streettype: AVENUE  streetnumber: 919  streetname: FOURTH
+      54. 16922 Lynn Street Suite B --> streetnumber: 16922  streetname: LYNN STREET SUITE B
+      55. 3770 Hancock St, Suite G --> streettype: ST  streetnumber: 3770  streetname: HANCOCK
+      56. 100 E Patterson Street --> streettype: STREET  streetnumber: 100  streetname: PATTERSON  predirectional: E
+      57. 1788 El Prado --> streetnumber: 1788  streetname: EL PRADO
+      58. P O Box 1053 --> pobox: 1053
+      59. 780 North Euclid, Suite 212c --> streetnumber: 780  streetname: EUCLID  predirectional: NORTH
+      60. 6041 Mission Gorge Rd. --> streettype: RD  streetnumber: 6041  streetname: MISSION GORGE
+      61. 564 Mateo St --> streettype: ST  streetnumber: 564  streetname: MATEO
+      62. 908 North Hollywood Way --> streettype: WAY  streetnumber: 908  streetname: HOLLYWOOD  predirectional: NORTH
+      63. 425 Grant Ave, #22 --> streettype: AVE  streetnumber: 425  streetname: GRANT
+      64. 17875 Sky Park North, # G --> streetnumber: 17875  streetname: SKY PARK NORTH
+      65. 7176 Regional Street --> streettype: STREET  streetnumber: 7176  streetname: REGIONAL
+      66. 1000 Greenly Road --> streettype: ROAD  streetnumber: 1000  streetname: GREENLY
+      67. 5100 N St --> streettype: ST  streetnumber: 5100  streetname: N
+      68. 1954 Hillhurst Avenue PMB 10 --> streetnumber: 1954  streetname: HILLHURST AVENUE PMB  ***ERROR***
+      69. 1626 Wilcox Avenue 418 --> streetnumber: 1626  streetname: WILCOX AVENUE
+      70. 9541 S Santa Fe Springs Rd --> streettype: RD  streetnumber: 9541  streetname: SANTA FE SPRINGS  predirectional: S
+      71. 982 Broadway --> streetnumber: 982  streetname: BROADWAY
+      72. 123 MAIN ST --> streettype: ST  streetnumber: 123  streetname: MAIN
+      73. 2146 East Chevy Chase Drive --> streettype: DRIVE  streetnumber: 2146  streetname: CHEVY CHASE  predirectional: EAST
+      74. 2750 East Imperial Highway --> streettype: HIGHWAY  streetnumber: 2750  streetname: IMPERIAL  predirectional: EAST
+      75. Marlin Way --> streettype: WAY  streetname: MARLIN
+      76. 5434 North Oakbank Avenue --> streettype: AVENUE  streetnumber: 5434  streetname: OAKBANK  predirectional: NORTH
+      77. 8670 Matilija Avenue --> streettype: AVENUE  streetnumber: 8670  streetname: MATILIJA
+      78. 2200 Hermosa Court, # 45 --> streettype: COURT  streetnumber: 2200  streetname: HERMOSA
+      79. 390 Swift Avenue Suite 16 --> streetnumber: 390  streetname: SWIFT AVENUE SUITE
+      80. 164 South Park Street --> streettype: STREET  streetnumber: 164  streetname: PARK  predirectional: SOUTH
+      81. Post Office box 1111 --> streetname: POST OFFICE BOX  ***ERROR***
+      82. 7000 Marina Blvd. --> streettype: BLVD  streetnumber: 7000  streetname: MARINA
+      83. 45535 Northport Loop W, # E --> streetnumber: 45535  streetname: NORTHPORT LOOP W  ***ERROR***
+      84. 1373 Promontory Point Drive --> streettype: DRIVE  streetnumber: 1373  streetname: PROMONTORY POINT
+      85. 20710 Leapwood Ave. --> streettype: AVE  streetnumber: 20710  streetname: LEAPWOOD
+      86. 264 Avalon Harbor --> streettype: HARBOR  streetnumber: 264  streetname: AVALON
+      87. 23133 Hawthorne Blvd --> streettype: BLVD  streetnumber: 23133  streetname: HAWTHORNE
+      88. 969 Edgewater G370 --> streetnumber: 969  streetname: EDGEWATER G
+      89. San Francisco International Airport --> streetname: SAN FRANCISCO INTERNATIONAL AIRPORT
+      90. 2204 El Camino Real, Suite 200 --> streetnumber: 2204  streetname: EL CAMINO REAL
+      91. P.O. Box 336 --> pobox: 336
+      92. 2382 Faraday Avenue --> streettype: AVENUE  streetnumber: 2382  streetname: FARADAY
+      93. 1407 Greenwich Drive, Suite A --> streettype: DRIVE  streetnumber: 1407  streetname: GREENWICH
+      94. 3510 Wilson Rd --> streettype: RD  streetnumber: 3510  streetname: WILSON
+      95. P.O. Box 1259 --> pobox: 1259
+      96. Post Office Box 2108 --> streetname: POST OFFICE BOX  ***ERROR***
+      97. 1112 Ozone Drive --> streettype: DRIVE  streetnumber: 1112  streetname: OZONE
+      98. 2075 Newport Boulevard Suite 101 --> streetnumber: 2075  streetname: NEWPORT BOULEVARD SUITE
+      99. 1555 River Park Drive, Suite 109 --> streettype: DRIVE  streetnumber: 1555  streetname: RIVER PARK
+     100. 307 E Jefferson Blvd, Local 243 --> streettype: BLVD  streetnumber: 307  streetname: JEFFERSON  predirectional: E
 
 
 #### 2010-07-08 09:54:27 - john_nagle
@@ -8170,18 +7170,18 @@ My code has diverged enough from the example here that I'll probably have to pos
 
 
 
-    13731 North Highway 88 --\> error: Expected stringEnd (at char 20), (line:1, col:21)
-    333 South Hope Street, Sixteenth Floor --\> error: Expected stringEnd (at char 23), (line:1, col:24)
-    Highway 190 --\> error: Expected stringEnd (at char 8), (line:1, col:9)
-    70813 Highway 111 --\> error: Expected stringEnd (at char 14), (line:1, col:15)
-    26517 State Highway 74 --\> error: Expected stringEnd (at char 20), (line:1, col:21)
-    80425 US Highway 111 --\> error: Expected stringEnd (at char 17), (line:1, col:18)
-    22217 US Highway 18 --\> error: Expected stringEnd (at char 17), (line:1, col:18)
-    1567 State Highway 99 --\> error: Expected stringEnd (at char 19), (line:1, col:20)
-    32545B Golden Lantern 147 --\> error: Expected stringEnd (at char 22), (line:1, col:23)
-    1207 13TH ST STE 1 --\> error: Expected stringEnd (at char 7), (line:1, col:8)
-    633 W 5th St 28th Floor --\> error: Expected stringEnd (at char 13), (line:1, col:14)
-    2329 US Highway 86 --\> error: Expected stringEnd (at char 16), (line:1, col:17)
+    13731 North Highway 88 --> error: Expected stringEnd (at char 20), (line:1, col:21)
+    333 South Hope Street, Sixteenth Floor --> error: Expected stringEnd (at char 23), (line:1, col:24)
+    Highway 190 --> error: Expected stringEnd (at char 8), (line:1, col:9)
+    70813 Highway 111 --> error: Expected stringEnd (at char 14), (line:1, col:15)
+    26517 State Highway 74 --> error: Expected stringEnd (at char 20), (line:1, col:21)
+    80425 US Highway 111 --> error: Expected stringEnd (at char 17), (line:1, col:18)
+    22217 US Highway 18 --> error: Expected stringEnd (at char 17), (line:1, col:18)
+    1567 State Highway 99 --> error: Expected stringEnd (at char 19), (line:1, col:20)
+    32545B Golden Lantern 147 --> error: Expected stringEnd (at char 22), (line:1, col:23)
+    1207 13TH ST STE 1 --> error: Expected stringEnd (at char 7), (line:1, col:8)
+    633 W 5th St 28th Floor --> error: Expected stringEnd (at char 13), (line:1, col:14)
+    2329 US Highway 86 --> error: Expected stringEnd (at char 16), (line:1, col:17)
 
 
 
@@ -8215,7 +7215,7 @@ to         singleArgBuiltins.append(getattr(<u>builtins</u>,fname))
 
 
 
-(i.e. <u>builtin</u> =\> <u>builtins</u>)
+(i.e. <u>builtin</u> => <u>builtins</u>)
 
 
 
@@ -8230,55 +7230,41 @@ If there is a better solution then please post.
 Thanks!
 
 #### 2010-07-04 16:45:04 - ptmcg
-No, this is a *bug*.  I thought I had tested this installation on Python 3, but apparently I missed a step.  __builtin__ was changed to builtins in Python 3.  I'll give things another week or so to see if any other glaring bugs roll in, then I'll spin out a 1.5.4 with this bug fixed.
-
-
+No, this is a *bug*.  I thought I had tested this installation on Python 3, but 
+apparently I missed a step.     `__builtin__` was changed to `builtins` in Python 3.  
+I'll give things another week or so to see if any other glaring bugs roll in, then 
+I'll spin out a 1.5.4 with this bug fixed.
 
 Your self-patched version will work fine until then.  Thanks for downloading pyparsing!
-
-
 
 -- paul
 #### 2010-07-21 13:04:28 - saulspatz
 I can't even get pyparsing to install with python 3.1:
 
 
-
-c:\Downloads\pyparsing-1.5.3\>c:\Python31\python.exe setup.py -v install
-
-Traceback (most recent call last):
-
-  File 'setup.py', line 12, in \<module\>
-
-    from pyparsing_py3 import <u>version</u> as pyparsing_version
-
-  File 'c:\Downloads\pyparsing-1.5.3\pyparsing_py3.py', line 141, in \<module\>
-
-    import <u>builtin</u>
-
-ImportError: No module named <u>builtin</u>
-
-
+    
+    c:\Downloads\pyparsing-1.5.3>c:\Python31\python.exe setup.py -v install
+    Traceback (most recent call last):
+      File 'setup.py', line 12, in <module>
+        from pyparsing_py3 import <u>version</u> as pyparsing_version
+      File 'c:\Downloads\pyparsing-1.5.3\pyparsing_py3.py', line 141, in <module>
+        import <u>builtin</u>
+    ImportError: No module named <u>builtin</u>
 
 I tried running the executable installer and that failed too.  It didn't give a very detailed error message.
 
-
-
 This is under Windows 7.
+
 #### 2010-07-21 13:42:51 - GregWatson
 This looks to be the same problem that I reported.
 
-
-
-You could try editing the  c:\Downloads\pyparsing-1.5.3\pyparsing_py3.py file as I described in the original post above and then rerun the setup.
-
+You could try editing the  `c:\Downloads\pyparsing-1.5.3\pyparsing_py3.py` file as I 
+described in the original post above and then rerun the setup.
 
 
 -Greg
 #### 2010-07-21 13:46:22 - ptmcg
 Once you guys make this one change to pyparsing_py3, is there any other issue with running on Python 3?  If not, then I can turn around a quick 1.5.4 with just this fix, and *then* Python 3 should be a working target.
-
-
 
 Thanks,
 
@@ -8286,33 +7272,19 @@ Thanks,
 #### 2010-07-21 13:55:34 - GregWatson
 I have not found any other issues, but I have only run on XP SP 3.
 
-
-
 Maybe sualspatz can comment once he tries the fix .
 #### 2010-07-25 09:46:00 - sminos
 I have found another issue !
 
-
-
 I am currently working with windows XP SP2.
 
-
-
-...\pyparsing-1.5.3\>python setup.py install
-
-Traceback (most recent call last):
-
-  File 'setup.py', line 35, in \<module\>
-
-    copyfile(from_file, 'pyparsing.py')
-
-  File 'setup.py', line 26, in copyfile
-
-    outf = file(toname,'w')
-
-NameError: global name 'file' is not defined
-
-
+    ...\pyparsing-1.5.3>python setup.py install
+    Traceback (most recent call last):
+      File 'setup.py', line 35, in <module>
+        copyfile(from_file, 'pyparsing.py')
+      File 'setup.py', line 26, in copyfile
+        outf = file(toname,'w')
+    NameError: global name 'file' is not defined
 
 I replace 'file' with 'open' and it works fine now.
 
@@ -8326,57 +7298,35 @@ Excellent, thank you!
 ## 2010-07-06 19:04:52 - GregWatson - newbie problem with addParseAction and Combine
 Hi
 
-
-
 I am trying to use addParseAction with each rule in order to see which rules are matched.
-
-
 
 But if I use Combine then the more deeply nested actions do not seem to be invoked.
 
-
-
 Here's the code (that works as I expect) without the Combine:
 
-
-
-[[from pyparsing import *UnescapedChar = Word(alphanums, exact=1)EscapedChar = Combine( Suppress('\\') + Word(printables,exact=1) )HexChar = Combine( Suppress(r'\x') + Word(hexnums,exact=2) )SingleChar = UnescapedChar ^ HexChar ^ EscapedChar#CharRange = Combine( SingleChar + Suppress('..') + SingleChar )CharRange =  SingleChar + Suppress('..') + SingleChar def doEscapedChar (s,loc,toks):    print('EscapedChar:  saw tokens {0}'.format(toks[0:])) def doUnescapedChar (s,loc,toks):    print('UnEscapedChar:  saw tokens {0}'.format(toks[0:])) def doHexChar (s,loc,toks):    print('hexchar: text  saw tokens {0}'.format(toks[0:]))def doSingleChar (s,loc,toks):    print('SingleChar: saw tokens {0}'.format(toks[0:])) def doCharRange (s,loc,toks):    print('CharRange text was {0}\n   saw tokens {1}'.format(s,toks[0:])) # Define the parser actionsEscapedChar.addParseAction(doEscapedChar)UnescapedChar.addParseAction(doUnescapedChar)HexChar.addParseAction(doHexChar)SingleChar.addParseAction(doSingleChar)CharRange.addParseAction(doCharRange)# testingtext = r'\x20..\x21'print (CharRange.parseString(text))]]
-
+[[
+from pyparsing import *
+UnescapedChar = Word(alphanums, exact=1)
+EscapedChar = Combine( Suppress('\\') + Word(printables,exact=1) )HexChar = Combine( Suppress(r'\x') + Word(hexnums,exact=2) )SingleChar = UnescapedChar ^ HexChar ^ EscapedChar#CharRange = Combine( SingleChar + Suppress('..') + SingleChar )CharRange =  SingleChar + Suppress('..') + SingleChar def doEscapedChar (s,loc,toks):    print('EscapedChar:  saw tokens {0}'.format(toks[0:])) def doUnescapedChar (s,loc,toks):    print('UnEscapedChar:  saw tokens {0}'.format(toks[0:])) def doHexChar (s,loc,toks):    print('hexchar: text  saw tokens {0}'.format(toks[0:]))def doSingleChar (s,loc,toks):    print('SingleChar: saw tokens {0}'.format(toks[0:])) def doCharRange (s,loc,toks):    print('CharRange text was {0}\n   saw tokens {1}'.format(s,toks[0:])) # Define the parser actionsEscapedChar.addParseAction(doEscapedChar)UnescapedChar.addParseAction(doUnescapedChar)HexChar.addParseAction(doHexChar)SingleChar.addParseAction(doSingleChar)CharRange.addParseAction(doCharRange)# testingtext = r'\x20..\x21'print (CharRange.parseString(text))]]
 
 
 and the output is:
 
-
-
-hexchar: text  saw tokens ['20']
-
-SingleChar: saw tokens ['20']
-
-hexchar: text  saw tokens ['21']
-
-SingleChar: saw tokens ['21']
-
-CharRange text was \x20..\x21
-
-   saw tokens ['20', '21']
-
-['20', '21']
-
-
-
-
+    hexchar: text  saw tokens ['20']
+    SingleChar: saw tokens ['20']
+    hexchar: text  saw tokens ['21']
+    SingleChar: saw tokens ['21']
+    CharRange text was \x20..\x21
+       saw tokens ['20', '21']
+    ['20', '21']
+    
+    
 
 i.e. I see the action is invoked for each token.
 
-
-
 But, if I add a Combine to the CharRange definition:
 
-
-
-[[CharRange = Combine( SingleChar + Suppress('..') + SingleChar )]]
-
-
+    [CharRange = Combine( SingleChar + Suppress('..') + SingleChar )]
 
 then the output becomes:
 
@@ -8414,9 +7364,6 @@ Sorry, I messed up the formatting.
 
 
 Here's the code without Combine:
-
-
-
 
 
     from pyparsing import *
@@ -8466,7 +7413,6 @@ Here's the code without Combine:
 I've looked into this, and I've identified the issue, but I'm not sure there is a solution. Since Combine has to modify the contained expressions to suppress the default whitespace skipping, it makes a deep copy of the expression used to create it.  Since you don't add the parse actions until after creating the Combine expression, the expressions you add parse actions to are not the ones used in CharRange.  To work around this, move the definition of CharRange until after the subexpressions have parse actions added to them.
 
 
-
 -- Paul
 #### 2010-07-07 09:16:34 - GregWatson
 Excellent - thanks! That would never have occurred to me. 
@@ -8504,7 +7450,7 @@ I am encountering a couple of problems which I have reduced to a very simple par
     SymSingle = And(Or(LitA, LitB) ,Literal('END'))
     SymSingle.setName('SymSingle').setDebug()
     
-    SymType \<\< Or( SymSingle, SymSeq )
+    SymType << Or( SymSingle, SymSeq )
     SymType.setName('SymType').setDebug()
     
     
@@ -8526,13 +7472,13 @@ Match SymType at loc 0(1,1)
 
 Match A at loc 0(1,1)
 
-Matched A -\> ['A']
+Matched A -> ['A']
 
 Match A at loc 0(1,1)
 
-Matched A -\> ['A']
+Matched A -> ['A']
 
-Matched SymType -\> ['A']
+Matched SymType -> ['A']
 
 ['A']
 
@@ -9460,8 +8406,8 @@ Just for reference, here's the code that sets up my operatorPrecedence:
     notop = Literal('~')
     multop = oneOf('* / %')
     plusop = oneOf('+ -')
-    shiftop = oneOf('\<\< \>\>')
-    cmpeqop = oneOf('\< \> \<= \>=')
+    shiftop = oneOf('<< >>')
+    cmpeqop = oneOf('< > <= >=')
     eqop = oneOf('!= ==')
     andop = Literal('&')
     exorop = Literal('^')
@@ -9581,7 +8527,7 @@ import os, string
 
 
 
-<ol><li>grammer</li></ol>
+# grammer</li></ol>
 
 firstline    = Suppress(ZeroOrMore(Word(alphas)))
 
@@ -9591,7 +8537,7 @@ thirdline    = ZeroOrMore(Word(alphanums + '-'))
 
 
 
-<ol><li>pattern</li></ol>
+# pattern</li></ol>
 
 pattern = Combine(firstline + secondline + thirdline)
 
@@ -9975,8 +8921,8 @@ I noticed today that when I have the pyparsing module installed, the following c
 
 
 
-    \>\>\> from struct import *
-    \>\>\> pack('hhl', 1, 2, 3)
+    >>> from struct import *
+    >>> pack('hhl', 1, 2, 3)
     '\x00\x01\x00\x02\x00\x00\x00\x03'
 
 
@@ -9996,9 +8942,9 @@ No problems here:
 
 
 
-    \>\>\> from pyparsing import *
-    \>\>\> from struct import *
-    \>\>\> pack('hhl', 1, 2, 3)
+    >>> from pyparsing import *
+    >>> from struct import *
+    >>> pack('hhl', 1, 2, 3)
     '\x01\x00\x02\x00\x03\x00\x00\x00'
 
 
@@ -10142,10 +9088,10 @@ here is the code
     
     msgBlock = msgIdBlock + Optional(msgPropBlock)
     
-    defGroupBody \<\<  (msgBlock + ZeroOrMore(defGroup))
+    defGroupBody <<  (msgBlock + ZeroOrMore(defGroup))
     
     
-    defGroup \<\< DefGroupStart + DefGroupHeader.suppress() + defGroupBody + DefGroupEnd.suppress()
+    defGroup << DefGroupStart + DefGroupHeader.suppress() + defGroupBody + DefGroupEnd.suppress()
     
     
     tst1 = '''
@@ -10456,23 +9402,23 @@ storycode('Story Code', Choice) marketcode('Market')
 
 
 
-\<ITEM\>
+<ITEM>
 
-  \<control\>
+  <control>
 
-    \<name\>storycode\</name\>
+    <name>storycode</name>
 
-    \<label\>Story Code\</label\>
+    <label>Story Code</label>
 
-    \<ctrl\>Choice\</ctrl\>
+    <ctrl>Choice</ctrl>
 
-    \<name\>marketcode\</name\>
+    <name>marketcode</name>
 
-    \<label\>Market\</label\>
+    <label>Market</label>
 
-  \</control\>
+  </control>
 
-\</ITEM\>
+</ITEM>
 
 {}
 
@@ -10572,12 +9518,12 @@ The resultant XML is:
 
 
 
-    \<layout\>
-      \<layout\> start layout\</layout\>
-      \<command\>box\</command\>
-      \<label\>--\</label\>
-      \<se\>start\</se\>
-    \</layout\>
+    <layout>
+      <layout> start layout</layout>
+      <command>box</command>
+      <label>--</label>
+      <se>start</se>
+    </layout>
 
 
 
@@ -10589,11 +9535,11 @@ I had the same problem trying to parse two control rows together, I got:
 
 
 
-    \<row\>
-      \<row\> ... \</row\>
-      \<control\> ... \</control\>
-      \<control\> ... \</control\>
-    \</row\>
+    <row>
+      <row> ... </row>
+      <control> ... </control>
+      <control> ... </control>
+    </row>
 
 
 
@@ -10601,13 +9547,13 @@ What I wanted was a structure more like:
 
 
 
-    \<layout\>
-    \<comment\> ... \</comment\>
-    \<command\> ... \</command\>
-    \<row\> ... \</row\>
-    \<row\> ... \</row\>
-    \<command\> ... \</command\>
-    \</layout\>
+    <layout>
+    <comment> ... </comment>
+    <command> ... </command>
+    <row> ... </row>
+    <row> ... </row>
+    <command> ... </command>
+    </layout>
 
 
 
@@ -10617,17 +9563,17 @@ Even better would be the box command to have the rows as children:
 
 
 
-    \<layout\>
-    \<box\>
-      \<row\>
-        \<control\> ... \</control\>
-        \<control\> ... \</control\>
-      \</row\>
-      \<row\>
+    <layout>
+    <box>
+      <row>
+        <control> ... </control>
+        <control> ... </control>
+      </row>
+      <row>
         ...
-      \</row\>
-    \</box\>
-    \</layout\>
+      </row>
+    </box>
+    </layout>
 
 
 
@@ -10797,7 +9743,7 @@ Here is my code, which is struck in an infinte loop.
             SectionHeader = SectionBegin + SectionName
             SectionGroup = Forward()
     
-            SectionGroup \<\< Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String
+            SectionGroup << Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String
     
             toplevel = OneOrMore(SectionGroup)
             tokens = toplevel.parseString(self.pyparsingInput)
@@ -10818,18 +9764,18 @@ The first thing I did was to extract your posted code, and just ran it, and I go
 
 
 
-    paneer1.py:57: SyntaxWarning: Cannot combine element of type \<type 'NoneType'\> with ParserElement
-      SectionGroup \<\< Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String
+    paneer1.py:57: SyntaxWarning: Cannot combine element of type <type 'NoneType'> with ParserElement
+      SectionGroup << Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String
 
 
 
 
 
-I added this warning a few releases ago to help highlight potential bugs in users' code.  Because '\<\<' has a higher precedence than '|', Python performs the '\<\<' operation first, then tries to add the '|' part afterward.  For this to work, you must wrap the right-hand side of the '\<\<' operator in ()'s:
+I added this warning a few releases ago to help highlight potential bugs in users' code.  Because '<<' has a higher precedence than '|', Python performs the '<<' operation first, then tries to add the '|' part afterward.  For this to work, you must wrap the right-hand side of the '<<' operator in ()'s:
 
 
 
-    SectionGroup \<\< (Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String)
+    SectionGroup << (Group(SectionHeader + OneOrMore(Parameter|SectionGroup)+SectionEnd) | String)
 
 
 
@@ -10847,7 +9793,7 @@ This gave me this output:
 
 
     Match SectionHeader at loc 0(1,1)
-    Matched SectionHeader -\> ['GeneralConfig1']
+    Matched SectionHeader -> ['GeneralConfig1']
 
 
 
@@ -10862,15 +9808,15 @@ So I instrumented Parameter as well, and this told the story:
 
 
     Match SectionHeader at loc 0(1,1)
-    Matched SectionHeader -\> ['GeneralConfig1']
+    Matched SectionHeader -> ['GeneralConfig1']
     Match Parameter at loc 15(1,1)
-    Matched Parameter -\> []
+    Matched Parameter -> []
     Match Parameter at loc 16(2,1)
-    Matched Parameter -\> []
+    Matched Parameter -> []
     Match Parameter at loc 16(2,1)
-    Matched Parameter -\> []
+    Matched Parameter -> []
     Match Parameter at loc 16(2,1)
-    Matched Parameter -\> []
+    Matched Parameter -> []
     (... continue looping forever ...)
 
 
@@ -10906,7 +9852,7 @@ Now we rerun the parser, and we get a little further:
 
 
     Match SectionHeader at loc 1(2,1)
-    Matched SectionHeader -\> ['GeneralConfig1']
+    Matched SectionHeader -> ['GeneralConfig1']
     Match Parameter at loc 16(2,1)
     Exception raised:Expected W:(abcd...,_) (at char 17), (line:3, col:1)
     Match SectionHeader at loc 17(3,1)
@@ -10977,7 +9923,7 @@ An advanced pyparsing technique is to use the Dict class to provide some automat
 
 
 
-    SectionGroup \<\< (Group(SectionHeader + 
+    SectionGroup << (Group(SectionHeader + 
                        (OneOrMore(Parameter|SectionGroup))+SectionEnd) | String)
 
 
@@ -10986,7 +9932,7 @@ to:
 
 
 
-    SectionGroup \<\< Dict(Group(SectionHeader +
+    SectionGroup << Dict(Group(SectionHeader +
                        Dict(OneOrMore(Parameter|SectionGroup))+SectionEnd) | String)
 
 
@@ -11209,8 +10155,8 @@ the grammar are as follows:
                  | Group(keyToken + LPAREN + entryL + RPAREN + SEMI)
             MixedE = (ObjE | expr | ObjLE)
     
-            ObjLV \<\< ( LPAREN + Dict(OneOrMore(ObjE)) + RPAREN)
-            ObjV \<\< (  LBRACE + Dict(OneOrMore(MixedE)) + RBRACE)
+            ObjLV << ( LPAREN + Dict(OneOrMore(ObjE)) + RPAREN)
+            ObjV << (  LBRACE + Dict(OneOrMore(MixedE)) + RBRACE)
     
             Dict_t = Dict(OneOrMore(MixedE)) \
                       .ignore(cStyleComment).ignore(cppStyleComment)\
@@ -11453,7 +10399,7 @@ I have upgraded to 1.5.5 so will try without Empty().
 
 
 
-I have done some fiddling around with flex and it gets the lexing time down to 0.03 seconds (!!) However, it doesn't deal with utf8 gracefully \<sigh\>  Extended character sets are the bane of my life.
+I have done some fiddling around with flex and it gets the lexing time down to 0.03 seconds (!!) However, it doesn't deal with utf8 gracefully <sigh>  Extended character sets are the bane of my life.
 
 
 
@@ -11531,7 +10477,7 @@ I get the following import error with Python 3.1.2 and Pyparsing 1.5.5 (win inst
 
 Traceback (most recent call last):
 
-  File 'C:\Jonathan\Python\PyCode\IF\Model.py', line 2, in \<module\>
+  File 'C:\Jonathan\Python\PyCode\IF\Model.py', line 2, in <module>
 
     from pyparsing import *
 
@@ -11562,7 +10508,7 @@ I downloaded and installed 'pyparsing-1.5.5.win32-py3.1.exe', which I assume is 
 
 
 
-\<If you just want to change the except statements, this is the only one that needs to be changed; all of the others are of the form 'except ParseException:', which works for both Python 2 and 3\>
+<If you just want to change the except statements, this is the only one that needs to be changed; all of the others are of the form 'except ParseException:', which works for both Python 2 and 3>
 
 
 
@@ -11588,7 +10534,7 @@ to singleArgBuiltins.append(getattr(builtins,fname))
 
 
 
-(i.e. builtin =\> builtins)
+(i.e. builtin => builtins)
 
 
 
@@ -11598,7 +10544,7 @@ Now it works.]
 
 This didn't completely work for me.  I could not comment out the line 'import <u>builtin</u>', but had to change it to 'import builtins'.
 #### 2010-10-21 06:30:47 - ptmcg
-\<sigh\>
+<sigh>
 
 I hope to get this right by version 1.5.46 or so.  I have some other bugfixes and changes in the works, so I think I'll have another point release out in a few weeks, and will include this fix.  Thanks for writing, and welcome to pyparsing!
 
@@ -11687,7 +10633,7 @@ I could solve my problem by using a Regex:
 
 
 
-    expr = Regex(r'\((?P\<name\>.*?)-?(?P\< seq\>\d{0,3})?\)')
+    expr = Regex(r'\((?P<name>.*?)-?(?P< seq>\d{0,3})?\)')
 
 Result:
 
@@ -11719,7 +10665,7 @@ The basic issue here is the pyparsing is pretty strict about parsing left-to-rig
 
 
 
-Here's a short example of where pyparsing's pure left-to-right action gives some problems.  Let's try to parse a simple inequality, like 'x \< 1':
+Here's a short example of where pyparsing's pure left-to-right action gives some problems.  Let's try to parse a simple inequality, like 'x < 1':
 
 
 
@@ -11727,21 +10673,21 @@ Here's a short example of where pyparsing's pure left-to-right action gives some
 
     identifier = Word(alphas)
     number = Word(nums)
-    LT,GT,EQ,LE,GE,NE = map(Literal, '\< \> = \<= \>= !='.split())
+    LT,GT,EQ,LE,GE,NE = map(Literal, '< > = <= >= !='.split())
     comparer = LT | GT | EQ | LE | GE | NE
     comparisonExpr = identifier + comparer + number
     
-    print comparisonExpr.parseString('x \< 1')
+    print comparisonExpr.parseString('x < 1')
 
 
 
-This works great!  We get ['x', '\<', '1'].  But now let's try 'x \<= 1'
+This works great!  We get ['x', '<', '1'].  But now let's try 'x <= 1'
 
 
 
 
 
-    print comparisonExpr.parseString('x \<= 1')
+    print comparisonExpr.parseString('x <= 1')
 
 
 
@@ -11752,7 +10698,7 @@ FAIL! If we catch the exception and using markInputline(), we get:
 
 
     try:
-        print comparisonExpr.parseString('x \<= 1')
+        print comparisonExpr.parseString('x <= 1')
     except ParseException, pe:
         print pe.markInputline('|')
 
@@ -11762,11 +10708,11 @@ We get:
 
 
 
-    x \<|= 1
+    x <|= 1
 
 
 
-The vertical bar shows where the parser ran into trouble.  The leading '\<' of '\<=' got parsed as LT because LT precedes LE in the MatchFirst expression comparer.  Normally, we could address this by just reordering comparer, to test for LE before LT:
+The vertical bar shows where the parser ran into trouble.  The leading '<' of '<=' got parsed as LT because LT precedes LE in the MatchFirst expression comparer.  Normally, we could address this by just reordering comparer, to test for LE before LT:
 
 
 
@@ -11782,7 +10728,7 @@ Or we could use the pyparsing builtin, oneOf, which will check for and do this r
 
 
 
-    comparer = oneOf('\< \> = \<= \>= !=')
+    comparer = oneOf('< > = <= >= !=')
     print comparer
     Re:('\\\<\\=|\\\<|\\\>\\=|\\\>|\\=|\\!\\=')
 
@@ -11794,33 +10740,33 @@ Or we could use the pyparsing builtin, oneOf, which will check for and do this r
 
 
 
-    comparer = oneOf('\< \> = \<= \>= !=')
+    comparer = oneOf('< > = <= >= !=')
     print str(comparer).replace('\\','').replace('|',' | ')
-    Re:('\<= | \< | \>= | \> | = | !=')
+    Re:('<= | < | >= | > | = | !=')
 
 
 
-oneOf looks for matching strings that might mask longer strings later in the list, and if found, moves the longer string ahead to be checked for first.  The result is a regular expression that explicitly checks for '\<=' before '\<'.
+oneOf looks for matching strings that might mask longer strings later in the list, and if found, moves the longer string ahead to be checked for first.  The result is a regular expression that explicitly checks for '<=' before '<'.
 
 
 
-But let's create our own lookahead using pyparsing's expression classes.  We read 'x \<= 1', and if we slow down our scanning from left-to-right, we:
+But let's create our own lookahead using pyparsing's expression classes.  We read 'x <= 1', and if we slow down our scanning from left-to-right, we:
 
 - see 'x', okay that's the identifier
 
-- see '\<', but wait, it's followed by an '=', so it's not the '\<' operation, but '\<='
+- see '<', but wait, it's followed by an '=', so it's not the '<' operation, but '<='
 
 - see '1', okay, done!
 
 
 
-So we want to accept '\<' as '\<' *only* if it is not followed by '='.  Going back to our original version:
+So we want to accept '<' as '<' *only* if it is not followed by '='.  Going back to our original version:
 
 
 
 
 
-    LT,GT,EQ,LE,GE,NE = map(Literal, '\< \> = \<= \>= !='.split())
+    LT,GT,EQ,LE,GE,NE = map(Literal, '< > = <= >= !='.split())
     comparer = LT | GT | EQ | LE | GE | NE
 
 
@@ -11831,18 +10777,18 @@ if we change LT and GT to:
 
 
 
-    LT = '\<' + ~FollowedBy('=')
-    GT = '\>' + ~FollowedBy('=')
+    LT = '<' + ~FollowedBy('=')
+    GT = '>' + ~FollowedBy('=')
     comparer = LT | GT | EQ | LE | GE | NE
     comparisonExpr = identifier + comparer + number
     try:
-        print comparisonExpr.parseString('x \<= 1')
+        print comparisonExpr.parseString('x <= 1')
     except ParseException, pe:
         print pe.markInputline('|')
 
 
 
-Now we get ['x', '\<=', '1'] - voila!
+Now we get ['x', '<=', '1'] - voila!
 
 
 
@@ -12165,7 +11111,7 @@ Hi,
 
 
     ['function', ''Weird Call Name #1'', ['receiver', 'local'], [['i', '=', '6'], ['i', '++'], ['b', '=', '' Test ''], 'call', [''looper'', 'i']]]
-    ['function', ''loopper'', ['loop'], [['for', ['i', '=', '0'], ['i', '\<', 'loop'], ['i', '++'], ['print', [], 'print', ['i'], 'print', ['i', 'i'], 'print', [''Test''], 'if', ['i', '==', '5'], ['print', [[''Test %s'', '%', 'i']]], 'test', ['b']]]]]
+    ['function', ''loopper'', ['loop'], [['for', ['i', '=', '0'], ['i', '<', 'loop'], ['i', '++'], ['print', [], 'print', ['i'], 'print', ['i', 'i'], 'print', [''Test''], 'if', ['i', '==', '5'], ['print', [[''Test %s'', '%', 'i']]], 'test', ['b']]]]]
     ['function', ''test'', ['r'], ['some_generic_function', ['r']]]
 
 
@@ -12177,7 +11123,7 @@ Hi,
 
 
     ['function', ''Weird Call Name #1'', ['receiver', 'local'], [['i', '=', '6'], ['i', '++'], ['b', '=', '' Test ''], ['call', [''looper'', 'i']]]]
-    ['function', ''loopper'', ['loop'], [['for', ['i', '=', '0'], ['i', '\<', 'loop'], ['i', '++'], ['print', [], 'print', ['i'], 'print', ['i', 'i'], 'print', [''Test''], 'if', ['i', '==', '5'], ['print', [[''Test %s'', '%', 'i']]], 'test', ['b']]]]]
+    ['function', ''loopper'', ['loop'], [['for', ['i', '=', '0'], ['i', '<', 'loop'], ['i', '++'], ['print', [], 'print', ['i'], 'print', ['i', 'i'], 'print', [''Test''], 'if', ['i', '==', '5'], ['print', [[''Test %s'', '%', 'i']]], 'test', ['b']]]]]
     ['function', ''test'', ['r'], ['some_generic_function', ['r']]]
 
 
@@ -12206,7 +11152,7 @@ Hi,
     function 'loopper'($loop)
     {
         # Looping
-        for($i=0;$i\<$loop;$i++)
+        for($i=0;$i<$loop;$i++)
         {
             # Different print statements
             print();
@@ -12255,7 +11201,7 @@ Hi,
             # Arithmetic expression
             operand = NAME | var | NUMBER | STRING
             expr = Forward()
-            expr \<\< (operatorPrecedence(operand,
+            expr << (operatorPrecedence(operand,
                 [
                 ('!', 1, opAssoc.LEFT),
                 (oneOf('+ -'), 1, opAssoc.RIGHT), # leading sign
@@ -12263,7 +11209,7 @@ Hi,
                 (oneOf('++ --'), 1, opAssoc.LEFT), # Add / substract
                 (oneOf('* / %'), 2, opAssoc.LEFT), # Multiply
                 (oneOf('+ -'), 2, opAssoc.LEFT), # Add / Substract
-                (oneOf('\< == \> \<= \>= !='), 2, opAssoc.LEFT), # Coparation
+                (oneOf('< == > <= >= !='), 2, opAssoc.LEFT), # Coparation
                 ('=', 2, opAssoc.LEFT) # Assign
                 ]) + Optional(LPAR + Group(Optional(delimitedList(expr))) + RPAR))
     
@@ -12283,7 +11229,7 @@ Hi,
             printstmt = PRINT + LPAR + Optional(delimitedList(var) |  STRING + Optional(PROCENT + LPAR + delimitedList(var) + RPAR)) + RPAR + SEMI
     
             # Setup statement
-            stmt \<\< (expr + SEMI | callstmt | ifstmt | forstmt | printstmt | LBRACE + ZeroOrMore(stmt) + RBRACE)
+            stmt << (expr + SEMI | callstmt | ifstmt | forstmt | printstmt | LBRACE + ZeroOrMore(stmt) + RBRACE)
     
             # Main program
             program = ZeroOrMore(funcdecl)
@@ -12339,7 +11285,7 @@ Then when I ran your parser, I got this output:
     Match callstmt at loc 611(39,1)
     Exception raised:Expected 'call' (at char 611), (line:39, col:1)
     ['function', ''Weird Call Name #1'', ['receiver', 'local'], [['i', '=', '6'], ['i', '++'], ['b', '=', '' Test ''], 'call', [''looper'', 'i']]]
-    ['function', ''loopper'', ['loop'], [['for', ['i', '=', '0'], ['i', '\<', 'loop'], ['i', '++'], ['print', [], 'print', ['i'], 'print', ['i', 'i'], 'print', [''Test''], 'if', ['i', '==', '5'], ['print', [[''Test %s'', '%', 'i']]], 'test', ['b']]]]]
+    ['function', ''loopper'', ['loop'], [['for', ['i', '=', '0'], ['i', '<', 'loop'], ['i', '++'], ['print', [], 'print', ['i'], 'print', ['i', 'i'], 'print', [''Test''], 'if', ['i', '==', '5'], ['print', [[''Test %s'', '%', 'i']]], 'test', ['b']]]]]
     ['function', ''test'', ['r'], ['some_generic_function', ['r']]]
 
 
@@ -12350,7 +11296,7 @@ Not one match attempt of callstmt succeeded!  My suspicion was that the definiti
 
 
 
-    stmt \<\< (callstmt | ifstmt | forstmt | printstmt | expr + SEMI | LBRACE + ZeroOrMore(stmt) + RBRACE)
+    stmt << (callstmt | ifstmt | forstmt | printstmt | expr + SEMI | LBRACE + ZeroOrMore(stmt) + RBRACE)
 
 
 
@@ -12367,7 +11313,7 @@ I now get the following:
     Match callstmt at loc 113(8,5)
     Exception raised:Expected 'call' (at char 113), (line:8, col:5)
     Match callstmt at loc 169(11,5)
-    Matched callstmt -\> [['call', ''looper'', 'i']]
+    Matched callstmt -> [['call', ''looper'', 'i']]
     Match callstmt at loc 188(12,1)
     Exception raised:Expected 'call' (at char 188), (line:12, col:1)
     ...
@@ -12381,7 +11327,7 @@ Now we see that the callstmt expression is getting its chance to parse the funct
 
 
     ['function', ''Weird Call Name #1'', ['receiver', 'local'], [['i', '=', '6'], ['i', '++'], ['b', '=', '' Test ''], ['call', ''looper'', 'i']]]
-    ['function', ''loopper'', ['loop'], [['for', ['i', '=', '0'], ['i', '\<', 'loop'], ['i', '++'], ['print', 'print', 'i', 'print', 'i', 'i', 'print', ''Test'', 'if', ['i', '==', '5'], ['print', ''Test %s'', 'i'], 'test', ['b']]]]]
+    ['function', ''loopper'', ['loop'], [['for', ['i', '=', '0'], ['i', '<', 'loop'], ['i', '++'], ['print', 'print', 'i', 'print', 'i', 'i', 'print', ''Test'', 'if', ['i', '==', '5'], ['print', ''Test %s'', 'i'], 'test', ['b']]]]]
     ['function', ''test'', ['r'], ['some_generic_function', ['r']]]
 
 
@@ -12451,7 +11397,7 @@ where 'pyparsing_py3_v155.py' is just the 'pyparsing_py3' file from the 1.5.5 re
     $ python3 bugtest.py
     153301
     Traceback (most recent call last):
-      File 'bugtest.py', line 12, in \<module\>
+      File 'bugtest.py', line 12, in <module>
         result = exp.parseFile('./pyparsing_py3_v155.py')
       File '/data/projekte/parsing/pyparsing/pyparsing_py3_v155.py', line 1464, in parseFile
         return self.parseString(file_contents, parseAll)
@@ -12460,8 +11406,8 @@ where 'pyparsing_py3_v155.py' is just the 'pyparsing_py3' file from the 1.5.5 re
       File '/data/projekte/parsing/pyparsing/pyparsing_py3_v155.py', line 954, in _parseNoCache
         preloc = self.preParse( instring, loc )
       File '/data/projekte/parsing/pyparsing/pyparsing_py3_v155.py', line 912, in preParse
-        while loc \< instrlen and instring[loc] in wt:
-    TypeError: 'in \<string\>' requires string as left operand, not int
+        while loc < instrlen and instring[loc] in wt:
+    TypeError: 'in <string>' requires string as left operand, not int
 
 
 
@@ -12487,7 +11433,7 @@ Hy, sorry for the delay ... I forgot to monitor the topic. I tried it, but it do
     [3960](1) $ python3 bugtest.py
     153205
     Traceback (most recent call last):
-      File 'bugtest.py', line 12, in \<module\>
+      File 'bugtest.py', line 12, in <module>
         result = exp.parseFile('./pyparsing_py3_v155.py')
       File '/data/projekte/parsing/pyparsing/pyparsing_py3_v155.py', line 1468, in parseFile
         raise exc
@@ -12529,7 +11475,7 @@ Thanks, I just didn't see it (just saw another exception trace popping up at nig
 
 ---
 ## 2010-11-11 12:24:58 - EduardoBarros - Parsing a tag with long text inside
-I have an HTML text with a few '''\<td class='right_there1'\>\</td\>''' tags, each at times full of random tags in it (I know, I hate poorly designed docs as well). As those internal tags are random, this is as far as I can go assigning a pattern.
+I have an HTML text with a few '''<td class='right_there1'></td>''' tags, each at times full of random tags in it (I know, I hate poorly designed docs as well). As those internal tags are random, this is as far as I can go assigning a pattern.
 
 
 
@@ -12541,7 +11487,7 @@ I'm stuck with something like:
 
 
 
-rthere1tag = '''\<td class='right_there1'\>''' + OneOrMore(Word( alphas )) + '\</td\>'
+rthere1tag = '''<td class='right_there1'>''' + OneOrMore(Word( alphas )) + '</td>'
 
 
 
@@ -12610,7 +11556,7 @@ Thanks,
     
     from pyparsing import *
     
-    myPrintables = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&\'()*+,-./:;\<=\>?@[\\]^_`{|}~'
+    myPrintables = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
     
     cppNumberChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.'
     cppExponents = 'e+ e- E+ E-'
@@ -12620,7 +11566,7 @@ Thanks,
     cppIdentifier = Word(myPrintables)
     cppString = QuotedString(''', escChar='\\', unquoteResults=False)
     cppCharList = QuotedString(''', escChar='\\', unquoteResults=False)
-    cppHeaderFileName = QuotedString('\<', endQuoteChar='\>')
+    cppHeaderFileName = QuotedString('<', endQuoteChar='>')
     
     cppToken = cppNumber('num') | cppIdentifier('id') | cppString('str') | cppCharList('cl') | cppHeaderFileName('fname')
     
@@ -12666,17 +11612,17 @@ Yes, this is odd, nay I would even say it's a bug.  I'll have it fixed in 1.5.6 
 
 ---
 ## 2010-11-16 07:49:03 - kbriggs4 - wordsToNum.py example doesn't work
-kbriggs@gold:~/python\> python --version
+kbriggs@gold:~/python> python --version
 
 Python 2.5.1
 
 
 
-kbriggs@gold:~/python\> python wordsToNum.py 
+kbriggs@gold:~/python> python wordsToNum.py 
 
 Traceback (most recent call last):
 
-  File 'wordsToNum.py', line 76, in \<module\>
+  File 'wordsToNum.py', line 76, in <module>
 
     numWords.ignore('-')
 
@@ -12850,7 +11796,7 @@ My primary problem is I don't know how to process empty columns.
             lineExpr = Suppress(' ')
             for col in t.header:
                 lineExpr += Optional(Word(printables, printables + ' ', exact=len(col)))
-            tabValueLine \<\< Group(lineExpr)
+            tabValueLine << Group(lineExpr)
     
         colNameSep = Literal('-')
         header = OneOrMore(
@@ -13187,7 +12133,7 @@ Sorry, a prettier version:
 
 
 
-    \>\>\> card.parseString('A')
+    >>> card.parseString('A')
     ['A','']
 
 
@@ -13271,13 +12217,13 @@ Type 'copyright', 'credits' or 'license' for more information.
 
 IPython 0.10.1 -- An enhanced Interactive Python.
 
-?         -\> Introduction and overview of IPython's features.
+?         -> Introduction and overview of IPython's features.
 
-%quickref -\> Quick reference.
+%quickref -> Quick reference.
 
-help      -\> Python's own help system.
+help      -> Python's own help system.
 
-object?   -\> Details about 'object'. ?object also works, ?? prints more.
+object?   -> Details about 'object'. ?object also works, ?? prints more.
 
 
 
@@ -13422,7 +12368,7 @@ Exception raised:Expected num5 (at char 10), (line:1, col:11)
 
 Match num3 at loc 6(1,7)
 
-Matched num3 -\> ['123']
+Matched num3 -> ['123']
 
 Match num5 at loc 16(1,17)
 
@@ -13518,11 +12464,11 @@ Exception raised:Expected num3 (at char 4), (line:1, col:5)
 
 Match num5 at loc 6(1,7)
 
-Matched num5 -\> ['12345']
+Matched num5 -> ['12345']
 
 Match num3 at loc 6(1,7)
 
-Matched num3 -\> ['123']
+Matched num3 -> ['123']
 
 Match num5 at loc 13(1,14)
 
@@ -13615,7 +12561,7 @@ far from the bad grammar in the file.
     singlS = keyword + '(' + Word(nums) + ')' + ';'
     hierS  = keyword + '(' + Word(nums) + ')' + '{' + stmts + '}'
     stmt = singlS ^ hierS
-    stmts \<\< OneOrMore(stmt)
+    stmts << OneOrMore(stmt)
     top = stmts
     
     DATA='''\
@@ -13669,7 +12615,7 @@ Here's a simple example.  Let's say we want to match any capital letter, followe
     
     expr = Forward()
     integer = Word(nums)
-    expr \<\< (OneOrMore(oneOf(list(alphas)) + (integer | Group('(' + Optional(expr) + ')') ) ) )
+    expr << (OneOrMore(oneOf(list(alphas)) + (integer | Group('(' + Optional(expr) + ')') ) ) )
     
     test = 'A12B(A7B6C(D77)E(G19))F21'
     print expr.parseString(test, parseAll=True).asList()
@@ -13737,8 +12683,8 @@ If I add this as a final alternative for matching the statement contents, then I
 
 
 
-    expr \<\< (OneOrMore(oneOf(list(alphas)) + (integer | Group('(' + Optional(expr) + ')') ) | 
-                       empty - ~Word(printables).setName('\<unknown\>') ) )
+    expr << (OneOrMore(oneOf(list(alphas)) + (integer | Group('(' + Optional(expr) + ')') ) | 
+                       empty - ~Word(printables).setName('<unknown>') ) )
     
     test = 'A12B(A7B6C(D7&)E(G19))F21'
     print expr.parseString(test, parseAll=True).asList()
@@ -13749,7 +12695,7 @@ And now the exception I get is a ParseSyntaxException, with the exact location o
 
 
 
-    pyparsing.ParseSyntaxException: Found unwanted token, \<unknown\> (at char 13), (line:1, col:14)
+    pyparsing.ParseSyntaxException: Found unwanted token, <unknown> (at char 13), (line:1, col:14)
 
 
 
@@ -13758,7 +12704,7 @@ Now, how to apply this to your original parser.  First of all, I simplified your
 
 
     stmt = Forward()
-    stmt \<\< (keyword + '(' + Word(nums) + ')' + 
+    stmt << (keyword + '(' + Word(nums) + ')' + 
                         (';' | '{' + ZeroOrMore(stmt) + '}' ) )
     top = OneOrMore(stmt)
 
@@ -13769,9 +12715,9 @@ Now I just need to add my error stop fragment at the end of stmt, as a last-chan
 
 
     stmt = Forward()
-    stmt \<\< (keyword + '(' + Word(nums) + ')' + 
+    stmt << (keyword + '(' + Word(nums) + ')' + 
                         (';' | '{' + ZeroOrMore(stmt) + '}' ) | 
-                 empty - ~Word(printables).setName('\<unknown\>') )
+                 empty - ~Word(printables).setName('<unknown>') )
     top = OneOrMore(stmt)
 
 
@@ -13780,7 +12726,7 @@ And with this change, I now get this error:
 
 
 
-    pyparsing.ParseSyntaxException: Found unwanted token, \<unknown\> (at char 82), (line:7, col:6)
+    pyparsing.ParseSyntaxException: Found unwanted token, <unknown> (at char 82), (line:7, col:6)
 
 
 
@@ -13834,7 +12780,7 @@ While the
 
 
 
-    empty - ~Word(printables).setName('\<unknown\>')
+    empty - ~Word(printables).setName('<unknown>')
 
 properly detects syntax errors, it also causes
 
@@ -13848,7 +12794,7 @@ I've tried
 
 
 
-    CharsNotIn('}') - ~Word(printables).setName('\<unknown\>')
+    CharsNotIn('}') - ~Word(printables).setName('<unknown>')
 
 as an alternative to your error catcher. This improves matters
 
@@ -14102,7 +13048,7 @@ After some debugging of the problem, I have a tentative fix to the indentedBlock
     ...
         def reset(s, l, t):
             print 'Calling reset'
-            while len(indentStack) \> 1:
+            while len(indentStack) > 1:
                 indentStack.pop()
     
         NL = OneOrMore(LineEnd().setWhitespaceChars('\t ').suppress())
@@ -14161,7 +13107,7 @@ ParseException                            Traceback (most recent call last)
 
 
 
-/home/haidong/\<ipython console\> in \<module\>()
+/home/haidong/<ipython console> in <module>()
 
 
 
@@ -14173,7 +13119,7 @@ ParseException                            Traceback (most recent call last)
 
    1099                 exc = sys.exc_info()[1]
 
--\> 1100                 raise exc
+-> 1100                 raise exc
 
    1101         else:
 
@@ -14220,16 +13166,16 @@ searchString is just a different method from parseString (like findall vs. match
 
 
 
-    \>\>\> from pyparsing import *
-    \>\>\> grammar = Combine(Word(alphanums) + '\\' + Word(alphanums))
-    \>\>\> token = grammar.parseString('jwfoleow fjlwowe\jfoew lwfweolwfo\jofweojw lifewijowe')
+    >>> from pyparsing import *
+    >>> grammar = Combine(Word(alphanums) + '\\' + Word(alphanums))
+    >>> token = grammar.parseString('jwfoleow fjlwowe\jfoew lwfweolwfo\jofweojw lifewijowe')
     Traceback (most recent call last):
-      File '\<stdin\>', line 1, in \<module\>
+      File '<stdin>', line 1, in <module>
       File 'c:\python26\lib\site-packages\pyparsing.py', line 1100, in parseString
         raise exc
     pyparsing.ParseException: Expected '\' (at char 8), (line:1, col:9)
-    \>\>\> matches = grammar.searchString('jwfoleow fjlwowe\jfoew lwfweolwfo\jofweojw lifewijowe')
-    \>\>\> for m in matches:
+    >>> matches = grammar.searchString('jwfoleow fjlwowe\jfoew lwfweolwfo\jofweojw lifewijowe')
+    >>> for m in matches:
     ...   print m[0]
     ...
     fjlwowe\jfoew
@@ -14249,7 +13195,7 @@ For completeness' sake, here is how scanString would look:
 
 
 
-    \>\>\> for toks,start,end in grammar.scanString('jwfoleow fjlwowe\jfoew lwfweolwfo\jofweojw lifewijowe'):
+    >>> for toks,start,end in grammar.scanString('jwfoleow fjlwowe\jfoew lwfweolwfo\jofweojw lifewijowe'):
     ...    print '%d:%d:%s' % (start,end,toks[0])
     ...
     9:22:fjlwowe\jfoew
@@ -14261,10 +13207,10 @@ Since scanString is a generator, it has the advantage of returning an initial ma
 
 
 
-    \>\>\> test = 'A' + 'B'*int(1e6) + 'A'
-    \>\>\> Literal('A').searchString(test)
+    >>> test = 'A' + 'B'*int(1e6) + 'A'
+    >>> Literal('A').searchString(test)
     ([(['A'], {}), (['A'], {})], {})
-    \>\>\> for t,s,e in Literal('A').scanString(test):
+    >>> for t,s,e in Literal('A').scanString(test):
     ...   print t[0]
     ...
     A
@@ -14276,24 +13222,24 @@ Hm, not so helpful.  Here is the same code, but with calls to time.clock():
 
 
 
-    \>\>\> import time
-    \>\>\> 
-    \>\>\> def deltatime():
+    >>> import time
+    >>> 
+    >>> def deltatime():
     ...   global start
     ...   now = time.clock()
     ...   elapsed = now-start
     ...   start = now
     ...   return elapsed
     ...
-    \>\>\> start=time.clock(); Literal('A').searchString(test); print deltatime()
+    >>> start=time.clock(); Literal('A').searchString(test); print deltatime()
     ([(['A'], {}), (['A'], {})], {})
     3.70045732634
-    \>\>\> 
-    \>\>\> def scanAll():
+    >>> 
+    >>> def scanAll():
     ...   for t,s,e in Literal('A').scanString(test):
     ...     print t[0], deltatime()
     ...
-    \>\>\> start=time.clock(); scanAll()
+    >>> start=time.clock(); scanAll()
     A 0.00682788304835
     A 3.69812652614
 
@@ -14325,7 +13271,7 @@ Also, rearranging symbols could be slightly optimized:
 
      i = 0
 
-     while i \< len(symbols)-1:
+     while i < len(symbols)-1:
 
 -        cur = symbols[i]
 
@@ -14351,7 +13297,7 @@ Also, rearranging symbols could be slightly optimized:
 
 +        j = i+1
 
-+        while j \< len(symbols):
++        while j < len(symbols):
 
 +            if ( isequal(symbols[i], symbols[j]) ):
 
@@ -14380,14 +13326,14 @@ Or slightly less readable but a bit more efficient and closed to the original co
     +++ b/pyparsing.py
     @@ -3306,17 +3306,17 @@ def oneOf( strs, caseless=False, useRegex=True ):
          i = 0
-         while i \< len(symbols)-1:
+         while i < len(symbols)-1:
              cur = symbols[i]
     -        for j,other in enumerate(symbols[i+1:]):
     -            if ( isequal(other, cur) ):
     -                del symbols[i+j+1]
     -                break
     +        j = i+1
-    +        while j \< len(symbols):
+    +        while j < len(symbols):
     +            other = symbols[j]
     +            if ( isequal(cur, other) ):
     +                del symbols[j]
