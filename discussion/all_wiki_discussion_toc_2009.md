@@ -3920,7 +3920,7 @@ How can I get it to look for an ending keyword (it might not be at the end of th
 I hope this is clear.. thanks!
 
 #### 2009-03-06 22:32:04 - ptmcg
-<ul class="quotelist"><li>So, this works fine:</li><li>'THIS IS A SENTENCE STOP'</li></ul>Really?  I get this error:
+> So, this works fine:</li><li>'THIS IS A SENTENCE STOP'</li></ul>Really?  I get this error:
 
 
 
@@ -4015,61 +4015,40 @@ using your second suggestion above everything works fine.
 
 But when adding another plausibel line in the message log
 
----
 
-log_messages='''\
+    log_messages='''\
+    
+    Mar 5 15:27:45: %PM-6-PROCDIE: epsc-sc is dying
+    
+    Mar 5 15:27:53: %blah: 'blah blah' ScLogger: [blah/blah] ISP:synch_start:removing 0 UEs
 
-Mar 5 15:27:45: %PM-6-PROCDIE: epsc-sc is dying
-
-Mar 5 15:27:53: %blah: 'blah blah' ScLogger: [blah/blah] ISP:synch_start:removing 0 UEs
-
-...
-
-
-
-Mar 5 15:31:38: %blah: 'blah blah' ScLogger: [blah/blah] ISP:synch_finished:
-
-'''
-
----
+    ...
+    
+    Mar 5 15:31:38: %blah: 'blah blah' ScLogger: [blah/blah] ISP:synch_finished:
+    
+    '''
+    ---
 
 I get this:
 
-Traceback (most recent call last):
-
-  File 'ThirdHelper.py', line 57, in ?
-
-    for logentry in logEntryExpr.searchString(log_messages):
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1133, in searchString
-
-    return ParseResults([ t for t,s,e in self.scanString( instring, maxMatches ) ])
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1095, in scanString
-
-    nextLoc,tokens = parseFn( instring, preloc, callPreParse=False )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 941, in _parseNoCache
-
-    loc,tokens = self.parseImpl( instring, preloc, doActions )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 2309, in parseImpl
-
-    loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 967, in _parseNoCache
-
-    tokens = fn( instring, tokensStart, retTokens )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 815, in tmp
-
-    return f(t)
-
-  File 'ThirdHelper.py', line 42, in makeDatetime
-
-    return datetime(2009,mon,day,hr,min,sec)
-
-ValueError: month must be in 1..12
+    Traceback (most recent call last):
+      File 'ThirdHelper.py', line 57, in ?
+        for logentry in logEntryExpr.searchString(log_messages):
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1133, in searchString
+        return ParseResults([ t for t,s,e in self.scanString( instring, maxMatches ) ])
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1095, in scanString
+        nextLoc,tokens = parseFn( instring, preloc, callPreParse=False )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 941, in _parseNoCache
+        loc,tokens = self.parseImpl( instring, preloc, doActions )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 2309, in parseImpl
+        loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 967, in _parseNoCache
+        tokens = fn( instring, tokensStart, retTokens )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 815, in tmp
+        return f(t)
+      File 'ThirdHelper.py', line 42, in makeDatetime
+        return datetime(2009,mon,day,hr,min,sec)
+    ValueError: month must be in 1..12
 
 ---
 
@@ -4083,19 +4062,16 @@ Pyparsing supplies a decorator called traceParseAction that shows what arguments
 
 
 
-@traceParseAction
+    @traceParseAction
 
 
 
 -- Paul
 #### 2009-03-16 08:47:47 - NewbeCaroline
-Traceback (most recent call last):
-
-  File 'ThirdHelper.py', line 40, in ?
-
-    @traceParseAction
-
-NameError: name 'traceParseAction' is not defined
+    Traceback (most recent call last):
+      File 'ThirdHelper.py', line 40, in ?
+        @traceParseAction
+    NameError: name 'traceParseAction' is not defined
 
 
 
@@ -4109,60 +4085,35 @@ Does ThirdHelper.py import pyparsing?  If you use 'from pyparsing import Word, n
 #### 2009-03-16 08:58:00 - NewbeCaroline
 sorry
 
->>entering makeDatetime(line: 'Mar 5 15:27:45: %PM-6-PROCDIE: epsc-sc is dying', 0, ['Mar', '5', '15:27:45'])
+    >>entering makeDatetime(line: 'Mar 5 15:27:45: %PM-6-PROCDIE: epsc-sc is dying', 0, ['Mar', '5', '15:27:45'])
+    <<leaving makeDatetime (ret: 2009-03-05 15:27:45)
+    >>entering makeDatetime(line: 'Mar 5 15:27:45: %PM-6-PROCDIE: epsc-sc is dying', 4, ['', '5', '15:27:45'])
+    <<leaving makeDatetime (exception: month must be in 1..12)
+    Traceback (most recent call last):
+      File 'ThirdHelper.py', line 59, in ?
+        for logentry in logEntryExpr.searchString(log_messages):
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1133, in searchString
+        return ParseResults([ t for t,s,e in self.scanString( instring, maxMatches ) ])
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1095, in scanString
+        nextLoc,tokens = parseFn( instring, preloc, callPreParse=False )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 941, in _parseNoCache
+        loc,tokens = self.parseImpl( instring, preloc, doActions )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 2309, in parseImpl
+        loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 967, in _parseNoCache
+        tokens = fn( instring, tokensStart, retTokens )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 3052, in z
+        ret = f(*paArgs)
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 815, in tmp
+        return f(t)
+      File 'ThirdHelper.py', line 44, in makeDatetime
+        return datetime(2009,mon,day,hr,min,sec)
+    ValueError: month must be in 1..12
 
-<<leaving makeDatetime (ret: 2009-03-05 15:27:45)
-
->>entering makeDatetime(line: 'Mar 5 15:27:45: %PM-6-PROCDIE: epsc-sc is dying', 4, ['', '5', '15:27:45'])
-
-<<leaving makeDatetime (exception: month must be in 1..12)
-
-Traceback (most recent call last):
-
-  File 'ThirdHelper.py', line 59, in ?
-
-    for logentry in logEntryExpr.searchString(log_messages):
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1133, in searchString
-
-    return ParseResults([ t for t,s,e in self.scanString( instring, maxMatches ) ])
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1095, in scanString
-
-    nextLoc,tokens = parseFn( instring, preloc, callPreParse=False )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 941, in _parseNoCache
-
-    loc,tokens = self.parseImpl( instring, preloc, doActions )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 2309, in parseImpl
-
-    loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 967, in _parseNoCache
-
-    tokens = fn( instring, tokensStart, retTokens )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 3052, in z
-
-    ret = f(*paArgs)
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 815, in tmp
-
-    return f(t)
-
-  File 'ThirdHelper.py', line 44, in makeDatetime
-
-    return datetime(2009,mon,day,hr,min,sec)
-
-ValueError: month must be in 1..12
 #### 2009-03-16 09:15:46 - ptmcg
 I am late for work, so I must break off for now.  But see if you can figure out why makeDatetime is being called with these arguments:
 
-
-
->>entering makeDatetime(line: 'Mar 5 15:27:45: %PM-6-PROCDIE: epsc-sc is dying', 4, ['', '5', '15:27:45'])
-
+    >>entering makeDatetime(line: 'Mar 5 15:27:45: %PM-6-PROCDIE: epsc-sc is dying', 4, ['', '5', '15:27:45'])
 
 
 It looks like the leading 'Mar' is getting eaten while parsing the previous line.
@@ -4173,15 +4124,9 @@ It looks like the leading 'Mar' is getting eaten while parsing the previous line
 #### 2009-03-17 04:17:49 - NewbeCaroline
 It seems as if a line does not comply with the last row in logEntryExpr 
 
-
-
 ->    'ISP:' + oneOf('synch_start synch_finished')
 
-
-
 It will be entered twice in the makeDatetime. The the second time 'Mar' will not be read.
-
-
 
 Why I can not figure out.
 
@@ -4322,44 +4267,26 @@ Is there something wrong with my installation of the module?
 I was trying to run your example here called FirstHelper.py but no luck. Have you any further advice please? --Caroline
 
 
+    [caroline@etevnc01 withAlittelHelp]$ python FirstHelper.py
+    Traceback (most recent call last):
+      File 'FirstHelper.py', line 39, in ?
+        for logentry in logEntryExpr.searchString(log_messages):
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1133, in searchString
+        return ParseResults([ t for t,s,e in self.scanString( instring, maxMatches ) ])
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1095, in scanString
+        nextLoc,tokens = parseFn( instring, preloc, callPreParse=False )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 941, in _parseNoCache
+        loc,tokens = self.parseImpl( instring, preloc, doActions )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 2309, in parseImpl
+        loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 967, in _parseNoCache
+        tokens = fn( instring, tokensStart, retTokens )
+      File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 815, in tmp
+        return f(t)
+      File 'FirstHelper.py', line 26, in <lambda>
+        lambda tokens: datetime.strptime(' '.join(tokens),'%b %d %H:%M:%S'))
+    AttributeError: type object 'datetime.datetime' has no attribute 'strptime'
 
-[caroline@etevnc01 withAlittelHelp]$ python FirstHelper.py
-
-Traceback (most recent call last):
-
-  File 'FirstHelper.py', line 39, in ?
-
-    for logentry in logEntryExpr.searchString(log_messages):
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1133, in searchString
-
-    return ParseResults([ t for t,s,e in self.scanString( instring, maxMatches ) ])
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 1095, in scanString
-
-    nextLoc,tokens = parseFn( instring, preloc, callPreParse=False )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 941, in _parseNoCache
-
-    loc,tokens = self.parseImpl( instring, preloc, doActions )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 2309, in parseImpl
-
-    loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 967, in _parseNoCache
-
-    tokens = fn( instring, tokensStart, retTokens )
-
-  File '/vobs/cgw_test/systemtest/autott/scripts/ROBUSTNESS/parsingExperiment/pyparsing-1.5.1/pyparsing.py', line 815, in tmp
-
-    return f(t)
-
-  File 'FirstHelper.py', line 26, in <lambda>
-
-    lambda tokens: datetime.strptime(' '.join(tokens),'%b %d %H:%M:%S'))
-
-AttributeError: type object 'datetime.datetime' has no attribute 'strptime'
 #### 2009-03-13 01:34:21 - ptmcg
 datetime.datetime most assuredly <em>does</em> have an attribute strptime, at least if you are running any recent version of Python.
 
@@ -4562,7 +4489,7 @@ Now newlines will <em>not</em> be skipped over automatically.  Of course, now yo
 
 Some other notes about your parser:
 
-- setResultsName is not my favorite method, and I think your parser would be a little more readable if instead of 'expr.setResultsName('name')' you use the alternate form of just 'expr('name')':
+- `setResultsName` is not my favorite method, and I think your parser would be a little more readable if instead of `'expr.setResultsName('name')'` you use the alternate form of just `'expr('name')'`:
 
 
 
@@ -4660,15 +4587,15 @@ No, there is really no easy way to do this. Here is a crude hack I worked up tha
                   numField + numCmp + numValue)
 
 This is necessary because most of the compositional classes in pyparsing do not raise their own exceptions, they just re-raise the ones from their component expressions.
+
+_[ED - this enhancement was incorporated in a later version of pyparsing. ]_
+
 #### 2009-03-18 14:30:09 - gmonkey5
 Thanks for the response :)
 
 
 
 Playing around a little more, I found another solution.  By creating a NoMatch token and putting it the beginning of the MatchFirst object, I can have a little more control over the error that is returned.  For example:
-
-
-
 
 
     expressionFailToken = NoMatch()
@@ -4691,93 +4618,60 @@ Nice and neat - I completely forgot about NoMatch!
 ## 2009-03-21 07:50:56 - dbv - citation parser
 Hi! I'm new to pyparsing but not Python.  I want to build a citation parser for legal documents.  Here is a sample text:
 
-
-
-'''Indemnified Capital Investments, S.A. v. R.J. O'Brien & Assoc., Inc., 12 F.3d 1406, 1409 (7th Cir.1993). The New Jersey Superior Court's Appellate Division affirmed the dismissal of Dale's common-law claim, but otherwise reversed and remanded for further proceedings, 308 N. J. Super. 516, 70 A. 2d 270 (1998). See also Warth v. Seldin, 422 U.S. 490, 499 n. 10, 95 S.Ct. 2197, 2205 n. 10, 45 L.Ed.2d 343 (1975).
-
-NFMA, NEPA, or MUSYA. Sierra Club v. Marita, 843 F.Supp. 1526 (E.D.Wis.1994) ('Nicolet ').'''
-
+    Indemnified Capital Investments, S.A. v. R.J. O'Brien & Assoc., Inc., 
+    12 F.3d 1406, 1409 (7th Cir.1993). The New Jersey Superior Court's 
+    Appellate Division affirmed the dismissal of Dale's common-law claim, 
+    but otherwise reversed and remanded for further proceedings, 
+    308 N. J. Super. 516, 70 A. 2d 270 (1998). See also Warth v. Seldin, 
+    422 U.S. 490, 499 n. 10, 95 S.Ct. 2197, 2205 n. 10, 45 L.Ed.2d 343 (1975).
+    
+    NFMA, NEPA, or MUSYA. Sierra Club v. Marita, 843 F.Supp. 1526 
+    (E.D.Wis.1994) ('Nicolet ').'''
+    
 
 
 I want to pick up citations in the form:
 
-<volume> <abbreviation> <pages>
+    <volume> <abbreviation> <pages>
 
 
 
 The above example text would result in these citations:
 
-
-
-12 F.3d 1406, 1409
-
-<volume> = 12
-
-<abbreviation> = F.3d
-
-<pages> = 1406, 1409
-
-
-
-308 N. J. Super. 516
-
-<volume> = 308
-
-<abbreviation> = N. J. Super.
-
-<pages> = 516
-
-
-
-70 A. 2d 270
-
-<volume> = 70
-
-<abbreviation> = A. 2d
-
-<pages> = 270
-
-
-
-422 U.S. 490, 499 n. 10
-
-<volume> = 422
-
-<abbreviation> = U.S.
-
-<pages> = 490, 499 n. 10
-
-
-
-95 S.Ct. 2197, 2205 n. 10
-
-<volume> = 95
-
-<abbreviation> = S.Ct.
-
-<pages> = 2197, 2205 n. 10
-
-
-
-45 L.Ed.2d 343
-
-<volume> = 45
-
-<abbreviation> = L.Ed.2d
-
-<pages> = 343
-
-
-
-843 F.Supp. 1526
-
-<volume> = 843
-
-<abbreviation> = F.Supp.
-
-<pages> = 1526
-
-
+    12 F.3d 1406, 1409
+    <volume> = 12
+    <abbreviation> = F.3d
+    <pages> = 1406, 1409
+    
+    308 N. J. Super. 516
+    <volume> = 308
+    <abbreviation> = N. J. Super.
+    <pages> = 516
+    
+    70 A. 2d 270
+    <volume> = 70
+    <abbreviation> = A. 2d
+    <pages> = 270
+    
+    422 U.S. 490, 499 n. 10
+    <volume> = 422
+    <abbreviation> = U.S.
+    <pages> = 490, 499 n. 10
+    
+    95 S.Ct. 2197, 2205 n. 10
+    <volume> = 95
+    <abbreviation> = S.Ct.
+    <pages> = 2197, 2205 n. 10
+    
+    45 L.Ed.2d 343
+    <volume> = 45
+    <abbreviation> = L.Ed.2d
+    <pages> = 343
+    
+    843 F.Supp. 1526
+    <volume> = 843
+    <abbreviation> = F.Supp.
+    <pages> = 1526
 
 Any ideas how I can make a start on this with pyparsing?  Thanks.
 
@@ -4898,41 +4792,23 @@ Yes, Kent made a great attempt. It is a tricky problem and way out of my regex e
 
 I ran your program through a much larger legal document with lots of different citation formats and the results are terrific.  There are just a few wrinkles remaining:
 
-
-
 i) <pages> can be of the format '107, 123-124' or '609, 622, 626-627'
-
-
 
 eg.  'The Court gives deference to the Boy Scouts' assertions regarding the nature of its expression, see, Democratic Party of United States v. Wisconsin ex rel. La Follette, 450 U.S. 107, 123-124. The Court then inquires whether Dale's presence as an assistant scoutmaster would significantly burden the expression of those viewpoints.  But that law does not 'impos[e] any serious burdens' on BSA's 'collective effort on behalf of [its] shared goals,' Roberts v. United States Jaycees, 468 U.S. 609, 622, 626-627 (1984), nor does it force BSA to communicate any message that it does not wish to endorse.'
 
-
-
 ii) 'at'. Many citations are of the form:
 
-
-
-160 N. J., at 608-609
-
-734 A. 2d., at 1227
-
-468 U.S., at 572
-
-
+    160 N. J., at 608-609
+    734 A. 2d., at 1227
+    468 U.S., at 572
 
 eg. 'Roberts, 468 U.S., at 623. See Hurley, 515 U.S., at 576-577. To warrant constitutional protection under the freedom of intimate association. A warrant 160 N. J., at 608-609, 734 A. 2d, at 1221 (quoting Duarte, supra, at 546).'
 
-
-
 How can these cites be picked up?
 
-
-
-iii) Period '.'  
+    iii) Period '.'  
 
 The <volume> cannot contain a period '.' and an <abbreviation> cannot begin with a period (or any non-alpha char).  In legal documents, there is always one space (' ') and nothing else between the <volume> and <abbreviation>.
-
-
 
 Your help is really appreciated!
 
@@ -5000,7 +4876,7 @@ Dinesh
 
 ---
 ## 2009-03-23 07:53:32 - dbv - Special Characters
-Hi! I want to use certain special chars (eg. '&', '�') in srange when defining Word. I've tried both:
+Hi! I want to use certain special chars (eg. '&', '§') in srange when defining Word. I've tried both:
 
 
 
@@ -5012,7 +4888,7 @@ and
 
 
 
-ii) Word( srange('[A-Z]'), srange('[a-zA-Z0-9.&�]')
+ii) Word( srange('[A-Z]'), srange('[a-zA-Z0-9.&§]')
 
 
 
@@ -5039,7 +4915,7 @@ You could also just use simple string concatenation.  srange just returns a stri
 
 
 
-Word( srange('[A-Z]'), srange('[a-zA-Z0-9.]') + '&�' )
+Word( srange('[A-Z]'), srange('[a-zA-Z0-9.]') + '&§' )
 
 
 
@@ -5047,7 +4923,7 @@ or just:
 
 
 
-Word( alphas.upper(), alphanums+'.&�' )
+Word( alphas.upper(), alphanums+'.&§' )
 
 
 
@@ -5061,7 +4937,7 @@ This is the only format that worked for special characters:
 
 
 
-Word( alphas.upper(), alphanums+'.&�' )
+Word( alphas.upper(), alphanums+'.&§' )
 
 
 
@@ -5088,22 +4964,15 @@ Dinesh
 I am working on parsing a grammar with a recursion that is basically like this:
 
 
+    A := OneOrMore(B)
+    B := C | D
+    C := name + 'as' + B | name
+    D := name + 'with' + B
 
-A := OneOrMore(B)
+    name = Word(alphas)
 
-B := C | D
-
-C := name + 'as' + B | name
-
-D := name + 'with' + B
-
-
-
-name = Word(alphas)
-
-
-
-I'm having problems with the recursion.   I tried using B = Forward() and B << C | D,  but I think I'm doing something wrong, as I either enter an infinite loop or B only represents the first part of C.
+I'm having problems with the recursion.   
+I tried using `B = Forward()` and `B << C | D`,  but I think I'm doing something wrong, as I either enter an infinite loop or B only represents the first part of C.
 
 
 
@@ -5276,7 +5145,7 @@ Hi,
 
 
 
-[[  [ODBC Connections.Environment]%ODBCUserFileDSNDir% = Registry, HKR\Software\ODBC\ODBC.INI\ODBC File DSN [DefaultDSNDir]%ODBCSysFileDSNDir% = Registry, HKLM\Software\ODBC\ODBC.INI\ODBC File DSN [DefaultDSNDir][ODBC Connections.Instructions]ForceDestReg=ODBC Connections.ForceDestRegAddReg=ODBC Connections.AddRegDelFiles=ODBC Connections.DelFilesForceDestFile=ODBC Connections.ForceDestFileCopyFilesEx=ODBC Connections.CopyFilesEx[ODBC Connections.ForceDestReg]HKR\Software\ODBC\ODBC.INI\*HKLM\Software\ODBC\ODBC.INI\*[ODBC Connections.AddReg]HKR\Software\ODBC\ODBC.INI\*HKLM\Software\ODBC\ODBC.INI\*]]
+    [ODBC Connections.Environment]%ODBCUserFileDSNDir% = Registry, HKR\Software\ODBC\ODBC.INI\ODBC File DSN [DefaultDSNDir]%ODBCSysFileDSNDir% = Registry, HKLM\Software\ODBC\ODBC.INI\ODBC File DSN [DefaultDSNDir][ODBC Connections.Instructions]ForceDestReg=ODBC Connections.ForceDestRegAddReg=ODBC Connections.AddRegDelFiles=ODBC Connections.DelFilesForceDestFile=ODBC Connections.ForceDestFileCopyFilesEx=ODBC Connections.CopyFilesEx[ODBC Connections.ForceDestReg]HKR\Software\ODBC\ODBC.INI\*HKLM\Software\ODBC\ODBC.INI\*[ODBC Connections.AddReg]HKR\Software\ODBC\ODBC.INI\*HKLM\Software\ODBC\ODBC.INI\*
 
 
 
@@ -5291,41 +5160,25 @@ Pratik
 #### 2009-03-27 12:47:24 - pratdam
 The text lost all newlines so am resnding it 
 
-
-
-
-
     
     [ODBC Connections.Environment] 
-    
     %ODBCUserFileDSNDir% = Registry, HKR\Software\ODBC\ODBC.INI\ODBC File DSN [DefaultDSNDir]
-    
     %ODBCSysFileDSNDir% = Registry, HKLM\Software\ODBC\ODBC.INI\ODBC File DSN [DefaultDSNDir]
-    
+
     [ODBC Connections.Instructions]
-    
     ForceDestReg=ODBC Connections.ForceDestReg
-    
     AddReg=ODBC Connections.AddReg
-    
     DelFiles=ODBC Connections.DelFiles
-    
     ForceDestFile=ODBC Connections.ForceDestFile
-    
     CopyFilesEx=ODBC Connections.CopyFilesEx
-    
+
     [ODBC Connections.ForceDestReg]
-    
     HKR\Software\ODBC\ODBC.INI\*
-    
     HKLM\Software\ODBC\ODBC.INI\*
-    
+
     [ODBC Connections.AddReg]
-    
     HKR\Software\ODBC\ODBC.INI\*
-    
     HKLM\Software\ODBC\ODBC.INI\*
-    
 
 
 #### 2009-03-27 17:42:56 - ptmcg
@@ -5347,41 +5200,18 @@ Hi paul ,
 
 I was mentioning about INF Files which can have  a 'ConfigParser' section name  as a  value in the name=value pair .  So there could be  a few degrees of nesting like
 
-[[code type='ini' ]]
-
-
-
-[ a  ]
-
-
-
-p =  q.c 
-
-m =  n.p
-
-
-
-[ n ]
-
-
-
-a = ...
-
-
-
-[ q ]
-
-z 
-
-c 
-
-
-
-
-
-..
-
-
+    [ a  ]    
+    p =  q.c 
+    m =  n.p
+    
+    [ n ]
+    a = ...
+    
+    [ q ]
+    z 
+    c 
+    
+    ..
 
 
 
@@ -5422,304 +5252,169 @@ The  goal is to autogenerate xml ( in  USMT  3.0 )  for existing INF ( 2.6   usm
 Thanks again for letting me know the options of pyparser 
 
 
+    INF Version Section
 
 
 
-
-
-
-
-[[ code type='ini' ]]
-
-INF Version Section
-
-
-
-[Version]
-
-
-
-Signature='signature-name'
-
-[Class=class-name]
-
-[ClassGuid={nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn}]
-
-[Provider=%INF-creator%]
-
-[LayoutFile=filename.inf [,filename.inf]... ]
-
-[CatalogFile=filename.cat]
-
-[CatalogFile.nt=unique-filename.cat]
-
-[CatalogFile.ntx86=unique-filename.cat]
-
-[CatalogFile.ntia64=unique-filename.cat] (Windows XP and later versions of Windows)
-
-[CatalogFile.ntamd64=unique-filename.cat] (Windows XP and later versions of Windows)
-
-DriverVer=mm/dd/yyyy[,w.x.y.z]
-
-[DontReflectOffline=1] (Windows Vista and later versions of Windows)
-
-[PnpLockDown=0|1] (Windows Vista and later versions of Windows)
-
-[DriverPackageDisplayName=%driver-package-description%]
-
-[DriverPackageType=PackageType]
-
+    [Version]
+    
+    Signature='signature-name'
+    [Class=class-name]
+    [ClassGuid={nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn}]
+    [Provider=%INF-creator%]
+    [LayoutFile=filename.inf [,filename.inf]... ]
+    [CatalogFile=filename.cat]
+    [CatalogFile.nt=unique-filename.cat]
+    [CatalogFile.ntx86=unique-filename.cat]
+    [CatalogFile.ntia64=unique-filename.cat] (Windows XP and later versions of Windows)
+    [CatalogFile.ntamd64=unique-filename.cat] (Windows XP and later versions of Windows)
+    DriverVer=mm/dd/yyyy[,w.x.y.z]
+    [DontReflectOffline=1] (Windows Vista and later versions of Windows)
+    [PnpLockDown=0|1] (Windows Vista and later versions of Windows)
+    [DriverPackageDisplayName=%driver-package-description%]
+    [DriverPackageType=PackageType]
 
 
 By convention, the Version section appears first in INF files. Every INF file must have this section.
 
-Entries
+##### Entries
 
+###### Signature='signature-name'
 
-
-Signature='signature-name'
-
-    Must be $Windows NT$, $Windows 95$, or $Chicago$, indicating the operating systems for which this INF is valid. These signature values have the following meanings.
+Must be $Windows NT$, $Windows 95$, or $Chicago$, indicating the operating systems for which this INF is valid. These signature values have the following meanings.
 
     Signature Value    Meaning
-
     $Windows NT$    NT-based operating systems
-
     $Windows 95$    Windows 9x/Me
-
     $Chicago$    All Windows operating systems
 
+The enclosing $'s are required but these strings are case-insensitive. If signature-name is none of these string values, the file is not accepted as a valid INF.
 
+Generally, Setup does not differentiate among these signature values. One of them must be specified, but it doesn't matter which one. You should specify the appropriate value so that someone reading an INF file can determine the operating systems for which it is intended. (For Windows Me installations, Setup generally chooses drivers with $Chicago$ or $Windows 95$ signatures, and only chooses drivers with $Windows NT$ signatures if no others are available.)
 
-    The enclosing $'s are required but these strings are case-insensitive. If signature-name is none of these string values, the file is not accepted as a valid INF.
+Some class installers place additional requirements on how the signature value must be specified. Such requirements, if they exist, are discussed in device type-specific sections of this DDK.
 
+An INF must supply OS-specific installation information by appending system-defined extensions to its DDInstall sections, whether the signature-name is $Windows NT$, $Chicago$, or $Windows 95$. (See Creating INF Files for Multiple Platforms and Operating Systems for a discussion of these extensions.)
 
+###### Class=class-name
 
-    Generally, Setup does not differentiate among these signature values. One of them must be specified, but it doesn't matter which one. You should specify the appropriate value so that someone reading an INF file can determine the operating systems for which it is intended. (For Windows Me installations, Setup generally chooses drivers with $Chicago$ or $Windows 95$ signatures, and only chooses drivers with $Windows NT$ signatures if no others are available.)
+For any standard type of device, this specifies the class name, which is usually one of the system-defined class names like Net or Display as listed in devguid.h, for the type of device to be installed from this INF file. See System-Supplied Device Setup Classes.
 
+If an INF specifies a Class it should also specify the corresponding system-defined GUID value for its ClassGUID entry. Specifying the matching GUID value for a device of any predefined device setup class can install the device and its drivers faster since this helps the system setup code to optimize its INF searching.
 
+If an INF adds a new setup class of devices to the system, it should supply a unique, case-insensitive class-name value that is different from any of the system-supplied classes in devguid.h. The length of the class-name string must be 32 characters or less. The INF must specify a newly generated GUID value for the ClassGUID entry. Also see INF ClassInstall32 Section.
 
-    Some class installers place additional requirements on how the signature value must be specified. Such requirements, if they exist, are discussed in device type-specific sections of this DDK.
+This entry is irrelevant to an INF that installs neither a new device driver under a predefined device setup class nor a new device setup class.
 
 
+###### ClassGuid = {nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn}
 
-    An INF must supply OS-specific installation information by appending system-defined extensions to its DDInstall sections, whether the signature-name is $Windows NT$, $Chicago$, or $Windows 95$. (See Creating INF Files for Multiple Platforms and Operating Systems for a discussion of these extensions.)
+Specifies the device-class GUID, formatted as shown here, where each n is a hexadecimal digit.
 
+For a Windows 2000 and later (and Windows 98/Me) INF, such a GUID value determines the device setup class subkey in the registry ...\Class tree under which to write registry information for the drivers of devices installed from this INF file. This class-specific GUID value also identifies the device class installer for the type of device and class-specific property page provider, if any.
 
+For a new device setup class, the INF must specify a newly generated ClassGUID value. For more information about creating GUIDs, see Using GUIDs in Drivers. Also see Device Setup Classes.
 
-Class=class-name
+###### Provider=%INF-creator%
 
-    For any standard type of device, this specifies the class name, which is usually one of the system-defined class names like Net or Display as listed in devguid.h, for the type of device to be installed from this INF file. See System-Supplied Device Setup Classes.
+Identifies the provider of the INF file. Typically, this is specified as an %OrganizationName% token that is expanded later in the INF file's Strings section. The maximum length, in characters, of a provider name is LINE_LEN.
+For example, INF files supplied with the system typically specify the INF-creator as %Msft% and define %Msft% = 'Microsoft' in their Strings sections.
 
+###### LayoutFile=filename.inf [,filename.inf]...
 
+Specifies one or more additional system-supplied INF files that contain layout information about the source media required for installing the software described in this INF. All system-supplied INF files specify this entry.
 
-    If an INF specifies a Class it should also specify the corresponding system-defined GUID value for its ClassGUID entry. Specifying the matching GUID value for a device of any predefined device setup class can install the device and its drivers faster since this helps the system setup code to optimize its INF searching.
+INF files that are not distributed with the operating system should omit this entry, if possible. Instead, such INF files should use Include and Needs entries in DDInstall sections, or they should have SourceDisksNames and SourceDisksFiles sections, or both. INF files not distributed with the operating system should include a LayoutFile directive only if
 
+* they require OS-supplied files as part of their installation, and those files are not installable using OS-provided INF sections that can be referenced by Include and Needs entries, or
+* they are used to support Windows 9x/Me. (Windows 9x/Me does not automatically include the layout files referenced by INF files you specify in Include entries, so the including INF must reference the layout files itself with LayoutFile entries.)
 
+###### CatalogFile=filename.cat
 
-    If an INF adds a new setup class of devices to the system, it should supply a unique, case-insensitive class-name value that is different from any of the system-supplied classes in devguid.h. The length of the class-name string must be 32 characters or less. The INF must specify a newly generated GUID value for the ClassGUID entry. Also see INF ClassInstall32 Section.
+Specifies a catalog (.cat) file to be included on the distribution media of a device/driver. Catalog files are supplied by the Microsoft Windows Hardware Quality Lab (WHQL), after WHQL has tested and assigned digital signatures to driver files. (Contact WHQL for more information about the testing and signing of IHV and/or OEM driver packages.)
 
+Catalog files are not listed in the SourceDisksFiles or CopyFiles sections of the INF. Setup assumes that the catalog file is in the same location as the INF file.
 
+System-supplied INF files never have CatalogFile= entries because the operating system validates the signature for such an INF against all system-supplied xxx.cat files.
 
-    This entry is irrelevant to an INF that installs neither a new device driver under a predefined device setup class nor a new device setup class.
+###### [CatalogFile.nt=unique-filename.cat] | [CatalogFile.ntx86=unique-filename.cat] | [CatalogFile.ntia64=unique-filename.cat] | [CatalogFile.ntamd64=unique-filename.cat]
 
+Specifies another INF-writer-determined, unique file name, with the .cat extension, of a catalog file that is specific to Windows 2000 or later.
 
+If these optional entries are omitted from a dual-operating system INF file, a given CatalogFile=filename.cat is used for validating WDM device/driver installations on all Windows 2000 and later and Windows 98/Me machines. If any decorated CatalogFile.xxx= entry exists in an INF's Version section together with an undecorated CatalogFile= entry, the undecorated entry is assumed to identify a filename.cat for validating device/driver installations only on Windows 98/Me machines.
 
-ClassGuid = {nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn}
+Note that any cross-platform and/or dual-operating system device/driver INF file that has CatalogFile= and CatalogFile.xxx= entries must supply a unique IHV/OEM-determined name for each such .cat file.
 
-    Specifies the device-class GUID, formatted as shown here, where each n is a hexadecimal digit.
+For information about how to use the system-defined .nt, .ntx86, .ntia64, and .ntamd64 extensions, see Creating INF Files for Multiple Platforms and Operating Systems.
 
+###### DriverVer=mm/dd/yyyy[,w.x.y.z]
 
+This entry specifies version information for drivers installed by this INF. This entry is required beginning with Windows 2000.
 
-    For a Windows 2000 and later (and Windows 98/Me) INF, such a GUID value determines the device setup class subkey in the registry ...\Class tree under which to write registry information for the drivers of devices installed from this INF file. This class-specific GUID value also identifies the device class installer for the type of device and class-specific property page provider, if any.
+For information about how to specify this entry, see INF DriverVer Directive.
 
+###### DontReflectOffline=1
 
+This directive is for internal use only on Windows Vista and later versions of Windows. This directive must not be used for any reason in a third-party INF file. Note that this directive is present in some inbox driver INF files, and an INF file writer must be careful not to copy this directive along with other INF Version directives that the writer might copy from an inbox driver INF file.
 
-    For a new device setup class, the INF must specify a newly generated ClassGUID value. For more information about creating GUIDs, see Using GUIDs in Drivers. Also see Device Setup Classes.
+###### [PnpLockDown=0|1]
 
+Specifies whether Plug and Play (PnP) prevents applications from directly modifying the files that a driver package's INF file specifies. If the PnpLockDown directive is set to 1, PnP prevents applications from directly modifying the files that are copied by INF CopyFiles directives. Otherwise, if the directive is not included in an INF file or the value of the directive is set to zero, an application with administrator privileges can directly modify these files. Driver files that are protected in this manner are referred to as third-party protected driver files.
 
+To ensure the integrity of a PnP driver installation, applications should not directly modify driver files that are copied by the driver package INF file. Applications should only use the device installation mechanisms provided by Windows to update PnP drivers. Beginning with Windows Vista, a driver package should set PnpLockDown to 1 to prevent an application from directly modifying driver files. Note, however, that some existing applications that uninstall driver packages do directly delete driver files. To maintain compatibility with these applications, the PnpLockDown directive for such driver package should be set to zero.
 
-Provider=%INF-creator%
+Although PnP on Windows Vista and later versions of Windows does not require that an INF file include a PnpLockDown directive in order to install a driver, PnP in a future version of Windows might require that INF files for PnP driver packages include the PnpLockDown directive.
 
-    Identifies the provider of the INF file. Typically, this is specified as an %OrganizationName% token that is expanded later in the INF file's Strings section. The maximum length, in characters, of a provider name is LINE_LEN.
+###### DriverPackageDisplayName=%driver-package-description%
 
+Specifies a string token that corresponds to a string key entry in an INF Strings section; the string key entry supplies the driver package display name. Driver Install Frameworks (DIFx) uses the driver package display name to describe the purpose of driver package to end users, as described in Specifying the Driver Package Display Name.
 
+###### DriverPackageType=PackageType
 
-    For example, INF files supplied with the system typically specify the INF-creator as %Msft% and define %Msft% = 'Microsoft' in their Strings sections.
+Specifies the driver package type. Driver Install Frameworks (DIFx) uses the driver package type to determine the type of driver package, as described in Specifying the Driver Package Type.
 
-
-
-LayoutFile=filename.inf [,filename.inf]...
-
-    Specifies one or more additional system-supplied INF files that contain layout information about the source media required for installing the software described in this INF. All system-supplied INF files specify this entry.
-
-
-
-    INF files that are not distributed with the operating system should omit this entry, if possible. Instead, such INF files should use Include and Needs entries in DDInstall sections, or they should have SourceDisksNames and SourceDisksFiles sections, or both. INF files not distributed with the operating system should include a LayoutFile directive only if
-
-
-
-        * they require OS-supplied files as part of their installation, and those files are not installable using OS-provided INF sections that can be referenced by Include and Needs entries, or
-
-        * they are used to support Windows 9x/Me. (Windows 9x/Me does not automatically include the layout files referenced by INF files you specify in Include entries, so the including INF must reference the layout files itself with LayoutFile entries.)
-
-
-
-CatalogFile=filename.cat
-
-    Specifies a catalog (.cat) file to be included on the distribution media of a device/driver. Catalog files are supplied by the Microsoft Windows Hardware Quality Lab (WHQL), after WHQL has tested and assigned digital signatures to driver files. (Contact WHQL for more information about the testing and signing of IHV and/or OEM driver packages.)
-
-
-
-    Catalog files are not listed in the SourceDisksFiles or CopyFiles sections of the INF. Setup assumes that the catalog file is in the same location as the INF file.
-
-
-
-    System-supplied INF files never have CatalogFile= entries because the operating system validates the signature for such an INF against all system-supplied xxx.cat files.
-
-
-
-[CatalogFile.nt=unique-filename.cat] |
-
-[CatalogFile.ntx86=unique-filename.cat] |
-
-[CatalogFile.ntia64=unique-filename.cat] |
-
-[CatalogFile.ntamd64=unique-filename.cat]
-
-    Specifies another INF-writer-determined, unique file name, with the .cat extension, of a catalog file that is specific to Windows 2000 or later.
-
-
-
-    If these optional entries are omitted from a dual-operating system INF file, a given CatalogFile=filename.cat is used for validating WDM device/driver installations on all Windows 2000 and later and Windows 98/Me machines. If any decorated CatalogFile.xxx= entry exists in an INF's Version section together with an undecorated CatalogFile= entry, the undecorated entry is assumed to identify a filename.cat for validating device/driver installations only on Windows 98/Me machines.
-
-
-
-    Note that any cross-platform and/or dual-operating system device/driver INF file that has CatalogFile= and CatalogFile.xxx= entries must supply a unique IHV/OEM-determined name for each such .cat file.
-
-
-
-    For information about how to use the system-defined .nt, .ntx86, .ntia64, and .ntamd64 extensions, see Creating INF Files for Multiple Platforms and Operating Systems.
-
-
-
-DriverVer=mm/dd/yyyy[,w.x.y.z]
-
-    This entry specifies version information for drivers installed by this INF. This entry is required beginning with Windows 2000.
-
-    For information about how to specify this entry, see INF DriverVer Directive.
-
-
-
-DontReflectOffline=1
-
-    This directive is for internal use only on Windows Vista and later versions of Windows. This directive must not be used for any reason in a third-party INF file. Note that this directive is present in some inbox driver INF files, and an INF file writer must be careful not to copy this directive along with other INF Version directives that the writer might copy from an inbox driver INF file.
-
-
-
-[PnpLockDown=0|1]
-
-    Specifies whether Plug and Play (PnP) prevents applications from directly modifying the files that a driver package�s INF file specifies. If the PnpLockDown directive is set to 1, PnP prevents applications from directly modifying the files that are copied by INF CopyFiles directives. Otherwise, if the directive is not included in an INF file or the value of the directive is set to zero, an application with administrator privileges can directly modify these files. Driver files that are protected in this manner are referred to as third-party protected driver files.
-
-
-
-    To ensure the integrity of a PnP driver installation, applications should not directly modify driver files that are copied by the driver package INF file. Applications should only use the device installation mechanisms provided by Windows to update PnP drivers. Beginning with Windows Vista, a driver package should set PnpLockDown to 1 to prevent an application from directly modifying driver files. Note, however, that some existing applications that uninstall driver packages do directly delete driver files. To maintain compatibility with these applications, the PnpLockDown directive for such driver package should be set to zero.
-
-
-
-    Although PnP on Windows Vista and later versions of Windows does not require that an INF file include a PnpLockDown directive in order to install a driver, PnP in a future version of Windows might require that INF files for PnP driver packages include the PnpLockDown directive.
-
-
-
-DriverPackageDisplayName=%driver-package-description%
-
-    Specifies a string token that corresponds to a string key entry in an INF Strings section; the string key entry supplies the driver package display name. Driver Install Frameworks (DIFx) uses the driver package display name to describe the purpose of driver package to end users, as described in Specifying the Driver Package Display Name.
-
-
-
-DriverPackageType=PackageType
-
-    Specifies the driver package type. Driver Install Frameworks (DIFx) uses the driver package type to determine the type of driver package, as described in Specifying the Driver Package Type.
-
-
-
-Comments
-
-
+##### Comments
 
 When a driver package passes Microsoft Windows Hardware Quality Lab (WHQL) testing, WHQL returns .cat catalog files to the IHV or OEM. Each .cat file contains a digitally encrypted signature for the driver package. The IHV or OEM must list these .cat files in the INF Version section and must supply the files on the distribution media, in the same location as the INF file. The .cat files must be uncompressed.
 
-
-
 Note that if an INF Version section does not include at least one CatalogFile or CatalogFile.ntxxx entry, the driver is treated as unsigned, and dates listed in the DriverVer directive will not be displayed in the UI. For more information, see Driver Signing.
 
-Example
+##### Example
 
 The following example shows a Version section typical of a simple device-driver INF, followed by the required SourceDisksNames and SourceDisksFiles sections implied by the entries specified in this sample Version section:
 
+    [Version]
+    Signature='$Chicago$'
+    Class=SCSIAdapter
+    ClassGUID={4D36E97B-E325-11CE-BFC1-08002BE10318}
+    Provider=%INF_Provider%
+    CatalogFile=aha154_win98.cat
+    CatalogFile.ntx86=aha154_ntx86.cat
+    DriverVer=08/20/1999
+    
+    [SourceDisksNames]
+    ;
+    ; diskid = description[, [tagfile] [, <unused>, subdir]]
+    ;
+    1 = %Floppy_Description%,,,\Win98
+    2 = %Floppy_Description%,,,\WinNT
+    
+    [SourceDisksFiles]
+    ;
+    ; filename_on_source = diskID[, [subdir][, size]]
+    ;
+    aha154x.mpd = 1,,
+    
+    [SourceDisksFiles.x86]
+    aha154x.sys = 2,\x86
+    
+    ; ...
+    
+    [Strings]
+    INF_Provider='Adaptec'
+    Floppy_Description = 'Adaptec Drivers Disk'
+    ; ...
 
-
-[Version]
-
-Signature='$Chicago$'
-
-Class=SCSIAdapter
-
-ClassGUID={4D36E97B-E325-11CE-BFC1-08002BE10318}
-
-Provider=%INF_Provider%
-
-CatalogFile=aha154_win98.cat
-
-CatalogFile.ntx86=aha154_ntx86.cat
-
-DriverVer=08/20/1999
-
-
-
-[SourceDisksNames]
-
-;
-
-; diskid = description[, [tagfile] [, <unused>, subdir]]
-
-;
-
-1 = %Floppy_Description%,,,\Win98
-
-2 = %Floppy_Description%,,,\WinNT
-
-
-
-[SourceDisksFiles]
-
-;
-
-; filename_on_source = diskID[, [subdir][, size]]
-
-;
-
-aha154x.mpd = 1,,
-
-
-
-[SourceDisksFiles.x86]
-
-aha154x.sys = 2,\x86
-
-
-
-; ...
-
-
-
-[Strings]
-
-INF_Provider='Adaptec'
-
-Floppy_Description = 'Adaptec Drivers Disk'
-
-; ...
 #### 2009-03-30 20:44:37 - ptmcg
 Pratdam -
 
@@ -5816,7 +5511,7 @@ Prints
         <aha154x.mpd>1,,</aha154x.mpd>
     </SourceDisksFiles>
     <SourceDisksFiles.x86>
-        <aha154x.sys>2,�</aha154x.sys>
+        <aha154x.sys>2,,</aha154x.sys>
     </SourceDisksFiles.x86>
     <Strings>
         <INF_Provider>'Adaptec'</INF_Provider>
@@ -5916,7 +5611,7 @@ gives
         <aha154x.mpd>1,,</aha154x.mpd>
     </SourceDisksFiles>
     <SourceDisksFiles.x86>
-        <aha154x.sys>2,�</aha154x.sys>
+        <aha154x.sys>2,,</aha154x.sys>
     </SourceDisksFiles.x86>
     <Strings>
         <INF_Provider>'Adaptec'</INF_Provider>
@@ -6008,7 +5703,7 @@ While writing this parser, I ran into a number of problems that I had to work th
 
 
 
-<ul><li></li><li>In some cases, my parse tree objects expected `None` as a positional argument.  There is, however, no way to return `None` from a lower-level callback, as returning `None` is the protocol for using the original results unmodified.  Thankfully, the empty list was an equivalent substitute, so I could return a list containing an empty list as a single token (`return <!-- ws:start:WikiTextAnchorRule:0:&lt;img src=&quot;/i/anchor.gif&quot; class=&quot;WikiAnchor&quot; alt=&quot;Anchor&quot; id=&quot;wikitext@@anchor@@&quot; title=&quot;Anchor: &quot;/&gt; --><a name=""></a><!-- ws:end:WikiTextAnchorRule:0 -->`), which did work.  It might be nice to have a way to return `None` as a valid token from callbacks, in the future.</li><li>When debugging my problem with `None` tokens, above, initially the tracebacks were printing with extremely long descriptions of each parse element, as the descriptions of each parse element are constructed recursively from its contents.  It is very helpful to use the `setName` method to replace this recursive description with a short name.</li><li>I am very interested in implementing a mechanism for providing more detailed error messages (for parse errors).  I really like , but I think pyparsing might be able to do a better job of this with a stack of failed leaf-level tokens, perhaps using  to track them.</li><li>Be careful with parse actions: if they throw certain types of exceptions (e.g. `IndexError`s), those exceptions will be caught by pyparsing and silently treated as a failed parse.  <em>Catch potential exceptions early and reraise them as custom exceptions!</em>  (The introduction of the `ProjectionMismatchException` in my code is an example of this.  For some reason, I thought that a `Group(Optional(...))` would always return at least an empty list token, although upon reflection this was an extremely silly assumption.)</li></ul>
+<ul><li>In some cases, my parse tree objects expected `None` as a positional argument.  There is, however, no way to return `None` from a lower-level callback, as returning `None` is the protocol for using the original results unmodified.  Thankfully, the empty list was an equivalent substitute, so I could return a list containing an empty list as a single token (`return <!-- ws:start:WikiTextAnchorRule:0:&lt;img src="/i/anchor.gif" class="WikiAnchor" alt="Anchor" id="wikitext@@anchor@@" title="Anchor: "/&gt; --><a name=""></a><!-- ws:end:WikiTextAnchorRule:0 -->`), which did work.  It might be nice to have a way to return `None` as a valid token from callbacks, in the future.</li><li>When debugging my problem with `None` tokens, above, initially the tracebacks were printing with extremely long descriptions of each parse element, as the descriptions of each parse element are constructed recursively from its contents.  It is very helpful to use the `setName` method to replace this recursive description with a short name.</li><li>I am very interested in implementing a mechanism for providing more detailed error messages (for parse errors).  I really like , but I think pyparsing might be able to do a better job of this with a stack of failed leaf-level tokens, perhaps using  to track them.</li><li>Be careful with parse actions: if they throw certain types of exceptions (e.g. `IndexError`s), those exceptions will be caught by pyparsing and silently treated as a failed parse.  <em>Catch potential exceptions early and reraise them as custom exceptions!</em>  (The introduction of the `ProjectionMismatchException` in my code is an example of this.  For some reason, I thought that a `Group(Optional(...))` would always return at least an empty list token, although upon reflection this was an extremely silly assumption.)</li></ul>
 
 This parser still needs work.  I have run it through some test cases, but I need to run it through more.  I wrote some test cases targeted directly at the parser, and I need to write more to get better coverage.  One of the beautiful things about pyparsing is that I can use any of the intermediate `ParserElement`s as a standalone parser for the corresponding subset of the syntax represented by that object.  As a result, I can test the parsing functionality incrementally.  It gets a bit unwieldy to manually construct the expected results of a parse, though, so I may need to factor out some common result components for reuse.  You can see the test cases in , which is intended to be driven with .  The parser is also not complete; SPARQL supports a number of different query types, but my initial work has targeted only `SELECT` queries.  I will be expanding that support to other types of queries soon.  Finally, I want to experiment with better error handling in the parser, using the techniques I discussed earlier.
 
@@ -6184,7 +5879,7 @@ I need some help with recursive tokens.
 
 
 
-As you see, this would parse 'a as b as c'.
+As you see, this would parse `'a as b as c'`.
 
 The problem is that once parsed into line, line.moreStatements will only return b.  
 
@@ -6334,60 +6029,34 @@ Thanks Paul.  So far, pyparsing is working under 64-bit Windows. Cheers.  Dinesh
 I am having trouble with Optional giving me an infinite loop when used with scanString.  Here is an example that shows the behavior:
 
 
-
-from pyparsing import *
-
-
-
-START_B, END_B = makeHTMLTags('b')
-
-START_SPAN, END_SPAN = makeHTMLTags('span')
-
-
-
-s = '''ExtraText...Elevation(s):<b>1882 KB</b>
-
-<b>1881 DF</b>
-
-<b>1862 GL</b>...ExtraText'''
-
-
-
-UNIT = START_B.suppress() + SkipTo(START_SPAN)('depth') + \
-
-    START_SPAN.suppress() + SkipTo(END_SPAN)('ref') + \
-
-    END_SPAN.suppress() + END_B.suppress()
-
-
-
-ELEVATION1 = Literal('Elevation(s):').suppress() + \
-
-    Group(ZeroOrMore(UNIT))('elev_list')
-
-
-
-ELEVATION2 = Optional(Literal('Elevation(s):')).suppress() + \
-
-    Group(ZeroOrMore(UNIT))('elev_list')
-
-
-
-# This works fine</li></ol>g = ELEVATION1.scanString(s)
-
-for i in g:
-
-    print i
-
-
-
-g = ELEVATION2.scanString(s)
-
-# This is an infinite loop</li></ol>for i in g:
-
-    print i
-
-
+    from pyparsing import *
+    
+    START_B, END_B = makeHTMLTags('b')
+    START_SPAN, END_SPAN = makeHTMLTags('span')
+    
+    s = '''ExtraText...Elevation(s):<b>1882 KB</b>
+    <b>1881 DF</b>
+    <b>1862 GL</b>...ExtraText'''
+    
+    UNIT = START_B.suppress() + SkipTo(START_SPAN)('depth') + \
+        START_SPAN.suppress() + SkipTo(END_SPAN)('ref') + \
+        END_SPAN.suppress() + END_B.suppress()
+    
+    ELEVATION1 = Literal('Elevation(s):').suppress() + \
+        Group(ZeroOrMore(UNIT))('elev_list')
+    
+    ELEVATION2 = Optional(Literal('Elevation(s):')).suppress() + \
+        Group(ZeroOrMore(UNIT))('elev_list')
+    
+    # This works fine
+    g = ELEVATION1.scanString(s)
+    for i in g:
+        print i
+    
+    g = ELEVATION2.scanString(s)
+    # This is an infinite loop
+    for i in g:
+        print i
 
 I need the Optional element as the ELEVATION stuff doesn't always appear in the string and in reality, my parsing looks like (ELEVATION + other elements).scanString.
 
@@ -6407,16 +6076,10 @@ Thanks for a great library!
 I have figured out a little more about this.  If I add another non-optional element to the parser, it works:
 
 
-
-HEAD = Liberal('HiThere')
-
-
-
-ELEVATION = HEAD + Optional(Literal('Elevation(s):')).suppress() + \
-
-Group(ZeroOrMore(UNIT))('elev_list')
-
-
+    HEAD = Literal('HiThere')
+    
+    ELEVATION = HEAD + Optional(Literal('Elevation(s):')).suppress() + \
+    Group(ZeroOrMore(UNIT))('elev_list')
 
 (as long as HiThere is found).
 
@@ -6583,30 +6246,23 @@ Unfortunately, this would return a parse of '3.1416' as ['3', '.', '1416'].  By 
 then the matched tokens get concatenated after being individually parsed.  Then I could even add a parse action like this:
 
 
-
     floatNumber.setParseAction(lambda toks: float(toks[0]))
 
 and now my parsed results is not a string, but the actual float number 3.1416.
 
 
-
 I did not want Combine to accidentally match 'The answer is 3. 1416 is an important date in history.' and find '3.1416', so Combine by default requires that the matching tokens have no intervening whitespace.  But in your example, there is space between the words, so I have to set the additional Combine initializer argument 'adjacent=False'.
-
 
 
 This is actually my least preferred of the 3 options, but it is here for completeness and instructional value.  It also has the same whitespace-collapsing behavior as option 1.
 
 
-
-3. Use originalTextFor helper wrapper.
-
-
+3. Use `originalTextFor` helper wrapper.
 
     phrase = originalTextFor(OneOrMore(Word(alphas)))
 
 
-
-this helper method was only recently added to pyparsing, but it was long overdue.  Several of pyparsing's methods and classes return a set of tokens when all that is desired is the original matching text.  By wrapping OneOrMore(Word(alphas)) in originalTextFor, you will get the original text from the input string, reconstituted as a single string, with all original whitespace preserved.
+this helper method was only recently added to pyparsing, but it was long overdue.  Several of pyparsing's methods and classes return a set of tokens when all that is desired is the original matching text.  By wrapping `OneOrMore(Word(alphas))` in `originalTextFor`, you will get the original text from the input string, reconstituted as a single string, with all original whitespace preserved.
 
 
 
@@ -6665,13 +6321,13 @@ also from the first question how can i make it accept the parse if the string is
 
 
 
-@tgfstatus #game something & something | i have punctionation & i still must parse
+    @tgfstatus #game something & something | i have punctionation & i still must parse
 
 
 
 i need that to still parse in the same format
 #### 2009-04-16 20:23:57 - ptmcg
-Ok, now your phrase is getting more than just Word(alphas) in there.  It should read kind of like a sentence:
+Ok, now your phrase is getting more than just `Word(alphas)` in there.  It should read kind of like a sentence:
 
 
 
@@ -6688,7 +6344,7 @@ So it should translate to something like:
 
 
 
-Don't forget to add originalTextFor.
+Don't forget to add `originalTextFor`.
 
 
 
@@ -6724,7 +6380,7 @@ ahh forget that ... it wasn't the one or more items causing a problem its the fa
 
 thanks paul!
 #### 2009-04-17 06:42:08 - ptmcg
-Your welcome, and good luck!  Post back when your application is finished, so I can add you to the 'Who's Using Pyparsing' page.
+You're welcome, and good luck!  Post back when your application is finished, so I can add you to the 'Who's Using Pyparsing' page.
 
 
 
@@ -6748,7 +6404,7 @@ I still get the response:
 
 
 
-Expected W:(0123...)
+    Expected W:(0123...)
 
 
 
@@ -6764,7 +6420,7 @@ but when I have:
 
 It responds as expected with:
 
-Expected number
+    Expected number
 
 
 
@@ -6834,24 +6490,14 @@ Hi!
 
 
 ...this is just a reminder that the
-
 memory leak issue, I reported in the
-
 thread 'memory issues with Py3k'
-
 back in February is still unresolved.
 
-
-
 I've tested this with 1.5.2 now, and
-
 the symptoms are still the same.
 
-
-
 cheers,
-
-
 
 Richard
 
@@ -6867,49 +6513,27 @@ Thanks for the reminder, Richard.  I am devoting only a few cycles to pyparsing 
 This might be a newbie question, but what would be the best way to handle this type of parsing scenario?  I want to only extract the 'def name {}' sections.
 
 
-
-class foo {
-
-  test blah1 {
-
-     echo(test)
-
-  }
-
-}
-
-class bar {
-
-  test blah2 {
-
-     echo(test2)
-
-  }
-
-}
-
-def baz {
-
-  test blah3 {
-
-     echo(test3)
-
-  }
-
-}
-
-
-
-ParserElement.setDefaultWhitespaceChars(' \t')
-
-NL = LineEnd().suppress()
-
-LCURLB,RCURLB,COLON,QUOTE = map(Suppress,'{}:'')
-
-KEYWORDS = Literal('class') | Literal('def')
-
-STMT = Group(Literal('def') + Word(alphanums+'_-')('name') + LCURLB + NL + OneOrMore(restOfLine + NL) + RCURLB + NotAny(KEYWORDS + Word(alphanums+'_-') + LCURLB)
-
+    class foo {
+      test blah1 {
+         echo(test)
+      }
+    }
+    class bar {
+      test blah2 {
+         echo(test2)
+      }
+    }
+    def baz {
+      test blah3 {
+         echo(test3)
+      }
+    }
+    
+    ParserElement.setDefaultWhitespaceChars(' \t')
+    NL = LineEnd().suppress()
+    LCURLB,RCURLB,COLON,QUOTE = map(Suppress,'{}:'')
+    KEYWORDS = Literal('class') | Literal('def')
+    STMT = Group(Literal('def') + Word(alphanums+'_-')('name') + LCURLB + NL + OneOrMore(restOfLine + NL) + RCURLB + NotAny(KEYWORDS + Word(alphanums+'_-') + LCURLB)
 
 
 Obviously, NotAny is not being used correctly in this example.  I basically want to extract the contents of 'def' sections enclosed '{}' by without parsing anything within it up to the next 'def' or 'class' section without picking up any 'class' sections.  Any help would be appreciated.  No recursion is required.
@@ -6961,9 +6585,11 @@ If you have to step over defs that might occur within other constructs (like com
 
 -- Paul
 #### 2009-04-22 16:56:51 - stanchan
-Thanks... that works.  originalTextFor(nestedExpr('{','}')) was what I was looking for.  Unfortunately it doesn't work with ParserElement.setDefaultWhitespaceChars(' \t') set. Where can I apply .setWhitespaceChars(' \t\n\r') to the above example to override the default?
+Thanks... that works.  `originalTextFor(nestedExpr('{','}'))` was what I was looking for.  Unfortunately it doesn't work with `ParserElement.setDefaultWhitespaceChars(' \t')` set. Where can I apply `.setWhitespaceChars(' \t\n\r')` to the above example to override the default?
+
 #### 2009-04-22 17:00:20 - ptmcg
 What is the purpose of overriding the default whitespace characters?  Your sample input text does not look like it needs to do this.
+
 #### 2009-04-22 17:08:39 - stanchan
 It's part of a larger app that parses a pretty complex configuration file.  That overall configuration file can contain elements that can embed scriptlets.  Everything else is parsable, but I had to set setDefaultWhitespaceChars to make that happen and since the other parts of the config file require more extensive parsing, I can't unset it.
 #### 2009-04-22 17:23:51 - stanchan
@@ -7105,7 +6731,7 @@ I am actively engaged in writing my first Python parser, and have found pyparsin
 
 For a simple example, I was trying to write a grammar to define interget numbers with a optional sign for the set 
 
-[..., -3, -2, -1, 0, +1, +2, +3 ,...].
+    [..., -3, -2, -1, 0, +1, +2, +3 ,...].
 
 
 
@@ -7126,9 +6752,7 @@ This gives the debugger error:
 If I reform my grammar as follows, I do not get the error;
 
 
-
     intnum = Combine(Optional(Literal('+') | Literal('-')) + Word(nums))
-
 
 
 Though, I thought those two expressions are equivalent.  Am I mistaken?
@@ -7158,7 +6782,7 @@ Well, sometimes I do my job too well.  One of my goals in designing the pyparsin
 
 
 
-The '|' operator ONLY uses pyparsing MatchFirst semantics if one of the two operands is a pyparsing ParserElement.  So you can write 'Literal('+') | '-'', ''+' | Literal('-')', or 'Literal('+') | Literal('-')', and Python will use the correct ParserElement.__or__ or ParserElement.__ror__ method to generate a MatchFirst from the two pieces (converting the one that is a string literal to a Literal).  But if you write ''+' | '-'' Python has no idea what this is supposed to mean, and thinks you have lost your senses and are trying to 'or' two literal strings!  By wrapping '+' in Suppress, your grammar has done the promotion to a ParserElement, which can then be '|'ed with the string '-', which gets promoted to a pyparsing Literal by the __or__ method.
+The '|' operator ONLY uses pyparsing MatchFirst semantics if one of the two operands is a pyparsing ParserElement.  So you can write 'Literal('+') | '-'', ''+' | Literal('-')', or 'Literal('+') | Literal('-')', and Python will use the correct `ParserElement.__or__` or `ParserElement.__ror__` method to generate a MatchFirst from the two pieces (converting the one that is a string literal to a Literal).  But if you write ''+' | '-'' Python has no idea what this is supposed to mean, and thinks you have lost your senses and are trying to 'or' two literal strings!  By wrapping '+' in Suppress, your grammar has done the promotion to a ParserElement, which can then be '|'ed with the string '-', which gets promoted to a pyparsing Literal by the __or__ method.
 
 
 
@@ -7213,11 +6837,7 @@ Paul,
 
 Thanks for chiming in and clearing this up for me!  I understand the convention you made and even appreciate it as it's probably easier to read that way anyway when stuff starts getting messy.
 
-
-
 About the code segment in the last part, that is very interesting indeed ... I would not have expected that at a quick first look.  Though, it seems that if I don't want to have nuances pop up while playing in the sandbox, when defining literals I should always user the Literal() block.  Is that pretty accurate?
-
-
 
 And lastly, the setParseAction was the next line down :).
 
@@ -7229,51 +6849,47 @@ And lastly, the setParseAction was the next line down :).
 ## 2009-04-29 13:15:02 - catherinedevlin - strange propagation of ignoreExprs into elements
 I've found some pyparsing behavior I can't make sense of.  I don't know if it should be a bug report, or just leave it here in hopes that future websearchers will find it when they need it.
 
-
-
 In this chunk, there are no surprises:
 
 
-
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>import pyparsing</li><li>pyparsing.`__version__`</li></ul></ul></ul>'1.5.2'
-
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>target = 'notquoted 'quoted''</li><li>strend = pyparsing.stringEnd ^ 'EOF'</li><li>pyparsing.SkipTo(strend).parseString(target)</li></ul></ul></ul>(['notquoted 'quoted''], {})
-
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>strend.ignore(pyparsing.quotedString)</li></ul></ul></ul>{stringEnd ^ 'EOF'}
-
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>pyparsing.SkipTo(strend).parseString(target)</li></ul></ul></ul>(['notquoted'], {})
-
+    >>> import pyparsing</li><li>pyparsing.`__version__`
+    '1.5.2'
+    
+    >>> target = 'notquoted 'quoted''
+    >>> strend = pyparsing.stringEnd ^ 'EOF'
+    >>> pyparsing.SkipTo(strend).parseString(target)
+    (['notquoted 'quoted''], {})
+    
+    >>> strend.ignore(pyparsing.quotedString)
+    {stringEnd ^ 'EOF'}
+    
+    >>> pyparsing.SkipTo(strend).parseString(target)
+    (['notquoted'], {})
 
 
 ... but then,
 
 
 
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>pyparsing.SkipTo(pyparsing.stringEnd ^ 'EOF').parseString(target)</li></ul></ul></ul>(['notquoted'], {})
+    >>> pyparsing.SkipTo(pyparsing.stringEnd ^ 'EOF').parseString(target)
+    (['notquoted'], {})
 
 
 
-... OK, so I guess the ignoreExprs get applied to pyparsing.stringEnd itself - which is, after all, a single object - instead of just to the aggregated object `strend`.
+... OK, so I guess the `ignoreExprs` get applied to pyparsing.stringEnd itself - which is, after all, a single object - instead of just to the aggregated object `strend`.
 
 
-
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>pyparsing.SkipTo(pyparsing.stringEnd).parseString(target)</li></ul></ul></ul>(['notquoted 'quoted''], {})
-
-
+    >>> pyparsing.SkipTo(pyparsing.stringEnd).parseString(target)
+    (['notquoted 'quoted''], {})
 
 ... huh?  
 
-
-
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>pyparsing.SkipTo(pyparsing.stringEnd ^ 'x').parseString(target)</li></ul></ul></ul>(['notquoted'], {})
-
-
+    >>> pyparsing.SkipTo(pyparsing.stringEnd ^ 'x').parseString(target)
+    (['notquoted'], {})
 
 ... OK, now I really don't know what to make of it.  Because stringEnd was used in a grammar, and .ignore was applied to that grammar, stringEnd will always carry the effects of that .ignore... unless it's used on its own?
 
-
-
-For now, to be on the safe side, I'm using pyparsing.StringEnd() so that I'll know I'm using a fresh object, and won't have to worry about what may have gotten into its ignoreExprs during previous usages.
+For now, to be on the safe side, I'm using `pyparsing.StringEnd()` so that I'll know I'm using a fresh object, and won't have to worry about what may have gotten into its ignoreExprs during previous usages.
 
 #### 2009-05-01 19:19:37 - ptmcg
 Yes, this is a hazard when using the built-in helper instances empty, lineEnd, lineStart, etc. in place of Empty, LineEnd, LineStart and so on.  Since ignore at a high-level expression has to propagate to all of the component expressions (or else it wont really be ignored very much), this will have some far-reaching effects on other expressions in your grammar.  Similar effects happen when calling leaveWhitespace.
@@ -7563,7 +7179,7 @@ In select query from clause can have
     >>> where_ = 'where' + scalar
     >>> t_ = tablename + where_
     >>> tablename.parseString('temp  where')
-    (['temp', 'where'], {})                    -------------------------------- X
+    (['temp', 'where'], {})  -------------------------------- X
     >>> 
     
     
@@ -7577,11 +7193,8 @@ How to restrict this. Is thr any other way i can say it the tablename is followe
 #### 2009-05-18 09:45:16 - ptmcg
 For scalar, you will need to guard against matching *any* SQL keyword.  Something like this:
 
-
-
     sql_keyword = oneOf('SELECT INSERT UPDATE DELETE WHERE AS ORDER BY GROUP')
     scalar = ~sql_keyword + Word(alphas,alphanums+'_')
-
 
 
 Also, I think your list of tables will need to support repetition of the 'as' alias clause, to support 'EMPLOYEES AS EMP, SALARIES AS SAL, MANAGERS AS MGRS'.  So your tables expression would be:
@@ -7639,7 +7252,7 @@ I just upgraded from Python 2.5 to Python 2.6.2 for Windows AMD64.  PyParsing 1.
 
 
 
-'No Python Installation Found In Registry'
+    'No Python Installation Found In Registry'
 
 
 
@@ -7670,49 +7283,28 @@ Otherwise, I don't have much to go on - there's no reason pyparsing should have 
 #### 2009-05-30 00:45:02 - dbv
 I'm using a 64-bit Windows OS.  Using 'python setup.py install' from the zip distribution, I got this error:
 
-...
-
-running install
-
-running build
-
-running build_py
-
-creating build
-
-creating build\lib
-
-copying pyparsing.py -> build\lib
-
-copying pyparsing_py3.py -> build\lib
-
-running install_lib
-
-copying build\lib\pyparsing.py -> C:\hp\bin\Python\Lib\site-packages
-
-copying build\lib\pyparsing_py3.py -> C:\hp\bin\Python\Lib\site-packages
-
-byte-compiling C:\hp\bin\Python\Lib\site-packages\pyparsing.py to pyparsing.pyc
-
-byte-compiling C:\hp\bin\Python\Lib\site-packages\pyparsing_py3.py to pyparsing_
-
-py3.pyc
-
-  File 'C:\hp\bin\Python\Lib\site-packages\pyparsing_py3.py', line 2470
-
-    except ParseException as err:
-
-                           ^
-
-SyntaxError: invalid syntax
-
-
-
-running install_egg_info
-
-Writing C:\hp\bin\Python\Lib\site-packages\pyparsing-1.5.2-py2.5.egg-info
-
-...
+    ...
+    running install
+    running build
+    running build_py
+    creating build
+    creating build\lib
+    copying pyparsing.py -> build\lib
+    copying pyparsing_py3.py -> build\lib
+    running install_lib
+    copying build\lib\pyparsing.py -> C:\hp\bin\Python\Lib\site-packages
+    copying build\lib\pyparsing_py3.py -> C:\hp\bin\Python\Lib\site-packages
+    byte-compiling C:\hp\bin\Python\Lib\site-packages\pyparsing.py to pyparsing.pyc
+    byte-compiling C:\hp\bin\Python\Lib\site-packages\pyparsing_py3.py to pyparsing_
+    py3.pyc
+      File 'C:\hp\bin\Python\Lib\site-packages\pyparsing_py3.py', line 2470
+        except ParseException as err:
+                               ^
+    SyntaxError: invalid syntax
+    
+    running install_egg_info
+    Writing C:\hp\bin\Python\Lib\site-packages\pyparsing-1.5.2-py2.5.egg-info
+    ...
 
 
 
@@ -7749,45 +7341,25 @@ Hi Paul
 Since the last note I got sidetracked and just got back to installing PyParsing 1.5.2 on a Windows 64bit machine with Python 2.6.2.  It still fails to install and the output is:
 
 
-
-C:\pyparsing-1.5.2>python setup.py install
-
-running install
-
-running build
-
-running build_py
-
-creating build
-
-creating build\lib
-
-copying pyparsing.py -> build\lib
-
-copying pyparsing_py3.py -> build\lib
-
-running install_lib
-
-byte-compiling C:\hp\bin\Python\Lib\site-packages\pyparsing_py3.py to pyparsing_
-
-py3.pyc
-
-  File 'C:\hp\bin\Python\Lib\site-packages\pyparsing_py3.py', line 2470
-
-    except ParseException as err:
-
-                           ^
-
-SyntaxError: invalid syntax
-
-
-
-running install_egg_info
-
-Removing C:\hp\bin\Python\Lib\site-packages\pyparsing-1.5.2-py2.5.egg-info
-
-Writing C:\hp\bin\Python\Lib\site-packages\pyparsing-1.5.2-py2.5.egg-info
-
+    C:\pyparsing-1.5.2>python setup.py install
+    running install
+    running build
+    running build_py
+    creating build
+    creating build\lib
+    copying pyparsing.py -> build\lib
+    copying pyparsing_py3.py -> build\lib
+    running install_lib
+    byte-compiling C:\hp\bin\Python\Lib\site-packages\pyparsing_py3.py to pyparsing_
+    py3.pyc
+      File 'C:\hp\bin\Python\Lib\site-packages\pyparsing_py3.py', line 2470
+        except ParseException as err:
+                               ^
+    SyntaxError: invalid syntax
+    
+    running install_egg_info
+    Removing C:\hp\bin\Python\Lib\site-packages\pyparsing-1.5.2-py2.5.egg-info
+    Writing C:\hp\bin\Python\Lib\site-packages\pyparsing-1.5.2-py2.5.egg-info
 
 
 I checked the site-packages directory and PyParsing hasn't installed.
@@ -7798,15 +7370,12 @@ Dinesh
 #### 2009-10-08 13:53:30 - ptmcg
 Are you looking for a directory named Pyparsing?  There isn't one.  Just two files named pyparsing.py and pyparsing_py3.py.  Try invoking the Python interpreter, and then typing (of course, leaving out the '>>>' prompt):
 
-
-
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>import pyparsing</li></ul></ul></ul>
+    >>> import pyparsing
 
 Does this work?
+
 #### 2009-10-08 14:48:52 - dbv
 Hi Paul
-
-
 
 I just copied the files pyparsing.py and pyparsing_py3.py into the site-packages folder and all is working.  Cheers ...
 
@@ -7846,13 +7415,9 @@ Here for example a snippet from the part of defining the parser which can cope w
 it parses simple structures like ''var.amember' or 'var.amember.anotherChild'. This works well but does not support nested expressions. What you would expect is that the parser would support a nested definition like
 
 
-
-primary_ = Forward()
-
-attributeref_ = primary_ + '.' + identifier_
-
-primary_ << ( atom_ | attributeref_ )
-
+    primary_ = Forward()
+    attributeref_ = primary_ + '.' + identifier_
+    primary_ << ( atom_ | attributeref_ )
 
 
 Which would allow the inclusion of nested parse expressions. 
@@ -7883,68 +7448,36 @@ Iwan van der Kleijn
 
 
 
-    ############################################################3
-    
-    
     ## listing ##########################################################3
 
-#number    
-
-sign = Optional(oneOf('+ -'))    
-
-nonzerodigits_ = '123456789'
-
-digits_ = '0' + nonzerodigits_      
-
-intpart_ = Word(nonzerodigits_,  digits_)
-
-integer_  = ( sign + intpart_ ) | Literal('0')       
-
-fraction_ = Word('.', digits_)
-
-exponent_ = oneOf('e E') + sign + Word(digits_) #Python accepts 10#000004
-
-pointfloat_ = Optional(integer_) + fraction_ | intpart_ + '.'    
-
-expfloat_ = (pointfloat_ | intpart_ ) + exponent_  #( intpart_ | pointfloat_ ) + exponent_         
-
-floatnumber_ = expfloat_ | pointfloat_    
-
-number_ = floatnumber_ | integer_
-
-
-
-#other literals                                         
-
-null_ = Literal('null')
-
-false_ = Literal('false')
-
-true_ = Literal('true')
-
-
-
-literal_ = dblQuotedString | number_ | null_ | false_ | true_              
-
-identifier_ = Word(alphas + '_', alphas + nums + '_')
-
-atom_ =  identifier_ | literal_  #could/should contain: enclosure    
-
-
-
-#attributeref_ = atom_ + OneOrMore('.' + identifier_)    
-
-#primary_ =  attributeref_ | atom_   #could/should contain: subscription |slicing | call
-
-
-
-primary_ = Forward()
-
-attributeref_ = primary_ + '.' + identifier_
-
-primary_ << ( atom_ | attributeref_ )
-
-
+    #number    
+    sign = Optional(oneOf('+ -'))    
+    nonzerodigits_ = '123456789'
+    digits_ = '0' + nonzerodigits_      
+    intpart_ = Word(nonzerodigits_,  digits_)
+    integer_  = ( sign + intpart_ ) | Literal('0')       
+    fraction_ = Word('.', digits_)
+    exponent_ = oneOf('e E') + sign + Word(digits_) #Python accepts 10#000004
+    pointfloat_ = Optional(integer_) + fraction_ | intpart_ + '.'    
+    expfloat_ = (pointfloat_ | intpart_ ) + exponent_  #( intpart_ | pointfloat_ ) + exponent_         
+    floatnumber_ = expfloat_ | pointfloat_    
+    number_ = floatnumber_ | integer_
+    
+    #other literals                                         
+    null_ = Literal('null')
+    false_ = Literal('false')
+    true_ = Literal('true')
+    
+    literal_ = dblQuotedString | number_ | null_ | false_ | true_              
+    dentifier_ = Word(alphas + '_', alphas + nums + '_')
+    atom_ =  identifier_ | literal_  #could/should contain: enclosure    
+    
+    #attributeref_ = atom_ + OneOrMore('.' + identifier_)    
+    #primary_ =  attributeref_ | atom_   #could/should contain: subscription |slicing | call
+    
+    primary_ = Forward()
+    attributeref_ = primary_ + '.' + identifier_
+    primary_ << ( atom_ | attributeref_ )
 
 #### 2009-06-02 19:00:19 - ptmcg
 Unless Python accepts '3. 14159' as a valid float, you should enclose your floating point number expressions inside pyparsing Combine classes:
@@ -8047,10 +7580,6 @@ So pyparsing goes down this infinitely until it runs out of stack, like a never-
 
 When you use Forward(), you need to guard against coming full-circle and testing for the same expression.  Change attributeref_ to:
 
-
-
-
-
     attributeref_ = identifier_ + '.' + primary_
 
 
@@ -8083,6 +7612,7 @@ I heard that some people are using pyparsing to parse c++ files, since these are
 
 #### 2009-06-03 03:08:14 - BlGene
 I the wiki would become easier to use if the current 'documentation' section werte to be renamed to 'Presentations'. Since the documentation in python is very good putting browsable documentation, of the type automatically generated from source code, into the Usage notes section, and renaming this section 'Documentation' would make it easier to find information about some minor functions. You might also consider moving 'Under Development' into a section of 'Examples' and putting the new 'Documentation', if you decide to change it, below 'Introduction' instead of below 'Examples'. That said the website is already very helpful.
+
 #### 2009-06-03 09:53:27 - ptmcg
 Thanks for the wiki organization suggestions.  One simple change that I could make quickly was to simply make 'Under Development' a navigational sub-bullet to the 'Examples' link in the menu.  I'm not sure how compatible wikispaces is with HTML docs, but there are several schools that maintain online copies of these docs, and I've added an external link to one of them on the Documentation page.
 
@@ -8108,11 +7638,9 @@ I have a file that contains many entries like this one :
 
 
 
-define something
-
-options are listed here
-
-end
+    define something
+    options are listed here
+    end
 
 
 
@@ -8131,11 +7659,7 @@ but, unfortunately, this throws an exception that says it was expecting 'end' at
 
 I tried to do something like this :
 
-
-
     define_body = OneOrMore(Word(alphanums)) - Literal('end')
-
-
 
 but this didn't work out the way I imagined it would.
 
@@ -8239,7 +7763,7 @@ I want to convert a text like this:
 
 
 
-My name [is, 's] John, I [am, 'm] 20 years old and come [from] Birmingham, a big [city, town] in England.  <...text continues...>
+    My name [is, 's] John, I [am, 'm] 20 years old and come [from] Birmingham, a big [city, town] in England.  <...text continues...>
 
 
 
@@ -8475,35 +7999,22 @@ I have a problem with the latest change.
 
 The address portion can be: 
 
-VERSION1 begin: 
-
-Buyer: 
-
-Roman Schiller 
-
-roman.schiller=40edvconsult.com 
-
-436764214725 
-
-
-
-Unconfirmed shipping address 
-
-Roman Schiller 
-
-Wallensteinstra=DFe 56/21 
-
-A-1200 Wien 
-
-Austria 
-
-
-
-Instructions to merchant: 
-
-
-
-VERSION1 end: 
+    VERSION1 begin: 
+    
+        Buyer: 
+        Roman Schiller 
+        roman.schiller=40edvconsult.com 
+        436764214725 
+        
+        Unconfirmed shipping address 
+        Roman Schiller 
+        Wallensteinstra=DFe 56/21 
+        A-1200 Wien 
+        Austria 
+        
+        Instructions to merchant: 
+    
+    VERSION1 end: 
 
 
 
@@ -8511,38 +8022,23 @@ Or
 
 
 
-VERSION2 begin: 
-
-<hr />
- JAN ONDERDIJK's UNCONFIRMED Address 
-
-<hr />
- 
-
-JAN ONDERDIJK 
-
-VOSHOLLEI 23 
-
-BRASSCHAAT 2930 
-
-Belgium 
-
-
-
-
-
-Have you lifted your withdrawal and receiving limits?  
-
-
-
-VERSION2 end: 
+    VERSION2 begin: 
+    
+        ---
+         JAN ONDERDIJK's UNCONFIRMED Address 
+        ---
+        JAN ONDERDIJK 
+        VOSHOLLEI 23 
+        BRASSCHAAT 2930 
+        Belgium 
+        
+        Have you lifted your withdrawal and receiving limits?  
+    
+    VERSION2 end: 
 
 
 
 There are actually a few more variations which I try to handle with this code (only showing snippets): 
-
-
-
 
 
     # address
@@ -8570,7 +8066,7 @@ What are ways to simplify the above?
 
 - Also tried to use pyp.Optional instead of: 
 
-pyp.Suppress(pyp.Word('-') 
+        pyp.Suppress(pyp.Word('-') 
 
 
 
@@ -8726,7 +8222,7 @@ Thanks for looking at this.
 
 My addLine is:
 
-addLine = pyp.Combine((pyp.OneOrMore(alphanums) + pyp.restOfLine))
+    addLine = pyp.Combine((pyp.OneOrMore(alphanums) + pyp.restOfLine))
 
 
 
@@ -8764,19 +8260,13 @@ I tried the commented line, and reversed the '4', '5', '6' lines, but that did n
 
 In the debug I get:
 
-...
-
-Match address at loc 802(26,35)
-
-Exception raised:Expected 'confirmed shipping address' (at char 802), (line:26, col:35)
-
-Match address at loc 827(29,1)
-
-Matched address -> ['ejeanneret@romandie.com', '0244363539', 'Ship-to address: Eric Jeanneret', 'Chemin des Raytolats', 'CH-1423 Villars-Burquin', 'Switzerland']
-
-Match address at loc 982(37,1)
-
-...
+    ...
+    Match address at loc 802(26,35)
+    Exception raised:Expected 'confirmed shipping address' (at char 802), (line:26, col:35)
+    Match address at loc 827(29,1)
+    Matched address -> ['ejeanneret@romandie.com', '0244363539', 'Ship-to address: Eric Jeanneret', 'Chemin des Raytolats', 'CH-1423 Villars-Burquin', 'Switzerland']
+    Match address at loc 982(37,1)
+    ...
 
 
 
@@ -8786,32 +8276,20 @@ I don't get it why I have the email, number and ship-to in the matched address.
 
 From this:
 
-<hr />
-SHIPPING INFORMATION
-
-<hr />
-
-
-Buyer: Eric somename
-
-somename=40romandie.com
-
-0244363539
-
-Ship-to address: Eric somename
-
-Chemin des Raytolats
-
-CH-code somevillage
-
-Switzerland
-
-
-
-Address status: Unconfirmed =20
-
-Shipping method: Not specified
-
+    ---
+    SHIPPING INFORMATION
+    ---
+    
+    Buyer: Eric somename
+    somename=40romandie.com
+    0244363539
+    Ship-to address: Eric somename
+    Chemin des Raytolats
+    CH-code somevillage
+    Switzerland
+    
+    Address status: Unconfirmed =20
+    Shipping method: Not specified
 
 
 I thought it might suppress the first and last name as they are on the same line as 'ship-to' but instead it gets two more lines in front of the 'ship-to'.
@@ -8875,25 +8353,17 @@ Werner
 ## 2009-06-22 02:10:24 - asb_india - Parsing Selected values
 Hello 
 
-
-
 If i want to parse words with exception. Let mne explain with example
-
-
 
 I have function say sum , min max etc .... and i want the normal text shld not be any of this But it can min_abc etc ... 
 
-
-
 Is this possible.
-
-
 
 I tried like this 
 
-
-
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>func = oneOf('min max avg sum')</li><li>text = ~func + Word(alphanums + '_' +'.')</li><li>text.parseString('min_value')</li></ul></ul></ul>
+    >>> func = oneOf('min max avg sum')
+    >>> text = ~func + Word(alphanums + '_' +'.')
+    >>> text.parseString('min_value')
 
 But this will not parse min_value and will give error
 
@@ -8981,7 +8451,7 @@ I eventually managed to fix the problem, but I don't know if this is a bug or no
 
 
 
-ignoreExpr = cppStyleComment.copy() | quotedString.copy()
+    ignoreExpr = cppStyleComment.copy() | quotedString.copy()
 #### 2009-06-27 04:46:33 - ptmcg
 I've looked at this code for a while, and I'm having a tough time seeing how I could make pyparsing figure this out without your having to explicitly copy the quotedString and cppStyleComment built-ins.
 
@@ -9084,16 +8554,16 @@ BTW, I suggest you modify your bitwise operators slightly, so that they don't ac
 
 
     ('&', 2, opAssoc.LEFT),
-            ('^', 2, opAssoc.LEFT),
-            ('|', 2, opAssoc.LEFT),
+    ('^', 2, opAssoc.LEFT),
+    ('|', 2, opAssoc.LEFT),
 
 to:
 
 
 
     (~Literal('&&') + '&', 2, opAssoc.LEFT),
-            ('^', 2, opAssoc.LEFT),
-            (~Literal('||') + '|', 2, opAssoc.LEFT),
+    ('^', 2, opAssoc.LEFT),
+    (~Literal('||') + '|', 2, opAssoc.LEFT),
 
 
 
@@ -9110,42 +8580,22 @@ Hi Paul,
 I haven't tested exhaustively, but if I comment out any two operators that I'm not using, the recursion problem goes away. What surprises me is that this problem goes away if I comment out two operators that use characters that aren't even in the source string. For example, if I make the operator list:
 
 
-
-
-
         (oneOf('++ --'), 1, opAssoc.LEFT),
-
         # (oneOf('. ->'), 2, opAssoc.LEFT),
-
         (oneOf('+ - ! ~ * & ++ --'), 1, opAssoc.RIGHT),
-
         (oneOf('* / %'), 2, opAssoc.LEFT),
-
         (oneOf('+ -'), 2, opAssoc.LEFT),
-
         # (oneOf('<< >>'), 2, opAssoc.LEFT),
-
         (oneOf('< <= > >='), 2, opAssoc.LEFT),
-
         (oneOf('== !='), 2, opAssoc.LEFT),
-
         (~Literal('&&') + '&', 2, opAssoc.LEFT),
-
         ('^', 2, opAssoc.LEFT),
-
         (~Literal('||') + '|', 2, opAssoc.LEFT),
-
         ('&&', 2, opAssoc.LEFT),
-
         ('||', 2, opAssoc.LEFT),
-
         (('?',':'), 3, opAssoc.RIGHT),
-
         (oneOf('= += -= *= /= %= <<= >>= &= ^= |= =>'), 2, opAssoc.RIGHT),
-
         (',', 2, opAssoc.LEFT),
-
-
 
 
 
@@ -9443,70 +8893,39 @@ Thanks for writing,
 Hello, I have just read your quite interesting article:
 
 
-
-
-
 Maybe something this can simplify the API a little:
 
-.parseString() => .parse()
-
-.setResultsName('salute')  => .setname()
+    .parseString() => .parse()
+    
+    .setResultsName('salute')  => .setname()
 
 
 
 APIs are very important, as you know :-) They are the 'user interface'
-
 of a software.
-
-
 
 I don't like this much:
 
-SkipTo(tdEnd)
+    SkipTo(tdEnd)
 
 Maybe a better name can be found, random text? unspecified()? I don't
-
 know...
 
-
-
 Do Pyparsing compiles like RE? If not then this can be very useful (to
-
 speed up searches), but I presume it's not an easy thing to do.
-
 This is a very nice example of 'compiling' REs, from lwc:
-
-
-
 
 
 Do you remember my post about reverb?
 
-
-
-
-
 This is an interesting article about Perl6 REs:
 
 
-
-
-
 Their syntax looks better than the old Perl REs used by CPython too.
-
 Maybe CPython can copy Perl6 REs :o)
 
-
-
 The people that create Mathematica are very intelligent, so looking at
-
 their solutions is always interesting:
-
-
-
-
-
-
 
 etc.
 
@@ -9520,14 +8939,10 @@ bearophile
 
 -- 
 
- - Faster than the air-speed velocity of an
-
-                          unladen european swallow
+ - Faster than the air-speed velocity of an unladen european swallow
 
 #### 2009-06-30 05:43:27 - ptmcg
 Bearophile -
-
-
 
 Grazie per tutte le vostre osservazioni!  (I assume you are Italian, since you referred me to the Italian Google page.) :)
 
@@ -9545,21 +8960,21 @@ Absolutely, the API is king when designing a library such as pyparsing.  It dict
 
 
 
-parseString->parse seems like an achievable improvement without breaking backwards compatibility.  It turns out that ParserElement class already has a parse() method, but it is only used internally.
+`parseString` -> `parse` seems like an achievable improvement without breaking backwards compatibility.  It turns out that ParserElement class already has a parse() method, but it is only used internally.
 
 
 
-setResultsName -> setName is not so easily done.  ParserElements already have a setName method, and the distinction between the two is subtle:
+`setResultsName` -> `setName` is not so easily done.  ParserElements already have a setName method, and the distinction between the two is subtle:
 
-. setName - gives a name to the expression itself, and is used in debugging and exception messages
+- setName - gives a name to the expression itself, and is used in debugging and exception messages
 
-. setResultsName - gives a name to the tokens matched by the expression, and returned in the ParseResults
+- setResultsName - gives a name to the tokens matched by the expression, and returned in the ParseResults
 
-I too thought setResultsName was a little unwieldy, but could not really come up with a better one.
+I too thought `setResultsName` was a little unwieldy, but could not really come up with a better one.
 
 
 
-SkipTo is another interesting one.  I also considered naming it something like 'EverythingUpTo', 'AnythingUntil' but decided SkipTo was close enough, and much shorter than anything else. (Readable brevity is also good in an API.  Shorter names allow a larger gestalt when viewing the code - plus programmers don't really like typing thisIsALongMethodNameThatExplainsExactlyWhatTheFunctionDoes() when doFunction() is close enough.  But *nix takes this idea to too much of an extreme, with ls,cp,grep,etc.  Brevity and readability are almost always at odds, and sometimes the compromise between the two doesn't satisfy anybody.)
+`SkipTo` is another interesting one.  I also considered naming it something like 'EverythingUpTo', 'AnythingUntil' but decided SkipTo was close enough, and much shorter than anything else. (Readable brevity is also good in an API.  Shorter names allow a larger gestalt when viewing the code - plus programmers don't really like typing thisIsALongMethodNameThatExplainsExactlyWhatTheFunctionDoes() when doFunction() is close enough.  But *nix takes this idea to too much of an extreme, with ls,cp,grep,etc.  Brevity and readability are almost always at odds, and sometimes the compromise between the two doesn't satisfy anybody.)
 
 
 
@@ -9579,7 +8994,7 @@ Since the time of this e-mail exchange between Bearophile and me, pyparsing has 
 
 
 
-- `expr.setResultsName(&quot;name&quot;)` can now be abbreviated as `expr(&quot;name&quot;)`.
+- `expr.setResultsName("name")` can now be abbreviated as `expr("name")`.
 
 - a number of pyparsing expressions (notably Word and oneOf) use regular expressions internally to implement their matching logic
 
@@ -9590,81 +9005,42 @@ Since the time of this e-mail exchange between Bearophile and me, pyparsing has 
 ---
 ## 2009-06-30 05:45:53 - ptmcg - OnLAMP article feedback (Alex Shinn)
 A friend of mine was asking me how to implement a parser for a simple
-
 tree of data.  I immediately explained the regexp techniques he was
-
 trying would never work, and that what he wanted was a recursive
-
 descent parser.  Since he was using Python, I did a Google search and
-
 your article was the first result:
-
-
-
-  
 
 
 
 In it you make the claim
 
-
-
   Pyparsing is a Python class library that helps you to quickly and
-
   easily create recursive-descent parsers.
-
-
 
 and the rest of the article deals with non-recursive examples.
 
-
-
 Pyparsing looks like a very nice and useful library, but it does not
-
 allow recursive descent parsing (even if perhaps it's implemented
-
 using that technique, I didn't look).  What it does is essentially let
-
 you concatenate regular patterns, so you never get above the level of
-
 expressivity of regular expressions.  A recursive descent parser, on
-
 the other hand, lets subpatterns refer to other subpatterns, in a
-
 possibly cyclic fashion, so that, for example, you could have an EXPR
-
 clause that could expand into other EXPR clauses.  This lets you parse
-
 all context-free grammars, such as XML.  Programming languages like C,
-
 on the other hand, tend to be context-sensitive or even more complex,
-
 and are usually handled by LR1 parsers like Yacc.
 
 
 
 Pyparsing may well be useful as a tokenizer to be used by a recursive
-
 descent parser, but if that was your intent the article was
-
 misleading.
-
-
 
 For a sample OSS recursive descent parser, you can refer to
 
 
-
-  
-
-
-
 and for more info in general on formal grammars, see
-
-
-
-  
-
 
 
 --
@@ -9783,40 +9159,25 @@ Thanks for the fast reply!
 
 On 2/22/06, Paul McGuire <paul@alanweberassociates.com> wrote:
 
->
-
-<ul class="quotelist"><li>Pyparsing does support recursive grammars.</li></ul>
+> Pyparsing does support recursive grammars.</li></ul>
 
 Oh, looks like I've put my foot in my mouth... I really should've
-
 looked more into pyparsing before writing.  But I do think you
-
 should post a followup article with some recursive examples.
 
 
-
 I was thinking about how you might achieve recursion with a
-
 pyparsing approach, and realized it could only be done with
-
 a declaration plus later assignment (how Scheme implements
-
 letrec).  And this is exactly what you do with Forward() and <<.
 
 
-
 My friend wanted to parse a simple subset of Lisp sexps for
-
 a linguistics course (even when not using Lisp linguists use
-
 sexps as their standard data representation).  I see now this
-
 would be quite easy to implement with pyparsing.  Instead
-
 I started him off with a very simple five-minute manual parser -
-
 attached for reference, but please keep in mind I'm not really
-
 a pythonista.
 
 
@@ -9833,24 +9194,29 @@ Hi Paul,
 
 Here's a message we received from a reader:
 
-
-
-<ul class="quotelist"><li>From: Dave Feustel <dfeustel@mindspring.com></li><li>Date: February 1, 2006 4:48:05 AM PST</li></ul>
-
-<ul class="quotelist"><li>Paul,</li></ul>>
-
+> From: Dave Feustel <dfeustel@mindspring.com>
+>
+> Date: February 1, 2006 4:48:05 AM PST
+>
+> Paul,
 > You wrote an Interesting article on parsing in Python. I'm tempted  
-
-<ul class="quotelist"><li>to try it out</li><li>The telephone number example does not include the 3-3-4 (7 or 10</li><li>total digits)</li><li>requirement on (U.S.) telephone numbers. Then there is the country</li><li>prefix to deal with too.</li></ul>>
-
-> Your example of IP decoding was also interesting. I wrote a short  
-
-<ul class="quotelist"><li>snobol4 program to do</li><li>something similar a day ago. I include it so you can compare it to</li><li>your python program.</li><li>The snobol4 program first locates lines in tcpdump output that</li><li>record an attempt to login to</li><li>ssh, then prints the whois info for the ip address from which the</li><li>attempt to access ssh was made.</li><li><h6 id="toc0">=====================</h6>
-</li></ul>
+> to try it out The telephone number example does not include the 3-3-4 (7 or 10
+> total digits)
+> requirement on (U.S.) telephone numbers. Then there is the country
+> prefix to deal with too.
+> Your example of IP decoding was also interesting. I wrote a short 
+> snobol4 program to do
+> something similar a day ago. I include it so you can compare it to
+> your python program.  
+>
+> The snobol4 program first locates lines in tcpdump output that
+> record an attempt to login to
+> ssh, then prints the whois info for the ip address from which the
+> attempt to access ssh was made.  
+> =====================
 
     > #!/usr/local/bin/snobol4 -b   #can be invoked directly as script or
-    >                                               #indirectly as input to 
-    snobol4
+    >                                               #indirectly as input to snobol4
     >
     > start
     >         num = span('0123456789')
@@ -9859,19 +9225,14 @@ Here's a message we received from a reader:
     >         hit = sp num per num per num per num
     >
     > loop
-    >         line = input :f(eod)          #read a line of input previously  
-    > generated by tcpdump
+    >         line = input :f(eod)          #read a line of input previously generated by tcpdump
     >                                               #exit if end of file
-    >         line 'ME.22: ' :f(loop)       #was this packet an attempt to use  
-    > ssh?
+    >         line 'ME.22: ' :f(loop)       #was this packet an attempt to use ssh?
     > *       output = line                 #debug output (commented out)
-    >         line hit $ ipa :f(err)                #store the source ip address 
-    into ipa
+    >         line hit $ ipa :f(err)                #store the source ip address into ipa
     >         output = ipa                  #print the ip address
     >         cmd = 'nslookup ' ipa #create nslookup command
-    >         host(1,cmd)                   #execute the nslookup command (output 
-    to  
-    > console)
+    >         host(1,cmd)                   #execute the nslookup command (output to console)
     >         :(loop)                               #read next line
     >
     > err
@@ -9881,12 +9242,16 @@ Here's a message we received from a reader:
     > ======================================
 
 
-
-<ul class="quotelist"><li>I have used with great effect short snobol4 programs in alias-</li><li>invoked shell command lines.</li><li>You can get the C source for snobol4 from www.snobol4.org.</li><li>There is a very fast (not free) compiled version of snobol4</li><li>available from www.snobol4.com.</li><li>Bell Labs originally developed Snobol in the late 60s. It still</li><li>beats any other string</li><li>pattern matching/manipulation program I've encountered.</li></ul>>
-
+> I have used with great effect short snobol4 programs in alias-invoked shell command lines.
+> You can get the C source for snobol4 from www.snobol4.org.
+>There is a very fast (not free) compiled version of snobol4
+>available from www.snobol4.com.
+>Bell Labs originally developed Snobol in the late 60s. It still
+>beats any other string
+>pattern matching/manipulation program I've encountered.
+>
 > Dave Feustel
-
-<ul class="quotelist"><li>Fort Wayne, IN</li></ul>
+> Fort Wayne, IN
 
 #### 2009-06-30 05:52:56 - ptmcg
 I'm vaguely familiar with snobol, that is, I've discussed it with co-workers but have never used it myself.  The other languages that I've run into, that I think are specifically designed for text parsing are awk and the proprietary VAX/SCAN.  Awk and snobol are about the same vintage, late 60's-70's, SCAN came later, more late 80's, I think intended to be awk for VMS.  I used SCAN on several projects, including an arithmetic expression evaluator for a manufacturing statistical process control system.
@@ -9947,39 +9312,23 @@ The following code is invalid and produces an exception when parsing supposedly 
 
 
 
-Code: Word(alphas)+ '(' + Group( Optional(Word(nums)|Word(alphas) + ZeroOrMore(',' + Word(nums)|Word(alphas))) ) + ')'
-
-
+    Code: Word(alphas)+ '(' + Group( Optional(Word(nums)|Word(alphas) + ZeroOrMore(',' + Word(nums)|Word(alphas))) ) + ')'
 
 
 
 Also I found what looks like a spelling error (typo) on page 27, namely
-
 in the info box:
 
-
-
 'The standard Python library includes the modules HTMLParser and htmllib
-
 for processing HTML source, although they intolerant of HTML that is not
-
 well behaved.' (should be 'they are intolerant of HTML')
 
-
-
 Also maybe it's better to use the expression' 'well formed' compared to
-
 'well behaved'.
-
-
 
 Hope you forgive me.
 
-
-
 Best regards,
-
-
 
 Bruce
 
@@ -10023,27 +9372,16 @@ Thanks for submitting these notes - all is certainly forgiven! :)
 ## 2009-07-01 05:56:43 - asb_india - Parsing mutiple line
 Hello,
 
-
-
 I am trying to parse multiple lines means line with breaks 
+For eg : 
 
-For eg : 'my name is 
-
-asb 
-
-i live on earth'
-
-
-
+    my name is 
+    asb 
+    i live on earth
 
 
 Clearly it have the character '\n'
-
 So i made code like this 
-
-
-
-
 
     tokens = '(' + delimitedList(OneOrMore(Word(alphanums  + ' _ ' + '\n')),',',combine=True) + ')'
     print tokens.parseString('(dfdfdf,dfdfd,dfdf)')
@@ -10240,26 +9578,21 @@ Here's the full test program:
 
 
 
-
-
     data = '''
-    
     a = 10;
-    
     //##loc1## xyzzy.cpp::12345
-    
     // not a special comment
-    
     a = 20;
     
     /*
      * a special comment inside an ordinary comment
-     *
+     * 
     //##loc2## xyzzy.cpp::12345
      */
     
     a = 30;
     '''
+
     from pyparsing import *
     
     assignment = Word(alphas) + '=' + Word(nums) + ';'
@@ -10359,30 +9692,21 @@ Michael
 hello, i get a problem when i want to parse this syntax:
 
 
-
-decimal_number ::= [114] [95LRM 2.5.1] [ sign ] unsigned_number [28]
-
-| [ size ] decimal_base unsigned_number 
-
-
-
-unsigned_number ::= [28, 33, 157, 172] [95LRM 2.5.1] [206]
-
-decimal_digit { _ | decimal_digit }
-
-
-
-decimal_base ::= [28] [95LRM 2.5.1] �d | �D [26]
-
-
-
-e.g: 4 and 4'd11_22 are all acceptable (this is Verilog syntax)
-
+    decimal_number ::= [114] [95LRM 2.5.1] [ sign ] unsigned_number [28]
+    | [ size ] decimal_base unsigned_number 
+    
+    unsigned_number ::= [28, 33, 157, 172] [95LRM 2.5.1] [206]
+    decimal_digit { _ | decimal_digit }
+    
+    decimal_base ::= [28] [95LRM 2.5.1] 'd | 'D [26]
+    
+    e.g: 4 and 4'd11_22 are all acceptable (this is Verilog syntax)
 
 
 i write the parser : 
 
-decimal_number = Optional(sign) + unsigned_number | Optional(size) + decimal_base + unsigned_number
+    decimal_number = Optional(sign) + unsigned_number 
+                     | Optional(size) + decimal_base + unsigned_number
 
 
 
@@ -10416,35 +9740,19 @@ i have already got it, thanks!
 For my application, valid 'names' are of this form (EBNF):
 
 
-
-thing  ::=  thing_name + thing_count
-
-thing_type ::= (alpha + alphanums)* + alpha
-
-thing_count ::= digits*
-
+    thing  ::=  thing_name + thing_count
+    thing_type ::= (alpha + alphanums)* + alpha
+    thing_count ::= digits*
 
 
 Using Combine and Optional, the best I could come up with is:
 
 
-
-
-
-from pyparsing import *
-
-
-
-
-
-thing_name = Combine(Optional(Word(alphas,alphanums)) + Word(alphas))
-
-# fails with parseError, due to optional as first clause?</li></ol>thing_name.parseString('p2a')  
-
-
-
-
-
+    from pyparsing import *
+    
+    thing_name = Combine(Optional(Word(alphas,alphanums)) + Word(alphas))
+    # fails with parseError, due to optional as first clause?
+    3 thing_name.parseString('p2a')  
 
 
 This fails with a parse error.  
@@ -10506,56 +9814,28 @@ It would help if you posted more examples, not just of thing_type's, but also ho
 #### 2009-08-02 18:39:11 - gregglind
 Re: the book!  It's $10, and totally worth it, even for the S-expressions chapter.  It's hard to know how useful it is until you own the thing, so if you do find it somewhere naughty, pay up!
 
-
-
-
-
 I think my solve for this (the name part) is hackish:
 
-
-
-Regex('[^\s\d]\w+[^\s\d]').parseString('k2tog')
-
-
-
+    Regex('[^\s\d]\w+[^\s\d]').parseString('k2tog')
 
 
 my revised, and less error-full:  
 
-
-
-
-
-thing ::= thing_name + thing_count
-
-thing_name ::= alpha+  ((alphanums)* alpha)*
-
-thing_count ::= digits*
-
-
+    thing ::= thing_name + thing_count
+    thing_name ::= alpha+  ((alphanums)* alpha)*
+    thing_count ::= digits*
 
 My BNF is rusty, but I'm trying to say for thing_name:
 
-   alpha, then some alphanums, but must end with an alpha.
-
-
+    alpha, then some alphanums, but must end with an alpha.
 
 And yes it really is that something like:
 
-
-
-k2tog3  ->  3 of k2tog   
-
-p3   -> 3 p's
-
-k3bl2tog5 -> 5  of k3bl2tog
-
-
+    k2tog3  ->  3 of k2tog   
+    p3   -> 3 p's
+    k3bl2tog5 -> 5  of k3bl2tog
 
 That's why the 'name' can't end with digits, to make it possible to pull a count off of it.  I know this is getting into natural language territory, but it is unambiguous. 
-
-
-
 
 
 Thanks for the help!
@@ -10681,7 +9961,7 @@ Thanks again,
 
 -- Paul
 #### 2009-08-20 13:09:02 - john-l
-<ul class="quotelist"><li>In your test string, try to have some indentations</li><li>end more than 1 level.</li></ul>
+> In your test string, try to have some indentations</li><li>end more than 1 level.</li></ul>
 
 Thanks for the suggestion.  I added a few list items like this to my test case, and they parsed correctly.
 #### 2009-08-31 16:27:14 - jkrukoff
@@ -10693,7 +9973,8 @@ I've no idea what the FollowedBy line might be doing, but I've a line continuati
 
 
 
-[[continuation = pyparsing.LineEnd( ) + pyparsing.FollowedBy( '\\' ) + addons.checkIndent( aIndentations ) + '\\']]
+    continuation = pyparsing.LineEnd( ) + pyparsing.FollowedBy( '\\' ) 
+                        + addons.checkIndent( aIndentations ) + '\\'
 
 
 
@@ -10765,9 +10046,7 @@ Questions:
 
 
 
-2. Any way to 'guarantee' that the result of a parsing 
-
-will be a 'string'ish?
+2. Any way to 'guarantee' that the result of a parsing will be a 'string'ish?
 
 
 
@@ -10779,36 +10058,24 @@ Gregg
 
 
 
-
-
-In [715]: Combine(Literal('a') + Word('9')('num'))('code').parseString('a9')['code']
-
-Out[715]: (['a9'], {'num': [('9', 0)]})
-
-
-
-In [716]: Combine('a' + Word('9')('num'))('code').parseString('a9')['code']
-
-Out[716]: (['a9'], {'num': [('9', 0)]})
-
-
-
-In [717]: Combine('a' + Word('9'))('code').parseString('a9')['code']
-
-Out[717]: 'a9'
-
-
-
-In [719]: Combine(Suppress('a') + Word('9'))('code').parseString('a9')['code']
-
-Out[719]: '9'
+    In [715]: Combine(Literal('a') + Word('9')('num'))('code').parseString('a9')['code']
+    Out[715]: (['a9'], {'num': [('9', 0)]})
+    
+    In [716]: Combine('a' + Word('9')('num'))('code').parseString('a9')['code']
+    Out[716]: (['a9'], {'num': [('9', 0)]})
+    
+    In [717]: Combine('a' + Word('9'))('code').parseString('a9')['code']
+    Out[717]: 'a9'
+    
+    In [719]: Combine(Suppress('a') + Word('9'))('code').parseString('a9')['code']
+    Out[719]: '9'
 
 #### 2009-08-21 21:23:43 - ptmcg
 All I can say is that if you define a name within a sub-field of the expression, then the value you get has to be a ParseResults, not a string.  In 715,716, if you got back a string, there would be no way to get at the 'num' field.  Imagine just typing this:
 
 
 
-'a9'.num
+    'a9'.num
 
 
 
@@ -10816,7 +10083,7 @@ or
 
 
 
-'a9'['num']
+    'a9'['num']
 
 
 
@@ -10862,12 +10129,10 @@ For example to represent a C source file one could have the following (incomplet
 
 I can probably generate this hierarchy by defining a BNF for the entire source file, parsing the file with it, and post-processing the ParseResults object to construct the object hierarchy.
 
-
-
 I'm wondering if there is a way for pyparsing to do the object creation and to generate the hierarchy.
 
 #### 2009-08-24 21:21:33 - ptmcg
-Attach parse actions to each expression, but here is the trick: use a class instead of a function.  The class's __init__ method will get called, and return an instance of that class.  You can see examples of this in the online examples  and .  This technique was also used in the Python Magazine article in May, 2008 creating a Brainf*ck interpreter/compiler.
+Attach parse actions to each expression, but here is the trick: use a class instead of a function.  The class's `__init__` method will get called, and return an instance of that class.  You can see examples of this in the online examples  and .  This technique was also used in the Python Magazine article in May, 2008 creating a Brainf*ck interpreter/compiler.
 
 
 
@@ -10890,21 +10155,13 @@ hello,
 i have this grammar and a sample string:
 
 
-
-
-
     from pyparsing import *
-    
+   
     slug = Word(srange('[a-zA-Z0-9_-]'))
-    
     date = Keyword('date') + '=' + Combine(Word(nums, exact = 4) + ('-' + Word(nums, exact = 2)) * 2).setResultsName('date')
-    
     name = Keyword('name') + '=' + slug.setResultsName('name')
-    
     template = (Combine('.' + slug) + '=' + QuotedString('{', endQuoteChar = '}', multiline = True)).setResultsName('template', listAllMatches = True)
-    
     plate = Keyword('plate') + '=' + (date & name & ZeroOrMore(template)).setResultsName('plate', listAllMatches = True)
-    
     grammar = ZeroOrMore(plate) + StringEnd()
     
     doc = '''
@@ -10926,12 +10183,7 @@ i have this grammar and a sample string:
     for t in tokens.plate[0].template :
         print t
 
-
-
 it procudes this output:
-
-
-
 
 
     ['.summary', '=', '\r\n                        some long text\r\n
@@ -10966,11 +10218,7 @@ konstantin
 #### 2009-08-27 11:28:30 - akonsu
 i was wrong.
 
-
-
-
-
-template = (Combine('.' + slug) + '=' + QuotedString('{', endQuoteChar = '}', multiline = True)).setResultsName('template')
+    template = (Combine('.' + slug) + '=' + QuotedString('{', endQuoteChar = '}', multiline = True)).setResultsName('template')
 
 
 
@@ -11010,214 +10258,13 @@ I have a huge dump file from an application of ours that has a list of users and
 The dump file looks like this:
 
 
-
     #-----------------------------------------------------------------------------
-    
+   
     Name          :    N5239411
     
     Password      :    0x0020 61 01 fe 7c 22 36 f4 1a 74 fa 95 4e 36 c7 c1 fb 85 fd 2a 46 98 fe d5 4a 6f 08 cf 49 8d 8f 99 a4 
     
-    Chap password :    0x0020 29 93 f4 52 10 c5 9a 5a b2 06 ab c9 2c 5f 76 15 b6 cc 06 08 e5 79 57 18 61 69 24 5d 6d bb dd fe 
-    
-    State         :    0
-    
-    S_flags       :    1
-    
-    Aging policy  :    group147
-    
-    Good count    :    0
-    
-    Warning count :    0
-    
-    Change count  :    0
-    
-    Last change Lo:    3270332864
-    
-    Last change Hi:    30024291
-    
-    Last auth Lo  :    0
-    
-    Last auth Hi  :    0
-    
-    Rights        :    1
-    
-    Type          :    2560
-    
-    EnableType    :    4
-    
-    Status        :    33
-    
-    Reset         :    1
-    
-    Expiry        :    262    109    0    4294955786    0    5
-    
-    MaxSession    :    65535
-    
-    MaxSess2      :    0
-    
-    Profile       :    147
-    
-    LogonHrs      :    0x0016 00 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
-    
-    Alias         :    0    
-    
-    Value Flags   :    524337
-    
-    CounterVals_00:    0    0    0    0
-    
-    CounterRst_00 :    0     0
-    
-    CounterVals_01:    0    0    0    0
-    
-    CounterRst_01 :    0     0
-    
-    ##--- User End
-    
-    App00    USER_DEFINED_FIELD_0    STRING    PV Mohandas
-    
-    App00    USER_DEFINED_FIELD_1    STRING    NAP_India_Noida_HCL_SAP-Support
-    
-    App00    IP_ACS_POOLS_LENGTH    INTEGER    1
-    
-    App00    IP_ACS_POOLS    STRING    
-    
-    App00    IP_ALLOCATION_METHOD    INTEGER    5
-    
-    App00    IP_STATIC_ADDR_LENGTH    INTEGER    1
-    
-    App00    IP_STATIC_ADDR    STRING    
-    
-    App00    IP_NAS_POOL_LENGTH    INTEGER    1
-    
-    App00    IP_NAS_POOL    STRING    
-    
-    App00    user_callback_type    INTEGER    0
-    
-    App00    user_callback    STRING    
-    
-    App00    disp_callback    STRING    
-    
-    App01    Filters\NAS\records    MSTRING    All AAA Clients�*�*
-    
-    App01    Filters\NAS\enabled    STRING    1
-    
-    App01    Filters\NAS\option    STRING    PERMIT
-    
-    App01    Filters\Dialup\records    MSTRING    
-    
-    App01    Filters\Dialup\enabled    STRING    0
-    
-    App01    Filters\Dialup\option    STRING    PERMIT
-    
-    App01    max_priv    STRING    0,0
-    
-    App01    max_priv_LENGTH    INTEGER    3
-    
-    App01    PROFILE    STRING    {default = deny default service = deny default cmd = ignore default attribute = deny}===={shell{3}{}{}}
-    
-    ##--- Values End
-    
-    #-----------------------------------------------------------------------------
-    
-    Name          :    N5239410
-    
-    Password      :    0x0020 bd 2b e5 ee 9d ff e2 b1 0d 4a 72 30 a4 5a 8c 43 7d 84 e1 b9 06 b6 f1 6a d7 ca 59 9a 44 0f 4f 35 
-    
-    Chap password :    0x0020 29 93 f4 52 10 c5 9a 5a 29 5e 23 fd 90 8c 0b 0f 3a 05 f6 59 60 9b f4 d5 34 ce 81 bb f0 76 74 51 
-    
-    State         :    0
-    
-    S_flags       :    1
-    
-    Aging policy  :    group147
-    
-    Good count    :    0
-    
-    Warning count :    0
-    
-    Change count  :    0
-    
-    Last change Lo:    3986732864
-    
-    Last change Hi:    30024291
-    
-    Last auth Lo  :    0
-    
-    Last auth Hi  :    0
-    
-    Rights        :    1
-    
-    Type          :    2560
-    
-    EnableType    :    4
-    
-    Status        :    33
-    
-    Reset         :    1
-    
-    Expiry        :    262    109    0    4294956042    0    5
-    
-    MaxSession    :    65535
-    
-    MaxSess2      :    0
-    
-    Profile       :    147
-    
-    LogonHrs      :    0x0016 00 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
-    
-    Alias         :    0    
-    
-    Value Flags   :    524337
-    
-    CounterVals_00:    0    0    0    0
-    
-    CounterRst_00 :    0     0
-    
-    CounterVals_01:    0    0    0    0
-    
-    CounterRst_01 :    0     0
-    
-    ##--- User End
-    
-    App00    USER_DEFINED_FIELD_0    STRING    Vinod Yene
-    
-    App00    USER_DEFINED_FIELD_1    STRING    NAP_India_Noida_HCL_SAP-Support
-    
-    App00    IP_ACS_POOLS_LENGTH    INTEGER    1
-    
-    App00    IP_ACS_POOLS    STRING    
-    
-    App00    IP_ALLOCATION_METHOD    INTEGER    5
-    
-    App00    IP_STATIC_ADDR_LENGTH    INTEGER    1
-    
-    App00    IP_STATIC_ADDR    STRING    
-    
-    App00    IP_NAS_POOL_LENGTH    INTEGER    1
-    
-    App00    IP_NAS_POOL    STRING    
-    
-    App00    user_callback_type    INTEGER    0
-    
-    App00    user_callback    STRING    
-    
-    App00    disp_callback    STRING    
-    
-    App01    Filters\NAS\records    MSTRING    All AAA Clients�*�*
-    
-    App01    Filters\NAS\enabled    STRING    1
-    
-    App01    Filters\NAS\option    STRING    PERMIT
-    
-    App01    Filters\Dialup\records    MSTRING    
-    
-    App01    Filters\Dialup\enabled    STRING    0
-    
-    App01    Filters\Dialup\option    STRING    PERMIT
-    
-    App01    max_priv    STRING    0,0
-    
-    App01    max_priv_LENGTH    INTEGER    3
+    <snip>
     
     App01    PROFILE    STRING    {default = deny default service = deny default cmd = ignore default attribute = deny}===={shell{3}{}{}}
     
@@ -11338,7 +10385,7 @@ Input File
     ##--- User End
     App00    USER_DEFINED_FIELD_0    STRING    PV Mohandas
     App00    USER_DEFINED_FIELD_1    STRING    NAP_India_Noida_HCL_SAP-Support
-    App01    Filters\NAS\records    MSTRING    All AAA Clients�*�*
+    App01    Filters\NAS\records    MSTRING    All AAA Clients'*�*
     App01    Filters\NAS\enabled    STRING    1
     ##--- Values End
     #----------------------------------------------------------------------------
@@ -11354,7 +10401,7 @@ Input File
     ##--- User End
     App00    USER_DEFINED_FIELD_0    STRING    Vinod Yene
     App00    USER_DEFINED_FIELD_1    STRING    NAP_India_Noida_HCL_SAP-Support
-    App01    Filters\NAS\records    MSTRING    All AAA Clients�*�*
+    App01    Filters\NAS\records    MSTRING    All AAA Clients'*�*
     App01    Filters\NAS\enabled    STRING    1
     ##--- Values End
     #-----------------------------------------------------------------------------
@@ -11523,30 +10570,20 @@ HTH,
 #### 2009-09-02 20:53:44 - ptmcg
 Oh, and you should remove '.setName('valuesLine').setDebug()' from the code example, I just needed to see where things were going bad, and it was at the occurrence of '\r' in your input text (I had pasted it into a Python string variable to simplify my testing).
 
-
-
 -- Paul
 
 ---
 ## 2009-09-03 06:58:33 - reyman64 - recursive parsing on data
 I have syntax like that : 
 
-<ul class="quotelist"><li>plot-x(population desc, wealth desc) per-y-time(1650,2000) in-space(cities)</li></ul>
-
-<ul class="quotelist"><li>plot-x(txV of population desc, txV of wealth desc) per-y-time (1650,2000) in-space(cities)</li></ul>
-
-<ul class="quotelist"><li>group-by(plot-x(population desc),date) per-y-rank (1,max) in-space(cities desc,10000)</li></ul>
-
-<ul class="quotelist"><li>group-by(plot-x(population desc),date) per-y-rank (1,1000) in-space(cities desc,10000)</li></ul>
-
-<ul class="quotelist"><li>plot-x(primacy3 of population desc) per-y-time (1650,2000) in-space(cities)</li></ul>
-
-<ul class="quotelist"><li>group-by(plot-x(population desc),sector) per-y-time(1650,2000) in-space(cities)</li></ul>
+> plot-x(population desc, wealth desc) per-y-time(1650,2000) in-space(cities)  
+> plot-x(txV of population desc, txV of wealth desc) per-y-time (1650,2000) in-space(cities)  
+> group-by(plot-x(population desc),date) per-y-rank (1,max) in-space(cities desc,10000)  
+> group-by(plot-x(population desc),date) per-y-rank (1,1000) in-space(cities desc,10000)  
+> plot-x(primacy3 of population desc) per-y-time (1650,2000) in-space(cities)  
+> group-by(plot-x(population desc),sector) per-y-time(1650,2000) in-space(cities)  
 
 I'm starting with this grammar : 
-
-
-
 
 
     #keyword
@@ -11583,7 +10620,7 @@ I wrote this in first time :
 
 
 
-    quitCommand.setParseAction(
+            quitCommand.setParseAction(
                 self.makeCommandParseAction( QuitCommand ) )
     
             groupCommand.setParseAction(
@@ -11706,20 +10743,15 @@ Thx for this link, that's help me a lot for architecture my code :]
 
 I have a question ,
 
-
-
-
-
 Imagine, in your adventure game, i want to create one special potion with some other potions like this :
 
 
-
-COOK( MIX(POTIONS( herb WITH frog ), POTIONS ( herb WITH squirrel's eye AT 200 degree) ), 'plate' )
-
+    COOK( MIX(POTIONS( herb WITH frog ), POTIONS ( herb WITH squirrel's eye AT 200 degree) ), 'plate' )
 
 
-You attach one action by keyword : POTIONS ( WITH AT | WITH ), MIX, COOK
+You attach one action by keyword : 
 
+    POTIONS ( WITH AT | WITH ), MIX, COOK
 
 
 I want to create potions, and after mix all in a final meal/cook :]
@@ -11730,19 +10762,10 @@ You have one action / class by command process, but, how i can to make this recu
 
 -- In my case --
 
-
-
-[code]
-
-group-by(plot-y(population desc),date) per-x-time (1650,2000) in-space(cities desc,10000)
-
-[/code]
-
+    group-by(plot-y(population desc),date) per-x-time (1650,2000) in-space(cities desc,10000)
 
 
 I have a 'Big Array of data' on which i work at each action :
-
-
 
 In first time, i want to select a period of time in my data >> per-x-time(1650,2000)
 
@@ -11805,108 +10828,56 @@ Danken Shih
 ## 2009-09-15 21:15:40 - crmccreary - parsing fortran type text files
 I am currently using regex's to parse files that are delimited by their column as such:
 
-
-
     *        1         2         3         4         5         6         7
-    
     *2345678901234567890123456789012345678901234567890123456789012345678901234567890
-    
     OPTIONS      EN       SDUC   5 5        PT  PTPT          PT
-    
     GRUP
-    
     GRUP J 4         16.000 0.375 29.0011.6036.00 1    .700.700           490.00
-    
     GRUP J21         16.000 0.438 29.0011.6036.00 1    .700.700           490.00
-    
     GRUP J23         18.000 0.375 29.0011.6036.00 1    .700.700           490.00
-    
     GRUP J53         18.000 0.500 29.0011.6036.00 1    .700.700           490.00
-    
     GRUP J54         18.010 0.375 29.0011.6036.00 1    .700.700           490.00
-    
     GRUP J55         16.000 0.656 29.0011.6036.00 1    .700.700           490.00
-    
     GRUP JL3         34.500 0.750 29.0011.6036.00 1    1.001.00           490.00 5.0
-    
     GRUP JL3         34.000 0.500 29.0011.6036.00 1    1.001.00           490.00 0.0
-    
     GRUP JL3         34.500 0.750 29.0011.6036.00 1    1.001.00           490.00 5.0
-    
     GRUP JL4         34.500 0.750 29.0011.6036.00 1    1.001.00           490.00 0.0
-    
     MEMBER
-    
     MEMBER 25042514 J 4                                                    0 16.00
-    
     MEMBER 25142524 J 4
-    
     MEMBER 26042624 J21
-    
     MEMBER 24042414 J23                                                    0 18.00
-    
     MEMBER 24142424 J23
-    
     MEMBER123142404 J53                                                    0 18.00
-    
     MEMBER OFFSETS                                   4.50 -8.62
-    
     MEMBER123142424 J53                                                    0 18.00
-    
     MEMBER OFFSETS                                   4.50  8.63
-    
     MEMBER124142504 J54                                                    0 18.00
-    
     MEMBER OFFSETS                                   4.50 -8.62
-    
     MEMBER124142524 J54                                                    0 18.00
-    
     MEMBER OFFSETS                                   4.50  8.63
-    
     MEMBER125142604 J55                                                    0 16.00
-    
     MEMBER OFFSETS                                   4.00 -8.62
-    
     MEMBER125142624 J55                                                    0 16.00
-    
     MEMBER OFFSETS                                   4.00  8.63
-    
     MEMBER 23042404 JL3                                                    0 34.00
-    
     MEMBER 23242424 JL3                                                    0 34.00
-    
     MEMBER 24042504 JL3                                                    0 34.00
-    
     MEMBER 24242524 JL3
-    
     MEMBER 25042604 JL4
-    
     MEMBER 25242624 JL4
-    
     JOINT
-    
     JOINT 2304    -13.   -0.0    82. -6.240  0.000        111111
-    
     JOINT 2314    -47.   -0.0    82. -6.000  0.000        111111
-    
     JOINT 2324    -81.   -0.0    82. -5.520  0.000        111111
-    
     JOINT 2404    -15.   -0.0   123. -6.960  0.000        010000
-    
     JOINT 2414    -45.   -0.0   123. -1.200  0.000
-    
     JOINT 2424    -74.   -0.0   123. -7.680  0.000        010000
-    
     JOINT 2504    -17.   -0.0   165. -8.040  0.000        010000
-    
     JOINT 2514    -42.   -0.0   165. -6.960  0.000
-    
     JOINT 2524    -67.   -0.0   165. -7.800  0.000        010000
-    
     JOINT 2604    -19.   -0.0   207. -9.480  0.000        010000
-    
     JOINT 2624    -60.   -0.0   207. -7.920  0.000        010000
-    
     JOINT 2624 34000.034000.0                             ELASTI
 
 Some of the keywords, such as MEMBER, may be followed by one or more modifier lines, such as MEMBER OFFSET. This is indicated by the '1' in column 7.
@@ -11961,6 +10932,8 @@ and so on, ad nauseum. The regex structure has been a real pain to maintain and 
 
 #### 2009-09-15 21:18:19 - crmccreary
 On the above post, there are no blank lines in the file. An error when pasting text.
+_[ED - lines reformatted to remove extra blank lines.]_
+
 #### 2009-09-16 00:33:39 - ptmcg
 For data like this that is column-dependent, I should think that straight string slicing would be the best bet, it looks like you have only 3 or 4 various formats.  Pyparsing *can* do column sensitive parsing, but it feels like a square peg in a round hole to me.  Even regex's feel like you are trying too hard - just go with the string slicing.
 
@@ -12304,95 +11277,51 @@ Thank you @bytecolor ! This is exactly the pattern I was looking for. I find it 
 
     import pyparsing as pp
 
-
-
     # capital letter followed by any number of alphanum or underscore chars
-
     function_constant = pp.Word(pp.srange('[A-Za-z]'), pp.srange('[a-zA-Z0-9_]'))
-
     identifier = pp.Word(pp.srange('[A-Za-z]'), pp.srange('[a-zA-Z0-9_]'))
-
     comment = pp.OneOrMore(pp.Word(';').suppress()) + pp.restOfLine('comment')
 
-
-
     # GDL keywords ('Relation Constants')
-
     role = pp.Keyword('role')  # role(a) means that a is a player name/side in the game.
-
     inpt = pp.Keyword('input') # input(t) means that t is a base proposition in the game.
-
     base = pp.Keyword('base')  # base(a) means that a is an action in the game.
-
     init = pp.Keyword('init')  # init(p) means that the datum p is true in the initial state.
-
     next = pp.Keyword('next')  # next(p) means that the datum p is true in the next state.
-
     does = pp.Keyword('does')  # does(r,a) means that player r performs action a in the current state.
-
     legal = pp.Keyword('legal')  # legal(r,a) means it is legal for r to play a in the current state.
-
     goal = pp.Keyword('goal')  # goal(r,n) means that player the current state has utility n for player r. n must be an integer from 0 through 100.
-
     terminal = pp.Keyword('terminal')  # terminal means that the current state is a terminal state.
-
     distinct = pp.Keyword('distinct')  # distinct(x,y) means that the values of x and y are different.
-
     true = pp.Keyword('true')  # true(p) means that the datum p is true in the current state.
-
-
 
     variable = pp.Word('?', pp.alphas)
 
-
-
     # GDL-II Relation Constants
-
     sees = pp.Keyword('sees')  # The predicate sees(?r,?p) means that role ?r perceives ?p in the next game state.
-
     random = pp.Keyword('random')  # A predefined player that choses legal moves randomly
 
-
-
     # GDL-I Relation Constants
-
     relation_constant = role | inpt | base | init | next | does | legal | goal | terminal | distinct | true
 
-
-
     # Numerical contant
-
     # FIXME: too permissive -- accepts 10 numbers, '00', '01', ... '09'
-
     number = (pp.Keyword('100') | pp.Word(pp.nums, min=1, max=2))
 
-
-
     # the only binary operator (relationship constant?)
-
     implies = pp.Keyword('<=')
-
-
 
     token = (implies | variable | relation_constant | number | pp.Word(pp.alphas + pp.nums))
 
-
-
     # Define recursive grammar for nested paretheticals
-
     grammar = pp.Forward()
-
     nested_parentheses = pp.nestedExpr('(', ')', content=grammar) 
-
     grammar << (implies | variable | relation_constant | number | pp.Word(pp.alphas + pp.nums) | nested_parentheses)
-
     sentence = grammar + (comment | pp.lineEnd.suppress())
 
-
-
     game_description = pp.OneOrMore(comment | sentence)
-
 ---
+
 ## 2009-09-23 15:29:24 - maxstylus - parsing an ini file store in parent-child relationship (lists)
 Hello, 
 
@@ -12402,31 +11331,23 @@ I want to parse an ini file. The basic structure of the file is this:
 
 
 
-[Header]
-
-name = value
-
-name = value
-
-name = value
-
-
-
-[Header]
-
-name = value
-
-name = value
-
+    [Header]
+    name = value
+    name = value
+    name = value
+    
+    [Header]
+    name = value
+    name = value
 
 
 I'm confident I can figure out the grammar associated with defining the 'Header' and each 'name = value' line.  However, what's confusing me is that I need to keep the parent-child relationship of the header and it's 'name = value' children and also I need to grab multiple lines 
 
 
 
-So I think what I eventually need is this: [(Header, ((name = value), (name = value), etc.)]
+So I think what I eventually need is this: 
 
-
+    [(Header, ((name = value), (name = value), etc.)]
 
 Eventually, I need to put this into a GUI tree structure with the parent level item being the header string, and the children. 
 
@@ -13535,13 +12456,13 @@ Oh, and here is a parser that will (hackishly!) do this, with rational assumptio
 
     ppp( 's = localhost')
 #### 2009-10-20 07:40:32 - gregglind
-<ul class="quotelist"><li>def ppp(string):</li><li>string = string.replace('=', ' = ')</li><li>f = [(ii,x) for (ii,x) in enumerate(string.split())]</li><li>L = len(f)</li><li>e = [x[0]-1 for x in f if x[1] == '=']</li><li>print 'e: ', e</li><li>parts = zip( e, e[1:] + [L,])</li><li>print 'parts', parts</li><li>for (ii,(l,r)) in enumerate(parts):</li><li>print 'part %i: ' % ii, [x[1] for x in f[l:r]]</li></ul>>
+> def ppp(string):</li><li>string = string.replace('=', ' = ')</li><li>f = [(ii,x) for (ii,x) in enumerate(string.split())]</li><li>L = len(f)</li><li>e = [x[0]-1 for x in f if x[1] == '=']</li><li>print 'e: ', e</li><li>parts = zip( e, e[1:] + [L,])</li><li>print 'parts', parts</li><li>for (ii,(l,r)) in enumerate(parts):</li><li>print 'part %i: ' % ii, [x[1] for x in f[l:r]]</li></ul>>
 
 >    print ' '
 
 >
 
-<ul class="quotelist"><li>ppp( 's = abcde.net l = 10')</li><li>ppp( 's = s l s s l=blah blah blah')</li><li>ppp( 's = localhost')</li></ul>
+> ppp( 's = abcde.net l = 10')</li><li>ppp( 's = s l s s l=blah blah blah')</li><li>ppp( 's = localhost')</li></ul>
 #### 2009-10-20 11:24:14 - ptmcg
 Gregg -
 
@@ -15237,7 +14158,7 @@ Obviously my attempt failed:
 <br />
 spacing = Suppress(White(min=2))<br />
 process = OneOrMore(Word(alphasnums)).setParseAction(lambda <br />
-tokens: &quot; &quot;.join(tokens))<br />
+tokens: " ".join(tokens))<br />
 logProcess = process + spacing + process + spacing+ restOfLine<br />
 
 ```
@@ -15791,7 +14712,7 @@ I spent quite a bit of time tuning my own Verilog parser, and it runs at about 2
 
 
 
-Since Verilog permits spaces within numeric literals with bases, I needed to be able to build up a 'based' number as you see in the basedNumber expression.  But for typical numerics, I used a Regex expression to match a floating point number - this will get used <em>many</em> times, and so using a Regex will be much faster than trying to navigate through the typical pyparsing `Optional(oneOf(&quot;+ -&quot;)) + Word(nums) + Optional(&quot;.&quot;+Optional(Word(nums))) + etc.`.
+Since Verilog permits spaces within numeric literals with bases, I needed to be able to build up a 'based' number as you see in the basedNumber expression.  But for typical numerics, I used a Regex expression to match a floating point number - this will get used <em>many</em> times, and so using a Regex will be much faster than trying to navigate through the typical pyparsing `Optional(oneOf("+ -")) + Word(nums) + Optional("."+Optional(Word(nums))) + etc.`.
 
 
 
@@ -16091,7 +15012,7 @@ Which makes sense given:
 
 [code]
 
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>sp.tok_sql_vals.parseString(''''ms1',1,0,'2009-12-22','2009-12-22 10:41:22') ON DUPLICATE KEY UPDATE sent_count = sent_count + 1, mtime = '2009-12-22 10:41:22';''')</li></ul></ul></ul>([''ms1',1,0,'2009-12-22','2009-12-22 10:41:22') ON DUPLICATE KEY UPDATE sent_count = sent_count + 1, mtime = '2009-12-22 10:41:22''], {})
+>>> sp.tok_sql_vals.parseString(''''ms1',1,0,'2009-12-22','2009-12-22 10:41:22') ON DUPLICATE KEY UPDATE sent_count = sent_count + 1, mtime = '2009-12-22 10:41:22';''')</li></ul></ul></ul>([''ms1',1,0,'2009-12-22','2009-12-22 10:41:22') ON DUPLICATE KEY UPDATE sent_count = sent_count + 1, mtime = '2009-12-22 10:41:22''], {})
 
 [/code]
 
@@ -16196,7 +15117,7 @@ Your original definition for QuotedString was:
 
 
 
-I should have looked at this closer, as your usage of these constructors is the core problem.  The third argument to the constructor is a sequence that is supposed to map to a single quote character if found in the input string.  The purpose of this argument is specifically for syntaxes like many SQL's which use '\' for a generic escape character, but use a doubled quote ('' or '') for quotes.  So inserting this text like `&quot;I don't like you&quot;` is escaped as `&quot;I don''t like you&quot;`.  You gave \' and \' as your escape chars, which Python interprets as just ' and ', which ended up causing my generated regex to greedily include the terminating ' or ' in the body of the string.
+I should have looked at this closer, as your usage of these constructors is the core problem.  The third argument to the constructor is a sequence that is supposed to map to a single quote character if found in the input string.  The purpose of this argument is specifically for syntaxes like many SQL's which use '\' for a generic escape character, but use a doubled quote ('' or '') for quotes.  So inserting this text like `"I don't like you"` is escaped as `"I don''t like you"`.  You gave \' and \' as your escape chars, which Python interprets as just ' and ', which ended up causing my generated regex to greedily include the terminating ' or ' in the body of the string.
 
 
 
