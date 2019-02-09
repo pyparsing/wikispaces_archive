@@ -85,7 +85,7 @@ Basically, I need to process everything in the input string.
 Thanks so much for a detailed response!
 #### 2016-01-21 08:02:15 - ptmcg
 
-This code gives the output you are looking for, by using scanString to locate the attribute groups, and processing the intervening text for the unstructured statements. The statements are best handled in a separate pass outside the main parser - expressions like 'OneOrMore(Word(printables))' can easily slurp in way more than is wanted, so processing a line at a time, ignoring Python comments, keeps this under control.
+This code gives the output you are looking for, by using scanString to locate the attribute groups, and processing the intervening text for the unstructured statements. The statements are best handled in a separate pass outside the main parser - expressions like `'OneOrMore(Word(printables))'` can easily slurp in way more than is wanted, so processing a line at a time, ignoring Python comments, keeps this under control.
 
 Uses the input variable `data` from 
 
@@ -166,17 +166,17 @@ but also to the enveloping expression. A simple demonstrative example:
     r = test.parseString('123 456')
     print(r)
 
-<ol><li>['123', '456'] (as expected)</li></ol>
+    #  '123', '456'] (as expected)
 
     print(list(r.keys()))
 
     ['right', 'left'] # as expected
     print(r.left, r.right)
-<ol><li>123 456 (as expected)</li></ol>
+    # 123 456 (as expected)
 
     print(r.getName())
 
-<ol><li>left (???)</li></ol>
+    #left (???)
 
 I would expect no name to be assigned to r.
 
@@ -421,9 +421,19 @@ I am trying to parse LaTeX (or at least some subset). I assume that every latex 
             print '  { Tex Command Argument %s at line %s'%(self.toks, lineno(self.locn, self.st))
     
     #class FoundLineComment:
-    <ol><li>def __init__(self, st, locn, toks):</li><li>self.st = st</li><li>self.locn = locn</li><li>self.toks = toks</li><li>print '*** Line Comment \'%s\' at line %s'%(self.toks[0], lineno(self.locn, self.st))</li></ol>#
+    # def __init__(self, st, locn, toks):
+    # self.st = st
+    # self.locn = locn
+    # self.toks = toks
+    # print '*** Line Comment \'%s\' at line %s'%(self.toks[0], lineno(self.locn, self.st))
     #class FoundBlockComment:
-    <ol><li>def __init__(self, st, locn, toks):</li><li>toks = ''.join(toks[0])</li><li>self.st = st</li><li>self.locn = locn</li><li>self.toks = toks</li><li>print '<strong>* Block Comment at line %s'%(lineno(locn, self.st))</li><li>#print '</strong>* Block Comment \'%s\' at line %s'%(self.toks, lineno(self.locn, self.st))</li></ol>
+    # def __init__(self, st, locn, toks):
+    # toks = ''.join(toks[0])
+    # self.st = st
+    # self.locn = locn
+    # self.toks = toks<
+    # print '*** Block Comment at line %s'%(lineno(locn, self.st))
+    # #print '*** Block Comment \'%s\' at line %s'%(self.toks, lineno(self.locn, self.st))
     class FoundText:
         def __init__(self, st, locn, toks):
             toks = ''.join(toks)
@@ -433,7 +443,8 @@ I am trying to parse LaTeX (or at least some subset). I assume that every latex 
             print '... Text \'%s\' at line %s'%(self.toks, lineno(self.locn, self.st))
     
     
-    <ol><li>Characters</li></ol>backslash        = '\\'
+    # Characters
+    backslash        = '\\'
     percent          = '%'
     bracketleft      = '['
     bracketright     = ']'
@@ -451,7 +462,8 @@ I am trying to parse LaTeX (or at least some subset). I assume that every latex 
     escape           = esc_percent | esc_backslash | esc_bracketleft | esc_bracketright | esc_curlyleft | esc_curlyright
     escape.setParseAction(lambda st, locn, toks: toks[0][1])
     
-    <ol><li>Tex commands</li></ol>text             = Forward()
+    # Tex commands
+    text             = Forward()
     commandname      = Word(alphas)
     parametervalue   = Word(alphas)
     #parametervalue   = text
@@ -465,7 +477,8 @@ I am trying to parse LaTeX (or at least some subset). I assume that every latex 
     texcommand       = Group(Suppress(backslash) + commandname + ZeroOrMore(parameter) + ZeroOrMore(argument))
     texcommand.setParseAction(FoundCommand)
     
-    <ol><li>Text</li></ol>text             = OneOrMore(White() | Word(standard_chars) | escape)
+    # Text
+    text             = OneOrMore(White() | Word(standard_chars) | escape)
     text.setParseAction(FoundText)
     tex              = OneOrMore(texcommand)
     
@@ -475,10 +488,8 @@ I am trying to parse LaTeX (or at least some subset). I assume that every latex 
     #blockcomment.setParseAction(FoundBlockComment)
     comment          = linecomment | blockcomment
     
-    
     texgrammar = OneOrMore(text | tex)
     texgrammar.ignore(comment)
-    
     
     if __name__ == '__main__':
         print '== scan =========================='
@@ -491,36 +502,7 @@ I am trying to parse LaTeX (or at least some subset). I assume that every latex 
 However, the above code seems to work with scanString, but not with parseString:
 
 [code]
-<h2 id="toc0"> scan ========================</h2>
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>Tex Command 'documentclass' at line 1</li></ul></ul></ul>... Text 'opt1,opt2' at line 1
-... Text 'foo' at line 1
-... Text 'a4paper' at line 1
-  { Tex Command Argument ['foo'] at line 2
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>Tex Command 'newcommand' at line 2</li></ul></ul></ul>  [ Tex Command Parameter ['opt'] at line 2
-  { Tex Command Argument ['arg'] at line 2
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>Tex Command 'secondarg' at line 2</li></ul></ul></ul>  { Tex Command Argument ['document'] at line 3
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>Tex Command 'begin' at line 3</li></ul></ul></ul>  { Tex Command Argument ['Intro'] at line 4
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>Tex Command 'chapter' at line 4</li></ul></ul></ul>... Text '
-Chapter Intro Introduction
-' at line 4
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>Tex Command 'section' at line 6</li></ul></ul></ul>... Text 'First Section' at line 6
-... Text 'Section Content text
-escaped backslash \ in text
-escaped percent % in text
-This is a test
-' at line 7
-  { Tex Command Argument ['document'] at line 14
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>Tex Command 'end' at line 14</li></ul></ul></ul>... Text '
-' at line 14
-<h2 id="toc1"> parse =======================</h2>
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>Tex Command 'documentclass' at line 1</li></ul></ul></ul>Traceback (most recent call last):
-  File 'test6.py', line 125, in <module>
-    info = texgrammar.parseString(test, parseAll=True)
-  File '/usr/lib/python2.7/dist-packages/pyparsing.py', line 1125, in parseString
-    raise exc
-pyparsing.ParseException: Expected end of text (at char 14), (line:1, col:15)
-[/code]
-
+    
 #### 2016-02-18 15:10:43 - Spida2
 Please delete this post. Formatting broken, old version.
 
@@ -528,29 +510,29 @@ Please delete this post. Formatting broken, old version.
 ## 2016-02-06 09:02:39 - palmer1979 - Pickle pyparsing in Python 2.7.11 versus 3.5.1
 Hi, I have the following test code. It works using Python 2.7.11 and fails using 3.5.1. 
  
-import pyparsing as pp
-import pickle
-
-class Greeting():
-    def __init__(self, toks):
-        self.salutation = toks[0]
-        self.greetee = toks[1]
-
-word = pp.Word(pp.alphas+''.')
-salutation = pp.OneOrMore(word)
-comma = pp.Literal(',')
-greetee = pp.OneOrMore(word)
-endpunc = pp.oneOf('! ?')
-greeting = salutation + pp.Suppress(comma) + greetee + pp.Suppress(endpunc)
-greeting.setParseAction(Greeting)
-
-string = 'Good morning, Miss Crabtree!'
-
-g = greeting.parseString(string)
-
-pkl = 'test .pkl'
-pickle.dump(g, open(pkl, 'wb'))
-pickle.load(open(pkl, 'rb'))
+    import pyparsing as pp
+    import pickle
+    
+    class Greeting():
+        def __init__(self, toks):
+            self.salutation = toks[0]
+            self.greetee = toks[1]
+    
+    word = pp.Word(pp.alphas+''.')
+    salutation = pp.OneOrMore(word)
+    comma = pp.Literal(',')
+    greetee = pp.OneOrMore(word)
+    endpunc = pp.oneOf('! ?')
+    greeting = salutation + pp.Suppress(comma) + greetee + pp.Suppress(endpunc)
+    greeting.setParseAction(Greeting)
+    
+    string = 'Good morning, Miss Crabtree!'
+    
+    g = greeting.parseString(string)
+    
+    pkl = 'test .pkl'
+    pickle.dump(g, open(pkl, 'wb'))
+    pickle.load(open(pkl, 'rb'))
 
 
 Please help, I really need to store my results, as my real grammar and input string take minutes to parse.
@@ -632,13 +614,14 @@ I'm trying to parse a very simple list of attributes as can be seen by this gist
 However, I'm having trouble trying to parse the 'then:' key.
 
 Ideally, I want the output to return the list of commands inside the braces { }. Eg. in Python: 
-{ 
-'then': [
-     '[pe_cir] so go go',
-     'hello my blah [pe_cir]',
-    'another command to try out',
-] 
-}
+
+    { 
+    'then': [
+         '[pe_cir] so go go',
+         'hello my blah [pe_cir]',
+        'another command to try out',
+    ] 
+    }
 
 I'm not sure what I'm doing wrong. I got all other parts right except for 'then.'
 
@@ -648,22 +631,30 @@ Btw, I saw the author's plea about 'Getting Started with PyParsing' bootleg and 
 Thank you for buying the book! :)  I've been pretty busy with a new job lately, will get to look at your issue this weekend.
 #### 2016-03-17 02:05:50 - fantomasdnb
 Hi, 
-As I could see for now, literal_with_braces won't parse line like '{abc [abcd] [abc] asdf}' or whatever. 
+As I could see for now, `literal_with_braces` won't parse line like `'{abc [abcd] [abc] asdf}'` or whatever. 
 So I'd change some of the patterns like this:
-value_with_bracket = Literal('[') + Word(alphas + '_-') + Literal(']')
-line_with_braces = (Suppress('{') + OneOrMore(Word(alphanums) | value_with_bracket) + Suppress('}'))
+
+    value_with_bracket = Literal('[') + Word(alphas + '_-') + Literal(']')
+    line_with_braces = (Suppress('{') + OneOrMore(Word(alphanums) | value_with_bracket) + Suppress('}'))
 
 There is no need to add space for chars because parser breaks words by whites by itself.
 I don't really know how parser treats unwrapped string like '[' so I'd add Literal wrap. (It turns out this change is not necessary.)
 The main change is this one.
+
 Also as far as I understand 
+
     OneOrMore(Word(alphanums)) | OneOrMore(value_with_bracket) 
+
 will parse a series OneOrMore alphanums and then the series of OneOrMore bracket-values but you want series of alphanums and bracketed values in any order, so I offer 
+
     OneOrMore(Word(alphanums) | value_with_bracket)
+
 If you add .ignore(pythonStyleComment) for testing just that part i will go through.
 
 And still the command_group parser didn't parse it until I added 
-   line_with_braces.ignore(pythonStyleComment)
+
+    line_with_braces.ignore(pythonStyleComment)
+
 I think the 'upper' pattern don't propogate ignores on nested ones I didn't get to use it yet.
 
 Say if it didn't work or something.
@@ -686,11 +677,18 @@ Thanks for replying. I will certainly share it with you once the basis is stable
 ---
 ## 2016-03-15 12:27:33 - fantomasdnb - Redundant result for Each(&) statement
 I'll simply show the output 
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>pp = Optional(Literal('a')) & Optional(Literal('b'))</li><li>pp.parseString('a')</li></ul></ul></ul>(['a'], {})
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>pp.parseString('b')</li></ul></ul></ul>(['b'], {})
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>pp.parseString('a b')</li></ul></ul></ul>(['a', 'b'], {})
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>pp.parseString('b a')</li></ul></ul></ul>(['b', 'a'], {})
-<ul class="quotelist"><ul class="quotelist"><ul class="quotelist"><li>pp.parseString('a b b')</li></ul></ul></ul>(['a', 'b', 'b'], {})
+
+    >>> pp = Optional(Literal('a')) & Optional(Literal('b'))
+    >>> pp.parseString('a')
+    (['a'], {})
+    >>> pp.parseString('b')
+    (['b'], {})
+    >>> pp.parseString('a b')
+    (['a', 'b'], {})
+    >>> pp.parseString('b a')
+    (['b', 'a'], {})
+    >>> pp.parseString('a b b')
+    (['a', 'b', 'b'], {})
 
 Why it parses the last b? It can be alse 'a a b' and 'a b a'.
 
@@ -705,34 +703,34 @@ While debugging my code I came across the following exception. The situation is 
 
 Best regards, Jeroen.
 
-Error evaluating: thread_id: pid56297_seq2
-frame_id: 4342372520
-scope: FRAME
-attrs: parseresults
-Traceback (most recent call last):
-  File '/eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_vars.py', line 238, in resolveCompoundVariable
-    return resolver.getDictionary(var)
-  File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 105, in getDictionary
-    return self._getPyDictionary(var)
-  File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 171, in _getPyDictionary
-    names = dir(var)
-  File '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/pyparsing.py', line 574, in __dir__
-    return dir(super(ParseResults,self)) + self.keys()
-TypeError: can only concatenate list (not 'dict_keys') to list
-Error evaluating: thread_id: pid56297_seq2
-frame_id: 4342372520
-scope: FRAME
-attrs: t
-Traceback (most recent call last):
-  File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_vars.py', line 238, in resolveCompoundVariable
-    return resolver.getDictionary(var)
-  File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 105, in getDictionary
-    return self._getPyDictionary(var)
-  File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 171, in _getPyDictionary
-    names = dir(var)
-  File '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/pyparsing.py', line 574, in __dir__
-    return dir(super(ParseResults,self)) + self.keys()
-TypeError: can only concatenate list (not 'dict_keys') to list
+    Error evaluating: thread_id: pid56297_seq2
+    frame_id: 4342372520
+    scope: FRAME
+    attrs: parseresults
+    Traceback (most recent call last):
+      File '/eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_vars.py', line 238, in resolveCompoundVariable
+        return resolver.getDictionary(var)
+      File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 105, in getDictionary
+        return self._getPyDictionary(var)
+      File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 171, in _getPyDictionary
+        names = dir(var)
+      File '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/pyparsing.py', line 574, in __dir__
+        return dir(super(ParseResults,self)) + self.keys()
+    TypeError: can only concatenate list (not 'dict_keys') to list
+    Error evaluating: thread_id: pid56297_seq2
+    frame_id: 4342372520
+    scope: FRAME
+    attrs: t
+    Traceback (most recent call last):
+      File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_vars.py', line 238, in resolveCompoundVariable
+        return resolver.getDictionary(var)
+      File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 105, in getDictionary
+        return self._getPyDictionary(var)
+      File '/.../eclipse/plugins/org.python.pydev_4.4.0.201510052309/pysrc/pydevd_resolver.py', line 171, in _getPyDictionary
+        names = dir(var)
+      File '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/pyparsing.py', line 574, in __dir__
+        return dir(super(ParseResults,self)) + self.keys()
+    TypeError: can only concatenate list (not 'dict_keys') to list
 
 #### 2016-03-16 07:10:55 - ptmcg
 Yes, this sounds like a Python 3 issue - will get a fix checked in by the weekend (have family plans for next 2 days).
@@ -743,8 +741,8 @@ OK. Thanks for replying!
 
 ---
 ## 2016-03-16 06:04:16 - fantomasdnb - OneOrMore, ZeroOrMore + Optional hangs
-The statement: OneOrMore(Optional('a') + Optional('b'))
-with this example: ex.parseString('a b') hangs forever
+The statement: `OneOrMore(Optional('a') + Optional('b'))`
+with this example: `ex.parseString('a b')` hangs forever
 
 This is simplified example from my project but in mine case it gets to parsing an empty string! (instring = '') Is there a way to rewrite it in some way? I want a sequence of one or more 'a', 'b' or 'a b'. isn't that correct pattern?
 
@@ -786,10 +784,11 @@ The solution is to drop back and revisit why you are making these expressions op
 
 ---
 ## 2016-03-20 21:51:41 - aeiro1 - Each doesn't work unless used with Optionals
-foobar = Literal('foo') & Literal('bar')
-foobar.parseString('foo bar') # Throws exception
-foobar = Optional('foo') & Optional('bar')
-foobar.parseString('foo bar') # works fine (but also matches 'foo' and 'bar' separately
+
+    foobar = Literal('foo') & Literal('bar')
+    foobar.parseString('foo bar') # Throws exception
+    foobar = Optional('foo') & Optional('bar')
+    foobar.parseString('foo bar') # works fine (but also matches 'foo' and 'bar' separately
 
 Why is this?
 
@@ -885,12 +884,14 @@ The cacheing for packrat parsing was completely rewritten in pyparsing 2.1.6, mu
 
 ---
 ## 2016-04-12 07:21:05 - Williamzjc - just a question about infixNotation
-in function infixNotation, there are some expressions such as FollowedBy(lastExpr + opExpr) + Group( lastExpr + OneOrMore( opExpr ) ). But I think expressions like FollowedBy(e) e are equivalent to e theoretically. So why do you add FollowedBy-expression to the beginning of the expressions? What dose I ignore?
+in function infixNotation, there are some expressions such as `FollowedBy(lastExpr + opExpr) + Group( lastExpr + OneOrMore( opExpr ) )`. But I think expressions like FollowedBy(e) e are equivalent to e theoretically. So why do you add FollowedBy-expression to the beginning of the expressions? What dose I ignore?
 
 #### 2016-04-24 09:18:33 - ptmcg
 This is to avoid the grouping of bare terms that are not followed by operators. That is, parsing '3+2' returns [['3','+','2']], but parsing '3' just returns ['3']. If I recall correctly, the Group term also calls any attached parse action - using the FollowedBy lookahead also prevents calling the parse action if there is no operator.
+
 #### 2016-05-24 08:09:09 - Williamzjc
 I see. but parsing result of '3' is indeed ['3'] even delete FollowedBy parsers(except the 5th). and experiment showed that in some case, it is not slow down without them (with parse actions in oplist)
+
 #### 2016-05-24 16:34:16 - ptmcg
 I was just rerunning my unit tests with this change - unit test InfixNotationGrammarTest3 specifically tests for this. When removing the FollowedBy's, I get the parse action called many times. I *was* able to reproduce your behavior if packrat parsing is enabled - this makes sense, as pyparsing will cache the parsing done by the FollowedBy's, and then when the actual expressions are matched, the parsing part is skipped and the values just fetched from the cache.
 #### 2016-06-08 00:03:29 - Williamzjc
@@ -902,13 +903,11 @@ The minimal example is as follows:
 (hangs forever)
 
 
-[code]
-from pyparsing import dblQuotedString
-parser = dblQuotedString
-
-instring = ''' + '\\xff' * 500
-parser.parseString(instring)
-[/code]
+    from pyparsing import dblQuotedString
+    parser = dblQuotedString
+    
+    instring = ''' + '\\xff' * 500
+    parser.parseString(instring)
 
 Tested using pyparsing 2.2.1 on py 2.7
 

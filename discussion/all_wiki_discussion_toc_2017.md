@@ -20,7 +20,8 @@
 ## 2017-01-27 01:43:21 - pterminator - Random order Keywords and pyparsing operator order
 Hi, 
 
-I'm trying to write a parser for text files that contain keywords in random order, this is why I'm using Each(). Now I'm facing a problem the problem that the the pyparsing expressions don't seem distributive i.e. A & (B ^ C) != (A & B) ^ (A & C). 
+I'm trying to write a parser for text files that contain keywords in random order, this is why I'm using Each(). Now I'm facing a problem the problem that the the pyparsing expressions don't seem distributive i.e. `A & (B ^ C) != (A & B) ^ (A & C)`. 
+
 The code below demonstrates the problem more clearly. What would be a proper solution in this case? Is there a way to force pyparsing to expand the expressions?
 
 Any help is much appreciated.
@@ -61,11 +62,17 @@ Any help is much appreciated.
 
 
 #### 2017-01-28 09:00:10 - ptmcg
-This may be one of the downsides to the basic concept of operator overloading: people assume that operators will work with your code like they do in arithmetic. But pyparsing already violates some of these arithmetic models: exprA + exprB is clearly not equivalent to exprB + exprA. So we need to bear in mind the way these operators are being applied, beyond just their common arithmetic sensibilities (we *do* have to maintain precedence of operations, since that is done by the Python interpreter itself, and cannot be overridden). In your example, A & (B ^ C), where B and C are both Each expressions, the Each expression with A does not peer inside the contents of the Or term to do additional Each'ing with the terms in it. Now pyparsing *does* do some manipulation of terms in its streamline() processing (combining like operations like '(A | B) | C' to 'A | B | C'). So there may be a possibility to have streamline do some of the kind of expansion/distributivity that you describe. But that will have to wait for a future release.  In the mean time, I think you will have to do your own Each combinations. Thanks for the idea, I'll have to try some experiments with it.
+This may be one of the downsides to the basic concept of operator overloading: people assume that operators will work with your code like they do in arithmetic. But pyparsing already violates some of these arithmetic models: `exprA + exprB` is clearly not equivalent to `exprB + exprA`. 
+
+So we need to bear in mind the way these operators are being applied, beyond just their common arithmetic sensibilities (we *do* have to maintain precedence of operations, since that is done by the Python interpreter itself, and cannot be overridden). 
+
+In your example, `A & (B ^ C)`, where B and C are both Each expressions, the Each expression with A does not peer inside the contents of the Or term to do additional Each'ing with the terms in it. Now pyparsing *does* do some manipulation of terms in its streamline() processing (combining like operations like `'(A | B) | C'` to `'A | B | C'`). So there may be a possibility to have streamline do some of the kind of expansion/distributivity that you describe. But that will have to wait for a future release.  In the mean time, I think you will have to do your own Each combinations. Thanks for the idea, I'll have to try some experiments with it.
+
 #### 2017-01-30 01:52:18 - pterminator
 Thanks for your answer, I understand that it could only could work for Each and Or since order matters, but in a case like this, such an option would be great. 
 Of course the example above is reduced to the bare minimum and rewriting the expression is trivial. The actual parser I've written is based on a rather extensive five page BNF specification (in which order does not matter) with many 'exclusive or' statements that could be nested as well. That would make expanding the terms nearly impossible if not done automatically.
-A workaround could be to be less strict with the grammar and resort to ZeroOrMore(A | B | C | D | E | ....)  where A to E represent 'single' expressions, i.e. in the example 'alt_one' would be split in two parts and one can drop 'Optional()'. The only downside would be that the parser will not be able to detect missing mandatory fields, but that could be left for a post-parsing operation.
+A workaround could be to be less strict with the grammar and resort to `ZeroOrMore(A | B | C | D | E | ....)`  where A to E represent 'single' expressions, i.e. in the example 'alt_one' would be split in two parts and one can drop 'Optional()'. The only downside would be that the parser will not be able to detect missing mandatory fields, but that could be left for a post-parsing operation.
+
 #### 2017-01-30 06:53:00 - ptmcg
 A parse action would be a decent compromise for now. I'll revisit my current operations with an eye to which ones should be commutative and associative, and see if I can get streamline() to do more of this heavy lifting. With this change, I'll probably release as v2.2.0.
 
@@ -665,7 +672,7 @@ Prints:
 
 
 #### 2017-06-28 01:30:54 - ptmcg
-Oops, I had also added a Group in expr0: expr0 = atom | Group(no1open + expr_no_op1 + no1close)
+Oops, I had also added a Group in expr0: `expr0 = atom | Group(no1open + expr_no_op1 + no1close)`
 #### 2017-07-04 12:25:25 - EvanHub
 Yeah, that's definitely helpful! Like you said, it does require the string to get parsed twice, though, which is fairly inefficient. If you're curious, I ended up going with this: 
 
@@ -680,7 +687,9 @@ I'll have to think about the contextmanager bit - I'll need to include it in a P
 ---
 ## 2017-08-03 10:43:07 - ferenc0521 - Group result question
 I'm parsing  CREATE INDEX sql statements as :
-create index dft_inst_strm_dft_snpsht_el_idx on defect_instance (stream_defect_id, snapshot_element_id);
+
+    create index dft_inst_strm_dft_snpsht_el_idx on defect_instance (stream_defect_id, snapshot_element_id);
+
 I'm parsing the 'on defect_instance (stream_defect_id, snapshot_element_id)' part with the grammar:
 
     ON = Keyword('on', caseless=True).addParseAction(upcaseTokens)
@@ -723,7 +732,10 @@ The result indices feels better with the plain list:
 
     result = schemaSQL.parseFile(f,parseAll=True)
 
-fails with TypeError: parseFile() got an unexpected keyword argument 'parseAll', 
+fails with 
+
+    TypeError: parseFile() got an unexpected keyword argument 'parseAll', 
+
 while doc says:
 
     def parseFile( self, file_or_filename, parseAll=False ): 
@@ -733,13 +745,14 @@ Any pointers?
 #### 2017-08-13 16:59:27 - ptmcg
 According to the CHANGES file, it looks like that named arg was added to parseFile in version 1.5.1, back in '08. Are you on an old version of pyparsing?
 #### 2017-08-13 19:41:27 - ferenc0521
-\>python -m pip list   says:
-...
-pyparsing (2.2.0)
-...
 
-C:\Users\flazar\>python -V
-Python 2.7
+    > python -m pip list   says:
+    ...
+    pyparsing (2.2.0)
+    ...
+    C:\Users\flazar\>python -V
+    Python 2.7
+
 I was trying to get some plots with numpy and mathplotlib, and I have some unsolved mysteries with the windows 64bit python and some win32 libraries, so I'm not 100% sure the plumbing is flawless.
 #### 2017-08-13 19:52:49 - ptmcg
 Hm, matplotlib used to bundle pyparsing as part of its mathtext module, so you may be having conflicts there. In your code, add:
@@ -839,7 +852,7 @@ hit by this in the past eight years apart from me, so somehow I suspect
 I'm being stupid.  Am I?
 
 #### 2017-08-17 05:10:31 - mdemi
-Ok � with a bit of poking around I understodd how this behaviour comes about: the copy() does a deep copy or the dependent expressions.  The .addParseAction in enable_tree then hits a 'dead', unused ParserElement.
+Ok -- with a bit of poking around I understodd how this behaviour comes about: the copy() does a deep copy or the dependent expressions.  The .addParseAction in enable_tree then hits a 'dead', unused ParserElement.
 
 Now, I'd really love to be able to attach actions after the fact.  I'd still like to use .setResultsName (which does an implicit copy).  I *think* what I want is shallow copies of self.exprs; current pyparsing does an explicit copy since 1.5.3 (or somesuch) around line 3324:
 

@@ -57,7 +57,7 @@ output
     ['X', 'Y', 'Z']
     init NODE WITH  TOKENS ['X', 'Y', 'Z'] 'import X.Y.Z'
     The same ImportStatement defined after QualifiedModuleName.setParseAction(Node)
-    [\<<u>main</u>.Node object at 0x7f136483c080\>]
+    [<__main__.Node object at 0x7f136483c080>]
 
 
 ---
@@ -164,7 +164,7 @@ My grammar so far:
 
 I want to preserve empty lines as they are for roundtrip testing. Matching `EOL = ~StringEnd() + LineEnd()` matches each '\n', but not empty lines as such. I want the final token list to look like 
 
-    ['/* VTTTalk glyph 2, char 0x41 (A) */', '/* GUI generated July 2015 */', '', '/* Y direction */', \<my object\>, ...]
+    ['/* VTTTalk glyph 2, char 0x41 (A) */', '/* GUI generated July 2015 */', '', '/* Y direction */', <my object>, ...]
 
 How?
 
